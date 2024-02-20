@@ -1,5 +1,9 @@
 ---
-title: "Wirkungsgrad_Rad2"
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
 ---
 
 
@@ -46,7 +50,7 @@ df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 2
 ```
 
 # Informationen Studie
-## Row {.flow height=30%}
+## Studiendesign
 ::: card
 ::: card-header
 Testtag 1
@@ -71,7 +75,7 @@ Testtag 2
 :::
 :::
 
-## Row {.flow height=70%}
+## Probanden 
 ::: card
 ::: card-header
 Stichprobe
