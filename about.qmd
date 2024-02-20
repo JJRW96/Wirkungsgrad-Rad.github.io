@@ -1,9 +1,91 @@
----
-title: "About"
----
 
-About this site
+# Wirkungsgrad
+
 
 ```{r}
-1 + 1
+# Library und dfs laden
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(htmltools)
+library(htmlwidgets)
+library(shiny)
+library(DT)
+library(RColorBrewer)
+library(patchwork)
+library(minpack.lm)
+library(zoo)
+library(purrr)
+library(readxl)
+
+# Laden des DataFrames EPOC_data, Erg_data und BLC_data aus der RDS-Datei
+EPOC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/EPOC_data_df.rds")
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
+Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Messwerte_Bedingungen_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingungen_df.rds")
+Messwerte_Intensitäten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Intensitäten_df.rds")
+Messwerte_Bedingung_Intensität_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingung_Intensität_df.rds")
+Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+P_Ges_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+Efficiency_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_Int_Drehzahl_Masse <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_Int_Drehzahl_Masse.rds")
+Simulation_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Simulation_df.rds")
+ΔBLC_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_list.rds")
+proband_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/proband_data.rds")
+ΔBLC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_data_df.rds")
+BLC_Modell_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_Modell_list.rds")
+Efficiency_Daten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_R_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_R_list.rds")
+P_L_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_L_list.rds")
+start_vals_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/start_vals_list.rds")
+VO2_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/VO2_list.rds")
+df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_female.rds")
+df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
+
+
+## Bar - und Boxplots {.tabset}
+
+### Datentabelle
+
+```{r}
+##### Tabelle außerhalb von Shiny #######
+
+# Angenommene statische Filterkriterien
+selectedBedingung <- unique(Bedingungen_data$Bedingung)
+selectedIntensität <- unique(Bedingungen_data$Intensität)
+selectedProband <- unique(Bedingungen_data$Proband)
+
+# Datenfilterung basierend auf den festgelegten Kriterien
+filtered_data <- Bedingungen_data %>%
+  filter(Bedingung %in% selectedBedingung,
+         Intensität %in% selectedIntensität,
+         Proband %in% selectedProband)
+
+# Daten umwandeln und Durchschnittswerte berechnen für die Energiequellen
+avg_energy_data <- filtered_data %>%
+  group_by(Bedingung, Intensität) %>%
+  summarise(
+    W_aerob = sprintf("%.1f kJ", round(mean(`W*Aerob [kJ]`, na.rm = TRUE), 1)),
+    W_BLC = sprintf("%.1f kJ", round(mean(`WBLC [kJ]`, na.rm = TRUE), 1)),
+    W_PCR = sprintf("%.1f kJ", round(mean(`WPCR [kJ]`, na.rm = TRUE), 1)),
+    W_TOT = sprintf("%.1f kJ", round(mean(`W*Aerob [kJ]` + `WBLC [kJ]` + `WPCR [kJ]`, na.rm = TRUE), 1)),
+    P_mean = sprintf("%.1f Watt", round(mean(P_mean, na.rm = TRUE), 1)),
+    P_Int = sprintf("%.1f Watt", round(mean(P_Int, na.rm = TRUE), 1)),
+    Drehzahl = sprintf("%.1f rpm", mean(nD, na.rm = TRUE)),
+    Wirkungsgrad = sprintf("%.2f%%", 100 * mean(WirkPhysio, na.rm = TRUE)),
+    Efficiency = sprintf("%.2f%%", mean(Efficiency, na.rm = TRUE)),
+    `Pedal Smoothness` = sprintf("%.2f%%", mean(Pedal_Smoothness, na.rm = TRUE)),
+    `P_max` = sprintf("%.1f Watt", mean(P_max, na.rm = TRUE)),
+    `%HRmax` = sprintf("%.1f%%", mean(HR_percent, na.rm = TRUE)),
+    `%VO2max%` = sprintf("%.1f%%", mean(VO2_percent, na.rm = TRUE)),
+    `ΔBLC` = sprintf("%.1f mmol/L", mean(`ΔBLC`, na.rm = TRUE))
+  ) %>%
+  ungroup()
+
+# Erstellen der Tabelle
+datatable(avg_energy_data)
+```
+
+### Barplots - Wirkungsgrad
