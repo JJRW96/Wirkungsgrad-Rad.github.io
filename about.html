@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.548">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wirkungsgrad-Rad.github.io - About</title>
+<title>Wirkungsgrad-Rad.github.io</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,6 +100,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.31/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -128,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Wirkungsgrad</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -142,39 +151,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#wirkungsgrad" id="toc-wirkungsgrad" class="nav-link active" data-scroll-target="#wirkungsgrad">Wirkungsgrad</a>
+  <ul class="collapse">
+  <li><a href="#bar---und-boxplots" id="toc-bar---und-boxplots" class="nav-link" data-scroll-target="#bar---und-boxplots">Bar - und Boxplots</a>
+  <ul class="collapse">
+  <li><a href="#datentabelle" id="toc-datentabelle" class="nav-link" data-scroll-target="#datentabelle">Datentabelle</a></li>
+  <li><a href="#barplots---wirkungsgrad" id="toc-barplots---wirkungsgrad" class="nav-link" data-scroll-target="#barplots---wirkungsgrad">Barplots - Wirkungsgrad</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>About this site</p>
+<section id="wirkungsgrad" class="level1">
+<h1>Wirkungsgrad</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Library und dfs laden</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Lade nötiges Paket: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Das folgende Objekt ist maskiert 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Das folgende Objekt ist maskiert 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Das folgende Objekt ist maskiert 'package:graphics':
+
+    layout</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'DT'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:shiny':
+
+    dataTableOutput, renderDataTable</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(minpack.lm)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'zoo'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:base':
+
+    as.Date, as.Date.numeric</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Laden des DataFrames EPOC_data, Erg_data und BLC_data aus der RDS-Datei</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>EPOC_data_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/EPOC_data_df.rds"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>Erg_data_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>Erg_data_komplett <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>Messwerte_Bedingungen_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingungen_df.rds"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>Messwerte_Intensitäten_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Intensitäten_df.rds"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>Messwerte_Bedingung_Intensität_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingung_Intensität_df.rds"</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>Bedingungen_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>P_Ges_df<span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>Efficiency_df<span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds"</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>P_Int_Drehzahl_Masse <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_Int_Drehzahl_Masse.rds"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>Simulation_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Simulation_df.rds"</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>ΔBLC_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_list.rds"</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>proband_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/proband_data.rds"</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>ΔBLC_data_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_data_df.rds"</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>BLC_Modell_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_Modell_list.rds"</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>Efficiency_Daten_df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds"</span>)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>P_R_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_R_list.rds"</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>P_L_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_L_list.rds"</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>start_vals_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span> (<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/start_vals_list.rds"</span>)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>VO2_list <span class="ot">&lt;-</span> <span class="fu">readRDS</span> (<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/VO2_list.rds"</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>df_anthropometrisch_female <span class="ot">&lt;-</span> <span class="fu">readRDS</span> (<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_female.rds"</span>)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>df_anthropometrisch_male <span class="ot">&lt;-</span> <span class="fu">readRDS</span> (<span class="st">"C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="bar---und-boxplots" class="level2 tabset">
+<h2 class="tabset anchored" data-anchor-id="bar---und-boxplots">Bar - und Boxplots</h2>
+<section id="datentabelle" class="level3">
+<h3 class="anchored" data-anchor-id="datentabelle">Datentabelle</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">##### Tabelle außerhalb von Shiny #######</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Angenommene statische Filterkriterien</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>selectedBedingung <span class="ot">&lt;-</span> <span class="fu">unique</span>(Bedingungen_data<span class="sc">$</span>Bedingung)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>selectedIntensität <span class="ot">&lt;-</span> <span class="fu">unique</span>(Bedingungen_data<span class="sc">$</span>Intensität)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>selectedProband <span class="ot">&lt;-</span> <span class="fu">unique</span>(Bedingungen_data<span class="sc">$</span>Proband)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Datenfilterung basierend auf den festgelegten Kriterien</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> Bedingungen_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bedingung <span class="sc">%in%</span> selectedBedingung,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>         Intensität <span class="sc">%in%</span> selectedIntensität,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>         Proband <span class="sc">%in%</span> selectedProband)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten umwandeln und Durchschnittswerte berechnen für die Energiequellen</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>avg_energy_data <span class="ot">&lt;-</span> filtered_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Bedingung, Intensität) <span class="sc">%&gt;%</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">W_aerob =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f kJ"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(<span class="st">`</span><span class="at">W*Aerob [kJ]</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">W_BLC =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f kJ"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(<span class="st">`</span><span class="at">WBLC [kJ]</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">W_PCR =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f kJ"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(<span class="st">`</span><span class="at">WPCR [kJ]</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">W_TOT =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f kJ"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(<span class="st">`</span><span class="at">W*Aerob [kJ]</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">WBLC [kJ]</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">WPCR [kJ]</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">P_mean =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f Watt"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(P_mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">P_Int =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f Watt"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(P_Int, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)),</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Drehzahl =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f rpm"</span>, <span class="fu">mean</span>(nD, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">Wirkungsgrad =</span> <span class="fu">sprintf</span>(<span class="st">"%.2f%%"</span>, <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(WirkPhysio, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">Efficiency =</span> <span class="fu">sprintf</span>(<span class="st">"%.2f%%"</span>, <span class="fu">mean</span>(Efficiency, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pedal Smoothness</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.2f%%"</span>, <span class="fu">mean</span>(Pedal_Smoothness, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">P_max</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f Watt"</span>, <span class="fu">mean</span>(P_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">%HRmax</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f%%"</span>, <span class="fu">mean</span>(HR_percent, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">%VO2max%</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f%%"</span>, <span class="fu">mean</span>(VO2_percent, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">ΔBLC</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f mmol/L"</span>, <span class="fu">mean</span>(<span class="st">`</span><span class="at">ΔBLC</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Bedingung'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen der Tabelle</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(avg_energy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e89df4040df3e08ca993" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e89df4040df3e08ca993">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["sitzen","sitzen","sitzen","stehen","stehen","stehen"],["leicht","moderat","schwer","leicht","moderat","schwer"],["309.5 kJ","348.7 kJ","374.5 kJ","315.6 kJ","349.4 kJ","381.1 kJ"],["7.7 kJ","12.4 kJ","17.4 kJ","8.3 kJ","11.7 kJ","14.9 kJ"],["39.0 kJ","46.0 kJ","55.6 kJ","33.6 kJ","45.3 kJ","56.3 kJ"],["356.2 kJ","407.1 kJ","447.5 kJ","357.5 kJ","406.5 kJ","452.3 kJ"],["255.3 Watt","284.9 Watt","313.4 Watt","257.5 Watt","290.6 Watt","318.7 Watt"],["11.3 Watt","11.3 Watt","11.4 Watt","5.4 Watt","5.5 Watt","5.5 Watt"],["89.1 rpm","89.1 rpm","89.0 rpm","69.7 rpm","69.8 rpm","69.9 rpm"],["22.52%","21.87%","21.23%","22.07%","21.89%","21.54%"],["73.14%","78.66%","82.70%","69.19%","77.06%","83.04%"],["49.43%","51.63%","53.20%","42.84%","44.51%","45.84%"],["516.0 Watt","551.4 Watt","588.6 Watt","602.7 Watt","654.7 Watt","696.7 Watt"],["86.2%","89.7%","93.2%","87.6%","90.7%","93.7%"],["67.2%","73.9%","81.6%","68.3%","74.3%","80.7%"],["1.7 mmol/L","2.8 mmol/L","4.0 mmol/L","1.9 mmol/L","2.7 mmol/L","3.4 mmol/L"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Bedingung<\/th>\n      <th>Intensität<\/th>\n      <th>W_aerob<\/th>\n      <th>W_BLC<\/th>\n      <th>W_PCR<\/th>\n      <th>W_TOT<\/th>\n      <th>P_mean<\/th>\n      <th>P_Int<\/th>\n      <th>Drehzahl<\/th>\n      <th>Wirkungsgrad<\/th>\n      <th>Efficiency<\/th>\n      <th>Pedal Smoothness<\/th>\n      <th>P_max<\/th>\n      <th>%HRmax<\/th>\n      <th>%VO2max%<\/th>\n      <th>ΔBLC<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Bedingung","targets":1},{"name":"Intensität","targets":2},{"name":"W_aerob","targets":3},{"name":"W_BLC","targets":4},{"name":"W_PCR","targets":5},{"name":"W_TOT","targets":6},{"name":"P_mean","targets":7},{"name":"P_Int","targets":8},{"name":"Drehzahl","targets":9},{"name":"Wirkungsgrad","targets":10},{"name":"Efficiency","targets":11},{"name":"Pedal Smoothness","targets":12},{"name":"P_max","targets":13},{"name":"%HRmax","targets":14},{"name":"%VO2max%","targets":15},{"name":"ΔBLC","targets":16}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="barplots---wirkungsgrad" class="level3">
+<h3 class="anchored" data-anchor-id="barplots---wirkungsgrad">Barplots - Wirkungsgrad</h3>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
