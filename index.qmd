@@ -1,5 +1,5 @@
 ---
-title: "Wirkungsgrad_Rad"
+title: "Wirkungsgrad_Rad2"
 ---
 
 
