@@ -213,12 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Datensätze</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -1491,7 +1485,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"fade","closeEffect":"fade","selector":".lightbox","descPosition":"right","skin":"my-css-class","loop":false});
+<script>var lightboxQuarto = GLightbox({"skin":"my-css-class","loop":false,"openEffect":"fade","descPosition":"right","closeEffect":"fade","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
