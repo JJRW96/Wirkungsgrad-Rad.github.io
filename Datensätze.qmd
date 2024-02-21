@@ -1,0 +1,135 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+
+---
+
+
+# Datensätze
+
+
+```{r}
+# Library und dfs laden
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(htmltools)
+library(htmlwidgets)
+library(shiny)
+library(DT)
+library(RColorBrewer)
+library(patchwork)
+library(minpack.lm)
+library(zoo)
+library(purrr)
+library(readxl)
+
+# Laden des DataFrames EPOC_data, Erg_data und BLC_data aus der RDS-Datei
+EPOC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/EPOC_data_df.rds")
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
+Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Messwerte_Bedingungen_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingungen_df.rds")
+Messwerte_Intensitäten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Intensitäten_df.rds")
+Messwerte_Bedingung_Intensität_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingung_Intensität_df.rds")
+Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+P_Ges_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+Efficiency_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_Int_Drehzahl_Masse <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_Int_Drehzahl_Masse.rds")
+Simulation_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Simulation_df.rds")
+ΔBLC_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_list.rds")
+proband_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/proband_data.rds")
+ΔBLC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_data_df.rds")
+BLC_Modell_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_Modell_list.rds")
+Efficiency_Daten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_R_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_R_list.rds")
+P_L_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_L_list.rds")
+start_vals_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/start_vals_list.rds")
+VO2_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/VO2_list.rds")
+df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_female.rds")
+df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
+```
+## Datensätze {.tabset}
+
+### "Haupt" - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Bedingungen_data, is.numeric)
+Bedingungen_data[numerische_spalten] <- lapply(Bedingungen_data[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Bedingungen_data, options = list(pageLength = 10))
+
+```
+
+### Ergometer - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Erg_data_komplett, is.numeric)
+Erg_data_komplett[numerische_spalten] <- lapply(Erg_data_komplett[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Erg_data_komplett, options = list(pageLength = 10))
+
+```
+
+### EPOC - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(EPOC_data_df, is.numeric)
+EPOC_data_df[numerische_spalten] <- lapply(EPOC_data_df[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(EPOC_data_df, options = list(pageLength = 10))
+
+```
+
+### Messwerte_Bedingungen - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Messwerte_Bedingungen_df, is.numeric)
+Messwerte_Bedingungen_df[numerische_spalten] <- lapply(Messwerte_Bedingungen_df[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Messwerte_Bedingungen_df, options = list(pageLength = 10))
+
+```
+
+### Messwerte_Intensitäten - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Messwerte_Intensitäten_df, is.numeric)
+Messwerte_Intensitäten_df[numerische_spalten] <- lapply(Messwerte_Intensitäten_df[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Messwerte_Intensitäten_df, options = list(pageLength = 10))
+
+```
+
+### Messwerte_Bedingung_Intensität - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Messwerte_Bedingung_Intensität_df, is.numeric)
+Messwerte_Bedingung_Intensität_df[numerische_spalten] <- lapply(Messwerte_Bedingung_Intensität_df[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Messwerte_Bedingung_Intensität_df, options = list(pageLength = 10))
+
+```
+
+### Efficiency - Datensatz
+
+```{r message=FALSE, warning=FALSE}
+# Nur auf numerische Spalten anwenden
+numerische_spalten <- sapply(Efficiency_df, is.numeric)
+Efficiency_df[numerische_spalten] <- lapply(Efficiency_df[numerische_spalten], function(x) round(x, 2))
+# Datentabelle anzeigen
+datatable(Efficiency_df, options = list(pageLength = 10))
+
+```
+
+

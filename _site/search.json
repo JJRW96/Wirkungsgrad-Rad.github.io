@@ -14,6 +14,48 @@
     "text": "Bar - und Boxplots\n\nDatentabelle\n\n\n\n\n\n\n\n\nBarplots - Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots\n\nBoxplots_Probanden_Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensität x Bedingung\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensitäten\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Bedingungen\n\n\n\n\n\n\n\n\n\nRegressions - Plots\n\nWirkungsgrad x Watt/kg\n\n\n\n\n\n\n\n\nVO2_kg_max x Watt/kg"
   },
   {
+    "objectID": "Laktat.html",
+    "href": "Laktat.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "Laktat.html#laktat-1",
+    "href": "Laktat.html#laktat-1",
+    "title": "",
+    "section": "Laktat",
+    "text": "Laktat\n\nProband 01\n\n\n\n\n\n\n\n\nProband 06\n\n\n\n\n\n\n\n\nProband 10\n\n\n\n\n\n\n\n\nProband 13\n\n\n\n\n\n\n\n\nProband 15\n\n\n\n\n\n\n\n\nProband 19\n\n\n\n\n\n\n\n\nProband 20\n\n\n\n\n\n\n\n\nProband 22\n\n\n\n\n\n\n\n\nProband 23"
+  },
+  {
+    "objectID": "Ergometer-Daten.html",
+    "href": "Ergometer-Daten.html",
+    "title": "",
+    "section": "",
+    "text": "CodeShow All CodeHide All CodeView Source"
+  },
+  {
+    "objectID": "Ergometer-Daten.html#messwerte-im-belastungszeitraum",
+    "href": "Ergometer-Daten.html#messwerte-im-belastungszeitraum",
+    "title": "",
+    "section": "Messwerte im Belastungszeitraum",
+    "text": "Messwerte im Belastungszeitraum\n\nInnere Arbeit\n\nAnthropometrische Tabellen\n\nRow\n\n\nWeiblich\n\n\n\n\n\n\n\n\n\n\n\n\nRow\n\n\nMännlich\n\n\n\n\n\n\n\n\n\n\n\n\n\nRechenweg\n\nRow\n\n\nRechenweg\n\n\n\n\nCode\n# ------------ Berechnungen_P_Int ----------\n# ------------ Eingabeparameter ------------ \n# Schleife über alle Zeilen in Erg_data_df\nfor(i in 1:nrow(Erg_data_df)) {\n  # Übernahme der Werte aus der aktuellen Zeile...\n  Masse &lt;- as.numeric(Erg_data_df[i, 'Masse'])\n  lOS &lt;- as.numeric(Erg_data_df[i, 'lOS'])\n  lUS &lt;- as.numeric(Erg_data_df[i, 'lUS'])\n  lBein &lt;- as.numeric(Erg_data_df[i, 'lBein'])\n  lKurbel &lt;- as.numeric(Erg_data_df[i, 'lKurbel'])\n  uOS &lt;- as.numeric(Erg_data_df[i, 'uOS'])\n  uUS &lt;- as.numeric(Erg_data_df[i, 'uUS'])\n  nD &lt;- as.numeric(Erg_data_df[i, 'nD'])\n  Testdauer &lt;- 300\n\n  # Konstanten und weitere Berechnungen\n  Faktor &lt;- 1.00 # Faktor zur Anpassung des Abstandes vom Hüftgelenk zur Kurbelachse\n  S &lt;- lBein * 0.883 * Faktor # Abstand vom Hüftgelenk zur Kurbelachse - Lemond Methode\n  P3x &lt;- -0.150 # x-Koordinate von P3 (Oberflächenrepräsentant der Hüfte) [m]\n  P3y &lt;- sqrt((S^2)-(P3x^2)) # y-Koordinate von P3 (Oberflächenrepräsentant der Hüfte) [m]\n  P3 &lt;- c(P3x,P3y) # kartesische Koordinaten P3 (Oberflächenrepräsentant der Hüfte) [m]\n  rRelOS &lt;- 0.1416 # relative Segmentmasse OS\n  rRelUS &lt;- 0.0433 # relative Segmentmasse US\n  lambdaOS &lt;- 0.4095 # Abstand zw. dem proximalen Punkt des Oberschenkelsegments und dessen Schwerpunkt\n  lambdaUS &lt;- 0.4459 # Abstand proximaler Segmentpunkt - Schwerpunkt\n  thetaKurbel &lt;- 0.002 # Trägheitsmoment der Fahrradkurbel [kg m^2]\n  n &lt;- 360 # Anzahl Messwerte pro Umdrehung\n  delta_t &lt;- 60 / (n * nD) # Zeitintervalle\n  T &lt;- 60 / nD # Periodendauer einer Umdrehung\n  omega &lt;- 2 * pi * nD / 60 # mittlere Winkelgeschwindigkeit\n  \n  # Segmentmasse OS und US [kg]\n  mOS &lt;- Masse * rRelOS \n  mUS &lt;- Masse * rRelUS \n  \n  # Trägheitsmoment des Segments [kg m^2]\n  thetaOS &lt;- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2\n  thetaUS &lt;- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2\n  \n  # Winkel und Geschwindigkeiten berechnen\n  delta_phi1 &lt;- 2 * pi / n # Winkelintervalle\n  phi1 &lt;- seq(0, 2 * pi, by=delta_phi1) # Erstellung von Winkelintervallen für eine komplette Umdrehung\n  phi1 &lt;- phi1[-length(phi1)]  # Entfernt das letzte Element\n  time &lt;- seq(0, T, by=delta_t) # Erstellung von Zeitintervallen für eine komplette Umdrehung\n  time &lt;- time[-length(time)]  # Entfernt das letzte Element\n  \n  # Berechnung der kartesischen Koordinaten von Punkt P1 in Abhängigkeit von der Zeit\n  P1 &lt;- list(lKurbel * sin(phi1), lKurbel * cos(phi1))\n  \n  # Abstand vom Hüftgelenk zur Kurbelachse (0,0) berechnen\n  G4 &lt;- sqrt(sum(P3^2))\n  \n  # Berechnung des Winkels des Gestänges\n  delta &lt;- acos(P3[2] / S)\n  \n  # Berechnung der Länge des Verbindungssegments zw. Kurbel und Hüftgelenk &gt; 'c' kann nicht kürzer als die Summe der Längen der Beinsegmente sein\n  c &lt;- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))\n  \n  # Schleife zur Anpassung des Faktors, falls c größer als die Summe der Segmentlängen ist\n  while (any(lUS + lOS &lt; c)) {\n    Faktor &lt;- Faktor - 0.01  # Verringere den Faktor um 0.01\n    S &lt;- lBein * 0.883 * Faktor  # Neuberechnung von S\n    P3y &lt;- sqrt((S^2) - (P3x^2))  # Neuberechnung von P3y\n    P3 &lt;- c(P3x, P3y)  # Neuberechnung von P3\n    delta &lt;- acos(P3[2] / S)  # Neuberechnung von delta\n    c &lt;- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))  # Neuberechnung von c\n  }\n  \n  # Überprüfung, ob die Segmentlängen zusammen größer sind als die berechnete Länge c\n  control &lt;- sum(ifelse(lUS + lOS &lt;= c, 1, 0))\n  \n  # Speichere den verwendeten Faktor in der Spalte 'Faktor_Used'\n  Erg_data_df$Faktor_Used[i] &lt;- Faktor\n  \n  # Winkelberechnungen für das Beinsegment    \n  alpha &lt;- asin(lKurbel * sin(phi1 + delta) / c) # Winkel zwischen Gestell und c (Verbindungsseg. zwischen Kurbel und Hüftgelenk )               \n  beta &lt;- acos((lOS^2 + c^2 - lUS^2) / (2 * lOS * c)) # Winkel zwischen Oberschenkel und L       \n  \n  # Berechnung der kartesischen Koordinaten von Punkt P2 in Abhängigkeit von der Zeit\n  P2 &lt;- list(P3[1] + lOS * cos(pi/2 - (alpha + beta + delta)),\n             P3[2] - lOS * sin(pi/2 - (alpha + beta + delta)))\n  \n  # Winkelberechnungen zwischen den Segmentpunkten\n  phi2 &lt;- acos((P2[[1]] - P1[[1]]) / lUS)\n  phi3 &lt;- acos((P3[2] - P2[[2]]) / lOS)\n  \n  # Berechnung der kartesischen Koordinaten der Schwerpunkte der Oberschenkel- und Unterschenkelsegmente\n  SpOS &lt;- list(P3[1] - lambdaOS * (P3[1] - P2[[1]]), \n               P3[2] - lambdaOS * (P3[2] - P2[[2]]))\n  SpUS &lt;- list(P2[[1]] - lambdaUS * (P2[[1]] - P1[[1]]), \n               P2[[2]] - lambdaUS * (P2[[2]] - P1[[2]]))\n  \n  # Funktion zur Berechnung der Geschwindigkeit\n  berechneGeschwindigkeit &lt;- function(Sp, delta_t) {\n    diff_x &lt;- c(diff(Sp[[1]]), Sp[[1]][1] - Sp[[1]][length(Sp[[1]])])\n    diff_y &lt;- c(diff(Sp[[2]]), Sp[[2]][1] - Sp[[2]][length(Sp[[2]])])\n    return(sqrt(diff_x^2 + diff_y^2) / delta_t)\n  }\n  \n  # Anwenden der Funktion\n  vOS &lt;- berechneGeschwindigkeit(SpOS, delta_t)\n  vUS &lt;- berechneGeschwindigkeit(SpUS, delta_t)\n  \n  # Berechnung der translatorischen kinetischen Energie\n  Ekin_trans &lt;- 0.5 * (mOS * vOS^2 + mUS * vUS^2)\n  \n  # Delta der Winkelgeschwindigkeiten für zyklische Bewegung\n  delta_phi2 &lt;- c(diff(phi2), phi2[1] - phi2[length(phi2)])\n  delta_phi3 &lt;- c(diff(phi3), phi3[1] - phi3[length(phi3)])\n  \n  # Berechnung der Winkelgeschwindigkeiten der Schwerpunkte von Oberschenkel- und Unterschenkel\n  omega_SpOS &lt;- delta_phi2 / delta_t\n  omega_SpUS &lt;- delta_phi3 / delta_t\n  omega_Kurbel &lt;- delta_phi1 / delta_t\n  \n  # Trägheitsmoment des Segments (Vollzylinder, der um eine Querachse (zweizählige Symmetrieachse) rotiert) [kg m^2]\n  thetaOS &lt;- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2\n  thetaUS &lt;- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2\n  \n  # Berechnung der rotatorischen kinetischen Energie\n  Ekin_rot &lt;- 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2)\n  \n  # Delta der kinetischen Energie (translatorisch) für zyklische Bewegung\n  delta_Ekin_trans &lt;- c(abs(diff(Ekin_trans)), abs(Ekin_trans[1] - Ekin_trans[length(Ekin_trans)]))\n  \n  # Delta der kinetischen Energie (rotatorisch) für zyklische Bewegung\n  delta_Ekin_rot &lt;- c(abs(diff(Ekin_rot)), abs(Ekin_rot[1] - Ekin_rot[length(Ekin_rot)]))\n  \n  # Berechnung der internen Leistung für die aktuelle Drehzahl und Masse\n  PInt_Mittel_Zyklus_kJ &lt;- mean(delta_Ekin_rot) + mean(delta_Ekin_trans) / mean(delta_t)\n  PInt_Ges_Watt &lt;- PInt_Mittel_Zyklus_kJ / 1000 * Testdauer\n  \n  # Berechnen Sie PInt_Ges_Watt für die aktuelle Zeile und speichern Sie es im DataFrame\n  Erg_data_df$PInt_Ges_Watt[i] &lt;- PInt_Ges_Watt\n}\n\n\n\n\n\n\n\nInnere Arbeit\n\n\n\n\n\n\n\n\nInnere Arbeit - Minetti\n\n\n\n\n\n\n\n\nInnere Arbeit für versch. Körpermassen\n\n\n\n\n\n\n\n\nInnere Arbeit für versch. Körpermassen (Minetti)\n\n\n\n\n\n\n\n\n\nEfficiency\n\nBerechnung\n\n\n\nBerechnung der Torque Efficiency\n\n\n\n\nTangentialleistung/kg - Verlauf\n\nAlle Bed x Int\n\n\n\nLeicht x Sitzen\n\n\n\nLeicht x Stehen\n\n\n\nModerat x Sitzen\n\n\n\nModerat x Stehen\n\n\n\nSchwer x Sitzen\n\n\n\nSchwer x Sitzen\n\n\n\n\nKreisdiagramme\n\nBedingungen\n\n\n\n\n\n\n\n\n\n\n\nIntensitäten\n\n\n\n\n\n\n\n\n\n\n\nBedingungen x Intensität\n\n\n\n\n\n\n\n\n\n\n\n\nEfficiency - Bedingungen x Intensität\n\n\n\n\n\n\n\n\nEfficiency vs. W_kg\n\n\n\n\n\n\n\n\nDurchschnittliche - Efficiency x Watt/kg\n\n\n\n\n\n\n\n\n\nPedal_Smoothness\n\nBerechnung\n\n\n\nBerechnung der Pedal Smoothness\n\n\n\n\nPedal_Smoothness vs. W_kg\n\n\n\n\n\n\n\n\nPedal_Smoothness vs. Efficiency\n\n\n\n\n\n\n\n\n\nSimulationsmodell - Innere Arbeit\n\n\n\n\n\n\n\n\n\n\n\nBerechnung der Torque Efficiency\nBerechnung der Pedal Smoothness"
+  },
+  {
+    "objectID": "Datensätze.html",
+    "href": "Datensätze.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "Datensätze.html#datensätze-1",
+    "href": "Datensätze.html#datensätze-1",
+    "title": "",
+    "section": "Datensätze",
+    "text": "Datensätze\n\n“Haupt” - Datensatz\n\n\n\n\n\n\n\n\nErgometer - Datensatz\n\n\n\n\n\n\n\n\nEPOC - Datensatz\n\n\n\n\n\n\n\n\nMesswerte_Bedingungen - Datensatz\n\n\n\n\n\n\n\n\nMesswerte_Intensitäten - Datensatz\n\n\n\n\n\n\n\n\nMesswerte_Bedingung_Intensität - Datensatz\n\n\n\n\n\n\n\n\nEfficiency - Datensatz"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "",
@@ -28,24 +70,52 @@
     "text": "Bar - und Boxplots\n\nDatentabelle\n\n\n\n\n\n\n\n\nBarplots - Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots\n\nBoxplots_Probanden_Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensität x Bedingung\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensitäten\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Bedingungen\n\n\n\n\n\n\n\n\n\nRegressions - Plots\n\nWirkungsgrad x Watt/kg\n\n\n\n\n\n\n\n\nVO2_kg_max x Watt/kg"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "EPOC-Daten.html",
+    "href": "EPOC-Daten.html",
     "title": "",
     "section": "",
     "text": "Code"
   },
   {
-    "objectID": "index.html#studiendesign",
-    "href": "index.html#studiendesign",
+    "objectID": "EPOC-Daten.html#epoc---modelle-der-verschiedenen-probanden",
+    "href": "EPOC-Daten.html#epoc---modelle-der-verschiedenen-probanden",
+    "title": "",
+    "section": "EPOC - Modelle der verschiedenen Probanden",
+    "text": "EPOC - Modelle der verschiedenen Probanden\n\nProband 01\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 06\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 10\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 13\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 15\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 19\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 20\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 22\n\nTest 1\n\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6\n\n\n\n\nProband 23\n\n\nTest 2\n\n\n\nTest 3\n\n\n\nTest 4\n\n\n\nTest 5\n\n\n\nTest 6"
+  },
+  {
+    "objectID": "Informationen.html",
+    "href": "Informationen.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "Informationen.html#studiendesign",
+    "href": "Informationen.html#studiendesign",
     "title": "",
     "section": "Studiendesign",
     "text": "Studiendesign\n\n\nTesttag 1\n\n\n\n\nAbbildungen werden in der MA noch angepasst\n\n\n\n\n\nTesttag 2\n\n\n\n\nAbbildungen werden in der MA noch angepasst"
   },
   {
-    "objectID": "index.html#probanden",
-    "href": "index.html#probanden",
+    "objectID": "Informationen.html#probanden",
+    "href": "Informationen.html#probanden",
     "title": "",
     "section": "Probanden",
     "text": "Probanden\n\n\nStichprobe\n\n\n\n\n\n\n\n\n\nProband 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt"
+  },
+  {
+    "objectID": "Spiro-Messwerte.html",
+    "href": "Spiro-Messwerte.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "Spiro-Messwerte.html#messwerte-im-belastungszeitraum",
+    "href": "Spiro-Messwerte.html#messwerte-im-belastungszeitraum",
+    "title": "",
+    "section": "Messwerte im Belastungszeitraum",
+    "text": "Messwerte im Belastungszeitraum\n\nMesswerte - Bedingungen\n\nVO2, VCO2 & HR\n\n\n\n\n\n\n\n\nAR und VE\n\n\n\n\n\n\n\n\n\nMesswerte - Intensitäten\n\nAlle Intensitäten\n\n\n\n\n\n\n\n\nLeicht\n\n\n\n\n\n\n\n\nModerat\n\n\n\n\n\n\n\n\nSchwer"
   }
 ]

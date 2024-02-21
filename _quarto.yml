@@ -6,10 +6,14 @@ website:
   title: "Wirkungsgrad-Rad"
   navbar:
     left:
-      - href: index.qmd
+      - href: Informationen.qmd
         text: Informationen Studie
       - Wirkungsgrad.qmd
-      - about.qmd
+      - Spiro-Messwerte.qmd
+      - EPOC-Daten.qmd
+      - Ergometer-Daten.qmd
+      - Laktat.qmd
+      - Datensätze.qmd
 
 format:
   html:
