@@ -4,10 +4,12 @@ execute:
   echo: false
   warning: false
   error: false
+  lightbox: true
+
 ---
 
 
-# Wirkungsgrad
+# About
 
 
 ```{r}

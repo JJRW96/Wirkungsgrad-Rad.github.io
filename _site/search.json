@@ -1,23 +1,51 @@
 [
   {
+    "objectID": "Wirkungsgrad.html",
+    "href": "Wirkungsgrad.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "Wirkungsgrad.html#bar---und-boxplots",
+    "href": "Wirkungsgrad.html#bar---und-boxplots",
+    "title": "",
+    "section": "Bar - und Boxplots",
+    "text": "Bar - und Boxplots\n\nDatentabelle\n\n\n\n\n\n\n\n\nBarplots - Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots\n\nBoxplots_Probanden_Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensität x Bedingung\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensitäten\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Bedingungen\n\n\n\n\n\n\n\n\n\nRegressions - Plots\n\nWirkungsgrad x Watt/kg\n\n\n\n\n\n\n\n\nVO2_kg_max x Watt/kg"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "about.html#bar---und-boxplots",
+    "href": "about.html#bar---und-boxplots",
+    "title": "",
+    "section": "Bar - und Boxplots",
+    "text": "Bar - und Boxplots\n\nDatentabelle\n\n\n\n\n\n\n\n\nBarplots - Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots\n\nBoxplots_Probanden_Wirkungsgrad\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensität x Bedingung\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Intensitäten\n\n\n\n\n\n\n\n\nBoxplots_Wirkungsgrad - Bedingungen\n\n\n\n\n\n\n\n\n\nRegressions - Plots\n\nWirkungsgrad x Watt/kg\n\n\n\n\n\n\n\n\nVO2_kg_max x Watt/kg"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Informationen Studie",
+    "title": "",
     "section": "",
-    "text": "Testtag 1\n\n\n\n\nAbbildungen werden in der MA noch angepasst\n\n\n\n\n\nTesttag 2\n\n\n\n\nAbbildungen werden in der MA noch angepasst\n\n\n\n\n\n\n\n\nStichprobe\n\n\n\n\n\n\n\n\n\nProband 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt"
+    "text": "Code"
   },
   {
     "objectID": "index.html#studiendesign",
     "href": "index.html#studiendesign",
-    "title": "Informationen Studie",
-    "section": "",
-    "text": "Testtag 1\n\n\n\n\nAbbildungen werden in der MA noch angepasst\n\n\n\n\n\nTesttag 2\n\n\n\n\nAbbildungen werden in der MA noch angepasst"
+    "title": "",
+    "section": "Studiendesign",
+    "text": "Studiendesign\n\n\nTesttag 1\n\n\n\n\nAbbildungen werden in der MA noch angepasst\n\n\n\n\n\nTesttag 2\n\n\n\n\nAbbildungen werden in der MA noch angepasst"
   },
   {
     "objectID": "index.html#probanden",
     "href": "index.html#probanden",
-    "title": "Informationen Studie",
-    "section": "",
-    "text": "Stichprobe\n\n\n\n\n\n\n\n\n\nProband 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt"
+    "title": "",
+    "section": "Probanden",
+    "text": "Probanden\n\n\nStichprobe\n\n\n\n\n\n\n\n\n\nProband 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt"
   }
 ]
