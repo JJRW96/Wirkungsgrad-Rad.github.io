@@ -36,16 +36,13 @@ website:
       - Spiro-Messwerte.qmd
       - EPOC-Daten.qmd
       - Laktat.qmd
-      - Datensätze.qmd
-      - section: Ergometer-Daten.qmd
-        contents: 
-          - about.qmd
-          
       - section: Ergometer/index.qmd
         contents: 
           - Ergometer/Efficiency.qmd
           - Ergometer/Innere_Arbeit.qmd
           - Ergometer/Pedal_Smoothness.qmd 
+      - Datensätze.qmd
+      - Test.qmd
 
 format:
   html:

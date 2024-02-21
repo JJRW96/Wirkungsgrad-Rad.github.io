@@ -60,7 +60,6 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
-
 ## Proband 01 
 
 ::: {.panel-tabset}
@@ -90,233 +89,122 @@ df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 2
 :::
 
 
-## Proband 06 
 
-::: {.panel-tabset}
-### Test 1
+
+
+
+
+
+
+## Proband 06 {.tabset}
+
 
 ![Test 1](images/06_1.svg){group="Proband 06"}
 
-### Test 2
-
 ![Test 2](images/06_2.svg){group="Proband 06"}
-
-### Test 3
 
 ![Test 3](images/06_3.svg){group="Proband 06"}
 
-### Test 4
-
 ![Test 4](images/06_4.svg){group="Proband 06"}
-
-### Test 5
 
 ![Test 5](images/06_5.svg){group="Proband 06"}
 
-### Test 6
-
 ![Test 6](images/06_6.svg){group="Proband 06"}
-:::
 
-
-
-## Proband 10 
-
-::: {.panel-tabset}
-### Test 1
+## Proband 10 {.tabset}
 
 ![Test 1](images/10_1.svg){group="Proband 10"}
 
-### Test 2
-
 ![Test 2](images/10_2.svg){group="Proband 10"}
-
-### Test 3
 
 ![Test 3](images/10_3.svg){group="Proband 10"}
 
-### Test 4
-
 ![Test 4](images/10_4.svg){group="Proband 10"}
-
-### Test 5
 
 ![Test 5](images/10_5.svg){group="Proband 10"}
 
-### Test 6
-
 ![Test 6](images/10_6.svg){group="Proband 10"}
-:::
 
-
-
-## Proband 13 
-
-::: {.panel-tabset}
-### Test 1
+## Proband 13 {.tabset}
 
 ![Test 1](images/13_1.svg){group="Proband 13"}
 
-### Test 2
-
 ![Test 2](images/13_2.svg){group="Proband 13"}
-
-### Test 3
 
 ![Test 3](images/13_3.svg){group="Proband 13"}
 
-### Test 4
-
 ![Test 4](images/13_4.svg){group="Proband 13"}
-
-### Test 5
 
 ![Test 5](images/13_5.svg){group="Proband 13"}
 
-### Test 6
-
 ![Test 6](images/13_6.svg){group="Proband 13"}
-:::
 
-
-## Proband 15 
-
-::: {.panel-tabset}
-### Test 1
+## Proband 15 {.tabset}
 
 ![Test 1](images/15_1.svg){group="Proband 15"}
 
-### Test 2
-
 ![Test 2](images/15_2.svg){group="Proband 15"}
-
-### Test 3
 
 ![Test 3](images/15_3.svg){group="Proband 15"}
 
-### Test 4
-
 ![Test 4](images/15_4.svg){group="Proband 15"}
-
-### Test 5
 
 ![Test 5](images/15_5.svg){group="Proband 15"}
 
-### Test 6
-
 ![Test 6](images/15_6.svg){group="Proband 15"}
-:::
 
-## Proband 19
-
-::: {.panel-tabset}
-### Test 1
+## Proband 19 {.tabset}
 
 ![Test 1](images/19_1.svg){group="Proband 19"}
 
-### Test 2
-
 ![Test 2](images/19_2.svg){group="Proband 19"}
-
-### Test 3
 
 ![Test 3](images/19_3.svg){group="Proband 19"}
 
-### Test 4
-
 ![Test 4](images/19_4.svg){group="Proband 19"}
-
-### Test 5
 
 ![Test 5](images/19_5.svg){group="Proband 19"}
 
-### Test 6
-
 ![Test 6](images/19_6.svg){group="Proband 19"}
-:::
 
-
-## Proband 20
-
-::: {.panel-tabset}
-### Test 1
+## Proband 20 {.tabset}
 
 ![Test 1](images/20_1.svg){group="Proband 20"}
 
-### Test 2
-
 ![Test 2](images/20_2.svg){group="Proband 20"}
-
-### Test 3
 
 ![Test 3](images/20_3.svg){group="Proband 20"}
 
-### Test 4
-
 ![Test 4](images/20_4.svg){group="Proband 20"}
-
-### Test 5
 
 ![Test 5](images/20_5.svg){group="Proband 20"}
 
-### Test 6
-
 ![Test 6](images/20_6.svg){group="Proband 20"}
-:::
 
-
-## Proband 22
-
-::: {.panel-tabset}
-### Test 1
+## Proband 22 {.tabset}
 
 ![Test 1](images/22_1.svg){group="Proband 22"}
 
-### Test 2
-
 ![Test 2](images/22_2.svg){group="Proband 22"}
-
-### Test 3
 
 ![Test 3](images/22_3.svg){group="Proband 22"}
 
-### Test 4
-
 ![Test 4](images/22_4.svg){group="Proband 22"}
-
-### Test 5
 
 ![Test 5](images/22_5.svg){group="Proband 22"}
 
-### Test 6
-
 ![Test 6](images/22_6.svg){group="Proband 22"}
-:::
 
-## Proband 23 
-
-::: {.panel-tabset}
-### Test 1
+## Proband 23 {.tabset}
 
 ![Test 1](images/23_1.svg){group="Proband 23"}
 
-### Test 2
-
 ![Test 2](images/23_2.svg){group="Proband 23"}
-
-### Test 3
 
 ![Test 3](images/23_3.svg){group="Proband 23"}
 
-### Test 4
-
 ![Test 4](images/23_4.svg){group="Proband 23"}
-
-### Test 5
 
 ![Test 5](images/23_5.svg){group="Proband 23"}
 
-### Test 6
-
 ![Test 6](images/23_6.svg){group="Proband 23"}
-:::
