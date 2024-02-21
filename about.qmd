@@ -51,36 +51,23 @@ df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 2
 ```
 
 ## Studiendesign
-::: card
-::: card-header
-Testtag 1
-:::
-::: card-body
+
+### Testtag 1
 ![](images/Versuchsablauf_Test1_4.png)
 
 > Abbildungen werden in der MA noch angepasst 
 
-:::
-:::
+### Testtag 2
 
-::: card
-::: card-header
-Testtag 2
-:::
-::: card-body
 ![](images/Versuchsablauf_Test2_4.png)
 
 > Abbildungen werden in der MA noch angepasst 
 
-:::
-:::
+
 
 ## Probanden 
-::: card
-::: card-header
-Stichprobe
-:::
-::: card-body
+
+### Stichprobe
 
 ```{r}
 # Excel-Datei einlesen
@@ -104,5 +91,3 @@ datatable(Stichprobe_df)
 ```
 
 > Proband 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt
-:::
-:::

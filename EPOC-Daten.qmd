@@ -1,4 +1,12 @@
 ---
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+  css-class: "my-css-class"
+
+
 execute:
   message: false
   echo: false
@@ -7,7 +15,7 @@ execute:
 
 ---
 
-# EPOC - Daten
+# EPOC - Modelle der verschiedenen Probanden
 
 
 ```{r}
@@ -52,236 +60,135 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
-## EPOC - Modelle der verschiedenen Probanden {.tabset}
 
-### Proband 01 {.tabset}
+## Proband 01 {.tabset}
 
-#### Test 1
 
-![](01_1.svg)
+![Test 1](images/01_1.svg){group="Proband 01"}
 
-#### Test 2
 
-![](01_2.svg)
+![Test 2](images/01_2.svg){group="Proband 01"}
 
-#### Test 3
 
-![](01_3.svg)
+![Test 3](images/01_3.svg){group="Proband 01"}
 
-#### Test 4
 
-![](01_4.svg)
+![Test 4](images/01_4.svg){group="Proband 01"}
 
-#### Test 5
 
-![](01_5.svg)
+![Test 5](images/01_5.svg){group="Proband 01"}
 
-#### Test 6
+![Test 6](images/01_6.svg){group="Proband 01"}
 
-![](01_6.svg)
+## Proband 06 {.tabset}
 
-### Proband 06 {.tabset}
 
-#### Test 1
+![Test 1](images/06_1.svg){group="Proband 06"}
 
-![](06_1.svg)
+![Test 2](images/06_2.svg){group="Proband 06"}
 
-#### Test 2
+![Test 3](images/06_3.svg){group="Proband 06"}
 
-![](06_2.svg)
+![Test 4](images/06_4.svg){group="Proband 06"}
 
-#### Test 3
+![Test 5](images/06_5.svg){group="Proband 06"}
 
-![](06_3.svg)
+![Test 6](images/06_6.svg){group="Proband 06"}
 
-#### Test 4
+## Proband 10 {.tabset}
 
-![](06_4.svg)
+![Test 1](images/10_1.svg){group="Proband 10"}
 
-#### Test 5
+![Test 2](images/10_2.svg){group="Proband 10"}
 
-![](06_5.svg)
+![Test 3](images/10_3.svg){group="Proband 10"}
 
-#### Test 6
+![Test 4](images/10_4.svg){group="Proband 10"}
 
-![](06_6.svg)
+![Test 5](images/10_5.svg){group="Proband 10"}
 
-### Proband 10 {.tabset}
+![Test 6](images/10_6.svg){group="Proband 10"}
 
-#### Test 1
+## Proband 13 {.tabset}
 
-![](10_1.svg)
+![Test 1](images/13_1.svg){group="Proband 13"}
 
-#### Test 2
+![Test 2](images/13_2.svg){group="Proband 13"}
 
-![](10_2.svg)
+![Test 3](images/13_3.svg){group="Proband 13"}
 
-#### Test 3
+![Test 4](images/13_4.svg){group="Proband 13"}
 
-![](10_3.svg)
+![Test 5](images/13_5.svg){group="Proband 13"}
 
-#### Test 4
+![Test 6](images/13_6.svg){group="Proband 13"}
 
-![](10_4.svg)
+## Proband 15 {.tabset}
 
-#### Test 5
+![Test 1](images/15_1.svg){group="Proband 15"}
 
-![](10_5.svg)
+![Test 2](images/15_2.svg){group="Proband 15"}
 
-#### Test 6
+![Test 3](images/15_3.svg){group="Proband 15"}
 
-![](10_6.svg)
+![Test 4](images/15_4.svg){group="Proband 15"}
 
-### Proband 13 {.tabset}
+![Test 5](images/15_5.svg){group="Proband 15"}
 
-#### Test 1
+![Test 6](images/15_6.svg){group="Proband 15"}
 
-![](13_1.svg)
+## Proband 19 {.tabset}
 
-#### Test 2
+![Test 1](images/19_1.svg){group="Proband 19"}
 
-![](13_2.svg)
+![Test 2](images/19_2.svg){group="Proband 19"}
 
-#### Test 3
+![Test 3](images/19_3.svg){group="Proband 19"}
 
-![](13_3.svg)
+![Test 4](images/19_4.svg){group="Proband 19"}
 
-#### Test 4
+![Test 5](images/19_5.svg){group="Proband 19"}
 
-![](13_4.svg)
+![Test 6](images/19_6.svg){group="Proband 19"}
 
-#### Test 5
+## Proband 20 {.tabset}
 
-![](13_5.svg)
+![Test 1](images/20_1.svg){group="Proband 20"}
 
-#### Test 6
+![Test 2](images/20_2.svg){group="Proband 20"}
 
-![](13_6.svg)
+![Test 3](images/20_3.svg){group="Proband 20"}
 
-### Proband 15 {.tabset}
+![Test 4](images/20_4.svg){group="Proband 20"}
 
-#### Test 1
+![Test 5](images/20_5.svg){group="Proband 20"}
 
-![](15_1.svg)
+![Test 6](images/20_6.svg){group="Proband 20"}
 
-#### Test 2
+## Proband 22 {.tabset}
 
-![](15_2.svg)
+![Test 1](images/22_1.svg){group="Proband 22"}
 
-#### Test 3
+![Test 2](images/22_2.svg){group="Proband 22"}
 
-![](15_3.svg)
+![Test 3](images/22_3.svg){group="Proband 22"}
 
-#### Test 4
+![Test 4](images/22_4.svg){group="Proband 22"}
 
-![](15_4.svg)
+![Test 5](images/22_5.svg){group="Proband 22"}
 
-#### Test 5
+![Test 6](images/22_6.svg){group="Proband 22"}
 
-![](15_5.svg)
+## Proband 23 {.tabset}
 
-#### Test 6
+![Test 1](images/23_1.svg){group="Proband 23"}
 
-![](15_6.svg)
+![Test 2](images/23_2.svg){group="Proband 23"}
 
-### Proband 19 {.tabset}
+![Test 3](images/23_3.svg){group="Proband 23"}
 
-#### Test 1
+![Test 4](images/23_4.svg){group="Proband 23"}
 
-![](19_1.svg)
+![Test 5](images/23_5.svg){group="Proband 23"}
 
-#### Test 2
-
-![](19_2.svg)
-
-#### Test 3
-
-![](19_3.svg)
-
-#### Test 4
-
-![](19_4.svg)
-
-#### Test 5
-
-![](19_5.svg)
-
-#### Test 6
-
-![](19_6.svg)
-
-### Proband 20 {.tabset}
-
-#### Test 1
-
-![](20_1.svg)
-
-#### Test 2
-
-![](20_2.svg)
-
-#### Test 3
-
-![](20_3.svg)
-
-#### Test 4
-
-![](20_4.svg)
-
-#### Test 5
-
-![](20_5.svg)
-
-#### Test 6
-
-![](20_6.svg)
-
-### Proband 22 {.tabset}
-
-#### Test 1
-
-![](22_1.svg)
-
-#### Test 2
-
-![](22_2.svg)
-
-#### Test 3
-
-![](22_3.svg)
-
-#### Test 4
-
-![](22_4.svg)
-
-#### Test 5
-
-![](22_5.svg)
-
-#### Test 6
-
-![](22_6.svg)
-
-### Proband 23 {.tabset}
-
-![](23_1.svg)
-
-#### Test 2
-
-![](23_2.svg)
-
-#### Test 3
-
-![](23_3.svg)
-
-#### Test 4
-
-![](23_4.svg)
-
-#### Test 5
-
-![](23_5.svg)
-
-#### Test 6
-
-![](23_6.svg)
+![Test 6](images/23_6.svg){group="Proband 23"}

@@ -52,10 +52,7 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
-
-## Bar - und Boxplots {.tabset}
-
-### Datentabelle
+## Datentabelle
 
 ```{r}
 ##### Tabelle außerhalb von Shiny #######
@@ -95,6 +92,9 @@ avg_energy_data <- filtered_data %>%
 # Erstellen der Tabelle
 datatable(avg_energy_data)
 ```
+
+## Bar - und Boxplots {.tabset}
+
 
 ### Barplots - Wirkungsgrad
 
@@ -156,7 +156,7 @@ p <- plot_ly(data = avg_energy_data,
              textfont = list(color = "black")
 ) %>%
   layout(
-    title = 'Durchschnittlicher Energieverbrauch der ausgewählten Probanden nach Intensität und Bedingung',
+    title = 'Energieverbrauch nach Intensität und Bedingung',
     xaxis = list(title = 'Intensität_Bedingung',
                  categoryorder = "array",
                  categoryarray = categories,
