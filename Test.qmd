@@ -35,84 +35,41 @@ plotly_list_slow <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Mast
 
 
 ```
+
 ## Test
-``` {r}
-library(plotly)
-library(plotly)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(htmltools)
-library(htmlwidgets)
-library(shiny)
-library(DT)
-library(RColorBrewer)
-library(patchwork)
-library(minpack.lm)
-library(zoo)
-library(purrr)
-library(readxl)
+### Test 1
 
-plotly_list[10]
-```
+![](images/01_1.html)
 
-plotly_list[10]
+
+![Test 1](images/01_1.html){group="Proband 01"}
 
 ## Proband 01 
 
 ::: {.panel-tabset}
 ### Test 1
 
-plotly_list[1]
+![Test 1](images/01_1.html){group="Proband 01"}
 
 ### Test 2
 
-plotly_list[2]
+![Test 2](images/01_2.html){group="Proband 01"}
 
 ### Test 3
 
-plotly_list[3]
+![Test 3](images/01_3.html){group="Proband 01"}
 
 ### Test 4
 
-plotly_list[4]
+![Test 4](images/01_4.html){group="Proband 01"}
 
 ### Test 5
 
-plotly_list[5]
+![Test 5](images/01_5.html){group="Proband 01"}
 
 ### Test 6
 
-plotly_list[6]
-:::
-
-
-## Proband 01 
-
-::: {.panel-tabset}
-### Test 1
-
-![Test 1](images/01_1.svg){group="Proband 01"}
-
-### Test 2
-
-![Test 2](images/01_2.svg){group="Proband 01"}
-
-### Test 3
-
-![Test 3](images/01_3.svg){group="Proband 01"}
-
-### Test 4
-
-![Test 4](images/01_4.svg){group="Proband 01"}
-
-### Test 5
-
-![Test 5](images/01_5.svg){group="Proband 01"}
-
-### Test 6
-
-![Test 6](images/01_6.svg){group="Proband 01"}
+![Test 6](images/01_6.html){group="Proband 01"}
 :::
 
 
@@ -121,27 +78,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/06_1.svg){group="Proband 06"}
+![Test 1](images/06_1.html){group="Proband 06"}
 
 ### Test 2
 
-![Test 2](images/06_2.svg){group="Proband 06"}
+![Test 2](images/06_2.html){group="Proband 06"}
 
 ### Test 3
 
-![Test 3](images/06_3.svg){group="Proband 06"}
+![Test 3](images/06_3.html){group="Proband 06"}
 
 ### Test 4
 
-![Test 4](images/06_4.svg){group="Proband 06"}
+![Test 4](images/06_4.html){group="Proband 06"}
 
 ### Test 5
 
-![Test 5](images/06_5.svg){group="Proband 06"}
+![Test 5](images/06_5.html){group="Proband 06"}
 
 ### Test 6
 
-![Test 6](images/06_6.svg){group="Proband 06"}
+![Test 6](images/06_6.html){group="Proband 06"}
 :::
 
 
@@ -151,27 +108,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/10_1.svg){group="Proband 10"}
+![Test 1](images/10_1.html){group="Proband 10"}
 
 ### Test 2
 
-![Test 2](images/10_2.svg){group="Proband 10"}
+![Test 2](images/10_2.html){group="Proband 10"}
 
 ### Test 3
 
-![Test 3](images/10_3.svg){group="Proband 10"}
+![Test 3](images/10_3.html){group="Proband 10"}
 
 ### Test 4
 
-![Test 4](images/10_4.svg){group="Proband 10"}
+![Test 4](images/10_4.html){group="Proband 10"}
 
 ### Test 5
 
-![Test 5](images/10_5.svg){group="Proband 10"}
+![Test 5](images/10_5.html){group="Proband 10"}
 
 ### Test 6
 
-![Test 6](images/10_6.svg){group="Proband 10"}
+![Test 6](images/10_6.html){group="Proband 10"}
 :::
 
 
@@ -181,27 +138,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/13_1.svg){group="Proband 13"}
+![Test 1](images/13_1.html){group="Proband 13"}
 
 ### Test 2
 
-![Test 2](images/13_2.svg){group="Proband 13"}
+![Test 2](images/13_2.html){group="Proband 13"}
 
 ### Test 3
 
-![Test 3](images/13_3.svg){group="Proband 13"}
+![Test 3](images/13_3.html){group="Proband 13"}
 
 ### Test 4
 
-![Test 4](images/13_4.svg){group="Proband 13"}
+![Test 4](images/13_4.html){group="Proband 13"}
 
 ### Test 5
 
-![Test 5](images/13_5.svg){group="Proband 13"}
+![Test 5](images/13_5.html){group="Proband 13"}
 
 ### Test 6
 
-![Test 6](images/13_6.svg){group="Proband 13"}
+![Test 6](images/13_6.html){group="Proband 13"}
 :::
 
 
@@ -210,27 +167,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/15_1.svg){group="Proband 15"}
+![Test 1](images/15_1.html){group="Proband 15"}
 
 ### Test 2
 
-![Test 2](images/15_2.svg){group="Proband 15"}
+![Test 2](images/15_2.html){group="Proband 15"}
 
 ### Test 3
 
-![Test 3](images/15_3.svg){group="Proband 15"}
+![Test 3](images/15_3.html){group="Proband 15"}
 
 ### Test 4
 
-![Test 4](images/15_4.svg){group="Proband 15"}
+![Test 4](images/15_4.html){group="Proband 15"}
 
 ### Test 5
 
-![Test 5](images/15_5.svg){group="Proband 15"}
+![Test 5](images/15_5.html){group="Proband 15"}
 
 ### Test 6
 
-![Test 6](images/15_6.svg){group="Proband 15"}
+![Test 6](images/15_6.html){group="Proband 15"}
 :::
 
 ## Proband 19
@@ -238,27 +195,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/19_1.svg){group="Proband 19"}
+![Test 1](images/19_1.html){group="Proband 19"}
 
 ### Test 2
 
-![Test 2](images/19_2.svg){group="Proband 19"}
+![Test 2](images/19_2.html){group="Proband 19"}
 
 ### Test 3
 
-![Test 3](images/19_3.svg){group="Proband 19"}
+![Test 3](images/19_3.html){group="Proband 19"}
 
 ### Test 4
 
-![Test 4](images/19_4.svg){group="Proband 19"}
+![Test 4](images/19_4.html){group="Proband 19"}
 
 ### Test 5
 
-![Test 5](images/19_5.svg){group="Proband 19"}
+![Test 5](images/19_5.html){group="Proband 19"}
 
 ### Test 6
 
-![Test 6](images/19_6.svg){group="Proband 19"}
+![Test 6](images/19_6.html){group="Proband 19"}
 :::
 
 
@@ -267,27 +224,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/20_1.svg){group="Proband 20"}
+![Test 1](images/20_1.html){group="Proband 20"}
 
 ### Test 2
 
-![Test 2](images/20_2.svg){group="Proband 20"}
+![Test 2](images/20_2.html){group="Proband 20"}
 
 ### Test 3
 
-![Test 3](images/20_3.svg){group="Proband 20"}
+![Test 3](images/20_3.html){group="Proband 20"}
 
 ### Test 4
 
-![Test 4](images/20_4.svg){group="Proband 20"}
+![Test 4](images/20_4.html){group="Proband 20"}
 
 ### Test 5
 
-![Test 5](images/20_5.svg){group="Proband 20"}
+![Test 5](images/20_5.html){group="Proband 20"}
 
 ### Test 6
 
-![Test 6](images/20_6.svg){group="Proband 20"}
+![Test 6](images/20_6.html){group="Proband 20"}
 :::
 
 
@@ -296,27 +253,27 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/22_1.svg){group="Proband 22"}
+![Test 1](images/22_1.html){group="Proband 22"}
 
 ### Test 2
 
-![Test 2](images/22_2.svg){group="Proband 22"}
+![Test 2](images/22_2.html){group="Proband 22"}
 
 ### Test 3
 
-![Test 3](images/22_3.svg){group="Proband 22"}
+![Test 3](images/22_3.html){group="Proband 22"}
 
 ### Test 4
 
-![Test 4](images/22_4.svg){group="Proband 22"}
+![Test 4](images/22_4.html){group="Proband 22"}
 
 ### Test 5
 
-![Test 5](images/22_5.svg){group="Proband 22"}
+![Test 5](images/22_5.html){group="Proband 22"}
 
 ### Test 6
 
-![Test 6](images/22_6.svg){group="Proband 22"}
+![Test 6](images/22_6.html){group="Proband 22"}
 :::
 
 ## Proband 23 
@@ -324,25 +281,25 @@ plotly_list[6]
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/23_1.svg){group="Proband 23"}
+![Test 1](images/23_1.html){group="Proband 23"}
 
 ### Test 2
 
-![Test 2](images/23_2.svg){group="Proband 23"}
+![Test 2](images/23_2.html){group="Proband 23"}
 
 ### Test 3
 
-![Test 3](images/23_3.svg){group="Proband 23"}
+![Test 3](images/23_3.html){group="Proband 23"}
 
 ### Test 4
 
-![Test 4](images/23_4.svg){group="Proband 23"}
+![Test 4](images/23_4.html){group="Proband 23"}
 
 ### Test 5
 
-![Test 5](images/23_5.svg){group="Proband 23"}
+![Test 5](images/23_5.html){group="Proband 23"}
 
 ### Test 6
 
-![Test 6](images/23_6.svg){group="Proband 23"}
+![Test 6](images/23_6.html){group="Proband 23"}
 :::
