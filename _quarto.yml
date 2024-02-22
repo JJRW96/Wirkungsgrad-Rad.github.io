@@ -34,18 +34,35 @@ website:
       - about.qmd
       - Wirkungsgrad.qmd
       - Spiro-Messwerte.qmd
-      - EPOC-Daten.qmd
+      #- EPOC-Daten.qmd
+      - section: EPOC/index_EPOC.qmd
+        contents: 
+          - EPOC/Proband01.qmd
+          - EPOC/Proband06.qmd
+          - EPOC/Proband10.qmd 
+          - EPOC/Proband13.qmd
+          - EPOC/Proband15.qmd 
+          - EPOC/Proband19.qmd
+          - EPOC/Proband20.qmd 
+          - EPOC/Proband22.qmd
+          - EPOC/Proband23.qmd 
       - Laktat.qmd
-      - section: Ergometer/index.qmd
+      - section: Ergometer/index_Ergometer.qmd
         contents: 
           - Ergometer/Efficiency.qmd
           - Ergometer/Innere_Arbeit.qmd
           - Ergometer/Pedal_Smoothness.qmd 
       - Datensätze.qmd
-      - Test.qmd
+      #- Test.qmd
 
 format:
-  html:
+  html: 
+    grid:
+      sidebar-width: 300px
+      body-width: 1600px
+      margin-width: 250px
+      gutter-width: 1.5rem
+      
     theme:
       light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
       dark: [cosmo, theme-dark.scss]

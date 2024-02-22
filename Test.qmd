@@ -41,35 +41,85 @@ plotly_list_slow <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Mast
 
 ![](images/01_1.html)
 
+![](images/01_1.html){.absolute top=50 right=50 width="450" height="250"}
+
+![](images/01_1.html){width="1600" height="900"}
+
+### Lol 
+<iframe src=".images/01_1.html"></iframe>
 
 ![Test 1](images/01_1.html){group="Proband 01"}
+
+### Stack
+
+::: {.r-stack}
+![](images/01_1_tau.html){.fragment .fade-in-then-out width="800" height="450"}
+
+![](images/01_1_slow.html){.fragment .fade-in-then-out width="800" height="450"}
+
+![](images/01_1.html){.fragment .fade-in-then-out width="800" height="450"}
+:::
+
+### Stack 2
+::: {.r-stack}
+![](images/01_1_tau.svg){.fragment .fade-up width="800" height="450"}
+
+![](images/01_1_slow.svg){.fragment .fade-up width="800" height="450"}
+
+![](images/01_1.svg){.fragment .fade-up width="800" height="450"}
+:::
+
+### Animation 1
+#### {auto-animate=true}
+
+Tau
+
+#### {auto-animate=true}
+
+Slow
+
+
+### Animation 2
+#### {auto-animate=true}
+Tau
+![](images/01_1_tau.html){.fragment width="800" height="450"}
+
+
+
+#### {auto-animate=true}
+
+Slow
+![](images/01_1_slow.html){.fragment width="800" height="450"}
+
 
 ## Proband 01 
 
 ::: {.panel-tabset}
 ### Test 1
 
-![Test 1](images/01_1.html){group="Proband 01"}
+![Test 1](images/01_1_tau.html){width="1500" height="500"}
+![Test 1](images/01_1_slow.html){width="1500" height="500"}
+![Test 1](images/01_1.html){width="1500" height="500"}
 
 ### Test 2
 
-![Test 2](images/01_2.html){group="Proband 01"}
+![Test 2](images/01_2.html){width="1600" height="900"}
 
 ### Test 3
 
-![Test 3](images/01_3.html){group="Proband 01"}
+![Test 3](images/01_3.html){width="1600" height="900"}
 
 ### Test 4
 
-![Test 4](images/01_4.html){group="Proband 01"}
+![Test 4](images/01_4.html){width="1600" height="900"}
 
 ### Test 5
 
-![Test 5](images/01_5.html){group="Proband 01"}
+![Test 5](images/01_5.html){width="1600" height="900"}
 
 ### Test 6
 
-![Test 6](images/01_6.html){group="Proband 01"}
+![Test 6](images/01_6.html){width="1600" height="900"}
 :::
 
 

@@ -1,0 +1,67 @@
+---
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+  css-class: "my-css-class"
+
+
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+
+---
+
+
+## Proband 13
+
+```{r}
+# Library und dfs laden
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(htmltools)
+library(htmlwidgets)
+library(shiny)
+library(RColorBrewer)
+
+```
+
+
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/13_1_tau.html){width="1500" height="500"}
+![Test 1](images/13_1_slow.html){width="1500" height="500"}
+![Test 1](images/13_1.html){width="1500" height="500"}
+
+### Test 2
+![Test 2](images/13_2_tau.html){width="1500" height="500"}
+![Test 2](images/13_2_slow.html){width="1500" height="500"}
+![Test 2](images/13_2.html){width="1500" height="500"}
+
+### Test 3
+![Test 3](images/13_3_tau.html){width="1500" height="500"}
+![Test 3](images/13_3_slow.html){width="1500" height="500"}
+![Test 3](images/13_3.html){width="1500" height="500"}
+
+### Test 4
+![Test 4](images/13_4_tau.html){width="1500" height="500"}
+![Test 4](images/13_4_slow.html){width="1500" height="500"}
+![Test 4](images/13_4.html){width="1500" height="500"}
+
+### Test 5
+![Test 5](images/13_5_tau.html){width="1500" height="500"}
+![Test 5](images/13_5_slow.html){width="1500" height="500"}
+![Test 5](images/13_5.html){width="1500" height="500"}
+
+### Test 6
+![Test 6](images/13_6_tau.html){width="1500" height="500"}
+![Test 6](images/13_6_slow.html){width="1500" height="500"}
+![Test 6](images/13_6.html){width="1500" height="500"}
+
+:::
