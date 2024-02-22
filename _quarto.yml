@@ -59,8 +59,8 @@ format:
   html: 
     grid:
       sidebar-width: 300px
-      body-width: 1600px
-      margin-width: 250px
+      body-width: 1000px
+      margin-width: 200px
       gutter-width: 1.5rem
       
     theme:
