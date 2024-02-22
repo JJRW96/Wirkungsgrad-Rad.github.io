@@ -35,34 +35,34 @@ library(RColorBrewer)
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/23_1_tau.html){width="1500" height="500"}
-![Test 1](images/23_1_slow.html){width="1500" height="500"}
-![Test 1](images/23_1.html){width="1500" height="500"}
+![Test 1](images/23_1_tau.html){width="1200" height="500"}
+![Test 1](images/23_1_slow.html){width="1200" height="500"}
+![Test 1](images/23_1.html){width="1200" height="500"}
 
 ### Test 2
-![Test 2](images/23_2_tau.html){width="1500" height="500"}
-![Test 2](images/23_2_slow.html){width="1500" height="500"}
-![Test 2](images/23_2.html){width="1500" height="500"}
+![Test 2](images/23_2_tau.html){width="1200" height="500"}
+![Test 2](images/23_2_slow.html){width="1200" height="500"}
+![Test 2](images/23_2.html){width="1200" height="500"}
 
 ### Test 3
-![Test 3](images/23_3_tau.html){width="1500" height="500"}
-![Test 3](images/23_3_slow.html){width="1500" height="500"}
-![Test 3](images/23_3.html){width="1500" height="500"}
+![Test 3](images/23_3_tau.html){width="1200" height="500"}
+![Test 3](images/23_3_slow.html){width="1200" height="500"}
+![Test 3](images/23_3.html){width="1200" height="500"}
 
 ### Test 4
-![Test 4](images/23_4_tau.html){width="1500" height="500"}
-![Test 4](images/23_4_slow.html){width="1500" height="500"}
-![Test 4](images/23_4.html){width="1500" height="500"}
+![Test 4](images/23_4_tau.html){width="1200" height="500"}
+![Test 4](images/23_4_slow.html){width="1200" height="500"}
+![Test 4](images/23_4.html){width="1200" height="500"}
 
 ### Test 5
-![Test 5](images/23_5_tau.html){width="1500" height="500"}
-![Test 5](images/23_5_slow.html){width="1500" height="500"}
-![Test 5](images/23_5.html){width="1500" height="500"}
+![Test 5](images/23_5_tau.html){width="1200" height="500"}
+![Test 5](images/23_5_slow.html){width="1200" height="500"}
+![Test 5](images/23_5.html){width="1200" height="500"}
 
 ### Test 6
-![Test 6](images/23_6_tau.html){width="1500" height="500"}
-![Test 6](images/23_6_slow.html){width="1500" height="500"}
-![Test 6](images/23_6.html){width="1500" height="500"}
+![Test 6](images/23_6_tau.html){width="1200" height="500"}
+![Test 6](images/23_6_slow.html){width="1200" height="500"}
+![Test 6](images/23_6.html){width="1200" height="500"}
 
 :::
 

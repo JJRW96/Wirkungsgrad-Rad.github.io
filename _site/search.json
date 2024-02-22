@@ -115,11 +115,14 @@
     ]
   },
   {
-    "objectID": "Ergometer/index.html",
-    "href": "Ergometer/index.html",
+    "objectID": "Ergometer/index_Ergometer.html",
+    "href": "Ergometer/index_Ergometer.html",
     "title": "Ergometer Daten",
     "section": "",
-    "text": "Erklärungen der folgenden Variablen… asdf"
+    "text": "Erklärungen der folgenden Variablen… asdf",
+    "crumbs": [
+      "Ergometer Daten"
+    ]
   },
   {
     "objectID": "EPOC_Daten_alt.html",
@@ -192,6 +195,116 @@
     "text": "Proband 23\n\n\n\nTest 1\n\n\n\n\n\nTest 2\n\n\n\n\n\nTest 3\n\n\n\n\n\nTest 4\n\n\n\n\n\nTest 5\n\n\n\n\n\nTest 6\n\n\n\n\n\n\n\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6"
   },
   {
+    "objectID": "EPOC/Proband23.html",
+    "href": "EPOC/Proband23.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 23 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 23"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband23.html#proband-23",
+    "href": "EPOC/Proband23.html#proband-23",
+    "title": "",
+    "section": "Proband 23",
+    "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 23"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband20.html",
+    "href": "EPOC/Proband20.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 20 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 20"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband20.html#proband-20",
+    "href": "EPOC/Proband20.html#proband-20",
+    "title": "",
+    "section": "Proband 20",
+    "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 20"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband15.html",
+    "href": "EPOC/Proband15.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 15 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 15"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband15.html#proband-15",
+    "href": "EPOC/Proband15.html#proband-15",
+    "title": "",
+    "section": "Proband 15",
+    "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 15"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband10.html",
+    "href": "EPOC/Proband10.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 10 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 10"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband10.html#proband-10",
+    "href": "EPOC/Proband10.html#proband-10",
+    "title": "",
+    "section": "Proband 10",
+    "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 10"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband01.html",
+    "href": "EPOC/Proband01.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 01 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 01"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband01.html#proband-01",
+    "href": "EPOC/Proband01.html#proband-01",
+    "title": "",
+    "section": "Proband 01",
+    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 01"
+    ]
+  },
+  {
     "objectID": "Datensätze.html",
     "href": "Datensätze.html",
     "title": "",
@@ -242,104 +355,172 @@
     ]
   },
   {
+    "objectID": "EPOC/index_EPOC.html",
+    "href": "EPOC/index_EPOC.html",
+    "title": "EPOC-Modelle",
+    "section": "",
+    "text": "Erklärungen der folgenden Variablen… asdf",
+    "crumbs": [
+      "EPOC-Modelle"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband06.html",
+    "href": "EPOC/Proband06.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 06 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 06"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband06.html#proband-06",
+    "href": "EPOC/Proband06.html#proband-06",
+    "title": "",
+    "section": "Proband 06",
+    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 06"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband13.html",
+    "href": "EPOC/Proband13.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 13 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 13"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband13.html#proband-13",
+    "href": "EPOC/Proband13.html#proband-13",
+    "title": "",
+    "section": "Proband 13",
+    "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 13"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband19.html",
+    "href": "EPOC/Proband19.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 19 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 19"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband19.html#proband-19",
+    "href": "EPOC/Proband19.html#proband-19",
+    "title": "",
+    "section": "Proband 19",
+    "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 19"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband22.html",
+    "href": "EPOC/Proband22.html",
+    "title": "",
+    "section": "",
+    "text": "EPOC-ModelleProband 22 Code",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 22"
+    ]
+  },
+  {
+    "objectID": "EPOC/Proband22.html#proband-22",
+    "href": "EPOC/Proband22.html#proband-22",
+    "title": "",
+    "section": "Proband 22",
+    "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
+    "crumbs": [
+      "EPOC-Modelle",
+      "Proband 22"
+    ]
+  },
+  {
     "objectID": "EPOC-Daten.html",
     "href": "EPOC-Daten.html",
     "title": "",
     "section": "",
-    "text": "Code",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Code"
   },
   {
     "objectID": "EPOC-Daten.html#proband-01",
     "href": "EPOC-Daten.html#proband-01",
     "title": "",
     "section": "Proband 01",
-    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-06",
     "href": "EPOC-Daten.html#proband-06",
     "title": "",
     "section": "Proband 06",
-    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-10",
     "href": "EPOC-Daten.html#proband-10",
     "title": "",
     "section": "Proband 10",
-    "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-13",
     "href": "EPOC-Daten.html#proband-13",
     "title": "",
     "section": "Proband 13",
-    "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-15",
     "href": "EPOC-Daten.html#proband-15",
     "title": "",
     "section": "Proband 15",
-    "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-19",
     "href": "EPOC-Daten.html#proband-19",
     "title": "",
     "section": "Proband 19",
-    "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-20",
     "href": "EPOC-Daten.html#proband-20",
     "title": "",
     "section": "Proband 20",
-    "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-22",
     "href": "EPOC-Daten.html#proband-22",
     "title": "",
     "section": "Proband 22",
-    "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "EPOC-Daten.html#proband-23",
     "href": "EPOC-Daten.html#proband-23",
     "title": "",
     "section": "Proband 23",
-    "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6\n\n\n\n\n\n\n\n\n\n\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6",
-    "crumbs": [
-      "EPOC - Modelle"
-    ]
+    "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6\n\n\n\n\n\n\n\n\n\n\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6"
   },
   {
     "objectID": "Ergometer/Efficiency.html",
@@ -545,153 +726,76 @@
     "href": "Test.html",
     "title": "",
     "section": "",
-    "text": "Code",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Code"
   },
   {
     "objectID": "Test.html#test-1",
     "href": "Test.html#test-1",
     "title": "",
     "section": "Test",
-    "text": "Test\n\nTest 1\n\n\n\n\n\nLol\n\n\n\n\n\nTest 1\n\n\n\n\nStack\n\n\n\n\n\n\n\nStack 2\n\n\n\n\n\n\n\nAnimation 1\n\n\nTau\n\n\n\nSlow\n\n\n\nAnimation 2\n\n\nTau \n\n\n\nSlow",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Test\n\nTest 1\n\n\n\n\n\nLol\n\n\n\n\n\nTest 1\n\n\n\n\nStack\n\n\n\n\n\n\n\nStack 2\n\n\n\n\n\n\n\nAnimation 1\n\n\nTau\n\n\n\nSlow\n\n\n\nAnimation 2\n\n\nTau \n\n\n\nSlow"
   },
   {
     "objectID": "Test.html#proband-01",
     "href": "Test.html#proband-01",
     "title": "",
     "section": "Proband 01",
-    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n  \n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n  \n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-06",
     "href": "Test.html#proband-06",
     "title": "",
     "section": "Proband 06",
-    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-10",
     "href": "Test.html#proband-10",
     "title": "",
     "section": "Proband 10",
-    "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-13",
     "href": "Test.html#proband-13",
     "title": "",
     "section": "Proband 13",
-    "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-15",
     "href": "Test.html#proband-15",
     "title": "",
     "section": "Proband 15",
-    "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-19",
     "href": "Test.html#proband-19",
     "title": "",
     "section": "Proband 19",
-    "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-20",
     "href": "Test.html#proband-20",
     "title": "",
     "section": "Proband 20",
-    "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-22",
     "href": "Test.html#proband-22",
     "title": "",
     "section": "Proband 22",
-    "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
+    "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6"
   },
   {
     "objectID": "Test.html#proband-23",
     "href": "Test.html#proband-23",
     "title": "",
     "section": "Proband 23",
-    "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6\n\n\n\n\n\n\n\n\n\n\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6",
-    "crumbs": [
-      "Test"
-    ]
-  },
-  {
-    "objectID": "EPOC/Proband01.html",
-    "href": "EPOC/Proband01.html",
-    "title": "",
-    "section": "",
-    "text": "EPOCProband 01 Code",
-    "crumbs": [
-      "EPOC",
-      "Proband 01"
-    ]
-  },
-  {
-    "objectID": "EPOC/Proband01.html#proband-01",
-    "href": "EPOC/Proband01.html#proband-01",
-    "title": "",
-    "section": "Proband 01",
-    "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
-    "crumbs": [
-      "EPOC",
-      "Proband 01"
-    ]
-  },
-  {
-    "objectID": "EPOC/Proband06.html",
-    "href": "EPOC/Proband06.html",
-    "title": "",
-    "section": "",
-    "text": "EPOC-ModelleProband 06 Code",
-    "crumbs": [
-      "EPOC-Modelle",
-      "Proband 06"
-    ]
-  },
-  {
-    "objectID": "EPOC/Proband06.html#proband-06",
-    "href": "EPOC/Proband06.html#proband-06",
-    "title": "",
-    "section": "Proband 06",
-    "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
-    "crumbs": [
-      "EPOC-Modelle",
-      "Proband 06"
-    ]
+    "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6\n\n\n\n\n\nTest 1\n\n\n\n\n\n\n\nTest 2\n\n\n\n\n\n\n\nTest 3\n\n\n\n\n\n\n\nTest 4\n\n\n\n\n\n\n\nTest 5\n\n\n\n\n\n\n\nTest 6\n\n\n\n\n\n\n\n\n\n\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6\nTest 1\nTest 2\nTest 3\nTest 4\nTest 5\nTest 6"
   }
 ]
