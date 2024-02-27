@@ -199,9 +199,9 @@
     "href": "EPOC/Proband23.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 23 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 23 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 23"
     ]
   },
@@ -212,7 +212,7 @@
     "section": "Proband 23",
     "text": "Proband 23\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 23"
     ]
   },
@@ -221,9 +221,9 @@
     "href": "EPOC/Proband20.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 20 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 20 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 20"
     ]
   },
@@ -234,7 +234,7 @@
     "section": "Proband 20",
     "text": "Proband 20\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 20"
     ]
   },
@@ -243,9 +243,9 @@
     "href": "EPOC/Proband15.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 15 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 15 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 15"
     ]
   },
@@ -256,7 +256,7 @@
     "section": "Proband 15",
     "text": "Proband 15\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 15"
     ]
   },
@@ -265,9 +265,9 @@
     "href": "EPOC/Proband10.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 10 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 10 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 10"
     ]
   },
@@ -278,7 +278,7 @@
     "section": "Proband 10",
     "text": "Proband 10\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 10"
     ]
   },
@@ -287,9 +287,9 @@
     "href": "EPOC/Proband01.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 01 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 01 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 01"
     ]
   },
@@ -300,7 +300,7 @@
     "section": "Proband 01",
     "text": "Proband 01\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 01"
     ]
   },
@@ -357,11 +357,41 @@
   {
     "objectID": "EPOC/index_EPOC.html",
     "href": "EPOC/index_EPOC.html",
-    "title": "EPOC-Modelle",
+    "title": "Bestimmung der EPOC-Modelle",
     "section": "",
-    "text": "Erklärungen der folgenden Variablen… asdf",
+    "text": "Um die anaerob-alaktazide Energiekomponente während jedes Belastungsintervalls zu berechnen, wurde die EPOC mittels nichtlinearer Regression unter Verwendung des folgenden bi-exponentiellen 4-Parameter-Modells modelliert:\n\\[\n\\dot{V}O_{2EPOC} = A_{fast} \\times e^{-(t / \\tau_{fast})} + A_{slow} \\times e^{-(t / \\tau_{slow})} + \\dot{V}O_{2Ruhe}\n\\]\n\n\\(A_{\\text{fast}} = AS\\): Amplitude der schnellen EPOC-Komponente\n\\(A_{\\text{slow}} = AL\\): Amplitude der langsamen EPOC-Komponente\n\\(\\tau_{\\text{schnell}} = \\tau_{S}\\): Zeitkonstante der schnellen EPOC-Komponente\n\\(\\tau_{\\text{slow}} = \\tau_{L}\\): Zeitkonstante der langsamen EPOC-Komponente\n\nDa die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der Sauerstoffvolumenstrom in der Nachatmungsphase (= \\(\\dot{V}O_{2EPOC}\\)) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der Sauerstoffvolumenstrom im Ruhezustand (= \\(\\dot{V}O_{2Ruhe}\\)). \\(\\dot{V}O_{2Ruhe}\\) wurde vor den Belastungsintervallen ermittelt. Unter Bedingungen vollständiger Ruhe hätte ein langsamer und stetiger Rückgang des \\(\\dot{V}O_{2EPOC}\\) erwartet werden können. Diese Situation bedingte, dass die langsame Komponente der EPOC (= \\(\\dot{V}O_{2EPOC, \\text{slow}}\\)) nicht gemäß den Erwartungen modelliert werden konnte, da sie in den meisten Fällen keinen signifikanten Abfall zeigte. Dies hatte zur Folge, dass die darauffolgend berechnete anaerob-alaktazide Energiekomponente tendenziell überschätzt wurde.\nUm den Verlauf von \\(\\dot{V}O_{2EPOC}\\) so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass \\(\\dot{V}O_{2EPOC}\\) spätestens 60 Minuten nach Beendigung der Belastung annähernd auf das Niveau von \\(\\dot{V}O_{2Ruhe}\\) zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) repräsentiert.\n\n\nUm den Zeitraum der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) in Abhängigkeit von der individuellen Abfallkinetik des \\(\\dot{V}O_{2EPOC}\\) für jede Nachatmungsphase zu bestimmen, wurde im ersten Schritt die Zeitkonstante \\(\\tau\\) mittels einer nichtlinearen Regression basierend auf folgendem exponentiellen Drei-Parameter-Modell modelliert:\n\\[\n\\dot{V}O_{2EPOC} = A \\times e^{-(t / \\tau)} + C\n\\]\nAnhand von \\(\\tau\\) wurde der Zeitraum der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) im Verhältnis zur \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) abgegrenzt. Hierbei diente das Zweifache der Zeitkonstante (= \\(2\\tau\\)) als Grenzwert, der den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von \\(\\dot{V}O_{2EPOC}\\) stattgefunden hat.\n\n\n\nBestimmung von \\(\\tau\\)\n\n\n\n\n\nUm die Abfallkinetik der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) von \\(2\\tau\\) bis \\(8\\tau\\) festgelegt Bis zum Zeitpunkt \\(8\\tau\\) haben annähernd 99,75% des Abfalls von \\(\\dot{V}O_{2EPOC}\\) stattgefunden. In einem zweiten Schritt erfolgte die Modellierung der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von \\(\\dot{V}O_{2EPOC}\\) im Zeitfenster von \\(2\\tau\\) bis \\(8\\tau\\) sowie simulierten Ruhewerten ab 3600 Sekunden.:\n\\[\n\\dot{V}O_{2EPOC, slow} = A_{slow} \\times e^{-(t / \\tau_{slow})} + \\dot{V}O_{2Ruhe}\n\\]\n\n\n\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{slow}}\\)\n\n\n\n\n\nIn einem dritten Schritt wurde schließlich die Modellfunktion der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) der gesamten bi-exponentiellen Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten Parameter der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) und \\(\\dot{V}O_{2Ruhe}\\):\n\\[\n\\dot{V}O_{2EPOC, fast} = A_{fast} \\times e^{-(t / \\tau_{fast})}\n\\]\n\n\n\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{fast}}\\)\n\n\n\n\n\n\n\nBestimmung von \\(\\tau\\)\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{slow}}\\)\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{fast}}\\)",
     "crumbs": [
-      "EPOC-Modelle"
+      "Bestimmung der EPOC-Modelle"
+    ]
+  },
+  {
+    "objectID": "EPOC/index_EPOC.html#schritt---bestimmung-von-tau",
+    "href": "EPOC/index_EPOC.html#schritt---bestimmung-von-tau",
+    "title": "Bestimmung der EPOC-Modelle",
+    "section": "",
+    "text": "Um den Zeitraum der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) in Abhängigkeit von der individuellen Abfallkinetik des \\(\\dot{V}O_{2EPOC}\\) für jede Nachatmungsphase zu bestimmen, wurde im ersten Schritt die Zeitkonstante \\(\\tau\\) mittels einer nichtlinearen Regression basierend auf folgendem exponentiellen Drei-Parameter-Modell modelliert:\n\\[\n\\dot{V}O_{2EPOC} = A \\times e^{-(t / \\tau)} + C\n\\]\nAnhand von \\(\\tau\\) wurde der Zeitraum der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) im Verhältnis zur \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) abgegrenzt. Hierbei diente das Zweifache der Zeitkonstante (= \\(2\\tau\\)) als Grenzwert, der den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von \\(\\dot{V}O_{2EPOC}\\) stattgefunden hat.\n\n\n\nBestimmung von \\(\\tau\\)",
+    "crumbs": [
+      "Bestimmung der EPOC-Modelle"
+    ]
+  },
+  {
+    "objectID": "EPOC/index_EPOC.html#schritt---modellierung-von-dotvo_2epoc-textslow",
+    "href": "EPOC/index_EPOC.html#schritt---modellierung-von-dotvo_2epoc-textslow",
+    "title": "Bestimmung der EPOC-Modelle",
+    "section": "",
+    "text": "Um die Abfallkinetik der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) von \\(2\\tau\\) bis \\(8\\tau\\) festgelegt Bis zum Zeitpunkt \\(8\\tau\\) haben annähernd 99,75% des Abfalls von \\(\\dot{V}O_{2EPOC}\\) stattgefunden. In einem zweiten Schritt erfolgte die Modellierung der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von \\(\\dot{V}O_{2EPOC}\\) im Zeitfenster von \\(2\\tau\\) bis \\(8\\tau\\) sowie simulierten Ruhewerten ab 3600 Sekunden.:\n\\[\n\\dot{V}O_{2EPOC, slow} = A_{slow} \\times e^{-(t / \\tau_{slow})} + \\dot{V}O_{2Ruhe}\n\\]\n\n\n\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{slow}}\\)",
+    "crumbs": [
+      "Bestimmung der EPOC-Modelle"
+    ]
+  },
+  {
+    "objectID": "EPOC/index_EPOC.html#schritt---modellierung-von-dotvo_2epoc-textfast",
+    "href": "EPOC/index_EPOC.html#schritt---modellierung-von-dotvo_2epoc-textfast",
+    "title": "Bestimmung der EPOC-Modelle",
+    "section": "",
+    "text": "In einem dritten Schritt wurde schließlich die Modellfunktion der \\(\\dot{V}O_{2EPOC, \\text{fast}}\\) der gesamten bi-exponentiellen Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten Parameter der \\(\\dot{V}O_{2EPOC, \\text{slow}}\\) und \\(\\dot{V}O_{2Ruhe}\\):\n\\[\n\\dot{V}O_{2EPOC, fast} = A_{fast} \\times e^{-(t / \\tau_{fast})}\n\\]\n\n\n\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{fast}}\\)\n\n\n\n\n\n\n\nBestimmung von \\(\\tau\\)\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{slow}}\\)\nBestimmung von \\(\\dot{V}O_{2EPOC, \\text{fast}}\\)",
+    "crumbs": [
+      "Bestimmung der EPOC-Modelle"
     ]
   },
   {
@@ -369,9 +399,9 @@
     "href": "EPOC/Proband06.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 06 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 06 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 06"
     ]
   },
@@ -382,7 +412,7 @@
     "section": "Proband 06",
     "text": "Proband 06\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 06"
     ]
   },
@@ -391,9 +421,9 @@
     "href": "EPOC/Proband13.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 13 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 13 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 13"
     ]
   },
@@ -404,7 +434,7 @@
     "section": "Proband 13",
     "text": "Proband 13\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 13"
     ]
   },
@@ -413,9 +443,9 @@
     "href": "EPOC/Proband19.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 19 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 19 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 19"
     ]
   },
@@ -426,7 +456,7 @@
     "section": "Proband 19",
     "text": "Proband 19\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 19"
     ]
   },
@@ -435,9 +465,9 @@
     "href": "EPOC/Proband22.html",
     "title": "",
     "section": "",
-    "text": "EPOC-ModelleProband 22 Code",
+    "text": "Bestimmung der EPOC-ModelleProband 22 Code",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 22"
     ]
   },
@@ -448,7 +478,7 @@
     "section": "Proband 22",
     "text": "Proband 22\n\nTest 1Test 2Test 3Test 4Test 5Test 6",
     "crumbs": [
-      "EPOC-Modelle",
+      "Bestimmung der EPOC-Modelle",
       "Proband 22"
     ]
   },

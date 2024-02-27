@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wirkungsgrad auf dem Radergometer im Sitzen und Stehen - EPOC-Modelle</title>
+<title>Wirkungsgrad auf dem Radergometer im Sitzen und Stehen - Bestimmung der EPOC-Modelle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,6 +77,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,6 +109,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -119,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../EPOC/index_EPOC.html">EPOC-Modelle</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../EPOC/index_EPOC.html">Bestimmung der EPOC-Modelle</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../EPOC/index_EPOC.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">EPOC-Modelle</span></a>
+ <span class="menu-text">Bestimmung der EPOC-Modelle</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -277,14 +309,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Inhalt auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#modellierung-der-anaerob-alaktazide-energiekomponente" id="toc-modellierung-der-anaerob-alaktazide-energiekomponente" class="nav-link active" data-scroll-target="#modellierung-der-anaerob-alaktazide-energiekomponente">Modellierung der anaerob-alaktazide Energiekomponente</a>
+  <ul class="collapse">
+  <li><a href="#schritt---bestimmung-von-tau" id="toc-schritt---bestimmung-von-tau" class="nav-link" data-scroll-target="#schritt---bestimmung-von-tau">1. Schritt - Bestimmung von <span class="math inline">\(\tau\)</span></a></li>
+  <li><a href="#schritt---modellierung-von-dotvo_2epoc-textslow" id="toc-schritt---modellierung-von-dotvo_2epoc-textslow" class="nav-link" data-scroll-target="#schritt---modellierung-von-dotvo_2epoc-textslow">2. Schritt - Modellierung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span></a></li>
+  <li><a href="#schritt---modellierung-von-dotvo_2epoc-textfast" id="toc-schritt---modellierung-von-dotvo_2epoc-textfast" class="nav-link" data-scroll-target="#schritt---modellierung-von-dotvo_2epoc-textfast">3. Schritt - Modellierung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span></a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">EPOC-Modelle</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Bestimmung der EPOC-Modelle</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -301,11 +344,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Erklärungen der folgenden Variablen… asdf</p>
+<section id="modellierung-der-anaerob-alaktazide-energiekomponente" class="level1">
+<h1>Modellierung der anaerob-alaktazide Energiekomponente</h1>
+<p>Um die anaerob-alaktazide Energiekomponente während jedes Belastungsintervalls zu berechnen, wurde die EPOC mittels nichtlinearer Regression unter Verwendung des folgenden bi-exponentiellen 4-Parameter-Modells modelliert:</p>
+<p><span class="math display">\[
+\dot{V}O_{2EPOC} = A_{fast} \times e^{-(t / \tau_{fast})} + A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(A_{\text{fast}} = AS\)</span>: Amplitude der schnellen EPOC-Komponente</li>
+<li><span class="math inline">\(A_{\text{slow}} = AL\)</span>: Amplitude der langsamen EPOC-Komponente</li>
+<li><span class="math inline">\(\tau_{\text{schnell}} = \tau_{S}\)</span>: Zeitkonstante der schnellen EPOC-Komponente</li>
+<li><span class="math inline">\(\tau_{\text{slow}} = \tau_{L}\)</span>: Zeitkonstante der langsamen EPOC-Komponente</li>
+</ul>
+<p>Da die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der Sauerstoffvolumenstrom in der Nachatmungsphase (= <span class="math inline">\(\dot{V}O_{2EPOC}\)</span>) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der Sauerstoffvolumenstrom im Ruhezustand (= <span class="math inline">\(\dot{V}O_{2Ruhe}\)</span>). <span class="math inline">\(\dot{V}O_{2Ruhe}\)</span> wurde vor den Belastungsintervallen ermittelt. Unter Bedingungen vollständiger Ruhe hätte ein langsamer und stetiger Rückgang des <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> erwartet werden können. Diese Situation bedingte, dass die langsame Komponente der EPOC (= <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span>) nicht gemäß den Erwartungen modelliert werden konnte, da sie in den meisten Fällen keinen signifikanten Abfall zeigte. Dies hatte zur Folge, dass die darauffolgend berechnete anaerob-alaktazide Energiekomponente tendenziell überschätzt wurde.</p>
+<p>Um den Verlauf von <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> spätestens 60 Minuten nach Beendigung der Belastung annähernd auf das Niveau von <span class="math inline">\(\dot{V}O_{2Ruhe}\)</span> zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span> repräsentiert.</p>
+<section id="schritt---bestimmung-von-tau" class="level2">
+<h2 class="anchored" data-anchor-id="schritt---bestimmung-von-tau">1. Schritt - Bestimmung von <span class="math inline">\(\tau\)</span></h2>
+<p>Um den Zeitraum der <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span> in Abhängigkeit von der individuellen Abfallkinetik des <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> für jede Nachatmungsphase zu bestimmen, wurde im <strong>ersten Schritt</strong> die Zeitkonstante <span class="math inline">\(\tau\)</span> mittels einer nichtlinearen Regression basierend auf folgendem exponentiellen Drei-Parameter-Modell modelliert:</p>
+<p><span class="math display">\[
+\dot{V}O_{2EPOC} = A \times e^{-(t / \tau)} + C
+\]</span></p>
+<p>Anhand von <span class="math inline">\(\tau\)</span> wurde der Zeitraum der <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span> im Verhältnis zur <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span> abgegrenzt. Hierbei diente das Zweifache der Zeitkonstante (= <span class="math inline">\(2\tau\)</span>) als Grenzwert, der den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> stattgefunden hat.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/01_1_tau.html" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Bestimmung von \tau"><embed src="images/01_1_tau.html" width="1200" height="500"></a></p>
+<figcaption>Bestimmung von <span class="math inline">\(\tau\)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="schritt---modellierung-von-dotvo_2epoc-textslow" class="level2">
+<h2 class="anchored" data-anchor-id="schritt---modellierung-von-dotvo_2epoc-textslow">2. Schritt - Modellierung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span></h2>
+<p>Um die Abfallkinetik der <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span> unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span> von <span class="math inline">\(2\tau\)</span> bis <span class="math inline">\(8\tau\)</span> festgelegt Bis zum Zeitpunkt <span class="math inline">\(8\tau\)</span> haben annähernd 99,75% des Abfalls von <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> stattgefunden. In einem <strong>zweiten Schritt</strong> erfolgte die Modellierung der <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span> mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von <span class="math inline">\(\dot{V}O_{2EPOC}\)</span> im Zeitfenster von <span class="math inline">\(2\tau\)</span> bis <span class="math inline">\(8\tau\)</span> sowie simulierten Ruhewerten ab 3600 Sekunden.:</p>
+<p><span class="math display">\[
+\dot{V}O_{2EPOC, slow} = A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/01_1_slow.html" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Bestimmung von \dot{V}O_{2EPOC, \text{slow}}"><embed src="images/01_1_slow.html" width="1200" height="500"></a></p>
+<figcaption>Bestimmung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="schritt---modellierung-von-dotvo_2epoc-textfast" class="level2">
+<h2 class="anchored" data-anchor-id="schritt---modellierung-von-dotvo_2epoc-textfast">3. Schritt - Modellierung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span></h2>
+<p>In einem <strong>dritten Schritt</strong> wurde schließlich die Modellfunktion der <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span> der gesamten bi-exponentiellen Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten Parameter der <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span> und <span class="math inline">\(\dot{V}O_{2Ruhe}\)</span>:</p>
+<p><span class="math display">\[
+\dot{V}O_{2EPOC, fast} = A_{fast} \times e^{-(t / \tau_{fast})}
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/01_1.html" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Bestimmung von \dot{V}O_{2EPOC, \text{fast}}"><embed src="images/01_1.html" width="1200" height="500"></a></p>
+<figcaption>Bestimmung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span></figcaption>
+</figure>
+</div>
 
 
 <!-- -->
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Bestimmung von <span class="math inline">\(\tau\)</span></span>
+<span class="glightbox-desc lightbox-desc-2">Bestimmung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{slow}}\)</span></span>
+<span class="glightbox-desc lightbox-desc-3">Bestimmung von <span class="math inline">\(\dot{V}O_{2EPOC, \text{fast}}\)</span></span>
+</div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -903,15 +1005,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "EPOC-Modelle"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Bestimmung der EPOC-Modelle"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Modellierung der anaerob-alaktazide Energiekomponente</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Um die anaerob-alaktazide Energiekomponente während jedes Belastungsintervalls zu berechnen, wurde die EPOC mittels nichtlinearer Regression unter Verwendung des folgenden bi-exponentiellen 4-Parameter-Modells modelliert:</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Erklärungen der folgenden Variablen...</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>asdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>\dot{V}O_{2EPOC} = A_{fast} \times e^{-(t / \tau_{fast})} + A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$A_{\text{fast}} = AS$: Amplitude der schnellen EPOC-Komponente</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$A_{\text{slow}} = AL$: Amplitude der langsamen EPOC-Komponente</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$\tau_{\text{schnell}} = \tau_{S}$: Zeitkonstante der schnellen EPOC-Komponente</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$\tau_{\text{slow}} = \tau_{L}$: Zeitkonstante der langsamen EPOC-Komponente</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Da die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der Sauerstoffvolumenstrom in der Nachatmungsphase (= $\dot{V}O_{2EPOC}$) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der Sauerstoffvolumenstrom im Ruhezustand (= $\dot{V}O_{2Ruhe}$). $\dot{V}O_{2Ruhe}$ wurde vor den Belastungsintervallen ermittelt. Unter Bedingungen vollständiger Ruhe hätte ein langsamer und stetiger Rückgang des $\dot{V}O_{2EPOC}$ erwartet werden können. Diese Situation bedingte, dass die langsame Komponente der EPOC (= $\dot{V}O_{2EPOC, \text{slow}}$) nicht gemäß den Erwartungen modelliert werden konnte, da sie in den meisten Fällen keinen signifikanten Abfall zeigte. Dies hatte zur Folge, dass die darauffolgend berechnete anaerob-alaktazide Energiekomponente tendenziell überschätzt wurde.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Um den Verlauf von $\dot{V}O_{2EPOC}$ so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass $\dot{V}O_{2EPOC}$ spätestens 60 Minuten nach Beendigung der Belastung annähernd auf das Niveau von $\dot{V}O_{2Ruhe}$ zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die $\dot{V}O_{2EPOC, \text{fast}}$ repräsentiert.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Schritt - Bestimmung von $\tau$</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Um den Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ in Abhängigkeit von der individuellen Abfallkinetik des $\dot{V}O_{2EPOC}$ für jede Nachatmungsphase zu bestimmen, wurde im **ersten Schritt** die Zeitkonstante $\tau$ mittels einer nichtlinearen Regression basierend auf folgendem exponentiellen Drei-Parameter-Modell modelliert:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>\dot{V}O_{2EPOC} = A \times e^{-(t / \tau)} + C</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Anhand von $\tau$ wurde der Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ im Verhältnis zur $\dot{V}O_{2EPOC, \text{slow}}$ abgegrenzt. Hierbei diente das Zweifache der Zeitkonstante (= $2\tau$) als Grenzwert, der den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden hat.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="al">![Bestimmung von $\tau$](images/01_1_tau.html)</span>{width="1200" height="500"}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{slow}}$</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Um die Abfallkinetik der $\dot{V}O_{2EPOC, \text{slow}}$ unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die $\dot{V}O_{2EPOC, \text{slow}}$ von $2\tau$ bis $8\tau$ festgelegt Bis zum Zeitpunkt $8\tau$ haben annähernd 99,75% des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden. In einem **zweiten Schritt** erfolgte die Modellierung der $\dot{V}O_{2EPOC, \text{slow}}$ mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von $\dot{V}O_{2EPOC}$ im Zeitfenster von $2\tau$ bis $8\tau$ sowie simulierten Ruhewerten ab 3600 Sekunden.:</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>\dot{V}O_{2EPOC, slow} = A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="al">![Bestimmung von $\dot{V}O_{2EPOC, \text{slow}}$](images/01_1_slow.html)</span>{width="1200" height="500"}</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{fast}}$</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>In einem **dritten Schritt** wurde schließlich die Modellfunktion der $\dot{V}O_{2EPOC, \text{fast}}$ der gesamten bi-exponentiellen Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten Parameter der $\dot{V}O_{2EPOC, \text{slow}}$ und $\dot{V}O_{2Ruhe}$:</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>\dot{V}O_{2EPOC, fast} = A_{fast} \times e^{-(t / \tau_{fast})}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="al">![Bestimmung von $\dot{V}O_{2EPOC, \text{fast}}$](images/01_1.html)</span>{width="1200" height="500"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -927,6 +1071,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
