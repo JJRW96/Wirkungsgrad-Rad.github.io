@@ -17,7 +17,7 @@ $$
 
 Da die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der Sauerstoffvolumenstrom in der Nachatmungsphase (= $\dot{V}O_{2EPOC}$) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der Sauerstoffvolumenstrom im Ruhezustand (= $\dot{V}O_{2Ruhe}$). $\dot{V}O_{2Ruhe}$ wurde vor den Belastungsintervallen ermittelt. Unter Bedingungen vollständiger Ruhe hätte ein langsamer und stetiger Rückgang des $\dot{V}O_{2EPOC}$ erwartet werden können. Diese Situation bedingte, dass die langsame Komponente der EPOC (= $\dot{V}O_{2EPOC, \text{slow}}$) nicht gemäß den Erwartungen modelliert werden konnte, da sie in den meisten Fällen keinen signifikanten Abfall zeigte. Dies hatte zur Folge, dass die darauffolgend berechnete anaerob-alaktazide Energiekomponente tendenziell überschätzt wurde.
 
-Um den Verlauf von $\dot{V}O_{2EPOC}$ so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass $\dot{V}O_{2EPOC}$ spätestens 60 Minuten nach Beendigung der Belastung annähernd auf das Niveau von $\dot{V}O_{2Ruhe}$ zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die $\dot{V}O_{2EPOC, \text{fast}}$ repräsentiert.
+Um den Verlauf von $\dot{V}O_{2EPOC}$ so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass $\dot{V}O_{2EPOC}$ ca. 30 Minuten nach Beendigung der Belastung annähernd auf das Niveau von $\dot{V}O_{2Ruhe}$ zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die $\dot{V}O_{2EPOC, \text{fast}}$ repräsentiert.
 
 ## 1. Schritt - Bestimmung von $\tau$
 
@@ -33,7 +33,7 @@ Anhand von $\tau$ wurde der Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ im Verh
 
 ## 2. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{slow}}$
 
-Um die Abfallkinetik der $\dot{V}O_{2EPOC, \text{slow}}$ unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die $\dot{V}O_{2EPOC, \text{slow}}$ von $2\tau$ bis $8\tau$ festgelegt Bis zum Zeitpunkt $8\tau$ haben annähernd 99,75% des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden. In einem **zweiten Schritt** erfolgte die Modellierung der $\dot{V}O_{2EPOC, \text{slow}}$ mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von $\dot{V}O_{2EPOC}$ im Zeitfenster von $2\tau$ bis $8\tau$ sowie simulierten Ruhewerten ab 3600 Sekunden.:
+Um die Abfallkinetik der $\dot{V}O_{2EPOC, \text{slow}}$ unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die $\dot{V}O_{2EPOC, \text{slow}}$ von $2\tau$ bis $8\tau$ festgelegt Bis zum Zeitpunkt $8\tau$ haben annähernd 99,75% des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden. In einem **zweiten Schritt** erfolgte die Modellierung der $\dot{V}O_{2EPOC, \text{slow}}$ mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von $\dot{V}O_{2EPOC}$ im Zeitfenster von $2\tau$ bis $8\tau$ sowie simulierten Ruhewerten ab 1800 Sekunden.:
 
 $$
 \dot{V}O_{2EPOC, slow} = A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}
