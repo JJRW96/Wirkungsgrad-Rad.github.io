@@ -697,6 +697,9 @@ for (name in names(Kinematik_list)) {
   # Speichere das bearbeitete DataFrame in PInt_Kinematik_list
   PInt_Kinematik_list[[name]] <- df
   
+  # Berechne den Mittelwert von nD_avg
+  mean_nD_avg <- mean(df$nD_avg, na.rm = TRUE)
+  
   # Erstelle die Plotly-Plots und speichere sie in plotly_Pint_list
   plot1 <- plot_ly(df[1:(Laenge_Zyklus*1.5), ], x = ~Frame, y = ~PInt_Rechts_smooth, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
     add_trace(y = ~PInt_Links_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
@@ -710,13 +713,20 @@ for (name in names(Kinematik_list)) {
     layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
     layout(xaxis = list(title = "Frame"))
   
-  plot3 <- plot_ly(df, x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+  plot3 <- plot_ly(df, x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
     add_trace(y = ~PInt_Links_Positiv_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
     add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
     layout(title = paste('Test', name),
            margin = list(t = 40),
-           yaxis = list(title = "PInt-Positiv für alle Zyklen"), 
-           xaxis = list(title = "Frame"))
+           yaxis = list(title = "PInt-Positiv für alle Zyklen", range = c(0, 80), dtick = 10), 
+           xaxis = list(title = "Frame", dtick = 200),
+           annotations = list(
+             list(x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+                  text = paste("nD_avg =", round(mean_nD_avg, 2)),
+                  showarrow = FALSE,
+                  font = list(
+                    size = 12
+                  ))))
   
   plot4 <- plot_ly(df, x = ~Grad, y = ifelse(df$PInt_Rechts_Positiv_smooth == 0, NA, df$PInt_Rechts_Positiv_smooth), type = "scatter", mode = "markers", name = "Rechts", marker = list(color = "#42BA97")) %>%
     add_trace(y = ifelse(df$PInt_Links_Positiv_smooth == 0, NA, df$PInt_Links_Positiv_smooth), name = "Links", mode = "markers", marker = list(color = "#F4737A")) %>%
