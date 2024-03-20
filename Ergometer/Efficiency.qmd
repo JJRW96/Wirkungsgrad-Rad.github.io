@@ -4,13 +4,9 @@ execute:
   echo: false
   warning: false
   error: false
-
 ---
 
-
 # Torque Efficiency {.tabset}
-
-
 
 ```{r}
 # Library und dfs laden
@@ -54,7 +50,6 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
-
 ## Berechnung
 
 ![Berechnung der Torque Efficiency](images/Torque_Efficiency.png)
@@ -87,7 +82,7 @@ df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 2
 
 ### Schwer x Sitzen
 
-![](images/P_schwer_stehen.png) 
+![](images/P_schwer_stehen.png)
 
 ## Kreisdiagramme {.tabset}
 

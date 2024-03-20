@@ -4,11 +4,17 @@ execute:
   echo: false
   warning: false
   error: false
-
 ---
 
 # Innere Arbeit
 
+Innere Arbeit, auch bekannt als Blind- oder Leerleistung, spielt eine zentrale Rolle bei zyklischen Bewegungen wie dem Radfahren. Sie resultiert aus der erforderlichen Rotation und Verschiebung der Gliedmaßenschwerpunkte, was unerlässlich für die Aufrechterhaltung der Gesamtkörperbalance ist. Die Innere Arbeit, obwohl sie keine externen vortriebswirksamen Kräfte erzeugt, ist für die kontinuierliche Bewegung entscheidend und unterscheidet sich damit von der externen Arbeit, die für den direkten Vortrieb verantwortlich ist.
+
+Im Rahmen der Radfahrbewegung bewegen sich Beine und Gliedmaßen entlang eines spezifischen Pfades und verbrauchen Energie, um diese Bewegung aufrechtzuerhalten. Aus physikalischer Perspektive entsteht dabei bei einem vollständigen Bewegungszyklus keine Nettoarbeit, da Anfangs- und Endpositionen gleich sind. Diese muskuläre Leistung reflektiert die innere Arbeit, die, obwohl ohne direkten Beitrag zum Vortrieb, für die Bewegungsdynamik essentiell ist.
+
+Verschiedene Faktoren beeinflussen diese innere Arbeit und führen insbesondere bei hohen Trittraten zu einer Zunahme der metabolischen Kosten. Diese Faktoren umfassen die durch die Hill-Gleichung beschriebene verminderte Kraftproduktion der Muskeln bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Aktivierung von Agonisten und Antagonisten – was zu einem erhöhten Abbremsen der Streckbewegung der unteren Extremität führt – und den Reibungs- sowie Viskositätswiderstand von Gelenkknorpel, Bändern und anderen bewegungsunterstützenden Strukturen. Insbesondere das verstärkte Abbremsen der Streckbewegung bei hohen Drehraten, verbunden mit einer höheren muskulären Leistung der Antagonisten, führt zu hohen Blindleistungen.
+
+Durch eine detaillierte Betrachtung dieser Prozesse – das Erfassen aller Energiebeiträge entlang des Bewegungsverlaufs – erhalten wir ein umfassendes Verständnis der energetischen Anforderungen der Bewegung. Diese Analyse ähnelt der Betrachtung der mechanischen Arbeit über einen gesamten Pedalzyklus und veranschaulicht, wie trotz der Abwesenheit von Nettoarbeit Energie für die Aufrechterhaltung der Bewegung eingesetzt wird. Damit kann die Rolle der inneren Arbeit im Kontext der Tretbewegung beim Radfahren dargestellt werden.
 
 ```{r}
 # Library und dfs laden
@@ -52,43 +58,46 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
+## Kinematik Daten
 
+Die Bestimmung der inneren Arbeit erfolgte mit Hilfe einer dreidimensionalen Bewegungserfassung. Dazu werden Marker an den Oberflächenrepräsentaten der angenommenen Positionen der relevanten Gelenken für die Bewegung angebracht. Die Einschätzung der Positionen der jeweiligen Gelenkzentren erfolgt aufgrund von anatomischen Annahmen und deren geometrische Beziehungen. Dazu wurde vor den Tests Marker auf einem eng anliegenden Anzug, einer Hose sowie auf Schweißbändern, den Radschuhen und einem Kopfband befestigt. Die Positionierung der Marker orientiert sich am Ganzkörpermodellierungsmodell "Full body modelling with Plug-in Gait", dessen Details in der nachstehenden Abbildung dargestellt sind. Die nahinfrarot reflektierenden Marker wurden durch ein Kamerasystem von acht Vicon Vero Kameras erfasst, die im Labor um das Fahrradergometer positioniert wurden, um den Bereich abzudecken, in dem sich der Proband bewegt. Das Vicon-System erfasst dabei fortlaufend Bilder und verfolgt die Position und Bewegung der Marker im Raum.
 
+![Proband mit allen angelegten Messystemen und Marker-Anzug](images/Marker.png)
 
+## Berechnung der Inneren Arbeit
+::: columns
+::: {.column width="65%"}
+In den folgenden Abschnitten werden aus den erfassten Kinematikdaten des Fahrradfahrens mechanische und kinematische Parameter der Tretbewegung berechnet. Diese Berechnungen basieren auf der Kinematik von Drehbewegungen menschlicher Gliederketten, die eine wichtige Grundlage für das Verständnis der Bewegungsmechanik beim Radfahren darstellen. Die Analyse zielt darauf ab, ein detailliertes Verständnis der Bewegungs- und Leistungsdynamik zu ermöglichen, und berücksichtigt dabei die Wechselbeziehungen zwischen den achsenbezogenen kinematischen Größen – wie Winkel und Winkelgeschwindigkeiten – der menschlichen Bein-Gliederketten. Diese Größen werden in Abhängigkeit von der Winkelgeschwindigkeit des Pedalarms sowie den geometrischen Beziehungen der Gliederketten bestimmt. Die Bestimmung der relevanten Parameter erfolgte folgendermaßen:
 
-## Anthropometrische Tabellen
-### Weiblich
+**Berechnung der relevanten Winkel:** Zunächst wurden die Winkel bestimmt, die die Positionen und Bewegungen der Füße (P1), Knie (P2) und Hüfte (P3) relativ zur Kurbelachse des Fahrrads repräsentieren. Diese Winkel beschreiben die Ausrichtung und Bewegung der Beine während des Pedalzykluses. Der Winkel phi1, der die jeweilige Winkelstellung des Kurbelarmes im Bezug zu einem Startpunkt während des Pedalzykluses repräsentiert, wird aus der Position von P1 relativ zur Kurbelachse berechnet.
 
+**Berechnung der Winkelgeschwindigkeiten:** Aus den Änderungen der Winkel über die Zeit werden Winkelgeschwindigkeiten (omega) abgeleitet. Zusätzlich werden die Winkelgeschwindigkeiten für das obere (OS) und untere Segment (US) des Beines separat berechnet.
 
-```{r}
+**Ermittlung der kinetischen Energie:** Die rotatorische kinetische Energie wird für den Oberschenkel, den Unterschenkel sowie die Fahrradkurbel berechnet, basierend auf ihren jeweiligen Winkelgeschwindigkeiten (omega_SpOS & omega_SpUS) und Trägheitsmomenten (thetaOS & thetaUS). Die translatorische kinetische Energie wird aus den Geschwindigkeiten der Schwerpunkte der Beinsegmente (v_SpOS & v_SpUS) sowie den jeweiligen Segmentmassen (mOS & mUS) bestimmt.
 
-# Nachkommastellen runden
-df_anthropometrisch_female <- df_anthropometrisch_female %>%
-  mutate_at(vars(everything()), round, 2)
+**Berechnung der inneren Arbeit & Blindleistung:** Die zentrale Größe in dieser Berechnung ist die integrierte Leistung, die Blindleistung, die aus der Änderung der kinetischen Energie über die Zeit integriert wird. Die Blindleistung reflektiert, wie viel Arbeit vom Fahrer in einem bestimmten Zeitintervall geleistet wird. Die Berechnung der Blindleistung erfolgt sowohl für die rotierende als auch für die translatorische Bewegung.
+:::
+::: {.column width="35%"}
+![Das auf einer Viergelenk-Gliederkette basierende Simulationsmodell der Kurbel- und Beinbewegung für den Radsport, dargestellt an einem Fahrradergometer (Sagittalebene)](images/PInt_Simulation.png)
+:::
+:::
 
-# Datentabelle mit DT darstellen
-datatable(df_anthropometrisch_female)
+<!--Dynamik der Beinbewegungen: Zusätzlich zu den oben genannten Berechnungen werden die Längen und Geschwindigkeiten der Beinsegmente analysiert, um ein vollständiges Bild der Bewegungsdynamik zu erhalten. Dies beinhaltet die Berechnung der tatsächlichen Längen der Oberschenkel und Unterschenkel sowie deren Bewegungsgeschwindigkeiten. Diese Informationen sind entscheidend, um die Mechanik der Beinbewegungen während des Fahrradfahrens zu verstehen und um Bereiche für mögliche Verbesserungen in der Effizienz oder in der Technik zu identifizieren. -->
 
-```
+##### **Code zur Berechnung der Inneren Arbeit und Erstellung des Simulationsmodells**
 
-### Männlich
+```{r echo=TRUE, output=FALSE}
 
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
 
-```{r}
-# Nachkommstellen runden
-df_anthropometrisch_male <- df_anthropometrisch_male %>%
-  mutate_at(vars(everything()), round, 2)
-
-# Datentabelle mit DT darstellen
-datatable(df_anthropometrisch_male)
-```
-
-
-## Rechenweg der Inneren Arbeit (Code) 
-
-```{r echo=TRUE} 
+# Neue Spalten für die berechnete Leistung und den verwendeten Faktor 
+Erg_data_df$Faktor_Used <- NA  
+Erg_data_df$PInt_Modell <- NA
 
 # ------------ Berechnungen_P_Int ----------
+# Initialisiere die Liste für Dataframes
+PInt_list <- list()
+
 # ------------ Eingabeparameter ------------ 
 # Schleife über alle Zeilen in Erg_data_df
 for(i in 1:nrow(Erg_data_df)) {
@@ -101,6 +110,8 @@ for(i in 1:nrow(Erg_data_df)) {
   uOS <- as.numeric(Erg_data_df[i, 'uOS'])
   uUS <- as.numeric(Erg_data_df[i, 'uUS'])
   nD <- as.numeric(Erg_data_df[i, 'nD'])
+  Umdrehungen_ges <- as.numeric(Erg_data_df[i, 'Umdrehungen_ges'])
+  nD_HZ <- as.numeric(Erg_data_df[i, 'nD_Hz'])
   Testdauer <- 300
 
   # Konstanten und weitere Berechnungen
@@ -131,6 +142,7 @@ for(i in 1:nrow(Erg_data_df)) {
   delta_phi1 <- 2 * pi / n # Winkelintervalle
   phi1 <- seq(0, 2 * pi, by=delta_phi1) # Erstellung von Winkelintervallen für eine komplette Umdrehung
   phi1 <- phi1[-length(phi1)]  # Entfernt das letzte Element
+  grad <- phi1 * 180 / pi # Umrechnung von Bogenmaß in Grad
   time <- seq(0, T, by=delta_t) # Erstellung von Zeitintervallen für eine komplette Umdrehung
   time <- time[-length(time)]  # Entfernt das letzte Element
   
@@ -158,6 +170,13 @@ for(i in 1:nrow(Erg_data_df)) {
   
   # Überprüfung, ob die Segmentlängen zusammen größer sind als die berechnete Länge c
   control <- sum(ifelse(lUS + lOS <= c, 1, 0))
+  
+  # Ausgabe, ob control bzw. die Segmentlängen größer sind als c
+  if (control > 0) {
+    print("Mindestens eine Segmentlänge ist größer als c.")
+  } else {
+    print("Alle Segmentlängen sind kleiner oder gleich c.")
+  }
   
   # Speichere den verwendeten Faktor in der Spalte 'Faktor_Used'
   Erg_data_df$Faktor_Used[i] <- Faktor
@@ -211,22 +230,734 @@ for(i in 1:nrow(Erg_data_df)) {
   Ekin_rot <- 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2)
   
   # Delta der kinetischen Energie (translatorisch) für zyklische Bewegung
-  delta_Ekin_trans <- c(abs(diff(Ekin_trans)), abs(Ekin_trans[1] - Ekin_trans[length(Ekin_trans)]))
+  delta_Ekin_trans <- c(diff(Ekin_trans), Ekin_trans[1] - Ekin_trans[length(Ekin_trans)])
   
   # Delta der kinetischen Energie (rotatorisch) für zyklische Bewegung
-  delta_Ekin_rot <- c(abs(diff(Ekin_rot)), abs(Ekin_rot[1] - Ekin_rot[length(Ekin_rot)]))
+  delta_Ekin_rot <- c(diff(Ekin_rot), Ekin_rot[1] - Ekin_rot[length(Ekin_rot)])
+  
+  # Delta Gesamt für zyklische Bewegung
+  delta_Ekin_ges <- delta_Ekin_rot + delta_Ekin_trans 
   
   # Berechnung der internen Leistung für die aktuelle Drehzahl und Masse
-  PInt_Mittel_Zyklus_kJ <- mean(delta_Ekin_rot) + mean(delta_Ekin_trans) / mean(delta_t)
-  PInt_Ges_Watt <- PInt_Mittel_Zyklus_kJ / 1000 * Testdauer
+  PInt_Zyklus_Rechts <- delta_Ekin_ges / delta_t
+  PInt_Zyklus_Rechts_Positiv <- ifelse(PInt_Zyklus_Rechts < 0, 0, PInt_Zyklus_Rechts)
   
-  # Berechnen Sie PInt_Ges_Watt für die aktuelle Zeile und speichern Sie es im DataFrame
-  Erg_data_df$PInt_Ges_Watt[i] <- PInt_Ges_Watt
+  # Verschiebe die Werte von PInt_Zyklus_Rechts um 180 Positionen, um PInt_Zyklus_Links zu erhalten
+  verschieben <- 180 # Die Anzahl der Zeilen, die verschoben werden sollen
+  PInt_Zyklus_Links <- c(PInt_Zyklus_Rechts[(verschieben + 1):length(PInt_Zyklus_Rechts)], 
+                          PInt_Zyklus_Rechts[1:verschieben])
+  PInt_Zyklus_Links_Positiv <- ifelse(PInt_Zyklus_Links < 0, 0, PInt_Zyklus_Links)
+
+  # Durchschnittliche PInt alle Positiven Werte, Negative Werte = 0
+  PInt_Zyklus_mean <- mean(PInt_Zyklus_Rechts_Positiv) + mean(PInt_Zyklus_Links_Positiv)
+  #PInt_Zyklus_mean_0 <- mean(PInt_Zyklus_Rechts_Positiv[PInt_Zyklus_Rechts_Positiv != 0]) + mean(PInt_Zyklus_Links_Positiv[PInt_Zyklus_Links_Positiv != 0])
+  
+  # Geben Sie das berechnete _PInt_mean zurück
+  print(PInt_Zyklus_mean)
+  
+  # Berechnen Sie _PInt_mean für die aktuelle Zeile und speichern Sie es im DataFrame
+  #Erg_data_df$_PInt_mean[i] <- _PInt_mean
+  #Erg_data_df$PInt_Ges_Watt2[i] <- PInt_Ges_Watt2
+  
+  current_df <- data.frame(
+    Time = time,
+    Phi1 = phi1,
+    Grad = grad,
+    P1x = P1[[1]],
+    P1y = P1[[2]],
+    P2x = P2[[1]],
+    P2y = P2[[2]],
+    P3x = rep(P3[1], n),
+    P3y = rep(P3[2], n),
+    SpOS_X = SpOS[[1]],
+    SpOS_Y = SpOS[[2]],
+    SpUS_X = SpUS[[1]],
+    SpUS_Y = SpUS[[2]],
+    VOS = vOS,
+    VUS = vUS,
+    EkinTrans = Ekin_trans,
+    EkinRot = Ekin_rot,
+    DeltaEkinTrans = delta_Ekin_trans,
+    DeltaEkinRot = delta_Ekin_rot,
+    DeltaEkinGes = delta_Ekin_ges,
+    PIntMittelZyklusRechts = PInt_Zyklus_Rechts,
+    PIntMittelZyklusRechtsPositiv = PInt_Zyklus_Rechts_Positiv,
+    PIntMittelZyklusLinks = PInt_Zyklus_Links,
+    PIntMittelZyklusLinksPositiv = PInt_Zyklus_Links_Positiv,
+    PInt_Modell = PInt_Zyklus_mean
+  )
+  
+  # Füge den neuen Dataframe zur Liste hinzu
+  PInt_list[[i]] <- current_df
+  
+  # Benenne das i-te Element der Liste basierend auf den Werten der ersten beiden Spalten in Erg_data_df
+  name <- paste(Erg_data_df[i, 1], Erg_data_df[i, 2], sep = "_")
+  # Überprüfe, ob die Länge des Namens weniger als 4 ist
+  if(nchar(name) < 4) {
+    name <- paste0("0", name)  # Füge eine "0" vor dem Namen hinzu, falls notwendig
+  }
+  names(PInt_list)[i] <- name
+  
+  # Berechnen Sie PInt_mean für die aktuelle Zeile und speichern Sie es im DataFrame
+  Erg_data_df$PInt_Modell[i] <- mean(current_df$PInt_Modell)
+}
+
+df <- PInt_list[["15_5"]]
+
+# Für Website einheitliche Achsen setzen
+range_x <- c(-0.5, 0.5)
+range_y <- c(-0.4, 1)
+
+df$P0x <- 0
+df$P0y <- 0
+
+Modell_Simulation <- plot_ly(data = df[0000:0360,], frames = ~Grad) %>%
+  
+  # Verlauf von P1
+  add_trace(
+    x = ~P1x,
+    y = ~P1y,
+    type = 'scatter',
+    mode = 'lines',
+    name = "P1 Path",
+    line = list(color = 'lightgrey', dash = 'dot'), 
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P1
+  add_trace(
+    x = ~P1x,
+    y = ~P1y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P1",
+    showlegend = FALSE
+  ) %>%
+
+  
+  # Trace für P3
+  add_trace(
+    x = ~P3x,
+    y = ~P3y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P3",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P2
+  add_trace(
+    x = ~P2x,
+    y = ~P2y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P2",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P0
+  add_trace(
+    x = ~P0x,
+    y = ~P0y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für SPOS
+  add_trace(
+    x = ~SpOS_X,
+    y = ~SpOS_Y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für SPUS
+  add_trace(
+    x = ~SpUS_X,
+    y = ~SpUS_Y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Segmente hinzufügen
+  add_segments(
+    x = ~P0x, xend = ~P1x,
+    y = ~P0y, yend = ~P1y,
+    frame = ~Grad,
+    line = list(color = 'black'),
+    showlegend = FALSE
+  ) %>%
+  
+  add_segments(
+    x = ~P2x, xend = ~P3x,
+    y = ~P2y, yend = ~P3y,
+    frame = ~Grad,
+    line = list(color = 'darkgrey'),
+    showlegend = FALSE
+  ) %>%
+  
+  add_segments(
+    x = ~P2x, xend = ~P1x,
+    y = ~P2y, yend = ~P1y,
+    frame = ~Grad,
+    line = list(color = 'darkgrey'),
+    showlegend = FALSE
+  ) %>%
+  
+  # Layout und weitere Einstellungen, inklusive der festgelegten Achsenbereiche
+  layout(
+    title = 'Kinematik-Modell',
+    margin = list(t = 40),
+    xaxis = list(title = 'X-Koordinate', range = range_x),
+    yaxis = list(title = 'Y-Koordinate', range = range_y),
+    showlegend = TRUE,
+    legend = list(x = 1, y = 1)
+  ) %>%
+  
+  # Animationsoptionen
+  animation_opts(
+    frame = 100,  # Dauer jedes Frames in Millisekunden
+    redraw = TRUE
+  ) %>%
+  
+  # Animation-Steuerelemente
+  animation_button(
+    label = "Play",
+    method = "animate",
+    args = list(NULL, list(frame = list(duration = 50, redraw = TRUE), fromcurrent = TRUE, mode = "immediate"))
+  ) %>%
+  
+  animation_slider(
+    currentvalue = list(prefix = "Grad: ")
+  )
+
+```
+
+
+### Erstellung - Simulaitonsmodell
+
+Aufgrund von Messungenauigkeiten oder Defiziten im Kamerasystem mit Markern war es nicht möglich, für jeden Probanden die erforderlichen kinematischen Daten zur Erstellung eines 2D-Simulationsmodells zu erhalten. Daher wurde zusätzlich ein alternatives Simulationsmodell basierend auf den verfügbaren anthropometrischen Daten der Probanden entwickelt, für die keine konkreten Kinematikdaten vorhanden waren. Für Probanden ohne die für die Modellbildung essentiellen anthropometrischen Daten wie Länge und Umfang von Ober- und Unterschenkel wurden diese Angaben entsprechend den Standardwerten aus folgenden anthropometrischen Tabellen bestimmt (siehe Abschnitt "Anthropometrische Tabellen").
+
+#### **Simulationsmodell auf Basis anthropometrische Daten und bekannten Größen**
+
+::: columns
+::: {.column width="65%"}
+**Erstellung des Simulationsmodells**
+
+Zunächst wurden alle für die Berechnung essentielle individuelle Parameter wie Körpermasse (Masse), die Längen der Beinsegmente (lOS & lUS), die Länge der Kurbel (lKurbel) sowie die Drehzahl (nD) erstellt. Der Abstand vom Hüftgelenk zur Kurbelachse, bezeichnet als S wurde mittels der Lemond-Methode bestimmt. Zudem wird die Position des Hüftgelenks (P3) im Raum mit seinen Koordinaten P3x und P3y festgelegt.
+
+Im nächsten Schritt, wurden die Winkel phi1, alpha und beta ermittelt. Diese Winkel definieren die Position und Bewegung der Beine und sind essentiell für die Berechnung der Winkelgeschwindigkeiten der Beinsegmente (thetaOS & thetaUS) sowie der kinetischen Energien der Beinsegmente und der Kurbel .
+
+Anschließend wurden die translatorische und rotatorische kinetische Energie für die Oberschenkel- und Unterschenkelsegmente sowie für die Kurbel berechnet. Diese Energien, bezeichnet als Ekin_trans und Ekin_rot, basieren auf den Geschwindigkeiten vOS und vUS sowie den Winkelgeschwindigkeiten omega_SpOS und omega_SpUS. Die Veränderungen dieser Energien über die Zeit (delta_Ekin_trans & delta_Ekin_rot) geben Aufschluss über die geleistete Arbeit und führen zur Berechnung der internen Leistung (PInt_Zyklus_Rechts und PInt_Zyklus_Links).
+
+Abschließend wird die interne Leistung für jeden Teil des Pedalzyklus, angegeben durch PInt_Zyklus_Rechts für das rechte Bein und PInt_Zyklus_Links für das linke Bein, berechnet. Die Werte von PInt_Zyklus_Links wurden um einen halben Zyklus verschoben, um die symmetrische Natur des Radfahrens zu reflektieren. Die durchschnittliche interne Leistung, bezeichnet als PInt_Zyklus_mean, ergibt sich aus den positiven Werten der Leistungsberechnungen für beide Beine.
+:::
+
+::: {.column width="35%"}
+![Das auf einer Viergelenk-Gliederkette basierende Simulationsmodell der Kurbel- und Beinbewegung für den Radsport, dargestellt an einem Fahrradergometer (Sagittalebene)](images/PInt_Simulation.png)
+:::
+:::
+
+
+##### **Simulationsmodell der Kurbel- und Beinbewegung auf dem Radergometer**
+
+::: columns
+::: {.column width="65%"}
+Zunächst wurden alle für die Berechnung essentielle individuelle Parameter wie Körpermasse (Masse), die Längen der Beinsegmente (lOS für Oberschenkel, lUS für Unterschenkel), die Länge der Kurbel (lKurbel) sowie die Drehzahl (nD) erstellt. In den geometrischen und kinematischen Grundlagenberechnungen wird der Abstand vom Hüftgelenk zur Kurbelachse, bezeichnet als S, mittels der Lemond-Methode bestimmt. Diese Methode basiert auf der Länge des Beins (lBein). Zudem wird die Position des Hüftgelenks (P3) im Raum mit seinen Koordinaten P3x und P3y festgelegt.
+
+Im nächsten Schritt, der kinematischen Sequenz und den energetischen Berechnungen, werden die Winkel phi1, alpha und beta ermittelt. Diese Winkel definieren die Position und Bewegung der Beine und sind essentiell für die Berechnung der Winkelgeschwindigkeiten der Beinsegmente sowie der kinetischen Energien der Beinsegmente und der Kurbel (thetaOS für den Oberschenkel, thetaUS für den Unterschenkel, thetaKurbel für die Kurbel).
+
+Bei den Energieumwandlungen und Leistungsberechnungen werden die translatorische und rotatorische kinetische Energie für die Oberschenkel- und Unterschenkelsegmente sowie für die Kurbel berechnet. Diese Energien, bezeichnet als Ekin_trans und Ekin_rot, basieren auf den Geschwindigkeiten vOS und vUS sowie den Winkelgeschwindigkeiten omega_SpOS und omega_SpUS. Die Veränderungen dieser Energien über die Zeit (delta_Ekin_trans und delta_Ekin_rot) geben Aufschluss über die geleistete Arbeit und führen zur Berechnung der internen Leistung (PInt_Zyklus_Rechts und PInt_Zyklus_Links).
+
+Abschließend wird die interne Leistung für jeden Teil des Pedalzyklus, angegeben durch PInt_Zyklus_Rechts für das rechte Bein und PInt_Zyklus_Links für das linke Bein, berechnet. Diese Werte werden um einen halben Zyklus verschoben, um die symmetrische Natur des Radfahrens zu reflektieren. Die durchschnittliche interne Leistung, bezeichnet als PInt_Zyklus_mean, ergibt sich aus den positiven Werten der Leistungsberechnungen für beide Beine, was ein Maß für die effektive Nutzung der mechanischen Energie durch den Radfahrer darstellt.
+:::
+
+::: {.column width="35%"}
+![Simulationsmodell](images/Modell_Simulation.html){fig-align="left" width="500" height="720"}
+:::
+:::
+
+
+##### **Code zur Berechnung der Inneren Arbeit auf Basis der tatsächlichen Kinematikdaten**
+
+```{r echo=TRUE, output=FALSE}
+
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
+Kinematik_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Formel, Berechnungen/Blindleistung/3D_Daten/Kinematik_list.rds")
+
+# Initialisiere die Listen für die Ergebnisse
+PInt_Kinematik_list <- list()
+plotly_Pint_list <- list()
+
+# Schleife durch alle Einträge in Kinematik_list
+for (name in names(Kinematik_list)) {
+  # Lese die Daten ein
+  df <- Kinematik_list[[name]]
+
+  # Definiere die ausgewählten Spalten und deren neue Namen direkt
+  selected_columns <- c(Frame = "Frame",
+                        P0x = "Kurbelachse_X", P0y = "Kurbelachse_Y",
+                        P3x = "LHJC_X", P3y = "LHJC_Y",
+                        P2x = "LKJC_X", P2y = "LKJC_Y",
+                        P1x = "LToe_X", P1y = "LToe_Y",
+                        LAJC_X = "LAJC_X", LAJC_Y = "LAJC_Y")
+  
+  # Entferne die erste und letzte Zeile, wähle und benenne die Spalten + Masse-Spalte
+  df <- df[-c(1, nrow(df)), ] %>% 
+    select(all_of(selected_columns)) %>%
+    mutate(Masse = Erg_data_df[Erg_data_df$Name == name, "Masse"]) 
+  
+  # Funktion, um korrekten Winkelunterschied für zyklische Bewegungen zu berechnen
+  corrected_delta_phi1 <- function(phi1) {
+    # Berechnet die Winkeldifferenz zwischen aufeinanderfolgenden Werten. Fügt 'NA' für den letzten Wert ein.
+    delta_phi1 = diff(phi1)
+    
+    # Korrigiert die Winkeldifferenzen, die die Grenzen einer zyklischen Bewegung überschreiten.
+    # Für Übergänge nahe der Grenzen (0 und 360 Grad oder 0 und 2*pi), passen wir die Differenz an,
+    # um korrekte kleine Werte zu erhalten statt großer Sprünge.
+    delta_phi1 = ifelse(delta_phi1 > pi, delta_phi1 - 2*pi, delta_phi1)
+    delta_phi1 = ifelse(delta_phi1 < -pi, delta_phi1 + 2*pi, delta_phi1)
+    
+    # Nimmt die letzten 3 Änderungen oder alle vorhandenen, falls weniger als 3
+    num_values = min(length(delta_phi1), 3)
+    last_values = tail(delta_phi1, num_values)
+    
+    # Berechnet die durchschnittliche Differenz der letzten Werte
+    avg_difference = mean(last_values, na.rm = TRUE)
+    
+    # Fügt die durchschnittliche Differenz zum letzten verfügbaren Wert hinzu, um den nächsten Wert zu schätzen
+    extrapolated_value = last(phi1) + avg_difference  # Der neue Wert basiert auf dem letzten phi1-Wert
+    
+    # Fügt den extrapolierten Wert zum Vektor hinzu
+    delta_phi1 = c(delta_phi1, extrapolated_value - last(phi1))  # Differenz zum letzten phi1
+    
+    return(delta_phi1)
+  }
+  
+  # Konstanten und Parameter
+  # Suche den Wert für 'Masse' basierend auf 'Name' in Erg_data_df
+  Masse <- Erg_data_df[Erg_data_df$Name == name, "Masse"]
+  uOS <- Erg_data_df[Erg_data_df$Name == name, "uOS"]
+  uUS <- Erg_data_df[Erg_data_df$Name == name, "uUS"]
+  lBein <- Erg_data_df[Erg_data_df$Name == name, "lBein"]
+  Faktor <- 1.0
+  S <- lBein * 0.883 * Faktor # Abstand vom Hüftgelenk zur Kurbelachse - Lemond Methode
+  rRelOS <- 0.1416 # relative Segmentmasse OS
+  rRelUS <- 0.0433 # relative Segmentmasse US
+  lambdaOS <- 0.4095 # Abstand zw. dem proximalen Punkt des Oberschenkelsegments und dessen Schwerpunkt
+  lambdaUS <- 0.4459 # Abstand proximaler Segmentpunkt - Schwerpunkt
+  mOS <- Masse * rRelOS # Segmentmasse OS
+  mUS <- Masse * rRelUS # Segmentmasse US
+  thetaKurbel <- 0.002  # Trägheitsmoment der Fahrradkurbel [kg m^2]                                                 
+  
+  # df Berechnen
+  df <- df %>%
+    mutate(
+           phi1 = ifelse(atan2(P1y, P1x) < 0, atan2(P1y, P1x) + 2 * pi, atan2(P1y, P1x)),
+           Grad = phi1 * (180 / pi),
+           delta_t = 1 / 100,
+           delta_phi1 = corrected_delta_phi1(phi1),
+           omega = delta_phi1 / delta_t,
+           nD = omega / (2 * pi) * 60,
+           nD_avg = mean(omega, na.rm = TRUE) / (2 * pi) * 60,
+           T = 60 / nD,
+           lOS = sqrt((P3x-P2x)^2+(P3y-P2y)^2),                                     # Gerade zwischen Hüfte und Knie
+           lUS = sqrt((P2x-LAJC_X)^2+(P2y-LAJC_Y)^2),                               # Gerade zwischen Knie und Ankle
+           lOS_avg = mean(lOS),
+           lUS_avg = mean(lUS),
+           thetaOS = (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS_avg^2,   # Trägheitsmoment des OS [kg m^2]
+           thetaUS = (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS_avg^2,   # Trägheitsmoment des OS [kg m^2]
+           SpOS_X = P3x - lambdaOS * (P3x-P2x),
+           SpOS_Y  = P3y - lambdaOS * (P3y-P2y),
+           SpUS_X  = P2x - lambdaOS * (P2x-LAJC_X),
+           SpUS_Y  = P2y - lambdaOS * (P2y-LAJC_Y),
+           d_SpOS = sqrt((lead(SpOS_X) - SpOS_X)^2 + (lead(SpOS_Y) - SpOS_Y)^2),    # Abstand zwischen aufeinanderfolgenden SpOS-Punkten
+           d_SpUS = sqrt((lead(SpUS_X) - SpUS_X)^2 + (lead(SpUS_Y) - SpUS_Y)^2),    # Abstand zwischen aufeinanderfolgenden SpUS-Punkten
+           v_SpOS = ifelse(is.na(d_SpOS), NA, d_SpOS / delta_t),                    # Geschwindigkeit von SpOS
+           v_SpUS = ifelse(is.na(d_SpUS), NA, d_SpUS / delta_t),                    # Geschwindigkeit von SpOS
+           phi2 = acos((P2x-P1x) / lUS),                                            # Winkeln zwischen x-Achse und Verbindung Pedale-Knie
+           phi3 = acos((P3x-P2x) / lOS),                                            # Winkel zwischen OS und Gestell
+           omega_SpOS = (lead(phi2) - phi2) / delta_t,
+           omega_SpUS = (lead(phi3) - phi3) / delta_t,
+           omega_Kurbel = (lead(phi2) - phi2) / delta_t,
+           Ekin_rot = 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2),
+           Ekin_trans = 0.5 * (mOS * v_SpOS^2 + mUS * v_SpUS^2),
+           delta_Ekin_rot = lead(Ekin_rot) - Ekin_rot,
+           delta_Ekin_trans = lead(Ekin_trans) - Ekin_trans,
+           delta_Ekin_ges = delta_Ekin_rot + delta_Ekin_trans,
+           PInt_Rechts = delta_Ekin_ges / delta_t
+    ) %>%
+    slice(1:(n() - 2)) %>%
+    select(Frame, Grad, phi1, delta_phi1, omega, T, nD, nD_avg, Masse, everything())
+  
+  # Ausreißer
+  # Erkennung und Behandlung von Ausreißern in PInt_Rechts
+  Q1 <- quantile(df$PInt_Rechts, 0.25, na.rm = TRUE)
+  Q3 <- quantile(df$PInt_Rechts, 0.75, na.rm = TRUE)
+  IQR <- Q3 - Q1
+  # Ausreißer sind Werte, die unter Q1 - 1.5*IQR oder über Q3 + 1.5*IQR liegen
+  lower_bound <- Q1 - 1.5 * IQR
+  upper_bound <- Q3 + 1.5 * IQR
+  
+  # Ersetze Ausreißer mit NA
+  df$PInt_Rechts <- ifelse(df$PInt_Rechts < lower_bound | df$PInt_Rechts > upper_bound, NA, df$PInt_Rechts)
+  
+  # Ersetzen der NA-Werte durch gleitende Mittelwerte
+  # Für jeden NA-Wert berechne den Durchschnitt der zwei oberen und unteren gültigen Werte
+  df$PInt_Rechts_imputed <- df$PInt_Rechts
+  
+  for (i in 1:length(df$PInt_Rechts_imputed)) {
+    if (is.na(df$PInt_Rechts_imputed[i])) {
+      # Finde die Indizes der nächsten drei gültigen Werte sowohl oberhalb als auch unterhalb des NA-Wertes
+      valid_indices_above <- which(!is.na(df$PInt_Rechts_imputed[i:min(i+2, nrow(df))]))
+      valid_indices_below <- which(!is.na(df$PInt_Rechts_imputed[max(i-2, 1):i]))
+      
+      # Berechne die Mittelwerte der gültigen Werte, falls vorhanden
+      if (length(valid_indices_above) > 0 && length(valid_indices_below) > 0) {
+        upper_mean <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+        lower_mean <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+        df$PInt_Rechts_imputed[i] <- mean(c(upper_mean, lower_mean), na.rm = TRUE)
+      } else if (length(valid_indices_above) > 0) {
+        df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+      } else if (length(valid_indices_below) > 0) {
+        df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+      }
+    }
+  }
+  # Übertragen der imputierten Werte zurück in die ursprüngliche Spalte
+  df$PInt_Rechts <- df$PInt_Rechts_imputed
+  # Löschen der Hilfsspalte
+  df$PInt_Rechts_imputed <- NULL
+  
+  # Zyklusfindung
+  ## Variablen
+  Startwert_Grad <- df$Grad[1]
+  Toleranz <- 3
+  ## Endpunkte und Anzahl
+  Ende_Zyklus_Indizes <- which(abs(df$Grad - Startwert_Grad) <= Toleranz)
+  diff_Ende_Zyklus_Indizes <- c(diff(Ende_Zyklus_Indizes), Toleranz + 1)  # Hinzufügen eines hohen Werts am Ende für den letzten Index
+  gefilterte_Indizes <- Ende_Zyklus_Indizes[diff_Ende_Zyklus_Indizes > 1] # Bereinigen der Indizes
+  Anzahl_Zyklen <- length(gefilterte_Indizes)-1
+  Werte_Indizes <- df$Grad[gefilterte_Indizes]
+  Ende_Zyklen <- gefilterte_Indizes[length(gefilterte_Indizes)]
+  df$Grad[Ende_Zyklen]
+  
+  # Beschränkung des DataFrames bis zum letzten gefundenen Zyklusende
+  df <- df[1:Ende_Zyklen, ]
+  
+  # Berechnung der durchschnittlichen Zykluslänge
+  Laenge_Zyklus <- round(length(df$Grad) / Anzahl_Zyklen, 0)
+  
+  # Einstellen der Verschiebung basierend auf Zykluslänge für Spaltenanpassungen
+  verschieben <- round(Laenge_Zyklus * 0.5)
+  
+  # Initialisierung und Berechnung verschobener Werte für PInt_Links
+  verschobene_Werte <- numeric(nrow(df))
+  for (i in 1:nrow(df)) {
+    index_in_PInt_Rechts <- ((i + verschieben - 1) %% nrow(df)) + 1
+    verschobene_Werte[i] <- df$PInt_Rechts[index_in_PInt_Rechts]
+  }
+  
+  # Zuweisung der verschobenen Werte und Anpassung negativer Werte
+  df$PInt_Links <- verschobene_Werte
+  df$PInt_Links_Positiv <- ifelse(df$PInt_Links < 0, 0, df$PInt_Links)
+  
+  # Definition der Breite des gleitenden Fensters für Glättung
+  fensterbreite <- 15
+  
+  # Aktualisierung der Daten mit geglätteten Werten und Durchschnittsbildung
+  df <- df %>%
+    mutate(
+      PInt_Rechts_Positiv = ifelse(PInt_Rechts < 0, 0, PInt_Rechts),
+      PInt_Kinematik = mean(PInt_Rechts_Positiv, na.rm = TRUE) + mean(PInt_Links_Positiv, na.rm = TRUE),
+      PInt_Rechts_smooth = rollmean(PInt_Rechts, fensterbreite, fill = NA, align = "right"),
+      PInt_Rechts_Positiv_smooth = ifelse(PInt_Rechts_smooth < 0, 0, PInt_Rechts_smooth),
+      PInt_Links_smooth = rollmean(PInt_Links, fensterbreite, fill = NA, align = "right"),
+      PInt_Links_Positiv_smooth = ifelse(PInt_Links_smooth < 0, 0, PInt_Links_smooth)
+    )
+  
+  # Speichere das bearbeitete DataFrame in PInt_Kinematik_list
+  PInt_Kinematik_list[[name]] <- df
+  
+  # Erstelle die Plotly-Plots und speichere sie in plotly_Pint_list
+  plot1 <- plot_ly(df[1:(Laenge_Zyklus*1.5), ], x = ~Frame, y = ~PInt_Rechts_smooth, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
+    layout(xaxis = list(title = "Frame"))
+  
+  plot2 <- plot_ly(df[1:(Laenge_Zyklus*4), ], x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_Positiv_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
+    layout(xaxis = list(title = "Frame"))
+  
+  plot3 <- plot_ly(df, x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_Positiv_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "PInt-Positiv für alle Zyklen"), 
+           xaxis = list(title = "Frame"))
+  
+  plot4 <- plot_ly(df, x = ~Grad, y = ifelse(df$PInt_Rechts_Positiv_smooth == 0, NA, df$PInt_Rechts_Positiv_smooth), type = "scatter", mode = "markers", name = "Rechts", marker = list(color = "#42BA97")) %>%
+    add_trace(y = ifelse(df$PInt_Links_Positiv_smooth == 0, NA, df$PInt_Links_Positiv_smooth), name = "Links", mode = "markers", marker = list(color = "#F4737A")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "PInt-Positiv über alle Zyklen"), 
+           xaxis = list(title = "Grad"))
+  
+  plot5 <- plot_ly(df, x = ~Frame, y = ~PInt_Links_Positiv_smooth, name = "Links", type = "scatter", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "PInt-Positiv für Links"), 
+           xaxis = list(title = "Frame"))
+  
+  # Speichere die Plots
+  plotly_Pint_list[[name]] <- list(plot1, plot2, plot3, plot4, plot5)
 }
 
 ```
 
-## Innere Arbeit 
+
+#### 2D-Simulationsmodelle anhand der Kinematik Daten
+
+::: columns
+::: {.column width="50%"}
+![Sitzen](images/Modell_Kinematik_sitzen_full.html){width="640" height="720"}
+:::
+
+::: {.column width="50%"}
+![Stehen](images/Modell_Kinematik_stehen_full.html){width="640" height="720"}
+:::
+:::
+
+#### 2D-Simulationsmodelle anhand der Kinematik Daten für die Berechnung
+
+::: columns
+::: {.column width="50%"}
+![Sitzen](images/Modell_Kinematik_sitzen.html){width="500" height="720"}
+:::
+
+::: {.column width="50%"}
+![Stehen](images/Modell_Kinematik_stehen.html){width="500" height="720"}
+:::
+:::
+
+#### Verlauf PInt anhand simulierter Kinematik-Daten
+
+``` {r}
+PInt_df <- PInt_list[["13_5"]]
+
+plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklusRechts, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+  add_trace(y = ~PIntMittelZyklusLinks, name = "Links", mode = "lines",
+            line = list(color = "#F4737A")) %>%
+  layout(yaxis = list(title = "PInt für einen Zyklus")) %>%
+  layout(xaxis = list(title = "Grad °"))
+
+plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklusRechtsPositiv, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+  add_trace(y = ~PIntMittelZyklusLinksPositiv, name = "Links", mode = "lines",
+            line = list(color = "#F4737A")) %>%
+  add_trace(y = ~PInt_Modell, name = "PInt_Modell", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+  layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
+  layout(xaxis = list(title = "Grad °"))
+```
+
+#### Verlauf PInt anhand tatsächlicher Kinematik-Daten
+``` {r}
+plotly_Pint_list[["01_1"]][[3]]
+plotly_Pint_list[["01_2"]][[3]]
+plotly_Pint_list[["01_3"]][[3]]
+plotly_Pint_list[["01_4"]][[3]]
+plotly_Pint_list[["01_5"]][[3]]
+plotly_Pint_list[["01_6"]][[3]]
+plotly_Pint_list[["06_1"]][[3]]
+plotly_Pint_list[["06_2"]][[3]]
+plotly_Pint_list[["06_3"]][[3]]
+plotly_Pint_list[["06_4"]][[3]]
+plotly_Pint_list[["06_5"]][[3]]
+plotly_Pint_list[["06_6"]][[3]]
+plotly_Pint_list[["13_1"]][[3]]
+plotly_Pint_list[["13_2"]][[3]]
+plotly_Pint_list[["13_3"]][[3]]
+plotly_Pint_list[["13_4"]][[3]]
+plotly_Pint_list[["13_5"]][[3]]
+plotly_Pint_list[["13_6"]][[3]]
+plotly_Pint_list[["15_1"]][[3]]
+plotly_Pint_list[["15_2"]][[3]]
+plotly_Pint_list[["15_3"]][[3]]
+plotly_Pint_list[["15_4"]][[3]]
+plotly_Pint_list[["15_5"]][[3]]
+plotly_Pint_list[["15_6"]][[3]]
+plotly_Pint_list[["19_1"]][[3]]
+plotly_Pint_list[["19_2"]][[3]]
+plotly_Pint_list[["19_3"]][[3]]
+plotly_Pint_list[["19_4"]][[3]]
+plotly_Pint_list[["19_5"]][[3]]
+plotly_Pint_list[["19_6"]][[3]]
+```
+
+#### Verlauf PInt
+
+```{r}
+
+### Berechnen der Differenzen zwischen der Modellberechnung und der Berechnung anhand der Kinematik-Daten ###
+
+# Füge eine neue Spalte namens PInt_Kinematik zu Erg_data_df hinzu, initial gefüllt mit NA
+Erg_data_df$PInt_Kinematik <- NA
+
+# Durchgehen aller Zeilen in Erg_data_df
+for (i in 1:nrow(Erg_data_df)) {
+  current_name <- Erg_data_df$Name[i]
+  
+  # Prüfen, ob der aktuelle Name in PInt_Kinematik_list existiert
+  if (current_name %in% names(PInt_Kinematik_list)) {
+    # Zugriff auf den entsprechenden Dataframe in PInt_Kinematik_list
+    current_df <- PInt_Kinematik_list[[current_name]]
+    
+    # Übernahme des ersten Wertes der Spalte PInt_Kinematik 
+    # aus dem zugehörigen Dataframe
+    Erg_data_df$PInt_Kinematik[i] <- current_df$PInt_Kinematik[1]
+  }
+}
+
+# Kinematik_Modell WErte für Proband 1 entfernen, da große Abweichungen
+#Erg_data_df$PInt_Kinematik <- ifelse(Erg_data_df$Proband == 1, NA, Erg_data_df$PInt_Kinematik)
+
+Erg_data_df$PInt_Diff <- ifelse(!is.na(Erg_data_df$PInt_Kinematik), 
+                                Erg_data_df$PInt_Kinematik - Erg_data_df$PInt_Modell, 
+                                NA)
+
+# Stelle sicher, dass PInt_Kinematik_Modell korrekt initialisiert wird
+Erg_data_df$PInt_Kinematik_Modell <- Erg_data_df$PInt_Kinematik
+
+# Berechne die Mittelwerte von PInt_Diff für "stehen" und "sitzen"
+PInt_Diff_stehen <- mean(Erg_data_df$PInt_Diff[Erg_data_df$Bedingung == "stehen"], na.rm = TRUE)
+PInt_Diff_sitzen <- mean(Erg_data_df$PInt_Diff[Erg_data_df$Bedingung == "sitzen"], na.rm = TRUE)
+
+# Ersetze NA-Werte in PInt_Kinematik_Modell abhängig von der Bedingung
+Erg_data_df$PInt_Kinematik_Modell <- ifelse(is.na(Erg_data_df$PInt_Kinematik) & Erg_data_df$Bedingung == "stehen",
+                                            Erg_data_df$PInt_Modell + PInt_Diff_stehen,
+                                            Erg_data_df$PInt_Kinematik_Modell)
+
+Erg_data_df$PInt_Kinematik_Modell <- ifelse(is.na(Erg_data_df$PInt_Kinematik) & Erg_data_df$Bedingung == "sitzen",
+                                            Erg_data_df$PInt_Modell + PInt_Diff_sitzen,
+                                            Erg_data_df$PInt_Kinematik_Modell)
+
+
+############################################
+
+Erg_data_df_PInt_Kinematik <- na.omit(Erg_data_df[!is.na(Erg_data_df$PInt_Kinematik), ])
+
+# Farbpalette vorbereiten
+num_probanden <- length(unique(Erg_data_df_PInt_Kinematik$Proband))
+farbpalette <- colorRampPalette(brewer.pal(11, "Spectral"))(num_probanden)
+farben <- setNames(farbpalette, unique(Erg_data_df_PInt_Kinematik$Proband))
+
+# Diagramm erstellen für PInt_Kinematik und PInt_Modell mit einheitlichen Farben und sortierten Verbindungslinien
+plot <- plot_ly() %>% layout(
+  margin = list(t = 40),
+  xaxis = list(title = "nD"),
+  yaxis = list(title = "PInt_Werte"),
+  title = "Berechnete Innere Arbeit und Modell",
+  showlegend = TRUE  # Legende aktualisieren
+)
+
+# Daten und Marker für jeden Probanden hinzufügen
+for (proband_id in unique(Erg_data_df_PInt_Kinematik$Proband)) {
+  # Daten für den aktuellen Probanden extrahieren und nach nD sortieren
+  current_data <- subset(Erg_data_df_PInt_Kinematik, Proband == proband_id)
+  current_data <- current_data[order(current_data$nD), ]
+  
+  # Linien und Marker für PInt_Kinematik hinzufügen
+  plot <- plot %>% 
+    add_markers(
+      data = current_data,
+      x = ~nD,
+      y = ~PInt_Kinematik,
+      marker = list(size = 9, color = farben[[as.character(proband_id)]]),
+      name = paste("Proband", proband_id, "- Kinematik"),
+      showlegend = TRUE,
+      legendgroup = paste("Proband", proband_id)
+    )
+  
+  # Linien und Marker für PInt_Modell hinzufügen
+  plot <- plot %>% 
+    add_markers(
+      data = current_data,
+      x = ~nD,
+      y = ~PInt_Modell,
+      marker = list(size = 9, color = farben[[as.character(proband_id)]]),
+      name = paste("Proband", proband_id, "- Modell"),
+      showlegend = TRUE,
+      legendgroup = paste("Proband", proband_id)
+    )
+  
+  # Verbindungslinien zwischen PInt_Kinematik und PInt_Modell für denselben Probanden hinzufügen
+  for (i in 1:nrow(current_data)) {
+    plot <- plot %>%
+      add_segments(
+        x = current_data$nD[i], xend = current_data$nD[i],
+        y = current_data$PInt_Kinematik[i], yend = current_data$PInt_Modell[i],
+        line = list(color = farben[[as.character(proband_id)]]),
+        legendgroup = paste("Proband", proband_id),
+        showlegend = FALSE
+      )
+  }
+}
+
+# Diagramm anzeigen
+plot
+
+```
+
+
+```{r}
+# Diagramm erstellen für PInt_Kinematik_Modell
+plot <- plot_ly(data = Erg_data_df, x = ~nD, y = ~PInt_Kinematik_Modell, color = ~factor(Proband),colors = colorRampPalette(brewer.pal(10,"Spectral"))(20), legendgroup = ~Proband) %>%
+  add_markers(showlegend = FALSE) %>%
+  layout(
+    margin = list(t = 40), 
+    xaxis = list(title = "nD"),
+    yaxis = list(title = "PInt_Kinematik_Modell"),
+    title = "Berechnete Innere Arbeit",
+    showlegend = TRUE  # Legende hinzufügen
+  )
+# Legende für die Farben der Probanden hinzufügen
+for (proband_id in unique(Erg_data_df$Proband)) {
+  plot <- plot %>% add_trace(
+    data = subset(Erg_data_df, Proband == proband_id),
+    x = ~nD,
+    y = ~PInt_Kinematik_Modell,
+    type = "scatter",
+    mode = "markers",  # Nur Marker anzeigen, keine Linien
+    marker = list(size = 9),
+    name = paste("Proband", proband_id)
+  )
+}
+# Diagramm anzeigen
+plot
+
+```
+
+
+
+
+
+<!--#### Innere Arbeit
 
 ```{r}
 # Daten nach Proband und Nr sortieren
@@ -261,7 +992,7 @@ plot
 
 ```
 
-## Innere Arbeit - Minetti
+#### Innere Arbeit - Minetti
 
 ```{r}
 # Diagramm erstellen für P_Int_Min
@@ -291,7 +1022,7 @@ plot
 
 ```
 
-## Innere Arbeit für versch. Körpermassen
+#### Innere Arbeit für versch. Körpermassen
 
 ```{r}
 
@@ -307,7 +1038,7 @@ p
 
 ```
 
-## Innere Arbeit für versch. Körpermassen (Minetti)
+#### Innere Arbeit für versch. Körpermassen (Minetti)
 
 ```{r}
 # Daten für verschiedene Massewerte erstellen
@@ -339,166 +1070,37 @@ p <- plot_ly(full_data, x = ~Drehzahl, y = ~P_int_Watt, color = ~factor(Masse), 
 p
 ```
 
-
-## Simulationsmodell - Innere Arbeit
+#### Simulationsmodell - Innere Arbeit
 
 ```{r}
-# ------------ Eingabeparameter ------------ 
 
-mSp <- 90 # Masse Sportler [kg]
-lOS <- 0.60 # Länge des Segments Oberschenkel [m]
-lUS <- 0.55 # Länge des Segments Unterschenkel [m]
-lBein <- 0.90# # Innenbeinlänge [m]
-uOS <- 0.54 # Umfang OS [m]
-uUS <- 0.38 # Umfang US [m]
-lKurbel <- 0.175 # Kurbellänge [m]
-thetaKurbel <- 0.002 # Trägheitsmoment der Fahrradkurbel [kg m^2]
 
-P3 <- c(-0.200, 0.88) # kartesische Koordinaten P3 (Oberflächenrepräsentant der Hüfte) [m]
+```
 
-lambdaOS <- 0.4095 # Abstand zw. dem proximalen Punkt (in der Nähe des Körpers) des Oberschenkelsegments und dessen Schwerpunkt
-lambdaUS <- 0.4459 # Abstand proximaler Segmentpunkt - Schwerpunkt
+## Datensätze
 
-rRelOS <- 0.1416 # relative Segmentmasse OS
-rRelUS <- 0.0433 # relative Segmentmasse US
+### Anthropometrische Tabellen
 
-n <- 360 # Anzahl Messwerte pro Umdrehung 
-nD <- 80 # Drehzahl
+#### Weiblich
 
-Testdauer <- 300
+```{r}
 
-# ------------ Berechnungen ------------ 
-# Zeitintervalle
-delta_t <- 60 / (n * nD)
-T <- 60 / nD
-time <- seq(0, T, by=delta_t)
+# Nachkommastellen runden
+df_anthropometrisch_female <- df_anthropometrisch_female %>%
+  mutate_at(vars(everything()), round, 2)
 
-# Abstand vom Hüftgelenk zur Kurbelachse (0,0) berechnen
-S <- sqrt(sum(P3^2))
+# Datentabelle mit DT darstellen
+datatable(df_anthropometrisch_female)
 
-# Segmentmasse OS und US [kg]
-mOS <- mSp * rRelOS 
-mUS <- mSp * rRelUS 
+```
 
-# Trägheitsmoment des Segments (Vollzylinder, der um eine Querachse (zweizählige Symmetrieachse) rotiert) [kg m^2]
-thetaOS <- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2
-thetaUS <- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2
+#### Männlich
 
-# Abstand Hüftgelenk-Kurbelachse (0,0)
-SPraxis <- 0.885 * lBein
+```{r}
+# Nachkommstellen runden
+df_anthropometrisch_male <- df_anthropometrisch_male %>%
+  mutate_at(vars(everything()), round, 2)
 
-# Winkelintervalle
-delta_phi1 <- 2 * pi / n
-phi1 <- seq(0, 2 * pi, by=delta_phi1)
-phi1 <- phi1[-length(phi1)]  # Entfernt das letzte Element
-phi1_deg = phi1 * (180 / pi) # phi1 in Grad umrechnen
-omega <- 2 * pi * nD / 60
-
-# ------------- Simulationsmodell ---------------
-# P0 definieren
-P0_x <- 0
-P0_y <- 0
-
-# Winkel in Grad umrechnen
-phi1_deg = phi1 * (180 / pi)
-
-# Erstellen des Diagramms mit Plotly
-fig <- Simulation_df %>%
-  plot_ly() %>%
-  
-  # Trace für P1
-  add_trace(
-    x = ~x1,
-    y = ~y1,
-    text = ~paste("Winkel:", phi1_deg),
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    type = 'scatter',
-    mode = 'markers',
-    marker = list( size = 5),
-    name = "P1"
-  ) %>%
-  
-  # Trace für P2
-  add_trace(
-    x = ~x2,
-    y = ~y2,
-    text = ~paste("Winkel:", phi1_deg),
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    type = 'scatter',
-    mode = 'markers',
-    marker = list(size = 5),
-    name = "P2"
-  ) %>%
-  
-  # Trace für P3
-  add_trace(
-    x = ~x3,
-    y = ~y3,
-    text = ~paste("Winkel:", phi1_deg),
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    type = 'scatter',
-    mode = 'markers',
-    marker = list(size = 5),
-    name = "P3"
-  ) %>%
-  
-  # Segment von P0 zu P1
-  add_segments(
-    x = ~x0, xend = ~x1,
-    y = ~y0, yend = ~y1,
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    line = list(color = 'black'),
-    showlegend = FALSE
-  ) %>%
-  
-  # Segment von P1 zu P2
-  add_segments(
-    x = ~x1, xend = ~x2,
-    y = ~y1, yend = ~y2,
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    line = list(color = 'darkgrey'),
-    showlegend = FALSE
-  ) %>%
-  
-  # Segment von P2 zu P3
-  add_segments(
-    x = ~x2, xend = ~x3,
-    y = ~y2, yend = ~y3,
-    ids = ~phi1_deg,
-    frame = ~phi1_deg,
-    line = list(color = 'darkgrey'),
-    showlegend = FALSE
-  ) %>%
-  
-  layout(
-    margin = list(t = 40), 
-    xaxis = list(title = "X-Koordinate", range = c(-1.0, 1.0)),
-    yaxis = list(title = "Y-Koordinate", range = c(-1.0, 1.0)),
-    title = "Radmodell",
-    aspectratio = list(x = 1, y = 1)  # Hier wird das Seitenverhältnis auf 1:1 gesetzt
-  ) %>%
-  
-  animation_opts(
-    frame = 1,
-    transition = 1,
-    easing = "linear",
-    redraw = FALSE,
-    mode = "immediate"
-  ) %>%
-  
-  animation_button(
-    x = 1, xanchor = "right", y = 0, yanchor = "bottom"
-  ) %>%
-  
-  animation_slider(
-    currentvalue = list(prefix = "Winkel ")
-  )
-
-fig
-
+# Datentabelle mit DT darstellen
+datatable(df_anthropometrisch_male)
 ```
