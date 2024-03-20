@@ -6,6 +6,7 @@ execute:
   error: false
 ---
 
+
 # Innere Arbeit
 
 Innere Arbeit, auch bekannt als Blind- oder Leerleistung, spielt eine zentrale Rolle bei zyklischen Bewegungen wie dem Radfahren. Sie resultiert aus der erforderlichen Rotation und Verschiebung der Gliedmaßenschwerpunkte, was unerlässlich für die Aufrechterhaltung der Gesamtkörperbalance ist. Die Innere Arbeit, obwohl sie keine externen vortriebswirksamen Kräfte erzeugt, ist für die kontinuierliche Bewegung entscheidend und unterscheidet sich damit von der externen Arbeit, die für den direkten Vortrieb verantwortlich ist.
@@ -15,6 +16,7 @@ Im Rahmen der Radfahrbewegung bewegen sich Beine und Gliedmaßen entlang eines s
 Verschiedene Faktoren beeinflussen diese innere Arbeit und führen insbesondere bei hohen Trittraten zu einer Zunahme der metabolischen Kosten. Diese Faktoren umfassen die durch die Hill-Gleichung beschriebene verminderte Kraftproduktion der Muskeln bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Aktivierung von Agonisten und Antagonisten – was zu einem erhöhten Abbremsen der Streckbewegung der unteren Extremität führt – und den Reibungs- sowie Viskositätswiderstand von Gelenkknorpel, Bändern und anderen bewegungsunterstützenden Strukturen. Insbesondere das verstärkte Abbremsen der Streckbewegung bei hohen Drehraten, verbunden mit einer höheren muskulären Leistung der Antagonisten, führt zu hohen Blindleistungen.
 
 Durch eine detaillierte Betrachtung dieser Prozesse – das Erfassen aller Energiebeiträge entlang des Bewegungsverlaufs – erhalten wir ein umfassendes Verständnis der energetischen Anforderungen der Bewegung. Diese Analyse ähnelt der Betrachtung der mechanischen Arbeit über einen gesamten Pedalzyklus und veranschaulicht, wie trotz der Abwesenheit von Nettoarbeit Energie für die Aufrechterhaltung der Bewegung eingesetzt wird. Damit kann die Rolle der inneren Arbeit im Kontext der Tretbewegung beim Radfahren dargestellt werden.
+
 
 ```{r}
 # Library und dfs laden
@@ -58,6 +60,7 @@ df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS
 df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
 ```
 
+
 ## Kinematik Daten
 
 Die Bestimmung der inneren Arbeit erfolgte mit Hilfe einer dreidimensionalen Bewegungserfassung. Dazu werden Marker an den Oberflächenrepräsentaten der angenommenen Positionen der relevanten Gelenken für die Bewegung angebracht. Die Einschätzung der Positionen der jeweiligen Gelenkzentren erfolgt aufgrund von anatomischen Annahmen und deren geometrische Beziehungen. Dazu wurde vor den Tests Marker auf einem eng anliegenden Anzug, einer Hose sowie auf Schweißbändern, den Radschuhen und einem Kopfband befestigt. Die Positionierung der Marker orientiert sich am Ganzkörpermodellierungsmodell "Full body modelling with Plug-in Gait", dessen Details in der nachstehenden Abbildung dargestellt sind. Die nahinfrarot reflektierenden Marker wurden durch ein Kamerasystem von acht Vicon Vero Kameras erfasst, die im Labor um das Fahrradergometer positioniert wurden, um den Bereich abzudecken, in dem sich der Proband bewegt. Das Vicon-System erfasst dabei fortlaufend Bilder und verfolgt die Position und Bewegung der Marker im Raum.
@@ -85,6 +88,7 @@ In den folgenden Abschnitten werden aus den erfassten Kinematikdaten des Fahrrad
 <!--Dynamik der Beinbewegungen: Zusätzlich zu den oben genannten Berechnungen werden die Längen und Geschwindigkeiten der Beinsegmente analysiert, um ein vollständiges Bild der Bewegungsdynamik zu erhalten. Dies beinhaltet die Berechnung der tatsächlichen Längen der Oberschenkel und Unterschenkel sowie deren Bewegungsgeschwindigkeiten. Diese Informationen sind entscheidend, um die Mechanik der Beinbewegungen während des Fahrradfahrens zu verstehen und um Bereiche für mögliche Verbesserungen in der Effizienz oder in der Technik zu identifizieren. -->
 
 ##### **Code zur Berechnung der Inneren Arbeit und Erstellung des Simulationsmodells**
+
 
 ```{r echo=TRUE, output=FALSE}
 
@@ -446,6 +450,7 @@ Modell_Simulation <- plot_ly(data = df[0000:0360,], frames = ~Grad) %>%
 ```
 
 
+
 ### Erstellung - Simulaitonsmodell
 
 Aufgrund von Messungenauigkeiten oder Defiziten im Kamerasystem mit Markern war es nicht möglich, für jeden Probanden die erforderlichen kinematischen Daten zur Erstellung eines 2D-Simulationsmodells zu erhalten. Daher wurde zusätzlich ein alternatives Simulationsmodell basierend auf den verfügbaren anthropometrischen Daten der Probanden entwickelt, für die keine konkreten Kinematikdaten vorhanden waren. Für Probanden ohne die für die Modellbildung essentiellen anthropometrischen Daten wie Länge und Umfang von Ober- und Unterschenkel wurden diese Angaben entsprechend den Standardwerten aus folgenden anthropometrischen Tabellen bestimmt (siehe Abschnitt "Anthropometrische Tabellen").
@@ -491,6 +496,7 @@ Abschließend wird die interne Leistung für jeden Teil des Pedalzyklus, angegeb
 
 
 ##### **Code zur Berechnung der Inneren Arbeit auf Basis der tatsächlichen Kinematikdaten**
+
 
 ```{r echo=TRUE, output=FALSE}
 
@@ -733,6 +739,7 @@ for (name in names(Kinematik_list)) {
 ```
 
 
+
 #### 2D-Simulationsmodelle anhand der Kinematik Daten
 
 ::: columns
@@ -759,6 +766,7 @@ for (name in names(Kinematik_list)) {
 
 #### Verlauf PInt anhand simulierter Kinematik-Daten
 
+
 ``` {r}
 PInt_df <- PInt_list[["13_5"]]
 
@@ -776,150 +784,212 @@ plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklusRechtsPositiv, type = "scatter"
   layout(xaxis = list(title = "Grad °"))
 ```
 
+
 #### Verlauf PInt anhand tatsächlicher Kinematik-Daten
 
 ##### Proband 1
 ::: {.panel-tabset}
 ###### Test 1
+
 ``` {r}
 plotly_Pint_list[["01_1"]][[3]]
 ```
+
 ###### Test 2
+
 ``` {r}
 plotly_Pint_list[["01_2"]][[3]]
 ```
+
 ###### Test 3
+
 ``` {r}
 plotly_Pint_list[["01_3"]][[3]]
 ```
+
 ###### Test 4
+
 ``` {r}
 plotly_Pint_list[["01_4"]][[3]]
 ```
+
 ###### Test 5
+
 ``` {r}
 plotly_Pint_list[["01_5"]][[3]]
 ```
+
 ###### Test 6
+
 ``` {r}
 plotly_Pint_list[["01_6"]][[3]]
 ```
+
 :::
 
 ##### Proband 6
 ::: {.panel-tabset}
 ###### Test 1
+
 ``` {r}
 plotly_Pint_list[["06_1"]][[3]]
 ```
+
 ###### Test 2
+
 ``` {r}
 plotly_Pint_list[["06_2"]][[3]]
 ```
+
 ###### Test 3
+
 ``` {r}
 plotly_Pint_list[["06_3"]][[3]]
 ```
+
 ###### Test 4
+
 ``` {r}
 plotly_Pint_list[["06_4"]][[3]]
 ```
+
 ###### Test 5
+
 ``` {r}
 plotly_Pint_list[["06_5"]][[3]]
 ```
+
 ###### Test 6
+
 ``` {r}
 plotly_Pint_list[["06_6"]][[3]]
 ```
+
 :::
 
 ##### Proband 13
 ::: {.panel-tabset}
 ###### Test 1
+
 ``` {r}
 plotly_Pint_list[["13_1"]][[3]]
 ```
+
 ###### Test 2
+
 ``` {r}
 plotly_Pint_list[["13_2"]][[3]]
 ```
+
 ###### Test 3
+
 ``` {r}
 plotly_Pint_list[["13_3"]][[3]]
 ```
+
 ###### Test 4
+
 ``` {r}
 plotly_Pint_list[["13_4"]][[3]]
 ```
+
 ###### Test 5
+
 ``` {r}
 plotly_Pint_list[["13_5"]][[3]]
 ```
+
 ###### Test 6
+
 ``` {r}
 plotly_Pint_list[["13_6"]][[3]]
 ```
+
 :::
 
 ##### Proband 15
 ::: {.panel-tabset}
 ###### Test 1
+
 ``` {r}
 plotly_Pint_list[["15_1"]][[3]]
 ```
+
 ###### Test 2
+
 ``` {r}
 plotly_Pint_list[["15_2"]][[3]]
 ```
+
 ###### Test 3
+
 ``` {r}
 plotly_Pint_list[["15_3"]][[3]]
 ```
+
 ###### Test 4
+
 ``` {r}
 plotly_Pint_list[["15_4"]][[3]]
 ```
+
 ###### Test 5
+
 ``` {r}
 plotly_Pint_list[["15_5"]][[3]]
 ```
+
 ###### Test 6
+
 ``` {r}
 plotly_Pint_list[["15_6"]][[3]]
 ```
+
 :::
 
 ##### Proband 19
 ::: {.panel-tabset}
 ###### Test 1
+
 ``` {r}
 plotly_Pint_list[["19_1"]][[3]]
 ```
+
 ###### Test 2
+
 ``` {r}
 plotly_Pint_list[["19_2"]][[3]]
 ```
+
 ###### Test 3
+
 ``` {r}
 plotly_Pint_list[["19_3"]][[3]]
 ```
+
 ###### Test 4
+
 ``` {r}
 plotly_Pint_list[["19_4"]][[3]]
 ```
+
 ###### Test 5
+
 ``` {r}
 plotly_Pint_list[["19_5"]][[3]]
 ```
+
 ###### Test 6
+
 ``` {r}
 plotly_Pint_list[["19_6"]][[3]]
 ```
+
 :::
 
 
 #### Verlauf PInt
+
 
 ```{r}
 
@@ -1033,7 +1103,6 @@ plot
 
 ```
 
-
 ```{r}
 # Diagramm erstellen für PInt_Kinematik_Modell
 plot <- plot_ly(data = Erg_data_df, x = ~nD, y = ~PInt_Kinematik_Modell, color = ~factor(Proband),colors = colorRampPalette(brewer.pal(10,"Spectral"))(20), legendgroup = ~Proband) %>%
@@ -1066,7 +1135,9 @@ plot
 
 
 
+
 <!--#### Innere Arbeit
+
 
 ```{r}
 # Daten nach Proband und Nr sortieren
@@ -1101,7 +1172,9 @@ plot
 
 ```
 
+
 #### Innere Arbeit - Minetti
+
 
 ```{r}
 # Diagramm erstellen für P_Int_Min
@@ -1131,7 +1204,9 @@ plot
 
 ```
 
+
 #### Innere Arbeit für versch. Körpermassen
+
 
 ```{r}
 
@@ -1147,7 +1222,9 @@ p
 
 ```
 
+
 #### Innere Arbeit für versch. Körpermassen (Minetti)
+
 
 ```{r}
 # Daten für verschiedene Massewerte erstellen
@@ -1179,18 +1256,22 @@ p <- plot_ly(full_data, x = ~Drehzahl, y = ~P_int_Watt, color = ~factor(Masse), 
 p
 ```
 
+
 #### Simulationsmodell - Innere Arbeit
+
 
 ```{r}
 
 
 ```
 
+
 ## Datensätze
 
 ### Anthropometrische Tabellen
 
 #### Weiblich
+
 
 ```{r}
 
@@ -1203,7 +1284,9 @@ datatable(df_anthropometrisch_female)
 
 ```
 
+
 #### Männlich
+
 
 ```{r}
 # Nachkommstellen runden
@@ -1213,3 +1296,4 @@ df_anthropometrisch_male <- df_anthropometrisch_male %>%
 # Datentabelle mit DT darstellen
 datatable(df_anthropometrisch_male)
 ```
+
