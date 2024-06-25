@@ -5,7 +5,7 @@ execute:
   warning: false
   error: false
   
-bibliography: "../references.bib"
+bibliography: references.bib
 lang: de
 number-sections: false
 ---

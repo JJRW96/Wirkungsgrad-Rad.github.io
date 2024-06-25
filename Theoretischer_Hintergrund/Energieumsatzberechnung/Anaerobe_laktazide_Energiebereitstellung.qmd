@@ -15,6 +15,10 @@ number-sections: false
 p {
   text-align: justify
 }
+caption {
+  text-align: justify;
+}
+
 ```
 
 # Anaerobe- laktazide Energiekomponente (W~BLC~)

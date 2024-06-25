@@ -17,6 +17,10 @@ editor:
 p {
   text-align: justify
 }
+caption {
+  text-align: justify;
+}
+
 ```
 
 ```{r}

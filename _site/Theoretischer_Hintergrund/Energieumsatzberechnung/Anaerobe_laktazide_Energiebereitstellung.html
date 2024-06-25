@@ -380,6 +380,10 @@ window.Quarto = {
 p {
   text-align: justify
 }
+caption {
+  text-align: justify;
+}
+
 </style>
 </div>
 <section id="anaerobe--laktazide-energiekomponente-wblc" class="level1">
@@ -1048,35 +1052,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>p {</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a># Anaerobe- laktazide Energiekomponente <span class="in">(</span>W<span class="op">~</span>BLC<span class="op">~</span><span class="in">)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>caption {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span><span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>tidyr<span class="in">)</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>readxl<span class="in">)</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>ggplot2<span class="in">)</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>extrafont<span class="in">)</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="op">***</span><span class="im">@Brooks2004</span> ab Seite 222 - Laktat nach der Belastung***</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Besonders bei kurzen und intensiven Belastungen muss auch die anaerobe alaktazide und laktazide Energiebereitstellung berücksichtigt werden. Die Berechnung des anaerob-laktaziden Energieanteils <span class="fu">(</span><span class="dv">W</span>~<span class="dv">BLC</span>~<span class="fu">)</span> erfolgt aus dem Blutlaktatwert direkt vor dem Beginn der Belastung <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">PRE</span>~<span class="fu">)</span> und dem maximalen Laktatwert nach der Belastung <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">PEAK</span>~<span class="fu">)</span>. Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">Net</span>~<span class="fu">)</span>, welcher die größte Schwankung zwischen BLC~PRE~ und dem BLC~PEAK~ darstellt. Durch Multiplikation von BLC~Net~ mit ei-nem Sauerstoff-Laktat-Äquivalent von 3,0 ml O2· kg-1·mmol-1 <span class="fu">(</span><span class="dv">P</span>. <span class="dv">E</span>. <span class="dv">Di Prampero</span>, <span class="dv">1981</span><span class="fu">)</span> <span class="fu">(</span><span class="dv">Wert nur Mittelwert mit potentiellen Schwankungen </span> <span class="dv">weiter ausführen</span><span class="fu">)</span> Auch als Quelle erwähnen und dem kÄ für Kohlenhyd-rate <span class="fu">(</span><span class="op">=</span> <span class="dv">kÄKH</span><span class="fu">)</span> bei einem RQ von 1 <span class="fu">(</span><span class="dv">Stegemann</span>, <span class="dv">1991</span>, <span class="dv">S</span>. <span class="dv">59</span><span class="fu">)</span> kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden:</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a># Anaerobe- laktazide Energiekomponente <span class="in">(</span>W<span class="op">~</span>BLC<span class="op">~</span><span class="in">)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>tidyr<span class="in">)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>readxl<span class="in">)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>ggplot2<span class="in">)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>extrafont<span class="in">)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>```</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>W_{BLC} = BLC_{Net} \, <span class="ex">[</span><span class="ss">\text</span>{mmol} \cdot \text{l}^{-1}] \cdot 3<span class="fu">.0</span> \, <span class="ex">[</span><span class="ss">\text</span>{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot Körpermasse \, <span class="ex">[</span><span class="ss">\text</span>{kg}] \cdot k_{\text{ÄKH}} \, <span class="ex">[</span><span class="ss">\text</span>{kJ} \cdot \text{l}^{-1}]</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="op">***</span><span class="im">@Brooks2004</span> ab Seite 222 - Laktat nach der Belastung***</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Besonders bei kurzen und intensiven Belastungen muss auch die anaerobe alaktazide und laktazide Energiebereitstellung berücksichtigt werden. Die Berechnung des anaerob-laktaziden Energieanteils <span class="fu">(</span><span class="dv">W</span>~<span class="dv">BLC</span>~<span class="fu">)</span> erfolgt aus dem Blutlaktatwert direkt vor dem Beginn der Belastung <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">PRE</span>~<span class="fu">)</span> und dem maximalen Laktatwert nach der Belastung <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">PEAK</span>~<span class="fu">)</span>. Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert <span class="fu">(</span><span class="dv">BLC</span>~<span class="dv">Net</span>~<span class="fu">)</span>, welcher die größte Schwankung zwischen BLC~PRE~ und dem BLC~PEAK~ darstellt. Durch Multiplikation von BLC~Net~ mit ei-nem Sauerstoff-Laktat-Äquivalent von 3,0 ml O2· kg-1·mmol-1 <span class="fu">(</span><span class="dv">P</span>. <span class="dv">E</span>. <span class="dv">Di Prampero</span>, <span class="dv">1981</span><span class="fu">)</span> <span class="fu">(</span><span class="dv">Wert nur Mittelwert mit potentiellen Schwankungen </span> <span class="dv">weiter ausführen</span><span class="fu">)</span> Auch als Quelle erwähnen und dem kÄ für Kohlenhyd-rate <span class="fu">(</span><span class="op">=</span> <span class="dv">kÄKH</span><span class="fu">)</span> bei einem RQ von 1 <span class="fu">(</span><span class="dv">Stegemann</span>, <span class="dv">1991</span>, <span class="dv">S</span>. <span class="dv">59</span><span class="fu">)</span> kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>## Quellenverzeichnis</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>W_{BLC} = BLC_{Net} \, <span class="ex">[</span><span class="ss">\text</span>{mmol} \cdot \text{l}^{-1}] \cdot 3<span class="fu">.0</span> \, <span class="ex">[</span><span class="ss">\text</span>{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot Körpermasse \, <span class="ex">[</span><span class="ss">\text</span>{kg}] \cdot k_{\text{ÄKH}} \, <span class="ex">[</span><span class="ss">\text</span>{kJ} \cdot \text{l}^{-1}]</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> {<span class="pp">#refs</span>}</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>## Quellenverzeichnis</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> {<span class="pp">#refs</span>}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
