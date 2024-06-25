@@ -65,10 +65,13 @@ DT_stegemann <- datatable(stegemann, options = list(
 #Der Grundumsatz wird von vielen Faktoren beeinflusst, besonders von Geschlecht, Länge, Masse und Zusammensetzung des Körpers, Lebensalter und Hormonhaushalt; tageszeitliche, jahreszeitliche Schwankungen und ein Einfluss des Klimas wurden beobachtet.
 
 #Die Standardwerte des Grundumsatzes werden gewöhnlich auf die Körperoberfläche bezogen, bei Kindern auf die Körpermasse (Bestimmung der Körperoberfläche siehe S. 223 und 224). Da der Stoffwechsel des Fettgewebes im Vergleich zu dem des Muskelgewebes nur gering ist, wird auch vorgeschlagen, den Grundumsatz auf die fettfreie Körpermasse, aktive Zellmasse, Muskelmasse oder ähnliche Körpermaße zu beziehen. Die Unterschiede zwischen dem Grundumsatz des Mannes und der Frau sowie der Abfall der Werte im hohen Alter verschwinden weitgehend, wenn der Bezug auf die fettfreie Körpermasse erfolgt (siehe auch Tabelle 3). Im Verlauf der Schwangerschaft steigt der Grundumsatz infolge des Sauerstoffverbrauchs von Uterus, Plazenta und Fetus. Bekannte Standards des Grundumsatzes sind diejenigen von HARRIS und BENEDICT, BOOTHBY et al., ROBERTSON und REID sowie von FLEISCH. Standardwerte für Kinder und Erwachsene finden sich in den Tabellen 3-5. Einzelheiten zum Grundumsatz von Neugeborenen, Säuglingen und Kindern siehe in der Literatur. In pathologischer Hinsicht wird der Grundumsatz durch die Funktion der Hypophyse, Schilddrüse und Nebennieren beeinflusst.
+
 ```
 
-Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).<br>
-Die Ruhesauerstoffaufnahme kann etweder in Ruhe direkt gemessen werden direkt gemessen werden oder mit Hilfe von Gleichungen, wie beispielsweise @eq-H und @eq-RMR, berechnet werden. @eq-H beschreibt die Wärmeproduktion (h) in 24 Stunden in kcal für Frauen und Männer [@Harris1918]:
+Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).
+
+## Ruhesauerstoffaufnahme (VO~2, Ruhe~)
+Die Ruhesauerstoffaufnahme kann entweder direkt gemessen oder mit Hilfe von Gleichungen, wie beispielsweise @eq-H und @eq-RMR, berechnet werden. @eq-H beschreibt den Grundumsatz (h) für 24 Stunden in kcal für Frauen und Männer [@Harris1918]:
 
 $$
 h_{f, m}\,[kcal] = 
@@ -78,7 +81,7 @@ h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Kö
 \end{cases}
 $$ {#eq-H}
 
-Nach der Berechnung der Basalrate, kann mithilfe des vor der Belastung für jeden Probanden gemessenen RQ und @tbl-stegemann das kalorischen Äquivalents (kÄ) bestimmt werden und der Ruheumsatz (RMR , Englisch für "resting metabolic rate") bzw. der Sauerttoffvolumenstrom in RUhe in im Liegen in Liter pro Minute  berechnet werden. Um RMR bzw. im Liegen auf den Ruheumsatz im Stehen zu kommen, wird der berechnete Ruheumsatz mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen, basierend auf @fig-CIBA_GEIGY multipliziert [@Ciba-Geigy1977, 225]. Der mit folgender Gleichung berechneter RMR entspricht dem berechneten $\dot{V}O_{2, Ruhe}$:
+Nach der Berechnung des Grundumsatzes kann mithilfe des vor der Belastung für jeden Probanden gemessenen RQ und @tbl-stegemann das kalorische Äquivalent (kÄ) bestimmt werden, und der Ruheumsatz (RMR, Englisch für "resting metabolic rate") im Liegen in Liter pro Minute berechnet werden. Um vom Ruheumsatz im Liegen auf den Ruheumsatz im Stehen zu kommen, wird der berechnete Ruheumsatz mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen, basierend auf @fig-CIBA_GEIGY, multipliziert [@Ciba-Geigy1977, 225]. Der mit folgender Gleichung berechnete RMR entspricht $\dot{V}O_{2, Ruhe}$:
 
 $$
 RMR_{f, m}\,[l \cdot min^{-1}] = 
@@ -104,19 +107,17 @@ $$  {#eq-RMR}
 ::: {.column width="49.2%"}
 ::: {.callout-note icon=false}
 ## RMR-Beispielrechnung
-
-Parameter: Körpermasse = 75 kg; Körperlänge = 180 cm; Alter = 25 Jahre; RQ = 0.77 entspricht kÄ von 19.946 (siehe @tbl-stegemann).
-
+Parameter:<br>
+Körpermasse = 75 kg; Körperlänge = 180 cm; Alter = 25 Jahre;<br>
+RQ = 0.77 entspricht kÄ von 19.946 (siehe @tbl-stegemann).
 $$
 h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,915\, \text{kcal}
 $$
-
 $$
-RMR_{m} = \left( \frac{h_{m}}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, l \cdot min^{-1}
+RMR_{m} = \left( \frac{1828,915}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, l \cdot min^{-1}
 $$
 :::
 :::
-
 
 Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen. 
 
