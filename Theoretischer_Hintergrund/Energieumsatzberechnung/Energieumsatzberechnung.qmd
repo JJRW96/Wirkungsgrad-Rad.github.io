@@ -19,7 +19,6 @@ p {
 
 # Energieumsatzberechnung
 
-
 ```{r}
 library(dplyr)
 library(tidyr)
@@ -29,13 +28,11 @@ library(DT)
 library(extrafont)
 ```
 
-
 Der physiologische Gesamtenergieumsatz (W~TOT~) wurde auf Grundlage der Berechnungsmethode nach @Beneke2002 bestimmt. Hierfür werden eine Atemgasanalyse und Blutlaktattests während der Belastung durchgeführt. Anhand der erhobenen Werte lässt sich der aerobe (W~AER~), anaerob-laktazide (W~BLC~) sowie der anaerob-alaktazide Energieanteil (W~PCr~) einer Belastung abschätzen. Der gesamte physiologische Energiebedarf (W~TOT~) der Belastung wird anschließend durch die Summierung der verschiedenen Energiekomponenten berechnet.
 
 $$
 W_{TOT} = W_{AER} + W_{BLC} + W_{PCr} 
 $$ {#eq-WTOT}
-
 
 Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie. Im Gegensatz zur direkten Kalorimetrie, bei der die Wärmeabgabe eines Organismus gemessen wird à hier nochmal in (Bader et al., 1972, S.8) genauer beschrieben, basiert die indirekte Kalorimetrie auf der Analyse der Atemgase. Durch die spirometrische Erfassung des Sauerstoffvolumenstroms (= V̇O~2~) und des Kohlenstoffdioxidvolumenstroms (= V̇CO~2~) können der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Die Messung dieser Atemgasbestandteile ermöglicht die Bestimmung des respiratorischen Quotienten (RQ = V̇CO~2~/V̇O~2~) und des kalorischen Äquivalents (= kÄ)  (McArdle et al., 2009, S.181 ff.). Das kÄ hängt vom Anteil der verstoffwechselten Substrate ab, wobei das kÄ beim reinen Fettstoffwechsel bei etwa 19,62 kJ·l^-1^ O~2~ und beim reinen Kohlenhydratstoffwechsel bei ca. 21,13 kJ·l^-1^ O~2~ liegt [@Stegemann1991, 59]. In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energieumsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger & Schommer, 2013).
 
@@ -44,8 +41,6 @@ Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie.
 Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum (V̇O~2,Bel~) und der Sauerstoffvolumenstom in Ruhe bestimmt werden (V̇O~2,Ruhe~).
 
 Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mittels Gleichungen bestimmt werden...
-
---\> Formeln in Excel nochmal anpassen Auch den RQ für die Ruhe
 
 Gleichungen zur Basalrate nach @Harris1918
 
@@ -69,9 +64,6 @@ RMR_{m} = (h_{m} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,186
 $$ {#eq-RMR}
 
 
-
-
-
 Daraus lässt sich die über VO~2,Ruhe~ liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) bestimmen.
 
 Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung lässt sich berechnen, indem man die über Ruhhesauerstoffaufnahme (VO~2,Ruhe~) liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ~Bel~) [@Stegemann1991, 59] 
@@ -81,7 +73,7 @@ W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-
 $$ {#eq-WAER}
 
 
-Um den aeroben Arbeitsumsatz (= Waer) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (definieren und abkürzen) vom er-rechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. Der Ruheenergieumsatz beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der Ruheenergieumsatz als Basis verwendet, da sich der Sportler nicht in lie-gender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Be-lastung auf dem Fahrradergometer in sitzender Position gemessen. WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden, indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. 5
+Um den aeroben Arbeitsumsatz (= Waer) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (definieren und abkürzen) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. Der Ruheenergieumsatz beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der Ruheenergieumsatz als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheumsatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen. Waer~Ruhe~ kann auf ähnliche Weise wie Waer~Ges~ berechnet werden, indem man die den durchschnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. 5
 
 ## Berechnung der anaeroben- laktaziden Energiekomponente (W~BLC~)
 

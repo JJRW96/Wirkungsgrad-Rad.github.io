@@ -23,8 +23,6 @@ p {
 
 # Theoretischer Hintergrund
 
-[@Abbiss2005]
-
 ```{r}
 library(dplyr)
 library(tidyr)
@@ -38,14 +36,10 @@ Der menschliche Körper kann nur existieren, wenn ihm fortlaufend Energie bereit
 
 Der für W~mech~ genutzte Energieanteil bestimmt den Wirkungsgrad (η), ein wichtigen Parameter zur Beurteilung der Effizienz einer sportlichen Leistung. Die Effizienz bzw. der Wirkungsgrad spielt im Radsport eine wichtige Rolle und kann Wettkampfleistungen beeinflussen. Eine verbesserte Effizienz ermöglicht es mehr mechanische Leistung (P~mech~) bei gleicher umgesetzter metabolischer Energiemenge bzw. die gleiche P~mech~ bei geringerer umgesetzter metabolischer Energie zu erbringen [@Stegemann1991, 62].
 
-Es gibt bisher nur wenige Untersuchungen, die den Wirkungsgrad im Radsport akkurat im Sitzen und Stehen bestimmen. Um diese Lücke zu schließen, wurde ein Testprotokoll entwickelt, das eine zuverlässige Berechnung des Wirkungsgrades auf dem Radergometer ermöglichen soll.
-
-*Die Arbeit behandelt den theoretischen Hintergrund, die methodische Vorgehensweise und Untersuchungen zur Testprotokoll-Entwicklung.*
-
-# ÜbergangWirkungsgrad
+Es gibt bisher nur wenige Untersuchungen, die den Wirkungsgrad im Radsport akkurat im Sitzen und Stehen bestimmen. Um diese Lücke zu schließen, wurde ein Testprotokoll entwickelt, das eine zuverlässige Berechnung des Wirkungsgrades auf dem Radergometer ermöglichen soll. Die Arbeit umfasst den theoretischen Hintergrund, die methodische Vorgehensweise sowie die Ergebnisse und deren Diskussion.
 
 
-# Quellen
+# Quellenverzeichnis
 
 ::: {#refs}
 :::
