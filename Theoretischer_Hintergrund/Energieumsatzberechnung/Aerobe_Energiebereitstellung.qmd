@@ -70,6 +70,12 @@ DT_stegemann <- datatable(stegemann, options = list(
 
 #Die Standardwerte des Grundumsatzes werden gewöhnlich auf die Körperoberfläche bezogen, bei Kindern auf die Körpermasse (Bestimmung der Körperoberfläche siehe S. 223 und 224). Da der Stoffwechsel des Fettgewebes im Vergleich zu dem des Muskelgewebes nur gering ist, wird auch vorgeschlagen, den Grundumsatz auf die fettfreie Körpermasse, aktive Zellmasse, Muskelmasse oder ähnliche Körpermaße zu beziehen. Die Unterschiede zwischen dem Grundumsatz des Mannes und der Frau sowie der Abfall der Werte im hohen Alter verschwinden weitgehend, wenn der Bezug auf die fettfreie Körpermasse erfolgt (siehe auch Tabelle 3). Im Verlauf der Schwangerschaft steigt der Grundumsatz infolge des Sauerstoffverbrauchs von Uterus, Plazenta und Fetus. Bekannte Standards des Grundumsatzes sind diejenigen von HARRIS und BENEDICT, BOOTHBY et al., ROBERTSON und REID sowie von FLEISCH. Standardwerte für Kinder und Erwachsene finden sich in den Tabellen 3-5. Einzelheiten zum Grundumsatz von Neugeborenen, Säuglingen und Kindern siehe in der Literatur. In pathologischer Hinsicht wird der Grundumsatz durch die Funktion der Hypophyse, Schilddrüse und Nebennieren beeinflusst.
 
+#W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. 
+
+#Daraus lässt sich die über $\dot{V}O_{2, Ruhe}$ liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) bestimmen.
+
+#Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung lässt sich berechnen, indem man die über $\dot{V}O_{2, Ruhe}$ liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes ($\dot{V}O_{2, Netto}$) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ~Bel~) [@Stegemann1991, 59]
+
 ```
 
 Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).
@@ -122,26 +128,39 @@ DT_stegemann
 ::: {.callout-note icon="false"}
 ## RMR-Beispielrechnung
 
-**Parameter:**<br>
+**Parameter:**
+
 -   Körpermasse = 75 kg
 -   Körperlänge = 180 cm
 -   Alter = 25 Jahre
--   Körperlänge = 180 cm
 -   RQ = 0.77 entspricht kÄ von 19.946 (siehe @tbl-stegemann)
-$h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,915\, \text{kcal}$<br> 
-$RMR_{m} = \left( \frac{1828,915}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, l \cdot min^{-1}$
+
+$h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,915\, [\text{kcal}]$<br> $RMR_{m} = \left( \frac{1828,915}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, [l \cdot min^{-1}]$
 :::
+
+.
+
+In der voliegenden Studie wurde die Ruhesauerstoffaufnahme sowohl durch eine direkte Messung 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen, als auch durch die eben beschribene Berechnungsmethode bestimmt. Da aufgrund verschiedeneer Faktoren, wie bswp. durch Stress, Nahrungsaufnahme oder verschiedene Umgebungsfaktoren, die Werte der gemessenen Ruhesauerstoffaufnahme unnatürlich hoch sien können im Vergleich zu den Normwerte, wurde die gemessene $\dot{V}O_{2,Ruhe}$ nur verwendet, wenn sie maximale 20% größer war als die berechnete. Sonst wurde der berechnete Wert verwendet. 
 
 ## Berechnung der aeroben Energiekomponente W~AER~
 
-Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen.
+Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten muss zunächst $\dot{V}O_{2,Netto}\;[l \cdot min^{-1}]$ wie folgt bestimtm werden:
+
+$$
+\dot{V}O_{2,Netto}\;[l \cdot min^{-1}] = \dot{V}O_{2,Bel}\, [l \cdot min^{-1}] - \dot{V}O_{2,Ruhe}\,[l \cdot min^{-1}]
+$$
+
+muss der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. 
+
+
+W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. 
 
 Daraus lässt sich die über $\dot{V}O_{2, Ruhe}$ liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) bestimmen.
 
 Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung lässt sich berechnen, indem man die über $\dot{V}O_{2, Ruhe}$ liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes ($\dot{V}O_{2, Netto}$) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ~Bel~) [@Stegemann1991, 59]
 
 $$
-W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}]
+W_{AER}\;[kJ] = \dot{V}O_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}]
 $$ {#eq-WAER}
 
 ## Quellenverzeichnis

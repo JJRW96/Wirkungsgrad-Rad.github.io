@@ -45,6 +45,7 @@ jobs:
             any::RColorBrewer
             any::purrr
             any::readxl
+            any::extrafont
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
