@@ -58,27 +58,32 @@ DT_stegemann <- datatable(stegemann, options = list(
   formatRound(columns = 2:3, digits = 3)  # Spalten 2 und 3 auf 3 Nachkommastellen runden
 ```
 
+```{r}
+## Ciba Geigy 1977 - S.225
+#Der Energieumsatz kann für den Ruhezustand oder für verschiedene Stufen körperlicher Arbeit angegeben werden (Tabelle 1). Der Umsatz bei körperlicher und geistiger Ruhe ist keine genau definierte Größe (Abb. 1). Er wird deshalb für medizinische Fragestellungen unter standardisierten Bedingungen gemessen (morgens, liegend, nüchtern, bei Indifferenztemperatur), und die so gemessene Größe wird als Grundumsatz oder Ruheumsatz bezeichnet. Der Grundumsatz entspricht dem unvermeidbaren Wärmeverlust infolge des Zellstoffwechsels und der auch in Ruhe ablaufenden physiologischen Funktionen (Kreislauf, Atmung, Verdauung, unwillkürlicher Muskeltonus). Zum Grundumsatz trägt vor allem der Stoffwechsel der Leber bei (siehe Tabelle 2).
 
-Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).
+#Der Grundumsatz wird von vielen Faktoren beeinflusst, besonders von Geschlecht, Länge, Masse und Zusammensetzung des Körpers, Lebensalter und Hormonhaushalt; tageszeitliche, jahreszeitliche Schwankungen und ein Einfluss des Klimas wurden beobachtet.
 
-Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mit Hilfe der Gleichungen @eq-H und @eq-RMR auf Grunlage con @Harris1918 bestimmt werden. @eq-H beschreibt die Wärmeproduktion (h) in 24 Stunden in kcal für Fraunen und Männer:
+#Die Standardwerte des Grundumsatzes werden gewöhnlich auf die Körperoberfläche bezogen, bei Kindern auf die Körpermasse (Bestimmung der Körperoberfläche siehe S. 223 und 224). Da der Stoffwechsel des Fettgewebes im Vergleich zu dem des Muskelgewebes nur gering ist, wird auch vorgeschlagen, den Grundumsatz auf die fettfreie Körpermasse, aktive Zellmasse, Muskelmasse oder ähnliche Körpermaße zu beziehen. Die Unterschiede zwischen dem Grundumsatz des Mannes und der Frau sowie der Abfall der Werte im hohen Alter verschwinden weitgehend, wenn der Bezug auf die fettfreie Körpermasse erfolgt (siehe auch Tabelle 3). Im Verlauf der Schwangerschaft steigt der Grundumsatz infolge des Sauerstoffverbrauchs von Uterus, Plazenta und Fetus. Bekannte Standards des Grundumsatzes sind diejenigen von HARRIS und BENEDICT, BOOTHBY et al., ROBERTSON und REID sowie von FLEISCH. Standardwerte für Kinder und Erwachsene finden sich in den Tabellen 3-5. Einzelheiten zum Grundumsatz von Neugeborenen, Säuglingen und Kindern siehe in der Literatur. In pathologischer Hinsicht wird der Grundumsatz durch die Funktion der Hypophyse, Schilddrüse und Nebennieren beeinflusst.
+```
+
+Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).<br>
+Die Ruhesauerstoffaufnahme kann etweder in Ruhe direkt gemessen werden direkt gemessen werden oder mit Hilfe von Gleichungen, wie beispielsweise @eq-H und @eq-RMR, berechnet werden. @eq-H beschreibt die Wärmeproduktion (h) in 24 Stunden in kcal für Frauen und Männer [@Harris1918]:
 
 $$
-h_{f, m} = 
+h_{f, m}\,[kcal] = 
 \begin{cases} 
 h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [cm]}) - (4,676 \cdot \text{Alter [Jahre]}) \\    
 h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
 \end{cases}
 $$ {#eq-H}
 
-Nachdem man h bestimmt hat, kann man mit dem Umrechnungsfaktor von 4,1868 den Wert in kJ mrechnen und auf einen zeitraum von einer Munute umrechnen. Mithilfe des gemessenen RQ welcher für jeden Proband individuell für den Ruhezeitraum bestimmt wurde konnte das kalorischen Äquivalents (kÄ) anhand von @tbl-stegemann bestimmt werden und der ermittelte Wärmewert in liter pro Minute umgerechnet werden.
-
-Da die bestimmte Basalrate nach @Harris1918 für den RUhezustand im liegen bestimmt wurde, muss dies noch auf den Ruhewert im Sitzen übertragen werden, dazu  multiplizieren wir die Ruhewerte h~f, m~ mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen auf Basis von @fig-CIBA_GEIGY [@Ciba-Geigy1977, 225].
+Nach der Berechnung der Basalrate, kann mithilfe des vor der Belastung für jeden Probanden gemessenen RQ und @tbl-stegemann das kalorischen Äquivalents (kÄ) bestimmt werden und der Ruheumsatz (RMR , Englisch für "resting metabolic rate") bzw. der Sauerttoffvolumenstrom in RUhe in im Liegen in Liter pro Minute  berechnet werden. Um RMR bzw. im Liegen auf den Ruheumsatz im Stehen zu kommen, wird der berechnete Ruheumsatz mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen, basierend auf @fig-CIBA_GEIGY multipliziert [@Ciba-Geigy1977, 225]. Der mit folgender Gleichung berechneter RMR entspricht dem berechneten $\dot{V}O_{2, Ruhe}$:
 
 $$
 RMR_{f, m}\,[l \cdot min^{-1}] = 
 \begin{cases} 
-RMR_{f} = \left( \frac{h_{f}}{24\, \cdot\, 60\, \cdot\, kÄ} \right)\; \cdot 4,1868 \cdot 1,278 \\
+RMR_{f} = \;\left( \frac{h_{f}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,278 \\
 RMR_{m} = \left( \frac{h_{m}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,287
 \end{cases}
 $$  {#eq-RMR}
@@ -88,17 +93,27 @@ $$  {#eq-RMR}
 ```
 
 ::: columns
-::: {.column width="48%"}
+::: {.column width="49.2%"}
 ![Energieumsatz bei verschiedenen Tätigkeiten (Ciba Geigy, 1977, S.225).](images/Ciba_Geigy_Ruheumsatz.png){#fig-CIBA_GEIGY .caption}
 
 :::
 
-::: {.column width="4%"}
+::: {.column width="0.6%"}
 :::
 
-::: {.column width="48%"}
-> Beispielrechnung für RMR:
-> Gewicht = 75kg, Körperhöhe = 180, Alter = 25 Jahre, RQ = 0.77
+::: {.column width="49.2%"}
+::: {.callout-note icon=false}
+## RMR-Beispielrechnung
+
+Parameter: Körpermasse = 75 kg; Körperlänge = 180 cm; Alter = 25 Jahre; RQ = 0.77 entspricht kÄ von 19.946 (siehe @tbl-stegemann).
+
+$$
+h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,915\, \text{kcal}
+$$
+
+$$
+RMR_{m} = \left( \frac{h_{m}}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, l \cdot min^{-1}
+$$
 :::
 :::
 
@@ -143,16 +158,6 @@ $$ {#eq-WAER}
 
 
 
-*WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden, indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. *
-
-
-
-## Ciba Geigy 1977 - S.225
-Der Energieumsatz kann für den Ruhezustand oder für verschiedene Stufen körperlicher Arbeit angegeben werden (Tabelle 1). Der Umsatz bei körperlicher und geistiger Ruhe ist keine genau definierte Größe (Abb. 1). Er wird deshalb für medizinische Fragestellungen unter standardisierten Bedingungen gemessen (morgens, liegend, nüchtern, bei Indifferenztemperatur), und die so gemessene Größe wird als Grundumsatz oder Ruheumsatz bezeichnet. Der Grundumsatz entspricht dem unvermeidbaren Wärmeverlust infolge des Zellstoffwechsels und der auch in Ruhe ablaufenden physiologischen Funktionen (Kreislauf, Atmung, Verdauung, unwillkürlicher Muskeltonus). Zum Grundumsatz trägt vor allem der Stoffwechsel der Leber bei (siehe Tabelle 2).
-
-Der Grundumsatz wird von vielen Faktoren beeinflusst, besonders von Geschlecht, Länge, Masse und Zusammensetzung des Körpers, Lebensalter und Hormonhaushalt; tageszeitliche, jahreszeitliche Schwankungen und ein Einfluss des Klimas wurden beobachtet.
-
-Die Standardwerte des Grundumsatzes werden gewöhnlich auf die Körperoberfläche bezogen, bei Kindern auf die Körpermasse (Bestimmung der Körperoberfläche siehe S. 223 und 224). Da der Stoffwechsel des Fettgewebes im Vergleich zu dem des Muskelgewebes nur gering ist, wird auch vorgeschlagen, den Grundumsatz auf die fettfreie Körpermasse, aktive Zellmasse, Muskelmasse oder ähnliche Körpermaße zu beziehen. Die Unterschiede zwischen dem Grundumsatz des Mannes und der Frau sowie der Abfall der Werte im hohen Alter verschwinden weitgehend, wenn der Bezug auf die fettfreie Körpermasse erfolgt (siehe auch Tabelle 3). Im Verlauf der Schwangerschaft steigt der Grundumsatz infolge des Sauerstoffverbrauchs von Uterus, Plazenta und Fetus. Bekannte Standards des Grundumsatzes sind diejenigen von HARRIS und BENEDICT, BOOTHBY et al., ROBERTSON und REID sowie von FLEISCH. Standardwerte für Kinder und Erwachsene finden sich in den Tabellen 3-5. Einzelheiten zum Grundumsatz von Neugeborenen, Säuglingen und Kindern siehe in der Literatur. In pathologischer Hinsicht wird der Grundumsatz durch die Funktion der Hypophyse, Schilddrüse und Nebennieren beeinflusst.
 
 
 ## Quellenverzeichnis
