@@ -118,7 +118,7 @@ $$ {#eq-RMR}
 ```{r}
 #| label: tbl-stegemann
 #| tbl-cap-location: bottom
-#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kJ &middot; l<sup>-1</sup>] und [kcal &middot; l<sup>-1</sup>]  (Zuntz, 1901, S.260; Stegemann, 1991, S.59)"
+#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kcal &middot; l<sup>-1</sup>] und [kJ &middot; l<sup>-1</sup>]  (Zuntz, 1901, S.260; Stegemann, 1991, S.59)"
 
 DT_stegemann
 ```
@@ -135,18 +135,23 @@ DT_stegemann
 -   Alter = 25 Jahre
 -   RQ = 0.77 entspricht kÄ von 19.946 (siehe @tbl-stegemann)
 
-$h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,915\, [\text{kcal}]$<br> $RMR_{m} = \left( \frac{1828,915}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, [l \cdot min^{-1}]$
+$$
+h_{m} = 66,5 + (13,75 \cdot \text{75}) + (5,003 \cdot \text{180}) - (6,775 \cdot \text{25}) = 1828,9\, [\text{kcal}]
+$$ 
+$$
+RMR_{m} = \left( \frac{1828,9}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 \cdot 1,287 = 0,344\, [l \cdot min^{-1}]
+$$
 :::
 
 In der vorliegenden Studie wurde die Ruhesauerstoffaufnahme sowohl durch eine direkte Messung 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position ermittelt, als auch durch die oben beschriebene Berechnungsmethode bestimmt. Da aufgrund verschiedener Faktoren, wie beispielsweise Stress, Nahrungsaufnahme oder unterschiedliche Umgebungsbedingungen, die Werte der gemessenen Ruhesauerstoffaufnahme im Vergleich zu den Normwerten unnatürlich hoch sein können, wurde der gemessene $\dot{V}O_{2,Ruhe}$-Wert nur verwendet, wenn er maximal 20% größer war als der berechnete. Andernfalls wurde der berechnete Wert verwendet.
 
 ## Berechnung der aeroben Energiekomponente W~AER~
 
-Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu bestimmen, muss zunächst $\dot{V}O_{2,Netto}\;[l \cdot min^{-1}]$ wie folgt berechnet werden:
+Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu bestimmen, muss zunächst $\dot{V}O_{2,Netto}$ wie folgt berechnet werden:
 
 $$
 \dot{V}O_{2,Netto}\;[l \cdot min^{-1}] = \dot{V}O_{2,Bel}\, [l \cdot min^{-1}] - \dot{V}O_{2,Ruhe}\,[l \cdot min^{-1}]
-$$
+$$ {#eq-VO2_NET}
 
 Der aerobe Energieteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung kann dann berechnet werden, indem die über $\dot{V}O_{2, Ruhe}$ hinausgehende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes ($\dot{V}O_{2, Netto}$) mit dem durchschnittlichen kalorischen Äquivalent (kÄ) des Belastungszeitraumes aus @tbl-stegemann multipliziert wird (= kÄ~Bel~) [@Stegemann1991, 59]:
 

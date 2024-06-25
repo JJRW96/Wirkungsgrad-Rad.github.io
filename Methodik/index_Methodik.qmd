@@ -18,4 +18,4 @@ library(DT)
 ```
 # Methodik
 
-In den folgenden Abschnitten werden die Details der Methodik der Studie beschrieben @sec-Stichprobe. Zunächst wird die Stichprobe erläutert. Anschließend werden die Messinstrumente und -methoden zur Erfassung der notwendigen Daten für die Bestimmung des Wirkungsgrads dargelegt @sec-Messmethoden. Außerdem werden die Pilotierung und das finale Studiendesign beschrieben @sec-Studiendesign.
+In den folgenden Abschnitten werden die Details der Methodik der Studie beschrieben. Zunächst wird die Stichprobe erläutert. Anschließend werden die Messinstrumente und -methoden zur Erfassung der notwendigen Daten für die Bestimmung des Wirkungsgrads dargelegt. Außerdem werden die Pilotierung und das finale Studiendesign beschrieben.

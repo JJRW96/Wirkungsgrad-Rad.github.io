@@ -128,7 +128,7 @@ Ein Molekül Glukose reagiert mit sechs Molekünlen O~2~, wobei sechs Moleküle 
 ```{r}
 #| label: tbl-stegemann
 #| tbl-cap-location: bottom
-#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kJ &middot; l<sup>-1</sup>] und [kcal &middot; l<sup>-1</sup>] (modifiziert nach Zuntz, 1901, S. 361; Stegemann, 1991, S. 59)"
+#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kcal &middot; l<sup>-1</sup>] und [kJ &middot; l<sup>-1</sup>] (modifiziert nach Zuntz, 1901, S. 361; Stegemann, 1991, S. 59)"
 
 DT_stegemann
 
@@ -300,7 +300,7 @@ Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungs
 
 Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende der Übung ausgeglichen wird.
 
-Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@deMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
+Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
 
 Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.
 
@@ -366,7 +366,7 @@ $$
 \Delta O_2S_{v} = \left[ \Delta (C_a - C_v)^{Belastung} - \Delta (C_a - C_v)^{Ruhe} \right] \cdot VBV = \left[ \frac{\dot{V}O_{2, Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2,Ruhe}}{Q_{Ruhe}} \right] \cdot VBV
 $$
 
-Die Muskelmasse der Probanden wurde abhänig vom Geschlecht der Probanden sowie der Versuchsbedingung berechnet. Anhand der Stichprobe von @Janssen2000 wurde die Muskelmasse eingeschötzt. Da es sich hier bei den allen Probanden um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil habdelte, wurde jeweils von einer aktiven Muskelmase, die der oberen Grenze der der Stichrobe von @Janssen2002 ausgeganegen. Für Frauen entsprach dies ca. 34% Muskelmasseanteil & für Männer ca. 42% Antel der Muskelmasse am der Körpermasse. In verschiedenen Studien ....... wurde der Anteil der aktiven Muskelmasse an der GEsamtmuskelmasse auf ca. 60-80% geschätzt. Hier wurde der Anteil für das Fahren im sitzen auf 65% und im stehen auf 75% aktive MUskelmasse festegelegt. Aus diesen beiden Faktoren urde dann wie folgt die aktive Muskelmasse der Probanden bestimmt:
+Die Muskelmasse der Probanden wurde abhänig vom Geschlecht der Probanden sowie der Versuchsbedingung berechnet. Anhand der Stichprobe von @Janssen2000 wurde die Muskelmasse eingeschötzt. Da es sich hier bei den allen Probanden um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil habdelte, wurde jeweils von einer aktiven Muskelmase, die der oberen Grenze der der Stichrobe von @Janssen2000 ausgeganegen. Für Frauen entsprach dies ca. 34% Muskelmasseanteil & für Männer ca. 42% Antel der Muskelmasse am der Körpermasse. In verschiedenen Studien ....... wurde der Anteil der aktiven Muskelmasse an der GEsamtmuskelmasse auf ca. 60-80% geschätzt. Hier wurde der Anteil für das Fahren im sitzen auf 65% und im stehen auf 75% aktive MUskelmasse festegelegt. Aus diesen beiden Faktoren urde dann wie folgt die aktive Muskelmasse der Probanden bestimmt:
 
 $$
 Muskelmasse_{aktiv} = 
