@@ -131,19 +131,21 @@ Ein Molekül Glukose reagiert mit sechs Molekünlen O~2~, wobei sechs Moleküle 
 #| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kJ &middot; l<sup>-1</sup>] und [kcal &middot; l<sup>-1</sup>] (modifiziert nach Zuntz, 1901, S. 361; Stegemann, 1991, S. 59)"
 
 DT_stegemann
+
+# EVTL NOCH DIE PROZENTUALEN ANTEILE DER KH ECT HINZUFÜGEN SOWIE WIE VIEL GRAMM PRO LITER O2 VERSTOFFWECHSELT WERDEN siehe Mc ARdle  S.188
 ```
 ::: 
 :::
 
 ΔG beschreibt die Änderung der Gibbs'schen freien Energie bei der Verbrennung von Glukose mit O~2~. Das negative Vorzeichen zeigt, dass die Reaktion spontan (von selbst ablaufend) und exergon (Energie freisetzend) ist. **Bader nachschlagen**
 
- Das kalorische Äquivalent  für einen Liter O~2~ erhält man, indem man die bei der frei werdenen Energie des vollständigen Abbaus von 1 Mol freier Glukose (ΔG = 2869 kJ) [@Stegemann1991,43] durch die dabei umgesetzten Liter O~2~ teilt. Das kalorische Äquivalent (kÄ~KH~) des Sauerstoffs für Glukoseverbrennung beträgt nach @eq-kAeKH ungefähr:
+Das kalorische Äquivalent  für einen Liter O~2~ erhält man, indem man die bei der frei werdenen Energie des vollständigen Abbaus von 1 Mol freier Glukose (ΔG = 2869 kJ) [@Stegemann1991,43] durch die dabei umgesetzten Liter O~2~ teilt. Das kalorische Äquivalent (kÄ~KH~) des Sauerstoffs für Glukoseverbrennung beträgt nach @eq-kAeKH ungefähr:
 
 $$
 kÄ_{\text{KH}} = \frac{2869\,[\text{kJ}]}{134,4\,[\text{l} \cdot \text{O}_2]} \approx 21,3\,[\text{kJ} \cdot \text{l}^{-1} \cdot \text{O}_2^{-1}]
 $${#eq-kAeKH}
 
-Nach gleicher Vorgehensweise kann man auch das kalorische Äquivalent des Sauerstoffs (kÄ~FETT~) für Fettsäureverbrennung näherungsweise bestimmen. Die Summenformel der Palmitinsäure lautet (C~16~H~32~O~2~):
+Nach gleicher Vorgehensweise kann man auch das kalorische Äquivalent des Sauerstoffs (kÄ~FETT~) für Fettsäureverbrennung näherungsweise bestimmen. Je nach oxidierter Fettsäuren liegt der RQ zwischen 0,69 und 0,73 [@McArdle2009, 186]. Für die Palmitinsäure lautet die Summenformel (C~16~H~32~O~2~) und die stöchiometrische Gleichung:
 
 $$
 \begin{aligned}

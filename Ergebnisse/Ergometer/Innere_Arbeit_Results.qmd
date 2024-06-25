@@ -95,8 +95,6 @@ In den folgenden Abschnitten wird beschrieben, wie aus den erfassten Kinematikda
 
 ```{r echo=TRUE, output=FALSE}
 
-Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
-
 # Neue Spalten für die berechnete Leistung und den verwendeten Faktor 
 Erg_data_df$Faktor_Used <- NA  
 Erg_data_df$PInt_Modell <- NA

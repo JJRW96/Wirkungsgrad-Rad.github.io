@@ -97,7 +97,8 @@ $$  {#eq-RMR}
 :::
 
 ::: {.column width="48%"}
-
+> Beispielrechnung für RMR:
+> Gewicht = 75kg, Körperhöhe = 180, Alter = 25 Jahre, RQ = 0.77
 :::
 :::
 

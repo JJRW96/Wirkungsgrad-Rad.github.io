@@ -25,29 +25,68 @@ library(zoo)
 library(purrr)
 library(readxl)
 
-# Dateien mit relativen Pfaden laden
-EPOC_data_df <- readRDS("rds/EPOC_data_df.rds")
-Erg_data_df <- readRDS("rds/Erg_data_df.rds")
-Erg_data_komplett <- readRDS("rds/Erg_data_komplett.rds")
-Messwerte_Bedingungen_df <- readRDS("rds/Messwerte_Bedingungen_df.rds")
-Messwerte_Intensitäten_df <- readRDS("rds/Messwerte_Intensitäten_df.rds")
-Messwerte_Bedingung_Intensität_df <- readRDS("rds/Messwerte_Bedingung_Intensität_df.rds")
-Bedingungen_data <- readRDS("rds/Bedingungen_data.rds")
-P_Ges_df <- readRDS("rds/Efficiency_Daten_df.rds")
-Efficiency_df <- readRDS("rds/Efficiency_Daten_df.rds")
-P_Int_Drehzahl_Masse <- readRDS("rds/P_Int_Drehzahl_Masse.rds")
-Simulation_df <- readRDS("rds/Simulation_df.rds")
-ΔBLC_list <- readRDS("rds/BLC_list.rds")
-proband_data <- readRDS("rds/proband_data.rds")
-ΔBLC_data_df <- readRDS("rds/BLC_data_df.rds")
-BLC_Modell_list <- readRDS("rds/BLC_Modell_list.rds")
-Efficiency_Daten_df <- readRDS("rds/Efficiency_Daten_df.rds")
-P_R_list <- readRDS("rds/P_R_list.rds")
-P_L_list <- readRDS("rds/P_L_list.rds")
-start_vals_list <- readRDS("rds/start_vals_list.rds")
-VO2_list <- readRDS("rds/VO2_list.rds")
-df_anthropometrisch_female <- readRDS("rds/df_anthropometrisch_female.rds")
-df_anthropometrisch_male <- readRDS("rds/df_anthropometrisch_male.rds")
+# Funktion zum Laden einer RDS-Datei mit Fallback
+load_rds_with_fallback <- function(relative_path, absolute_path) {
+  tryCatch(
+    readRDS(relative_path),
+    error = function(e) {
+      warning(paste("Could not read", relative_path, "- trying absolute path"))
+      readRDS(absolute_path)
+    }
+  )
+}
+
+# Definition der relativen und absoluten Pfade
+relative_paths <- list(
+  EPOC_data_df = "rds/EPOC_data_df.rds",
+  Erg_data_df = "rds/Erg_data_df.rds",
+  Erg_data_komplett = "rds/Erg_data_komplett.rds",
+  Messwerte_Bedingungen_df = "rds/Messwerte_Bedingungen_df.rds",
+  Messwerte_Intensitäten_df = "rds/Messwerte_Intensitäten_df.rds",
+  Messwerte_Bedingung_Intensität_df = "rds/Messwerte_Bedingung_Intensität_df.rds",
+  Bedingungen_data = "rds/Bedingungen_data.rds",
+  P_Ges_df = "rds/Efficiency_Daten_df.rds",
+  Efficiency_df = "rds/Efficiency_Daten_df.rds",
+  P_Int_Drehzahl_Masse = "rds/P_Int_Drehzahl_Masse.rds",
+  Simulation_df = "rds/Simulation_df.rds",
+  ΔBLC_list = "rds/BLC_list.rds",
+  proband_data = "rds/proband_data.rds",
+  ΔBLC_data_df = "rds/BLC_data_df.rds",
+  BLC_Modell_list = "rds/BLC_Modell_list.rds",
+  Efficiency_Daten_df = "rds/Efficiency_Daten_df.rds",
+  P_R_list = "rds/P_R_list.rds",
+  P_L_list = "rds/P_L_list.rds",
+  start_vals_list = "rds/start_vals_list.rds",
+  VO2_list = "rds/VO2_list.rds",
+  df_anthropometrisch_female = "rds/df_anthropometrisch_female.rds",
+  df_anthropometrisch_male = "rds/df_anthropometrisch_male.rds"
+)
+
+absolute_base_path <- "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/rds/"
+
+# Laden der Daten mit Fallback
+EPOC_data_df <- load_rds_with_fallback(relative_paths$EPOC_data_df, file.path(absolute_base_path, basename(relative_paths$EPOC_data_df)))
+Erg_data_df <- load_rds_with_fallback(relative_paths$Erg_data_df, file.path(absolute_base_path, basename(relative_paths$Erg_data_df)))
+Erg_data_komplett <- load_rds_with_fallback(relative_paths$Erg_data_komplett, file.path(absolute_base_path, basename(relative_paths$Erg_data_komplett)))
+Messwerte_Bedingungen_df <- load_rds_with_fallback(relative_paths$Messwerte_Bedingungen_df, file.path(absolute_base_path, basename(relative_paths$Messwerte_Bedingungen_df)))
+Messwerte_Intensitäten_df <- load_rds_with_fallback(relative_paths$Messwerte_Intensitäten_df, file.path(absolute_base_path, basename(relative_paths$Messwerte_Intensitäten_df)))
+Messwerte_Bedingung_Intensität_df <- load_rds_with_fallback(relative_paths$Messwerte_Bedingung_Intensität_df, file.path(absolute_base_path, basename(relative_paths$Messwerte_Bedingung_Intensität_df)))
+Bedingungen_data <- load_rds_with_fallback(relative_paths$Bedingungen_data, file.path(absolute_base_path, basename(relative_paths$Bedingungen_data)))
+P_Ges_df <- load_rds_with_fallback(relative_paths$P_Ges_df, file.path(absolute_base_path, basename(relative_paths$P_Ges_df)))
+Efficiency_df <- load_rds_with_fallback(relative_paths$Efficiency_df, file.path(absolute_base_path, basename(relative_paths$Efficiency_df)))
+P_Int_Drehzahl_Masse <- load_rds_with_fallback(relative_paths$P_Int_Drehzahl_Masse, file.path(absolute_base_path, basename(relative_paths$P_Int_Drehzahl_Masse)))
+Simulation_df <- load_rds_with_fallback(relative_paths$Simulation_df, file.path(absolute_base_path, basename(relative_paths$Simulation_df)))
+ΔBLC_list <- load_rds_with_fallback(relative_paths$ΔBLC_list, file.path(absolute_base_path, basename(relative_paths$ΔBLC_list)))
+proband_data <- load_rds_with_fallback(relative_paths$proband_data, file.path(absolute_base_path, basename(relative_paths$proband_data)))
+ΔBLC_data_df <- load_rds_with_fallback(relative_paths$ΔBLC_data_df, file.path(absolute_base_path, basename(relative_paths$ΔBLC_data_df)))
+BLC_Modell_list <- load_rds_with_fallback(relative_paths$BLC_Modell_list, file.path(absolute_base_path, basename(relative_paths$BLC_Modell_list)))
+Efficiency_Daten_df <- load_rds_with_fallback(relative_paths$Efficiency_Daten_df, file.path(absolute_base_path, basename(relative_paths$Efficiency_Daten_df)))
+P_R_list <- load_rds_with_fallback(relative_paths$P_R_list, file.path(absolute_base_path, basename(relative_paths$P_R_list)))
+P_L_list <- load_rds_with_fallback(relative_paths$P_L_list, file.path(absolute_base_path, basename(relative_paths$P_L_list)))
+start_vals_list <- load_rds_with_fallback(relative_paths$start_vals_list, file.path(absolute_base_path, basename(relative_paths$start_vals_list)))
+VO2_list <- load_rds_with_fallback(relative_paths$VO2_list, file.path(absolute_base_path, basename(relative_paths$VO2_list)))
+df_anthropometrisch_female <- load_rds_with_fallback(relative_paths$df_anthropometrisch_female, file.path(absolute_base_path, basename(relative_paths$df_anthropometrisch_female)))
+df_anthropometrisch_male <- load_rds_with_fallback(relative_paths$df_anthropometrisch_male, file.path(absolute_base_path, basename(relative_paths$df_anthropometrisch_male)))
 ```
 
 ## Berechnung
