@@ -71,7 +71,9 @@ h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Kö
 \end{cases}
 $$ {#eq-H}
 
-Um den Wert ins Sitzen zu übertragen, multiplizieren wir die Ruhewerte h~f, m~ mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen auf Basis von @fig-CIBA_GEIGY [@Ciba-Geigy1977, 225] sowie dem Umrechnungsfaktor umd den Ruheumsatz im Sitzen zu erhalten:
+Nachdem man h bestimmt hat, kann man mit dem Umrechnungsfaktor von 4,1868 den Wert in kJ mrechnen und auf einen zeitraum von einer Munute umrechnen. Mithilfe des gemessenen RQ welcher für jeden Proband individuell für den Ruhezeitraum bestimmt wurde konnte das kalorischen Äquivalents (kÄ) anhand von @tbl-stegemann bestimmt werden und der ermittelte Wärmewert in liter pro Minute umgerechnet werden.
+
+Da die bestimmte Basalrate nach @Harris1918 für den RUhezustand im liegen bestimmt wurde, muss dies noch auf den Ruhewert im Sitzen übertragen werden, dazu  multiplizieren wir die Ruhewerte h~f, m~ mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen auf Basis von @fig-CIBA_GEIGY [@Ciba-Geigy1977, 225].
 
 $$
 RMR_{f, m}\,[l \cdot min^{-1}] = 
@@ -80,7 +82,10 @@ RMR_{f} = \left( \frac{h_{f}}{24\, \cdot\, 60\, \cdot\, kÄ} \right)\; \cdot 4,1
 RMR_{m} = \left( \frac{h_{m}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,287
 \end{cases}
 $$  {#eq-RMR}
-\cdot Körpermasse\;[kg]
+
+```{r}
+# Ruheumsatz rechnungen in R nochmal kontrollieren!!!
+```
 
 ::: columns
 ::: {.column width="48%"}
@@ -97,7 +102,7 @@ $$  {#eq-RMR}
 :::
 
 
-
+Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen. 
 
 
 
@@ -135,7 +140,7 @@ W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-
 $$ {#eq-WAER}
 
 
-Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen. 
+
 
 *WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden, indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. *
 
