@@ -9,7 +9,7 @@ execute:
 # Torque Efficiency {.tabset}
 
 ```{r}
-# Library und dfs laden
+# Bibliotheken laden
 library(plotly)
 library(ggplot2)
 library(dplyr)
@@ -25,6 +25,7 @@ library(zoo)
 library(purrr)
 library(readxl)
 
+# Dateien mit relativen Pfaden laden
 EPOC_data_df <- readRDS("rds/EPOC_data_df.rds")
 Erg_data_df <- readRDS("rds/Erg_data_df.rds")
 Erg_data_komplett <- readRDS("rds/Erg_data_komplett.rds")
