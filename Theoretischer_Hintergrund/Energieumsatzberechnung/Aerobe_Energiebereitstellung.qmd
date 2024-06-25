@@ -19,7 +19,6 @@ p {
 
 # Aerobe Energiekomponente (W~AER~)
 
-
 ```{r}
 library(dplyr)
 library(tidyr)
@@ -71,6 +70,12 @@ DT_stegemann <- datatable(stegemann, options = list(
 Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).
 
 ## Ruhesauerstoffaufnahme (VO~2, Ruhe~)
+
+
+::: columns
+::: {.column width="64%"}
+
+
 Die Ruhesauerstoffaufnahme kann entweder direkt gemessen oder mit Hilfe von Gleichungen, wie beispielsweise @eq-H und @eq-RMR, berechnet werden. @eq-H beschreibt den Grundumsatz (h) für 24 Stunden in kcal für Frauen und Männer [@Harris1918]:
 
 $$
@@ -80,6 +85,50 @@ h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Kör
 h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
 \end{cases}
 $$ {#eq-H}
+
+
+
+Nach der Berechnung des Grundumsatzes kann mithilfe des vor der Belastung für jeden Probanden gemessenen RQ und @tbl-stegemann das kalorische Äquivalent (kÄ) bestimmt werden, und der Ruheumsatz (RMR, Englisch für "resting metabolic rate") im Liegen in Liter pro Minute berechnet werden. Um vom Ruheumsatz im Liegen auf den Ruheumsatz im Stehen zu kommen, wird der berechnete Ruheumsatz mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen, basierend auf @fig-CIBA_GEIGY, multipliziert [@Ciba-Geigy1977, 225]. Der mit folgender Gleichung berechnete RMR entspricht $\dot{V}O_{2, Ruhe}$:
+
+$$
+RMR_{f, m}\,[l \cdot min^{-1}] = 
+\begin{cases} 
+RMR_{f} = \;\left( \frac{h_{f}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,278 \\
+RMR_{m} = \left( \frac{h_{m}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,287
+\end{cases}
+$$  {#eq-RMR}
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="32%"}
+```{r}
+#| label: tbl-stegemann
+#| tbl-cap-location: bottom
+#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten und dem kalorischen Äquivalent in [kJ &middot; l<sup>-1</sup>] und [kcal &middot; l<sup>-1</sup>]  (Zuntz, 1901, S.260; Stegemann, 1991, S.59)"
+
+DT_stegemann
+```
+:::
+:::
+
+
+
+
+
+Die Ruhesauerstoffaufnahme kann entweder direkt gemessen oder mit Hilfe von Gleichungen, wie beispielsweise @eq-H und @eq-RMR, berechnet werden. @eq-H beschreibt den Grundumsatz (h) für 24 Stunden in kcal für Frauen und Männer [@Harris1918]:
+
+$$
+h_{f, m}\,[kcal] = 
+\begin{cases} 
+h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [cm]}) - (4,676 \cdot \text{Alter [Jahre]}) \\    
+h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
+\end{cases}
+$$ {#eq-H}
+
+
 
 Nach der Berechnung des Grundumsatzes kann mithilfe des vor der Belastung für jeden Probanden gemessenen RQ und @tbl-stegemann das kalorische Äquivalent (kÄ) bestimmt werden, und der Ruheumsatz (RMR, Englisch für "resting metabolic rate") im Liegen in Liter pro Minute berechnet werden. Um vom Ruheumsatz im Liegen auf den Ruheumsatz im Stehen zu kommen, wird der berechnete Ruheumsatz mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen, basierend auf @fig-CIBA_GEIGY, multipliziert [@Ciba-Geigy1977, 225]. Der mit folgender Gleichung berechnete RMR entspricht $\dot{V}O_{2, Ruhe}$:
 
@@ -118,6 +167,8 @@ RMR_{m} = \left( \frac{1828,915}{24 \cdot 60 \cdot 19,946} \right) \cdot 4,1868 
 $$
 :::
 :::
+
+# Berechnung von W~AER~
 
 Um den aeroben Arbeitsumsatz (W~aer~) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (W~Ruhe~) vom errechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. W~Ruhe~ beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der W~Ruhe~ als Basis verwendet, da sich der Sportler nicht in liegender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Belastung auf dem Fahrradergometer in sitzender Position gemessen. 
 
