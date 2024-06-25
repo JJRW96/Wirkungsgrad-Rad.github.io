@@ -61,29 +61,42 @@ DT_stegemann <- datatable(stegemann, options = list(
 
 Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum ($\dot{V}O_{2, Bel}$) und der Sauerstoffvolumenstom in Ruhe bestimmt werden ($\dot{V}O_{2, Ruhe}$).
 
-Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mittels Gleichungen bestimmt werden...
-
-
-Gleichungen zur Basalrate nach @Harris1918
+Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mit Hilfe der Gleichungen @eq-H und @eq-RMR auf Grunlage con @Harris1918 bestimmt werden. @eq-H beschreibt die Wärmeproduktion (h) in 24 Stunden in kcal für Fraunen und Männer:
 
 $$
 h_{f, m} = 
 \begin{cases} 
-h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [m]}) - (4,676 \cdot \text{Alter}) \\    
-h_{m} = 66,5 + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
+h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [cm]}) - (4,676 \cdot \text{Alter [Jahre]}) \\    
+h_{m} = 66,5\; + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
 \end{cases}
 $$ {#eq-H}
 
-
-Um den Wert ins Sitzen zu übertragen multiplizieren wir die Ruhewerte mit dem Faktor 1,287 für Mönner und 1,278 für Frauen auf Basis von [@Ciba-Geigy1977, 225]..
+Um den Wert ins Sitzen zu übertragen, multiplizieren wir die Ruhewerte h~f, m~ mit dem Faktor $\frac{1.39}{1.08} = 1.287$ für Männer und $\frac{1.15}{0.90} = 1.278$ für Frauen auf Basis von @fig-CIBA_GEIGY [@Ciba-Geigy1977, 225] sowie dem Umrechnungsfaktor umd den Ruheumsatz im Sitzen zu erhalten:
 
 $$
-RMR_{f, m} = 
+RMR_{f, m}\,[l \cdot min^{-1}] = 
 \begin{cases} 
 RMR_{f} = (h_{f} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,287 \\    
 RMR_{m} = (h_{m} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,278 
 \end{cases}
 $$ {#eq-RMR}
+
+
+::: columns
+::: {.column width="48%"}
+![Energieumsatz bei verschiedenen Tätigkeiten (Ciba Geigy, 1977, S.225).](images/Ciba_Geigy_Ruheumsatz.png){#fig-CIBA_GEIGY .caption}
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+:::
+:::
+
+
 
 
 
@@ -92,6 +105,7 @@ $$ {#eq-RMR}
 Daraus lässt sich die über $\dot{V}O_{2, Ruhe}$ liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) bestimmen.
 
 Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung lässt sich berechnen, indem man die über $\dot{V}O_{2, Ruhe}$ liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes ($\dot{V}O_{2, Netto}$) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ~Bel~) [@Stegemann1991, 59] 
+
 
 
 ::: columns
