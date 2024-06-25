@@ -76,11 +76,11 @@ Um den Wert ins Sitzen zu übertragen, multiplizieren wir die Ruhewerte h~f, m~ 
 $$
 RMR_{f, m}\,[l \cdot min^{-1}] = 
 \begin{cases} 
-RMR_{f} = (h_{f} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,287 \\    
-RMR_{m} = (h_{m} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,278 
+RMR_{f} = \left( \frac{h_{f}}{24\, \cdot\, 60\, \cdot\, kÄ} \right)\; \cdot 4,1868 \cdot 1,278 \\
+RMR_{m} = \left( \frac{h_{m}}{24\, \cdot\, 60\, \cdot\, kÄ} \right) \cdot 4,1868 \cdot 1,287
 \end{cases}
-$$ {#eq-RMR}
-
+$$  {#eq-RMR}
+\cdot Körpermasse\;[kg]
 
 ::: columns
 ::: {.column width="48%"}
