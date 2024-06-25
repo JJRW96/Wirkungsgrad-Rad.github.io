@@ -383,5 +383,25 @@
       "Theoretischer Hintergrund",
       "Radfahren im Sitzen und Stehen"
     ]
+  },
+  {
+    "objectID": "Datensätze.html",
+    "href": "Datensätze.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "Datensätze"
+    ]
+  },
+  {
+    "objectID": "Datensätze.html#datensätze-1",
+    "href": "Datensätze.html#datensätze-1",
+    "title": "",
+    "section": "1.1 Datensätze",
+    "text": "1.1 Datensätze\n\n1.1.1 “Haupt” - Datensatz\n\n\n\n\n\n\n\n\n1.1.2 Ergometer - Datensatz\n\n\n\n\n\n\n\n\n1.1.3 EPOC - Datensatz\n\n\n\n\n\n\n\n\n1.1.4 Messwerte_Bedingungen - Datensatz\n\n\n\n\n\n\n\n\n1.1.5 Messwerte_Intensitäten - Datensatz\n\n\n\n\n\n\n\n\n1.1.6 Messwerte_Bedingung_Intensität - Datensatz\n\n\n\n\n\n\n\n\n1.1.7 Efficiency - Datensatz",
+    "crumbs": [
+      "Datensätze"
+    ]
   }
 ]

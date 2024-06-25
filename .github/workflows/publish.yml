@@ -36,6 +36,15 @@ jobs:
             any::minpack.lm
             any::DT
             any::patchwork
+            any::zoo
+            any::ggplot2
+            any::dplyr
+            any::tidyr
+            any::htmltools
+            any::htmlwidgets
+            any::RColorBrewer
+            any::purrr
+            any::readxl
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
