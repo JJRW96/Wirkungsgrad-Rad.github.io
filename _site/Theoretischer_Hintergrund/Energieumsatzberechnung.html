@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.45">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>energieumsatzberechnung – Wirkungsgrad auf dem Radergometer im Sitzen und Stehen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/Logo_η_3.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Theoretischer Hintergrund</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Wirkungsgrad_Theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wirkungsgrad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Energieumsatzberechnung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aerobe Energiekomponente (W<sub>AER</sub>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaerobe- laktazide Energiekomponente (W<sub>BLC</sub>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaerobe- alaktazide Energiekomponente (W<sub>PCr</sub>)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Innere_Arbeit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innere Arbeit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Theoretischer_Hintergrund/Sitzen_Stehen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radfahren im Sitzen und Stehen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Methodik/Stichprobe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stichprobe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Methodik/Messmethoden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messmethoden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Methodik/Studiendesign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studiendesign</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Ergebnisse/index_Ergebnisse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergebnisse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/VO2_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VO2-Belastungsdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/EPOC_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPOC-Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/Laktat_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laktat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Ergebnisse/Ergometer/index_Ergometer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergometer Daten</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/Ergometer/Efficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Torque Efficiency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/Ergometer/Innere_Arbeit_Results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innere Arbeit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ergebnisse/Ergometer/Pedal_Smoothness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pedal Smoothness</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datensätze.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensätze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quellen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quellenverzeichnis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Inhalt auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#energieumsatzberechnung" id="toc-energieumsatzberechnung" class="nav-link active" data-scroll-target="#energieumsatzberechnung">Energieumsatzberechnung</a>
+  <ul class="collapse">
+  <li><a href="#berechnung-der-aeroben-energiekomponente-waer" id="toc-berechnung-der-aeroben-energiekomponente-waer" class="nav-link" data-scroll-target="#berechnung-der-aeroben-energiekomponente-waer">Berechnung der aeroben Energiekomponente (W<sub>AER</sub>)</a></li>
+  <li><a href="#berechnung-der-anaeroben--laktaziden-energiekomponente-wblc" id="toc-berechnung-der-anaeroben--laktaziden-energiekomponente-wblc" class="nav-link" data-scroll-target="#berechnung-der-anaeroben--laktaziden-energiekomponente-wblc">Berechnung der anaeroben- laktaziden Energiekomponente (W<sub>BLC</sub>)</a></li>
+  <li><a href="#berechnung-der-anaeroben--alaktaziden-energiekomponente-wpcr" id="toc-berechnung-der-anaeroben--alaktaziden-energiekomponente-wpcr" class="nav-link" data-scroll-target="#berechnung-der-anaeroben--alaktaziden-energiekomponente-wpcr">Berechnung der anaeroben- alaktaziden Energiekomponente (W<sub>PCr</sub>)</a>
+  <ul class="collapse">
+  <li><a href="#berechnung-der-sauerstoffspeicher" id="toc-berechnung-der-sauerstoffspeicher" class="nav-link" data-scroll-target="#berechnung-der-sauerstoffspeicher">Berechnung der Sauerstoffspeicher</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen">Quellen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<div class="cell">
+<style type="text/css">
+p {
+  text-align: justify
+}
+</style>
+</div>
+<section id="energieumsatzberechnung" class="level1">
+<h1>Energieumsatzberechnung</h1>
+<p>Der physiologische Gesamtenergieumsatz (W<sub>TOT</sub>) wurde auf Grundlage der Berechnungsmethode nach <span class="citation" data-cites="Beneke2002">Beneke et al. (<a href="#ref-Beneke2002" role="doc-biblioref">2002</a>)</span> bestimmt. Hierfür werden eine Atemgasanalyse und Blutlaktattests während der Belastung durchgeführt. Anhand der erhobenen Werte lässt sich der aerobe (W<sub>AER</sub>), anaerob-laktazide (W<sub>BLC</sub>) sowie der anaerob-alaktazide Energieanteil (W<sub>PCr</sub>) einer Belastung abschätzen. Der gesamte physiologische Energiebedarf (W<sub>TOT</sub>) der Belastung wird anschließend durch die Summierung der verschiedenen Energiekomponenten berechnet.</p>
+<p><span id="eq-WTOT"><span class="math display">\[
+W_{TOT} = W_{AER} + W_{BLC} + W_{PCr}
+\tag{1}\]</span></span></p>
+<p>Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie. Im Gegensatz zur direkten Kalorimetrie, bei der die Wärmeabgabe eines Organismus gemessen wird à hier nochmal in (Bader et al., 1972, S.8) genauer beschrieben, basiert die indirekte Kalorimetrie auf der Analyse der Atemgase. Durch die spirometrische Erfassung des Sauerstoffvolumenstroms (=&nbsp;V̇O<sub>2</sub>) und des Kohlenstoffdioxidvolumenstroms (=&nbsp;V̇CO<sub>2</sub>) können der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Die Messung dieser Atemgasbestandteile ermöglicht die Bestimmung des respiratorischen Quotienten (RQ = V̇CO<sub>2</sub>/V̇O<sub>2</sub>) und des kalorischen Äquivalents (= kÄ) &nbsp;(McArdle et al., 2009, S.181 ff.). Das kÄ hängt vom Anteil der verstoffwechselten Substrate ab, wobei das kÄ beim reinen Fettstoffwechsel bei etwa 19,62 kJ·l<sup>-1</sup> O<sub>2</sub> und beim reinen Kohlenhydratstoffwechsel bei ca. 21,13 kJ·l<sup>-1</sup> O<sub>2</sub> liegt <span class="citation" data-cites="Stegemann1991">(<a href="#ref-Stegemann1991" role="doc-biblioref">Stegemann, 1991, S. 59</a>)</span>. In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energieumsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger &amp; Schommer, 2013).</p>
+<section id="berechnung-der-aeroben-energiekomponente-waer" class="level2">
+<h2 class="anchored" data-anchor-id="berechnung-der-aeroben-energiekomponente-waer">Berechnung der aeroben Energiekomponente (W<sub>AER</sub>)</h2>
+<p>Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W<sub>AER</sub>) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum (V̇O<sub>2,Bel</sub>) und der Sauerstoffvolumenstom in Ruhe bestimmt werden (V̇O<sub>2,Ruhe</sub>).</p>
+<p>Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mittels Gleichungen bestimmt werden…</p>
+<p>–&gt; Formeln in Excel nochmal anpassen Auch den RQ für die Ruhe</p>
+<p>Gleichungen zur Basalrate nach <span class="citation" data-cites="Harris1918">Harris &amp; Benedict (<a href="#ref-Harris1918" role="doc-biblioref">1918</a>)</span></p>
+<p><span id="eq-H"><span class="math display">\[
+h_{f, m} =
+\begin{cases}
+h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [m]}) - (4,676 \cdot \text{Alter}) \\    
+h_{m} = 66,5 + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]})
+\end{cases}
+\tag{2}\]</span></span></p>
+<p>Um den Wert ins Sitzen zu übertragen Multiplikation der Ruhewerte auf Basis von <span class="citation" data-cites="Ciba-Geigy1977">(<a href="#ref-Ciba-Geigy1977" role="doc-biblioref">Ciba-Geigy, 1977, S. 225</a>)</span>…</p>
+<p><span id="eq-RMR"><span class="math display">\[
+RMR_{f, m} =
+\begin{cases}
+RMR_{f} = (h_{f} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,29 \\    
+RMR_{m} = (h_{m} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg]) \cdot  4,1868  \cdot 1,29
+\end{cases}
+\tag{3}\]</span></span></p>
+<p>Daraus lässt sich die über VO<sub>2,Ruhe</sub> liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO<sub>2,Netto</sub>) bestimmen.</p>
+<p>Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W<sub>AER</sub>) einer Belastung lässt sich berechnen, indem man die über Ruhhesauerstoffaufnahme (VO<sub>2,Ruhe</sub>) liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes (VO<sub>2,Netto</sub>) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ<sub>Bel</sub>) <span class="citation" data-cites="Stegemann1991">(<a href="#ref-Stegemann1991" role="doc-biblioref">Stegemann, 1991, S. 59</a>)</span></p>
+<p><span id="eq-WAER"><span class="math display">\[
+W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}]
+\tag{4}\]</span></span></p>
+<p>Um den aeroben Arbeitsumsatz (= Waer) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (definieren und abkürzen) vom er-rechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. Der Ruheenergieumsatz beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der Ruheenergieumsatz als Basis verwendet, da sich der Sportler nicht in lie-gender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Be-lastung auf dem Fahrradergometer in sitzender Position gemessen. WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden, indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. 5</p>
+</section>
+<section id="berechnung-der-anaeroben--laktaziden-energiekomponente-wblc" class="level2">
+<h2 class="anchored" data-anchor-id="berechnung-der-anaeroben--laktaziden-energiekomponente-wblc">Berechnung der anaeroben- laktaziden Energiekomponente (W<sub>BLC</sub>)</h2>
+</section>
+<section id="berechnung-der-anaeroben--alaktaziden-energiekomponente-wpcr" class="level2">
+<h2 class="anchored" data-anchor-id="berechnung-der-anaeroben--alaktaziden-energiekomponente-wpcr">Berechnung der anaeroben- alaktaziden Energiekomponente (W<sub>PCr</sub>)</h2>
+<p>Um die der anaeroben- alaktazide Energiekomponente W<sub>PCr</sub> zu bestimmen, wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem Ende der Belastung betrachtet.</p>
+<p>Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu erbringende mechanische Leistung an.</p>
+<p>Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende der Übung ausgeglichen wird.</p>
+<p>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="citation" data-cites="Brooks2004 Gaesser1984">(<a href="#ref-Brooks2004" role="doc-biblioref">Brooks et al., 2004, S. 218</a>; <a href="#ref-Gaesser1984" role="doc-biblioref">Gaesser &amp; Brooks, 1984</a>)</span> <strong><em>+ Brooks 1970 und 1981 nachschlagen</em></strong> der Begriff “Excess post-exercise oxygen consumption” oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit <span class="citation" data-cites="deMaares2003">(<a href="#ref-deMaares2003" role="doc-biblioref"><strong>deMaares2003?</strong></a>)</span>. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</p>
+<p>Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.</p>
+<p>Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der anaeroben Schwelle, wird durch die Spaltung von energiereichen Phosphaten, hauptsächlich Phosphokreatin (PC), gedeckt.<span class="citation" data-cites="Francescato2003">(<a href="#ref-Francescato2003" role="doc-biblioref">Francescato et al., 2003</a>)</span></p>
+<p>Die EPOC gliedert sich in einen langsamen Teil, die sogenannte „slow-component“ (= V̇O2EPOCslow) und einen schnellen Teil, die „fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von O2-Speichern (Hämoglobin, Myoglobin) nach der Belastung zurückzuführen und repräsentiert somit den alaktaziden Teil der anaeroben Energiebereitstellung.</p>
+<p>Neben der Wiederherstellung der energiereichen Phosphate können auch Faktoren wie der Transport von Laktat <em>( Glukoneogenese aus Laktat)</em>, eine erhöhte Körperkerntemperatur, eine gestei-gerte Durchblutung oder eine erhöhte Ventilation zur “fast-component” des EPOC beitragen (Børsheim &amp; Bahr, 2003)</p>
+<p>Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die Rückumwandlung des angefallenen Laktats als potenzielle Ursachen ge-nannt (Åstrand et al., 2003, S. 241; Bahr &amp; Sejersted, 1991) + <em>(Erhöhter Sauerstoffbedarf des Körpergewebes infolge einer erhöhten Körpertemperatur und eines erhöhten Katecholaminspiegels (eine erhöhte Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse) Erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur mit einem entsprechend vergrößerten Sauerstoffbedarf Vermehrte Produktion des Schilddrüsenhormons Thyroxin).</em></p>
+<p>Da der Anteil der Energieversorgung durch das anaerob-alaktazide System an der gesamten umgesetzten chemischen Energie während einer Belastung nicht <em>(oder nur schwer durch Biopsie)</em> direkt messbar ist, wird die schnelle Komponente der EPOC berechnet und als Schätz-wert für den WPCR verwendet (R. Beneke et al., 2004).</p>
+<p><em>–&gt; 3. Komponente der ultra slow anteil auch kurz besprechen, aber im Kontext der Arbeit nicht relevant (Gründe: Erhöhter Muskeltonus Zelluläre Regenerationsvorgänge Stimulation energiebereitstellender Mechanismen (z. B. Atmungskette))</em></p>
+<p>(Margaria et al., 1933)</p>
+<section id="berechnung-der-sauerstoffspeicher" class="level3">
+<h3 class="anchored" data-anchor-id="berechnung-der-sauerstoffspeicher">Berechnung der Sauerstoffspeicher</h3>
+<p>Die Menge des Sauerstoffs, die während des Übergangs von Ruhe zu Arbeit aus den Körperspeichern entnommen wurde, wurde mittels der von <span class="citation" data-cites="Francescato2003">Francescato et al. (<a href="#ref-Francescato2003" role="doc-biblioref">2003</a>)</span> beschriebenen Methode bestimmt. Die Berechnung umfasst die pulmonalen Sauerstoffspeichern in den Lungen (<span class="math inline">\(ΔO~2~S^p^\)</span>), im venösen Blut (<span class="math inline">\(ΔO~2~S^v^\)</span>) sowie die an Muskelmyoglobin gebundenen Sauerstoffmengen (<span class="math inline">\(ΔO~2~S^m^\)</span>). Die entsprechenden Veränderungen während des Übergangs von Ruhe zu Arbeit (oder umgekehrt) zeigen die Menge des Sauerstoffs, die von den Muskeln zu Beginn der Arbeit verstoffwechselt wurde, die jedoch nicht in den gemessenen Atemgasen zu sehen sind.</p>
+<section id="pulmonaler-sauerstoffspeicher" class="level4">
+<h4 class="anchored" data-anchor-id="pulmonaler-sauerstoffspeicher">Pulmonaler Sauerstoffspeicher</h4>
+<p><span class="math inline">\(ΔO~2~S^p^\)</span> kann aus der Differenz zwischen der Zeitkonstante der am Mund gemessenen Sauerstoffaufnahme zum Start der Belastung (<span class="math inline">\(τ~Start~\)</span>) und der auf alveolärer Ebene gemessenen Sauerstoffaufnahme (<span class="math inline">\(τ~alveolär~\)</span>) geschätzt werden.</p>
+<p><span class="math inline">\(\dot{V}O_{2, SS}\)</span> sowie τ<sub>m</sub> mit einer monoexponentialen Exponentialfunktion beschrieben für jeden Probanden als Zeitkonstante des Anstieges des Sauerstoffvolumenstormes berechnet.</p>
+<p><span class="math inline">\(\dot{V}O_{2, SS}\)</span> sowie <span class="math inline">\(τ~Start~\)</span> wurde mittels nichtlinearer Regression unter Verwendung des folgenden mono-exponentiellen 3-Parameter-Modells für jedes Belastungsintervall modelliert:</p>
+<p><span id="eq-VO2"><span class="math display">\[
+\dot{V}O_2(t) = \dot{V}O_{2, SS} \cdot \left(1 - e^{-\frac{t - TD}{\tau_Start}}\right) + \dot{V}O_{2, Ruhe}
+\tag{5}\]</span></span></p>
+<p>Die alveoläre Zeitkonstante <span class="math inline">\(τ~alveolär~\)</span> wurde von <span class="citation" data-cites="Cautero2002">Cautero et al. (<a href="#ref-Cautero2002" role="doc-biblioref">2002</a>)</span> beim Radfahren mit 34.3s festegelegt und wurde für die folgenden Berechnungen als konstante verwendet.</p>
+<p>Anschließend konnte <span class="math inline">\(ΔO~2~S^p^\)</span> mit folgender Gleichung <a href="#eq-dO2SP" class="quarto-xref">Gleichung&nbsp;6</a> bestimmt werden:</p>
+<p><span id="eq-dO2SP"><span class="math display">\[
+\Delta O_{2}S_{p} = \Delta \dot{V}O_{2, SS} \cdot (\tau_{Start} - \tau_{alveolär})
+\tag{6}\]</span></span></p>
+</section>
+<section id="venöser-sauerstoffspeicher" class="level4">
+<h4 class="anchored" data-anchor-id="venöser-sauerstoffspeicher">Venöser Sauerstoffspeicher</h4>
+<div class="columns">
+<div class="column" style="width:75%;">
+<p>Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem Produkt aus dem venösen Blutvolumen (VBV) und der Veränderung zwischen der arteriovenösen Sauerstoffdifferenz im Steady-State ([Δ(Ca - Cv)_s]) und derjenigen in Ruhe ([Δ(Ca - Cv)_r]). Das venöse Blutvolumen wurde dabei als 65% des gesamten Blutvolumens angenommen, welches wiederum als 7% der Körpermasse (in Kilogramm) angesetzt wurde. Die Herzleistung (Q), die den individuellen mechanischen Leistungen in der vorliegenden Arbeit entspricht, wurde aus Daten für ähnliche Wadenübungen geschätzt. Dies ermöglichte es, die lineare Beziehung zwischen (Q) (Liter/Minute) und mechanischer Leistung (Ws, Watt) zu bestimmen als: <span class="math inline">\(Q = 0.40 \cdot Ws + 5.84\)</span> (n = 5, r² = 0.945). Die individuellen Werte für (O_2^{Sv}) wurden dann aus den entsprechenden (VO_2) und (Q) Werten abgeleitet, wobei letztere auf der Grundlage der obigen Gleichung aus der entsprechenden mechanischen Leistung abgeleitet wurden. Diese Werte sind in Tabelle 2 für die drei Übungsbedingungen aufgeführt.</p>
+<p>Basierend auf den Werten der Studie von <span class="citation" data-cites="Astrand1964">Åstrand et al. (<a href="#ref-Astrand1964" role="doc-biblioref">1964</a>)</span>, die bei verschiedenen Intensitäten auf dem Fahrradergometer gemessen wurden, wurde das individuelle Herzzeitvolumen in Ruhe (Q<sub>Ruhe</sub>) und unter Belastung (Q<sub>Belastung</sub>) für jeden Probanden ermittelt. Die Regressionsgleichungen wurden durch lineare Regression der Herzzeitvolumina in Abhängigkeit vom des Sauerstoffvolumenstroms (<span class="math inline">\(\dot{V}O_{2}[l\cdot min^{-1}]\)</span>) bestimmt und beschreiben die Beziehung zwischen (<span class="math inline">\(\dot{V}O_{2}[l\cdot min^{-1}]\)</span>) und Herzzeitvolumen, wie in <a href="#fig-HZV" class="quarto-xref">Abbildung&nbsp;1</a> zu sehen ist. <br> Um Q<sub>Belastung</sub> zu berechnen, wurde der modellierte Steady-State-Sauerstoffvolumenstrom der jeweiligen Belastungsintensität (<span class="math inline">\(\dot{V}O_{2, SS}\)</span>) bzw. der jeweilige VO~2, Ruhe~ jedes Probanden für die Berechnung verwendet. Je nachdem, ob <span class="math inline">\(\dot{V}O_{2, SS}\)</span> mehr als 70% der im 1. Stufentest bestimmten VO<sub>2max</sub> des Probanden betrug und abhängig vom Geschlecht, wurde die passende Regressionsgleichung für Q<sub>Belastung</sub> <a href="#eq-QBELASTUNG" class="quarto-xref">Gleichung&nbsp;7</a> oder Q<sub>Ruhe</sub> <a href="#eq-QRUHE" class="quarto-xref">Gleichung&nbsp;8</a> ausgewählt und der passende Wert eingesetzt.</p>
+</div><div class="column" style="width:25%;">
+<div id="fig-HZV" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-HZV-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Herzzeitvolumen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Abbildung&nbsp;1: Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand, 1964)"><img src="images/Herzzeitvolumen.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-HZV-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand, 1964)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span id="eq-QBELASTUNG"><span class="math display">\[
+Q_{Belastung} =
+\begin{cases}
+9.88 + 3.23 \cdot \dot{V}O_{2, SS}\quad\rightarrow &amp; \text{♀ | }\dot{V}O_{2, Prozent} \leq 70 \%\\    
+3.66 + 6.81 \cdot \dot{V}O_{2, SS}\quad\rightarrow &amp; \text{♀ | }\dot{V}O_{2, Prozent} \geq 70 \%\\
+6.55 + 4.35 \cdot \dot{V}O_{2, SS}\quad\rightarrow &amp; \text{♂ | }\dot{V}O_{2, Prozent} \leq 70 \% \\
+3.07 + 6.01 \cdot \dot{V}O_{2, SS}\quad\rightarrow &amp; \text{♂ | }\dot{V}O_{2, Prozent} \geq 70 \%
+\end{cases}
+\tag{7}\]</span></span></p>
+<p><span id="eq-QRUHE"><span class="math display">\[
+Q_{Ruhe} =
+\begin{cases}
+3.66 + 6.81 \cdot \dot{V}O_{2, Ruhe}\quad\rightarrow &amp; \text{♀} \\    
+3.07 + 6.01 \cdot \dot{V}O_{2, Ruhe}\quad\rightarrow &amp; \text{♂}
+\end{cases}
+\tag{8}\]</span></span></p>
+<p>asdf</p>
+<p><span id="eq-DO2SV"><span class="math display">\[
+\Delta O_2S_{v} = \left[ \frac{\dot{V}O_{2, Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2,Ruhe}}{Q_{Ruhe}} \right] \cdot VBV
+\tag{9}\]</span></span></p>
+<p><span class="math display">\[
+\Delta O_2S_{v} = \left[ \Delta (C_a - C_v)^{Belastung} - \Delta (C_a - C_v)^{Ruhe} \right] \cdot VBV = \left[ \frac{\dot{V}O_{2, Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2,Ruhe}}{Q_{Ruhe}} \right] \cdot VBV
+\]</span></p>
+<p>Die Muskelmasse der Probanden wurde abhänig vom Geschlecht der Probanden sowie der Versuchsbedingung berechnet. Anhand der Stichprobe von <span class="citation" data-cites="Janssen2000">Janssen et al. (<a href="#ref-Janssen2000" role="doc-biblioref">2000</a>)</span> wurde die Muskelmasse eingeschötzt. Da es sich hier bei den allen Probanden um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil habdelte, wurde jeweils von einer aktiven Muskelmase, die der oberen Grenze der der Stichrobe von <span class="citation" data-cites="Janssen2002">(<a href="#ref-Janssen2002" role="doc-biblioref"><strong>Janssen2002?</strong></a>)</span> ausgeganegen. Für Frauen entsprach dies ca. 34% Muskelmasseanteil &amp; für Männer ca. 42% Antel der Muskelmasse am der Körpermasse. In verschiedenen Studien ……. wurde der Anteil der aktiven Muskelmasse an der GEsamtmuskelmasse auf ca. 60-80% geschätzt. Hier wurde der Anteil für das Fahren im sitzen auf 65% und im stehen auf 75% aktive MUskelmasse festegelegt. Aus diesen beiden Faktoren urde dann wie folgt die aktive Muskelmasse der Probanden bestimmt:</p>
+<p><span id="eq-MMAKTIV"><span class="math display">\[
+Muskelmasse_{aktiv} =
+\begin{cases}
+Körpermasse \cdot 0.34 \cdot 0.65 \quad\rightarrow &amp; \text{♀ | Sitzen} \\
+Körpermasse \cdot 0.34 \cdot 0.75 \quad\rightarrow &amp; \text{♀ | Stehen} \\
+Körpermasse \cdot 0.42 \cdot 0.65 \quad\rightarrow &amp; \text{♂ | Sitzen} \\
+Körpermasse \cdot 0.42 \cdot 0.75 \quad\rightarrow &amp; \text{♂ | Stehen} \\
+\end{cases}
+\tag{10}\]</span></span></p>
+<p><span id="eq-DMB"><span class="math display">\[
+\%deoxyMb = 2.09 \cdot P_{mech} + 14.2
+\tag{11}\]</span></span> Das venöse Blutvolumen (VBV) wurde nach … berehcnet mit …</p>
+<p><span id="eq-VBV"><span class="math display">\[
+VBV = Muskelmasse_{aktiv} \cdot 0.07
+\tag{12}\]</span></span></p>
+</section>
+<section id="sauerstoffspeicher-im-myoglobin" class="level4">
+<h4 class="anchored" data-anchor-id="sauerstoffspeicher-im-myoglobin">Sauerstoffspeicher im Myoglobin</h4>
+<p><span id="eq-D02DEF"><span class="math display">\[
+\Delta O_2S_{M} = \left(\frac{2.09 \cdot P_{mech}}{100}\right) \cdot 4.46 \cdot 1.34 \cdot Muskelmasse_{aktiv}
+\tag{13}\]</span></span></p>
+<p><span id="eq-02DEF"><span class="math display">\[
+O_2\text{def} = EPOC - \Delta O_2S_p - \Delta O_2S_v - \Delta O_2S_m
+\tag{14}\]</span></span></p>
+<p>Diese Gleichung stellt die Berechnung der Veränderung der Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in Verbindung mit dem venösen Blutvolumen betrachtet werden.</p>
+<p>Auf dieser Grundlage wurde das insgesamt gemessene Brutto-Sauerstoffdefizit korrigiert, um das Netto-Sauerstoffdefizit zu erhalten, welches das Sauerstoffäquivalent der Spaltung von Phosphokreatin (PC) bei Arbeitsbeginn darstellt. Die bestimmte Menge an EPOC (Excess Post-exercise Oxygen Consumption) repräsentiert daher dieses korrigierte Sauerstoffdefizit, das durch die initiale PC-Spaltung entstanden ist.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="quellen" class="level1">
+<h1>Quellen</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Astrand1964" class="csl-entry" role="listitem">
+Åstrand, P.-O., Cuddy, T. E., Saltin, B., &amp; Stenberg, J. (1964). <span>Cardiac output during submaximal and maximal work</span>. <em>Journal of applied physiology</em>, <em>19</em>, 268–274. <a href="https://doi.org/10.1152/jappl.1964.19.2.268">https://doi.org/10.1152/jappl.1964.19.2.268</a>
+</div>
+<div id="ref-Beneke2002" class="csl-entry" role="listitem">
+Beneke, R., Pollmann, C., Bleif, I., Leithäuser, R. M., &amp; Hütler, M. (2002). <span>How anaerobic is the Wingate Anaerobic Test for humans ?</span> <em>European Journal of Applied Physiology</em>, <em>87</em>, 388–392. <a href="https://doi.org/10.1007/s00421-002-0622-4">https://doi.org/10.1007/s00421-002-0622-4</a>
+</div>
+<div id="ref-Brooks2004" class="csl-entry" role="listitem">
+Brooks, G. A., Fahey, T. D., &amp; Baldwin, K. M. (2004). <em><span>Exercise Physiology: Human Bioenergetics and Its Applications</span></em> (4. Edition, S. 928). McGraw-Hill Education Ltd.
+</div>
+<div id="ref-Cautero2002" class="csl-entry" role="listitem">
+Cautero, M., Beltrami, A. P., Di Prampero, P. E., &amp; Capelli, C. (2002). <span>Breath-by-breath alveolar oxygen transfer at the onset of step exercise in humans: Methodological implications</span>. <em>European Journal of Applied Physiology</em>, <em>88</em>(3), 203–213. <a href="https://doi.org/10.1007/s00421-002-0671-8">https://doi.org/10.1007/s00421-002-0671-8</a>
+</div>
+<div id="ref-Ciba-Geigy1977" class="csl-entry" role="listitem">
+Ciba-Geigy. (1977). <em><span>Wissenschaftliche Tabellen Geigy</span></em> (7. Auflage, S. 290). CIBA-GEIGY AG.
+</div>
+<div id="ref-Francescato2003" class="csl-entry" role="listitem">
+Francescato, M. P., Cettolo, V., &amp; Di Prampero, P. E. (2003). <span>Relationships between mechanical power, O2 consumption, O2 deficit and high-energy phosphates during calf exercise in humans</span>. <em>Pflugers Archiv European Journal of Physiology</em>, <em>445</em>(5), 622–628. <a href="https://doi.org/10.1007/s00424-002-0992-9">https://doi.org/10.1007/s00424-002-0992-9</a>
+</div>
+<div id="ref-Gaesser1984" class="csl-entry" role="listitem">
+Gaesser, G. A., &amp; Brooks, G. A. (1984). <span>Metabolic bases of excess post-exercise oxygen consumption: a review</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em>, <em>16</em>(1), 1–9. <a href="http://journal.um-surabaya.ac.id/index.php/JKM/article/view/2203 https://journals.lww.com/acsm-msse/Fulltext/1984/01000/Metabolic_bases_of_excess_post_exercise_oxygen.8.aspx">http://journal.um-surabaya.ac.id/index.php/JKM/article/view/2203 https://journals.lww.com/acsm-msse/Fulltext/1984/01000/Metabolic_bases_of_excess_post_exercise_oxygen.8.aspx</a>
+</div>
+<div id="ref-Harris1918" class="csl-entry" role="listitem">
+Harris, J. A., &amp; Benedict, F. G. (1918). <span>A Biometric Study of Human Basal Metabolism</span>. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>4</em>(12), 370–373. <a href="https://doi.org/10.1073/pnas.4.12.370">https://doi.org/10.1073/pnas.4.12.370</a>
+</div>
+<div id="ref-Janssen2000" class="csl-entry" role="listitem">
+Janssen, I., Heymsfield, S. B., Wang, Z. M., &amp; Ross, R. (2000). <span>Skeletal muscle mass and distribution in 468 men and women aged 18-88 yr</span>. <em>Journal of Applied Physiology</em>, <em>89</em>(1), 81–88. <a href="https://doi.org/10.1152/jappl.2000.89.1.81">https://doi.org/10.1152/jappl.2000.89.1.81</a>
+</div>
+<div id="ref-Stegemann1991" class="csl-entry" role="listitem">
+Stegemann, J. (1991). <em><span>Leistungsphysiologie</span></em> (4. Edition, S. 385). Georg Thieme Verlag.
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> de</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{css}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> echo<span class="in">:</span> false</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a># Energieumsatzberechnung</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>tidyr<span class="in">)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>readxl<span class="in">)</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>ggplot2<span class="in">)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>extrafont<span class="in">)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Der physiologische Gesamtenergieumsatz <span class="in">(</span>W<span class="op">~</span>TOT<span class="op">~</span><span class="in">)</span> wurde auf Grundlage der Berechnungsmethode nach <span class="im">@Beneke2002</span> bestimmt. Hierfür werden eine Atemgasanalyse und Blutlaktattests während der Belastung durchgeführt. Anhand der erhobenen Werte lässt sich der aerobe <span class="fu">(</span><span class="dv">W</span>~<span class="dv">AER</span>~<span class="fu">)</span>, anaerob-laktazide <span class="fu">(</span><span class="dv">W</span>~<span class="dv">BLC</span>~<span class="fu">)</span> sowie der anaerob-alaktazide Energieanteil <span class="fu">(</span><span class="dv">W</span>~<span class="dv">PCr</span>~<span class="fu">)</span> einer Belastung abschätzen. Der gesamte physiologische Energiebedarf <span class="fu">(</span><span class="dv">W</span>~<span class="dv">TOT</span>~<span class="fu">)</span> der Belastung wird anschließend durch die Summierung der verschiedenen Energiekomponenten berechnet.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>W_{TOT} = W_{AER} <span class="op">+</span> W_{BLC} <span class="op">+</span> W_{PCr} </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-WTOT</span>}</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie. Im Gegensatz zur direkten Kalorimetrie<span class="op">,</span> bei der die Wärmeabgabe eines Organismus gemessen wird à hier nochmal in <span class="in">(</span>Bader et al.<span class="op">,</span> 1972<span class="op">,</span> S<span class="fu">.8</span><span class="in">)</span> genauer beschrieben<span class="op">,</span> basiert die indirekte Kalorimetrie auf der Analyse der Atemgase. Durch die spirometrische Erfassung des Sauerstoffvolumenstroms <span class="in">(</span>=&nbsp;V̇O<span class="op">~</span>2<span class="op">~</span><span class="in">)</span> und des Kohlenstoffdioxidvolumenstroms <span class="in">(</span>=&nbsp;V̇CO<span class="op">~</span>2<span class="op">~</span><span class="in">)</span> können der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Die Messung dieser Atemgasbestandteile ermöglicht die Bestimmung des respiratorischen Quotienten <span class="in">(</span>RQ = V̇CO<span class="op">~</span>2<span class="op">~</span>/V̇O<span class="op">~</span>2<span class="op">~</span><span class="in">)</span> und des kalorischen Äquivalents <span class="in">(</span>= kÄ<span class="in">)</span> &nbsp;<span class="in">(</span>McArdle et al.<span class="op">,</span> 2009<span class="op">,</span> S<span class="fu">.181</span> ff.<span class="in">)</span>. Das kÄ hängt vom Anteil der verstoffwechselten Substrate ab<span class="op">,</span> wobei das kÄ beim reinen Fettstoffwechsel bei etwa 19<span class="op">,</span>62 kJ·l^-1^ O<span class="op">~</span>2<span class="op">~</span> und beim reinen Kohlenhydratstoffwechsel bei ca. 21<span class="op">,</span>13 kJ·l^-1^ O<span class="op">~</span>2<span class="op">~</span> liegt <span class="ex">[</span><span class="ss">@Stegemann1991</span><span class="op">,</span> 59]. In dieser Methode wird der Eiweißstoffwechsel vernachlässigt<span class="op">,</span> da dessen Energieumsatz<span class="op">,</span> abgesehen von einer Glykogenverarmung des Sportlers<span class="op">,</span> konstant unter einem Prozent der gesamten Energiebereitstellung liegt <span class="in">(</span>Scharhag-Rosenberger <span class="op">&amp;</span> Schommer<span class="op">,</span> 2013<span class="in">)</span>.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>## Berechnung der aeroben Energiekomponente <span class="in">(</span>W<span class="op">~</span>AER<span class="op">~</span><span class="in">)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz <span class="in">(</span>W<span class="op">~</span>AER<span class="op">~</span><span class="in">)</span> zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum <span class="in">(</span>V̇O<span class="op">~</span>2<span class="op">,</span>Bel<span class="op">~</span><span class="in">)</span> und der Sauerstoffvolumenstom in Ruhe bestimmt werden <span class="in">(</span>V̇O<span class="op">~</span>2<span class="op">,</span>Ruhe<span class="op">~</span><span class="in">)</span>.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mittels Gleichungen bestimmt werden...</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>--\&gt; Formeln in Excel nochmal anpassen Auch den RQ für die Ruhe</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Gleichungen zur Basalrate nach <span class="im">@Harris1918</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>h_{f<span class="op">,</span> m} = </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>h_{f} = 655<span class="op">,</span>1 <span class="op">+</span> <span class="in">(</span>9<span class="op">,</span>563 \cdot \text<span class="er">{</span>Körpermasse <span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span>}) <span class="op">+</span> <span class="in">(</span>1<span class="op">,</span>850 \cdot \text<span class="er">{</span>Körperlänge <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>}) - <span class="in">(</span>4<span class="op">,</span>676 \cdot \text<span class="er">{</span>Alter}) \\    </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>h_{m} = 66<span class="op">,</span>5 <span class="op">+</span> <span class="in">(</span>13<span class="op">,</span>75 \cdot \text<span class="er">{</span>Körpermasse <span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span>}) <span class="op">+</span> <span class="in">(</span>5<span class="op">,</span>003 \cdot \text<span class="er">{</span>Körperlänge <span class="ex">[</span><span class="ss">cm</span><span class="ex">]</span>}) - <span class="in">(</span>6<span class="op">,</span>775 \cdot \text<span class="er">{</span>Alter <span class="ex">[</span><span class="ss">Jahre</span><span class="ex">]</span>})</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-H</span>}</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Um den Wert ins Sitzen zu übertragen Multiplikation der Ruhewerte auf Basis von <span class="ex">[</span><span class="ss">@Ciba-Geigy1977</span><span class="op">,</span> 225]...</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>RMR_{f<span class="op">,</span> m} = </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>RMR_{f} = <span class="in">(</span>h_<span class="er">{</span>f} / <span class="in">(</span>24 \cdot 60 \cdot kÄ \cdot Körpermasse\;<span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span><span class="in">)</span> \cdot  4<span class="op">,</span>1868  \cdot 1<span class="op">,</span>29 \\    </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>RMR_{m} = <span class="in">(</span>h_<span class="er">{</span>m} / <span class="in">(</span>24 \cdot 60 \cdot kÄ \cdot Körpermasse\;<span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span><span class="in">)</span> \cdot  4<span class="op">,</span>1868  \cdot 1<span class="op">,</span>29 </span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-RMR</span>}</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>Daraus lässt sich die über VO<span class="op">~</span>2<span class="op">,</span>Ruhe<span class="op">~</span> liegende Sauerstoffaufnahme während des Belastungszeitraumes <span class="in">(</span>VO<span class="op">~</span>2<span class="op">,</span>Netto<span class="op">~</span><span class="in">)</span> bestimmen.</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>Der aerobe Energienteil am physiologischen Gesamtenergieumsatz <span class="in">(</span>W<span class="op">~</span>AER<span class="op">~</span><span class="in">)</span> einer Belastung lässt sich berechnen<span class="op">,</span> indem man die über Ruhhesauerstoffaufnahme <span class="in">(</span>VO<span class="op">~</span>2<span class="op">,</span>Ruhe<span class="op">~</span><span class="in">)</span> liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes <span class="in">(</span>VO<span class="op">~</span>2<span class="op">,</span>Netto<span class="op">~</span><span class="in">)</span> mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert <span class="in">(</span>= kÄ<span class="op">~</span>Bel<span class="op">~</span><span class="in">)</span> <span class="ex">[</span><span class="ss">@Stegemann1991</span><span class="op">,</span> 59] </span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>W_{AER}\;<span class="ex">[</span><span class="ss">kJ</span><span class="ex">]</span> = VO_{2<span class="op">,</span>Netto} <span class="in">(</span>t<span class="in">)</span>\;<span class="ex">[</span><span class="ss">l</span><span class="ex">]</span> \cdot \overline{kÄ}_{Bel}\;<span class="ex">[</span><span class="ss">kJ \cdot l</span><span class="op">^</span>{-1}]</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-WAER</span>}</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Um den aeroben Arbeitsumsatz <span class="in">(</span>= Waer<span class="in">)</span> eines Belastungszeitraumes zu erhalten<span class="op">,</span> muss anschließend der Ruheenergieumsatz <span class="in">(</span>definieren und abkürzen<span class="in">)</span> vom er-rechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. Der Ruheenergieumsatz beschreibt die Energie<span class="op">,</span> die der Körper in völliger Ruhe und im Liegen benötigt<span class="op">,</span> um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der Ruheenergieumsatz als Basis verwendet<span class="op">,</span> da sich der Sportler nicht in lie-gender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Be-lastung auf dem Fahrradergometer in sitzender Position gemessen. WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden<span class="op">,</span> indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe <span class="in">(</span>= V̇O2Ruhe<span class="in">)</span> mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert<span class="fu">.Waer</span> = WaerGes – WaerRuhe Gl. 5</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>## Berechnung der anaeroben- laktaziden Energiekomponente <span class="in">(</span>W<span class="op">~</span>BLC<span class="op">~</span><span class="in">)</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>## Berechnung der anaeroben- alaktaziden Energiekomponente <span class="in">(</span>W<span class="op">~</span>PCr<span class="op">~</span><span class="in">)</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>Um die der anaeroben- alaktazide Energiekomponente W<span class="op">~</span>PCr<span class="op">~</span> zu bestimmen<span class="op">,</span> wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem Ende der Belastung betrachtet.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu erbringende mechanische Leistung an.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld<span class="op">,</span> die am Ende der Übung ausgeglichen wird.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="ex">[</span><span class="ss">@Brooks2004</span><span class="op">,</span> 218; <span class="im">@Gaesser1984</span>] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff <span class="st">"Excess post-exercise oxygen consumption"</span> oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@deMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der anaeroben Schwelle, wird durch die Spaltung von energiereichen Phosphaten, hauptsächlich Phosphokreatin <span class="fu">(</span><span class="dv">PC</span><span class="fu">)</span>, gedeckt.[@Francescato2003]</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>Die EPOC gliedert sich in einen langsamen Teil, die sogenannte „slow-component“ <span class="fu">(</span><span class="op">=</span> <span class="dv">V</span>̇<span class="dv">O2EPOCslow</span><span class="fu">)</span> und einen schnellen Teil, die „fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von O2-Speichern <span class="fu">(</span><span class="dv">Hämoglobin</span>, <span class="dv">Myoglobin</span><span class="fu">)</span> nach der Belastung zurückzuführen und repräsentiert somit den alaktaziden Teil der anaeroben Energiebereitstellung.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>Neben der Wiederherstellung der energiereichen Phosphate können auch Faktoren wie der Transport von Laktat *<span class="fu">(</span> <span class="dv">Glukoneogenese aus Laktat</span><span class="fu">)</span>*, eine erhöhte Körperkerntemperatur, eine gestei-gerte Durchblutung oder eine erhöhte Ventilation zur <span class="st">"fast-component"</span> des EPOC beitragen <span class="fu">(</span><span class="dv">Børsheim </span>&amp; <span class="dv">Bahr</span>, <span class="dv">2003</span><span class="fu">)</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die Rückumwandlung des angefallenen Laktats als potenzielle Ursachen ge-nannt <span class="fu">(</span><span class="dv">Åstrand et al</span>., <span class="dv">2003</span>, <span class="dv">S</span>. <span class="dv">241</span><span class="er">;</span> Bahr <span class="op">&amp;</span> Sejersted<span class="op">,</span> 1991) <span class="op">+</span> <span class="op">*</span><span class="in">(</span>Erhöhter Sauerstoffbedarf des Körpergewebes infolge einer erhöhten Körpertemperatur und eines erhöhten Katecholaminspiegels <span class="in">(</span>eine erhöhte Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse<span class="in">)</span> Erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur mit einem entsprechend vergrößerten Sauerstoffbedarf Vermehrte Produktion des Schilddrüsenhormons Thyroxin<span class="in">)</span>.<span class="op">*</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>Da der Anteil der Energieversorgung durch das anaerob-alaktazide System an der gesamten umgesetzten chemischen Energie während einer Belastung nicht <span class="op">*</span><span class="in">(</span>oder nur schwer durch Biopsie<span class="in">)</span><span class="op">*</span> direkt messbar ist<span class="op">,</span> wird die schnelle Komponente der EPOC berechnet und als Schätz-wert für den WPCR verwendet <span class="in">(</span>R. Beneke et al.<span class="op">,</span> 2004<span class="in">)</span>.</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>--\&gt; 3. Komponente der ultra slow anteil auch kurz besprechen<span class="op">,</span> aber im Kontext der Arbeit nicht relevant <span class="in">(</span>Gründe<span class="in">:</span> Erhöhter Muskeltonus Zelluläre Regenerationsvorgänge Stimulation energiebereitstellender Mechanismen <span class="in">(</span>z. B. Atmungskette<span class="in">))</span><span class="op">*</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">(</span>Margaria et al.<span class="op">,</span> 1933<span class="in">)</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>### Berechnung der Sauerstoffspeicher</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>Die Menge des Sauerstoffs<span class="op">,</span> die während des Übergangs von Ruhe zu Arbeit aus den Körperspeichern entnommen wurde<span class="op">,</span> wurde mittels der von <span class="im">@Francescato2003</span> beschriebenen Methode bestimmt. Die Berechnung umfasst die pulmonalen Sauerstoffspeichern in den Lungen <span class="fu">(</span>$<span class="dv">ΔO</span>~<span class="dv">2</span>~<span class="dv">S</span>^<span class="dv">p</span>^$<span class="fu">)</span>, im venösen Blut <span class="fu">(</span>$<span class="dv">ΔO</span>~<span class="dv">2</span>~<span class="dv">S</span>^<span class="dv">v</span>^$<span class="fu">)</span> sowie die an Muskelmyoglobin gebundenen Sauerstoffmengen <span class="fu">(</span>$<span class="dv">ΔO</span>~<span class="dv">2</span>~<span class="dv">S</span>^<span class="dv">m</span>^$<span class="fu">)</span>. Die entsprechenden Veränderungen während des Übergangs von Ruhe zu Arbeit <span class="fu">(</span><span class="dv">oder umgekehrt</span><span class="fu">)</span> zeigen die Menge des Sauerstoffs, die von den Muskeln zu Beginn der Arbeit verstoffwechselt wurde, die jedoch nicht in den gemessenen Atemgasen zu sehen sind.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>#### Pulmonaler Sauerstoffspeicher</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>$ΔO~2~S^p^$ kann aus der Differenz zwischen der Zeitkonstante der am Mund gemessenen Sauerstoffaufnahme zum Start der Belastung <span class="fu">(</span>$<span class="dv">τ</span>~<span class="dv">Start</span>~$<span class="fu">)</span> und der auf alveolärer Ebene gemessenen Sauerstoffaufnahme <span class="fu">(</span>$<span class="dv">τ</span>~<span class="dv">alveolär</span>~$<span class="fu">)</span> geschätzt werden. </span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>$\dot{V}O_{2<span class="op">,</span> SS}$ sowie τ<span class="op">~</span>m<span class="op">~</span> mit einer monoexponentialen Exponentialfunktion beschrieben für jeden Probanden als Zeitkonstante des Anstieges des Sauerstoffvolumenstormes berechnet.</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>$\dot{V}O_{2<span class="op">,</span> SS}$ sowie $τ<span class="op">~</span>Start<span class="op">~</span>$ wurde mittels nichtlinearer Regression unter Verwendung des folgenden mono-exponentiellen 3-Parameter-Modells für jedes Belastungsintervall modelliert<span class="in">:</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>\dot{V}O_2<span class="in">(</span>t<span class="in">)</span> = \dot{V}O_{2<span class="op">,</span> SS} \cdot \left<span class="in">(</span>1 - e^<span class="er">{</span>-\frac{t - TD}{\tau_Start}}\right) <span class="op">+</span> \dot{V}O_{2<span class="op">,</span> Ruhe} </span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-VO2</span>}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>Die alveoläre Zeitkonstante $τ<span class="op">~</span>alveolär<span class="op">~</span>$ wurde von <span class="im">@Cautero2002</span> beim Radfahren mit 34.3s festegelegt und wurde für die folgenden Berechnungen als konstante verwendet.</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>Anschließend konnte $ΔO~2~S^p^$ mit folgender Gleichung @eq-dO2SP bestimmt werden:</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>\Delta O_{2}S_{p} = \Delta \dot{V}O_{2<span class="op">,</span> SS} \cdot <span class="in">(</span>\tau_<span class="er">{</span>Start} - \tau_{alveolär})</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-dO2SP</span>}</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>#### Venöser Sauerstoffspeicher</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> columns</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> {<span class="fu">.column</span> width="75%"}</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem Produkt aus dem venösen Blutvolumen <span class="in">(</span>VBV<span class="in">)</span> und der Veränderung zwischen der arteriovenösen Sauerstoffdifferenz im Steady-State <span class="in">(</span>\[Δ<span class="in">(</span>Ca - Cv<span class="in">)</span>\_s\]<span class="in">)</span> und derjenigen in Ruhe <span class="in">(</span>\[Δ<span class="in">(</span>Ca - Cv<span class="in">)</span>\_r\]<span class="in">)</span>. Das venöse Blutvolumen wurde dabei als 65% des gesamten Blutvolumens angenommen<span class="op">,</span> welches wiederum als 7% der Körpermasse <span class="in">(</span>in Kilogramm<span class="in">)</span> angesetzt wurde. Die Herzleistung <span class="in">(</span>Q<span class="in">)</span><span class="op">,</span> die den individuellen mechanischen Leistungen in der vorliegenden Arbeit entspricht<span class="op">,</span> wurde aus Daten für ähnliche Wadenübungen geschätzt. Dies ermöglichte es<span class="op">,</span> die lineare Beziehung zwischen <span class="in">(</span>Q<span class="in">)</span> <span class="in">(</span>Liter/Minute<span class="in">)</span> und mechanischer Leistung <span class="in">(</span>Ws<span class="op">,</span> Watt<span class="in">)</span> zu bestimmen als<span class="in">:</span> $Q = 0<span class="fu">.40</span> \cdot Ws <span class="op">+</span> 5<span class="fu">.84</span>$ <span class="in">(</span>n = 5<span class="op">,</span> r² = 0<span class="fu">.945</span><span class="in">)</span>. Die individuellen Werte für <span class="in">(</span>\Delta O_2\^<span class="er">{</span>Sv}) wurden dann aus den entsprechenden <span class="in">(</span>VO_2<span class="in">)</span> und <span class="in">(</span>Q<span class="in">)</span> Werten abgeleitet<span class="op">,</span> wobei letztere auf der Grundlage der obigen Gleichung aus der entsprechenden mechanischen Leistung abgeleitet wurden. Diese Werte sind in Tabelle 2 für die drei Übungsbedingungen aufgeführt.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>Basierend auf den Werten der Studie von <span class="im">@Astrand1964</span>, die bei verschiedenen Intensitäten auf dem Fahrradergometer gemessen wurden, wurde das individuelle Herzzeitvolumen in Ruhe <span class="fu">(</span><span class="dv">Q</span>~<span class="dv">Ruhe</span>~<span class="fu">)</span> und unter Belastung <span class="fu">(</span><span class="dv">Q</span>~<span class="dv">Belastung</span>~<span class="fu">)</span> für jeden Probanden ermittelt. Die Regressionsgleichungen wurden durch lineare Regression der Herzzeitvolumina in Abhängigkeit vom des Sauerstoffvolumenstroms <span class="fu">(</span>$<span class="dv">\dot</span><span class="er">{</span>V}O_{2}<span class="ex">[</span><span class="ss">l\cdot min</span><span class="op">^</span>{-1}]$) bestimmt und beschreiben die Beziehung zwischen <span class="in">(</span>$\dot<span class="er">{</span>V}O_{2}<span class="ex">[</span><span class="ss">l\cdot min</span><span class="op">^</span>{-1}]$) und Herzzeitvolumen<span class="op">,</span> wie in <span class="im">@fig-HZV</span> zu sehen ist.  &lt;br /&gt; </span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>Um Q~Belastung~ zu berechnen, wurde der modellierte Steady-State-Sauerstoffvolumenstrom der jeweiligen Belastungsintensität <span class="fu">(</span>$<span class="dv">\dot</span><span class="er">{</span>V}O_{2<span class="op">,</span> SS}$) bzw. der jeweilige VO<span class="op">~</span>2<span class="op">,</span> Ruhe<span class="op">~</span> jedes Probanden für die Berechnung verwendet. Je nachdem<span class="op">,</span> ob $\dot{V}O_{2<span class="op">,</span> SS}$ mehr als 70% der im 1. Stufentest bestimmten VO<span class="op">~</span>2max<span class="op">~</span> des Probanden betrug und abhängig vom Geschlecht<span class="op">,</span> wurde die passende Regressionsgleichung für Q<span class="op">~</span>Belastung<span class="op">~</span> <span class="im">@eq-QBELASTUNG</span> oder Q~Ruhe~ @eq-QRUHE ausgewählt und der passende Wert eingesetzt.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>::: {<span class="fu">.column</span> width="25%"}</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>!<span class="ex">[</span><span class="ss">Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand</span><span class="op">,</span> 1964)]<span class="in">(</span>images/Herzzeitvolumen<span class="fu">.png</span><span class="in">)</span>{<span class="pp">#fig-HZV</span>}</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>Q_{Belastung} = </span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>9<span class="fu">.88</span> <span class="op">+</span> 3<span class="fu">.23</span> \cdot \dot{V}O_{2<span class="op">,</span> SS}\quad\rightarrow <span class="op">&amp;</span> \text{♀ <span class="op">|</span> }\dot{V}O_{2<span class="op">,</span> Prozent} \leq 70 \%\\    </span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>3<span class="fu">.66</span> <span class="op">+</span> 6<span class="fu">.81</span> \cdot \dot{V}O_{2<span class="op">,</span> SS}\quad\rightarrow <span class="op">&amp;</span> \text{♀ <span class="op">|</span> }\dot{V}O_{2<span class="op">,</span> Prozent} \geq 70 \%\\</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>6<span class="fu">.55</span> <span class="op">+</span> 4<span class="fu">.35</span> \cdot \dot{V}O_{2<span class="op">,</span> SS}\quad\rightarrow <span class="op">&amp;</span> \text{♂ <span class="op">|</span> }\dot{V}O_{2<span class="op">,</span> Prozent} \leq 70 \% \\</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>3<span class="fu">.07</span> <span class="op">+</span> 6<span class="fu">.01</span> \cdot \dot{V}O_{2<span class="op">,</span> SS}\quad\rightarrow <span class="op">&amp;</span> \text{♂ <span class="op">|</span> }\dot{V}O_{2<span class="op">,</span> Prozent} \geq 70 \%</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>$${<span class="pp">#eq-QBELASTUNG</span>}</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>Q_{Ruhe} = </span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>3<span class="fu">.66</span> <span class="op">+</span> 6<span class="fu">.81</span> \cdot \dot{V}O_{2<span class="op">,</span> Ruhe}\quad\rightarrow <span class="op">&amp;</span> \text{♀} \\    </span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>3<span class="fu">.07</span> <span class="op">+</span> 6<span class="fu">.01</span> \cdot \dot{V}O_{2<span class="op">,</span> Ruhe}\quad\rightarrow <span class="op">&amp;</span> \text{♂}</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-QRUHE</span>}</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>asdf</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>\Delta O_2S_{v} = \left<span class="ex">[</span><span class="ss"> \frac</span>{\dot{V}O_{2<span class="op">,</span> Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2<span class="op">,</span>Ruhe}}{Q_{Ruhe}} \right] \cdot VBV</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-DO2SV</span>}</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>\Delta O_2S_{v} = \left<span class="ex">[</span><span class="ss"> \Delta (C_a - C_v)</span><span class="op">^</span>{Belastung} - \Delta <span class="in">(</span>C_a - C_v<span class="in">)</span>^{Ruhe} \right] \cdot VBV = \left<span class="ex">[</span><span class="ss"> \frac</span>{\dot{V}O_{2<span class="op">,</span> Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2<span class="op">,</span>Ruhe}}{Q_{Ruhe}} \right] \cdot VBV</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>Die Muskelmasse der Probanden wurde abhänig vom Geschlecht der Probanden sowie der Versuchsbedingung berechnet. Anhand der Stichprobe von <span class="im">@Janssen2000</span> wurde die Muskelmasse eingeschötzt. Da es sich hier bei den allen Probanden um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil habdelte, wurde jeweils von einer aktiven Muskelmase, die der oberen Grenze der der Stichrobe von @Janssen2002 ausgeganegen. Für Frauen entsprach dies ca. 34% Muskelmasseanteil &amp; für Männer ca. 42% Antel der Muskelmasse am der Körpermasse. In verschiedenen Studien ....... wurde der Anteil der aktiven Muskelmasse an der GEsamtmuskelmasse auf ca. 60-80% geschätzt. Hier wurde der Anteil für das Fahren im sitzen auf 65% und im stehen auf 75% aktive MUskelmasse festegelegt. Aus diesen beiden Faktoren urde dann wie folgt die aktive Muskelmasse der Probanden bestimmt:</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>Muskelmasse_{aktiv} = </span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>Körpermasse \cdot 0<span class="fu">.34</span> \cdot 0<span class="fu">.65</span> \quad\rightarrow <span class="op">&amp;</span> \text{♀ <span class="op">|</span> Sitzen} \\</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>Körpermasse \cdot 0<span class="fu">.34</span> \cdot 0<span class="fu">.75</span> \quad\rightarrow <span class="op">&amp;</span> \text{♀ <span class="op">|</span> Stehen} \\</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>Körpermasse \cdot 0<span class="fu">.42</span> \cdot 0<span class="fu">.65</span> \quad\rightarrow <span class="op">&amp;</span> \text{♂ <span class="op">|</span> Sitzen} \\</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>Körpermasse \cdot 0<span class="fu">.42</span> \cdot 0<span class="fu">.75</span> \quad\rightarrow <span class="op">&amp;</span> \text{♂ <span class="op">|</span> Stehen} \\</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-MMAKTIV</span>}</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>\%deoxyMb = 2<span class="fu">.09</span> \cdot P_{mech} <span class="op">+</span> 14<span class="fu">.2</span> </span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-DMB</span>}</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>Das venöse Blutvolumen <span class="in">(</span>VBV<span class="in">)</span> wurde nach ... berehcnet mit ... </span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>VBV = Muskelmasse_{aktiv} \cdot 0<span class="fu">.07</span> </span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-VBV</span>}</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>#### Sauerstoffspeicher im Myoglobin</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>\Delta O_2S_{M} = \left<span class="in">(</span>\frac<span class="er">{</span>2<span class="fu">.09</span> \cdot P_{mech}}{100}\right) \cdot 4<span class="fu">.46</span> \cdot 1<span class="fu">.34</span> \cdot Muskelmasse_{aktiv} </span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-D02DEF</span>}</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>O_2\text{def} = EPOC - \Delta O_2S_p - \Delta O_2S_v - \Delta O_2S_m</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>$$ {<span class="pp">#eq-02DEF</span>}</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>Diese Gleichung stellt die Berechnung der Veränderung der Sauerstoffspeicher im venösen Blut dar<span class="op">,</span> wobei die Differenzen der arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in Verbindung mit dem venösen Blutvolumen betrachtet werden.</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>Auf dieser Grundlage wurde das insgesamt gemessene Brutto-Sauerstoffdefizit korrigiert<span class="op">,</span> um das Netto-Sauerstoffdefizit zu erhalten<span class="op">,</span> welches das Sauerstoffäquivalent der Spaltung von Phosphokreatin <span class="in">(</span>PC<span class="in">)</span> bei Arbeitsbeginn darstellt. Die bestimmte Menge an EPOC <span class="in">(</span>Excess Post-exercise Oxygen Consumption<span class="in">)</span> repräsentiert daher dieses korrigierte Sauerstoffdefizit<span class="op">,</span> das durch die initiale PC-Spaltung entstanden ist.</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a># Quellen</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> {<span class="pp">#refs</span>}</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Johannes Will, 2024</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

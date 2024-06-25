@@ -1,0 +1,51 @@
+---
+title: "Theoretischer Hintergrund"
+
+
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false
+---
+
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+```
+
+# Theoretischer Hintergrund
+
+[@Abbiss2005]
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+library(extrafont)
+```
+
+Der menschliche Körper kann nur existieren, wenn ihm fortlaufend Energie bereitgestellt wird. Sowohl in körperlicher Ruhe als auch beim Sport nimmt die Energiebereitstellung eine entscheidende Rolle ein. Es kann jedoch nur ein Teil der während der sportlichen Belastung umgesetzten chemischen Energie in mechanische Arbeit (W~mech~) umgesetzt werden. Ein großer Teil wird gemäß des Energieerhaltungsgesetzes in andere Energieformen wie thermische Energie, Energie für Reibung oder Energie die für die für zelluläre Prozessedie für zelluläre Prozesse benötigt wird umgesetzt [@Bader1972, 8;@Brooks2004, 254; @Margaria1976, 80]
+
+Der für W~mech~ genutzte Energieanteil bestimmt den Wirkungsgrad (η), ein wichtigen Parameter zur Beurteilung der Effizienz einer sportlichen Leistung. Die Effizienz bzw. der Wirkungsgrad spielt im Radsport eine wichtige Rolle und kann Wettkampfleistungen beeinflussen. Eine verbesserte Effizienz ermöglicht es mehr mechanische Leistung (P~mech~) bei gleicher umgesetzter metabolischer Energiemenge bzw. die gleiche P~mech~ bei geringerer umgesetzter metabolischer Energie zu erbringen [@Stegemann1991, 62].
+
+Es gibt bisher nur wenige Untersuchungen, die den Wirkungsgrad im Radsport akkurat im Sitzen und Stehen bestimmen. Um diese Lücke zu schließen, wurde ein Testprotokoll entwickelt, das eine zuverlässige Berechnung des Wirkungsgrades auf dem Radergometer ermöglichen soll.
+
+*Die Arbeit behandelt den theoretischen Hintergrund, die methodische Vorgehensweise und Untersuchungen zur Testprotokoll-Entwicklung.*
+
+# ÜbergangWirkungsgrad
+
+
+# Quellen
+
+::: {#refs}
+:::

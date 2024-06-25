@@ -1,0 +1,412 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+---
+
+# VO2-Belastungsdaten
+
+Beschreiben der Verlaufskurven –\> SS erreicht oder nicht? –\> Siehe dafür @Ozyener2001
+
+```{r}
+# Library und dfs laden
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(htmltools)
+library(htmlwidgets)
+library(shiny)
+library(DT)
+library(RColorBrewer)
+library(patchwork)
+library(minpack.lm)
+library(zoo)
+library(purrr)
+library(readxl)
+
+# Laden des DataFrames EPOC_data, Erg_data und BLC_data aus der RDS-Datei
+EPOC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/EPOC_data_df.rds")
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
+Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Messwerte_Bedingungen_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingungen_df.rds")
+Messwerte_Intensitäten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Intensitäten_df.rds")
+Messwerte_Bedingung_Intensität_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingung_Intensität_df.rds")
+Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+P_Ges_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+Efficiency_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_Int_Drehzahl_Masse <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_Int_Drehzahl_Masse.rds")
+Simulation_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Simulation_df.rds")
+ΔBLC_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_list.rds")
+proband_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/proband_data.rds")
+ΔBLC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_data_df.rds")
+BLC_Modell_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_Modell_list.rds")
+Efficiency_Daten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_R_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_R_list.rds")
+P_L_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_L_list.rds")
+start_vals_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/start_vals_list.rds")
+VO2_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/VO2_list.rds")
+df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_female.rds")
+df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
+```
+
+## Messwerte im Belastungszeitraum {.tabset}
+
+### Messwerte - Bedingungen {.tabset}
+
+#### VO2, VCO2 & HR
+
+```{r}
+
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
+  # VO2, VCO2 und HR für Sitzen - durchgezogene Linien
+  add_lines(y = ~VO2_kg_mittel_sitzen_smooth, name = 'V&#775;O<sub>2 Sitzen', 
+            line = list(color = '#1CADE4', width = 2)) %>%
+  add_lines(y = ~VCO2_kg_mittel_sitzen_smooth, name = 'V&#775;O<sub>2 Sitzen', 
+            line = list(color = '#EF5350', width = 2)) %>% 
+  add_lines(y = ~HR_mittel_sitzen_smooth, name = "HR<sub>Sitzen", 
+            line = list(color = "#42BA97", width = 2), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Stehen - gestrichelte Linien
+  add_lines(y = ~VO2_kg_mittel_stehen_smooth, name = 'V&#775;O<sub>2 Stehen', 
+            line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
+  add_lines(y = ~VCO2_kg_mittel_stehen_smooth, name = 'V&#775;CO<sub>2 Stehen', 
+            line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~HR_mittel_stehen_smooth, name = "HR<sub>Stehen", 
+            line = list(color = "#62A39F", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen",
+         margin = list(t = 40),
+         xaxis = list(title = "Zeit (s)"),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
+                      tickvals = seq(0, 80, by = 10),  
+                      ticktext = seq(0, 80, by = 10)),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
+                       tickvals = seq(40, 200, by = 20),  
+                       ticktext = seq(40, 200, by = 20)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+
+
+```
+
+#### AR und VE
+
+```{r}
+
+
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
+  # VE und AR  für Sitzen - durchgezogene Linien
+  add_lines(y = ~VE_mittel_sitzen_smooth, name = 'VE<sub>Sitzen', 
+            line = list(color = '#80CDC1', width = 2)) %>% 
+  add_lines(y = ~AR_mittel_sitzen_smooth, name = "AR<sub>Sitzen", 
+            line = list(color = "#D092A7", width = 2), 
+            yaxis = "y2") %>%
+  # VE und AR  für Stehen - gestrichelte Linien
+  add_lines(y = ~VE_mittel_stehen_smooth, name = 'VE<sub>Stehen', 
+            line = list(color = '#35978F', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~AR_mittel_stehen_smooth, name = "AR<sub>Stehen", 
+            line = list(color = "#9C85C0", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen",
+         margin = list(t = 40),
+         xaxis = list(
+           title = "Zeit (s)",
+           tickvals = seq(0, max(Messwerte_Bedingungen_df$t0_s), by = 100),
+           ticktext = seq(0, max(Messwerte_Bedingungen_df$t0_s), by = 100)),
+         yaxis = list(title = "VE [l · min<sup>-1</sup>]", range = c(0, 130), 
+                      tickvals = seq(0, 130, by = 10),  
+                      ticktext = seq(0, 130, by = 10)),  
+         yaxis2 = list(title = "AR [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(0, 65),
+                       tickvals = seq(0, 65, by = 5),  
+                       ticktext = seq(0, 65, by = 5)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 10,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+
+
+
+```
+
+### Messwerte - Intensitäten {.tabset}
+
+#### Alle Intensitäten
+
+```{r}
+
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Intensitäten_df, x = ~`t0_s`) %>%
+  # VO2, VCO2 und HR für Leicht - durchgezogene Linien
+  add_lines(y = ~VO2_kg_mittel_leicht_smooth, name = 'V&#775;O<sub>2 Leicht', 
+            line = list(color = '#27CED7', width = 2, dash = '2 3')) %>%
+  add_lines(y = ~VCO2_kg_mittel_leicht_smooth, name = 'V&#775;CO<sub>2 Leicht', 
+            line = list(color = '#F81B02', width = 2, dash = '2 3')) %>% 
+  add_lines(y = ~HR_mittel_leicht_smooth, name = "HR<sub>Leicht", 
+            line = list(color = "#C0CF3A", width = 2, dash = '2 3'), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Moderat - gestrichelte Linien
+  add_lines(y = ~VO2_kg_mittel_moderat_smooth, name = 'V&#775;O<sub>2 Moderat', 
+            line = list(color = '#1CADE4', width = 2, dash = '8 5')) %>%
+  add_lines(y = ~VCO2_kg_mittel_moderat_smooth, name = 'V&#775;CO<sub>2 Moderat', 
+            line = list(color = '#EF5350', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~HR_mittel_moderat_smooth, name = "HR<sub>Moderat", 
+            line = list(color = "#42BA97", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Schwer - gepunktete Linien
+  add_lines(y = ~VO2_kg_mittel_schwer_smooth, name = 'V&#775;O<sub>2 Schwer', 
+            line = list(color = '#2683C6', width = 2)) %>%
+  add_lines(y = ~VCO2_kg_mittel_schwer_smooth, name = 'V&#775;CO<sub>2 Schwer', 
+            line = list(color = '#C8133B', width = 2)) %>% 
+  add_lines(y = ~HR_mittel_schwer_smooth, name = "HR<sub>Schwer", 
+            line = list(color = "#62A39F", width = 2), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte für Leicht, Moderat und Schwer",
+         margin = list(t = 40),
+         xaxis = list(
+           title = "Zeit (s)",
+           tickvals = seq(0, max(Messwerte_Intensitäten_df$t0_s), by = 100),
+           ticktext = seq(0, max(Messwerte_Intensitäten_df$t0_s), by = 100)),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 70), 
+                      tickvals = seq(0, 70, by = 10),  
+                      ticktext = seq(0, 70, by = 10)),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(100, 240),
+                       tickvals = seq(100, 240, by = 20),  
+                       ticktext = seq(100, 240, by = 20)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+
+```
+
+#### Leicht
+
+```{r}
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+  # VO2, VCO2 und HR für Sitzen Leicht - durchgezogene Linien
+  add_lines(y = ~VO2_kg_mittel_sitzen_leicht_smooth, name = 'V&#775;O<sub>2 Sitzen Leicht', 
+            line = list(color = '#1CADE4', width = 2)) %>%
+  add_lines(y = ~VCO2_kg_mittel_sitzen_leicht_smooth, name = 'V&#775;CO<sub>2 Sitzen Leicht', 
+            line = list(color = '#EF5350', width = 2)) %>% 
+  add_lines(y = ~HR_mittel_sitzen_leicht_smooth, name = "HR<sub>Sitzen Leicht", 
+            line = list(color = "#42BA97", width = 2), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Stehen Leicht - gestrichelte Linien
+  add_lines(y = ~VO2_kg_mittel_stehen_leicht_smooth, name = 'V&#775;O<sub>2 Stehen Leicht', 
+            line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
+  add_lines(y = ~VCO2_kg_mittel_stehen_leicht_smooth, name = 'V&#775;CO<sub>2 Stehen Leicht', 
+            line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~HR_mittel_stehen_leicht_smooth, name = "HR<sub>Stehen Leicht", 
+            line = list(color = "#62A39F", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Leicht)",
+         margin = list(t = 40),
+         xaxis = list(
+           title = "Zeit (s)",
+           tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
+                      tickvals = seq(0, 80, by = 10),  
+                      ticktext = seq(0, 80, by = 10)),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
+                       tickvals = seq(40, 200, by = 20),  
+                       ticktext = seq(40, 200, by = 20)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+```
+
+#### Moderat
+
+```{r}
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+  # VO2, VCO2 und HR für Sitzen Moderat - durchgezogene Linien
+  add_lines(y = ~VO2_kg_mittel_sitzen_moderat_smooth, name = 'V&#775;O<sub>2 Sitzen Moderat', 
+            line = list(color = '#1CADE4', width = 2)) %>%
+  add_lines(y = ~VCO2_kg_mittel_sitzen_moderat_smooth, name = 'V&#775;CO<sub>2 Sitzen Moderat', 
+            line = list(color = '#EF5350', width = 2)) %>% 
+  add_lines(y = ~HR_mittel_sitzen_moderat_smooth, name = "HR<sub>Sitzen Moderat", 
+            line = list(color = "#42BA97", width = 2), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Stehen Moderat - gestrichelte Linien
+  add_lines(y = ~VO2_kg_mittel_stehen_moderat_smooth, name = 'V&#775;O<sub>2 Stehen Moderat', 
+            line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
+  add_lines(y = ~VCO2_kg_mittel_stehen_moderat_smooth, name = 'V&#775;CO<sub>2 Stehen Moderat', 
+            line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~HR_mittel_stehen_moderat_smooth, name = "HR<sub>Stehen Moderat", 
+            line = list(color = "#62A39F", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Moderat)",
+         margin = list(t = 40),
+         xaxis = list(
+           title = "Zeit (s)",
+           tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
+                      tickvals = seq(0, 80, by = 10),  
+                      ticktext = seq(0, 80, by = 10)),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
+                       tickvals = seq(40, 200, by = 20),  
+                       ticktext = seq(40, 200, by = 20)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+```
+
+#### Schwer
+
+```{r}
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+  # VO2, VCO2 und HR für Sitzen Schwer - durchgezogene Linien
+  add_lines(y = ~VO2_kg_mittel_sitzen_schwer_smooth, name = 'V&#775;O<sub>2 Sitzen Schwer', 
+            line = list(color = '#1CADE4', width = 2)) %>%
+  add_lines(y = ~VCO2_kg_mittel_sitzen_schwer_smooth, name = 'V&#775;CO<sub>2 Sitzen Schwer', 
+            line = list(color = '#EF5350', width = 2)) %>% 
+  add_lines(y = ~HR_mittel_sitzen_schwer_smooth, name = "HR<sub>Sitzen Schwer", 
+            line = list(color = "#42BA97", width = 2), 
+            yaxis = "y2") %>%
+  # VO2, VCO2 und HR für Stehen Schwer - gestrichelte Linien
+  add_lines(y = ~VO2_kg_mittel_stehen_schwer_smooth, name = 'V&#775;O<sub>2 Stehen Schwer', 
+            line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
+  add_lines(y = ~VCO2_kg_mittel_stehen_schwer_smooth, name = 'V&#775;CO<sub>2 Stehen Schwer', 
+            line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
+  add_lines(y = ~HR_mittel_stehen_schwer_smooth, name = "HR<sub>Stehen Schwer", 
+            line = list(color = "#62A39F", width = 2, dash = '8 5'), 
+            yaxis = "y2") %>%
+  # Senkrechte gestrichelte Linien - ohne Legende
+  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+               line = list(color = "darkgrey", dash = "dash", width = 2), 
+               yaxis = "y2", showlegend = FALSE) %>%
+  # Textannotationen hinzufügen
+  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Schwer)",
+         margin = list(t = 40),
+         xaxis = list(
+           title = "Zeit (s)",
+           tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
+                      tickvals = seq(0, 80, by = 10),  
+                      ticktext = seq(0, 80, by = 10)),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
+                       tickvals = seq(40, 200, by = 20),  
+                       ticktext = seq(40, 200, by = 20)),  
+         legend = list(title = "Legende"),
+         annotations = list(
+           list(
+             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
+             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             text = "Belastungszeitraum: \nt=300s",
+             showarrow = FALSE,
+             xref = "x",
+             yref = "y",
+             font = list(size = 12),
+             align = "center"
+           )
+         )
+  )
+```

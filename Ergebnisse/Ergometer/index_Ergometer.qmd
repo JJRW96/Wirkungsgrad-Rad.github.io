@@ -1,0 +1,10 @@
+---
+title: "Ergometer Daten"
+---
+
+
+
+
+
+Erklärungen der folgenden Variablen...
+asdf

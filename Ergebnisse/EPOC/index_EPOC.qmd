@@ -1,0 +1,341 @@
+---
+title: "EPOC-Daten"
+bibliography: references.bib
+lang: de
+number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+    
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+  css-class: "my-css-class"
+  
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+---
+
+# Test
+
+::: {.panel-tabset}
+## Proband 01
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/01_1_tau.html){width="1200" height="500"}
+![Test 1](images/01_1_slow.html){width="1200" height="500"}
+![Test 1](images/01_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/01_2_tau.html){width="1200" height="500"}
+![Test 2](images/01_2_slow.html){width="1200" height="500"}
+![Test 2](images/01_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/01_3_tau.html){width="1200" height="500"}
+![Test 3](images/01_3_slow.html){width="1200" height="500"}
+![Test 3](images/01_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/01_4_tau.html){width="1200" height="500"}
+![Test 4](images/01_4_slow.html){width="1200" height="500"}
+![Test 4](images/01_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/01_5_tau.html){width="1200" height="500"}
+![Test 5](images/01_5_slow.html){width="1200" height="500"}
+![Test 5](images/01_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/01_6_tau.html){width="1200" height="500"}
+![Test 6](images/01_6_slow.html){width="1200" height="500"}
+![Test 6](images/01_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 06
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/06_1_tau.html){width="1200" height="500"}
+![Test 1](images/06_1_slow.html){width="1200" height="500"}
+![Test 1](images/06_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/06_2_tau.html){width="1200" height="500"}
+![Test 2](images/06_2_slow.html){width="1200" height="500"}
+![Test 2](images/06_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/06_3_tau.html){width="1200" height="500"}
+![Test 3](images/06_3_slow.html){width="1200" height="500"}
+![Test 3](images/06_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/06_4_tau.html){width="1200" height="500"}
+![Test 4](images/06_4_slow.html){width="1200" height="500"}
+![Test 4](images/06_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/06_5_tau.html){width="1200" height="500"}
+![Test 5](images/06_5_slow.html){width="1200" height="500"}
+![Test 5](images/06_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/06_6_tau.html){width="1200" height="500"}
+![Test 6](images/06_6_slow.html){width="1200" height="500"}
+![Test 6](images/06_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 10
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/10_1_tau.html){width="1200" height="500"}
+![Test 1](images/10_1_slow.html){width="1200" height="500"}
+![Test 1](images/10_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/10_2_tau.html){width="1200" height="500"}
+![Test 2](images/10_2_slow.html){width="1200" height="500"}
+![Test 2](images/10_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/10_3_tau.html){width="1200" height="500"}
+![Test 3](images/10_3_slow.html){width="1200" height="500"}
+![Test 3](images/10_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/10_4_tau.html){width="1200" height="500"}
+![Test 4](images/10_4_slow.html){width="1200" height="500"}
+![Test 4](images/10_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/10_5_tau.html){width="1200" height="500"}
+![Test 5](images/10_5_slow.html){width="1200" height="500"}
+![Test 5](images/10_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/10_6_tau.html){width="1200" height="500"}
+![Test 6](images/10_6_slow.html){width="1200" height="500"}
+![Test 6](images/10_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 13
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/13_1_tau.html){width="1200" height="500"}
+![Test 1](images/13_1_slow.html){width="1200" height="500"}
+![Test 1](images/13_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/13_2_tau.html){width="1200" height="500"}
+![Test 2](images/13_2_slow.html){width="1200" height="500"}
+![Test 2](images/13_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/13_3_tau.html){width="1200" height="500"}
+![Test 3](images/13_3_slow.html){width="1200" height="500"}
+![Test 3](images/13_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/13_4_tau.html){width="1200" height="500"}
+![Test 4](images/13_4_slow.html){width="1200" height="500"}
+![Test 4](images/13_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/13_5_tau.html){width="1200" height="500"}
+![Test 5](images/13_5_slow.html){width="1200" height="500"}
+![Test 5](images/13_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/13_6_tau.html){width="1200" height="500"}
+![Test 6](images/13_6_slow.html){width="1200" height="500"}
+![Test 6](images/13_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 15
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/15_1_tau.html){width="1200" height="500"}
+![Test 1](images/15_1_slow.html){width="1200" height="500"}
+![Test 1](images/15_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/15_2_tau.html){width="1200" height="500"}
+![Test 2](images/15_2_slow.html){width="1200" height="500"}
+![Test 2](images/15_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/15_3_tau.html){width="1200" height="500"}
+![Test 3](images/15_3_slow.html){width="1200" height="500"}
+![Test 3](images/15_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/15_4_tau.html){width="1200" height="500"}
+![Test 4](images/15_4_slow.html){width="1200" height="500"}
+![Test 4](images/15_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/15_5_tau.html){width="1200" height="500"}
+![Test 5](images/15_5_slow.html){width="1200" height="500"}
+![Test 5](images/15_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/15_6_tau.html){width="1200" height="500"}
+![Test 6](images/15_6_slow.html){width="1200" height="500"}
+![Test 6](images/15_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 19
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/19_1_tau.html){width="1200" height="500"}
+![Test 1](images/19_1_slow.html){width="1200" height="500"}
+![Test 1](images/19_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/19_2_tau.html){width="1200" height="500"}
+![Test 2](images/19_2_slow.html){width="1200" height="500"}
+![Test 2](images/19_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/19_3_tau.html){width="1200" height="500"}
+![Test 3](images/19_3_slow.html){width="1200" height="500"}
+![Test 3](images/19_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/19_4_tau.html){width="1200" height="500"}
+![Test 4](images/19_4_slow.html){width="1200" height="500"}
+![Test 4](images/19_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/19_5_tau.html){width="1200" height="500"}
+![Test 5](images/19_5_slow.html){width="1200" height="500"}
+![Test 5](images/19_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/19_6_tau.html){width="1200" height="500"}
+![Test 6](images/19_6_slow.html){width="1200" height="500"}
+![Test 6](images/19_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 20
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/20_1_tau.html){width="1200" height="500"}
+![Test 1](images/20_1_slow.html){width="1200" height="500"}
+![Test 1](images/20_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/20_2_tau.html){width="1200" height="500"}
+![Test 2](images/20_2_slow.html){width="1200" height="500"}
+![Test 2](images/20_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/20_3_tau.html){width="1200" height="500"}
+![Test 3](images/20_3_slow.html){width="1200" height="500"}
+![Test 3](images/20_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/20_4_tau.html){width="1200" height="500"}
+![Test 4](images/20_4_slow.html){width="1200" height="500"}
+![Test 4](images/20_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/20_5_tau.html){width="1200" height="500"}
+![Test 5](images/20_5_slow.html){width="1200" height="500"}
+![Test 5](images/20_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/20_6_tau.html){width="1200" height="500"}
+![Test 6](images/20_6_slow.html){width="1200" height="500"}
+![Test 6](images/20_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 22
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/22_1_tau.html){width="1200" height="500"}
+![Test 1](images/22_1_slow.html){width="1200" height="500"}
+![Test 1](images/22_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/22_2_tau.html){width="1200" height="500"}
+![Test 2](images/22_2_slow.html){width="1200" height="500"}
+![Test 2](images/22_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/22_3_tau.html){width="1200" height="500"}
+![Test 3](images/22_3_slow.html){width="1200" height="500"}
+![Test 3](images/22_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/22_4_tau.html){width="1200" height="500"}
+![Test 4](images/22_4_slow.html){width="1200" height="500"}
+![Test 4](images/22_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/22_5_tau.html){width="1200" height="500"}
+![Test 5](images/22_5_slow.html){width="1200" height="500"}
+![Test 5](images/22_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/22_6_tau.html){width="1200" height="500"}
+![Test 6](images/22_6_slow.html){width="1200" height="500"}
+![Test 6](images/22_6.html){width="1200" height="500"}
+
+:::
+
+## Proband 23
+
+::: {.panel-tabset}
+### Test 1
+![Test 1](images/23_1_tau.html){width="1200" height="500"}
+![Test 1](images/23_1_slow.html){width="1200" height="500"}
+![Test 1](images/23_1.html){width="1200" height="500"}
+
+### Test 2
+![Test 2](images/23_2_tau.html){width="1200" height="500"}
+![Test 2](images/23_2_slow.html){width="1200" height="500"}
+![Test 2](images/23_2.html){width="1200" height="500"}
+
+### Test 3
+![Test 3](images/23_3_tau.html){width="1200" height="500"}
+![Test 3](images/23_3_slow.html){width="1200" height="500"}
+![Test 3](images/23_3.html){width="1200" height="500"}
+
+### Test 4
+![Test 4](images/23_4_tau.html){width="1200" height="500"}
+![Test 4](images/23_4_slow.html){width="1200" height="500"}
+![Test 4](images/23_4.html){width="1200" height="500"}
+
+### Test 5
+![Test 5](images/23_5_tau.html){width="1200" height="500"}
+![Test 5](images/23_5_slow.html){width="1200" height="500"}
+![Test 5](images/23_5.html){width="1200" height="500"}
+
+### Test 6
+![Test 6](images/23_6_tau.html){width="1200" height="500"}
+![Test 6](images/23_6_slow.html){width="1200" height="500"}
+![Test 6](images/23_6.html){width="1200" height="500"}
+
+:::
+:::

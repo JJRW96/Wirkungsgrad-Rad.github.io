@@ -1,0 +1,15 @@
+{
+  "hash": "0b91d8f9a5095cfba79aabd9db4998a3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nexecute:\n  message: false\n  echo: false\n  warning: false\n  error: false\n  \nbibliography: references.bib\nlang: de\nnumber-sections: false\n---\n\n::: {.cell}\n<style type=\"text/css\">\np {\n  text-align: justify\n}\n</style>\n:::\n\n\n\n\n# Anaerobe- laktazide Energiekomponente (W~BLC~)\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n***@Brooks2004 ab Seite 222 - Laktat nach der Belastung***\n\nBesonders bei kurzen und intensiven Belastungen muss auch die anaerobe alaktazide und laktazide Energiebereitstellung berücksichtigt werden. Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Blutlaktatwert direkt vor dem Beginn der Belastung (BLC~PRE~) und dem maximalen Laktatwert nach der Belastung (BLC~PEAK~). Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert (BLC~Net~), welcher die größte Schwankung zwischen BLC~PRE~ und dem BLC~PEAK~ darstellt. Durch Multiplikation von BLC~Net~ mit ei-nem Sauerstoff-Laktat-Äquivalent von 3,0 ml O2· kg-1·mmol-1 (P. E. Di Prampero, 1981) (Wert nur Mittelwert mit potentiellen Schwankungen  weiter ausführen) Auch als Quelle erwähnen und dem kÄ für Kohlenhyd-rate (= kÄKH) bei einem RQ von 1 (Stegemann, 1991, S. 59) kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden:\n\n\n$$\nW_{BLC} = BLC_{Net} \\, [\\text{mmol} \\cdot \\text{l}^{-1}] \\cdot 3.0 \\, [\\text{ml O}_2 \\cdot \\text{kg}^{-1} \\cdot \\text{mmol}^{-1}] \\cdot Körpermasse \\, [\\text{kg}] \\cdot k_{\\text{ÄKH}} \\, [\\text{kJ} \\cdot \\text{l}^{-1}]\n$$\n\n\n\n## Quellenverzeichnis\n\n::: {#refs}\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

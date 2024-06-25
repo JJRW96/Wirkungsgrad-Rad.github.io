@@ -1,0 +1,51 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: "../references.bib"
+lang: de
+number-sections: false
+---
+
+# Stichprobe {#sec-Stichprobe}
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+```
+
+Für die Studie wurden ausdauertrainiert Personen gesucht, die eine V̇O2max von etwa 65 ml·min-1·kg-1oder aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauer-sportarten als potenzielle Probanden geworben.
+
+Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien aufwiesen. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. von den 9 verbleicbenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6 , SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82kg (M = 70.4 , SD = 10.4) und die Körperlänge zwischen 157 und 186cm (M = 176.3 , SD = 9.43). Die gemesene absolute VO2max der Probanden lag zwischen 3900 und 6181 ml \* min (M = 4543.7 , SD = 789.1)) und die gemessene VO2max/kg der Probanden lag zwischen 67.8 und 81.3 ml \* min / kg (M = 72.1 , SD = 4.0). ***-\> Pmax etc noch beschreiben ...Siehe Tabelle ...***
+
+## Stichprobe
+
+```{r}
+# Excel-Datei einlesen
+Stichprobe_df <- read_excel("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Daten 2.2.xlsm", sheet = "Stichprobe_final", range = "A1:Y10", col_names = TRUE)
+
+# Alle Kommas in den Zellen durch Punkte ersetzen
+Stichprobe_df <- Stichprobe_df %>% 
+  mutate_all(~gsub(",", ".", .))
+
+# Spalten außer der zweiten in numerische Spalten umwandeln
+Stichprobe_df <- Stichprobe_df %>% 
+  mutate_if(!colnames(.) == colnames(Stichprobe_df)[2], as.numeric)
+
+# Spalten 8, 10, 13, 15, 17, 19, 21 auf zwei Nachkommastellen runden
+Stichprobe_df <- Stichprobe_df %>%
+  mutate_at(vars(8, 10, 13, 15, 17, 19, 21, 23), ~round(., 2))
+
+# Datentabelle mit neuen Spaltennamen darstellen
+datatable(Stichprobe_df)
+
+
+```
+
+> Probandinnen 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt

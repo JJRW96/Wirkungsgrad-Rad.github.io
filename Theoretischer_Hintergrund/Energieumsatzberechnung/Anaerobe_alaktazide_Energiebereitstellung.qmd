@@ -1,0 +1,697 @@
+---
+execute: 
+  message: false
+  echo: false
+  warning: false
+  error: false
+bibliography: references.bib
+lang: de
+number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+library(extrafont)
+library(shiny)
+library(plotly)
+library(shinylive)
+```
+
+# Anaerobe- alaktazide Energiekomponente (W~PCr~)
+
+***Unbedingt @Brooks2012 mit einbauen !!!!***
+***Und @Brooks2004 ab Seite 218 für kritische Sichtweise der EPOC***
+
+BEIM BEGINN und Ende von Muskelübungen beim Menschen hinkt der
+O₂-Verbrauch (V˙O2V˙O2), wie am Mund gemessen, den mechanischen
+Ereignissen der Kontraktion hin-terher. Daraus folgt, dass das V˙O2V˙O2
+durch den Mund zu Beginn für den Energiebedarf der Muskeln unzureichend
+ist; am Ende ist es überschüssig. @DiPrampero1983
+
+Um die der anaeroben- alaktazide Energiekomponente W~PCr~ zu bestimmen,
+wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem
+Ende der Belastung betrachtet.
+
+Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und
+Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu
+erbringende mechanische Leistung an.
+
+Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende
+der Übung ausgeglichen wird.
+
+Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder
+Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+
+Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise
+oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach
+Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist
+als das anfänglich eingegangene Sauerstoffdefizit [@DeMarees2003, 377].
+Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
+
+Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern
+von Blut und Gewebe freigesetzt wird (O\~2, Speicher\~.
+
+Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der
+anaeroben Schwelle, wird durch die Spaltung von energiereichen
+Phosphaten, hauptsächlich Phosphokreatin (PC),
+gedeckt.[@Francescato2003]
+
+Die EPOC gliedert sich in einen langsamen Teil, die sogenannte
+„slow-component“ (= V̇O2EPOCslow) und einen schnellen Teil, die
+„fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils
+auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von
+O2-Speichern (Hämoglobin, Myoglobin) nach der Belastung zurückzuführen
+und repräsentiert somit den alaktaziden Teil der anaeroben
+Energiebereitstellung.
+
+Neben der Wiederherstellung der energiereichen Phosphate können auch
+Faktoren wie der Transport von Laktat *( Glukoneogenese aus Laktat)*,
+eine erhöhte Körperkerntemperatur, eine gestei-gerte Durchblutung oder
+eine erhöhte Ventilation zur "fast-component" des EPOC beitragen
+(Børsheim & Bahr, 2003)
+
+Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig
+geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität
+des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die
+Rückumwandlung des angefallenen Laktats als potenzielle Ursachen
+ge-nannt (Åstrand et al., 2003, S. 241; Bahr & Sejersted, 1991) +
+*(Erhöhter Sauerstoffbedarf des Körpergewebes infolge einer erhöhten
+Körpertemperatur und eines erhöhten Katecholaminspiegels (eine erhöhte
+Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse)
+Erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur mit
+einem entsprechend vergrößerten Sauerstoffbedarf Vermehrte Produktion
+des Schilddrüsenhormons Thyroxin).*
+
+Da der Anteil der Energieversorgung durch das anaerob-alaktazide System
+an der gesamten umgesetzten chemischen Energie während einer Belastung
+nicht *(oder nur schwer durch Biopsie)* direkt messbar ist, wird die
+schnelle Komponente der EPOC berechnet und als Schätz-wert für den WPCR
+verwendet (R. Beneke et al., 2004).
+
+*--\> 3. Komponente der ultra slow anteil auch kurz besprechen, aber im
+Kontext der Arbeit nicht relevant (Gründe: Erhöhter Muskeltonus
+Zelluläre Regenerationsvorgänge Stimulation energiebereitstellender
+Mechanismen (z. B. Atmungskette))*
+
+(Margaria et al., 1933)
+
+## Berechnung der Sauerstoffspeicher
+
+**[@DiPrampero1983] drucharbeiten!!!!!**
+
+***In addition, 02 is drawn from the body stores, i.e. 02 content of the lungs, physically dissolved 02, myoglobin but mainly mixed venous blood. As originally described by Bock et al. (1928a), the O2 content of this last (Cvo) decreases curvilin- . S " " .2 S • early with VO2, the slope of the Cvo ' vs. VO2 functxon becoming progres- sively smaller the greater VO2 s.*** [@DiPrampero1981]
+
+Beim Übergang von Ruhe zu Arbeit, wird ein Teil des von den Muskeln
+verstoffwechseltem Sauerstoffs (O~2~) durch die Erschöpfung der
+körpereigenen O~2~-Speicher gedeckt. Diese Speicher umfassen die
+pulmonalen Sauerstoffspeichern in den Lungen (ΔO~2~S~p~), im venösen
+Blut (ΔO~2~S~v~) sowie die an Muskelmyoglobin gebundenen
+Sauerstoffmengen (ΔO~2~S~m~). Die verschiedenen Bestandteile tragen je
+nach Art, Intensität und Bedingungen der Übung unterschiedlich zu den
+Anforderungen der arbeitenden Muskeln bei (siehe @fig-UNTER und
+@fig-UEBER) [@DiPrampero1981]. Deren Beträge sind jedoch nicht in den
+gemessenen Atemgasen zu sehen, weshalb die tatsächlich verstoffwechselte
+Menge an O~2~ auf Muskelebene unterschätzt wird. Folglich sollte das aus
+den Atemgasen berechnete EPOC~gross~, größer sein als das EPOC auf
+Muskelebene, um einen Betrag, der der Veränderung der körpereigenen
+O~2~-Speicher während des Übergangs von Ruhe zu stabilem Zustand oder
+umgekehrt entspricht. Dieses EPOC wird als EPOC~netto~ bezeichnet und
+wie folgt berechnet [@DiPrampero1983]:
+
+$$
+EPOC_{net} [l] = EPOC_{gross} [l] - O_{2, Speicher}[l]
+$$ {#eq-EPOCNET}
+
+::: columns
+::: {.column width="48%"}
+![Schematische Darstellung des Zeitverlaufs der energetischen Prozesse
+bei Belastungsbeginn unterhalb der $\dot{V}O_{2, max}$. Die Fläche eLa
+zeigt die quantitativen Beiträge der Laktatproduktion. Kurve 3 stellt
+den Verlauf des tatsächlich gemessenen Sauerstoffvolumenstroms
+($\dot{V}O_2$) dar. O~2~Speicher repräsentiert die Ausschöpfung der
+körpereigenen Sauerstoffspeicher, wobei Kurve 2' den zeitlichen Verlauf
+der Wiederauffüllung des O~2~Speicher abbildet. Die Fläche
+$\dot{V}O_{2}^{al}$ zeigt die Menge des verstoffwechselten PCr in
+O~2~-Äquivalenten an. Der zeitliche Verlauf der PCr-Resynthese nach der
+Übung wird durch Kurve 1' dargestellt. t~1/2~ von 1 und 1' = 15 s;
+t~1/2~ von 2 und 2' = 25 s; t~1/2~ von 3 = 40 s (diPrampero,
+1981).](images/VO2_Unterschwellig.png){#fig-UNTER .caption}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+![Schematische darstellung des Zeitverlaufs der energetischen Prozesse
+bei Belastungsbeginn oberhalb der $\dot{V}O_{2, max}$. Die gestrichelte
+Linie repräsentiert den Beginn der Glykolyse, welche einsetzt, wenn
+$\dot{V}O_{2, max}$ erreicht wurde. Die Fläche La stellt die Menge des
+anaerob-laktaziden Energieumsatzes dar. Die restlichen Beschriftungen
+haben die gleiche Bedeutung wie in Abbildung ???. t~1/2~ von 1 und 1' =
+15 s; t~1/2~ von 2\* = 30 s; t~1/2~ von 2' = 30 s (diPrampero,
+1981).](images/VO2_Ueberschwellig.png){#fig-UEBER .caption}
+:::
+:::
+
+Die absolute Menge der verschiedenen Bestandteile der O~2~-Speicher
+wurden mittels der von @Francescato2003 beschriebenen Methode wie folgt
+bestimmt.
+
+### Pulmonaler Sauerstoffspeicher (ΔO~2~S~p~)
+ΔO~2~S~p~ kann nach @Francescato2003 aus der Differenz zwischen der
+Zeitkonstante des am Mund gemessenen Sauerstoffvolumenstroms zum Start
+der Belastung (τ~Start~) und der Zeitkonstante des auf alveolärer Ebene
+gemessenen Sauerstoffvolumenstroms (τ~alveolär~) sowie dem netto
+Steady-State-Sauerstoffvolumenstrom während der Belastung
+$\dot{V}O_{2net, SS}$ geschätzt werden.<br /> Als Näherung wurde dafür
+zunächst der Sauerstoffvolumenstrom in Abhängigkeit von der Zeit während der Belastung  modelliert. Dies erfolgte für jedes
+Belastungsintervall mittels nichtlinearer Regression unter Verwendung
+des in @eq-VO2_Start1 beschriebenen mono-exponentiellen
+3-Parameter-Modells [@Francescato2003]. Da die Probanden in den
+Erholungsphasen nicht vollständig ruhten, war der Sauerstoffvolumenstrom
+zu Beginn der Belastung ($\dot{V}O_{2, Start}$) signifikant höher als
+$\dot{V}O_{2Ruhe}$, weshalb @eq-VO2_Start1 zu @eq-VO2_Start2 für die
+Berechnung angepasst werden musste. $\dot{V}O_{2net, SS}$ wurde wurde
+als der Wert der Modellfunktion zum Zeitpunkt $4 \cdot τ_{Start}$
+abzüglich $\dot{V}O_{2Ruhe}$ bestimmt. Bis zum Zeitpunkt
+$4 \cdot τ_{Start}$ hat ungefähr 98,2 % des Anstiegs von
+$\dot{V}O_{2, Belastung}(t)$ stattgefunden. Daher wurde dieser Zeitpunkt
+näherungsweise als Steady-State (SS) Wert des Sauerstoffvolumenstroms
+während der Belastung festgelegt. Ein Modellierungsbeispiel ist in
+@fig-VO2_Start zu sehen:
+
+$$
+\dot{V}O_{2, Belastung}(t) = \dot{V}O_{2net, SS} \cdot \left(1 - e^{-\frac{t - TD}{\tau_{Start}}}\right) + \dot{V}O_{2, Ruhe}
+$$ {#eq-VO2_Start1}
+
+$$
+\dot{V}O_{2, Belastung}(t) = \dot{V}O_{2net, SS} \cdot \left(1 - e^{-\frac{t - TD}{\tau_{Start}}}\right) + \dot{V}O_{2, Start}
+$$ {#eq-VO2_Start2}
+
+![VO2 Start](images/VO2_Start_Plot.html){#fig-VO2_Start width="1200" height="500" .caption}
+
+**Modellparameter beschreiben und Tabelle oder Referenzen für die gewählten  Startwerte einfügen**
+
+In der Studie von @Francescato2003 führten die Probanden auf einem speziellen Widerstandsergometer für die Wadenmuskulatur (M. gastrocnemius) wiederholte Fußstreckungen bei gestrecktem Knie und verschiedenen Intensitäten durch, wobei für jede Belastung die körpereigenen Sauerstoffspeicher berechnet wurden.<br> 
+Da der pulmonale Sauerstoffspeicher in der beschriebenen Studie basierend auf dem Anteil der aktiven Muskelmasse bestimmt wurde, wird in der vorliegenden Berechnung der Sauerstoffvolumenstrom ebenfalls mit dem Anteil der aktiven Muskelmasse verrechnet, deren Berechnung in @sec-MM beschrieben wird.
+
+$$
+\Delta \dot{V}O_{2net, aktiv, SS}\,[l \cdot min^{-1}] = \Delta \dot{V}O_{2net, SS}\,[l \cdot min^{-1}] \cdot \frac{Muskelmasse_{aktiv}\,[kg]}{Körpermasse\,[kg]}
+$$ {#eq-dO2SP}
+
+Die alveoläre Zeitkonstante τ~alveolär~ wurde von @Cautero2002 beim
+Radfahren mit 34.3s festegelegt und wurde für die folgenden Berechnungen
+als feste Konstante verwendet. Anschließend konnte ΔO~2~S~p~ mit
+folgender Gleichung bestimmt werden:
+
+$$
+\Delta O_{2}S_{p}\,[l] = \Delta \dot{V}O_{2net, aktiv, SS}\,[l \cdot min^{-1}] \cdot (\tau_{Start}\,[min] - \tau_{alveolär}\,[min])
+$$ {#eq-dO2SP}
+
+> **Berechnungsbeispiel von ΔO~2~S~p~ für Test 01_02:**<br>
+>$\Delta O_{2}S_{p}\,[l] = 3.709\,[l \cdot min^{-1}]  \cdot \left(\frac{20.75\,[kg]}{76.00\,[kg]}\right) \cdot \left(\frac{47.75}{60}\,[min] - \frac{34.3}{60}\,[min] \right)= 0.228\,[l]$
+
+
+#### Bestimmung der aktiven Muskelmasse:{#sec-MM}
+
+Zunächst wurde die gesamte Muskelmasse der Probanden abhängig vom Geschlecht eingeschätzt. Dies erfolgte anhand der von @Janssen2000 mittels Magnetresonanzbildgebung bestimmten Verteilung der Skelettmuskelmasse von 468 Männern und Frauen im Alter von 18 bis 88 Jahren. Da es sich in der vorliegenden Untersuchung um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil handelte, wurde jeweils von einer aktiven Muskelmasse ausgegangen, die der oberen Grenze der Stichprobe im Alter von 18-29 Jahren entsprach. Für Frauen entsprach die Relative Skelettmuskelmasse laut @fig-MM etwa 34% der Gesamtkörpermasse und für Männer etwa 42%.
+
+![Tabellarische Darstellung der Probandenmerkmale aus Janssen et al. (2000). Werte sind Gruppendurchschnittswerte ± SD. n: Anzahl der Probanden; Weight: Gewicht; Height: Größe; BMI: Body-Mass-Index; Total SM: Gesamt-Skelettmuskelmasse; Relative SM: Relative Skelettmuskelmasse in Prozent; Lower Body SM: Skelettmuskelmasse des Unterkörpers; Upper Body SM: Skelettmuskelmasse des Oberkörpers.](images/Muskelmassenanteil.png){#fig-MM .caption}
+
+In anderen Untersuchungen wurde der Anteil der aktiven Muskelmasse an der Gesamtmuskelmasse (Muskelmasse~aktiv~) beim Radfahren im Sitzen in der Regel auf 60%-75% [@Heck2022] bis zu 80% bei hochintensiven Belastungen geschätzt [@Beneke2002]. Da nach @Janssen2000 der Anteil der Muskulatur des Unterkörpers im Bezug zur gesamten Muskelmasse für die bereits beschriebene Stichprobe bei Frauen ca. 57,3% und bei Männern ca. 54,8% beträgt, scheint ein Wert von 65% als Anteil der aktiven Muskelmasse an der Gesamtmuskelmasse für das Radfahren im Sitzen ein plausibler Wert zu sein.<br>Beim Radfahren im Stehen ändert sich die Unterstützung des Körpergewichts deutlich, da die Unterstützung des Sattels entfällt und das Gewicht nun verstärkt von den Händen am Lenker getragen wird. Dies führt zu einer stärkeren Aktivierung der Muskulatur, insbesondere der Oberkörper- und Armmuskeln [@Duc2008; @Caldwell1998; @Li1998; @Ryschon1991a; @Bosak2001; @Tanaka1987; @Arkesteijn2016]. Aufgrund dessen wird angenommen, dass ein größerer Anteil von ca. 75% der aktiven Muskelmasse an der Gesamtmuskelmasse für das Radfahren im Stehen beteiligt ist. Muskelmasse~aktiv~ wird wie folgt berechnet:
+
+$$
+Muskelmasse_{aktiv}\,[kg] = 
+\begin{cases} 
+Körpermasse\,[kg] \cdot 0.34 \cdot 0.65 \quad\rightarrow & \text{♀ | Sitzen} \\
+Körpermasse\,[kg] \cdot 0.34 \cdot 0.75 \quad\rightarrow & \text{♀ | Stehen} \\
+Körpermasse\,[kg] \cdot 0.42 \cdot 0.65 \quad\rightarrow & \text{♂ | Sitzen} \\
+Körpermasse\,[kg] \cdot 0.42 \cdot 0.75 \quad\rightarrow & \text{♂ | Stehen} \\
+\end{cases}
+$$ {#eq-MMAKTIV}
+
+
+$$
+P_{mech/kg,aktiv}\,[\text{Watt} \cdot \text{kg}^{-1}] = \frac{P_{mech}\,[\text{Watt}]}{Muskelmasse_{aktiv}\,[\text{kg}]}
+$$ {#eq-PMECHKG}
+
+
+### Venöser Sauerstoffspeicher (ΔO~2~S~v~)
+
+::: columns
+::: {.column width="50%"}
+![Schematische Darstellung der Komponenten des Sauerstofftransports und
+der Sauerstoffdiffusion von der Kapillare zu den
+Muskelzellen-Mitochondrien. C~a~O~2~: arterielle O~2~-Konzentration;
+C~v~O~2~: venöser O~2~-Gehalt; DO~2~: Diffusivität von O~2~; Mb:
+Myoglobin; P~mito~O~2~: mitochondrialer O~2~-Partialdruck; P~mv~O~2~:
+mikrovaskuläre O~2~-Partialdruck; $\dot{Q}$: Herzminutenvolumen;
+$\dot{V}O_2$: Sauerstoffvolumenstrom (Barstow,
+2019)](images/Fick.png){#fig-FICK .caption}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="48%"}
+Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem
+Produkt des venösen Blutvolumens (VBV) und der Veränderung der
+arteriovenösen Sauerstoffdifferenz im Steady-State Δ(C~a~ -
+C~v~)<sup>SS</sup> und derjenigen in Ruhe Δ(C~a~ - C~v~)<sup>Ruhe</sup> [@Francescato2003]:
+
+$$
+\Delta O_2S_{v} = \left[ \Delta (C_a - C_v)^{Belastung} - \Delta (C_a - C_v)^{Ruhe} \right] \cdot VBV
+$$ {#eq-O2S1}
+
+Mit Hilfe der Fick'sche Gleichung @eq-FICK1 kann @eq-O2S1 zu @eq-O2S2
+umgestellt werden. Die Fick'sche Gleichung besagt, dass der
+Sauerstoffvolumenstrom $\dot{V}O_2$ das Produkt aus dem
+Herzminutenvolumen (Q) und der arteriovenösen Sauerstoffdifferenz
+(C~a~ - C~v~) ist (siehe @fig-FICK) . Dabei steht C~a~ für die
+Sauerstoffkonzentration im arteriellen Blut und C~v~ für die
+Sauerstoffkonzentration im venösen Blut [@Fick1855; @Barstow2019].
+
+$$
+\dot{V}O_2 = \dot{Q} \cdot (C_a - C_v) \Rightarrow (C_a - C_v) = \frac{\dot{V}O_2}{\dot{Q}} 
+$$ {#eq-FICK1}
+
+Für den Belastungs und Ruhezustand lässt sich @eq-FICK1 wie folgt
+umformen, wobei $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ das Herzminutenvolumen in Ruhe und unter Belastung beschreibt:
+
+$$ 
+(C_a - C_v) = \frac{\dot{V}O_2}{\dot{Q}}\Rightarrow
+\begin{cases} 
+\Delta (C_a - C_v)^{Belastung} = \frac{\dot{V}O_{2, Belastung}}{\dot{Q}_{Belastung}} \\ 
+\Delta (C_a - C_v)^{Ruhe} = \frac{\dot{V}O_{2, Ruhe}}{\dot{Q}_{Ruhe}}
+\end{cases} 
+$$ {#eq-FICK2}
+:::
+:::
+
+Setzt man die beiden Ausdrücke aus @eq-FICK2 in @eq-O2S1 ein, erhält man folgende Endgleichung:
+
+**Normieren auf aktive Muskelmasse macht für folgende Berechnung keinen
+Unterschied**
+$$
+\Delta O_2S_{v}\,[l] = \left[ \frac{\dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]}{\dot{Q}_{Belastung}\,[l \cdot min^{-1}]} - \frac{\dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]}{\dot{Q}_{Ruhe}\,[l \cdot min^{-1}]} \right] \cdot VBV\,[l]
+$$ {#eq-O2S2}
+
+> **Berechnungsbeispiel von ΔO~2~S~p~ für Test 01_02:**<br>
+> $\Delta O_2S_{v}\,[l] = \left[ \frac{4.118\,[l \cdot min^{-1}]}{27.819\,[l \cdot min^{-1}]} - \frac{0.409\,[l \cdot min^{-1}]}{5.529\,[l \cdot min^{-1}]} \right] \cdot 3.405\,[l] = 0.252 [l]$
+
+VBV sowie $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ wurden wie folgt berechnet:
+
+#### Berechnung des VBV, $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}${#sec-VBV_Q}
+
+::: columns
+::: {.column width="74%"}
+Das venöse Blutvolumen wurde dabei als 64% des gesamten Blutvolumens
+angenommen [@Astrand2003, 147], welches wiederum als 7% der Körpermasse
+(in Kilogramm) angesetzt wurde [@Tandon2011, 113].
+
+$$ 
+VBV\,[l] =  0.64 \cdot 0.07\cdot Körpermasse\,[kg]
+$$ {#eq-VBV}
+
+Das individuelle Herzminutenvolumen jedes Probanden in Ruhe
+$\dot{Q}_{Ruhe}$ und unter Belastung $\dot{Q}_{Belastung}$ wurde
+basierend auf den Daten der Studie von @Astrand1964, die bei
+verschiedenen Intensitäten auf dem Fahrradergometer das
+Herzminutenvolumen gemessen haben, berechnet Die in @fig-HZV zu sehenden
+Regressionsgleichungen wurden durch lineare Regression der
+Herzminutenvolumina in Abhängigkeit vom Sauerstoffvolumenstrom
+bestimmt.<br /> Um $\dot{Q}_{Belastung}$ zu berechnen, wurde der
+modellierte Steady-State-Sauerstoffvolumenstrom der jeweiligen
+Belastungsintensität $\dot{V}O_{2gross, SS}$ bzw. der jeweilige
+$\dot{V}O_{2, Ruhe}$ jedes Probanden für die Berechnung verwendet.
+Abhängig von der prozentualen Auslastung $VO_{2, Prozent}$ des
+$\dot{V}O_{2gross, SS}$ im Vergleich zum im 1. Stufentest erreichten
+maximalen Sauerstoffvolumenstroms des Probanden und des Geschlechts
+wurde die passende Regressionsgleichung, @eq-QBELASTUNG für
+$\dot{Q}_{Belastung}$ oder @eq-QRUHE für $\dot{Q}_{Ruhe}$ ausgewählt
+[@Francescato2003].
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="24%"}
+![Beziehung zwischen Herzminutenvolumen und Sauerstoffvolumenstrom auf
+dem Radergometer (Åstrand,
+1964)](images/Herzminutenvolumen.png){#fig-HZV .caption}
+:::
+:::
+
+$$
+\dot{Q}_{Belastung}\,[l \cdot min^{-1}] = 
+\begin{cases} 
+9.88 + 3.23 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀ | }VO_{2, Prozent} \leq 70 \%\\    
+3.66 + 6.81 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀ | }VO_{2, Prozent} \geq 70 \%\\
+6.55 + 4.35 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂ | }VO_{2, Prozent} \leq 70 \% \\
+3.07 + 6.01 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂ | }VO_{2, Prozent} \geq 70 \%
+\end{cases}
+$$ {#eq-QBELASTUNG}
+
+$$
+\dot{Q}_{Ruhe}\,[l \cdot min^{-1}] = 
+\begin{cases} 
+3.66 + 6.81 \cdot \dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀} \\    
+3.07 + 6.01 \cdot \dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂}
+\end{cases}
+$$ {#eq-QRUHE}
+
+
+
+### Sauerstoffspeicher im Myoglobin (ΔO~2~S~m~)
+
+***Normieren auf aktive Muskelmasse***
+
+::: columns
+::: {.column width="74%"}
+[@Francescato2003; @Mole1999; @Masuda1999]
+
+Ein weiterer Bestandteil der körpereigenen Sauerstoffspeichers umfasst
+den Sauerstoff, der an Muskelmyoglobin gebunden ist. Auf Basis der Daten
+von @Mole1999 kann die Myoglobin-Desaturierung während des Trainings
+anhand der erbrachten mechanischen Leistung P~mech~ geschätzt werden.
+@Mole1999 bestimmten die in @fig-DeoxyMB abgebildete Beziehung zwischen
+dem Prozentsatz an desoxymyoglobin (%deoxyMb) und der mechanischen
+Leistung wie folgt:
+
+$$
+\% \text{deoxyMb} = 2.09 \cdot P_{mech}\,[Watt] + 14.2
+$$ {#eq-DEOXYMB}
+
+Unter der Annahme einer Myoglobinkonzentration von 4,46 g/kg Nassmuskel,
+wie von Masuda et al. \[25\] berichtet, und einer
+Sauerstoffbindungskapazität von 1,34 mlO2/g Myoglobin, kann die
+zusätzliche Menge an Sauerstoff, die durch Myoglobin-Desaturierung
+freigesetzt wird, wie folgt berechnet werden:
+
+$$ 
+\Delta O_2S_{M}\,[ml] = \left(\frac{2.09 \cdot P_{mech}\,[Watt]}{100}\right) \cdot 4.46\,[g \cdot kg^{-1}] \cdot 1.34\,[ml \cdot O_{2} \cdot kg^{-1}] \cdot Muskelmasse_{aktiv}\,[kg] 
+$$ {#eq-D02DEF}
+
+Hierbei repräsentiert P~mech~ die mechanische Leistung. Die individuelle
+Muskelmasse der Plantarflexoren (PF) wird in Kilogramm angegeben. Diese
+Formel ermöglicht es, den Teil des Sauerstoffspeichers zu berechnen, der
+spezifisch durch die Desaturierung von Myoglobin während des Übergangs
+von Ruhe zu Arbeit freigesetzt wird.
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="24%"}
+![Beziehung zwischen dem Prozentsatz an Desoxymyoglobin (%deoxyMb) und
+der mechanischen Leistung (Molé,
+1999)](images/DeoxyMB.png){#fig-DeoxyMB .caption}
+:::
+:::
+
+
+
+> ***Beispielberechnung - Test 01_02:***<br>
+> $\Delta O_{2}S_{p}\,[l] = 3.709\,[l \cdot min^{-1}] \cdot \left(\frac{47.75}{60}\,[min] - \frac{34.3}{60}\,[min] \right) \cdot 0.273 = 0.228\,[l]$
+
+$$ 
+O_2\text{def} = EPOC - \Delta O_2S_p - \Delta O_2S_v - \Delta O_2S_m
+$$ {#eq-02DEF}
+
+Diese Gleichung stellt die Berechnung der Veränderung der
+Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der
+arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in
+Verbindung mit dem venösen Blutvolumen betrachtet werden.
+
+Auf dieser Grundlage wurde das insgesamt gemessene
+Brutto-Sauerstoffdefizit korrigiert, um das Netto-Sauerstoffdefizit zu
+erhalten, welches das Sauerstoffäquivalent der Spaltung von
+Phosphokreatin (PC) bei Arbeitsbeginn darstellt. Die bestimmte Menge an
+EPOC (Excess Post-exercise Oxygen Consumption) repräsentiert daher
+dieses korrigierte Sauerstoffdefizit, das durch die initiale PC-Spaltung
+entstanden ist.
+
+Entspricht die ERmittelte Menge den in der Literatur angegbenen
+Sauerstoffspeichern ? z.B. Maragria1982 - 0,55 L usw....?
+
+The  oxygen  drawn  from  the  stores  at  maximum  oxygen  con- 
+sumption  can  be  estimated  by assuming  that  (a) the  saturation  of 
+haemoglobin  with  oxygen  of  the  venous  blood  is  about  55  per 
+cent  less  than  at  rest  (venous  HbO2=20  per  cent  of  Hb  instead 
+of  75  per  cent);  (b) the  volume  of venous  blood  is 80  per  cent  of  the  total  blood 
+is 80  per  cent  of  the  total  blood  volume;  and  (c) the  myoglobin,  the  concentration  of  which  in  the  muscles 
+myoglobin,  the  concentration  of  which  in  the  muscles  is  about  2g  per  kg,  is  completely  desaturated  of  oxygen 
+kg,  is  completely  desaturated  of  oxygen  in  maximal  or  supramaximal  exercise,  but  in  rest  it is completely 
+supramaximal  exercise,  but  in  rest  it is completely  saturated.  The  depletion  of oxygen  stores  in  maximal  exercise 
+of oxygen  stores  in  maximal  exercise  can  therefore  be  calculated  as  amounting  to  about  0-5501. 
+about  0-5501. 
+
+
+# Tabelle Sauerstoffschuld
+
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| Quelle           | alaktazide Sauerstoffschuld \[ml \cdot kg^-1^\] | alaktazide Sauerstoffschuld \[l\]                | gesamte Sauerstoffschuld \[ml \cdot kg^-1^\] | gesamte Sauerstoffschuld \[l\] | O2-Speicher                              | Netto Sauerstoffschuld            |
++==================+=================================================+==================================================+==============================================+================================+==========================================+===================================+
+| @Hill1924        |                                                 |                                                  |                                              | 7,5                            |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Margaria1933    | 36,8                                            | 2,50                                             | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Margaria1963    | \-                                              | \-                                               | 75,0                                         | 4,65                           |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Margaria1964    | \-                                              | 2,77\[\^1\] \|                                   | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+|                  | \-                                              | \-                                               | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @DiPrampero1971  | 45.0                                            | \-                                               | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Margaria1972    | 40,00                                           | \-                                               | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @DiPrampero1973  | 32 .0                                           |                                                  |                                              |                                |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Shephard1973    | \-                                              | \-                                               | 67,0                                         | 5,00                           |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Katch1973       | \-                                              | \-                                               | 68,0                                         | 4,89                           |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Parnat1975      | \-                                              | \-                                               | 74,0\[\^2\]                                  | 5,02                           |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Roberts1978a    | 37,45                                           | 2,79                                             | 70,0                                         | 4,93                           |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Margaria1976    |                                                 |                                                  |                                              |                                | 0,55 L                                   |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Beneke2002      | \-                                              | 1,94 (0,31)                                      | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Beneke2004      | 32.13 +- 2.59                                   | 2.48 +- 0.20                                     |                                              |                                |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Astrand2003     | 21,43                                           | 1.5 L(body weight about 70 kg, nonobese person). |                                              |                                |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Francescato2003 | Sehr leicht: 11,8 ± 2,4 ml/kg                   | Für angenommene 20kg aktive Muskelmasse:         | Sehr leicht: 27,9 ± 4,4 ml/kg                | Sehr leicht: 0,558 ± 0,088 L   | Für angenommene 20kg aktive Muskelmasse: | Sehr leicht: 0,0118 ± 0,0024 l/kg |
+|                  |                                                 |                                                  |                                              |                                |                                          |                                   |
+|                  | Leicht: 20,8 ± 3,4 ml/kg                        | Sehr leicht: 0,236 ± 0,048 L                     | Leicht: 50,6 ± 7,6 ml/kg                     | Leicht: 1,012 ± 0,152 L        | Sehr leicht: 27,9 ± 4,4 ml/kg            | Leicht: 0,0208 ± 0,0034 l/kg      |
+|                  |                                                 |                                                  |                                              |                                |                                          |                                   |
+|                  | Moderat: 32,9 ± 3,5 ml/kg                       | Leicht: 0,416 ± 0,068 L                          | Moderat: 85,4 ± 7,8 ml/kg                    | Moderat: 1,708 ± 0,156 L       | Leicht: 50,6 ± 7,6 ml/kg                 | Moderat: 0,0329 ± 0,0035 l/kg     |
+|                  |                                                 |                                                  |                                              |                                |                                          |                                   |
+|                  |                                                 | Moderat: 0,658 ± 0,070 L                         |                                              |                                | Moderat: 85,4 ± 7,8 ml/kg                |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Dunst2023a      | 27.27 ± 8.43                                    | 2,09 ± 0,64 \[\^3\]                              | \-                                           | \-                             |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+| @Dunst2023b      | 28.33 ± 5.28                                    | 2.538 ± 0.445                                    |                                              |                                |                                          |                                   |
++------------------+-------------------------------------------------+--------------------------------------------------+----------------------------------------------+--------------------------------+------------------------------------------+-----------------------------------+
+
+: Tabelle Sauerstoffschuld (nach was für Belastungen?) angelehnt an [@Roberts1978]
+
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Quelle**           | **A \[l** \cdot \*\*min^-1^\]\*\* | **tauA \[min\]** | **B \[l** \cdot \*\*min^-1^\]\*\* | **tauB \[min\]** | **C \[l** \cdot \*\*min^-1^\]\*\* | kJ                                                                                                                                                                                               |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Margaria1933        |                                   |                  |                                   | 12-17 min        |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @DiPrampero1973      |                                   | *(0,42 - 0,5)*   |                                   |                  |                                   | Assuming also that 20-25 kg of muscle are involved in this exercise, i.e., 30-35% of the total body weight, the amount of phosphagen split per kilogram of active muscle amounts to 24-28 mmole. |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   | T1/2 = 27s       |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Katch1973           | WErte einfügen !!!                |                  |                                   | 11.76            |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Roberts1978a        | 2,330                             | 1,51             | 0,372                             | \-               | \-                                |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @DiPrampero1981      |                                   |                  |                                   |                  |                                   | deltaHPC = 46 + 1.0 kJ • mol-1 nach (Wilkie 1968)                                                                                                                                                |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   | deltaP is relatively unaffected by PC concentration, varying from 52 to 44 kJ/mol for a de- crease of PC from 15 to 4 mmol/kg.                                                                   |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   | deltaH and deltaG indicate the enthalpy (free energy) change per mole advancement of the reaction                                                                                                |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   | Weitere WErte in einer Tabell und in Mahler1979                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Barstow1991         |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Ozyener2001         | \-                                | M: 0,48 ± 0,1    | \-                                | VH: 7,67 ± 2,05\ | \-                                |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   | H: 0,7 ± 0,18    |                                   | S: 8,98 ± 6,32   |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   | VH: 0,55 ± 0,08  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   | S: 0,58 ± 0,18   |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Beneke2002          | 2,777 ± 0,445                     | 0,70 ± 0,2       | 0,675 ± 0,257                     | 14,10 ± 13,50    | 0,329 ± 0,48                      | 40,2 ± 10,6                                                                                                                                                                                      |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Astrand2003, S. 241 |                                   | ≈ 0,5            |                                   | ≈ 15             |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+| @DeMarees2003, 377   |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Dunst2023a          | 2,49 ± 0,62                       | 0,84 ± 0,13      | 0,51 ± 0,34                       | 7,34 ± 3,67      | 0,42 ± 0,09                       |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Dunst2023b          | 3s: 1,985 ± 0,436                 | 3s: 0,82 ± 0,14  | 3s: 0,195 ± 0,167                 | 3s: 5,72 ± 2,52  | 3s: 0,391 ± 0,058                 | 3s: 31,83 ± 6,98                                                                                                                                                                                 |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      | 8s: 2,740 ± 0,381                 | 8s: 0,84 ± 0,12  | 8s: 0,418 ± 0,133                 | 8s: 6,46 ± 3,38  | 8s: 0,391 ± 0,043                 | 8s: 46,50 ± 3,79                                                                                                                                                                                 |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      | 12s: 2,878 ± 0,501                | 12s: 0,84 ± 13   | 12s: 0,577 ± 0,119                | 12s: 8,03 ± 3,10 | 12s: 0,411 ± 0,058                | 12s: 51,24 ± 9,52                                                                                                                                                                                |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      | 60s: 3,032 ± 0,447                | 60s: 0,85 ±13    | 60s: 0,981 ± 0,298                | 60s: 9,36 ± 5,11 | 60s: 0,532 ± 0,106                | 60s: 53,73 ± 9,96                                                                                                                                                                                |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Langley2024         | \-                                | \-               | \-                                | \-               | \-                                | 10s: 102,93 ± 25,91                                                                                                                                                                              |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   | 15s: 109,83 ± 28,30                                                                                                                                                                              |
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
+|                      |                                   |                  |                                   |                  |                                   | 30s: 126,39 ± 24,25                                                                                                                                                                              |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                      |                                   |                  |                                   |                  |                                   |                                                                                                                                                                                                  |
++----------------------+-----------------------------------+------------------+-----------------------------------+------------------+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+: Parameter Bi-Exponentialfunktion - M, moderate; H, heavy; VH, very heavy; S, severe exercise intensities
+
+# Tabelle körpereigene Energiespeicher
+
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Quelle                       | ATP-Speicher                      | ATP-Rate | CrP-Speicher                                                  | Umrechnungsrate                                                                                       | Nutzbar                   | maximales Sauerstoffdefizit für 20kg feuchte Muskelmasse \[l\] und \[kJ\]                                                                                  |
++==============================+===================================+==========+===============================================================+=======================================================================================================+===========================+============================================================================================================================================================+
+| \@Lohmann1937                |                                   |          |                                                               | ATP: 0,09 cal Wärmemenge in cal für die in einem Gramm Froschmuskel enthaltene Menge ATP              |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | CrP: 0,23 cal Wärmemenge in cal für die in einem Gramm Froschmuskel enthaltene Menge ATP              |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Hultman1967                 | 24,3 ± 2,1                        |          | 67,8 ± 7,0                                                    |                                                                                                       |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Keul1972, 28, 29, 30        | 6 mmol pro kg Muskelfeuchtgewicht |          | 20-30 mmol pro kg Muskelfeuchtgewicht                         |                                                                                                       |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Knuttgen1973                | Ruhe: 4,82 ± 0,349                |          | Ruhe: 17,9 ± 2,06 mmol .kg-1                                  |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              | Belastung: 2,56 ± 0,662           |          | Nach Belastung: 3,56 ± 0,716                                  |                                                                                                       |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Stegemann1991, 33, 35       | 2-3 mmol /100g Trockenmasse       |          | 7-9 mmol /100g Trockenmasse                                   | 0.9kJ / kg Muskelmasse ausgesamten Speichern                                                          |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              | 20-30 mmol /kg                    |          | 70-90 mmol /kg                                                | 30,5 kJ pro Mol ATP                                                                                   |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Gaitanos1993                | 24,0 ± 2,7                        |          | 76,5 ±7,2                                                     | ATP energy provision of 100 kJ/mol nach MCGlivery 1975                                                | Minimum PCR 12,2 ± 3,7    |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | Estimates of ATP production from anaerobic sources during first and final 6-s sprint of exercise test |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | ATP Production mmol/kg dy weight                                                                      |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | Sprint 1 from PCr 44,3 ± 4,7                                                                          |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | Sprint&: 25,3 ± 9,7                                                                                   |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Weicker1994, 46             | 5-6                               |          | 25                                                            | 30 kJ pro Mol ATP                                                                                     |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               | 43,1 kJ pro Mol CrP                                                                                   |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Astrand2003, 249            | 5 mmol - kg" in fresh muscle      | Sprint   | PC concentration of 17 mmol : kg"!,                           | the potential total energy yield is approximately .9 kJ (.2 kcal).                                    | Minumum zu 2mmol .kg-1    | In 20 kg of muscle, the total energy content is 18 kJ (4.3 kcal). The equivalent oxygen requirement for an aerobic energy yield of that order is just .8 L |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @deMarees2003, 346, 352, 361 | 5                                 |          | 15-20                                                         | 30 unter Standartbedingungen                                                                          | Nur ca. 22 der 25 nutzbar |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+| @Heck2006                    |                                   |          |                                                               | 52 in anderen lebenden Zellen, .B in roten Blutkörperchen (Erythorzyten) (S. 345)                     |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+| @Heck2022                    |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @Francescato2003             |                                   |          | 17.8 - 37.7                                                   |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          |                                                               |                                                                                                       |                           |                                                                                                                                                            |
+|                              |                                   |          | Viele weitere Studien beschrieben mit QUellen zu PcR COntetns |                                                                                                       |                           |                                                                                                                                                            |
++------------------------------+-----------------------------------+----------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+![NetO2 - Power Relationship](images/NetO2_Power_Relationship.png)
+
+![PCr - Power Relationship](images/PCR_Power_Relationship.png)
+
+![PCr - Power Relationship](images/O2Def_NetO2_Relationship.png) ![NetO2 - Power Relationship](images/PCR_O2Def_Relationship.png)
+
+#### ***Berechnung der benötigten Sauerstoffmenge auf basis physiologische Grundlagen in Dunst Diss am ENDE HINZUFÜGEN !!!***
+
+# Modellierung der anaerob-alaktazide Energiekomponente
+
+Um die anaerob-alaktazide Energiekomponente während jedes Belastungsintervalls zu berechnen, wurde die EPOC mittels nichtlinearer Regression unter Verwendung des folgenden bi-exponentiellen 4-Parameter-Modells modelliert:
+
+$$
+\dot{V}O_{2EPOC} = A_{fast} \times e^{-(t / \tau_{fast})} + A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}
+$$
+
+-   $A_{\text{fast}} = AS$: Amplitude der schnellen EPOC-Komponente
+-   $A_{\text{slow}} = AL$: Amplitude der langsamen EPOC-Komponente
+-   $\tau_{\text{schnell}} = \tau_{S}$: Zeitkonstante der schnellen EPOC-Komponente
+-   $\tau_{\text{slow}} = \tau_{L}$: Zeitkonstante der langsamen EPOC-Komponente
+
+Da die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der Sauerstoffvolumenstrom in der Nachatmungsphase (= $\dot{V}O_{2EPOC}$) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der Sauerstoffvolumenstrom im Ruhezustand (= $\dot{V}O_{2Ruhe}$). $\dot{V}O_{2Ruhe}$ wurde vor den Belastungsintervallen ermittelt. Unter Bedingungen vollständiger Ruhe hätte ein langsamer und stetiger Rückgang des $\dot{V}O_{2EPOC}$ erwartet werden können. Diese Situation bedingte, dass die langsame Komponente der EPOC (= $\dot{V}O_{2EPOC, \text{slow}}$) nicht gemäß den Erwartungen modelliert werden konnte, da sie in den meisten Fällen keinen signifikanten Abfall zeigte. Dies hatte zur Folge, dass die darauffolgend berechnete anaerob-alaktazide Energiekomponente tendenziell überschätzt wurde.
+
+Um den Verlauf von $\dot{V}O_{2EPOC}$ so zu simulieren, wie er unter simulierten Ruhebedingungen verlaufen wäre, wurde angenommen, dass $\dot{V}O_{2EPOC}$ ca. 30 Minuten nach Beendigung der Belastung annähernd auf das Niveau von $\dot{V}O_{2Ruhe}$ zurückkehren sollte. Außerdem wird angenommen, dass die der schnelle initiale Abfall die $\dot{V}O_{2EPOC, \text{fast}}$ repräsentiert.
+
+## 1. Schritt - Bestimmung von $\tau$
+
+***--\> Sauerstoffabfall anders nach hohen anaeroben Belastungen und aeroben Belastungen, deshalb individuelle Kinetik wichtig. Nach ca. 2 Minuten der alaktazide Teil weitesgehend beendet ist bietet sich hier 2tau an. –\> MW von tau2 beschreiben (liegt er in dieser Zeitspanne? Und wie verhält sich tau mit der Höhe der Belastung?) –\> Nach dem Ende einer aeroben Belastung ist der unmittelbare Abfall des VO2 vermutlich auf einen plötzlichen Abfall des Herzzeitvolumens zurückzuführen (die Herzfrequenz sinkt unter diesen Bedingungen ebenfalls sehr schnell) (3). Dies kompensiert den Zufluss von gemischt-venösem Blut mit niedrigem Sauerstoffgehalt zur Lunge, was dazu tendieren würde, einen hohen VO2 während der ersten Halbkreislaufzeit aufrechtzuerhalten.***
+
+***Im Gegensatz dazu bleibt nach dem Ende einer supramaximalen Belastung die Herzfrequenz für einige Sekunden auf maximalem Niveau (Abb. 5), was darauf hindeutet, dass das Herzzeitvolumen zu Beginn der Erholung zunächst hoch bleibt. Dies legt nahe, dass die Mechanismen, die das Herzzeitvolumen und damit die Sauerstoffversorgung der aktiven Gewebe steuern, unter diesen beiden Bedingungen völlig unterschiedlich sind und dass td nicht einfach ein Abbild der Kreislaufzeit ist.***
+
+***Weiterhin sollte td, wenn dies wirklich der Fall wäre, praktisch konstant sein, unabhängig von der Intensität und Dauer der vorangegangenen Belastung, und etwa der Hälfte der Kreislaufzeit entsprechen. \@DiPrampero1973***
+
+Um den Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ in Abhängigkeit von der individuellen Abfallkinetik des $\dot{V}O_{2EPOC}$ für jede Nachatmungsphase zu bestimmen, wurde im **ersten Schritt** die Zeitkonstante $\tau$ mittels einer nichtlinearen Regression basierend auf folgendem exponentiellen Drei-Parameter-Modell modelliert:
+
+$$
+\dot{V}O_{2EPOC} = A \times e^{-(t / \tau)} + C
+$$
+
+Anhand von $\tau$ wurde der Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ im Verhältnis zur $\dot{V}O_{2EPOC, \text{slow}}$ abgegrenzt. Hierbei diente das Zweifache der Zeitkonstante (= $2\tau$) als Grenzwert, der den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden hat.
+
+![Bestimmung von $\tau$](images/01_1_tau.html){width="1200" height="500"}
+
+## 2. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{slow}}$
+
+Um die Abfallkinetik der $\dot{V}O_{2EPOC, \text{slow}}$ unter idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die $\dot{V}O_{2EPOC, \text{slow}}$ von $2\tau$ bis $8\tau$ festgelegt Bis zum Zeitpunkt $8\tau$ haben annähernd 99,75% des Abfalls von $\dot{V}O_{2EPOC}$ stattgefunden. In einem **zweiten Schritt** erfolgte die Modellierung der $\dot{V}O_{2EPOC, \text{slow}}$ mithilfe einer nichtlinearen Regression, basierend auf folgendem exponentiellen Drei-Parameter-Modell, unter Berücksichtigung der Werte von $\dot{V}O_{2EPOC}$ im Zeitfenster von $2\tau$ bis $8\tau$ sowie simulierten Ruhewerten ab 1800 Sekunden.:
+
+**--\> EVTL DEN ZEITPUNKT DES GEDACHTEN RUHEWERTES ABHÄNGIG VON DER INTENSITÄT FESTMACHEN ODER ANHAND DER INDIVIDUELLEN KINETIK, bzw. bei tau 20 ....**
+
+--\> Paper anschauen, welches auch fast und slow Komponente abgrenzt –\> welches ????
+
+$$
+\dot{V}O_{2EPOC, slow} = A_{slow} \times e^{-(t / \tau_{slow})} + \dot{V}O_{2Ruhe}
+$$
+
+![Bestimmung von $\dot{V}O_{2EPOC, \text{slow}}$](images/01_1_slow.html){width="1200" height="500"}
+
+## 3. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{fast}}$
+
+In einem **dritten Schritt** wurde schließlich die Modellfunktion der $\dot{V}O_{2EPOC, \text{fast}}$ der gesamten bi-exponentiellen Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten Parameter der $\dot{V}O_{2EPOC, \text{slow}}$ und $\dot{V}O_{2Ruhe}$:
+
+$$
+\dot{V}O_{2EPOC, fast} = A_{fast} \times e^{-(t / \tau_{fast})}
+$$
+
+![Bestimmung von $\dot{V}O_{2EPOC, \text{fast}}$](images/01_1.html){width="1200" height="500"}
+
+## Quellenverzeichnis
+
+::: {#refs}
+:::

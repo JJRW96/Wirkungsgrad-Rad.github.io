@@ -1,0 +1,145 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: "../references.bib"
+lang: de
+number-sections: false
+---
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+```
+
+# Studiendesign
+
+## Pilotierung
+
+Im Verlauf von zwei Pilotversuchen mit jeweils zwei Testterminen wurde das Testprotokoll zur Bestimmung der Wirkungsgrade auf dem Radergometer bei verschiedenen Belastungsintensitäten im Sitzen und Stehen entwickelt und kontinuierlich angepasst. Hierbei wurden geeignete Werte für die Anzahl und Intensität der Belastungsintensitäten, deren Dauer sowie die Länge der Pausen zwischen den Belastungen festgelegt. Das Ziel war es, ein Untersuchungsdesign zu erstellen, das möglichst akkurate Ergebnisse liefert und gleichzeitig in einem realistischen Zeitrahmen an maximal zwei Testzeitpunkten durchführbar ist.
+
+Bei der ersten Pilotierung wurde zunächst ein Stufentest durchgeführt, um die ventilatorischen Schwellen zu ermitteln. Diese dienten später zur Bestimmung der Intensitäten für die späteren Belastungen. Anschließend wurden an diesen festgelegten Intensitäten mehrere Belastungen sowohl im Sitzen als auch im Stehen durchgeführt. Dabei zeigte sich, dass die vorab errechneten Intensitätsbereiche deutlich zu hoch angesetzt waren. Die Probanden konnten die erstrebten metabolischen Antworten auf die Belastung nicht erreichen. Basierend auf diesen Erkenntnissen wurden die Belastungsintensitäten für die zweite Pilotstudie nach unten angepasst, und die Dauer der Erholungspausen wurde verlängert, um den Sauerstoffvolumenstrom der Nachbelastung genauer erheben zu können.
+
+Nach der Durchführung der beiden Pilotstudien wurde der folgende Untersuchungsablauf festgelegt.
+
+## Studiendesign {#sec-Studiendesign}
+
+Das Studiendesign umfasst zwei Testzeitpunkte und wurde auf Basis der Ergebnisse der Pilotstudien sowie unter Berücksichtigung der aktuellen Literatur zur der Thematik entwickelt. Es wurden geeignete Messinstrumente und Methoden zur Datenerhebung ausgewählt und ein detaillierter Ablaufplan für die Durchführung der Tests erstellt.
+
+## Erster Testzeitpunkt
+
+Der erste Testzeitpunkt besteht aus drei verschiedenen Belastungstests, welche alle bis zur Ausbelastung durchgeführt werden sollen. Zwischen den Test liegt jeweils eine zehnminütige Erholungsphase. In der Regel dauert der gesamte Test zwischen 60 und 70 Minuten. Die ersten beiden Belastungstests sind eine Mischung aus einem Rampen- und Stufentest. Denn der Belastungsanstieg entspricht dem eines typischen Rampenprotokolls, wird aber wie bei Stufenprotokollen schrittweiße gesteigert. Der Test wird in dieser Studie als Stufentest oder 30s-Stufentest (ST~30~) bezeichnet. Ziel des Tests ist es, die maximale mechanische Leistung (P~max,ST~), den maximalen Sauerstoffvolumenstorm (V̇O~2max~), sowie die ventilatorischen Schwellen zu bestimmen. Die Schwellenbestimmung wird in @sec-VT genauer erklärt. Die Durchführung der Stufentests orientiert sich an [@Kroidl2007,57], wobei sich die beiden Tests hauptsächlich in der Körperposition, in der sie durchgeführt werden, unterscheiden. Der erste ST wird ausschließlich im Sitzen (ST~sitzen~) und der zweite ausschließlich im Stehen (ST~stehen~) durchgeführt. Als letzter Test wird ein Drehzahltest (DT) durchgeführt, bei dem die Trittrate stufenweise gesteigert wird, während die Last konstant niedrig bleibt. Dieser Test dient dazu, den Einfluss einer erhöhten Trittrate auf die metabolischen Kosten aufzuzeigen.
+
+### Ablauf des ersten Testzeitpunktes:
+
+<div>
+
+1.  **Ruhe- und Kalibrierungsphase (ca. 2 min)**\
+    Während der ersten Phase nimmt der Sportler verschiedene Sitz- und Stehpositionen ein, um die Kalibrierung der 3D-Bewegungsanalyse durchzuführen.
+
+2.  **Referenzphase (10 min)**\
+    Während der Referenzphase bewegt der Proband 10 Minuten lang seine Beine mit einem geringen Widerstand von 50 Watt und einer frei gewählten Trittrate. Durch diese Bewegung wird das Blut umverteilt, die venösen Speicher entleeren sich, der V̇O~2~ steigt an und es kommt zu einer verzögerten Freisetzung von V̇CO~2~ aus dem Fettgewebe. Dies hat zur Folge, dass sich der RQ auf ein Minimum einstellt.
+
+3.  **Belastungsphase: ST~sitzen~ (ca. 8-12 min)**\
+    Während der Belastungsphase wird die Belastung des Sportlers kontinuierlich gesteigert. Weibliche Sportlerinnen starten mit einer Belastung von 60 Watt, welche alle 30 Sekunden um 15 Watt erhöht wird. Männliche Probanden beginnen mit einer Belastung von 80 Watt, welche alle 30 Sekunden um 20 Watt gesteigert wird. Die Last wird bis zur Ausbelastung gesteigert. Während des ersten Tests ist es wichtig, dass die Versuchsteilnehmer in der Belastungsphase ausschließlich in sitzender Position fahren. Um den Anstieg des Blutlaktats zu messen, wurden während des Tests zwei Laktatproben entnommen, die bei den Anstiegen des respiratorischen Quotienten von ungefähr 0,95 und 1,00 erfolgten.
+
+4.  **Erholungsphase (10 min)**\
+    In der Erholungsphase soll der Proband bei einer geringen Last von 50 Watt weiterfahren. In dieser Zeit kann die EPOC sowie das Nachbelastungslaktat bestimmt werden.
+
+5.  **Belastungsphase: ST~stehen~ (ca. 4-6 min)**\
+    Der ST~stehen~ wird ausschließlich im Stehen durchgeführt und startet mit einer höheren Einstiegslast als der ST~sitzen~, damit die Probanden nicht zu lange in stehender Position bei einer geringen Last fahren müssen. Bei Frauen betrug die Startlast 150 Watt und bei Männern 200 Watt. Ansonsten ist der Ablauf des ST~stehen~ analog zu ST~sitzen~. Hier wurde jedoch auf die Entnahme von Laktatproben während der Belastung verzichtet, da dies beim Fahren im Stehen nur schwer möglich ist. Das Ziel des Tests ist es, die Ausdauerleistungsfähigkeit in den beiden Radpositionen vergleichbar zu machen.
+
+6.  **Erholungsphase (10 min)**\
+    In der Erholungsphase soll der Proband bei einer geringen Last von 50 Watt weiterfahren. In dieser Zeit kann die EPOC sowie das Nachbelastungslaktat bestimmt werden.
+
+7.  **Belastungsphase: Drehzahltest (ca. 10-14 min)**\
+    Während des Durchführung des DT muss der Proband kontinuierlich einen Widerstand von 10 Watt treten. Die Trittrate beginnt bei 70 Umdrehungen pro Minute und wird anschließend alle 30 Sekunden um 5 Umdrehungen pro Minute erhöht, bis der Proband entweder nicht mehr in der Lage ist, die Trittrate weiter zu steigern oder die Trittrate abfällt. Die jeweilige Trittrate wird nicht vom Ergometer vorgegeben, sondern muss vom Sportler selbst eingehalten werden. Der Versuchsleiter gibt dem Probanden dabei mündliche Anweisungen, welche Drehzahl beizubehalten ist, und gibt Feedback darüber, wie genau diese eingehalten wird. Der DT wird ausschließlich im Sitzen durchgeführt.
+
+8.  **Erholungsphase (15 min)**\
+    In der Erholungsphase soll der Proband bei einer geringen Last von 50 Watt weiterfahren. In dieser Zeit kann die EPOC sowie das Nachbelastungslaktat bestimmt werden.
+
+</div>
+
+### Messungen der Blutlaktatkonzentration
+
+![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test1_4.png){#fig-Versuchsablauf1}
+
+> Abbildung wird noch angepasst
+
+Während des ersten Testzeitpunktes werden insgesamt 20 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen sind wie in @fig-Versuchsablauf1 zu sehen folgendermaßen:
+
+-   Messung des Ruhelaktats vor der Referenzphase
+-   Messung des Blutlaktatwert direkt vor dem Beginn der Belastung (BLC~PRE~)
+-   Zwei Blutentnahmen während ST~sitzen~ bei RQ \> 0,95 und RQ \> 1,0
+-   Blutentnahmen nach ST~sitzen~ in den Nachbelastungsminuten: 1, 3, 5, 7, 10
+-   Blutentnahmen nach ST~stehen~ in den Nachbelastungsminuten: 1, 3, 5, 7, 10 Blutentnahmen nach DT in den Nachbelastungsminuten: 1, 3, 5, 7, 10, 15
+
+#### **Verlauf der Blutlaktatkonzentration nach Belastungsende**
+
+Bei zunehmender Muskelarbeit steigt die Laktatkonzentration in der an der Bewegung beteiligten Muskulatur. Das Laktat diffundiert aus dieser Muskulatur in die Zwischenzellräume und gelangt über die Venen zum rechten Herzen. Dort wird das Blut aus der Muskulatur mit dem Blut aus anderen Körperregionen vermischt und durch die Lunge zum linken Herzen gepumpt und in die Aorta ausgeworfen. Anschließend werden sämtliche Arterien, einschließlich jener, die die Regionen um die Blutentnahmestellen am Ohrläppchen versorgen, von Blut mit gleicher Laktatkonzentration durchströmt. Das gebildete Laktat wird nach einer Rückumwandlung von Laktat in Pyruvat vornehmlich im belasteten Muskel selbst, in geringerem Maße im Herzmuskel, in den Nieren und im Gehirn eliminiert. Primär in der Leber wird Laktat über die Glukoneogenese via Pyruvat wieder zu Glukose und Glykogen (Glukoneogenese) aufgebaut. Die Laktateliminationsrate hängt von der Höhe des aeroben Umsatzes und der Laktatkonzentration ab, wobei sie mit steigendem aerobem Stoffwechsel und höherer Laktatkonzentration zunimmt [@VanHall2010; @Heck2022,38,193,407].
+
+Da nach jeder Belastungsstufe die maximale Blutlaktatkonzentration (BLC~max~) bestimmt werden sollte und das Blutlaktat in den ersten Minuten nach Belastungsende besonders bei intensiven Belastungen noch weiter ansteigt, wurden die Blutentnahmen an den beschriebenen Zeitpunkten gewählt. BLC~max~ wird in Abhängigkeit von Belastungsdauer und maximaler Laktatkonzentration nach 10-12 Minuten Erholungszeit erreicht, in Einzelfällen sogar erst nach 15-20 Minuten (siehe @fig-Laktat3). Die Ursache hierfür ist der Konzentrationsgradient zwischen der Muskel- und Blutlaktatkonzentration. In @fig-Laktat und @fig-Laktat2 ist der Konzentrationsgradient zwischen Muskel- und Blutlaktatkonzentration gut zu erkennen. 
+--> Übergang
+Da das Muskellaktat während einer intensiven Belastung steil ansteigt und dann nach Belastungsende annähernd exponentiell abfällt, während die Blutlaktatkonzentration erst nach Belastungsende das Maximum erreicht [@Diamant1968;@Mader1981; @Heck2022, 193; @Margaria1933; @Beneke2007]. 
+
+::: {layout="[[1,1], [1]]"}
+![Simulierte Verlaufskurve von Muskellaktat und Blutlaktat bei einer 2 minütigen Maximalbalastung [@Mader1981]](images/Laktat.png){#fig-Laktat height="400"}
+
+![Verlaufskurve von Muskellaktat und Blutlaktat nach einer dreiminütigen Ausbelastung auf dem Fahrradergometer [@Diamant1968]](images/Nachbelastungslaktat_Diamant2.png){#fig-Laktat2 height="400"}
+
+![Nachbelastungslaktatwerte aus Ohrkapillarblut nach 300m und 600m Läufen mit unterschiedlicher Intensität [@Heck2022, 193]](images/Nachbelastungslaktat_Heck.png){#fig-Laktat3 height="500" fig-align="left"}
+:::
+
+## Zweiter Testzeitpunkt
+
+Am zweiten Testzeitpunkt wird nach einer Erwärmung ein kurzer Rampentest (RT) durchgeführt, um die maximale anaerobe Leistungsfähigkeit (P~max,RT~) zu testen. Daraufhin werden mindestens drei verschiedene Belastungsstufen sowohl im Sitzen als auch im Stehen absolviert. Die Intensitätsstufen folgen stets derselben Reihenfolge (niedrig, moderat, schwer), jedoch wird die Abfolge der Körperpositionen zufällig bestimmt. Falls die Intensität einer Belastungsstufe zu gering oder zu hoch ausfällt, wird anschließend noch jeweils eine Belastung im Sitzen und Stehen mit angepasster Last durchgeführt. Den Probanden wird für alle Belastungen im Sitzen und im Stehen jeweils eine Trittrate vorgegeben. Diese Trittraten basieren auf den durchschnittlichen Trittraten, die sie während der verschiedenen Stufentests am ersten Messzeitpunkt in den jeweiligen Positionen und in den jeweiligen Belastungsbereichen erreicht haben, die auch in diesem Test durchlaufen werden. Die Probanden sollen versuchen, die vorgegebenen Trittraten so genau wie möglich (±3 Umdrehungen \cdot min^-1^) einzuhalten. Zwischen den Belastungsstufen gibt es jeweils eine 10-minütige Erholungsphase. Der zweite Testzeitpunkt dauert in der Regel 110 bis 125 Minuten.
+
+### Ablauf des zweiten Testzeitpunktes:
+
+<div>
+
+1.  **Ruhe- und Kalibrierungsphase (10 min)**\
+    Während der ersten Phase nimmt der Sportler verschiedene Sitz- und Stehpositionen ein, um die Kalibrierung der 3D-Bewegungsanalyse durchzuführen. Des Weiteren wird die Messung des Ruheumsatzes durchgeführt. Dazu sitzt der Proband den Rest der Ruhephase in Ruhe auf dem Rad.
+2.  **Erwärmung (10 min)**\
+    Der Proband fährt zehn Minuten lang mit 40% seiner maximalen Leistung aus dem ersten Stufentest.
+3.  **Erholungsphase (2 min)**\
+    In der Erholungsphase fährt der Proband bei einer geringen Last von 50 Watt.
+4.  **Rampentest (ca. 1 min)**\
+    Die Startlast des Rampentests ist 50 Watt und wird anschließend kontinuierlich um 16,67 Watt pro Sekunde gesteigert, bis der Sportler nicht mehr in der Lage ist weiterzutreten.
+5.  **Erholungsphase (10 min)**\
+    In der Erholungsphase soll der Proband bei einer geringen Last von 50 Watt weiterfahren. In dieser Zeit kann die EPOC sowie das Nachbelastungslaktat bestimmt werden.
+6.  **Testdurchläufe (6 x 5 min)**\
+    Die Probanden absolvieren mindestens sechs Belastungstests, die jeweils fünf Minuten dauern. Die Intensitätsstufen werden sowohl im Sitzen als auch im Stehen durchgeführt und umfassen drei verschiedene Intensitätsstufen (niedrig, moderat, hoch). Zwischen den Tests gibt es eine Erholungsphase von zehn Minuten bei einer Belastung von 50 Watt.
+7.  **Erholungsphase (15 min)**\
+    In der Erholungsphase soll der Proband bei einer geringen Last von 50 Watt weiterfahren. In dieser Zeit kann die EPOC sowie das Nachbelastungslaktat bestimmt werden.
+
+</div>
+
+### Messungen der Blutlaktatkonzentration
+
+![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test2_4.png){#fig-Versuchsablauf2}
+
+Während des ersten Testzeitpunktes werden insgesamt 50 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen sind wie in (@fig-Versuchsablauf2) zu sehen folgendermaßen:
+
+-   Messung des Ruhelaktats zu Beginn der Ruhephase
+-   Messung des Blutlaktatwert direkt vor dem RT (BLC~PRE~)
+-   Blutentnahmen nach dem RT in Nachbelastungsminute: 1, 3, 5, 7, 10
+-   Blutentnahmen während der Belastung 1-6 in Belastungsminute 3 und 5
+-   Blutentnahmen nach Belastung 1-5 in Nachbelastungsminute: 1, 3, 5, 7, 10 Blutentnahmen nach Belastung 6 in Nachbelastungsminute: 1, 3, 5, 7, 10, 15
+
+> Abbildungen werden in der MA noch angepasst
+
+## Bestimmung der ventilatorischen Schwellen {#sec-VT}
+
+## Probleme des Studiendesigns
+
+# Quellen
+
+::: {#refs}
+:::

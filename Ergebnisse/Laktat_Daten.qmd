@@ -1,0 +1,460 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+
+---
+
+# Laktat {.tabset}
+
+```{r}
+# Library und dfs laden
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(htmltools)
+library(htmlwidgets)
+library(shiny)
+library(DT)
+library(RColorBrewer)
+library(patchwork)
+library(minpack.lm)
+library(zoo)
+library(purrr)
+library(readxl)
+
+# Laden des DataFrames EPOC_data, Erg_data und BLC_data aus der RDS-Datei
+EPOC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/EPOC_data_df.rds")
+Erg_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df.rds")
+Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Messwerte_Bedingungen_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingungen_df.rds")
+Messwerte_Intensitäten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Intensitäten_df.rds")
+Messwerte_Bedingung_Intensität_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Messwerte_Bedingung_Intensität_df.rds")
+Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+P_Ges_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+Efficiency_df<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_Int_Drehzahl_Masse <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_Int_Drehzahl_Masse.rds")
+Simulation_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Simulation_df.rds")
+ΔBLC_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_list.rds")
+proband_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/proband_data.rds")
+ΔBLC_data_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_data_df.rds")
+BLC_Modell_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/BLC_Modell_list.rds")
+Efficiency_Daten_df <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Efficiency_Daten_df.rds")
+P_R_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_R_list.rds")
+P_L_list <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/P_L_list.rds")
+start_vals_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/start_vals_list.rds")
+VO2_list <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/VO2_list.rds")
+df_anthropometrisch_female <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_female.rds")
+df_anthropometrisch_male <- readRDS ("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/df_anthropometrisch_male.rds")
+```
+
+```{r}
+# Initialisierung der Listen
+Modellwerte_list <- list()
+ΔBLC_data_df <- data.frame()
+
+# Berechnung und Speicherung der Modellwerte
+for (prefix in names(ΔBLC_list)) {
+proband_data <- ΔBLC_list[[prefix]]
+
+# Datenkonvertierung in DataFrame
+df_proband <- data.frame(
+  Leistung = unlist(lapply(proband_data, function(x) x$Leistung)),
+  ΔBLC = unlist(lapply(proband_data, function(x) x$ΔBLC))
+)
+
+# Exponentielle Regression
+exponential_model <- nls(ΔBLC ~ a * exp(b * Leistung), data = df_proband, start = list(a = 0.01, b = 0.0125))
+
+# Extrahiere Modellkoeffizienten
+coef_exponential_model <- coef(exponential_model)
+
+# Berechne die Werte für die exponentielle Anpassungslinie
+y_pred_proband <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * df_proband$Leistung)
+    
+    # Erweiterung des Leistungsbereichs und Berechnung der Anpassungslinie
+    max_leistung <- max(df_proband$Leistung)
+    extended_max_leistung <- max_leistung * 1.10
+    x_seq <- seq(min(df_proband$Leistung), extended_max_leistung, length.out = 1000)
+    y_pred <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * x_seq)
+    
+    # Berechnung für spezifische Belastung
+    ΔBLC_Belastung_1 <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * df_proband$Leistung[3])
+    
+# Speichern der berechneten Werte in Modellwerte_list
+Modellwerte_list[[prefix]] <- list(
+  df_proband = df_proband,
+  y_pred_proband = y_pred_proband,
+  x_seq = x_seq,
+  y_pred = y_pred,
+  ΔBLC_Belastung_1 = ΔBLC_Belastung_1,
+  coef_exponential_model = coef_exponential_model
+)
+
+# Zuordnung der ΔBLC Werte
+for (i in 3:length(df_proband$Leistung)) {
+  ΔBLC_data_df <- rbind(ΔBLC_data_df, data.frame(
+    Proband = prefix,
+    Nr = i - 2,
+    ΔBLC = df_proband$ΔBLC[i]
+  ))
+}
+}
+
+
+```
+
+## Proband 01
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '01'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 06
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '06'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 10
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '10'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 13
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '13'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 15
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '15'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 19
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '19'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 20
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '20'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 22
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '22'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+
+## Proband 23
+
+```{r}
+BLC_Diagramme_list <- list()
+prefix <- '23'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+# Verwenden Sie das temporäre Verzeichnis für Plotly-Dateien
+plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol/l"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.5f * e<sup>(%.5f * Leistung)", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung), y = max(y_pred), showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol/l", ΔBLC_Belastung_1 ),
+                  x = min(df_proband$Leistung), y = max(y_pred) * 0.93, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom',
+                  font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+  layout(
+    title = paste("Proband:", prefix, "- BLC-Anstieg"),
+    margin = list(t = 40),
+    xaxis = list(title = "Leistung"),
+    yaxis = list(title = "ΔBLC")
+  )
+```
+

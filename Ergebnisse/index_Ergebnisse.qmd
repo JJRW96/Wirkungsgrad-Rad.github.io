@@ -1,0 +1,21 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false
+---
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+```
+# Ergebnisse
+
+asdf

@@ -1,0 +1,59 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false
+tbl-cap-location: bottom
+---
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption {
+  text-align: justify;
+}
+
+```
+
+# Radfahren im Sitzen und Stehen
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+library(extrafont)
+```
+
+
+Ein Großteil der bisherigen Untersuchungen zum Wirkungsgrad beim Radfahren wurden in sitzender Position durchgeführt. Das Radfahren im Stehen wurde hingegen seltener betrachtet. Durch den Wechsel von einer sitzenden zu einer stehenden Position beim Radfahren kommt es zu einer translatorischen Verschiebung des Körperschwerpunktes über die Zeit nach vorne. Gleichzeitig erhöht sich die maximale tangentiale Kraft, die auf die Pedale wirkt, sowie die mechanischen Kosten der Fortbewegung [@Caldwell1998]. Wobei der Anstieg der mechanischen Kosten laut @Bouillod2018a auf verschiedene Faktoren wie den Rollwiderstand oder die Verformung bestimmter mechanischer Teile zurückzuführen ist. Beim Fahren im Stehen erhöhen sich außerdem die Freiheitsgrade des Gesamtsystems, da der Sportler das Rad nach links und rechts schwenken kann. Durch die Veränderung der Fahrposition verändert sich außerdem die Muskelarbeit. Es kommt zu einer verringerten Muskelaktivierung der unteren Beinmuskulatur und einer erhöhten Muskelaktivierung der oberen Beinmuskulatur beim stehenden Fahren [@Arkesteijn2016; @Berkemeier2020; @Li1998; @Kistemaker2023]. Gleichzeitig wird die Oberkörper- und Rumpfmuskulatur stärker aktiviert, um die zusätzliche Masse aufgrund des Verlusts der Sattelstütze zu tragen, das Becken und den Rumpf zu stabilisieren, das Körpergleichgewicht zu kontrollieren und den Körper und das Fahrrad zur Seite zu schwingen [@Duc2008; @Turpin2017].
+
+```{r}
+#Genauer erklären mit in [@Arkesteijn2016; @Berkemeier2020; @Li1998; @Kistemaker2023] und in [@Duc2008, @Turpin2017] -> Turpin mit schönen Darstellungen
+```
+
+Betrachtet man die bisherigen Untersuchungen zur Effizienz des Radfahrens im Stehen, zeigt sich, dass die Effizienz bei niedrigen und mäßigen Trainingsintensitäten unter 70% des maximalen Sauerstoffvolumenstroms ($\dot{V}O_{2, max}$) in der stehenden Position geringer ist als in sitzender Position [@Ryschon1991a; @Tanaka1996a]. Bei höheren Intensitäten über 70% der $\dot{V}O_{2, max}$ scheint der negative Effekt des Stehens auf die Effizienz jedoch zu verschwinden [@Arkesteijn2016; @Harnish2007; @Millet2002]. Beim Radfahren im Stehen können allerdings kurzfristig höhere Leistungen erbracht werden, was vermutlich auf die größere Kraftentwicklung pro Umdrehung zurückzuführen ist [@Hansen2008; @Millet2002]. @Berkemeier2020 stellten fest, dass beim Fahren im Stehen bei einer Ge-schwindigkeit von ca. 13 km/h und einer Steigung von 8% im Vergleich zum Fahren in sitzender Position unter gleichen Bedingungen, eine erhöhte $\dot{V}O_{2, max}$ und Herzrate auftrat.
+
+```{r}
+# Tabelle mit Wirkungsgraden im Stehen und Sitzen einbauen
+# Die größere Kraftentwicklung pro Umdrehung genauer erklären
+```
+
+Eine Vielzahl der bisher erwähnten Untersuchungen, welche die Effizienz beim Radfahren, in stehender und sitzender Position verglichen haben, bestimmten den physiologischen Energieumsatz ausschließlich über den gemessenen Sauerstoffvolumenstrom ($\dot{V}O_{2}$) als Grundlage für ihre Berechnungen.<br>
+Meistens wurde nur η~brutto~ bestimmt, der anfällig für Änderungen in der erbrachten Leistung ist. @Harnish2007 bestimmten η~netto~, welcher weniger anfällig gegenüber Leistungsveränderungen ist, und fanden keine signifikanten Unterschiede des η~brutto~ im Stehen und Sitzen. η~brutto~ berücksichtigt jedoch nicht die interne Arbeit der Beinbewegungen, was bedeutet, dass er von der Trittrate abhängig ist. Soll die interne Arbeit bei der Bestimmung des Wirkungsgrades berücksichtigt werden, eignet sich η~muskulär~, welcher ähnlich hoch ist wie η~netto~, aber keine Abhängigkeit von der Trittrate zeigt [@Boning2017]. 
+Bisher gibt es nach Wissen des Autors keine Studien, die den muskulären Wirkungsgrad beim Radfahren in sitzender und stehender Position unter Berücksichtigung von verschiedenen Einflussfaktoren wie Trittfrequenz und Intensität untersucht haben. Daher ist das Ziel dieser Arbeit, η~muskulär~ in sitzender und stehender Position auf dem Rad bei verschiedenen Belastungsintensitäten zu vergleichen.
+
+
+## Quellenverzeichnis
+
+::: {#refs}
+:::
+
