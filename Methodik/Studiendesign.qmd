@@ -135,9 +135,13 @@ Während des ersten Testzeitpunktes werden insgesamt 50 Blutlaktatproben entnomm
 
 > Abbildungen werden in der MA noch angepasst
 
-## Bestimmung der ventilatorischen Schwellen {#sec-VT}
+## Bestimmung der ventilatorischen Schwellen 
+
+...
 
 ## Probleme des Studiendesigns
+
+...
 
 # Quellen
 

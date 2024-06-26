@@ -339,3 +339,9 @@ execute:
 
 :::
 :::
+
+
+![NetO2 - Power Relationship](images/NetO2_Power_Relationship.png)
+![PCr - Power Relationship](images/PCR_Power_Relationship.png)
+![PCr - Power Relationship](images/O2Def_NetO2_Relationship.png)
+![NetO2 - Power Relationship](images/PCR_O2Def_Relationship.png)

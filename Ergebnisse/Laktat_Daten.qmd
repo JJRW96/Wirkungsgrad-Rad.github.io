@@ -7,7 +7,7 @@ execute:
 
 ---
 
-# Laktat {.tabset}
+# Laktat-Leistungs-Beziehung {.tabset}
 
 ```{r}
 # Library und dfs laden

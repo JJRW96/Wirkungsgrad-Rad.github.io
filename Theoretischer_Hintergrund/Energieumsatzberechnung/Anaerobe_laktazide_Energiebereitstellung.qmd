@@ -33,15 +33,17 @@ library(DT)
 library(extrafont)
 ```
 
-***@Brooks2004 ab Seite 222 - Laktat nach der Belastung***
+Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Blutlaktatwert direkt vor Beginn der Belastung (BLC~PRE~) und dem maximalen Laktatwert nach der Belastung (BLC~PEAK~). Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert (BLC~NET~), der die größte Schwankung zwischen BLC~PRE~ und BLC~PEAK~ darstellt. Durch Multiplikation von BLC~NET~ mit einem Sauerstoff-Laktat-Äquivalent von 3,0 [ml O~2~·kg^-1^·mmol^-1^] [@DiPrampero1981] und dem kÄ für Kohlenhydrate (kÄ~KH~) bei einem RQ von 1,0 von 21,131 kJ pro Liter O~2~ kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden [@Stegemann1991, 59]:
 
-Besonders bei kurzen und intensiven Belastungen muss auch die anaerobe alaktazide und laktazide Energiebereitstellung berücksichtigt werden. Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Blutlaktatwert direkt vor dem Beginn der Belastung (BLC~PRE~) und dem maximalen Laktatwert nach der Belastung (BLC~PEAK~). Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert (BLC~Net~), welcher die größte Schwankung zwischen BLC~PRE~ und dem BLC~PEAK~ darstellt. Durch Multiplikation von BLC~Net~ mit ei-nem Sauerstoff-Laktat-Äquivalent von 3,0 ml O2· kg-1·mmol-1 (P. E. Di Prampero, 1981) (Wert nur Mittelwert mit potentiellen Schwankungen  weiter ausführen) Auch als Quelle erwähnen und dem kÄ für Kohlenhyd-rate (= kÄKH) bei einem RQ von 1 (Stegemann, 1991, S. 59) kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden:
+```{r}
+# 3.0 Wert nur Mittelwert mit potentiellen Schwankungen -> weiter ausführen
 
+# Brooks2004 ab Seite 222 - Laktat nach der Belastung
+```
 
 $$
-W_{BLC} = BLC_{Net} \, [\text{mmol} \cdot \text{l}^{-1}] \cdot 3.0 \, [\text{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot Körpermasse \, [\text{kg}] \cdot k_{\text{ÄKH}} \, [\text{kJ} \cdot \text{l}^{-1}]
+W_{BLC} = BLC_{Net} \, [\text{mmol} \cdot \text{l}^{-1}] \cdot 3.0 \, [\text{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot \text{Körpermasse} \, [\text{kg}] \cdot kÄ_{\text{KH}} \, [\text{kJ} \cdot \text{l}^{-1} \,\text{O}_2]
 $$
-
 
 
 ## Quellenverzeichnis

@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.45">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>tabellen – Wirkungsgrad auf dem Radergometer im Sitzen und Stehen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/Logo_η_3.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Theoretischer Hintergrund</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Wirkungsgrad_Theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wirkungsgrad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Energieumsatzberechnung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aerobe Energiekomponente (W<sub>AER</sub>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaerobe- laktazide Energiekomponente (W<sub>BLC</sub>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaerobe- alaktazide Energiekomponente (W<sub>PCr</sub>)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Innere_Arbeit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innere Arbeit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Theoretischer_Hintergrund/Sitzen_Stehen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radfahren im Sitzen und Stehen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Methodik/Stichprobe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stichprobe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Methodik/Messmethoden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messmethoden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Methodik/Studiendesign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studiendesign</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Ergebnisse/index_Ergebnisse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergebnisse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/VO2_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VO2-Belastungsdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/EPOC_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPOC-Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Laktat_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laktat-Leistungs-Beziehung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Ergebnisse/Ergometer/index_Ergometer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergometer Daten</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Ergometer/Efficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Torque Efficiency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Ergometer/Innere_Arbeit_Results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innere Arbeit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Ergometer/Pedal_Smoothness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pedal Smoothness</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Datensätze.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensätze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Quellen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quellenverzeichnis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Inhalt auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#tabellen-mit-epoc-parametern-aus-verschiedenen-untersuchungen" id="toc-tabellen-mit-epoc-parametern-aus-verschiedenen-untersuchungen" class="nav-link active" data-scroll-target="#tabellen-mit-epoc-parametern-aus-verschiedenen-untersuchungen">Tabellen mit EPOC-Parametern aus verschiedenen Untersuchungen</a></li>
+  <li><a href="#tabelle-körpereigene-energiespeicher" id="toc-tabelle-körpereigene-energiespeicher" class="nav-link" data-scroll-target="#tabelle-körpereigene-energiespeicher">Tabelle körpereigene Energiespeicher</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<div class="cell">
+<style type="text/css">
+p {
+  text-align: justify
+}
+caption {
+  text-align: justify;
+}
+
+</style>
+</div>
+<section id="tabellen-mit-epoc-parametern-aus-verschiedenen-untersuchungen" class="level3">
+<h3 class="anchored" data-anchor-id="tabellen-mit-epoc-parametern-aus-verschiedenen-untersuchungen">Tabellen mit EPOC-Parametern aus verschiedenen Untersuchungen</h3>
+<section id="tabelle-epoc" class="level4">
+<h4 class="anchored" data-anchor-id="tabelle-epoc">Tabelle EPOC</h4>
+<table class="caption-top table">
+<caption><strong>Tabelle mit absoluten Werten aus verschiedenen Untersuchungen der EPOC</strong> (angelehnt an <span class="citation" data-cites="Roberts1978">Roberts &amp; Morton (<a href="#ref-Roberts1978" role="doc-biblioref">1978</a>)</span>)</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quelle</th>
+<th>EPO C<sub>PCR</sub> [ml k g <sup>-1</sup>]</th>
+<th>EPO C<sub>PCR</sub> [l]</th>
+<th>EPO C<sub>ges</sub> [ml k g <sup>-1</sup>]</th>
+<th>EPO C<sub>ges</sub> [l]</th>
+<th>O<sub>2</sub>-S p eicher</th>
+<th>EPO C<sub>NET</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="Hi">(<a href="#ref-Hi" role="doc-biblioref"><strong>Hi?</strong></a>)</span> ll1924</td>
+<td></td>
+<td></td>
+<td></td>
+<td>7,5</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Margar ia1933</td>
+<td>36,8</td>
+<td>2,50</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@ Margar ia1963</td>
+<td>-</td>
+<td>-</td>
+<td>75,0</td>
+<td>4,65</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Margar ia1964</td>
+<td>-</td>
+<td>2,77</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@D iPramp e ro1971</td>
+<td>45.0</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Margar ia1972</td>
+<td>40,00</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@Di Prampe ro1973</td>
+<td>32 .0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Shepha rd1973</td>
+<td>-</td>
+<td>-</td>
+<td>67,0</td>
+<td>5,00</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="Kat">(<a href="#ref-Kat" role="doc-biblioref"><strong>Kat?</strong></a>)</span> ch1973</td>
+<td>-</td>
+<td>-</td>
+<td>68,0</td>
+<td>4,89</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Parn">(<a href="#ref-Parn" role="doc-biblioref"><strong>Parn?</strong></a>)</span> at1975</td>
+<td>-</td>
+<td>-</td>
+<td>74,0<br>
+[^2]</td>
+<td>5,02</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@ Robert s1978a</td>
+<td>37,45</td>
+<td>2,79</td>
+<td>70,0</td>
+<td>4,93</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Margar ia1976</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>0,55 L</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="Bene">(<a href="#ref-Bene" role="doc-biblioref"><strong>Bene?</strong></a>)</span> ke2002</td>
+<td>-</td>
+<td>1,94 (0,31)</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Bene">(<a href="#ref-Bene" role="doc-biblioref"><strong>Bene?</strong></a>)</span> ke2004</td>
+<td>32.13 +- 2.59</td>
+<td>2.48 +- 0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="Astra">(<a href="#ref-Astra" role="doc-biblioref"><strong>Astra?</strong></a>)</span> nd2003</td>
+<td>21,43</td>
+<td>1.5 L (body weight about 70 kg)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Fra">(<a href="#ref-Fra" role="doc-biblioref"><strong>Fra?</strong></a>)</span> ncesca to2003</td>
+<td><p>Sehr l eicht: 11,8 ± 2,4 ml/kg</p>
+<p>L eicht: 20,8 ± 3,4 ml/kg</p>
+<p>Mo derat: 32,9 ± 3,5 ml/kg</p></td>
+<td><p>Für Muske lm asse~ ak tiv~: 20kg</p>
+<p>Sehr l eicht: 0,236 ± 0,048 L</p>
+<p>L eicht: 0,416 ± 0,068 L</p>
+<p>Mo derat: 0,658 ± 0,070 L</p></td>
+<td><p>Sehr l eicht: 27,9 ± 4,4 ml/kg</p>
+<p>L eicht: 50,6 ± 7,6 ml/kg</p>
+<p>Mo derat: 85,4 ± 7,8 ml/kg</p></td>
+<td><p>Sehr l eicht: 0,558 ± 0,088 L</p>
+<p>L eicht: 1,012 ± 0,152 L</p>
+<p>Mo derat: 1,708 ± 0,156 L</p></td>
+<td><p>Für Muske lm asse~ ak tiv~: 20kg</p>
+<p>Sehr l eicht: 27,9 ± 4,4 ml/kg</p>
+<p>L eicht: 50,6 ± 7,6 ml/kg</p>
+<p>Mo derat: 85,4 ± 7,8 ml/kg</p></td>
+<td><p>Sehr l eicht: 0,0118 ± 0,0024 l/kg</p>
+<p>L eicht: 0,0208 ± 0,0034 l/kg</p>
+<p>Mo derat: 0,0329 ± 0,0035 l/kg</p></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="Duns">(<a href="#ref-Duns" role="doc-biblioref"><strong>Duns?</strong></a>)</span> t2023a</td>
+<td>27.27 ± 8.43</td>
+<td>2,09 ± 0,64<br>
+[^3]</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Duns">(<a href="#ref-Duns" role="doc-biblioref"><strong>Duns?</strong></a>)</span> t2023b</td>
+<td>28.33 ± 5.28</td>
+<td>2.538 ± 0.445</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Parameter Bi-Exponentialfunktion - M, moderate; H, heavy; VH, very heavy; S, severe exercise intensities</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 22%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Que lle</strong></td>
+<td><strong>A<br>
+[ml</strong> <strong>mi n^~-1 ~^]<br>
+</strong></td>
+<td><strong> tauA<br>
+[min ]</strong></td>
+<td><strong>B<br>
+[ml</strong> <strong>mi n^~-1 ~^]<br>
+</strong></td>
+<td><strong> tauB<br>
+[min ]</strong></td>
+<td><strong>C<br>
+[ml</strong> <strong>min ^<sub>-1</sub> ^]</strong></td>
+<td><strong>W<sub>PCR</sub> [kJ]</strong></td>
+</tr>
+<tr class="even">
+<td>@Ma rgari a1933</td>
+<td></td>
+<td></td>
+<td></td>
+<td>12-17 min</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="DiPr">(<a href="#ref-DiPr" role="doc-biblioref"><strong>DiPr?</strong></a>)</span> amper o1973</td>
+<td></td>
+<td><p><em>(0, 42 - 0 ,5)</em></p>
+<p>T1/2:</p>
+<p>27s</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Katc">(<a href="#ref-Katc" role="doc-biblioref"><strong>Katc?</strong></a>)</span> h1973</td>
+<td>…</td>
+<td></td>
+<td></td>
+<td>11.76</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@Ro berts 1978a</td>
+<td>2 ,330</td>
+<td>1,51</td>
+<td>0 ,372</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="DiPr">(<a href="#ref-DiPr" role="doc-biblioref"><strong>DiPr?</strong></a>)</span> amper o1981</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="B">(<a href="#ref-B" role="doc-biblioref"><strong>B?</strong></a>)</span> arsto w1991</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="O">(<a href="#ref-O" role="doc-biblioref"><strong>O?</strong></a>)</span> zyene r2001</td>
+<td>-</td>
+<td><p>M: 0,48 ± 0,1</p>
+<p>H: 0,7 ± 0,18</p>
+<p>VH: 0,55 ± 0,08</p>
+<p>S: 0,58 ± 0,18</p></td>
+<td>-</td>
+<td><p>VH: 7,67 ± 2 ,05<br>
+</p>
+<p>S: 8,98 ± 6,32</p></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@ Benek e2002</td>
+<td>2 ,777 ± 0 ,445</td>
+<td>0,70 ± 0,2</td>
+<td>0 ,675 ± 0 ,257</td>
+<td>14,10 ± 13,50</td>
+<td>0,329 ± 0,48</td>
+<td>40,2 ± 10,6</td>
+</tr>
+<tr class="even">
+<td>@A stran d2003</td>
+<td></td>
+<td>≈ 0,5</td>
+<td></td>
+<td>≈ 15</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@ Dunst 2023a</td>
+<td>2,49 ± 0,62</td>
+<td>0,84 ± 0,13</td>
+<td>0,51 ± 0,34</td>
+<td>7,34 ± 3,67</td>
+<td>0,42 ± 0,09</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Dunst 2023b</td>
+<td><p>3s: 1 ,985 ± 0 ,436</p>
+<p>8s: 2 ,740 ± 0 ,381</p>
+<p>12s: 2 ,878 ± 0 ,501</p>
+<p>60s: 3 ,032 ± 0 ,447</p></td>
+<td><p>3s: 0,82 ± 0,14</p>
+<p>8s: 0,84 ± 0,12</p>
+<p>12s: 0,84 ± 13</p>
+<p>60s: 0,85 ±13</p></td>
+<td><p>3s: 0 ,195 ± 0 ,167</p>
+<p>8s: 0 ,418 ± 0 ,133</p>
+<p>12s: 0 ,577 ± 0 ,119</p>
+<p>60s: 0 ,981 ± 0 ,298</p></td>
+<td><p>3s: 5,72 ± 2,52</p>
+<p>8s: 6,46 ± 3,38</p>
+<p>12s: 8,03 ± 3,10</p>
+<p>60s: 9,36 ± 5,11</p></td>
+<td><p>3s: 0,391 ± 0 ,058</p>
+<p>8s: 0,391 ± 0,043</p>
+<p>12s: 0,411 ± 0,058</p>
+<p>60s: 0,532 ± 0,106</p></td>
+<td><p>3s: 31,83 ± 6,98</p>
+<p>8s: 46,50 ± 3,79</p>
+<p>12s: 51,24 ± 9,52</p>
+<p>60s: 53,73 ± 9,96</p></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="L">(<a href="#ref-L" role="doc-biblioref"><strong>L?</strong></a>)</span> angle y2024</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><p>10s: 102,93 ± 25,91</p>
+<p>15s: 109,83 ± 28,30</p>
+<p>30s: 126,39 ± 24,25</p></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In diPrampero1981</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#deltaHPC = 46 + 1.0 kJ • mol-1 nach (Wilkie 1968)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#deltaP is relatively unaffected by PC concentration, varying from 52 to 44 kJ/mol for a de- crease of PC from 15 to 4 mmol/kg.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#deltaH and deltaG indicate the enthalpy (free energy) change per mole advancement of the reaction</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Weitere WErte in einer Tabell und in Mahler1979</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#In diPrampero1973</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">##Assuming also that 20-25 kg of muscle are involved in this exercise, i.e., 30-35% of the total body weight, the amount of phosphagen split per kilogram of active muscle amounts to 24-28 mmole.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tabelle-körpereigene-energiespeicher" class="level3">
+<h3 class="anchored">Tabelle körpereigene Energiespeicher</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Qu elle</th>
+<th>ATP -Spe i cher</th>
+<th><h2 id="atp" class="anchored" data-anchor-id="tabelle-körpereigene-energiespeicher">ATP</h2>
+<p>Rate</p></th>
+<th>CrP -Spe i cher</th>
+<th>U mrec h nung s rate</th>
+<th>Nut zbar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><br>
+<span class="citation" data-cites="Loh">(<a href="#ref-Loh" role="doc-biblioref"><strong>Loh?</strong></a>)</span> mann 1937</td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>ATP: 0,09 cal W ärme m enge in cal für die in e inem G ramm Fr o schm u skel e ntha l tene M enge ATP</p>
+<p>CrP: 0,23 cal W ärme m enge in cal für die in e inem G ramm Fr o schm u skel e ntha l tene M enge ATP</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="Hul">(<a href="#ref-Hul" role="doc-biblioref"><strong>Hul?</strong></a>)</span> tman 1967</td>
+<td>24,3 ± 2,1</td>
+<td></td>
+<td>67,8 ± 7,0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>@ Keul 1972</td>
+<td>6 mmol pro kg Musk e lfeu c htge w icht</td>
+<td></td>
+<td>2 0-30 mmol pro kg Musk e lfeu c htge w icht</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Knut tgen 1973</td>
+<td><p>R uhe: 4,82 ± 0 ,349</p>
+<p>B elas t ung: 2,56 ± 0 ,662</p></td>
+<td></td>
+<td><p>R uhe: 17,9 ± 2,06 mmol . kg-1</p>
+<p>Nach B elas t ung: 3,56 ± 0 ,716</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="S">(<a href="#ref-S" role="doc-biblioref"><strong>S?</strong></a>)</span> tege mann 1991</td>
+<td><p>2-3 mmol / 100g Tr o cken m asse</p>
+<p>2 0-30 mmol /kg</p></td>
+<td></td>
+<td><p>7-9 mmol / 100g Tr o cken m asse</p>
+<p>7 0-90 mmol /kg</p></td>
+<td><p>0 .9kJ / kg M u skel m asse a u sges a mten Spei c hern</p>
+<p>30,5 kJ pro Mol ATP</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Gait anos 1993</td>
+<td>24,0 ± 2,7</td>
+<td></td>
+<td>76,5 ±7,2</td>
+<td><p>Sp rint 1 from PCr 44,3 ± 4,7</p>
+<p>Spr i nt&amp;: 25,3 ± 9,7</p></td>
+<td>Mi n imum PCR 12,2 ± 3,7</td>
+</tr>
+<tr class="odd">
+<td>@ Weic ker1 994, 46</td>
+<td>5-6</td>
+<td></td>
+<td>25</td>
+<td><p>30 kJ pro Mol ATP</p>
+<p>43,1 kJ pro Mol CrP</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>@ Astr and2 003, 249</td>
+<td>5 m m ol - kg” in f resh m u scle</td>
+<td>S p rint</td>
+<td>PC con c entr a tion of 17 mmol : k g”!,</td>
+<td>the pote n tial t otal e n ergy y ield is app r oxim a tely .9 kJ (.2 k c al).</td>
+<td>Mi n umum zu 2 mmol . kg-1</td>
+</tr>
+<tr class="odd">
+<td><p>@ DeMa rees 2003</p>
+<p>@ Heck 2006</p>
+<p>@ Heck 2022</p></td>
+<td>5</td>
+<td></td>
+<td>1 5-20</td>
+<td><p>30 u nter Stan d artb e ding u ngen</p>
+<p>52 in an d eren leb e nden Zel len, .B in r oten Blut k örpe r chen (Ery t horz y ten) (S. 345)</p></td>
+<td>Nur ca. 22 der 25 nu t zbar</td>
+</tr>
+<tr class="even">
+<td><br>
+<span class="citation" data-cites="Fra">(<a href="#ref-Fra" role="doc-biblioref"><strong>Fra?</strong></a>)</span> nces cato 2003</td>
+<td></td>
+<td></td>
+<td>1 7 .8 - 37.7</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- -->
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Roberts1978" class="csl-entry" role="listitem">
+Roberts, A. D., &amp; Morton, A. R. (1978). <em><span>Applied Physiology</span></em>. <em>289</em>, 281–289.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> de</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">  markdown: </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    wrap: 72</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{css}</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> echo<span class="in">:</span> false</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>caption {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>tidyr<span class="in">)</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>readxl<span class="in">)</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>ggplot2<span class="in">)</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>extrafont<span class="in">)</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>shiny<span class="in">)</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>plotly<span class="in">)</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>shinylive<span class="in">)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>### Tabellen mit EPOC-Parametern aus verschiedenen Untersuchungen</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>#### Tabelle EPOC</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span>--------<span class="op">+</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Quelle <span class="op">|</span> EPO    <span class="op">|</span> EPO    <span class="op">|</span> EPO    <span class="op">|</span> EPO    <span class="op">|</span> O<span class="op">~</span>2<span class="op">~</span>-S <span class="op">|</span> EPO    <span class="op">|</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> C<span class="op">~</span>PCR<span class="op">~</span> <span class="op">|</span> C<span class="op">~</span>PCR<span class="op">~</span> <span class="op">|</span> C<span class="op">~</span>ges<span class="op">~</span> <span class="op">|</span> C<span class="op">~</span>ges<span class="op">~</span> <span class="op">|</span> p      <span class="op">|</span> C<span class="op">~</span>NET<span class="op">~</span> <span class="op">|</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> \[ml   <span class="op">|</span> \[l\]  <span class="op">|</span> \[ml   <span class="op">|</span> \[l\]  <span class="op">|</span> eicher <span class="op">|</span>        <span class="op">|</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> \cdot  <span class="op">|</span>        <span class="op">|</span> \cdot  <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> k      <span class="op">|</span>        <span class="op">|</span> k      <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> g      <span class="op">|</span>        <span class="op">|</span> g      <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>        <span class="op">|</span> ^-1^\] <span class="op">|</span>        <span class="op">|</span> ^-1^\] <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span>        <span class="op">|</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span>========<span class="op">+</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> <span class="im">@Hi</span>    |        |        |        | 7,5    |        |        |</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>| ll1924 |        |        |        |        |        |        |</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>| @      | 36,8   | 2,50   | \-     | \-     |        |        |</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>| Margar |        |        |        |        |        |        |</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>| ia1933 |        |        |        |        |        |        |</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>| @      | \-     | \-     | 75,0   | 4,65   |        |        |</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>| Margar |        |        |        |        |        |        |</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>| ia1963 |        |        |        |        |        |        |</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>| @      | \-     | 2,77   | \-     | \-     |        |        |</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>| Margar |        |        |        |        |        |        |</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>| ia1964 |        |        |        |        |        |        |</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>| \@D    | 45.0   | \-     | \-     | \-     |        |        |</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>| iPramp |        |        |        |        |        |        |</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>| e      |        |        |        |        |        |        |</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>| ro1971 |        |        |        |        |        |        |</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>| @      | 40,00  | \-     | \-     | \-     |        |        |</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>| Margar |        |        |        |        |        |        |</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>| ia1972 |        |        |        |        |        |        |</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>| \@Di   | 32 .0  |        |        |        |        |        |</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>| Prampe |        |        |        |        |        |        |</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>| ro1973 |        |        |        |        |        |        |</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>| @      | \-     | \-     | 67,0   | 5,00   |        |        |</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>| Shepha |        |        |        |        |        |        |</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>| rd1973 |        |        |        |        |        |        |</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>| @Kat   | \-     | \-     | 68,0   | 4,89   |        |        |</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>| ch1973 |        |        |        |        |        |        |</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>| @Parn  | \-     | \-     | 74,0   | 5,02   |        |        |</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>| at1975 |        |        | \      |        |        |        |</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>|        |        |        | [\^2\] |        |        |        |</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>| @      | 37,45  | 2,79   | 70,0   | 4,93   |        |        |</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>| Robert |        |        |        |        |        |        |</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>| s1978a |        |        |        |        |        |        |</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>| @      |        |        |        |        | 0,55 L |        |</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>| Margar |        |        |        |        |        |        |</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>| ia1976 |        |        |        |        |        |        |</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>| @Bene  | \-     | 1,94   | \-     | \-     |        |        |</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>| ke2002 |        | <span class="fu">(</span><span class="dv">0</span>,<span class="dv">31</span><span class="fu">)</span> |        |        |        |        |</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>| @Bene  | 32.13  | 2.48   |        |        |        |        |</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>| ke2004 | +-     | +-     |        |        |        |        |</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>|        | 2.59   | 0.20   |        |        |        |        |</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>| @Astra | 21,43  | 1.5 L  |        |        |        |        |</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>| nd2003 |        | <span class="fu">(</span><span class="dv">body  </span>|        |        |        |        |</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>|        |        | <span class="dv">weight </span>|        |        |        |        |</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>|        |        | <span class="dv">about  </span>|        |        |        |        |</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>|        |        | <span class="dv">70</span> <span class="dv">kg</span><span class="fu">)</span> |        |        |        |        |</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>| @Fra   | Sehr   | Für    | Sehr   | Sehr   | Für    | Sehr   |</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>| ncesca | l      | Muske  | l      | l      | Muske  | l      |</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>| to2003 | eicht: | lm     | eicht: | eicht: | lm     | eicht: |</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>|        | 11,8 ± | asse\~ | 27,9 ± | 0,558  | asse\~ | 0,0118 |</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>|        | 2,4    | ak     | 4,4    | ±      | ak     | ±      |</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>|        | ml/kg  | tiv\~: | ml/kg  | 0,088  | tiv\~: | 0,0024 |</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>|        |        | 20kg   |        | L      | 20kg   | l/kg   |</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>|        | L      |        | L      |        |        |        |</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>|        | eicht: | Sehr   | eicht: | L      | Sehr   | L      |</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>|        | 20,8 ± | l      | 50,6 ± | eicht: | l      | eicht: |</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>|        | 3,4    | eicht: | 7,6    | 1,012  | eicht: | 0,0208 |</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>|        | ml/kg  | 0,236  | ml/kg  | ±      | 27,9 ± | ±      |</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>|        |        | ±      |        | 0,152  | 4,4    | 0,0034 |</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>|        | Mo     | 0,048  | Mo     | L      | ml/kg  | l/kg   |</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>|        | derat: | L      | derat: |        |        |        |</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>|        | 32,9 ± |        | 85,4 ± | Mo     | L      | Mo     |</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>|        | 3,5    | L      | 7,8    | derat: | eicht: | derat: |</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>|        | ml/kg  | eicht: | ml/kg  | 1,708  | 50,6 ± | 0,0329 |</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>|        |        | 0,416  |        | ±      | 7,6    | ±      |</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>|        |        | ±      |        | 0,156  | ml/kg  | 0,0035 |</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>|        |        | 0,068  |        | L      |        | l/kg   |</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>|        |        | L      |        |        | Mo     |        |</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>|        |        |        |        |        | derat: |        |</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>|        |        | Mo     |        |        | 85,4 ± |        |</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>|        |        | derat: |        |        | 7,8    |        |</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>|        |        | 0,658  |        |        | ml/kg  |        |</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>|        |        | ±      |        |        |        |        |</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>|        |        | 0,070  |        |        |        |        |</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>|        |        | L      |        |        |        |        |</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>| @Duns  | 27.27  | 2,09 ± | \-     | \-     |        |        |</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>| t2023a | ± 8.43 | 0,64   |        |        |        |        |</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>|        |        | \      |        |        |        |        |</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>|        |        | [\^3\] |        |        |        |        |</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>| @Duns  | 28.33  | 2.538  |        |        |        |        |</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>| t2023b | ± 5.28 | ±      |        |        |        |        |</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>|        |        | 0.445  |        |        |        |        |</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>+--------+--------+--------+--------+--------+--------+--------+</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>: **Tabelle mit absoluten Werten aus verschiedenen Untersuchungen der</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>EPOC** <span class="fu">(</span><span class="dv">angelehnt an </span>@<span class="dv">Roberts1978</span><span class="fu">)</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>|       | **A   |       | **B   |       | **C   | **W~PCR~      |</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>| **Que | \     | **    | \     | **    | \     | \[kJ\]**      |</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>| lle** | [ml** | tauA\ | [ml** | tauB\ | [ml** |               |</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>|       | \cdot | \[min | \cdot | \[min | \cdot |               |</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>|       | **mi  | \]**  | **mi  | \]**  | **min |               |</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>|       | n^~-1 |       | n^~-1 |       | ^~-1~ |               |</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>|       | ~^\]\ |       | ~^\]\ |       | ^\]** |               |</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>|       | **    |       | **    |       |       |               |</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>| \@Ma  |       |       |       | 12-17 |       |               |</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>| rgari |       |       |       | min   |       |               |</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>| a1933 |       |       |       |       |       |               |</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>| @DiPr |       | *<span class="fu">(</span><span class="dv">0</span>,  |       |       |       | ...           |</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>| <span class="dv">amper </span>|       | <span class="dv">42</span> <span class="dv">-  </span>|       |       |       |               |</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>| <span class="dv">o1973 </span>|       | <span class="dv">0</span>     |       |       |       |               |</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>|       |       | ,<span class="dv">5</span><span class="fu">)</span>*  |       |       |       |               |</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       |               |</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>|       |       | T1/2: |       |       |       |               |</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       |               |</span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>|       |       | 27s   |       |       |       |               |</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>| @Katc | ...   |       |       | 11.76 |       |               |</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>| h1973 |       |       |       |       |       |               |</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>| \@Ro  | 2     | 1,51  | 0     | \-    | \-    |               |</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>| berts | ,330  |       | ,372  |       |       |               |</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>| 1978a |       |       |       |       |       |               |</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>| @DiPr |       |       |       |       |       | ...           |</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>| amper |       |       |       |       |       |               |</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>| o1981 |       |       |       |       |       |               |</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>| @B    |       |       |       |       |       |               |</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>| arsto |       |       |       |       |       |               |</span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>| w1991 |       |       |       |       |       |               |</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>| @O    | \-    | M:    | \-    | VH:   | \-    |               |</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>| zyene |       | 0,48  |       | 7,67  |       |               |</span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>| r2001 |       | ± 0,1 |       | ± 2   |       |               |</span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>|       |       |       |       | ,05\  |       |               |</span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>|       |       | H:    |       |       |       |               |</span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>|       |       | 0,7 ± |       | S:    |       |               |</span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>|       |       | 0,18  |       | 8,98  |       |               |</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>|       |       |       |       | ±     |       |               |</span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>|       |       | VH:   |       | 6,32  |       |               |</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>|       |       | 0,55  |       |       |       |               |</span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>|       |       | ±     |       |       |       |               |</span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>|       |       | 0,08  |       |       |       |               |</span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       |               |</span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>|       |       | S:    |       |       |       |               |</span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>|       |       | 0,58  |       |       |       |               |</span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>|       |       | ±     |       |       |       |               |</span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>|       |       | 0,18  |       |       |       |               |</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>| @     | 2     | 0,70  | 0     | 14,10 | 0,329 | 40,2 ± 10,6   |</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>| Benek | ,777  | ± 0,2 | ,675  | ±     | ±     |               |</span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>| e2002 | ± 0   |       | ± 0   | 13,50 | 0,48  |               |</span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>|       | ,445  |       | ,257  |       |       |               |</span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>| \@A   |       | ≈ 0,5 |       | ≈ 15  |       |               |</span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>| stran |       |       |       |       |       |               |</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>| d2003 |       |       |       |       |       |               |</span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>| @     | 2,49  | 0,84  | 0,51  | 7,34  | 0,42  |               |</span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>| Dunst | ±     | ±     | ±     | ±     | ±     |               |</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>| 2023a | 0,62  | 0,13  | 0,34  | 3,67  | 0,09  |               |</span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>| @     | 3s: 1 | 3s:   | 3s: 0 | 3s:   | 3s:   | 3s: 31,83 ±   |</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>| Dunst | ,985  | 0,82  | ,195  | 5,72  | 0,391 | 6,98          |</span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>| 2023b | ± 0   | ±     | ± 0   | ±     | ± 0   |               |</span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>|       | ,436  | 0,14  | ,167  | 2,52  | ,058  | 8s: 46,50 ±   |</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 3,79          |</span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>|       | 8s: 2 | 8s:   | 8s: 0 | 8s:   | 8s:   |               |</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>|       | ,740  | 0,84  | ,418  | 6,46  | 0,391 | 12s: 51,24 ±  |</span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>|       | ± 0   | ±     | ± 0   | ±     | ±     | 9,52          |</span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>|       | ,381  | 0,12  | ,133  | 3,38  | 0,043 |               |</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 60s: 53,73 ±  |</span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>|       | 12s:  | 12s:  | 12s:  | 12s:  | 12s:  | 9,96          |</span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>|       | 2     | 0,84  | 0     | 8,03  | 0,411 |               |</span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>|       | ,878  | ± 13  | ,577  | ±     | ±     |               |</span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>|       | ± 0   |       | ± 0   | 3,10  | 0,058 |               |</span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>|       | ,501  | 60s:  | ,119  |       |       |               |</span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>|       |       | 0,85  |       | 60s:  | 60s:  |               |</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>|       | 60s:  | ±13   | 60s:  | 9,36  | 0,532 |               |</span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>|       | 3     |       | 0     | ±     | ±     |               |</span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>|       | ,032  |       | ,981  | 5,11  | 0,106 |               |</span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>|       | ± 0   |       | ± 0   |       |       |               |</span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>|       | ,447  |       | ,298  |       |       |               |</span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>| @L    | \-    | \-    | \-    | \-    | \-    | 10s: 102,93 ± |</span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>| angle |       |       |       |       |       | 25,91         |</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>| y2024 |       |       |       |       |       |               |</span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 15s: 109,83 ± |</span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 28,30         |</span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       |               |</span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 30s: 126,39 ± |</span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>|       |       |       |       |       |       | 24,25         |</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>| ...   | ...   | ...   | ...   | ...   | ...   | ...           |</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>+-------+-------+-------+-------+-------+-------+---------------+</span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>: Parameter Bi-Exponentialfunktion - M, moderate<span class="op">;</span> H<span class="op">,</span> heavy; VH<span class="op">,</span> very</span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>heavy; S<span class="op">,</span> severe exercise intensities</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>``` r</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a># In diPrampero1981</span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="pp">#deltaHPC</span> = 46 <span class="op">+</span> 1<span class="fu">.0</span> kJ • mol-1 nach <span class="in">(</span>Wilkie 1968<span class="in">)</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="pp">#deltaP</span> is relatively unaffected by PC concentration<span class="op">,</span> varying from 52 to 44 kJ/mol for a de- crease of PC from 15 to 4 mmol/kg.</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="pp">#deltaH</span> and deltaG indicate the enthalpy <span class="in">(</span>free energy<span class="in">)</span> change per mole advancement of the reaction</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="pp">#Weitere</span> WErte in einer Tabell und in Mahler1979</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="pp">#In</span> diPrampero1973</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>#<span class="pp">#Assuming</span> also that 20-25 kg of muscle are involved in this exercise<span class="op">,</span> i<span class="fu">.e</span>.<span class="op">,</span> 30-35% of the total body weight<span class="op">,</span> the amount of phosphagen split per kilogram of active muscle amounts to 24-28 mmole.</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>### Tabelle körpereigene Energiespeicher</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>------<span class="op">+</span>------<span class="op">+</span>------<span class="op">+</span>------<span class="op">+</span>------<span class="op">+</span>------<span class="op">+</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Qu   <span class="op">|</span> ATP  <span class="op">|</span> ATP  <span class="op">|</span> CrP  <span class="op">|</span> U    <span class="op">|</span> Nut  <span class="op">|</span></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> elle <span class="op">|</span> -Spe <span class="op">|</span> -    <span class="op">|</span> -Spe <span class="op">|</span> mrec <span class="op">|</span> zbar <span class="op">|</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>      <span class="op">|</span> i    <span class="op">|</span> Rate <span class="op">|</span> i    <span class="op">|</span> h    <span class="op">|</span>      <span class="op">|</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>      <span class="op">|</span> cher <span class="op">|</span>      <span class="op">|</span> cher <span class="op">|</span> nung <span class="op">|</span>      <span class="op">|</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span> s    <span class="op">|</span>      <span class="op">|</span></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span> rate <span class="op">|</span>      <span class="op">|</span></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>======<span class="op">+</span>======<span class="op">+</span>======<span class="op">+</span>======<span class="op">+</span>======<span class="op">+</span>======<span class="op">+</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> \    <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span>      <span class="op">|</span> ATP<span class="in">:</span> <span class="op">|</span>      <span class="op">|</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> <span class="im">@Loh</span> |      |      |      | 0,09 |      |</span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>| mann |      |      |      | cal  |      |</span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>| 1937 |      |      |      | W    |      |</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ärme |      |</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | m    |      |</span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | enge |      |</span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | cal  |      |</span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | für  |      |</span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | die  |      |</span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | e    |      |</span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | inem |      |</span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | G    |      |</span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ramm |      |</span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Fr   |      |</span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | o    |      |</span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | schm |      |</span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | u    |      |</span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | skel |      |</span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | e    |      |</span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ntha |      |</span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | l    |      |</span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | tene |      |</span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | M    |      |</span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | enge |      |</span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ATP  |      |</span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>|      |      |      |      |      |      |</span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | CrP: |      |</span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 0,23 |      |</span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | cal  |      |</span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | W    |      |</span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ärme |      |</span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | m    |      |</span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | enge |      |</span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | cal  |      |</span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | für  |      |</span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | die  |      |</span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | e    |      |</span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | inem |      |</span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | G    |      |</span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ramm |      |</span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Fr   |      |</span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | o    |      |</span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | schm |      |</span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | u    |      |</span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | skel |      |</span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | e    |      |</span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ntha |      |</span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | l    |      |</span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | tene |      |</span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | M    |      |</span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | enge |      |</span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ATP  |      |</span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a>| @Hul | 24,3 |      | 67,8 |      |      |</span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>| tman | ±    |      | ±    |      |      |</span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a>| 1967 | 2,1  |      | 7,0  |      |      |</span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a>| \@   | 6    |      | 2    |      |      |</span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a>| Keul | mmol |      | 0-30 |      |      |</span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a>| 1972 | pro  |      | mmol |      |      |</span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>|      | kg   |      | pro  |      |      |</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a>|      | Musk |      | kg   |      |      |</span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>|      | e    |      | Musk |      |      |</span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>|      | lfeu |      | e    |      |      |</span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>|      | c    |      | lfeu |      |      |</span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>|      | htge |      | c    |      |      |</span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>|      | w    |      | htge |      |      |</span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a>|      | icht |      | w    |      |      |</span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>|      |      |      | icht |      |      |</span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>| @    | R    |      | R    |      |      |</span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>| Knut | uhe: |      | uhe: |      |      |</span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>| tgen | 4,82 |      | 17,9 |      |      |</span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a>| 1973 | ±    |      | ±    |      |      |</span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>|      | 0    |      | 2,06 |      |      |</span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a>|      | ,349 |      | mmol |      |      |</span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>|      |      |      | .    |      |      |</span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>|      | B    |      | kg-1 |      |      |</span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>|      | elas |      |      |      |      |</span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a>|      | t    |      | Nach |      |      |</span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a>|      | ung: |      | B    |      |      |</span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>|      | 2,56 |      | elas |      |      |</span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a>|      | ±    |      | t    |      |      |</span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>|      | 0    |      | ung: |      |      |</span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>|      | ,662 |      | 3,56 |      |      |</span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a>|      |      |      | ±    |      |      |</span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a>|      |      |      | 0    |      |      |</span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a>|      |      |      | ,716 |      |      |</span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>| @S   | 2-3  |      | 7-9  | 0    |      |</span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>| tege | mmol |      | mmol | .9kJ |      |</span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>| mann | /    |      | /    | / kg |      |</span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>| 1991 | 100g |      | 100g | M    |      |</span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>|      | Tr   |      | Tr   | u    |      |</span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>|      | o    |      | o    | skel |      |</span>
+<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>|      | cken |      | cken | m    |      |</span>
+<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>|      | m    |      | m    | asse |      |</span>
+<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a>|      | asse |      | asse | a    |      |</span>
+<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | u    |      |</span>
+<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a>|      | 2    |      | 7    | sges |      |</span>
+<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>|      | 0-30 |      | 0-90 | a    |      |</span>
+<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>|      | mmol |      | mmol | mten |      |</span>
+<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>|      | /kg  |      | /kg  | Spei |      |</span>
+<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | c    |      |</span>
+<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | hern |      |</span>
+<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a>|      |      |      |      |      |      |</span>
+<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 30,5 |      |</span>
+<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | kJ   |      |</span>
+<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | pro  |      |</span>
+<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Mol  |      |</span>
+<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ATP  |      |</span>
+<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a>| @    | 24,0 |      | 76,5 | Sp   | Mi   |</span>
+<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a>| Gait | ±    |      | ±7,2 | rint | n    |</span>
+<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a>| anos | 2,7  |      |      | 1    | imum |</span>
+<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>| 1993 |      |      |      | from | PCR  |</span>
+<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | PCr  | 12,2 |</span>
+<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 44,3 | ±    |</span>
+<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ±    | 3,7  |</span>
+<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 4,7  |      |</span>
+<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a>|      |      |      |      |      |      |</span>
+<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Spr  |      |</span>
+<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | i    |      |</span>
+<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | nt&amp;: |      |</span>
+<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 25,3 |      |</span>
+<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | ±    |      |</span>
+<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 9,7  |      |</span>
+<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a>| @    | 5-6  |      | 25   | 30   |      |</span>
+<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a>| Weic |      |      |      | kJ   |      |</span>
+<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a>| ker1 |      |      |      | pro  |      |</span>
+<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>| 994, |      |      |      | Mol  |      |</span>
+<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a>| 46   |      |      |      | ATP  |      |</span>
+<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a>|      |      |      |      |      |      |</span>
+<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | 43,1 |      |</span>
+<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | kJ   |      |</span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | pro  |      |</span>
+<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Mol  |      |</span>
+<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | CrP  |      |</span>
+<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a>| @    | 5 m  | S    | PC   | the  | Mi   |</span>
+<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a>| Astr | m    | p    | con  | pote | n    |</span>
+<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a>| and2 | ol - | rint | c    | n    | umum |</span>
+<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>| 003, | kg<span class="st">"  |      | entr | tial | zu   |</span></span>
+<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a>| 249  | in   |      | a    | t    | 2    |</span>
+<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a>|      | f    |      | tion | otal | mmol |</span>
+<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a>|      | resh |      | of   | e    | .    |</span>
+<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a>|      | m    |      | 17   | n    | kg-1 |</span>
+<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a>|      | u    |      | mmol | ergy |      |</span>
+<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a>|      | scle |      | :    | y    |      |</span>
+<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>|      |      |      | k    | ield |      |</span>
+<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a>|      |      |      | g<span class="st">"!, | is   |      |</span></span>
+<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | app  |      |</span>
+<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | r    |      |</span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | oxim |      |</span>
+<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | a    |      |</span>
+<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | tely |      |</span>
+<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | .9   |      |</span>
+<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | kJ   |      |</span>
+<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="fu">(</span><span class="dv">.2</span>  |      |</span>
+<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">k    </span>|      |</span>
+<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">c    </span>|      |</span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">al</span><span class="fu">)</span>. |      |</span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>| @    | 5    |      | 1    | 30   | Nur  |</span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a>| DeMa |      |      | 5-20 | u    | ca.  |</span>
+<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a>| rees |      |      |      | nter | 22   |</span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>| 2003 |      |      |      | Stan | der  |</span>
+<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | d    | 25   |</span>
+<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a>| @    |      |      |      | artb | nu   |</span>
+<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>| Heck |      |      |      | e    | t    |</span>
+<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a>| 2006 |      |      |      | ding | zbar |</span>
+<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | u    |      |</span>
+<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>| @    |      |      |      | ngen |      |</span>
+<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a>| Heck |      |      |      |      |      |</span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a>| 2022 |      |      |      | 52   |      |</span>
+<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | an   |      |</span>
+<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | d    |      |</span>
+<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | eren |      |</span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | leb  |      |</span>
+<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | e    |      |</span>
+<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | nden |      |</span>
+<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Zel  |      |</span>
+<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | len, |      |</span>
+<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | .B   |      |</span>
+<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | in   |      |</span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | r    |      |</span>
+<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | oten |      |</span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | Blut |      |</span>
+<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | k    |      |</span>
+<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | örpe |      |</span>
+<span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | r    |      |</span>
+<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | chen |      |</span>
+<span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="fu">(</span><span class="dv">Ery </span>|      |</span>
+<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">t    </span>|      |</span>
+<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">horz </span>|      |</span>
+<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">y    </span>|      |</span>
+<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">ten</span><span class="fu">)</span> |      |</span>
+<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="fu">(</span><span class="dv">S</span>.  |      |</span>
+<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a>|      |      |      |      | <span class="dv">345</span><span class="fu">)</span> |      |</span>
+<span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a>| \    |      |      | 1    |      |      |</span>
+<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a>| @Fra |      |      | 7    |      |      |</span>
+<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a>| nces |      |      | .8 - |      |      |</span>
+<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a>| cato |      |      | 37.7 |      |      |</span>
+<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a>| 2003 |      |      |      |      |      |</span>
+<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>+------+------+------+------+------+------+</span>
+<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a># Gaitanos</span>
+<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a>## ATP energy provision of 100 kJ/mol nach MCGlivery 1975</span>
+<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>##Estimates of ATP production from anaerobic sources during first <span class="kw">and</span> final 6-s sprint of exercise test</span>
+<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a>##ATP Production mmol/kg dy weight</span>
+<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a>```</span>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Johannes Will, 2024</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

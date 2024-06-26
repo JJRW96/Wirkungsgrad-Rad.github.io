@@ -1,10 +1,5 @@
 ---
-title: "Ergometer Daten"
+title: "Ergometer-Daten"
 ---
 
-
-
-
-
-Erklärungen der folgenden Variablen...
-asdf
+In den folgenden Abschnitten werden die Ergebnisse verschiedener Leistungsparameter dargestellt, die am Ergometer gemessen wurden.

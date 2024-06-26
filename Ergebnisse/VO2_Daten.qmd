@@ -7,8 +7,9 @@ execute:
 ---
 
 # VO2-Belastungsdaten
-
-Beschreiben der Verlaufskurven –\> SS erreicht oder nicht? –\> Siehe dafür @Ozyener2001
+```{r}
+#Beschreiben der Verlaufskurven –\> SS erreicht oder nicht? –\> Siehe dafür @Ozyener2001
+```
 
 ```{r}
 # Library und dfs laden

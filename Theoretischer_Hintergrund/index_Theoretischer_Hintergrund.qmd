@@ -1,7 +1,4 @@
 ---
-title: "Theoretischer Hintergrund"
-
-
 execute:
   message: false
   echo: false
@@ -32,7 +29,7 @@ library(DT)
 library(extrafont)
 ```
 
-Der menschliche Körper kann nur existieren, wenn ihm fortlaufend Energie bereitgestellt wird. Sowohl in körperlicher Ruhe als auch beim Sport nimmt die Energiebereitstellung eine entscheidende Rolle ein. Es kann jedoch nur ein Teil der während der sportlichen Belastung umgesetzten chemischen Energie in mechanische Arbeit (W~mech~) umgesetzt werden. Ein großer Teil wird gemäß des Energieerhaltungsgesetzes in andere Energieformen wie thermische Energie, Energie für Reibung oder Energie die für die für zelluläre Prozessedie für zelluläre Prozesse benötigt wird umgesetzt [@Bader1972, 8;@Brooks2004, 254; @Margaria1976, 80]
+Der menschliche Körper kann nur existieren, wenn ihm fortlaufend Energie bereitgestellt wird. Sowohl in körperlicher Ruhe als auch beim Sport nimmt die Energiebereitstellung eine entscheidende Rolle ein. Es kann jedoch nur ein Teil der während der sportlichen Belastung umgesetzten chemischen Energie in mechanische Arbeit (W~mech~) umgesetzt werden. Ein großer Teil wird gemäß dem Energieerhaltungsgesetz in andere Energieformen wie thermische Energie, Energie für Reibung oder Energie, die für zelluläre Prozesse benötigt wird, umgewandelt [@Bader1972, 8; @Brooks2004, 254; @Margaria1976, 80].
 
 Der für W~mech~ genutzte Energieanteil bestimmt den Wirkungsgrad (η), ein wichtigen Parameter zur Beurteilung der Effizienz einer sportlichen Leistung. Die Effizienz bzw. der Wirkungsgrad spielt im Radsport eine wichtige Rolle und kann Wettkampfleistungen beeinflussen. Eine verbesserte Effizienz ermöglicht es mehr mechanische Leistung (P~mech~) bei gleicher umgesetzter metabolischer Energiemenge bzw. die gleiche P~mech~ bei geringerer umgesetzter metabolischer Energie zu erbringen [@Stegemann1991, 62].
 

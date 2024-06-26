@@ -99,7 +99,7 @@ $$
 W_{TOT} = W_{AER} + W_{BLC} + W_{PCr} 
 $${#eq-WTOT}
 
-Es gibt zwei Ansätze zur Bestimmung des Energieertrags pro verbrauchter Sauerstoffeinheit. Der klassische Ansatz besteht darin, die indirekte Kalorimetrie zu nutzen, um den Sauerstoffvolumenstrom sowie die Kohlensstoffdioxidabgabe während der Belastung zu bestimmen, und dann standardisierte Tabellen zu verwenden, um den Energieverbrauch in kcal/min oder kJ/min zu berrechnen. Ein anderer Ansatz besteht darin auf Basis des Sauerstoffvolumenstroms die ADP-zu-ATP-Phosphorylierungsrate unter Verwendung von Annahmen aus der  Biochemie zu berechne. Letztere Methode wird als "theoretisch-thermodynamischer Ansatz" (im Original: "theoretical-thermodynamic approach") bezeichnet und wurde erstmals von @Whipp1969 verwendet. Da beide Methoden seht ähnliche Ergebnisse liefern, aber die klassische Methode einfachere zu benutzen ist und außerdem Auskunft über die Verteilung der Energiesubstrate liefern kann wurde die klassische Methode für die folgenden Berechnungen verwendet [@Brooks2012]. In folgendem Abschnitt werden die Grundlagen der Energieumsatzberechnung sowie der indirekten Kalorimetrie beschrieben: 
+Es gibt zwei Ansätze zur Bestimmung des Energieertrags pro verbrauchter Sauerstoffeinheit. Der klassische Ansatz besteht darin, die indirekte Kalorimetrie zu nutzen, um den Sauerstoffvolumenstrom sowie die Kohlensstoffdioxidabgabe während der Belastung zu bestimmen, und dann standardisierte Tabellen zu verwenden, um den Energieverbrauch in kcal/min oder kJ/min zu berrechnen. Ein anderer Ansatz besteht darin auf Basis des Sauerstoffvolumenstroms die ADP-zu-ATP-Phosphorylierungsrate unter Verwendung von Annahmen aus der  Biochemie zu berechnen. Letztere Methode wird als "theoretisch-thermodynamischer Ansatz" (im Original: "theoretical-thermodynamic approach") bezeichnet und wurde erstmals von @Whipp1969 verwendet. Da beide Methoden seht ähnliche Ergebnisse liefern, aber die "klassische Methode" einfachere zu benutzen ist und außerdem Auskunft über die Verteilung der Energiesubstrate liefern kann wurde die "klassische Methode" für die folgenden Berechnungen verwendet [@Brooks2012]. In folgendem Abschnitt werden die Grundlagen der Energieumsatzberechnung sowie der indirekten Kalorimetrie beschrieben: 
 
 ## Indirekte Kalorimetrie
 ### Stöchiometrische Grundlagen der Energieumsatzberechnung
@@ -119,7 +119,7 @@ $$
 \end{aligned}
 $${#eq-KH}
 
-Ein Molekül Glukose reagiert mit sechs Molekünlen O~2~, wobei sechs Moleküle  CO~2~ und sechs Moleküle Wasser (H~2~O) entstehen. Das Molekulargewicht der Glukose beträgt ca. 180 g/mol. Ein Mol O~2~ entspricht unter Standartbedingungen ca. 22,4 Liter. Quantitativ reagiert also ein Mol C~6~H~12~O~6~ (≙180 g) mit 6 mol O~2~ (≙134,4 Liter) zu 6 mol H~2~O und 6 mol CO~2~ (≙134,4 Liter) [@Stegemann1991,57]. 
+Ein Molekül Glukose reagiert mit sechs Molekülen O~2~, wobei sechs Moleküle  CO~2~ und sechs Moleküle Wasser (H~2~O) entstehen. Das Molekulargewicht der Glukose beträgt ca. 180 g/mol. Ein Mol O~2~ entspricht unter Standartbedingungen ca. 22,4 Liter. Quantitativ reagiert also ein Mol C~6~H~12~O~6~ (≙180 g) mit 6 mol O~2~ (≙134,4 Liter) zu 6 mol H~2~O und 6 mol CO~2~ (≙134,4 Liter) [@Stegemann1991,57]. 
 
 :::
 ::: {.column width="4%"}
@@ -137,15 +137,17 @@ DT_stegemann
 ::: 
 :::
 
-ΔG beschreibt die Änderung der Gibbs'schen freien Energie bei der Verbrennung von Glukose mit O~2~. Das negative Vorzeichen zeigt, dass die Reaktion spontan (von selbst ablaufend) und exergon (Energie freisetzend) ist. **Bader nachschlagen**
-
-Das kalorische Äquivalent  für einen Liter O~2~ erhält man, indem man die bei der frei werdenen Energie des vollständigen Abbaus von 1 Mol freier Glukose (ΔG = 2869 kJ) [@Stegemann1991,43] durch die dabei umgesetzten Liter O~2~ teilt. Das kalorische Äquivalent (kÄ~KH~) des Sauerstoffs für Glukoseverbrennung beträgt nach @eq-kAeKH ungefähr:
+ΔG beschreibt die Änderung der Gibbs'schen freien Energie bei der Verbrennung von Glukose mit O~2~. Das negative Vorzeichen zeigt, dass die Reaktion spontan (von selbst ablaufend) und exergon (Energie freisetzend) ist.
+```{r}
+#Bader nachschlagen
+```
+Das kalorische Äquivalent für einen Liter O~2~ erhält man, indem man die Energie, die bei der vollständigen Verbrennung von 1 Mol Glukose frei wird (ΔG = 2869 kJ) [@Stegemann1991, 43], durch die dabei verbrauchte Menge an O~2~ teilt. Das kalorische Äquivalent (kÄ~KH~) des Sauerstoffs für die Glukoseverbrennung beträgt nach @eq-kAeKH ungefähr:
 
 $$
 kÄ_{\text{KH}} = \frac{2869\,[\text{kJ}]}{134,4\,[\text{l} \cdot \text{O}_2]} \approx 21,3\,[\text{kJ} \cdot \text{l}^{-1} \cdot \text{O}_2^{-1}]
 $${#eq-kAeKH}
 
-Nach gleicher Vorgehensweise kann man auch das kalorische Äquivalent des Sauerstoffs (kÄ~FETT~) für Fettsäureverbrennung näherungsweise bestimmen. Je nach oxidierter Fettsäuren liegt der RQ zwischen 0,69 und 0,73 [@McArdle2009, 186]. Für die Palmitinsäure lautet die Summenformel (C~16~H~32~O~2~) und die stöchiometrische Gleichung:
+Nach gleicher Vorgehensweise kann man auch das kalorische Äquivalent des Sauerstoffs (kÄ~FETT~) für Fettsäureverbrennung näherungsweise bestimmen. Je nach oxidierter Fettsäure liegt der RQ zwischen 0,69 und 0,73 [@McArdle2009, 186]. Für die Palmitinsäure lautet die Summenformel (C~16~H~32~O~2~) und die stöchiometrische Gleichung:
 
 $$
 \begin{aligned}
@@ -160,7 +162,11 @@ $$
 kÄ_{\text{FETT}} = \frac{9871\,[\text{kJ}]}{515,2\,[\text{l} \cdot \text{O}_2]} \approx 19,2\,[\text{kJ} \cdot \text{l}^{-1} \cdot \text{O}_2^{-1}]
 $${#eq-kAeFETT}
 
-Die in @eq-kAeKH und @eq-kAeFETT berechneten Werte entsprechen ungefähr den häufig zur Energieumsatzberechnung benutzten Werten geläufiger Tabellen (siehe @tbl-stegemann und @tbl-kAEQ) [@Stegemann1991, 57]. Daraus wird deutlich, dass bei der Oxidation von Kohlenhydraten im Vergleich zu Fett etwa 7,4% mehr Energie pro verbrauchtem O₂ frei wird [@Brooks2012]:$\frac{5.05 - 4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]}{4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]} = 0.074 \approx 7.4\%$<br> Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten \(\text{O}_2\)-Umsatzrate förderlich, Kohlenhydrate zu verstoffwechseln, während es aufgrund der nahezu unbegrenzten körpereigenen Fettspeicher bei sehr lang andauernden Belastungen vorteilhaft ist, primär den Fettstoffwechsel zu betreiben.
+Die in @eq-kAeKH und @eq-kAeFETT berechneten Werte entsprechen ungefähr den häufig zur Energieumsatzberechnung benutzten Werten geläufiger Tabellen (siehe @tbl-stegemann und @tbl-kAEQ) [@Stegemann1991, 57].<br>Daraus wird deutlich, dass bei der Oxidation von Kohlenhydraten im Vergleich zu Fett etwa 7,4% mehr Energie pro verbrauchtem O₂ frei wird [@Brooks2012]:
+$$
+\frac{5.05 - 4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]}{4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]} = 0.074 \approx 7.4\%
+$$
+Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten O~2~-Umsatzrate förderlich, Kohlenhydrate zu verstoffwechseln, während es aufgrund der nahezu unbegrenzten körpereigenen Fettspeicher bei sehr lang andauernden Belastungen vorteilhaft ist, verstärkt Fettstoffwechsel zu betreiben.
 
 ```{r}
 #| label: tbl-kAEQ
@@ -207,46 +213,33 @@ Aus den oben beschriebenen Gründen unterscheidet sich der RQ vom RER während d
 Für die folgenden Berechnungen des Energieumsatzes wird davon ausgegangen, dass RER während der Belastung gleich RQ ist. Bei RER-Werten, die kleiner als 0,7 oder größer als 1,0 sind, werden die jeweils nächstliegenden RQ-Werte (0,7 bzw. 1,0) aus @tbl-stegemann verwendet.
 
 ### Rolle des Proteinmetabolismus bei der Energieumsatzberechnung
+Abschnitt noch in Arbeit
 
-Bisher haben wir, wie in der sportphysiologischen Praxis üblich, die Berechnungen der verstoffwechselten Brennstoffe vereinfacht, indem der Eiweißstoffwechsel vernachlässigt wurde. Tatsächlich wird diese Rechnung jedoch zusätzlich durch die Proteinoxidation beeinflusst. 
+...
+```{r}
+#Bisher haben wir, wie in der sportphysiologischen Praxis üblich, die Berechnungen der verstoffwechselten Brennstoffe vereinfacht, indem der Eiweißstoffwechsel vernachlässigt wurde. Tatsächlich wird diese Rechnung jedoch zusätzlich durch die Proteinoxidation beeinflusst. 
 
-Proteine liefern essentielle Bausteine für Körperstrukturen, während Kohlenhydrate und Fette die Energie für verschiedene Körperfunktionen, einschließlich der Proteinsynthese, bereitstellen. Alle drei Kategorien von Nahrungsenergiequellen erfordern Verdauung, Verwertung und zelluläre Aufnahme, bevor sie in die gemeinsamen Stoffwechselwege der Energiegewinnungsprozesse eintreten. In Bezug auf die Verwertungszeit und die metabolische Effizienz lautet die Hierarchie der Substratnutzung: $Kohlenhydrate \rightarrow Lipide \rightarrow Aminosäuren$ [@Brooks2012]<br>
-Der Abbau von Aminosäuren benötigt zusätzlich die Stickstoffentfernung durch Trans- oder Desaminierung, so entstehen beim Abbau nicht nur CO~2~ und H~2~O, sondern auch Harnstoff, eine Verbindung, die Stickstoff enthält. Da Eiweiß durchschnittlich 16% Stickstoff enthält, multipliziert man die aus dem Harn analysierte Stickstoffmenge mit 6,25, um den Eiweißumsatz zu erhalten. Der Eiweißumsatz beträgt unter normalen Ernährungsbedingungen ungefähr 10–15% des Grundumsatzes.
-
-
-Schon früh gab es Erkentnisse dass körperliche Betätigung wenig Einfluss auf die Stickstoffausscheidung im Urin hat [@Cathcart1926]. Später stellten auch Todd et al. [@Todd1986] in detaillierten Studien zur Stickstoffbilanz des Körpers fest, dass körperliche Aktivität, solange die Energiezufuhr ausreichend war, nicht zu einem negativen Stickstoffhaushalt führte. Aufgrund dessen werden die Berechnungen der verstoffwechselten Brennstoffe während der Belastung üblicherweiße nicht für Aminosäuren und Proteine korrigiert.<br>
-Dieses Vorgehen kann jedoch kritisch betrachtet werden. Geht man davon aus das Proteine ca. 15 % der täglichen Energieaufnahme liefern, kann angenommen werden, dass Proteine und Aminosäuren ca. 15 % des Ruheumsatzes ausmachen. Nimmt man außerdem an, dass es keinen Anstieg des basalen Protein- und Aminosäurestoffwechel gibt und gleichzeitig der Energiumsatz während der Belastung um das 15-fache steigt, dann tragen Aminosäuren zu 1% des gesamten Energieverbrauchs bei [@Jacobs2006]. Sollte jedoch der Protein- und Aminosäurestoffwechel während körperlicher Arbeit um 50% [@McKenzie] oder sogar 400% [@Millward] ansteigt, schätzt man, dass Aminosäuren 2 % bis 4 % des gesamten Energieverbrauchs ausmachen, was die berechnete Lipidoxidation entsprechend verringert. Daher, wie ursprünglich aufgrund des fehlenden Einflusses auf die Stickstoffausscheidung im Urin vermutet, ist die Rolle von Aminosäuren als Brennstoffenergie relativ gering bei gut ernährten Individuen. 
-Das Ergebnis ist, dass der gesamte Körper-RER eine vernünftige Schätzung des nicht-proteinbezogenen RQ während des Trainings darstellt und eine Korrektur für die Aminosäureoxidation typischerweise nicht verwendet wird, selbst wenn sie verfügbar ist [@Jacobs2006; @Brooks2012]
+#Proteine liefern essentielle Bausteine für Körperstrukturen, während Kohlenhydrate und Fette die Energie für verschiedene Körperfunktionen, einschließlich der Proteinsynthese, bereitstellen. Alle drei Kategorien von Nahrungsenergiequellen erfordern Verdauung, Verwertung und zelluläre Aufnahme, bevor sie in die gemeinsamen Stoffwechselwege der Energiegewinnungsprozesse eintreten. In Bezug auf die Verwertungszeit und die metabolische Effizienz lautet die Hierarchie der Substratnutzung: $Kohlenhydrate \rightarrow Lipide \rightarrow Aminosäuren$ [@Brooks2012]<br>
+#Der Abbau von Aminosäuren benötigt zusätzlich die Stickstoffentfernung durch Trans- oder Desaminierung, so entstehen beim Abbau nicht nur CO~2~ und H~2~O, sondern auch Harnstoff, eine Verbindung, die Stickstoff enthält. Da Eiweiß durchschnittlich 16% Stickstoff enthält, multipliziert man die aus dem Harn analysierte Stickstoffmenge mit 6,25, um den Eiweißumsatz zu erhalten. Der Eiweißumsatz beträgt unter normalen Ernährungsbedingungen ungefähr 10–15% des Grundumsatzes.
 
 
+#Schon früh gab es Erkentnisse dass körperliche Betätigung wenig Einfluss auf die Stickstoffausscheidung im Urin hat [@Cathcart1926]. Später stellten auch Todd et al. [@Todd1986] in detaillierten Studien zur Stickstoffbilanz des Körpers fest, dass körperliche Aktivität, solange die Energiezufuhr ausreichend war, nicht zu einem negativen Stickstoffhaushalt führte. Aufgrund dessen werden die Berechnungen der verstoffwechselten Brennstoffe während der Belastung üblicherweiße nicht für Aminosäuren und Proteine korrigiert.<br>
+#Dieses Vorgehen kann jedoch kritisch betrachtet werden. Geht man davon aus das Proteine ca. 15 % der täglichen Energieaufnahme liefern, kann angenommen werden, dass Proteine und Aminosäuren ca. 15 % des Ruheumsatzes ausmachen. Nimmt man außerdem an, dass es keinen Anstieg des basalen Protein- und Aminosäurestoffwechel gibt und gleichzeitig der Energiumsatz während der Belastung um das 15-fache steigt, dann tragen Aminosäuren zu 1% des gesamten Energieverbrauchs bei [@Jacobs2006]. Sollte jedoch der Protein- und Aminosäurestoffwechel während körperlicher Arbeit um 50% [@McKenzie] oder sogar 400% [@Millward] ansteigt, schätzt man, dass Aminosäuren 2 % bis 4 % des gesamten Energieverbrauchs ausmachen, was die berechnete Lipidoxidation entsprechend verringert. Daher, wie ursprünglich aufgrund des fehlenden Einflusses auf die Stickstoffausscheidung im Urin vermutet, ist die Rolle von Aminosäuren als Brennstoffenergie relativ gering bei gut ernährten Individuen. 
+#Das Ergebnis ist, dass der gesamte Körper-RER eine vernünftige Schätzung des nicht-proteinbezogenen RQ während des Trainings darstellt und eine Korrektur für die Aminosäureoxidation typischerweise nicht verwendet wird, selbst wenn sie verfügbar ist [@Jacobs2006; @Brooks2012]
 
-Da der Energieumsatz während der Belastung normalerweise durch Kohlenhydrate und Fettsäuren gedeckt wird, ist der Eiweißanteil am Gesamtumsatz bei körperlicher Arbeit praktisch zu vernachlässigen, sodass man auf die Bestimmung des Harnstickstoffs verzichten kann. Für die arbeits- und sportphysiologische Praxis vernachlässigt man den Eiweißstoffwechsel daher ganz.
+#Da der Energieumsatz während der Belastung normalerweise durch Kohlenhydrate und Fettsäuren gedeckt wird, ist der Eiweißanteil am Gesamtumsatz bei körperlicher Arbeit praktisch zu vernachlässigen, sodass man auf die Bestimmung des Harnstickstoffs verzichten kann. Für die arbeits- und sportphysiologische Praxis vernachlässigt man den Eiweißstoffwechsel daher ganz.
 
-Indem man den Eiweißumsatz vernachlässigt, misst man den Grundumsatz immer etwa um 1–1,5% zu hoch, den Arbeitsumsatz dagegen weitgehend korrekt [@Stegemann1991, 58].
+#Indem man den Eiweißumsatz vernachlässigt, misst man den Grundumsatz immer etwa um 1–1,5% zu hoch, den Arbeitsumsatz dagegen weitgehend korrekt [@Stegemann1991, 58].
 
+#zusätzlich angenommen wurde, dass es während der Betätigung keinen Anstieg des basalen Aminosäure- und Proteinabbaus gibt.
 
-
-zusätzlich angenommen wurde, dass es während der Betätigung keinen Anstieg des basalen Aminosäure- und Proteinabbaus gibt.
-
-
-
-
- 
-
-
-
-
-
-
-
-
-***(Bader et al., 1972, S.8) EINFÜGEN!!!***
+#(Bader et al., 1972, S.8) EINFÜGEN!!!
 
 
 ### Zusätzliche Notizen
-Mit einer einzigen Ausnahme sind die kalorischen Äquivalente für die Verbrennung von Nahrungsmitteln innerhalb und außerhalb des Körpers gleich. Protein ist die Ausnahme, weil Stickstoff, ein Element, das einzigartig für Protein ist, im Körper nicht oxidiert, sondern hauptsächlich im Urin, aber auch im Schweiß ausgeschieden wird. Daher ist das kalorische Äquivalent des Proteinmetabolismus etwa 26 % geringer als in einem Bombenkalorimeter.
+#Mit einer einzigen Ausnahme sind die kalorischen Äquivalente für die Verbrennung von Nahrungsmitteln innerhalb und außerhalb des Körpers gleich. Protein ist die Ausnahme, weil Stickstoff, ein Element, das einzigartig für Protein ist, im Körper nicht oxidiert, sondern hauptsächlich im Urin, aber auch im Schweiß ausgeschieden wird. Daher ist das kalorische Äquivalent des Proteinmetabolismus etwa 26 % geringer als in einem Bombenkalorimeter.
 
-
+```
 
 # Energieberechnung
 
@@ -258,147 +251,10 @@ $$ {#eq-WTOT}
 
 Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie. Im Gegensatz zur direkten Kalorimetrie, bei der die Wärmeabgabe eines Organismus gemessen wird à hier nochmal in (Bader et al., 1972, S.8) genauer beschrieben, basiert die indirekte Kalorimetrie auf der Analyse der Atemgase. Durch die spirometrische Erfassung des Sauerstoffvolumenstroms (= V̇O~2~) und des Kohlenstoffdioxidvolumenstroms (= V̇CO~2~) können der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Die Messung dieser Atemgasbestandteile ermöglicht die Bestimmung des respiratorischen Quotienten (RQ = V̇CO~2~/V̇O~2~) und des kalorischen Äquivalents (= kÄ)  (McArdle et al., 2009, S.181 ff.). Das kÄ hängt vom Anteil der verstoffwechselten Substrate ab, wobei das kÄ beim reinen Fettstoffwechsel bei etwa 19,62 kJ·l^-1^ O~2~ und beim reinen Kohlenhydratstoffwechsel bei ca. 21,13 kJ·l^-1^ O~2~ liegt [@Stegemann1991, 59]. In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energieumsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger & Schommer, 2013).
 
-## Berechnung der aeroben Energiekomponente (W~AER~)
 
-Um den aeroben Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) zu bestimmen muss der Sauerstoffvolmenstrom über den Belastungszeitraum (V̇O~2,Bel~) und der Sauerstoffvolumenstom in Ruhe bestimmt werden (V̇O~2,Ruhe~).
 
-Die Ruhesauerstoffaufnahme kann abhängig von der Art der folgenden Belastung in Ruhe gemessen werden oder mittels Gleichungen bestimmt werden...
 
---\> Formeln in Excel nochmal anpassen Auch den RQ für die Ruhe
 
-Gleichungen zur Basalrate nach @Harris1918
-
-$$ h_{f} = 655,1 + (9,563 \cdot \text{Körpermasse [kg]}) + (1,850 \cdot \text{Körperlänge [m]}) - (4,676 \cdot \text{Alter}) $$ $$ h_{m} = 66,5 + (13,75 \cdot \text{Körpermasse [kg]}) + (5,003 \cdot \text{Körperlänge [cm]}) - (6,775 \cdot \text{Alter [Jahre]}) $$
-
-Um den Wert ins Sitzen zu übertragen Multiplikation der Ruhewerte auf Basis von [@Ciba-Geigy1977, 225]...
-
-$$ 
-RMR_{f} = (h_{f} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg])\; \cdot ;\ 4,1868 ;\ \cdot 1,29  
-$$
-
-$$ 
-RMR_{m} = (h_{f} / (24 \cdot 60 \cdot kÄ \cdot Körpermasse\;[kg])\; \cdot ;\ 4,1868 ;\ \cdot 1,29  
-$$
-
-Daraus lässt sich die über VO~2,Ruhe~ liegende Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) bestimmen.
-
-Der aerobe Energienteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung lässt sich berechnen, indem man die über Ruhhesauerstoffaufnahme (VO~2,Ruhe~) liegende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes (VO~2,Netto~) mit dem durchschnittlichen kÄ des Belastungszeitraumes multipliziert (= kÄ~Bel~) [@Stegemann1991, 59]
-
-$$
-W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}] \tag{2}
-$$ {#eq-WAER}
-
-Um den aeroben Arbeitsumsatz (= Waer) eines Belastungszeitraumes zu erhalten, muss anschließend der Ruheenergieumsatz (definieren und abkürzen) vom er-rechneten aeroben Anteil des Gesamtenergieumsatzes abgezogen werden. Der Ruheenergieumsatz beschreibt die Energie, die der Körper in völliger Ruhe und im Liegen benötigt, um seine Funktion aufrechtzuerhalten. In der vorliegenden Studie wird der Ruheenergieumsatz als Basis verwendet, da sich der Sportler nicht in lie-gender Position befindet. Dieser beschreibt den physiologischen Energieumsatz in einem normalen Zustand der Ruhe oder Nicht-Bewegung. Der individuelle Ruheu-msatz wird in dieser Untersuchung in den 10 Minuten vor dem Start der ersten Be-lastung auf dem Fahrradergometer in sitzender Position gemessen. WaerRuhe kann auf ähnliche Weise wie WaerGes berechnet werden, indem man die den durch-schnittlichen Sauerstoffvolumenstrom in Ruhe (= V̇O2Ruhe) mit dem entsprechen-den durchschnittlichen kÄ des Zeitraumes der Ruhemessung multipliziert.Waer = WaerGes – WaerRuhe Gl. 5
-
-## Berechnung der anaeroben- laktaziden Energiekomponente (W~BLC~)
-
-## Berechnung der anaeroben- alaktaziden Energiekomponente (W~PCr~)
-
-Um die der anaeroben- alaktazide Energiekomponente W~PCr~ zu bestimmen, wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem Ende der Belastung betrachtet.
-
-Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu erbringende mechanische Leistung an.
-
-Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende der Übung ausgeglichen wird.
-
-Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
-
-Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.
-
-Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der anaeroben Schwelle, wird durch die Spaltung von energiereichen Phosphaten, hauptsächlich Phosphokreatin (PC), gedeckt.[@Francescato2003]
-
-Die EPOC gliedert sich in einen langsamen Teil, die sogenannte „slow-component“ (= V̇O2EPOCslow) und einen schnellen Teil, die „fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von O2-Speichern (Hämoglobin, Myoglobin) nach der Belastung zurückzuführen und repräsentiert somit den alaktaziden Teil der anaeroben Energiebereitstellung.
-
-Neben der Wiederherstellung der energiereichen Phosphate können auch Faktoren wie der Transport von Laktat *( Glukoneogenese aus Laktat)*, eine erhöhte Körperkerntemperatur, eine gestei-gerte Durchblutung oder eine erhöhte Ventilation zur "fast-component" des EPOC beitragen (Børsheim & Bahr, 2003)
-
-Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die Rückumwandlung des angefallenen Laktats als potenzielle Ursachen ge-nannt (Åstrand et al., 2003, S. 241; Bahr & Sejersted, 1991) + *(Erhöhter Sauerstoffbedarf des Körpergewebes infolge einer erhöhten Körpertemperatur und eines erhöhten Katecholaminspiegels (eine erhöhte Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse) Erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur mit einem entsprechend vergrößerten Sauerstoffbedarf Vermehrte Produktion des Schilddrüsenhormons Thyroxin).*
-
-Da der Anteil der Energieversorgung durch das anaerob-alaktazide System an der gesamten umgesetzten chemischen Energie während einer Belastung nicht *(oder nur schwer durch Biopsie)* direkt messbar ist, wird die schnelle Komponente der EPOC berechnet und als Schätz-wert für den WPCR verwendet (R. Beneke et al., 2004).
-
-*--\> 3. Komponente der ultra slow anteil auch kurz besprechen, aber im Kontext der Arbeit nicht relevant (Gründe: Erhöhter Muskeltonus Zelluläre Regenerationsvorgänge Stimulation energiebereitstellender Mechanismen (z. B. Atmungskette))*
-
-(Margaria et al., 1933)
-
-### Berechnung der Sauerstoffspeicher
-
-Die Menge des Sauerstoffs, die während des Übergangs von Ruhe zu Arbeit aus den Körperspeichern entnommen wurde, wurde nach der von @Francescato2003 beschriebenen Methode berechnet. Diese Berechnung umfasst die pulmonalen Sauerstoffspeichern in den Lungen (ΔO~2~S^p^), im venösen Blut sowie die an Muskelmyoglobin gebundenen Sauerstoffmengen. Die entsprechenden Veränderungen während des Übergangs von Ruhe zu Arbeit (oder umgekehrt) zeigen die Menge des Sauerstoffs, die von den Muskeln zu Beginn der Arbeit verbraucht wurde, die jedoch nicht in den gemessenen Atemgasen zu sehen sind.
-
-Die Veränderungen in den pulmonalen Sauerstoffspeichern (ΔO~2~S^p^) können aus der Differenz zwischen der Zeitkonstante der am Mund gemessenen Sauerstoffaufnahme (τ~m~) und der auf alveolärer Ebene gemessenen Sauerstoffaufnahme (τ~p~) geschätzt werden:
-
-$$
-\Delta O_{2}S_{p} = \Delta \dot{V}O_{2, SS} \cdot (\tau_{m} - \tau_{p})
-$$
-
-τ~p~ wurde von @Cautero2002 beim Radfahren mit 34.3s festegelegt.
-
-ΔVO~2~^S^ sowie τ~m~ mit einer monoexponentialen Exponentialfunktion beschrieben für jeden Probanden als Zeitkonstante des Anstieges des Sauerstoffvolumenstormes berechnet.
-
-$$
-\dot{V}O_2(t) = \dot{V}O_2^r + \Delta \dot{V}O_2^s \cdot \left(1 - e^{-\frac{t}{\tau_m}}\right)
-$$
-
-Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem Produkt aus dem venösen Blutvolumen (VBV) und der Veränderung zwischen der arteriovenösen Sauerstoffdifferenz im Steady-State (\[Δ(Ca - Cv)\_s\]) und derjenigen in Ruhe (\[Δ(Ca - Cv)\_r\]). Das venöse Blutvolumen wurde dabei als 65% des gesamten Blutvolumens angenommen, welches wiederum als 7% der Körpermasse (in Kilogramm) angesetzt wurde. Die Herzleistung (Q), die den individuellen mechanischen Leistungen in der vorliegenden Arbeit entspricht, wurde aus Daten für ähnliche Wadenübungen geschätzt. Dies ermöglichte es, die lineare Beziehung zwischen (Q) (Liter/Minute) und mechanischer Leistung (Ws, Watt) zu bestimmen als: \$(Q = 0.40 \cdot Ws + 5.84)\$ (n = 5, r² = 0.945). Die individuellen Werte für (\Delta O_2\^{Sv}) wurden dann aus den entsprechenden (VO_2) und (Q) Werten abgeleitet, wobei letztere auf der Grundlage der obigen Gleichung aus der entsprechenden mechanischen Leistung abgeleitet wurden. Diese Werte sind in Tabelle 2 für die drei Übungsbedingungen aufgeführt.
-
-$$ 
-\Delta O_{2}S_{p} = \Delta \dot{V}O_{2}s \cdot (\tau_{m} - \tau_{p}) 
-$$
-
-Das Herzzeitvolumen unter Belastung (Q\_{Belastung}) und in Ruhe (Q\_{Ruhe}) wurde für jeden Probanden abhängig vom Geschlecht und der Belastungsintensität welche durhc den prozentualen Anteil des Sauerstoffvolumenstormes des maximalen individuellen Sauerstovvolumenstorms bestimmt wurde, nach der von @Astrand1964 beschribenen Formel für die Bestimmung des Herzzetivolumens auf den Radergometer bestimmt:
-
-$$
-Q_{Belastung} = 
-\begin{cases} 
-9.88 + 3.23 \cdot \dot{V}O_{2, SS}\quad\rightarrow & \text{♀ und }\dot{V}O_{2, Prozent} \leq 70 \%\\    
-3.66 + 6.81 \cdot \dot{V}O_{2, SS}\quad\rightarrow & \text{♀ und }\dot{V}O_{2, Prozent} \geq 70 \%\\
-6.55 + 4.35 \cdot \dot{V}O_{2, SS}\quad\rightarrow & \text{♂ und }\dot{V}O_{2, Prozent} \leq 70 \% \\
-3.07 + 6.01 \cdot \dot{V}O_{2, SS}\quad\rightarrow & \text{♂ und }\dot{V}O_{2, Prozent} \geq 70 \%
-\end{cases}
-$$ 
-
-$$
-Q_{Ruhe} = 
-\begin{cases} 
-3.66 + 6.81 \cdot \dot{V}O_{2, Ruhe}\quad\rightarrow & \text{♀} \\    
-3.07 + 6.01 \cdot \dot{V}O_{2, Ruhe}\quad\rightarrow & \text{♂}
-\end{cases}
-$$
-
-$$
-\Delta O_2S_{v} = \left[ \Delta (C_a - C_v)^{Belastung} - \Delta (C_a - C_v)^{Ruhe} \right] \cdot VBV = \left[ \frac{\dot{V}O_{2, Belastung}}{Q_{Belastung}} - \frac{\dot{V}O_{2,Ruhe}}{Q_{Ruhe}} \right] \cdot VBV
-$$
-
-Die Muskelmasse der Probanden wurde abhänig vom Geschlecht der Probanden sowie der Versuchsbedingung berechnet. Anhand der Stichprobe von @Janssen2000 wurde die Muskelmasse eingeschötzt. Da es sich hier bei den allen Probanden um sehr aktive Sportler mit vergleichsweise geringem Körperfettanteil habdelte, wurde jeweils von einer aktiven Muskelmase, die der oberen Grenze der der Stichrobe von @Janssen2000 ausgeganegen. Für Frauen entsprach dies ca. 34% Muskelmasseanteil & für Männer ca. 42% Antel der Muskelmasse am der Körpermasse. In verschiedenen Studien ....... wurde der Anteil der aktiven Muskelmasse an der GEsamtmuskelmasse auf ca. 60-80% geschätzt. Hier wurde der Anteil für das Fahren im sitzen auf 65% und im stehen auf 75% aktive MUskelmasse festegelegt. Aus diesen beiden Faktoren urde dann wie folgt die aktive Muskelmasse der Probanden bestimmt:
-
-$$
-Muskelmasse_{aktiv} = 
-\begin{cases} 
-Körpermasse \cdot 0.34 \cdot 0.65 \quad\rightarrow & \text{♀ und Sitzen} \\
-Körpermasse \cdot 0.34 \cdot 0.75 \quad\rightarrow & \text{♀ und Stehen} \\
-Körpermasse \cdot 0.42 \cdot 0.65 \quad\rightarrow & \text{♂ und Sitzen} \\
-Körpermasse \cdot 0.42 \cdot 0.75 \quad\rightarrow & \text{♂ und Stehen} \\
-\end{cases}
-$$
-
-$$ 
-\%deoxyMb = 2.09 \cdot P_{mech} + 14.2 
-$$ 
-
-Das venöse Blutvolumen (VBV) wurde nach ... berehcnet mit ... 
-
-$$ 
-VBV = Muskelmasse_{aktiv} \cdot 0.07 
-$$
-
-$$ 
-\Delta O_2S_{M} = \left(\frac{2.09 \cdot P_{mech}}{100}\right) \cdot 4.46 \cdot 1.34 \cdot Muskelmasse_{aktiv} 
-$$
-
-$$ 
-O_2\text{def} = EPOC - \Delta O_2S_p - \Delta O_2S_v - \Delta O_2S_m
-$$
-
-Diese Gleichung stellt die Berechnung der Veränderung der Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in Verbindung mit dem venösen Blutvolumen betrachtet werden.
-
-Auf dieser Grundlage wurde das insgesamt gemessene Brutto-Sauerstoffdefizit korrigiert, um das Netto-Sauerstoffdefizit zu erhalten, welches das Sauerstoffäquivalent der Spaltung von Phosphokreatin (PC) bei Arbeitsbeginn darstellt. Die bestimmte Menge an EPOC (Excess Post-exercise Oxygen Consumption) repräsentiert daher dieses korrigierte Sauerstoffdefizit, das durch die initiale PC-Spaltung entstanden ist.
 
 
 
