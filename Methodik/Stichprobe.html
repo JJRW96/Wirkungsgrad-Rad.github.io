@@ -115,6 +115,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
 <script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -288,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Ergebnisse/Ergometer/Innere_Arbeit_Results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Library und dfs laden</span></a>
+ <span class="menu-text">Innere Arbeit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -338,14 +367,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="sec-Stichprobe" class="level1">
 <h1>Stichprobe</h1>
-<p>Für die Studie wurden ausdauertrainiert Personen gesucht, die eine V̇O2max von etwa 65 ml·min-1·kg-1oder aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauersportarten als potenzielle Probanden geworben.</p>
-<p>Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien aufwiesen. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. von den 9 verbleicbenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6 , SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82kg (M = 70.4 , SD = 10.4) und die Körperlänge zwischen 157 und 186cm (M = 176.3 , SD = 9.43). Die gemesene absolute VO2max der Probanden lag zwischen 3900 und 6181 ml * min (M = 4543.7 , SD = 789.1)) und die gemessene VO2max/kg der Probanden lag zwischen 67.8 und 81.3 ml * min / kg (M = 72.1 , SD = 4.0).</p>
+<p>Für die Studie wurden ausdauertrainierte Personen gesucht, die eine <span class="math inline">\(\dot{V}O_{2,max}\)</span> von etwa 65 [ml·min<sup>-1·kg</sup>-1] oder mehr aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauersportarten als potenzielle Probanden geworben.</p>
+<p>Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien erfüllten. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. Von den 9 verbleibenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6, SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82 kg (M = 70.4, SD = 10.4) und die Körperlänge zwischen 157 und 186 cm (M = 176.3, SD = 9.43). Die gemessene absolute <span class="math inline">\(\dot{V}O_{2,max}\)</span> der Probanden lag zwischen 3900 und 6181 [ml·min<sup>-1</sup>] (M = 4543.7, SD = 789.1) und die gemessene relative <span class="math inline">\(\dot{V}O_{2,max}\)</span> der Probanden lag zwischen 67.8 und 81.3 [ml·min<sup>-1</sup>·kg<sup>-1</sup>] (M = 72.1, SD = 4.0).</p>
 <section id="stichprobe" class="level2">
 <h2 class="anchored" data-anchor-id="stichprobe">Stichprobe</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-c8fdd88170f041526218" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c8fdd88170f041526218">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],[1,6,10,13,15,19,20,22,23],["männlich","männlich","männlich","männlich","männlich","männlich","männlich","weiblich","weiblich"],[28,34,45,36,30,37,33,24,26],[183,184,183,179,176,176,186,157,163],[78,73,82,72,76,65,80,48,60],[175,175,172.5,172.5,175,172.5,172.5,170,172.5],[5.655,4.946,6.181,5.184,5.326,4.693,5.555,3.9,4.076],[72.5,67.75,75.38,72,70.08,72.2,69.44,81.25,67.93000000000001],[440,440,500,460,460,360,440,330,330],[5.64,6.03,6.1,6.39,6.05,5.54,5.5,6.88,5.5],[175,185,195,190,205,185,190,185,170],[84,79,92,100,95,85,88,85,88],[77,59,62,76,67,83,59,64,75],[792,730,905,851,881,784,922,544,738],[10.15,10,11.04,11.82,11.59,12.06,11.53,11.33,12.3],[290,280,325,305,270.5,225,245,200,185.25],[65.91,63.64,65,66.3,58.8,62.5,55.68,60.61,56.14],[320,305,380,335,305,245,275,230,210],[72.73,69.31999999999999,76,72.83,66.3,68.06,62.5,69.7,63.64],[350,325,410,360,332.5,275,310,260,235],[79.55,73.86,82,78.26000000000001,72.28,76.39,70.45,78.79000000000001,71.20999999999999],[370,360,435,380,360,285,345,280,255],[84.09,81.81999999999999,87,82.61,78.26000000000001,79.17,78.41,84.84999999999999,77.27],[10,5,8,12,12,11,6,23,11],[0.5,4,8,11,7,4,3,13,3.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Proband<\/th>\n      <th>Geschlecht<\/th>\n      <th>Alter [Jahre]<\/th>\n      <th>Größe [cm]<\/th>\n      <th>Gewicht [kg]<\/th>\n      <th>Kurbellänge [mm]<\/th>\n      <th>V̇O2max [l/min]<\/th>\n      <th>V̇O2max [ml/min/kg]<\/th>\n      <th>Pmax,sitzen [Watt]<\/th>\n      <th>Pmax,sitzen [W/kg]<\/th>\n      <th>RPMmax [Umdrehungen/min]<\/th>\n      <th>RPMsitzen [Umdrehungen/min]<\/th>\n      <th>RPMstehen [Umdrehungen/min]<\/th>\n      <th>Rampe [Watt]<\/th>\n      <th>Pmax,Rampe [W/kg]<\/th>\n      <th>Niedrig_VT1-7,5% Pmax [Watt]<\/th>\n      <th>VT1-7,5% Pmax [%]<\/th>\n      <th>Moderat_VT1 [Watt]<\/th>\n      <th>VT1 [%]<\/th>\n      <th>Schwer_VT1/VT2 [Watt]<\/th>\n      <th>VT1/VT2 [%]<\/th>\n      <th>Sehr schwer_VT2 [Watt]<\/th>\n      <th>VT2 [%]<\/th>\n      <th>TrainingGesamt [h]<\/th>\n      <th>TrainingRad [h]<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Proband","targets":1},{"name":"Geschlecht","targets":2},{"name":"Alter [Jahre]","targets":3},{"name":"Größe [cm]","targets":4},{"name":"Gewicht [kg]","targets":5},{"name":"Kurbellänge [mm]","targets":6},{"name":"V̇O2max [l/min]","targets":7},{"name":"V̇O2max [ml/min/kg]","targets":8},{"name":"Pmax,sitzen [Watt]","targets":9},{"name":"Pmax,sitzen [W/kg]","targets":10},{"name":"RPMmax [Umdrehungen/min]","targets":11},{"name":"RPMsitzen [Umdrehungen/min]","targets":12},{"name":"RPMstehen [Umdrehungen/min]","targets":13},{"name":"Rampe [Watt]","targets":14},{"name":"Pmax,Rampe [W/kg]","targets":15},{"name":"Niedrig_VT1-7,5% Pmax [Watt]","targets":16},{"name":"VT1-7,5% Pmax [%]","targets":17},{"name":"Moderat_VT1 [Watt]","targets":18},{"name":"VT1 [%]","targets":19},{"name":"Schwer_VT1/VT2 [Watt]","targets":20},{"name":"VT1/VT2 [%]","targets":21},{"name":"Sehr schwer_VT2 [Watt]","targets":22},{"name":"VT2 [%]","targets":23},{"name":"TrainingGesamt [h]","targets":24},{"name":"TrainingRad [h]","targets":25}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2d960fbd9edffb6307e7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d960fbd9edffb6307e7">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],[1,6,10,13,15,19,20,22,23],["männlich","männlich","männlich","männlich","männlich","männlich","männlich","weiblich","weiblich"],[28,34,45,36,30,37,33,24,26],[183,184,183,179,176,176,186,157,163],[78,73,82,72,76,65,80,48,60],[175,175,172.5,172.5,175,172.5,172.5,170,172.5],[5.655,4.946,6.181,5.184,5.326,4.693,5.555,3.9,4.076],[72.5,67.75,75.38,72,70.08,72.2,69.44,81.25,67.93000000000001],[440,440,500,460,460,360,440,330,330],[5.64,6.03,6.1,6.39,6.05,5.54,5.5,6.88,5.5],[175,185,195,190,205,185,190,185,170],[84,79,92,100,95,85,88,85,88],[77,59,62,76,67,83,59,64,75],[792,730,905,851,881,784,922,544,738],[10.15,10,11.04,11.82,11.59,12.06,11.53,11.33,12.3],[290,280,325,305,270.5,225,245,200,185.25],[65.91,63.64,65,66.3,58.8,62.5,55.68,60.61,56.14],[320,305,380,335,305,245,275,230,210],[72.73,69.31999999999999,76,72.83,66.3,68.06,62.5,69.7,63.64],[350,325,410,360,332.5,275,310,260,235],[79.55,73.86,82,78.26000000000001,72.28,76.39,70.45,78.79000000000001,71.20999999999999],[370,360,435,380,360,285,345,280,255],[84.09,81.81999999999999,87,82.61,78.26000000000001,79.17,78.41,84.84999999999999,77.27],[10,5,8,12,12,11,6,23,11],[0.5,4,8,11,7,4,3,13,3.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Proband<\/th>\n      <th>Geschlecht<\/th>\n      <th>Alter [Jahre]<\/th>\n      <th>Größe [cm]<\/th>\n      <th>Gewicht [kg]<\/th>\n      <th>Kurbellänge [mm]<\/th>\n      <th>V̇O2max [l/min]<\/th>\n      <th>V̇O2max [ml/min/kg]<\/th>\n      <th>Pmax,sitzen [Watt]<\/th>\n      <th>Pmax,sitzen [W/kg]<\/th>\n      <th>RPMmax [Umdrehungen/min]<\/th>\n      <th>RPMsitzen [Umdrehungen/min]<\/th>\n      <th>RPMstehen [Umdrehungen/min]<\/th>\n      <th>Rampe [Watt]<\/th>\n      <th>Pmax,Rampe [W/kg]<\/th>\n      <th>Niedrig_VT1-7,5% Pmax [Watt]<\/th>\n      <th>VT1-7,5% Pmax [%]<\/th>\n      <th>Moderat_VT1 [Watt]<\/th>\n      <th>VT1 [%]<\/th>\n      <th>Schwer_VT1/VT2 [Watt]<\/th>\n      <th>VT1/VT2 [%]<\/th>\n      <th>Sehr schwer_VT2 [Watt]<\/th>\n      <th>VT2 [%]<\/th>\n      <th>TrainingGesamt [h]<\/th>\n      <th>TrainingRad [h]<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Proband","targets":1},{"name":"Geschlecht","targets":2},{"name":"Alter [Jahre]","targets":3},{"name":"Größe [cm]","targets":4},{"name":"Gewicht [kg]","targets":5},{"name":"Kurbellänge [mm]","targets":6},{"name":"V̇O2max [l/min]","targets":7},{"name":"V̇O2max [ml/min/kg]","targets":8},{"name":"Pmax,sitzen [Watt]","targets":9},{"name":"Pmax,sitzen [W/kg]","targets":10},{"name":"RPMmax [Umdrehungen/min]","targets":11},{"name":"RPMsitzen [Umdrehungen/min]","targets":12},{"name":"RPMstehen [Umdrehungen/min]","targets":13},{"name":"Rampe [Watt]","targets":14},{"name":"Pmax,Rampe [W/kg]","targets":15},{"name":"Niedrig_VT1-7,5% Pmax [Watt]","targets":16},{"name":"VT1-7,5% Pmax [%]","targets":17},{"name":"Moderat_VT1 [Watt]","targets":18},{"name":"VT1 [%]","targets":19},{"name":"Schwer_VT1/VT2 [Watt]","targets":20},{"name":"VT1/VT2 [%]","targets":21},{"name":"Sehr schwer_VT2 [Watt]","targets":22},{"name":"VT2 [%]","targets":23},{"name":"TrainingGesamt [h]","targets":24},{"name":"TrainingRad [h]","targets":25}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -997,9 +1026,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Für die Studie wurden ausdauertrainiert Personen gesucht, die eine V̇O2max von etwa 65 ml·min-1·kg-1oder aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauersportarten als potenzielle Probanden geworben.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Für die Studie wurden ausdauertrainierte Personen gesucht, die eine $\dot{V}O_{2,max}$ von etwa 65 <span class="co">[</span><span class="ot">ml·min^-1·kg^-1</span><span class="co">]</span> oder mehr aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauersportarten als potenzielle Probanden geworben.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien aufwiesen. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. von den 9 verbleicbenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6 , SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82kg (M = 70.4 , SD = 10.4) und die Körperlänge zwischen 157 und 186cm (M = 176.3 , SD = 9.43). Die gemesene absolute VO2max der Probanden lag zwischen 3900 und 6181 ml <span class="sc">\*</span> min (M = 4543.7 , SD = 789.1)) und die gemessene VO2max/kg der Probanden lag zwischen 67.8 und 81.3 ml <span class="sc">\*</span> min / kg (M = 72.1 , SD = 4.0). </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien erfüllten. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. Von den 9 verbleibenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6, SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82 kg (M = 70.4, SD = 10.4) und die Körperlänge zwischen 157 und 186 cm (M = 176.3, SD = 9.43). Die gemessene absolute $\dot{V}O_{2,max}$ der Probanden lag zwischen 3900 und 6181 <span class="co">[</span><span class="ot">ml·min^-1^</span><span class="co">]</span> (M = 4543.7, SD = 789.1) und die gemessene relative $\dot{V}O_{2,max}$ der Probanden lag zwischen 67.8 und 81.3 <span class="co">[</span><span class="ot">ml·min^-1^·kg^-1^</span><span class="co">]</span> (M = 72.1, SD = 4.0).</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#Pmax etc noch beschreiben ...Siehe Tabelle ...</span></span>
