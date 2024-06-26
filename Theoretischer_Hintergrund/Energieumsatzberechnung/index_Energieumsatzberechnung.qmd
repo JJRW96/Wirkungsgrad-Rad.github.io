@@ -241,21 +241,6 @@ Abschnitt noch in Arbeit
 
 ```
 
-# Energieberechnung
-
-Der Gesamtenergieumsatz (W~TOT~) aus physiologischer Sicht soll in der vorliegenden Untersuchung auf Grundlage der Berechnungsmethode nach Beneke et al. (2002) bestimmt werden. Hierfür werden eine Atemgasanalyse und Blutlaktattests während der Belastung durchgeführt. Anhand der erhobenen Werte lässt sich der aerobe (W~AER~), anaerob-laktazide (W~BLC~) sowie der anaerob-alaktazide Energieanteil (W~PCr~) einer Belastung abschätzen. Der gesamte physiologische Energiebedarf (evtl. Abkürzung einfügen) der Belastung wird anschließend durch die Summierung der verschiedenen Energiekomponenten berechnet.
-
-$$
-W_{TOT} = W_{AER} + W_{BLC} + W_{PCr} \tag{1}
-$$ {#eq-WTOT}
-
-Ein Verfahren zur Bestimmung des Energieumsatzes ist die indirekte Kalorimetrie. Im Gegensatz zur direkten Kalorimetrie, bei der die Wärmeabgabe eines Organismus gemessen wird à hier nochmal in (Bader et al., 1972, S.8) genauer beschrieben, basiert die indirekte Kalorimetrie auf der Analyse der Atemgase. Durch die spirometrische Erfassung des Sauerstoffvolumenstroms (= V̇O~2~) und des Kohlenstoffdioxidvolumenstroms (= V̇CO~2~) können der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Die Messung dieser Atemgasbestandteile ermöglicht die Bestimmung des respiratorischen Quotienten (RQ = V̇CO~2~/V̇O~2~) und des kalorischen Äquivalents (= kÄ)  (McArdle et al., 2009, S.181 ff.). Das kÄ hängt vom Anteil der verstoffwechselten Substrate ab, wobei das kÄ beim reinen Fettstoffwechsel bei etwa 19,62 kJ·l^-1^ O~2~ und beim reinen Kohlenhydratstoffwechsel bei ca. 21,13 kJ·l^-1^ O~2~ liegt [@Stegemann1991, 59]. In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energieumsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger & Schommer, 2013).
-
-
-
-
-
-
 
 
 ## Quellenverzeichnis
