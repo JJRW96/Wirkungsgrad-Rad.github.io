@@ -1,12 +1,52 @@
 ---
-execute:
+title: "Phyisologische Belastungsparameter"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+    fig-responsive: true
+    
+filters:
+  - shinylive
+    
+bibliography: references.bib
+lang: de
+number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+    
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+  css-class: "my-css-class"
+  
+execute: 
   message: false
   echo: false
   warning: false
   error: false
+  freeze: true
+  order: sequential
 ---
 
-# VO2-Belastungsdaten
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+
+```
+
+
 ```{r}
 #Beschreiben der Verlaufskurven –\> SS erreicht oder nicht? –\> Siehe dafür @Ozyener2001
 ```
@@ -14,112 +54,537 @@ execute:
 ```{r}
 # Library und dfs laden
 library(plotly)
-library(ggplot2)
 library(dplyr)
-library(tidyr)
-library(htmltools)
-library(htmlwidgets)
-library(shiny)
-library(DT)
-library(RColorBrewer)
-library(patchwork)
-library(minpack.lm)
-library(zoo)
-library(purrr)
-library(readxl)
-
-EPOC_data_df <- readRDS("rds/EPOC_data_df.rds")
-Erg_data_df <- readRDS("rds/Erg_data_df.rds")
-Erg_data_komplett <- readRDS("rds/Erg_data_komplett.rds")
+library(tidyverse)
+library(zoo) 
 Messwerte_Bedingungen_df <- readRDS("rds/Messwerte_Bedingungen_df.rds")
 Messwerte_Intensitäten_df <- readRDS("rds/Messwerte_Intensitäten_df.rds")
 Messwerte_Bedingung_Intensität_df <- readRDS("rds/Messwerte_Bedingung_Intensität_df.rds")
-Bedingungen_data <- readRDS("rds/Bedingungen_data.rds")
-P_Ges_df <- readRDS("rds/Efficiency_Daten_df.rds")
-Efficiency_df <- readRDS("rds/Efficiency_Daten_df.rds")
-P_Int_Drehzahl_Masse <- readRDS("rds/P_Int_Drehzahl_Masse.rds")
-Simulation_df <- readRDS("rds/Simulation_df.rds")
-ΔBLC_list <- readRDS("rds/BLC_list.rds")
-proband_data <- readRDS("rds/proband_data.rds")
-ΔBLC_data_df <- readRDS("rds/BLC_data_df.rds")
-BLC_Modell_list <- readRDS("rds/BLC_Modell_list.rds")
-Efficiency_Daten_df <- readRDS("rds/Efficiency_Daten_df.rds")
-P_R_list <- readRDS("rds/P_R_list.rds")
-P_L_list <- readRDS("rds/P_L_list.rds")
 start_vals_list <- readRDS("rds/start_vals_list.rds")
 VO2_list <- readRDS("rds/VO2_list.rds")
-df_anthropometrisch_female <- readRDS("rds/df_anthropometrisch_female.rds")
-df_anthropometrisch_male <- readRDS("rds/df_anthropometrisch_male.rds")
+EPOC_data_df <- readRDS("rds/EPOC_data_df.rds")
+EPOC_data_df_short <- readRDS("rds/EPOC_data_df_short.rds")
+Bedingungen_data <- readRDS("rds/Bedingungen_data.rds")
+
+# EPOC_data_df_VO2 erstellen
+EPOC_data_df_VO2 <- EPOC_data_df[, c("Proband", "Nr", "Bedingung", "Intensität", 
+                                    "P_Tot", "P_Tot_kg", "Masse", "VO2_Ruhe", "tau_on",
+                                    "VO2_SS_percent", "R_squared_on", "VO2_gross_SS", "VO2_net_SS",
+                                    "delta_VO2_SS", "VO2_on_start", "VO2_Referenz",
+                                    "VO2_avg", "VO2_SS_avg", "VCO2_avg", "VCO2_SS_avg",
+                                    "RQ_avg","tau_on_min", "RQ_SS_avg")]
+
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "P_Tot"] <- "P_Tot [W]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "P_Tot_kg"] <- "P_Tot_kg [W·kg⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "Masse"] <- "Masse [kg]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_Ruhe"] <- "VO2_Ruhe [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "tau_on"] <- "tau_on [s]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_SS_percent"] <- "VO2_SS_percent [%]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "R_squared_on"] <- "R2_on"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_gross_SS"] <- "VO2_Brutto_SS [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_net_SS"] <- "VO2_Netto_SS [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "delta_VO2_SS"] <- "delta_VO2 [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_on_start"] <- "VO2_on_Start [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_Referenz"] <- "VO2_Referenz [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_avg"] <- "VO2_avg [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VO2_SS_avg"] <- "VO2_SS_avg [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VCO2_avg"] <- "VCO2_avg [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "VCO2_SS_avg"] <- "VCO2_SS_avg [l·min⁻¹]"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "RQ_avg"] <- "RQ_avg"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "RQ_SS_avg"] <- "RQ_SS_avg"
+names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "tau_on_min"] <- "tau_on_min [min]"
+
 ```
 
-## Messwerte im Belastungszeitraum {.tabset}
+# Interaktive Analyse der erfassten Belastungsparameter
+Die folgende Shiny-App zeigt eine interaktive Tabellenübersicht der spirometrisch erfassten Parameter sämtlicher Belastungsdurchgänge. Die Shiny-App ermöglicht einen flexiblen Wechsel zwischen der Darstellung aller individuellen Testdurchläufe und einer zusammengefassten Übersicht mit Mittelwerten sowie zugehörigen Standardabweichungen. Die Filterfunktion erlaubt eine gezielte Analyse der Daten nach verschiedenen Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend). Für die gefilterten Daten werden sowohl die entsprechenden Mittelwerte als auch die zugehörigen Boxplots mit den statistischen Kennwerten (Mittelwert, Median, erstes Quartil, drittes Quartil, Minimum und Maximum) visualisiert. Zusätzlich besteht die Option, einzelne Probanden in die Analyse ein- oder auszuschließen.<br>
+Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der spirometrisch erfassten Parameter, insbesondere des Sauerstoffvolumenstroms ($\dot{V}O_2$) sowie weiterer respiratorischer Kennwerte.
 
-### Messwerte - Bedingungen {.tabset}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
 
-#### VO2, VCO2 & HR
+library(shiny)
+library(plotly)
+library(minpack.lm)
+library(dplyr)
+library(shinyjs)
+library(shinylive)
+library(DT)
+library(dplyr)
 
-```{r}
+EPOC_data_df_VO2 <- data.frame(
+  `Proband` = c( "01", "01", "01", "01", "01", "01", "06", "06", "06", "06", "06", "06", "10", "10", "10", "10", "10", "10", "13", "13", "13", "13", "13", "13", "15", "15", "15", "15", "15", "15", "19", "19", "19", "19", "19", "19", "20", "20", "20", "20", "20", "20", "22", "22", "22", "22", "22", "22", "23", "23", "23", "23", "23", "23" ),
+  `Nr` = c( 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ),
+  `Bedingung` = c( "stehen", "sitzen", "sitzen", "stehen", "sitzen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "stehen", "stehen", "sitzen", "sitzen", "stehen", "stehen", "sitzen", "sitzen", "stehen", "stehen", "sitzen" ),
+  `Intensität` = c( "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer", "leicht", "leicht", "moderat", "moderat", "schwer", "schwer" ),
+  `P_Tot [W]` = c( 315.087785382455, 315.356007475201, 343.249556933665, 345.621870862815, 376.01429973294, 377.269342767856, 291.340972880708, 296.008730999173, 319.563716705383, 320.346360885814, 342.797408580074, 334.696918549422, 342.780201343152, 364.604429952782, 419.799963753223, 400.467853364667, 431.054304415492, 452.463577903494, 328.689199107333, 348.476140134227, 357.035734534098, 375.551234669824, 395.659416230325, 383.031683804794, 317.381745748518, 278.360889376064, 350.889509890097, 330.104243714921, 363.61916212901, 400.223676014955, 255.677641947778, 247.499507416179, 267.481373216035, 272.461438312168, 297.602794954409, 306.49260579391, 297.677841174368, 262.464492841036, 297.033969571712, 313.722436973434, 332.282195549595, 347.559610294167, 245.195285695477, 236.218071887388, 265.6271457606, 278.279940401837, 297.955305580942, 291.810409732378, 199.166908885976, 204.303811710974, 230.539973534982, 223.28140151954, 248.864184197347, 255.967028389931 ),
+  `P_Tot_kg [W·kg⁻¹]` = c( 4.14589191292704, 4.14942115098949, 4.51644153860085, 4.54765619556336, 4.94755657543343, 4.96407029957705, 3.99097223124258, 4.05491412327634, 4.37758516034771, 4.3883063135043, 4.69585491205581, 4.58488929519755, 4.18024635784332, 4.44639548722904, 5.11951175308808, 4.88375430932521, 5.25675980994502, 5.51784851101822, 4.56512776537963, 4.83994639075315, 4.95882964630691, 5.21598937041422, 5.49526966986562, 5.31988449728881, 4.17607560195419, 3.662643281264, 4.61696723539601, 4.34347689098581, 4.78446265959224, 5.26610100019677, 3.93350218381197, 3.80768472947968, 4.11509804947746, 4.19171443557181, 4.57850453776014, 4.71527085836785, 3.7209730146796, 3.28080616051295, 3.7129246196464, 3.92153046216792, 4.15352744436994, 4.34449512867708, 5.10823511865578, 4.92120983098725, 5.53389887001251, 5.79749875837161, 6.20740219960296, 6.07938353609121, 3.31944848143294, 3.40506352851623, 3.84233289224969, 3.72135669199234, 4.14773640328911, 4.26611713983218 ),
+  `Masse [kg]` = c( 76, 76, 76, 76, 76, 76, 73, 73, 73, 73, 73, 73, 82, 82, 82, 82, 82, 82, 72, 72, 72, 72, 72, 72, 76, 76, 76, 76, 76, 76, 65, 65, 65, 65, 65, 65, 80, 80, 80, 80, 80, 80, 48, 48, 48, 48, 48, 48, 60, 60, 60, 60, 60, 60 ),
+  `VO2_Ruhe [l·min⁻¹]` = c( 0.409079599507683, 0.409079599507683, 0.409079599507683, 0.409079599507683, 0.409079599507683, 0.409079599507683, 0.390487656996456, 0.390487656996456, 0.390487656996456, 0.390487656996456, 0.390487656996456, 0.390487656996456, 0.398544621667437, 0.398544621667437, 0.398544621667437, 0.398544621667437, 0.398544621667437, 0.398544621667437, 0.378852606093004, 0.378852606093004, 0.378852606093004, 0.378852606093004, 0.378852606093004, 0.378852606093004, 0.398278038452436, 0.398278038452436, 0.398278038452436, 0.398278038452436, 0.398278038452436, 0.398278038452436, 0.352584633817119, 0.352584633817119, 0.352584633817119, 0.352584633817119, 0.352584633817119, 0.352584633817119, 0.415642091286353, 0.415642091286353, 0.415642091286353, 0.415642091286353, 0.415642091286353, 0.415642091286353, 0.293734941358178, 0.293734941358178, 0.293734941358178, 0.293734941358178, 0.293734941358178, 0.293734941358178, 0.320312513138994, 0.320312513138994, 0.320312513138994, 0.320312513138994, 0.320312513138994, 0.320312513138994 ),
+  `tau_on [s]` = c( 46.5, 44.9, 50.7, 34.8, 54.9, 46, 38.5, 34.6, 40.6, 39.6, 46.8, 49.8, 29, 28.4, 36, 30.6, 38.1, 48.5, 30.3, 28.1, 36.6, 28.8, 43.4, 36, 43.1, 39.1, 42.6, 47.2, 41.7, 56.8, 28.4, 25.2, 30.2, 32.5, 34.4, 40.4, 35.9, 32.6, 42, 36.7, 51.4, 45.4, 19.9, 26.6, 39.4, 25.9, 24.9, 29.8, 24.3, 20, 21.1, 25.2, 28.3, 25.7 ),
+  `VO2_SS_percent [%]` = c( 78.05, 72.88, 80.93, 82.86, 95.41, 92.44, 78.78, 78.47, 81.67, 82.74, 88.98, 90.56, 72.62, 72.38, 84.49, 82.2, 89.86, 97.43, 82.89, 80.73, 89.87, 86.88, 94.87, 95.97, 74.8, 72.53, 81.88, 84.45, 90.17, 93.29, 73.56, 66.2, 72.77, 78.14, 82.38, 86.28, 65.42, 60.21, 69.7, 71.97, 81.32, 84.22, 78.2, 74.84, 82.97, 87.62, 95.96, 88.77, 67.8, 63.55, 70.47, 72.88, 78.3, 77.61 ),
+  `R2_on` = c( 0.93, 0.95, 0.97, 0.96, 0.93, 0.96, 0.92, 0.96, 0.95, 0.96, 0.97, 0.98, 0.91, 0.91, 0.97, 0.98, 0.98, 0.99, 0.86, 0.89, 0.92, 0.93, 0.96, 0.93, 0.9, 0.96, 0.92, 0.91, 0.95, 0.95, 0.98, 0.9, 0.9, 0.95, 0.96, 0.95, 0.82, 0.82, 0.9, 0.93, 0.93, 0.95, 0.86, 0.9, 0.89, 0.93, 0.87, 0.93, 0.88, 0.89, 0.91, 0.95, 0.95, 0.96 ),
+  `VO2_Brutto_SS [l·min⁻¹]` = c( 4.413, 4.121, 4.576, 4.685, 5.395, 5.227, 3.899, 3.884, 4.042, 4.095, 4.404, 4.482, 4.49, 4.475, 5.224, 5.082, 5.556, 6.024, 4.297, 4.185, 4.659, 4.504, 4.918, 4.975, 3.985, 3.864, 4.362, 4.499, 4.804, 4.97, 3.452, 3.107, 3.415, 3.667, 3.866, 4.049, 3.632, 3.343, 3.87, 3.996, 4.515, 4.676, 3.048, 2.917, 3.234, 3.415, 3.74, 3.46, 2.762, 2.589, 2.871, 2.969, 3.19, 3.162 ),
+  `VO2_Netto_SS [l·min⁻¹]` = c( 4.004, 3.712, 4.167, 4.276, 4.986, 4.818, 3.509, 3.494, 3.652, 3.705, 4.014, 4.092, 4.042, 4.027, 4.776, 4.634, 5.108, 5.576, 3.858, 3.746, 4.22, 4.065, 4.479, 4.536, 3.587, 3.466, 3.964, 4.101, 4.406, 4.572, 3.182, 2.837, 3.145, 3.397, 3.596, 3.779, 3.279, 2.99, 3.517, 3.643, 4.162, 4.323, 2.776, 2.645, 2.962, 3.143, 3.468, 3.188, 2.384, 2.211, 2.493, 2.591, 2.812, 2.784 ),
+  `delta_VO2 [l·min⁻¹]` = c( 2.122, 2.419, 2.199, 2.281, 3.547, 3.209, 1.98, 1.752, 1.925, 1.784, 2.864, 2.367, 2.554, 3.728, 3.155, 3.118, 3.882, 4.164, 2.211, 2.172, 2.616, 2.6, 3.331, 2.904, 1.763, 2.222, 2.177, 2.882, 3.114, 2.885, 1.962, 1.736, 1.832, 2.058, 2.163, 2.364, 1.869, 1.356, 2.15, 2.119, 2.318, 2.46, 1.627, 1.674, 1.841, 2.07, 2.756, 2.821, 1.385, 1.229, 1.39, 1.501, 1.561, 1.639 ),
+  `VO2_on_Start [l·min⁻¹]` = c( 2.33, 1.747, 2.417, 2.446, 1.913, 2.077, 1.955, 2.164, 2.153, 2.344, 1.592, 2.158, 1.983, 0.815, 2.127, 2.021, 1.745, 1.937, 2.126, 2.053, 2.091, 1.952, 1.648, 2.124, 2.254, 1.683, 2.225, 1.67, 1.747, 2.138, 1.526, 1.403, 1.616, 1.646, 1.742, 1.728, 1.797, 2.012, 1.759, 1.916, 2.239, 2.261, 1.45, 1.274, 1.427, 1.383, 1.035, 0.69, 1.403, 1.383, 1.506, 1.495, 1.657, 1.553 ),
+  `VO2_Referenz [l·min⁻¹]` = c( 0.997235294117647, 0.997235294117647, 0.997235294117647, 0.997235294117647, 0.997235294117647, 0.997235294117647, 0.934166666666667, 0.934166666666667, 0.934166666666667, 0.934166666666667, 0.934166666666667, 0.934166666666667, 0.9478, 0.9478, 0.9478, 0.9478, 0.9478, 0.9478, 0.999544642857143, 0.999544642857143, 0.999544642857143, 0.999544642857143, 0.999544642857143, 0.999544642857143, 0.898278038452436, 0.898278038452436, 0.898278038452436, 0.898278038452436, 0.898278038452436, 0.898278038452436, 0.769533333333333, 0.769533333333333, 0.769533333333333, 0.769533333333333, 0.769533333333333, 0.769533333333333, 0.852692307692308, 0.852692307692308, 0.852692307692308, 0.852692307692308, 0.852692307692308, 0.852692307692308, 0.772045454545454, 0.772045454545454, 0.772045454545454, 0.772045454545454, 0.772045454545454, 0.772045454545454, 0.896472222222222, 0.896472222222222, 0.896472222222222, 0.896472222222222, 0.896472222222222, 0.896472222222222 ),
+  `VO2_avg [l·min⁻¹]` = c( 4.032, 3.768, 4.124, 4.28, 4.716, 4.705, 3.609, 3.626, 3.699, 3.783, 4.06, 3.944, 4.176, 3.944, 4.733, 4.652, 4.961, 5.401, 3.965, 3.902, 4.327, 4.195, 4.45, 4.554, 3.728, 3.61, 4.073, 4.095, 4.41, 4.485, 3.232, 2.946, 3.158, 3.407, 3.566, 3.743, 3.324, 3.125, 3.542, 3.637, 4.053, 4.185, 2.929, 2.802, 3.074, 3.208, 3.505, 3.222, 2.637, 2.436, 2.702, 2.802, 2.968, 2.96 ),
+  `VO2_SS_avg [l·min⁻¹]` = c( 4.246, 3.979, 4.387, 4.517, 5.064, 4.996, 3.771, 3.767, 3.891, 3.956, 4.223, 4.198, 4.363, 4.29, 5.04, 4.916, 5.345, 5.766, 4.15, 4.075, 4.5, 4.373, 4.742, 4.804, 3.862, 3.746, 4.214, 4.324, 4.623, 4.71, 3.373, 3.031, 3.308, 3.571, 3.744, 3.928, 3.494, 3.237, 3.709, 3.846, 4.301, 4.454, 2.969, 2.871, 3.156, 3.309, 3.642, 3.361, 2.716, 2.531, 2.807, 2.9, 3.088, 3.077 ),
+  `VCO2_avg [l·min⁻¹]` = c( 3.635, 3.415, 3.802, 3.915, 4.559, 4.292, 3.19, 3.335, 3.55, 3.623, 3.949, 3.77, 3.616, 3.635, 4.659, 4.475, 4.938, 5.473, 3.549, 3.615, 4.07, 4.033, 4.413, 4.33, 3.346, 3.341, 3.861, 3.945, 4.304, 4.232, 3.006, 2.621, 2.907, 3.287, 3.455, 3.692, 2.845, 2.79, 3.274, 3.309, 3.845, 3.918, 2.635, 2.493, 2.778, 3.028, 3.414, 2.994, 2.373, 2.21, 2.538, 2.731, 2.965, 2.893 ),
+  `VCO2_SS_avg [l·min⁻¹]` = c( 3.873, 3.653, 4.111, 4.158, 4.954, 4.607, 3.366, 3.488, 3.767, 3.833, 4.16, 4.104, 3.791, 3.976, 4.99, 4.748, 5.323, 5.917, 3.711, 3.775, 4.282, 4.209, 4.724, 4.584, 3.555, 3.539, 4.085, 4.215, 4.543, 4.621, 3.137, 2.735, 3.055, 3.457, 3.657, 3.901, 2.998, 2.933, 3.452, 3.519, 4.135, 4.207, 2.708, 2.561, 2.935, 3.13, 3.55, 3.124, 2.459, 2.291, 2.642, 2.832, 3.09, 3.018 ),
+  `RQ_avg` = c( 0.9, 0.9, 0.92, 0.9, 0.95, 0.9, 0.87, 0.91, 0.95, 0.94, 0.96, 0.94, 0.88, 0.88, 0.97, 0.95, 0.97, 1, 0.89, 0.92, 0.94, 0.95, 0.98, 0.94, 0.89, 0.93, 0.94, 0.95, 0.96, 0.94, 0.92, 0.9, 0.91, 0.96, 0.96, 0.98, 0.85, 0.89, 0.92, 0.9, 0.94, 0.92, 0.9, 0.9, 0.92, 0.94, 0.96, 0.92, 0.91, 0.9, 0.94, 0.97, 0.99, 0.97 ),
+  `tau_on_min [min]` = c( 0.775, 0.748333333333333, 0.845, 0.58, 0.915, 0.766666666666667, 0.641666666666667, 0.576666666666667, 0.676666666666667, 0.66, 0.78, 0.83, 0.483333333333333, 0.473333333333333, 0.6, 0.51, 0.635, 0.808333333333333, 0.505, 0.468333333333333, 0.61, 0.48, 0.723333333333333, 0.6, 0.718333333333333, 0.651666666666667, 0.71, 0.786666666666667, 0.695, 0.946666666666667, 0.473333333333333, 0.42, 0.503333333333333, 0.541666666666667, 0.573333333333333, 0.673333333333333, 0.598333333333333, 0.543333333333333, 0.7, 0.611666666666667, 0.856666666666667, 0.756666666666667, 0.331666666666667, 0.443333333333333, 0.656666666666667, 0.431666666666667, 0.415, 0.496666666666667, 0.405, 0.333333333333333, 0.351666666666667, 0.42, 0.471666666666667, 0.428333333333333 ),
+  `RQ_SS_avg` = c( 0.91, 0.91, 0.93, 0.91, 0.97, 0.92, 0.89, 0.92, 0.96, 0.96, 0.98, 0.97, 0.88, 0.91, 0.98, 0.96, 0.99, 1.02, 0.89, 0.92, 0.95, 0.96, 0.99, 0.95, 0.91, 0.94, 0.96, 0.97, 0.98, 0.97, 0.93, 0.9, 0.92, 0.96, 0.97, 0.99, 0.86, 0.9, 0.93, 0.91, 0.96, 0.94, 0.9, 0.9, 0.93, 0.94, 0.97, 0.92, 0.91, 0.9, 0.94, 0.97, 1, 0.98 ),
+  `HR_percent [%]` = c( 87.37, 85.07, 88.4, 90.93, 93.12, 93.78, 88.05, 88.16, 92.21, 91.97, 95.39, 93.58, 84.41, 84.65, 88.64, 89.98, 91.12, 94.04, 89.19, 89.26, 92.25, 92.32, 93.98, 94.9, 86.65, 87.88, 89.95, 91.14, 93.96, 94.27, 90.9, 86.55, 87.59, 91.62, 91.13, 95.12, 86.77, 87.49, 90.8, 89.74, 93.35, 94.18, 80.64, 81.03, 84.87, 88.21, 91.54, 92.47, 91.92, 88.36, 90.08, 92.49, 93.58, 93.31 ),
+  `t_delay [s]` = c( 19.9, 8.8, 19, 23.6, 22.7, 17.6, 17.1, 22.6, 24, 24.2, 16.2, 18.2, 17.2, 19, 15.7, 17.9, 13.2, 10.5, 22, 18.6, 13.7, 18.2, 10.7, 17.6, 14.2, 12, 15.1, 13.8, 15.1, 13.3, 14.3, 16.8, 18.9, 15.4, 20.3, 12.5, 21.5, 24.8, 20, 20.4, 21.8, 25.5, 19, 10.7, 4.3, 18, 19.8, 12.8, 14.2, 17.7, 18.1, 17.4, 21.7, 20.1 )
+  , check.names = FALSE
+)
 
-# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
-  # VO2, VCO2 und HR für Sitzen - durchgezogene Linien
-  add_lines(y = ~VO2_kg_mittel_sitzen_smooth, name = 'V&#775;O<sub>2 Sitzen', 
-            line = list(color = '#1CADE4', width = 2)) %>%
-  add_lines(y = ~VCO2_kg_mittel_sitzen_smooth, name = 'V&#775;O<sub>2 Sitzen', 
-            line = list(color = '#EF5350', width = 2)) %>% 
-  add_lines(y = ~HR_mittel_sitzen_smooth, name = "HR<sub>Sitzen", 
-            line = list(color = "#42BA97", width = 2), 
-            yaxis = "y2") %>%
-  # VO2, VCO2 und HR für Stehen - gestrichelte Linien
-  add_lines(y = ~VO2_kg_mittel_stehen_smooth, name = 'V&#775;O<sub>2 Stehen', 
-            line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
-  add_lines(y = ~VCO2_kg_mittel_stehen_smooth, name = 'V&#775;CO<sub>2 Stehen', 
-            line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
-  add_lines(y = ~HR_mittel_stehen_smooth, name = "HR<sub>Stehen", 
-            line = list(color = "#62A39F", width = 2, dash = '8 5'), 
-            yaxis = "y2") %>%
-  # Senkrechte gestrichelte Linien - ohne Legende
-  add_segments(x = 170, xend = 170, y = 0, yend = 300, 
-               line = list(color = "darkgrey", dash = "dash", width = 2), 
-               yaxis = "y2", showlegend = FALSE) %>%
-  add_segments(x = 470, xend = 470, y = 0, yend = 300, 
-               line = list(color = "darkgrey", dash = "dash", width = 2), 
-               yaxis = "y2", showlegend = FALSE) %>%
-  # Textannotationen hinzufügen
-  layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen",
-         margin = list(t = 40),
-         xaxis = list(title = "Zeit (s)"),
-         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
-                      tickvals = seq(0, 80, by = 10),  
-                      ticktext = seq(0, 80, by = 10)),  
-         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
-                       tickvals = seq(40, 200, by = 20),  
-                       ticktext = seq(40, 200, by = 20)),  
-         legend = list(title = "Legende"),
-         annotations = list(
-           list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 78,  # Y-Koordinate für "Belastungszeitraum"
-             text = "Belastungszeitraum: \nt=300s",
-             showarrow = FALSE,
-             xref = "x",
-             yref = "y",
-             font = list(size = 12),
-             align = "center"
-           )
-         )
+# UI Definition
+ui <- fluidPage(
+  titlePanel("VO2 Daten Analyse"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      width = 2,
+      style = "height: 90vh; overflow-y: auto;",
+      radioButtons("viewType", "Datenansicht:",
+                   choices = c("Einzelwerte" = "individual",
+                               "Mittelwerte & BP" = "means"),
+                   selected = "means"),
+      checkboxGroupInput("selectedBedingung", "Bedingungen:",
+                         choices = unique(EPOC_data_df_VO2$Bedingung),
+                         selected = unique(EPOC_data_df_VO2$Bedingung)),
+      checkboxGroupInput("selectedIntensität", "Intensitäten:",
+                         choices = unique(EPOC_data_df_VO2$Intensität),
+                         selected = unique(EPOC_data_df_VO2$Intensität)),
+      radioButtons("selectedVariable", "Variable für Boxplot:",
+                   choices = c(
+                     "VO2_Brutto_SS [l·min⁻¹]" = "VO2_Brutto_SS [l·min⁻¹]",
+                     "VO2_Netto_SS [l·min⁻¹]" = "VO2_Netto_SS [l·min⁻¹]",
+                     "VO2_on_Start [l·min⁻¹]" = "VO2_on_Start [l·min⁻¹]",
+                     "tau_on [s]" = "tau_on [s]",
+                     "t_delay [s]" = "t_delay [s]",
+                     "R2_on" = "R2_on",
+                     "delta_VO2 [l·min⁻¹]" = "delta_VO2 [l·min⁻¹]",
+                     "VO2_avg [l·min⁻¹]" = "VO2_avg [l·min⁻¹]",
+                     "VCO2_avg [l·min⁻¹]" = "VCO2_avg [l·min⁻¹]",
+                     "RQ_avg" = "RQ_avg",
+                     "VO2_Ruhe [l·min⁻¹]" = "VO2_Ruhe [l·min⁻¹]",
+                     "VO2_SS_percent [%]" = "VO2_SS_percent [%]",
+                     "HR_percent [%]" = "HR_percent [%]"
+                   ),
+                   selected = "VO2_Netto_SS [l·min⁻¹]"),
+      checkboxGroupInput("selectedProband", "Probanden:",
+                         choices = sort(unique(EPOC_data_df_VO2$Proband)),
+                         selected = sort(unique(EPOC_data_df_VO2$Proband)))
+    ),
+    mainPanel(
+      width = 10,
+      conditionalPanel(
+        condition = "input.viewType == 'means'",
+        plotlyOutput("boxplot")
+      ),
+      DTOutput("epocTable")
+    )
   )
+)
 
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # Hilfsfunktion für Nachkommastellen
+  get_digits_for_column <- function(col_name) {
+    if(col_name %in% c("VO2_Ruhe [l·min⁻¹]", "VO2_Brutto_SS [l·min⁻¹]", "VO2_Netto_SS [l·min⁻¹]",
+                       "VO2_on_Start [l·min⁻¹]", "VO2_Referenz [l·min⁻¹]", "VO2_avg [l·min⁻¹]",
+                       "VO2_SS_avg [l·min⁻¹]", "VCO2_avg [l·min⁻¹]", "VCO2_SS_avg [l·min⁻¹]")) {
+      return(3)
+    } else if(col_name %in% c("P_Tot_kg [W·kg⁻¹]", "R2_on", "delta_VO2_SS", 
+                              "RQ_avg", "RQ_SS_avg", "tau_on_min")) {
+      return(2)
+    } else if(col_name %in% c("P_Tot [W]", "tau_on [s]", "VO2_SS_percent [%]","t_delay [s]")) {
+      return(1)
+    } else if(col_name %in% c("Nr", "Masse [kg]")) {
+      return(0)
+    }
+    return(2)
+  }
+  
+  # Reaktive gefilterte Daten für Tabelle
+  filtered_data <- reactive({
+    data <- EPOC_data_df_VO2
+    
+    if (length(input$selectedProband) > 0) {
+      data <- data %>% filter(Proband %in% input$selectedProband)
+    }
+    
+    if (length(input$selectedBedingung) > 0) {
+      data <- data %>% filter(Bedingung %in% input$selectedBedingung)
+    }
+    
+    if (length(input$selectedIntensität) > 0) {
+      data <- data %>% filter(Intensität %in% input$selectedIntensität)
+    }
+    
+    if (input$viewType == "means") {
+      # Bestimme Gruppierungsvariablen basierend auf Auswahl
+      group_vars <- c()
+      if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+        group_vars <- "Bedingung"
+      } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+        group_vars <- "Intensität"
+      } else if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) > 0) {
+        group_vars <- c("Bedingung", "Intensität")
+      }
+      
+      if (length(group_vars) == 0) {
+        grouped_data <- data %>%
+          summarise(across(where(is.numeric), 
+                           list(mean = ~mean(., na.rm = TRUE),
+                                sd = ~sd(., na.rm = TRUE)))) %>%
+          mutate(Gruppe = "Gesamt")
+        group_vars <- "Gruppe"
+      } else {
+        grouped_data <- data %>%
+          group_by(across(all_of(group_vars))) %>%
+          summarise(across(where(is.numeric), 
+                           list(mean = ~mean(., na.rm = TRUE),
+                                sd = ~sd(., na.rm = TRUE)))) %>%
+          ungroup()
+      }
+      
+      result_data <- grouped_data %>%
+        select(all_of(group_vars))
+      
+      numeric_cols <- names(data)[sapply(data, is.numeric)]
+      for(col in numeric_cols) {
+        mean_col <- paste0(col, "_mean")
+        sd_col <- paste0(col, "_sd")
+        
+        if(mean_col %in% names(grouped_data) && sd_col %in% names(grouped_data)) {
+          digits <- get_digits_for_column(col)
+          result_data[[col]] <- paste0(
+            format(round(grouped_data[[mean_col]], digits), nsmall = digits),
+            " ± ",
+            format(round(grouped_data[[sd_col]], digits), nsmall = digits)
+          )
+        }
+      }
+      
+      return(result_data)
+    }
+    
+    return(data)
+  })
+  
+  # Reaktive gefilterte Daten für Plots
+  filtered_data_plots <- reactive({
+    data <- EPOC_data_df_VO2 %>%
+      filter(Proband %in% input$selectedProband)
+    
+    if (length(input$selectedBedingung) > 0) {
+      data <- data %>% filter(Bedingung %in% input$selectedBedingung)
+    }
+    
+    if (length(input$selectedIntensität) > 0) {
+      data <- data %>% filter(Intensität %in% input$selectedIntensität)
+    }
+    
+    # Gruppierung basierend auf Auswahl
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+      data$Gruppe <- data$Bedingung
+    } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+      data$Gruppe <- data$Intensität
+    } else {
+      data$Gruppe <- paste(data$Intensität, data$Bedingung, sep = "_")
+    }
+    
+    return(data)
+  })
+  
+  # Color Map
+  color_map <- reactive({
+    c(
+      "leicht_sitzen" = "#42BA97", "leicht_stehen" = "#62A39F",
+      "moderat_sitzen" = "#1CADE4", "moderat_stehen" = "#2683C6",
+      "schwer_sitzen" = "#EF5350", "schwer_stehen" = "#C8133B"
+    )
+  })
+  
+  # Tabellen-Output
+  output$epocTable <- renderDT({
+    data <- filtered_data()
+    
+    if (input$viewType == "individual") {
+      columnDefs <- lapply(seq_len(ncol(data)), function(i) {
+        list(
+          targets = i-1,
+          width = paste0(max(
+            nchar(names(data)[i]),
+            max(nchar(as.character(data[[i]])))
+          ) * 10, "px"),
+          className = "dt-nowrap"
+        )
+      })
+      
+      datatable(data,
+                options = list(
+                  pageLength = 10,
+                  scrollX = TRUE,
+                  scrollCollapse = TRUE,
+                  autoWidth = FALSE,
+                  columnDefs = columnDefs
+                )
+      ) %>%
+        formatRound(
+          columns = c("VO2_Ruhe [l·min⁻¹]", "VO2_Brutto_SS [l·min⁻¹]", "VO2_Netto_SS [l·min⁻¹]",
+                      "VO2_on_Start [l·min⁻¹]", "VO2_Referenz [l·min⁻¹]", "VO2_avg [l·min⁻¹]",
+                      "VO2_SS_avg [l·min⁻¹]", "VCO2_avg [l·min⁻¹]", "VCO2_SS_avg [l·min⁻¹]"),
+          digits = 3
+        ) %>%
+        formatRound(
+          columns = c("P_Tot_kg [W·kg⁻¹]", "R2_on", "delta_VO2_SS", 
+                      "RQ_avg", "RQ_SS_avg"),
+          digits = 2
+        ) %>%
+        formatRound(
+          columns = c("P_Tot [W]", "tau_on [s]", "VO2_SS_percent [%]", "t_delay [s]"),
+          digits = 1
+        ) %>%
+        formatRound(
+          columns = c("Nr", "Masse [kg]"),
+          digits = 0
+        )
+    } else {
+      columnDefs <- lapply(seq_len(ncol(data)), function(i) {
+        list(
+          targets = i-1,
+          width = paste0(max(
+            nchar(names(data)[i]),
+            max(nchar(as.character(data[[i]])))
+          ) * 10, "px"),
+          className = "dt-nowrap"
+        )
+      })
+      
+      datatable(data,
+                options = list(
+                  pageLength = 10,
+                  scrollX = TRUE,
+                  scrollCollapse = TRUE,
+                  autoWidth = FALSE,
+                  columnDefs = columnDefs
+                ),
+                escape = FALSE
+      )
+    }
+  })
+  
+  # Boxplot
+  output$boxplot <- renderPlotly({
+    data <- filtered_data_plots()
+    color_map_values <- color_map()
+    
+    # Farben anpassen basierend auf Gruppierung
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+      colors <- c("sitzen" = "#42BA97", "stehen" = "#62A39F")
+    } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+      colors <- c("leicht" = "#42BA97", "moderat" = "#1CADE4", "schwer" = "#EF5350")
+    } else {
+      colors <- color_map_values
+    }
+    
+    p <- plot_ly(data = data, 
+                 x = ~Gruppe, 
+                 y = as.formula(paste0("~`", input$selectedVariable, "`")),
+                 type = "box",
+                 color = ~Gruppe,
+                 colors = colors[unique(data$Gruppe)],
+                 opacity = 0.8,
+                 line = list(color = "black", width = 0.9),
+                 boxpoints = "outliers",
+                 pointpos = 0,
+                 marker = list(color = "black", size = 4),
+                 boxmean = TRUE,
+                 hoverlabel = list(bgcolor = "#F5F5F5"),
+                 showlegend = FALSE
+    ) %>%
+      layout(title = paste('Boxplot:', input$selectedVariable),
+             margin = list(t = 40),
+             xaxis = list(title = "Gruppe"),
+             yaxis = list(title = input$selectedVariable))
+    
+    return(p)
+  })
+}
+
+# App starten
+shinyApp(ui = ui, server = server)
+```
+
+# Deskriptive Analyse der Belastungsparameter
+Die folgenden Tabellen bieten eine detaillierte deskriptive Auswertung der Belastungsparameter, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-VO2_mean) dargestellt. In den weiteren Tabellen erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen; @tbl-VO2_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer; @tbl-VO2_Intensitaet_mean) sowie nach der Kombination beider Faktoren (@tbl-VO2_Bedingung_Intensitaet_mean).<br>
+Die analysierten Parameter umfassen die Zeitkonstante (τ~on~) und Amplitude ($\Delta\dot{V}O_{2}$) der monoexponentiellen Anpassung des Sauerstoffvolumenstroms, den $\dot{V}O_{2}$ zu Beginn der kinetischen Modellanpassung ($\dot{V}O_{2,Start}$), die Zeitverzögerung (t~delay~) sowie das Bestimmtheitsmaß (R~2,on~) der monoexponentiellen Modellfunktion. Zusätzlich werden der Brutto- und Netto-$\dot{V}O_{2}$ im Steady-State ($\dot{V}O_{2,Brutto,SS}$, $\dot{V}O_{2,Netto,SS}$), die mittleren Werte für $\dot{V}O_{2}$ und $\dot{V}CO_{2}$ während der gesamten Belastungsphase ($\dot{V}O_{2,avg}$, $\dot{V}CO_{2,avg}$) sowie der mittlere respiratorische Quotient (RQ~avg~) dargestellt. Ergänzend werden der $\dot{V}O_{2}$ in Ruhe ($\dot{V}O_{2,Ruhe}$) und die relativen Anteile des $\dot{V}O_{2}$ im Steady-State ($\dot{V}O_{2,SS,percent}$) sowie die Herzrate (HR~percent~) im Vergleich zu den maximalen Werten aus dem Stufentest präsentiert.
+
+::: {.panel-tabset}
+### Gesamtdaten
+```{r}
+#| label: tbl-VO2_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Gesamtdaten: Parameter der VO2-Modellanpassung und der W~PCr~: MW ± SD, Min & Max"
+
+library(flextable)
+library(dplyr)
+library(officer)
+
+ft_VO2_stats_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_VO2_stats_mean.rds")
+
+# Anzeigen der Tabelle
+ft_VO2_stats_mean
+```
+### Bedingungen
+```{r}
+#| label: tbl-VO2_Bedingung_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der VO2-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen"
+
+ft_VO2_stats_Bedingung_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_VO2_stats_Bedingung_mean.rds")
+
+# Anzeigen der Tabelle
+ft_VO2_stats_Bedingung_mean
+```
+### Intensitäten
+```{r}
+#| label: tbl-VO2_Intensitaet_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der VO2-Modellanpassung und der W~PCr~: MW ± SD nach Intensitäten"
+
+ft_VO2_stats_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_VO2_stats_Intensitaet_mean.rds")
+
+# Anzeigen der Tabelle
+ft_VO2_stats_Intensitaet_mean
+```
+### Bedingungen & Intensitäten
+```{r}
+#| label: tbl-VO2_Bedingung_Intensitaet_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der VO2-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen und Intensitäten"
+
+ft_VO2_stats_Bedingung_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_VO2_stats_Bedingung_Intensitaet_mean.rds")
+
+# Anzeigen der Tabelle
+ft_VO2_stats_Bedingung_Intensitaet_mean
+```
+
+:::
+#### $\dot{V}O_{2}$-Modellparameter { .unlisted }
+Die Zeitkonstante τ~on~ beträgt im Mittel 36.3 ± 9.3 s (R: 19.9-56.8 s) und zeigt zwischen den Bedingungen praktisch keine Unterschiede (sitzend: 36.1 ± 10.9 s, stehend: 36.4 ± 7.5 s). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (32.0 ± 8.0 s) über moderate (35.6 ± 7.8 s) zu schwerer Intensität (41.2 ± 9.8 s) zu beobachten. Dieser Trend zeigt sich sowohl in sitzender (leicht: 31.1 ± 9.1 s, moderat: 34.6 ± 9.1 s, schwer: 42.6 ± 11.8 s) als auch in stehender Position (leicht: 32.8 ± 7.2 s, moderat: 36.5 ± 6.6 s, schwer: 39.8 ± 7.7 s).<br>
+Die Amplitude $\Delta\dot{V}O_2$ liegt durchschnittlich bei 2.330 ± 0.676 l·min^-1^ (R: 1.229-4.164 l·min^-1^) und weist zwischen den Bedingungen nahezu identische Werte auf (sitzend: 2.331 ± 0.737 l·min^-1^, stehend: 2.329 ± 0.623 l·min^-1^). Mit steigender Intensität zeigt sich ein deutlicher Anstieg von leichter (1.987 ± 0.566 l·min^-1^) über moderate (2.205 ± 0.501 l·min^-1^) zu schwerer Intensität (2.797 ± 0.693 l·min^-1^). Diese Zunahme ist in beiden Bedingungen zu beobachten, wobei die Werte in sitzender Position von 2.033 ± 0.718 l·min^-1^ auf 2.812 ± 0.772 l·min^-1^ und in stehender Position von 1.941 ± 0.401 l·min^-1^ auf 2.782 ± 0.653 l·min^-1^ ansteigen.<br>
+Der $\dot{V}O_{2,on,Start}$ beträgt im Mittel 1.806 ± 0.387 l·min^-1^ (R: 0.690-2.446 l·min^-1^) und zeigt zwischen den Bedingungen nur minimale Unterschiede (sitzend: 1.812 ± 0.406 l·min^-1^, stehend: 1.800 ± 0.374 l·min^-1^). Über die Intensitäten hinweg ist ein leichter Anstieg von leichter (1.742 ± 0.405 l·min^-1^) zu moderater Intensität (1.900 ± 0.349 l·min^-1^) zu beobachten, gefolgt von einem leichten Rückgang bei schwerer Intensität (1.777 ± 0.408 l·min^-1^). Dieser nicht-lineare Verlauf zeigt sich in beiden Bedingungen, wobei die Werte in sitzender Position von 1.674 ± 0.459 l·min^-1^ über 1.943 ± 0.373 l·min^-1^ auf 1.821 ± 0.380 l·min^-1^ und in stehender Position von 1.810 ± 0.356 l·min^-1^ über 1.856 ± 0.339 l·min^-1^ auf 1.733 ± 0.453 l·min^-1^ variieren.<br>
+Die Verzögerungszeit t~delay~ beträgt durchschnittlich 17.4 ± 4.4 s (R: 4.30-25.5 s) und zeigt zwischen den Bedingungen einen leichten Unterschied (sitzend: 18.03 ± 4.01 s, stehend: 16.70 ± 4.65 s). Über die Intensitäten hinweg bleiben die Werte relativ stabil (leicht: 17.24 ± 4.28 s, moderat: 17.65 ± 4.60 s, schwer: 17.20 ± 4.42 s). Bei differenzierter Betrachtung zeigt sich in sitzender Position eine leichte Variation (leicht: 17.58 ± 4.10 s, moderat: 18.62 ± 2.65 s, schwer: 17.90 ± 5.28 s), während in stehender Position ein leichter Abfall zu beobachten ist (leicht: 16.91 ± 4.66 s, moderat: 16.68 ± 5.99 s, schwer: 16.50 ± 3.54 s).<br>
+Das Bestimmtheitsmaß R^2^~on~ liegt im Mittel bei 0.93 ± 0.04 (R: 0.82-0.99) und zeigt zwischen den Bedingungen keine Unterschiede (beide: 0.93 ± 0.04). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (0.90 ± 0.04) über moderate (0.94 ± 0.03) zu schwerer Intensität (0.95 ± 0.03) zu beobachten. Dieser Trend zeigt sich sowohl in sitzender (leicht: 0.90 ± 0.04, moderat: 0.94 ± 0.03, schwer: 0.95 ± 0.03) als auch in stehender Position (leicht: 0.91 ± 0.05, moderat: 0.93 ± 0.03, schwer: 0.95 ± 0.02).<br>
+Die $\dot{V}O_{2,Brutto,SS}$ beträgt durchschnittlich 4.093 ± 0.778 l·min^-1^ (R: 2.589-6.024 l·min^-1^) und zeigt zwischen den Bedingungen nur geringe Unterschiede (sitzend: 4.101 ± 0.816 l·min^-1^, stehend: 4.086 ± 0.754 l·min^-1^). Mit steigender Intensität ist ein deutlicher Anstieg von leichter (3.692 ± 0.613 l·min^-1^) über moderate (4.065 ± 0.695 l·min^-1^) zu schwerer Intensität (4.523 ± 0.815 l·min^-1^) zu beobachten. Diese Zunahme zeigt sich in beiden Bedingungen, wobei die Werte in sitzender Position von 3.670 ± 0.626 l·min^-1^ auf 4.581 ± 0.885 l·min^-1^ und in stehender Position von 3.715 ± 0.636 l·min^-1^ auf 4.464 ± 0.787 l·min^-1^ ansteigen.<br>
+Die $\dot{V}O_{2,Netto,SS}$ liegt mit durchschnittlich 3.720 ± 0.740 l·min^-1^ (R: 2.211-5.576 l·min^-1^) erwartungsgemäß unter der $\dot{V}O_{2,Brutto,SS}$ und zeigt zwischen den Bedingungen ebenfalls nur minimale Unterschiede (sitzend: 3.728 ± 0.779 l·min^-1^, stehend: 3.713 ± 0.715 l·min^-1^). Der Anstieg über die Intensitäten folgt einem ähnlichen Muster wie bei der $\dot{V}O_{2,Brutto,SS}$, von leichter (3.319 ± 0.568 l·min^-1^) über moderate (3.692 ± 0.650 l·min^-1^) zu schwerer Intensität (4.150 ± 0.772 l·min^-1^). Dieser Trend ist in beiden Bedingungen zu beobachten, mit einem Anstieg in sitzender Position von 3.297 ± 0.580 l·min^-1^ auf 4.208 ± 0.841 l·min^-1^ und in stehender Position von 3.342 ± 0.591 l·min^-1^ auf 4.091 ± 0.743 l·min^-1^.<br>
+
+#### Ventilatorische Kenngrößen { .unlisted }
+Der mittlere $\dot{V}O_{2,avg}$ während der gesamten Belastungsphase beträgt 3.762 ± 0.657 l·min^-1^ (R: 2.436-5.401 l·min^-1^) und zeigt zwischen den Bedingungen nahezu identische Werte (sitzend: 3.757 ± 0.682 l·min^-1^, stehend: 3.768 ± 0.643 l·min^-1^). Über die Intensitäten ist ein deutlicher Anstieg von leichter (3.433 ± 0.522 l·min^-1^) über moderate (3.749 ± 0.605 l·min^-1^) zu schwerer Intensität (4.105 ± 0.682 l·min^-1^) zu beobachten. Diese Progression zeigt sich sowohl in sitzender (leicht: 3.400 ± 0.525 l·min^-1^, moderat: 3.735 ± 0.629 l·min^-1^, schwer: 4.135 ± 0.733 l·min^-1^) als auch in stehender Position (leicht: 3.465 ± 0.549 l·min^-1^, moderat: 3.764 ± 0.619 l·min^-1^, schwer: 4.075 ± 0.670 l·min^-1^).<br>
+Der $\dot{V}CO_{2,avg}$ liegt mit durchschnittlich 3.535 ± 0.687 l·min^-1^ (R: 2.210-5.473 l·min^-1^) etwas unter dem $\dot{V}O_{2,avg}$ und zeigt zwischen den Bedingungen minimale Unterschiede (sitzend: 3.539 ± 0.736 l·min^-1^, stehend: 3.531 ± 0.649 l·min^-1^). Mit steigender Intensität ist ein systematischer Anstieg von leichter (3.092 ± 0.478 l·min^-1^) über moderate (3.544 ± 0.605 l·min^-1^) zu schwerer Intensität (3.969 ± 0.685 l·min^-1^) zu verzeichnen. Dieser Trend spiegelt sich in beiden Bedingungen wider, wobei die Werte in sitzender Position von 3.073 ± 0.508 l·min^-1^ auf 4.014 ± 0.761 l·min^-1^ und in stehender Position von 3.110 ± 0.477 l·min^-1^ auf 3.923 ± 0.644 l·min^-1^ ansteigen.<br>
+Der mittlere respiratorische Quotient RQ~avg~ beträgt 0.93 ± 0.03 (R: 0.85-1.00) und zeigt zwischen den Bedingungen keine Unterschiede (beide: 0.93 ± 0.03). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (0.90 ± 0.02) über moderate (0.94 ± 0.02) zu schwerer Intensität (0.95 ± 0.03) zu beobachten. Dieser Anstieg zeigt sich in beiden Bedingungen gleichermaßen, mit Werten in sitzender Position von 0.89 ± 0.02 bis 0.96 ± 0.02 und in stehender Position von 0.90 ± 0.02 bis 0.95 ± 0.03. <br>
+Der relative Anteil des $\dot{V}O_2$ im Steady-State zum maximalen $\dot{V}O_2$ im Stufentest ($\dot{V}O_{2,SS,percent}$) beträgt durchschnittlich 80.8 ± 9.0% (R: 60.2-97.4%) und zeigt zwischen den Bedingungen nahezu identische Werte (sitzend: 80.9 ± 9.8%, stehend: 80.7 ± 8.4%). Über die Intensitäten hinweg ist ein deutlicher Anstieg von leichter (73.0 ± 6.3%) über moderate (80.2 ± 6.2%) zu schwerer Intensität (89.1 ± 6.2%) zu beobachten. Dieser progressive Anstieg zeigt sich in beiden Bedingungen, wobei die Werte in sitzender Position von 72.5 ± 6.2% über 80.0 ± 6.6% auf 90.2 ± 7.1% und in stehender Position von 73.5 ± 6.6% über 80.5 ± 6.1% auf 88.0 ± 5.4% ansteigen. Dies verdeutlicht die zunehmende Ausschöpfung der maximalen Sauerstoffaufnahmekapazität mit steigender Intensität.
+
+#### Herzrate { .unlisted }
+Die relative mittlere Herzfrequenz während der Belastung zur maximalen Herzfrequenz im Stufentest (HR~percent~) liegt im Durchschnitt bei 90.2 ± 3.5% (R: 80.6-95.39%) und zeigt zwischen den Bedingungen nur geringe Unterschiede (sitzend: 89.7 ± 3.4%, stehend: 90.7 ± 3.5%). Mit steigender Intensität ist ein systematischer Anstieg von leichter (86.9 ± 2.9%) über moderate (90.2 ± 2.0%) zu schwerer Intensität (93.5 ± 1.2%) zu verzeichnen. Dieser Trend ist in beiden Bedingungen zu beobachten, wobei die Werte in sitzender Position von 86.2 ± 2.6% über 89.7 ± 1.6% auf 93.2 ± 1.2% und in stehender Position von 87.6 ± 3.3% über 90.7 ± 2.3% auf 93.7 ± 1.4% ansteigen. Dies zeigt die proportionale Zunahme der kardiovaskulären Beanspruchung mit steigender Belastungsintensität, wobei die relative Herzfrequenz in der stehenden Position durchgehend leicht höher liegt als in der sitzenden Position.
+
+## Messwerte im Belastungszeitraum 
+Die folgenden Abbildungen visualisieren die gleitenden Mittelwerte der respiratorischen Parameter ($\dot{V}O_{2}$, $\dot{V}CO_{2}$), der Atemrate (AR), Ventilation (VE) und der Herzfrequenz (HR) während eines standardisierten Belastungsprotokolls von 300 Sekunden, mit jeweils 2 Minuten Vorlauf- und 10 Minuten Nachbelastungsphase. 
+
+### Messwerte im Belastungszeitraum nach Bedingungen {.unnumbered .unlisted}
+@fig-Spiro_all präsentiert die kardiorespiratorischen Parameter im Vergleich der Körperpositionen, wobei die sitzende Position durch durchgezogene und die stehende Position durch gestrichelte Linien dargestellt wird. Die Analyse der Verlaufskurven zeigt nur marginale Unterschiede zwischen den Körperpositionen, mit einer leichten Tendenz zu erhöhten Werten in der stehenden Position. Diese geringfügigen Differenzen bleiben über alle Intensitätsstufen hinweg konstant und manifestieren sich sowohl in den Steady-State-Phasen als auch in den Übergangsphasen der Belastung.<br>
+In @fig-AR_VE wird die respiratorische Dynamik anhand der Atemrate (AR) und des Atemminutenvolumens (VE) dargestellt. Beide Parameter zeigen einen charakteristischen, simultanen Anstieg während der Belastungsphase, wobei das Atemminutenvolumen eine deutlich ausgeprägtere Amplitudenzunahme aufweist als die Atemrate. In der Nachbelastungsphase ist eine differenzierte Regenerationskinetik zu beobachten: Das Atemminutenvolumen kehrt rapider zu den Ausgangswerten zurück als die Atemrate, die eine längere Erholungsphase aufweist. Die positionsspezifischen Unterschiede zwischen sitzender und stehender Position erweisen sich als minimal.
+
+::: {.panel-tabset}
+#### VO2, VCO2 & HR {.unnumbered .unlisted}
+```{r}
+# Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
+p_Spiro_Bedingung <- plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
+    # VO2, VCO2 und HR für Sitzen - durchgezogene Linien
+    add_lines(y = ~VO2_kg_mittel_sitzen_smooth, name = 'V&#775;O<sub>2 Sitzen', 
+              line = list(color = '#1CADE4', width = 2)) %>%
+    add_lines(y = ~VCO2_kg_mittel_sitzen_smooth, name = 'V&#775;CO<sub>2 Sitzen', 
+              line = list(color = '#EF5350', width = 2)) %>% 
+    add_lines(y = ~HR_mittel_sitzen_smooth, name = "HR<sub>Sitzen", 
+              line = list(color = "#42BA97", width = 2), 
+              yaxis = "y2") %>%
+    # VO2, VCO2 und HR für Stehen - gestrichelte Linien
+    add_lines(y = ~VO2_kg_mittel_stehen_smooth, name = 'V&#775;O<sub>2 Stehen', 
+              line = list(color = '#2683C6', width = 2, dash = '8 5')) %>%
+    add_lines(y = ~VCO2_kg_mittel_stehen_smooth, name = 'V&#775;CO<sub>2 Stehen', 
+              line = list(color = '#C8133B', width = 2, dash = '8 5')) %>% 
+    add_lines(y = ~HR_mittel_stehen_smooth, name = "HR<sub>Stehen", 
+              line = list(color = "#62A39F", width = 2, dash = '8 5'), 
+              yaxis = "y2") %>%
+    # Senkrechte gestrichelte Linien - ohne Legende
+    add_segments(x = 170, xend = 170, y = 0, yend = 300, 
+                 line = list(color = "darkgrey", dash = "dash", width = 2), 
+                 yaxis = "y2", showlegend = FALSE) %>%
+    add_segments(x = 470, xend = 470, y = 0, yend = 300, 
+                 line = list(color = "darkgrey", dash = "dash", width = 2), 
+                 yaxis = "y2", showlegend = FALSE) %>%
+    # Textannotationen hinzufügen
+    layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen",
+           autosize = TRUE,
+           margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
+           xaxis = list(title = "Zeit (s)", automargin = TRUE),
+           yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", 
+                       range = c(0, 80), 
+                       tickvals = seq(0, 80, by = 10),  
+                       ticktext = seq(0, 80, by = 10),
+                       automargin = TRUE),  
+           yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", 
+                        overlaying = "y", 
+                        side = "right", 
+                        range = c(40, 200),
+                        tickvals = seq(40, 200, by = 20),  
+                        ticktext = seq(40, 200, by = 20),
+                        automargin = TRUE),  
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = "right",
+             yanchor = "top",
+             bgcolor = "rgba(255, 255, 255, 0)"
+           ),
+           annotations = list(
+             list(
+               x = 320,
+               y = 78,
+               text = "Belastungszeitraum: \nt=300s",
+               showarrow = FALSE,
+               xref = "x",
+               yref = "y",
+               font = list(size = 12),
+               align = "center"
+             )
+           )
+    ) %>%
+    config(responsive = TRUE)
 
 ```
 
-#### AR und VE
-
 ```{r}
+#| label: fig-Spiro_Bedingung
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte des V̇O₂, V̇CO₂ und der HR für die Belastungen im Stehen und Sitzen"
+#| fig-cap-location: top
 
+p_Spiro_Bedingung
+```
 
+#### AR und VE {.unnumbered .unlisted}
+```{r}
 # Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
+p_AR_VE_all <- plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
   # VE und AR  für Sitzen - durchgezogene Linien
   add_lines(y = ~VE_mittel_sitzen_smooth, name = 'VE<sub>Sitzen', 
             line = list(color = '#80CDC1', width = 2)) %>% 
@@ -141,22 +606,36 @@ plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
                yaxis = "y2", showlegend = FALSE) %>%
   # Textannotationen hinzufügen
   layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen",
-         margin = list(t = 40),
+         autosize = TRUE,
+         margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
          xaxis = list(
            title = "Zeit (s)",
            tickvals = seq(0, max(Messwerte_Bedingungen_df$t0_s), by = 100),
-           ticktext = seq(0, max(Messwerte_Bedingungen_df$t0_s), by = 100)),
-         yaxis = list(title = "VE [l · min<sup>-1</sup>]", range = c(0, 130), 
-                      tickvals = seq(0, 130, by = 10),  
-                      ticktext = seq(0, 130, by = 10)),  
-         yaxis2 = list(title = "AR [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(0, 65),
-                       tickvals = seq(0, 65, by = 5),  
-                       ticktext = seq(0, 65, by = 5)),  
-         legend = list(title = "Legende"),
+           ticktext = seq(0, max(Messwerte_Bedingungen_df$t0_s), by = 100),
+           automargin = TRUE),
+         yaxis = list(title = "VE [l · min<sup>-1</sup>]", 
+                     range = c(0, 130), 
+                     tickvals = seq(0, 130, by = 10),  
+                     ticktext = seq(0, 130, by = 10),
+                     automargin = TRUE),  
+         yaxis2 = list(title = "AR [min<sup>-1</sup>]", 
+                      overlaying = "y", 
+                      side = "right", 
+                      range = c(0, 65),
+                      tickvals = seq(0, 65, by = 5),  
+                      ticktext = seq(0, 65, by = 5),
+                      automargin = TRUE),  
+         legend = list(
+           x = 0.98,
+           y = 0.98,
+           xanchor = "right",
+           yanchor = "top",
+           bgcolor = "rgba(255, 255, 255, 0)"
+         ),
          annotations = list(
            list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 10,  # Y-Koordinate für "Belastungszeitraum"
+             x = 320,
+             y = 10,
              text = "Belastungszeitraum: \nt=300s",
              showarrow = FALSE,
              xref = "x",
@@ -165,20 +644,33 @@ plot_ly(data = Messwerte_Bedingungen_df, x = ~`t0_s`) %>%
              align = "center"
            )
          )
-  )
-
+  ) %>%
+  config(responsive = TRUE)
 
 
 ```
 
-### Messwerte - Intensitäten {.tabset}
+```{r}
+#| label: fig-AR_VE
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte der Atemrate und Ventilation für die Belastungen im Stehen und Sitzen"
+#| fig-cap-location: top
+#| 
+p_AR_VE_all
+```
 
-#### Alle Intensitäten
+:::
 
+## Messwerte im Belastungszeitraum nach Intensitäten {.unnumbered .unlisted}
+@fig-Spiro_all visualisiert die kardiorespiratorischen Parameter ($\dot{V}O_{2}$, $\dot{V}CO_{2}$, HR) im intensitätsabhängigen Vergleich. Die Analyse der Verlaufskurven demonstriert eine systematische Zunahme aller Parameter mit steigender Belastungsintensität, wobei sich Steady-State ähnliche Verläufe für die jeweiligen Intensitätsstufen unterschiedlich stark manifestieren. Die Kinetik der respiratorischen Parameter zeigt dabei charakteristische Anpassungsmuster mit einer initialen exponentiellen Komponente und folgender annähernder Plateaubildung oder einem leichten linearen Anstieg in der höheren Intensitätsstufe.<br>
+Die Einzeldarstellungen (@fig-Spiro_leicht, @fig-Spiro_moderat, @fig-Spiro_schwer) präsentieren den direkten Vergleich zwischen sitzender (durchgezogene Linien) und stehender Position (gestrichelte Linien) für die jeweiligen Intensitätsstufen. Bei leichter Intensität (@fig-Spiro_leicht) etabliert sich ein nahezu vollständiges Steady-State auf niedrigem Niveau, während bei moderater Belastung (@fig-Spiro_moderat) eine kontinuierliche leichte Steigerung aller Parameter zu beobachten ist. Die höchste Intensitätsstufe (@fig-Spiro_schwer) induziert die ausgeprägteste kardiorespiratorische Reaktion mit den höchsten Werten und einem kontinuierlichen leichten Anstieg über die gesamte Belastungsphase.<br>
+In allen Intensitätsbereichen zeigt sich eine bemerkenswerte Ähnlichkeit der Kurvenverläufe zwischen den Körperpositionen. Die marginalen Unterschiede zwischen sitzender und stehender Position manifestieren sich primär in geringfügig höheren Werten der Parameter im Stehen, wobei diese Differenzen über die gesamte Belastungsdauer weitgehend konstant bleiben. Die Nachbelastungsphase charakterisiert sich durch eine exponentiell verlaufende Regenerationskinetik, die unabhängig von der Körperposition vergleichbar ist.
+
+::: {.panel-tabset}
+#### Alle Intensitäten {.unnumbered .unlisted}
 ```{r}
 
 # Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Intensitäten_df, x = ~`t0_s`) %>%
+p_Spiro_all <- plot_ly(data = Messwerte_Intensitäten_df, x = ~`t0_s`) %>%
   # VO2, VCO2 und HR für Leicht - durchgezogene Linien
   add_lines(y = ~VO2_kg_mittel_leicht_smooth, name = 'V&#775;O<sub>2 Leicht', 
             line = list(color = '#27CED7', width = 2, dash = '2 3')) %>%
@@ -212,22 +704,36 @@ plot_ly(data = Messwerte_Intensitäten_df, x = ~`t0_s`) %>%
                yaxis = "y2", showlegend = FALSE) %>%
   # Textannotationen hinzufügen
   layout(title = "Gleitender Mittelwert der Messwerte für Leicht, Moderat und Schwer",
-         margin = list(t = 40),
+         autosize = TRUE,
+         margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
          xaxis = list(
            title = "Zeit (s)",
            tickvals = seq(0, max(Messwerte_Intensitäten_df$t0_s), by = 100),
-           ticktext = seq(0, max(Messwerte_Intensitäten_df$t0_s), by = 100)),
-         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 70), 
-                      tickvals = seq(0, 70, by = 10),  
-                      ticktext = seq(0, 70, by = 10)),  
-         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(100, 240),
-                       tickvals = seq(100, 240, by = 20),  
-                       ticktext = seq(100, 240, by = 20)),  
-         legend = list(title = "Legende"),
+           ticktext = seq(0, max(Messwerte_Intensitäten_df$t0_s), by = 100),
+           automargin = TRUE),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", 
+                     range = c(0, 70), 
+                     tickvals = seq(0, 70, by = 10),  
+                     ticktext = seq(0, 70, by = 10),
+                     automargin = TRUE),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", 
+                      overlaying = "y", 
+                      side = "right", 
+                      range = c(100, 240),
+                      tickvals = seq(100, 240, by = 20),  
+                      ticktext = seq(100, 240, by = 20),
+                      automargin = TRUE),  
+         legend = list(
+           x = 0.98,
+           y = 0.98,
+           xanchor = "right",
+           yanchor = "top",
+           bgcolor = "rgba(255, 255, 255, 0)"
+         ),
          annotations = list(
            list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             x = 320,
+             y = 78,
              text = "Belastungszeitraum: \nt=300s",
              showarrow = FALSE,
              xref = "x",
@@ -236,15 +742,23 @@ plot_ly(data = Messwerte_Intensitäten_df, x = ~`t0_s`) %>%
              align = "center"
            )
          )
-  )
+  ) %>%
+  config(responsive = TRUE)
 
 ```
 
-#### Leicht
+```{r}
+#| label: fig-Spiro_all
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte des V̇O₂, V̇CO₂ und der HR für alle Intensitäten"
+#| fig-cap-location: top
 
+p_Spiro_all
+```
+
+#### Leicht {.unnumbered .unlisted}
 ```{r}
 # Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+p_Spiro_leicht <- plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
   # VO2, VCO2 und HR für Sitzen Leicht - durchgezogene Linien
   add_lines(y = ~VO2_kg_mittel_sitzen_leicht_smooth, name = 'V&#775;O<sub>2 Sitzen Leicht', 
             line = list(color = '#1CADE4', width = 2)) %>%
@@ -270,22 +784,36 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
                yaxis = "y2", showlegend = FALSE) %>%
   # Textannotationen hinzufügen
   layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Leicht)",
-         margin = list(t = 40),
+         autosize = TRUE,
+         margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
          xaxis = list(
            title = "Zeit (s)",
            tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
-           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
-         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
-                      tickvals = seq(0, 80, by = 10),  
-                      ticktext = seq(0, 80, by = 10)),  
-         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
-                       tickvals = seq(40, 200, by = 20),  
-                       ticktext = seq(40, 200, by = 20)),  
-         legend = list(title = "Legende"),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           automargin = TRUE),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", 
+                     range = c(0, 80), 
+                     tickvals = seq(0, 80, by = 10),  
+                     ticktext = seq(0, 80, by = 10),
+                     automargin = TRUE),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", 
+                      overlaying = "y", 
+                      side = "right", 
+                      range = c(40, 200),
+                      tickvals = seq(40, 200, by = 20),  
+                      ticktext = seq(40, 200, by = 20),
+                      automargin = TRUE),  
+         legend = list(
+           x = 0.98,
+           y = 0.98,
+           xanchor = "right",
+           yanchor = "top",
+           bgcolor = "rgba(255, 255, 255, 0)"
+         ),
          annotations = list(
            list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             x = 320,
+             y = 78,
              text = "Belastungszeitraum: \nt=300s",
              showarrow = FALSE,
              xref = "x",
@@ -294,14 +822,22 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
              align = "center"
            )
          )
-  )
+  ) %>%
+  config(responsive = TRUE)
 ```
 
-#### Moderat
+```{r}
+#| label: fig-Spiro_leicht
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte des V̇O₂, V̇CO₂ und der HR für die leichte Belastungsintensität"
+#| fig-cap-location: top
 
+p_Spiro_leicht
+```
+
+#### Moderat {.unnumbered .unlisted}
 ```{r}
 # Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+p_Spiro_moderat <- plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
   # VO2, VCO2 und HR für Sitzen Moderat - durchgezogene Linien
   add_lines(y = ~VO2_kg_mittel_sitzen_moderat_smooth, name = 'V&#775;O<sub>2 Sitzen Moderat', 
             line = list(color = '#1CADE4', width = 2)) %>%
@@ -327,22 +863,36 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
                yaxis = "y2", showlegend = FALSE) %>%
   # Textannotationen hinzufügen
   layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Moderat)",
-         margin = list(t = 40),
+         autosize = TRUE,
+         margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
          xaxis = list(
            title = "Zeit (s)",
            tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
-           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
-         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
-                      tickvals = seq(0, 80, by = 10),  
-                      ticktext = seq(0, 80, by = 10)),  
-         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
-                       tickvals = seq(40, 200, by = 20),  
-                       ticktext = seq(40, 200, by = 20)),  
-         legend = list(title = "Legende"),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           automargin = TRUE),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", 
+                     range = c(0, 80), 
+                     tickvals = seq(0, 80, by = 10),  
+                     ticktext = seq(0, 80, by = 10),
+                     automargin = TRUE),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", 
+                      overlaying = "y", 
+                      side = "right", 
+                      range = c(40, 200),
+                      tickvals = seq(40, 200, by = 20),  
+                      ticktext = seq(40, 200, by = 20),
+                      automargin = TRUE),  
+         legend = list(
+           x = 0.98,
+           y = 0.98,
+           xanchor = "right",
+           yanchor = "top",
+           bgcolor = "rgba(255, 255, 255, 0)"
+         ),
          annotations = list(
            list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             x = 320,
+             y = 78,
              text = "Belastungszeitraum: \nt=300s",
              showarrow = FALSE,
              xref = "x",
@@ -351,14 +901,22 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
              align = "center"
            )
          )
-  )
+  ) %>%
+  config(responsive = TRUE)
 ```
 
-#### Schwer
+```{r}
+#| label: fig-Spiro_moderat
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte des V̇O₂, V̇CO₂ und der HR für die moderate Belastungsintensität"
+#| fig-cap-location: top
 
+p_Spiro_moderat
+```
+
+#### Schwer {.unnumbered .unlisted}
 ```{r}
 # Erstellen des Plotly-Liniendiagramms mit geglätteten Daten und zusätzlichen Features
-plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
+p_Spiro_schwer <- plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
   # VO2, VCO2 und HR für Sitzen Schwer - durchgezogene Linien
   add_lines(y = ~VO2_kg_mittel_sitzen_schwer_smooth, name = 'V&#775;O<sub>2 Sitzen Schwer', 
             line = list(color = '#1CADE4', width = 2)) %>%
@@ -384,22 +942,36 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
                yaxis = "y2", showlegend = FALSE) %>%
   # Textannotationen hinzufügen
   layout(title = "Gleitender Mittelwert der Messwerte beim Sitzen und Stehen (Schwer)",
-         margin = list(t = 40),
+         autosize = TRUE,
+         margin = list(l = 60, r = 100, t = 40, b = 60, autoexpand = TRUE),
          xaxis = list(
            title = "Zeit (s)",
            tickvals = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
-           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100)),
-         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", range = c(0, 80), 
-                      tickvals = seq(0, 80, by = 10),  
-                      ticktext = seq(0, 80, by = 10)),  
-         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", overlaying = "y", side = "right", range = c(40, 200),
-                       tickvals = seq(40, 200, by = 20),  
-                       ticktext = seq(40, 200, by = 20)),  
-         legend = list(title = "Legende"),
+           ticktext = seq(0, max(Messwerte_Bedingung_Intensität_df$t0_s), by = 100),
+           automargin = TRUE),
+         yaxis = list(title = "V&#775;O<sub>2</sub> und V&#775;CO<sub>2</sub> [ml · kg · min<sup>-1</sup>]", 
+                     range = c(0, 80), 
+                     tickvals = seq(0, 80, by = 10),  
+                     ticktext = seq(0, 80, by = 10),
+                     automargin = TRUE),  
+         yaxis2 = list(title = "Herzrate [min<sup>-1</sup>]", 
+                      overlaying = "y", 
+                      side = "right", 
+                      range = c(40, 200),
+                      tickvals = seq(40, 200, by = 20),  
+                      ticktext = seq(40, 200, by = 20),
+                      automargin = TRUE),  
+         legend = list(
+           x = 0.98,
+           y = 0.98,
+           xanchor = "right",
+           yanchor = "top",
+           bgcolor = "rgba(255, 255, 255, 0)"
+         ),
          annotations = list(
            list(
-             x = 320,  # X-Koordinate in der Mitte zwischen 170 und 470
-             y = 78,  # Y-Koordinate für "Belastungszeitraum"
+             x = 320,
+             y = 78,
              text = "Belastungszeitraum: \nt=300s",
              showarrow = FALSE,
              xref = "x",
@@ -408,5 +980,904 @@ plot_ly(data = Messwerte_Bedingung_Intensität_df, x = ~`t0_s`) %>%
              align = "center"
            )
          )
-  )
+  ) %>%
+  config(responsive = TRUE)
 ```
+
+```{r}
+#| label: fig-Spiro_schwer
+#| fig-cap: "Zeitlicher Verlauf der gleitenden Mittelwerte des V̇O₂, V̇CO₂ und der HR für die schwere Belastungsintensität"
+#| fig-cap-location: top
+
+p_Spiro_schwer
+```
+:::
+
+# $\dot{V}O_{2}$-Modellfunktionen aller Testdurchläufe
+Die folgenden Abbildungen zeigen die Modellierung der individuellen Belastungskinetik für die Testdurchläufe aller Probanden. Für jeden Durchgang ist die Anpassung der Sauerstoffaufnahme an die Belastung durch eine exponentielle Modellfunktion mit Zeitverzögerung dargestellt. Die Visualisierung umfasst die jeweilige Modellfunktion mit dem zugehörigen Bestimmtheitsmaß (R^2^) der $\dot{V}O_{2,net,SS}$ sowie der Halbwertszeit (T~1/2~). Dies ermöglicht einen direkten Vergleich der individuellen Anpassungscharakteristiken und der Modellierungsgüte zwischen den verschiedenen Testdurchläufen und Belastungsintensitäten.
+
+::: {.panel-tabset}
+## Proband 01
+
+::: {.panel-tabset}  
+
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 01_1 mit exponentieller Anpassungskurve](images/p_VO2_01_1.svg){#fig-VO2-01-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 01_2 mit exponentieller Anpassungskurve](images/p_VO2_01_2.svg){#fig-VO2-01-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 01_3 mit exponentieller Anpassungskurve](images/p_VO2_01_3.svg){#fig-VO2-01-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 01_4 mit exponentieller Anpassungskurve](images/p_VO2_01_4.svg){#fig-VO2-01-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 01_5 mit exponentieller Anpassungskurve](images/p_VO2_01_5.svg){#fig-VO2-01-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 01_6 mit exponentieller Anpassungskurve](images/p_VO2_01_6.svg){#fig-VO2-01-6 width="1100" height="450"}
+
+:::
+
+## Proband 06
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 06_1 mit exponentieller Anpassungskurve](images/p_VO2_06_1.svg){#fig-VO2-06-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 06_2 mit exponentieller Anpassungskurve](images/p_VO2_06_2.svg){#fig-VO2-06-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 06_3 mit exponentieller Anpassungskurve](images/p_VO2_06_3.svg){#fig-VO2-06-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 06_4 mit exponentieller Anpassungskurve](images/p_VO2_06_4.svg){#fig-VO2-06-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 06_5 mit exponentieller Anpassungskurve](images/p_VO2_06_5.svg){#fig-VO2-06-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 06_6 mit exponentieller Anpassungskurve](images/p_VO2_06_6.svg){#fig-VO2-06-6 width="1100" height="450"}
+
+:::
+
+## Proband 10
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 10_1 mit exponentieller Anpassungskurve](images/p_VO2_10_1.svg){#fig-VO2-10-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 10_2 mit exponentieller Anpassungskurve](images/p_VO2_10_2.svg){#fig-VO2-10-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 10_3 mit exponentieller Anpassungskurve](images/p_VO2_10_3.svg){#fig-VO2-10-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 10_4 mit exponentieller Anpassungskurve](images/p_VO2_10_4.svg){#fig-VO2-10-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 10_5 mit exponentieller Anpassungskurve](images/p_VO2_10_5.svg){#fig-VO2-10-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 10_6 mit exponentieller Anpassungskurve](images/p_VO2_10_6.svg){#fig-VO2-10-6 width="1100" height="450"}
+
+:::
+
+## Proband 13
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 13_1 mit exponentieller Anpassungskurve](images/p_VO2_13_1.svg){#fig-VO2-13-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 13_2 mit exponentieller Anpassungskurve](images/p_VO2_13_2.svg){#fig-VO2-13-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 13_3 mit exponentieller Anpassungskurve](images/p_VO2_13_3.svg){#fig-VO2-13-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 13_4 mit exponentieller Anpassungskurve](images/p_VO2_13_4.svg){#fig-VO2-13-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 13_5 mit exponentieller Anpassungskurve](images/p_VO2_13_5.svg){#fig-VO2-13-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 13_6 mit exponentieller Anpassungskurve](images/p_VO2_13_6.svg){#fig-VO2-13-6 width="1100" height="450"}
+
+:::
+
+## Proband 15
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 15_1 mit exponentieller Anpassungskurve](images/p_VO2_15_1.svg){#fig-VO2-15-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 15_2 mit exponentieller Anpassungskurve](images/p_VO2_15_2.svg){#fig-VO2-15-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 15_3 mit exponentieller Anpassungskurve](images/p_VO2_15_3.svg){#fig-VO2-15-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 15_4 mit exponentieller Anpassungskurve](images/p_VO2_15_4.svg){#fig-VO2-15-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 15_5 mit exponentieller Anpassungskurve](images/p_VO2_15_5.svg){#fig-VO2-15-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 15_6 mit exponentieller Anpassungskurve](images/p_VO2_15_6.svg){#fig-VO2-15-6 width="1100" height="450"}
+
+:::
+
+## Proband 19
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 19_1 mit exponentieller Anpassungskurve](images/p_VO2_19_1.svg){#fig-VO2-19-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 19_2 mit exponentieller Anpassungskurve](images/p_VO2_19_2.svg){#fig-VO2-19-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 19_3 mit exponentieller Anpassungskurve](images/p_VO2_19_3.svg){#fig-VO2-19-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 19_4 mit exponentieller Anpassungskurve](images/p_VO2_19_4.svg){#fig-VO2-19-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 19_5 mit exponentieller Anpassungskurve](images/p_VO2_19_5.svg){#fig-VO2-19-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 19_6 mit exponentieller Anpassungskurve](images/p_VO2_19_6.svg){#fig-VO2-19-6 width="1100" height="450"}
+
+:::
+
+## Proband 20
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 20_1 mit exponentieller Anpassungskurve](images/p_VO2_20_1.svg){#fig-VO2-20-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 20_2 mit exponentieller Anpassungskurve](images/p_VO2_20_2.svg){#fig-VO2-20-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 20_3 mit exponentieller Anpassungskurve](images/p_VO2_20_3.svg){#fig-VO2-20-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 20_4 mit exponentieller Anpassungskurve](images/p_VO2_20_4.svg){#fig-VO2-20-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 20_5 mit exponentieller Anpassungskurve](images/p_VO2_20_5.svg){#fig-VO2-20-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 20_6 mit exponentieller Anpassungskurve](images/p_VO2_20_6.svg){#fig-VO2-20-6 width="1100" height="450"}
+
+:::
+
+## Proband 22
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 22_1 mit exponentieller Anpassungskurve](images/p_VO2_22_1.svg){#fig-VO2-22-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 22_2 mit exponentieller Anpassungskurve](images/p_VO2_22_2.svg){#fig-VO2-22-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 22_3 mit exponentieller Anpassungskurve](images/p_VO2_22_3.svg){#fig-VO2-22-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 22_4 mit exponentieller Anpassungskurve](images/p_VO2_22_4.svg){#fig-VO2-22-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 22_5 mit exponentieller Anpassungskurve](images/p_VO2_22_5.svg){#fig-VO2-22-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 22_6 mit exponentieller Anpassungskurve](images/p_VO2_22_6.svg){#fig-VO2-22-6 width="1100" height="450"}
+
+:::
+
+## Proband 23
+
+::: {.panel-tabset}
+### Test 1
+![Sauerstoffkinetik während des Belastungstests 23_1 mit exponentieller Anpassungskurve](images/p_VO2_23_1.svg){#fig-VO2-23-1 width="1100" height="450"}
+
+### Test 2
+![Sauerstoffkinetik während des Belastungstests 23_2 mit exponentieller Anpassungskurve](images/p_VO2_23_2.svg){#fig-VO2-23-2 width="1100" height="450"}
+
+### Test 3
+![Sauerstoffkinetik während des Belastungstests 23_3 mit exponentieller Anpassungskurve](images/p_VO2_23_3.svg){#fig-VO2-23-3 width="1100" height="450"}
+
+### Test 4
+![Sauerstoffkinetik während des Belastungstests 23_4 mit exponentieller Anpassungskurve](images/p_VO2_23_4.svg){#fig-VO2-23-4 width="1100" height="450"}
+
+### Test 5
+![Sauerstoffkinetik während des Belastungstests 23_5 mit exponentieller Anpassungskurve](images/p_VO2_23_5.svg){#fig-VO2-23-5 width="1100" height="450"}
+
+### Test 6
+![Sauerstoffkinetik während des Belastungstests 23_6 mit exponentieller Anpassungskurve](images/p_VO2_23_6.svg){#fig-VO2-23-6 width="1100" height="450"}
+:::
+:::
+
+## O2 Cost of Work { .unlisted }
+Die Bestimmung der O~2~ Cost of Work für die verschiedenen Belastungsintensitäten mittels linearer Regression. Diese analysiert die Beziehung zwischen der Änderung des Netto-Sauerstoffvolumenstroms ($\dot{V}O_{2,net}$) und der Summe aus mechanischer und interner Leistungsänderung (ΔP~Tot~). Die Steigung der Regressionslinie beträgt 11,77 [ml∙min^-1^∙Watt^-1^] bei einem Bestimmtheitsmaß von R^2^ = 1,00. Der mittlere O~2~ Cost of Work aller Probanden liegt bei 11,73 [ml∙min^-1^∙Watt^-1^]. Für eine Belastung von 50 Watt ergibt sich ein O~2~ Cost of Work von 588,69 [ml∙min^-1^∙Watt^-1^].<br>
+Diese Werte liegen etwas höher als die in der Literatur beschriebenen Referenzwerte für die Fahrradergometrie (8,5-11,0 [ml∙min^-1^∙Watt^-1^]), sind aber vergleichbar mit den von @Heck2022 genannten 12 [ml∙min^-1^∙Watt^-1^]. Die ermittelten Werte entsprechen am ehesten den von @Oezyener2001 beschriebenen Werten für moderate Belastungen (11,52 [ml∙min^-1^∙Watt^-1^]) und liegen damit im oberen Bereich der in der Literatur dokumentierten Spanne.
+
+![O₂ Cost of Work: Lineare Regression der Beziehung zwischen ΔVO~2,net~ und ΔP~Tot~ für alle Probanden](images/p_O2_Cost_of_Work.html){#fig-PCr_Ref width="1200" height="500"}
+
+
+# Laktat-Leistungs-Beziehung {.tabset .unlisted} 
+Die nachfolgenden Abbildungen zeigen die modellierte Laktat-Leistungs-Beziehung aller Probanden. Für jeden Probanden ist der Zusammenhang zwischen der Differenz der mechanischen Leistung (ΔP~mech~) der Belastungsintensitäten und der Erwärmung sowie der zugehörigen Differenz der maximalen Blutlaktatkonzentration, die direkt nach der jeweiligen Belastung gemessen wurden (ΔBLC), durch eine Exponentialfunktion modelliert. Aufgrund der kurzen Erholungszeit nach der ersten Sprintbelastung erreichten die BLC-Werte nicht das Ruheniveau. Folglich wurde der erste ΔBLC-Wert (ΔBLC~1~) durch Extrapolation der modellierten Exponentialfunktion bei der entsprechenden mechanischen Leistung der ersten Belastung ermittelt. Die folgenden Abbildungen beinhalten die empirisch erhobenen ΔBLC-Messwerte, die mathematisch bestimmte Vorhersage des ersten ΔBLC-Wertes sowie die zugehörige Exponentialfunktion zur Beschreibung des Laktat-Leistungs-Zusammenhangs.
+
+```{r}
+# Library und dfs laden
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+```
+
+```{r}
+# Initialisierung der Listen
+Modellwerte_list <- list()
+ΔBLC_data_df <- data.frame()
+
+# Berechnung und Speicherung der Modellwerte
+for (prefix in names(ΔBLC_list)) {
+proband_data <- ΔBLC_list[[prefix]]
+
+# Datenkonvertierung in DataFrame
+df_proband <- data.frame(
+  Leistung = unlist(lapply(proband_data, function(x) x$Leistung)),
+  ΔBLC = unlist(lapply(proband_data, function(x) x$ΔBLC))
+)
+
+# Exponentielle Regression
+exponential_model <- nls(ΔBLC ~ a * exp(b * Leistung), data = df_proband, start = list(a = 0.01, b = 0.0125))
+
+# Extrahiere Modellkoeffizienten
+coef_exponential_model <- coef(exponential_model)
+
+# Berechne die Werte für die exponentielle Anpassungslinie
+y_pred_proband <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * df_proband$Leistung)
+    
+    # Erweiterung des Leistungsbereichs und Berechnung der Anpassungslinie
+    max_leistung <- max(df_proband$Leistung)
+    extended_max_leistung <- max_leistung * 1.10
+    x_seq <- seq(min(df_proband$Leistung), extended_max_leistung, length.out = 1000)
+    y_pred <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * x_seq)
+    
+    # Berechnung für spezifische Belastung
+    ΔBLC_Belastung_1 <- coef_exponential_model['a'] * exp(coef_exponential_model['b'] * df_proband$Leistung[3])
+    
+# Speichern der berechneten Werte in Modellwerte_list
+Modellwerte_list[[prefix]] <- list(
+  df_proband = df_proband,
+  y_pred_proband = y_pred_proband,
+  x_seq = x_seq,
+  y_pred = y_pred,
+  ΔBLC_Belastung_1 = ΔBLC_Belastung_1,
+  coef_exponential_model = coef_exponential_model
+)
+
+# Zuordnung der ΔBLC Werte
+for (i in 3:length(df_proband$Leistung)) {
+  ΔBLC_data_df <- rbind(ΔBLC_data_df, data.frame(
+    Proband = prefix,
+    Nr = i - 2,
+    ΔBLC = df_proband$ΔBLC[i]
+  ))
+}
+}
+
+
+```
+::: {.panel-tabset}
+## Proband 01
+```{r}
+#| label: fig-Laktat_01
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '01'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_01 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.015,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_01
+
+```
+
+## Proband 06
+```{r}
+#| label: fig-Laktat_06
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '06'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_06 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_06
+
+```
+
+## Proband 10
+```{r}
+#| label: fig-Laktat_10
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '10'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_10 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_10
+
+```
+
+## Proband 13
+```{r}
+#| label: fig-Laktat_13
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '13'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_13 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_13
+
+```
+
+## Proband 15
+```{r}
+#| label: fig-Laktat_15
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '15'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_15 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_15
+
+```
+
+## Proband 19
+```{r}
+#| label: fig-Laktat_19
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '19'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_19 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_19
+
+```
+
+## Proband 20
+```{r}
+#| label: fig-Laktat_20
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '20'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_20 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_20
+
+```
+
+## Proband 22
+```{r}
+#| label: fig-Laktat_22
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '22'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_22 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_22
+
+```
+
+## Proband 23
+```{r}
+#| label: fig-Laktat_23
+#| fig-cap-location: top
+#| fig-cap: "Laktat-Leistungs-Beziehung mit modellbasierter ΔBLC-Vorhersage für Belastung 1"
+
+library(plotly)     
+library(minpack.lm) 
+
+ΔBLC_list <- readRDS("rds/BLC_list.rds")
+
+BLC_Diagramme_list <- list()
+prefix <- '23'
+values <- Modellwerte_list[[as.character(prefix)]]
+df_proband <- values$df_proband
+y_pred_proband <- values$y_pred_proband
+x_seq <- values$x_seq
+y_pred <- values$y_pred
+ΔBLC_Belastung_1 <- values$ΔBLC_Belastung_1
+coef_exponential_model <- values$coef_exponential_model
+
+p_Laktat_23 <- plot_ly() %>%
+  add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+            name = paste("ΔBLC mmol·l⁻¹"),
+            marker = list(color = "#2683C6", size = 7.0)) %>%
+  add_trace(x = ~df_proband$Leistung[3], y = ~ΔBLC_Belastung_1, type = 'scatter', mode = 'markers',
+            name = 'ΔBLC: Modellbasierte Vorhersage des ΔBLC-Wertes von Belastung 1', 
+            marker = list(color = "#EF5350", size = 8.0)) %>%
+  add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
+            name = 'Laktat Modellfunktion', 
+            line = list(color = '#62A39F', width = 3)) %>%
+  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+                  x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
+                  xanchor = 'left', yanchor = 'bottom') %>%
+  layout(
+    title = paste("Proband:", prefix, "- Laktat-Leistungs-Beziehung"),
+    margin = list(t = 40),
+    xaxis = list(
+      title = "ΔP<sub>mech</sub> [W]",
+      range = c(0, max(df_proband$Leistung) * 1.1),
+      zeroline = TRUE
+    ),
+    yaxis = list(
+      title = "ΔBLC [mmol·l⁻¹]",
+      range = c(0, max(y_pred) * 1.1),
+      zeroline = TRUE
+    ),
+    legend = list(
+      x = 0.01,
+      y = 0.99,
+      xanchor = "left",
+      yanchor = "top",
+      bgcolor = "rgba(255, 255, 255, 0.8)",
+      bordercolor = "rgba(0,0,0,0)",
+      borderwidth = 0
+    ),
+    showlegend = TRUE
+  )
+
+p_Laktat_23
+
+```
+
+:::
+  
+
+# Quellenverzeichnis
+
+::: {#refs}
+:::
+

@@ -1,0 +1,75 @@
+---
+title: "Diskussion"
+
+execute: 
+  message: false
+  echo: false
+  warning: false
+  error: false
+bibliography: references.bib
+lang: de
+number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+
+tbl-cap-location: bottom
+---
+
+# Diskussion
+
+## Forschungsfragen und Hypothesen { .unlisted}
+
+### Vergleich der Körperpositionen Sitzen und Stehen
+- η~muskulär~ höher in sitzender Position (24.98 ± 1.06% vs. 24.07 ± 0.96%), Hypothese widerlegt
+- Mögliche Erklärung: Geringere Stabilisationsanforderungen, günstigere Körperposition im Sitzen
+- Unterschied reduziert sich bei höherer Intensität, da Positionseinfluss geringer wird
+
+### Vergleich der Belastungsintensitäten
+- η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -> 24.14 ± 0.90%), Hypothese widerlegt
+- Mögliche Ursache: Erhöhter Anteil ineffizienter schnell-kontraktiler Fasern bei hoher Intensität
+
+### Interaktion von Körperposition und Belastungsintensität
+- Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit Intensität ab
+- Bestätigt Hypothese teilweise: Kein Unterschied bei hoher Intensität
+
+## Weitere Wirkungsgrade { .unlisted}
+- η~Total~: Keine Unterschiede zwischen Positionen und Intensitäten
+    - Kompensation der η~muskulär~-Unterschiede auf übergeordneter Ebene
+- η~Netto~: Anstieg nur in stehender Position mit Intensität
+    - Abweichend von Literatur, möglicherweise bedingt durch Belastungsprotokoll
+- η~Brutto~: Anstieg mit Intensität nur in stehender Position
+    - Übereinstimmend mit Literatur, Ursache: Verbesserung Energietransformation
+- η~Arbeit~: Abfall mit Intensität in sitzender Position
+    - Bestätigt Literatur, mögliche Erklärung: Ineffizientere Faserrekrutierung
+
+## Mechanische Leistung und Bewegungsökonomie { .unlisted}
+- P~mech,max~ höher im Stehen als Sitzen
+    - Bessere Ausnutzung Schwerkraft, günstigere Körperposition im Stehen
+- Torque Efficiency und Pedal Smoothness steigen mit Intensität
+    - Optimierung Bewegungskoordination bei höherer Belastung
+    - Zusammenhang mit mechanischer Leistungsfähigkeit
+
+## Ausblick und Limitationen { .unlisted}
+- Weitere Untersuchung positionsspezifischer Unterschiede via Kinematik, EMG
+- Übertragbarkeit auf andere Sportarten prüfen
+- Praktische Implikationen für Training und Leistungsoptimierung
+- Limitationen: Stichprobengröße, indirekte Bestimmung innere Leistung
+
+Zusätzliche Aspekte:
+- Vergleich der ermittelten η~muskulär~-Werte mit Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der vorliegenden Studie
+    - Mögliche Erklärung: Referenzstudien weisen außergewöhnlich hohe Wirkungsgrade auf
+    - Direkte Vergleichbarkeit der Absolutwerte daher nur eingeschränkt möglich
+- Analyse der weiteren Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~, η~Arbeit~) ermöglicht umfassenderes Verständnis der Energietransformationsprozesse
+    - Identifikation von Kompensationsmechanismen auf übergeordneter Ebene
+    - Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen Bedingungen und Intensitäten
+- Untersuchung der Zusammenhänge zwischen mechanischer Leistung, Torque Efficiency und Pedal Smoothness
+    - Hinweise auf Optimierung der Bewegungskoordination bei höherer Belastung
+    - Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
+
+
+
+# Quellenverzeichnis
+
+::: {#refs}
+:::

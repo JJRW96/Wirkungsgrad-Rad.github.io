@@ -22,14 +22,12 @@ library(DT)
 
 Für die Studie wurden ausdauertrainierte Personen gesucht, die eine $\dot{V}O_{2,max}$ von etwa 65 [ml·min^-1·kg^-1] oder mehr aufwiesen. Es wurden sowohl Frauen als auch Männer aus dem Radsport oder Triathlon sowie verschiedenen Ausdauersportarten als potenzielle Probanden geworben.
 
-Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien erfüllten. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. Von den 9 verbleibenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6, SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82 kg (M = 70.4, SD = 10.4) und die Körperlänge zwischen 157 und 186 cm (M = 176.3, SD = 9.43). Die gemessene absolute $\dot{V}O_{2,max}$ der Probanden lag zwischen 3900 und 6181 [ml·min^-1^] (M = 4543.7, SD = 789.1) und die gemessene relative $\dot{V}O_{2,max}$ der Probanden lag zwischen 67.8 und 81.3 [ml·min^-1^·kg^-1^] (M = 72.1, SD = 4.0).
+Insgesamt nahmen 24 Personen an der Studie teil, wovon nur 11 die Einschlusskriterien erfüllten. Davon wurden wiederum 2 Probanden aufgrund fehlender oder schlechter Versuchsdaten entfernt. Von den 9 verbleibenden Probanden waren 2 weiblich und 7 männlich und zwischen 24 und 45 Jahre alt (M = 32.6, SD = 9.4). Die Masse der Probanden lag zwischen 48 und 82 kg (M = 70.4, SD = 10.4) und die Körperlänge zwischen 157 und 186 cm (M = 176.3, SD = 9.43). Die gemessene absolute $\dot{V}O_{2,max}$ der Probanden lag zwischen 3900 und 6181 [ml·min^-1^] (M = 4543.7, SD = 789.1) und die gemessene relative $\dot{V}O_{2,max}$ der Probanden lag zwischen 67.8 und 81.3 [ml·min^-1^·kg^-1^] (M = 72.1, SD = 4.0). Somit können neun Probanden nach @DePauw2013 in Leistungsniveau bzw. "Performance Level = PL" 4 und 5 eingeordnet werden (@fig-dePauw).
 
-```{r}
-#Pmax etc noch beschreiben ...Siehe Tabelle ...
-```
-
+![Klassifikation von Probanden in Leistungsniveaus ("Performance Levels = PL") (PL 1-5), basierend auf leistungsphysiologischen Parametern: Absoluter und gewichtsbezogener Peak-Power Output (PPO), welcher die höchste erreichte mechanische Leistung während eines inkrementellen Stufentests beschreibt, sowie absolutem und relativem maximalen Sauerstoffvolumenstrom (De Pauw et al., 2013).](images/de_Pauw_Leistungsniveau.png){#fig-dePauw .caption}
 
 ## Stichprobe
+In folgender Tabelle werden ausgewählte anthropometrische und leistungsphysiologische Daten aus dem Eingangstest der Studienteilnehmer dargestellt.
 
 ```{r}
 # Excel-Datei einlesen
@@ -70,4 +68,4 @@ datatable(Stichprobe_df)
 
 ```
 
-> Probandinnen 2 und 3 wurden aufgrund fehlender oder schlechter Versuchsdaten entfernt
+

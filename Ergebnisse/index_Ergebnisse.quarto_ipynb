@@ -1,0 +1,45 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "execute:\n",
+        "  message: false\n",
+        "  echo: false\n",
+        "  warning: false\n",
+        "  error: false\n",
+        "  \n",
+        "bibliography: references.bib\n",
+        "lang: de\n",
+        "number-sections: false\n",
+        "---\n",
+        "\n",
+        "```{css}\n",
+        "#| echo: false\n",
+        "p {\n",
+        "  text-align: justify\n",
+        "}\n",
+        "```\n",
+        "\n",
+        "\n",
+        "# Ergebnisse\n",
+        "\n",
+        "Im folgenden Kapitel werden die Ergebnisse der deskriptiven und inferenzstatistischen Analysen für die Forschungsfragen sowie die zuvor formulierten Hypothesen sowohl tabellarisch als auch grafisch präsentiert. Diese Darstellungen bieten einen umfassenden Überblick über die gewonnenen Daten und verdeutlichen die zugrunde liegenden Muster und Zusammenhänge.\n",
+        "\n",
+        "Die präsentierten Ergebnisse sind vorläufig und nicht vollständig, sie repräsentieren nicht die endgültigen Resultate der Masterarbeit. Sie dienen lediglich dazu, einen Überblick über die verschiedenen modellierten und berechneten Daten zu geben."
+      ],
+      "id": "8d92f13b"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

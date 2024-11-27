@@ -1,0 +1,104 @@
+---
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+
+engine: knitr
+---
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+.math.display {
+  text-align: left !important;
+  max-width: 100% !important;
+  overflow-x: auto;
+}
+.math.display .MathJax {
+  display: inline-block !important;
+  text-align: left !important;
+}
+.MathJax_Display {
+  text-align: left !important;
+}
+
+```
+
+
+# Abkürzungsverzeichnis {.unnumbered}
+
+$$
+\begin{alignat*}{2}
+&A_{\text{fast}} \text{ [ml·min}^{-1}\text{]}:&& \text{ Amplitude der schnellen EPOC-Komponente} \\[1ex]
+&A_{\text{slow}} \text{ [ml·min}^{-1}\text{]}:&& \text{ Amplitude der langsamen EPOC-Komponente} \\[1ex]
+&C_{\text{a}} \text{ [ml O}_2\text{·100ml}^{-1}\text{]}:&& \text{ Arterielle Sauerstoffkonzentration} \\[1ex]
+&C_{\text{v}} \text{ [ml O}_2\text{·100ml}^{-1}\text{]}:&& \text{ Venöse Sauerstoffkonzentration} \\[1ex]
+&\Delta\text{BLC} \text{ [mmol·l}^{-1}\text{]}: && \text{ Netto-Blutlaktatakkumulation (Post - Pre)} \\[1ex]
+&\Delta\text{G} \text{ [kJ]}: && \text{ Änderung der Gibbs'schen freien Energie} \\[1ex]
+&\Delta\dot{\text{V}}\text{O}_{2} \text{ [l·min}^{-1}\text{]}: && \text{ Differenz zwischen zwei Sauerstoffvolumenströmen bzw. die Amplitude des Sauerstoffvolumenstroms} \\[1ex]
+&\text{E}_{\text{kin,rot}}: && \text{ Rotatorische kinetische Energiekomponente} \\[1ex] 
+&\text{E}_{\text{kin,trans}}: && \text{ Translatorische kinetische Energiekomponente} \\[1ex]
+&\text{E}_{\text{Tot}} \text{ [kJ]}: && \text{ Gesamte umgesetzte chemische Energie} \\[1ex]
+&\text{EPOC}_{\text{fast}} \text{ [l]}:&& \text{ EPOC der schnellen Komponente} \\[1ex]
+&\text{EPOC}_{\text{fast}} \text{ [ml·kg}^{-1}\text{]}: && \text{ Auf Körpermasse normierte EPOC der schnellen EPOC} \\[1ex]
+&\text{EPOC}_{\text{ges}} \text{ [l]}:&& \text{ EPOC der gesamten Nachbelstung} \\[1ex]
+&\text{EPOC}_{\text{ges}} \text{ [ml·kg}^{-1}\text{]}:&& \text{ Auf Körpermasse normierte EPOC-Werte} \\[1ex]
+&\text{EPOC}_{\text{PCr}} \text{ [l]}:&& \text{ EPOC Menge die der Rephosphorylierung von PCr zugeordnet wird} \\[1ex]
+&\text{EPOC}_{\text{PCr}} \text{ [ml·kg}^{-1}\text{]}: && \text{ Auf Körpermasse normierte EPOC der PCr-Rephosphorylierung} \\[1ex]
+&\eta_{\text{Arbeit,sitzen}} \text{ [%]}: && \text{ Arbeitswirkungsgrad (sitzende Position)} \\[1ex]
+&\eta_{\text{Brutto}} \text{ [%]}: && \text{ Bruttowirkungsgrad} \\[1ex]
+&\eta_{\text{Delta}}: && \text{ Deltawirkungsgrad} \\[1ex]
+&\eta_{\text{muskulär}} \text{ [%]}: && \text{ Muskulärer Wirkungsgrad} \\[1ex]
+&\eta_{\text{Netto}} \text{ [%]}: && \text{ Nettowirkungsgrad} \\[1ex]
+&\eta_{\text{Total}} \text{ [%]}: && \text{ Gesamtwirkungsgrad} \\[1ex]
+&\text{kÄ} \text{ [kJ·l}^{-1}\text{]}:&& \text{ Kalorisches Äquivalent für einen bestimmten RQ-Wert} \\[1ex]
+&\text{kÄ}_{\text{KH}} \text{ [kJ·l}^{-1}\text{]}:&& \text{ Kalorisches Äquivalent für Kohlenhydrate} \\[1ex]
+&\text{nD [U·min}^{-1}\text{]}: && \text{ Drehzahl: Definiert als die Anzahl vollständiger Rotationen der Tretkurbel pro Zeiteinheit} \\[1ex]
+&\text{O}_{2}\text{-Speicher} \text{ [l]}:&& \text{ Körpereigene Sauerstoffspeicher} \\[1ex]
+&\text{P}_{\text{Int}} \text{ [W]}: && \text{ Innere Leistung} \\[1ex]
+&\text{P}_{\text{mech}} \text{ [W]}: && \text{ Mechanische Leistung} \\[1ex]
+&\text{P}_{\text{Tot}} \text{ [W]}: && \text{ Gesamtleistung} \\[1ex]
+&\text{PCr}_{\text{Norm}} \text{ [mmol·kg}^{-1}\text{]}:&& \text{ Normwert der PCr-Konzentration} \\[1ex]
+&\text{PCr}_{\text{used}} \text{ [mmol·kg}^{-1}\text{]}:&& \text{ Umgesetzte PCr-Menge pro kg Muskelfeuchmasse} \\[1ex]
+&\text{P/O}_{2} \text{ [mol ATP·mol O}_2^{-1}\text{]}:&& \text{ P/O}_{2}\text{-Verhältnis} \\[1ex] 
+&\dot{Q} \text{ [l·min}^{-1}\text{]}:&& \text{ Herzminutenvolumen} \\[1ex]
+&R^2:&& \text{ Bestimmtheitsmaß der Modellanpassungen} \\[1ex]
+&R_{2,\text{off}}: && \text{ Bestimmtheitsmaß der EPOC-Modellanpassungen} \\[1ex]
+&\text{RQ}:&& \text{ Respiratorischer Quotient} \\[1ex]
+&t_{\text{delay}} \text{ [s]}:&& \text{ Zeitverzögerung der EPOC-Modellanpassung} \\[1ex]
+&t_{1/2} \text{ [s]}:&& \text{ Halbwertszeit} \\[1ex] 
+&\tau_{\text{A}} \text{ [min]}:&& \text{ Zeitkonstante der schnellen EPOC-Komponente} \\[1ex]
+&\tau_{\text{B}} \text{ [min]}:&& \text{ Zeitkonstante der langsamen EPOC-Komponente} \\[1ex]
+&\tau_{\text{fast}} \text{ [min]}:&& \text{ Zeitkonstante der schnellen EPOC-Komponente} \\[1ex]
+&\tau_{\text{on}} \text{ [s]}: && \text{ Zeitkonstante der monoexponentiellen Anpassung des Sauerstoffvolumenstroms} \\[1ex]
+&\tau_{\text{slow}} \text{ [min]}:&& \text{ Zeitkonstante der langsamen EPOC-Komponente} \\[1ex]
+&V_{\text{m,O}_2} \text{ [l·mol}^{-1}\text{]}:&& \text{ Molvolumen von Sauerstoff} \\[1ex]
+&\text{VBV} \text{ [l]}:&& \text{ Venöses Blutvolumen} \\[1ex]
+&\dot{\text{V}}\text{O}_{2} \text{ [l·min}^{-1}\text{]}:&& \text{ Sauerstoffvolumenstrom} \\[1ex]
+&\dot{\text{V}}\text{O}_{2,\text{on,Start}} \text{ [l·min}^{-1}\text{]}: && \text{ V̇O}_2\text{ zu Beginn der Kinetik-Modellanpassung} \\[1ex]
+&\dot{\text{V}}\text{O}_{2,\text{Referenz}} \text{ [l·min}^{-1}\text{]}:&& \text{ Sauerstoffvolumenstrom während der Referenzphase} \\[1ex]
+&\dot{\text{V}}\text{O}_{2,\text{Ruhe}} \text{ [l·min}^{-1}\text{]}:&& \text{ Sauerstoffvolumenstrom in Ruhe} \\[1ex]
+&\dot{\text{V}}\text{O}_{2,\text{Start}} \text{ [l·min}^{-1}\text{]}:&& \text{ Sauerstoffvolumenstrom zu Beginn der jeweiligen Belastungsintensität} \\[1ex]
+&\text{W}_{\text{Aerob}} \text{ [kJ]}: && \text{ Aerobe Energiebereitstellung} \\[1ex]
+&\text{W}_{\text{AER}} \text{ [kJ]}: && \text{ Aerobe Energiekomponente} \\[1ex]
+&\text{W}_{\text{BLC}} \text{ [kJ]}: && \text{ Anaerob-laktazide Energiekomponente} \\[1ex]
+&\text{W}_{\text{Ext}} \text{ [kJ]}: && \text{ Externe Arbeit} \\[1ex]
+&\text{W}_{\text{Int}} \text{ [kJ]}: && \text{ Innere Arbeit} \\[1ex]
+&\text{W}_{\text{PCr}} \text{ [kJ]}:&& \text{ Berechnete anaerobe-alaktazide Energiekomponente} \\[1ex]
+&\text{W}_{\text{PCr,corrected}} \text{ [kJ]}:&& \text{ Berechnete anaerobe-alaktazide Energiekomponente abzüglich der Sauerstoffspeicher} \\[1ex]
+&\text{W}_{\text{TOT}} \text{ [kJ]}: && \text{ Gesamtenergieumsatz aus allen Stoffwechselwegen} \\[1ex]
+$$
+
+::: {#refs}
+:::

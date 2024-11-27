@@ -1,0 +1,386 @@
+---
+title: "Deskriptive Statistik"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+
+filters:
+  - shinylive
+
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false  
+jupyter: false
+engine: knitr
+---
+  
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+```
+
+
+
+
+
+# Darstellung des Energieumsatzes und Wirkungsgrads unter verschiedenen Bedingungen und Intensitäten
+
+"Die gemessenen Parameter des Energieumsatzes, der Leistung, des Wirkungsgrads sowie der physiologischen Reaktionen sind in Tabelle 1 zusammengefasst. Die Werte beziehen sich auf die Messungen, die während der Belastungsphasen unter den verschiedenen Bedingungen (Sitzen und Stehen) und Intensitäten (leicht, moderat und schwer) erhoben wurden. Das Balkendiagramm in Abbildung 1 visualisiert zusätzlich die Verteilung des Energieumsatzes auf die verschiedenen Energiequellen."
+  
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 1200
+library(shiny)
+library(dplyr)
+library(tidyr)
+library(plotly)
+library(DT)
+library(reactable)
+library(htmltools)
+library(shinylive)
+library(dplyr)
+library(DT)
+
+
+Bedingungen_data <- data.frame(
+  Proband = factor(c(1,1,1,1,1,1,6,6,6,6,6,6,10,10,10,10,10,10,13,13,13,13,13,13,15,15,15,15,15,15,19,19,19,19,19,19,20,20,20,20,20,20,22,22,22,22,22,22,23,23,23,23,23,23)),
+  Bedingung = c("stehen","sitzen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","stehen","sitzen","stehen","sitzen","sitzen","stehen","stehen","sitzen","stehen","sitzen","stehen","sitzen","sitzen","stehen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","sitzen","stehen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","sitzen","stehen","stehen","sitzen","sitzen","stehen","stehen","sitzen","sitzen","stehen","stehen","sitzen"),
+  Intensität = c("leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer"),
+  Wirk_Arbeit = c(0.236,0.246,0.242,0.229,0.232,0.239,0.235,0.241,0.248,0.239,0.24,0.243,0.253,0.268,0.246,0.243,0.237,0.239,0.246,0.26,0.237,0.256,0.245,0.236,0.256,0.23,0.251,0.238,0.236,0.257,0.229,0.25,0.239,0.226,0.23,0.224,0.267,0.254,0.247,0.25,0.239,0.241,0.253,0.256,0.262,0.257,0.24,0.255,0.236,0.269,0.26,0.237,0.243,0.259),
+  WAerob_kJ = c(364.789,341.63,380.176,397.986,434.292,433.605,324.974,328.244,338.783,345.676,364.681,257.548,373.643,359.054,449.591,437.034,472.355,502.399,358.838,352.868,394.753,386.92,414.584,422.975,336.737,327.041,374.941,376.055,407.569,413.17,301.002,268.617,293.783,323.273,338.096,356.148,301.109,280.951,322.983,336.779,374.988,386.658,266.533,251.79,278.169,296.28,322.403,294.594,228.956,211.733,242.183,251.874,269.031,263.981),
+  WPCR_kJ = c(24.99,32.078,29.98,41.372,32.638,31.531,36.043,30.172,32.921,37.818,39.501,28.28,26.361,43.004,44.844,47.735,57.011,41.969,33.885,39.927,47.648,43.936,53.68,50.565,29.216,27.53,35.164,28.986,47.232,36.751,26.606,20.363,30.392,26.097,32.816,35.505,26.571,18.819,26.123,31.549,24.554,32.396,18.144,19.103,15.287,14.856,29.95,33.898,19.655,11.905,16.782,20.699,25.292,21.067),
+  WBLC_kJ = c(10.331,11.611,15.658,12.815,20.331,7.66,10.576,10.736,15.179,19.02,24.804,17.4,6.874,5.614,18.402,10.604,15.802,23.444,7.487,10.041,9.859,9.539,15.336,13.647,6.432,8.576,8.576,11.804,7.468,17.874,6.891,7.499,11.084,12.98,17.018,18.007,6.655,10.143,11.106,8.317,17.902,13.236,6.61,6.086,10.863,13.388,20.296,15.275,4.766,4.184,7.303,10.46,13.388,11.525),
+  WTOT_kJ = c(400.111,385.318,425.813,452.173,487.261,472.796,371.593,369.153,386.883,402.514,428.986,303.228,406.879,407.672,512.836,495.373,545.169,567.812,400.21,402.837,452.26,440.395,483.6,487.187,372.385,363.147,418.681,416.845,462.268,467.795,334.499,296.479,335.259,362.35,387.929,409.659,334.335,309.913,360.213,376.645,417.444,432.29,291.287,276.979,304.319,324.524,372.649,343.767,253.376,227.822,266.267,283.032,307.712,296.572),
+  P_Tot = c(315.088,315.356,343.25,345.622,376.014,377.269,291.341,296.009,319.564,320.346,342.797,334.697,342.78,364.604,419.8,400.468,431.054,452.464,328.689,348.476,357.036,375.551,395.659,383.032,317.382,278.361,350.89,330.104,363.619,400.224,255.678,247.5,267.481,272.461,297.603,306.493,297.678,262.465,297.034,313.722,332.282,347.56,245.195,236.218,265.627,278.28,297.955,291.81,199.167,204.304,230.54,223.281,248.864,255.967),
+  P_mean = c(286.197,279.856,308.058,316.423,340.826,347.288,277.24,271.455,304.467,298.231,325.413,309.695,323.151,316.844,371.964,380.656,411.775,405.479,300.612,294.276,330.975,323.263,347.878,356.524,264.043,264.046,296.596,312.821,338.375,340.656,222.299,217.725,237.15,238.511,268.3,270.268,259.61,246.985,281.341,276.153,316.925,309.07,220.908,221.312,250.936,254.072,274.367,276.738,175.467,173.182,199.048,199.115,224.703,224.227),
+  P_Int = c(28.891,35.5,35.191,29.199,35.188,29.981,14.101,24.553,15.096,22.115,17.384,25.002,19.629,47.76,47.836,19.812,19.28,46.985,28.078,54.2,26.061,52.288,47.782,26.508,53.339,14.315,54.294,17.283,25.244,59.568,33.379,29.774,30.332,33.951,29.303,36.225,38.068,15.48,15.693,37.57,15.358,38.49,24.288,14.906,14.691,24.208,23.588,15.072,23.7,31.122,31.492,24.167,24.161,31.74),
+  nD = c(76.656,86.401,86.152,76.97,86.149,77.755,59.67,79.341,59.012,78.632,58.578,74.838,64.403,93.431,93.48,64.651,63.923,92.926,76.179,100.726,76.497,100.707,101.494,76.29,94.922,67.303,95.691,67.756,68.909,97.233,82.316,85.115,84.987,82.412,85.664,82.543,88.353,59.284,59.646,87.968,59.075,88.675,86.174,65.943,65.511,86.081,85.349,66.273,75.21,87.711,88.053,75.796,75.789,88.282),
+  Efficiency = c(66.42,80.67,85.6,72.95,87.65,78.67,80.04,86.41,86.78,88.63,88.24,92.41,73.99,73.77,81.11,85.39,91.79,84.47,72.05,72.34,79.17,76.95,79.78,85.17,66.52,69.93,72.41,82.58,87.01,79.53,65.43,72.54,77.02,70.47,80.77,78.76,64.47,62.05,68.4,71.35,77.44,75.1,81.99,82.22,91.47,89.76,92.56,97.11,50.58,59.59,65.12,56.31,63.19,72.06),
+  Pedal_Smoothness = c(39.71,50.818,52.443,40.206,53.679,41.045,47.915,51.534,49.217,51.139,48.034,52.822,47.93,51.948,54.061,50.656,52.634,54.273,43.084,49.064,44.663,50.294,51.29,46.464,48.329,44.259,52.672,47.444,48.247,57.974,42.43,50.291,52.357,42.713,52.269,44.794,46.357,38.358,39.662,49.311,42.188,51.48,54.435,49.538,51.844,57.505,57.678,52.618,32.376,42.067,44.898,34.164,36.544,47.313),
+  P_max = c(720.714,550.698,587.417,787.012,634.932,846.119,578.61,526.754,618.616,583.178,677.468,586.295,674.211,609.931,688.05,751.453,782.343,747.115,697.739,599.784,741.044,642.751,678.261,767.314,546.343,596.592,563.099,659.349,701.336,587.603,523.918,432.933,452.948,558.406,513.31,603.362,560.027,643.901,709.354,560.028,751.219,600.372,405.819,446.75,484.018,441.824,475.692,525.937,541.967,411.679,443.334,582.826,614.878,473.924),
+  HR_percent = c(87.37,85.07,88.4,90.93,93.12,93.78,88.05,88.16,92.21,91.97,95.39,93.58,84.41,84.65,88.64,89.98,91.12,94.04,89.19,89.26,92.25,92.32,93.98,94.9,86.65,87.88,89.95,91.14,93.96,94.27,90.9,86.55,87.59,91.62,91.13,95.12,86.77,87.49,90.8,89.74,93.35,94.18,80.64,81.03,84.87,88.21,91.54,92.47,91.92,88.36,90.08,92.49,93.58,93.31),
+  VO2_percent = c(71.27,66.6,72.84,76.05,83.97,83.1,73.17,73.36,75.13,76.76,82.17,80.02,65.96,64.11,76.98,75.53,81.19,87.7,77.06,75.21,82.91,81.14,86.2,88.05,69.58,67.18,76.09,77.01,83.24,82.99,68.97,61.94,67.21,72.61,75.89,79.96,59.98,55.95,63.85,65.63,72.7,75.69,74.64,71.07,77.24,82.44,89.64,82.88,64.16,59.83,66.38,68.75,72.98,72.62),
+  ΔBLC = c(2.144,2.41,3.25,2.66,4.22,1.59,2.285,2.32,3.28,4.11,5.36,3.76,1.322,1.08,3.54,2.04,3.04,4.51,1.64,2.2,2.16,2.09,3.36,2.99,1.335,1.78,1.78,2.45,1.55,3.71,1.672,1.82,2.69,3.15,4.13,4.37,1.312,2,2.19,1.64,3.53,2.61,2.172,2,3.57,4.4,6.67,5.02,1.253,1.1,1.92,2.75,3.52,3.03),
+  Wirk_Brutto = c(0.194,0.196,0.197,0.192,0.193,0.202,0.202,0.199,0.214,0.202,0.208,0.205,0.215,0.21,0.2,0.211,0.209,0.199,0.202,0.197,0.2,0.2,0.197,0.201,0.192,0.196,0.194,0.205,0.202,0.201,0.184,0.201,0.196,0.183,0.194,0.185,0.211,0.215,0.213,0.201,0.21,0.198,0.208,0.218,0.227,0.216,0.206,0.223,0.18,0.195,0.196,0.186,0.194,0.2),
+  Wirk_Netto = c(0.215,0.218,0.217,0.21,0.21,0.22,0.224,0.221,0.236,0.222,0.228,0.225,0.238,0.233,0.218,0.231,0.227,0.214,0.225,0.219,0.22,0.22,0.216,0.22,0.213,0.218,0.213,0.225,0.22,0.218,0.199,0.22,0.212,0.197,0.207,0.198,0.233,0.239,0.234,0.22,0.228,0.214,0.228,0.24,0.247,0.235,0.221,0.242,0.208,0.228,0.224,0.211,0.219,0.227)
+)
+
+
+
+# UI (User Interface) Definition:
+ui <- fluidPage(
+  titlePanel("Wirkungsgrad: Barplots"),
+  
+  fluidRow(
+    column(2,
+           wellPanel(
+             checkboxGroupInput("selectedBedingung", "Bedingungen:",
+                                unique(Bedingungen_data$Bedingung),
+                                selected = c("sitzen", "stehen")),
+             checkboxGroupInput("selectedIntensität", "Intensitäten:",
+                                unique(Bedingungen_data$Intensität),
+                                selected = c("leicht", "moderat", "schwer")),
+             checkboxGroupInput("selectedProband", "Probanden:",
+                                unique(Bedingungen_data$Proband),
+                                selected = unique(Bedingungen_data$Proband))
+           )
+    ),
+    column(10,
+           plotlyOutput("barplot", height = "calc(65vh - 150px)")
+    )
+  ),
+  
+  fluidRow(
+    column(12,
+           DTOutput("summaryTable"),
+           br(), br()
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  filtered_data <- reactive({
+    data <- Bedingungen_data %>%
+      filter(Proband %in% input$selectedProband)
+    
+    if (length(input$selectedBedingung) > 0) {
+      data <- data %>% filter(Bedingung %in% input$selectedBedingung)
+    }
+    
+    if (length(input$selectedIntensität) > 0) {
+      data <- data %>% filter(Intensität %in% input$selectedIntensität)
+    }
+    
+    # Erstellen Sie eine neue Gruppierungsvariable basierend auf den Auswahlen
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) > 0) {
+      data$Gruppe <- interaction(data$Intensität, data$Bedingung, sep = "_")
+    } else if (length(input$selectedBedingung) > 0) {
+      data$Gruppe <- data$Bedingung
+    } else if (length(input$selectedIntensität) > 0) {
+      data$Gruppe <- data$Intensität
+    } else {
+      data$Gruppe <- "Alle"
+    }
+    
+    return(data)
+  })
+  
+  # Energieumsatz Barplot
+  output$barplot <- renderPlotly({
+    filtered_data <- filtered_data()
+    
+    # Gruppierung und Berechnung basierend auf der Auswahl
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) > 0) {
+      group_vars <- c("Bedingung", "Intensität")
+    } else if (length(input$selectedBedingung) > 0) {
+      group_vars <- "Bedingung"
+    } else if (length(input$selectedIntensität) > 0) {
+      group_vars <- "Intensität"
+    } else {
+      return(NULL)
+    }
+    
+    # Berechnen des durchschnittlichen Wirkungsgrads
+    avg_efficiency_data <- filtered_data %>%
+      group_by(across(all_of(group_vars))) %>%
+      summarize(AvgWirkungsgrad = mean(Wirk_Arbeit, na.rm = TRUE))
+    
+    # Berechnen der durchschnittlichen Leistung
+    avg_power_data <- filtered_data %>%
+      group_by(across(all_of(group_vars))) %>%
+      summarize(AvgPTOT = mean(`P_Tot`, na.rm = TRUE)) 
+    
+    # Daten umwandeln und Durchschnittswerte berechnen
+    avg_energy_data <- filtered_data %>%
+      gather(Energiequelle, Wert, WAerob_kJ, WPCR_kJ, WBLC_kJ) %>%
+      group_by(across(all_of(c(group_vars, "Energiequelle")))) %>%
+      summarize(AvgWert = mean(Wert, na.rm = TRUE),
+                AvgWTOT = mean(WTOT_kJ, na.rm = TRUE),
+                Prozentsatz = (AvgWert / AvgWTOT) * 100)
+    
+    # X-Achsen-Variable festlegen
+    if (length(group_vars) > 1) {
+      x_var <- ~interaction(Intensität, Bedingung, sep = "_")
+      x_title <- "Intensität_Bedingung"
+    } else {
+      x_var <- as.formula(paste0("~", group_vars))
+      x_title <- group_vars
+    }
+    
+    p <- plot_ly(data = avg_energy_data, 
+                 x = x_var, 
+                 y = ~AvgWert, 
+                 color = ~Energiequelle, 
+                 type = 'bar',
+                 marker = list(line = list(color = 'black', width = 0.75)),
+                 colors = c("#42BA97","#F4737A", "#1CADE4"),
+                 text = ~sprintf("%.1f%%", Prozentsatz),
+                 textposition = "auto",
+                 textfont = list(color = "black")
+    ) %>%
+      layout(
+        title = 'Durchschnittlicher Energieumsatz der ausgewählten Probanden',
+        margin = list(t = 40),
+        xaxis = list(title = htmltools::HTML(paste0('<b>', x_title, '</b>')),
+                     showgrid = TRUE,
+                     gridcolor = "lightgray",
+                     gridwidth = 0.05),
+        yaxis = list(title = htmltools::HTML('<b>Energieumsatz [kJ]</b>'), tickformat = ",.0f",
+                     showgrid = TRUE,
+                     gridcolor = "lightgray",
+                     gridwidth = 0.05),
+        barmode = 'stack',
+        bargap = 0.4
+      )
+    
+    # Wirkungsgradbeschriftung 
+    for(i in 1:nrow(avg_efficiency_data)) {
+      x_val <- if (length(group_vars) > 1) {
+        interaction(avg_efficiency_data$Intensität[i], avg_efficiency_data$Bedingung[i], sep = "_")
+      } else {
+        avg_efficiency_data[[group_vars]][i]
+      }
+      
+      y_val <- sum(avg_energy_data$AvgWert[
+        if (length(group_vars) > 1) {
+          avg_energy_data$Intensität == avg_efficiency_data$Intensität[i] & 
+            avg_energy_data$Bedingung == avg_efficiency_data$Bedingung[i]
+        } else {
+          avg_energy_data[[group_vars]] == avg_efficiency_data[[group_vars]][i]
+        }
+      ]) + 15
+      
+      p <- add_annotations(p,
+                           x = x_val,
+                           y = y_val,
+                           text = sprintf("η<sub>Arbeit</sub> = %.3f", avg_efficiency_data$AvgWirkungsgrad[i]),
+                           showarrow = FALSE,
+                           yshift = 25,
+                           bgcolor = "white",
+                           bordercolor = "black",
+                           borderpad = 4,
+                           font = list(size = 11),  
+                           textangle = 0
+      )
+    }
+    
+    # Durchschnittliche Leistung beschriften
+    for(i in 1:nrow(avg_power_data)) {
+      x_val <- if (length(group_vars) > 1) {
+        interaction(avg_power_data$Intensität[i], avg_power_data$Bedingung[i], sep = "_")
+      } else {
+        avg_power_data[[group_vars]][i]
+      }
+      
+      p <- add_annotations(p,
+                           x = x_val,
+                           y = 0,
+                           text = sprintf("P<sub>TOT</sub> = %.1fW", avg_power_data$AvgPTOT[i]),
+                           showarrow = FALSE,
+                           yshift = 12,
+                           xanchor = "center",
+                           font = list(color = "black", size = 10)
+      )
+    }
+    
+    return(p)
+  })
+  
+  
+  # Energieumsatz Zusammenfassungstabelle
+  output$summaryTable <- renderDT({
+    filtered_data <- filtered_data()
+    
+    # Gruppierung basierend auf der Auswahl
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) > 0) {
+      group_vars <- c("Bedingung", "Intensität")
+    } else if (length(input$selectedBedingung) > 0) {
+      group_vars <- "Bedingung"
+    } else if (length(input$selectedIntensität) > 0) {
+      group_vars <- "Intensität"
+    } else {
+      return(NULL)
+    }
+    
+    # Funktion zur Formatierung der Werte ohne Einheit
+    format_value <- function(mean, sd) {
+      sprintf("%.1f&nbsp;±&nbsp;%.1f", round(mean, 1), round(sd, 1))
+    }
+    
+    # Daten umwandeln und Durchschnittswerte mit Standardabweichung berechnen
+    avg_energy_data <- filtered_data %>%
+      group_by(across(all_of(group_vars))) %>%
+      summarise(
+        `W_aerob [kJ]` = format_value(mean(WAerob_kJ, na.rm = TRUE), sd(WAerob_kJ, na.rm = TRUE)),
+        `W_BLC [kJ]` = format_value(mean(WBLC_kJ, na.rm = TRUE), sd(WBLC_kJ, na.rm = TRUE)),
+        `W_PCR [kJ]` = format_value(mean(WPCR_kJ, na.rm = TRUE), sd(WPCR_kJ, na.rm = TRUE)),
+        `P_mean [Watt]` = format_value(mean(P_mean, na.rm = TRUE), sd(P_mean, na.rm = TRUE)),
+        `P_Int [Watt]` = format_value(mean(P_Int, na.rm = TRUE), sd(P_Int, na.rm = TRUE)),
+        `Drehzahl [rpm]` = format_value(mean(nD, na.rm = TRUE), sd(nD, na.rm = TRUE)),
+        `η_Arbeit [%]` = format_value(100 * mean(Wirk_Arbeit, na.rm = TRUE), 100 * sd(Wirk_Arbeit, na.rm = TRUE)),
+        `η_Netto [%]` = format_value(100 * mean(Wirk_Netto, na.rm = TRUE), 100 * sd(Wirk_Netto, na.rm = TRUE)),
+        `η_Brutto [%]` = format_value(100 * mean(Wirk_Brutto, na.rm = TRUE), 100 * sd(Wirk_Brutto, na.rm = TRUE)),
+        `Efficiency [%]` = format_value(mean(Efficiency, na.rm = TRUE), sd(Efficiency, na.rm = TRUE)),
+        `P_max [Watt]` = format_value(mean(P_max, na.rm = TRUE), sd(P_max, na.rm = TRUE)),
+        `HR [%]` = format_value(mean(HR_percent, na.rm = TRUE), sd(HR_percent, na.rm = TRUE)),
+        `VO2 [%]` = format_value(mean(VO2_percent, na.rm = TRUE), sd(VO2_percent, na.rm = TRUE)),
+        `ΔBLC [mmol/L]` = format_value(mean(`ΔBLC`, na.rm = TRUE), sd(`ΔBLC`, na.rm = TRUE))
+      ) %>% 
+      ungroup()
+    
+    datatable(avg_energy_data, 
+              options = list(
+                autoWidth = TRUE,
+                columnDefs = list(
+                  list(className = 'dt-center', targets = '_all'),
+                  list(className = 'dt-head-center', targets = '_all')
+                ),
+                scrollX = TRUE,
+                fixedHeader = TRUE,
+                initComplete = JS(
+                  "function(settings, json) {",
+                  "  $(this.api().table().container()).css({'font-size': '100%'});",
+                  "  this.api().columns().every(function() {",
+                  "    var column = this;",
+                  "    var header = $(column.header());",
+                  "    var headerText = header.text();",
+                  "    $('body').append('<span id=\"temp-span\" style=\"display:none;white-space:nowrap;\">' + headerText + '</span>');",
+                  "    var headerWidth = $('#temp-span').width() + 20;  // 20px buffer",
+                  "    $('#temp-span').remove();",
+                  "    var maxWidth = headerWidth;",
+                  "    column.data().each(function(d, j) {",
+                  "      var cell = $(column.nodes()[j]);",
+                  "      var cellWidth = cell.outerWidth();",
+                  "      if (cellWidth > maxWidth) maxWidth = cellWidth;",
+                  "    });",
+                  "    $(column.nodes()).css('width', maxWidth + 'px');",
+                  "    header.css({'width': maxWidth + 'px', 'white-space': 'nowrap'});",
+                  "  });",
+                  "  this.api().columns.adjust().draw();",
+                  "  $(this.api().table().header()).css({'text-align': 'center'});",
+                  "}"
+                )
+              ),
+              rownames = FALSE,
+              escape = FALSE  # Erlaubt HTML in den Zellen
+    ) %>% 
+      formatStyle(columns = 1:ncol(avg_energy_data), 
+                  textAlign = 'center',
+                  whiteSpace = 'nowrap')  # Verhindert Zeilenumbrüche
+  })
+}
+
+# ShinyApp starten
+shinyApp(ui = ui, server = server)
+
+```
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+### Definitionen der Leistungs- und Stoffwechselparameter
+```{r}
+#| echo: false
+library(DT)
+
+parameter_df <- data.frame(
+  Parameter = c("W_aerob", "W_BLC", "W_PCR", "P_mean", "P_Int", "η_Arbeit", "η_Netto", "η_Brutto", "P_max", "HR%", "VO2%", "ΔBLC", "kJ", "rpm"),
+  Definition = c(
+    "Aerober Energieumsatz",
+    "Anaerob-laktazider Energieumsatz",
+    "Anaerob-alaktazider Energieumsatz",
+    "Durchschnittliche mechanische Leistung",
+    "Innere Leistung",
+    "Arbeitswirkungsgrad",
+    "Nettowirkungsgrad",
+    "Bruttowirkungsgrad",
+    "Max. mechanische Leistung (Pedalzyklus)",
+    "% der max. Herzrate",
+    "% des max. Sauerstoffvolumenstroms",
+    "Änderung der Blutlaktatkonzentration",
+    "Kilojoule",
+    "Umdrehungen pro Minute"
+  )
+)
+
+datatable(parameter_df, 
+          options = list(pageLength = 14,
+                         dom = 't',
+                         ordering = FALSE),
+          rownames = FALSE,
+          class = 'compact stripe hover')
+```
+:::
+
+
+# EPOC
+

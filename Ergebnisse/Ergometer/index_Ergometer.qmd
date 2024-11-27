@@ -1,9 +1,0 @@
----
-title: "Ergometer Daten"
----
-
-
-
-
-
-Folgende dargestellte Ergebnisse sind weder aktuell noch vollständig und repräsentieren nicht die endgültigen Ergebnisse der Masterarbeit. Sie dienen lediglich dazu, einen Überblick über die verschiedenen modellierten und berechneten Daten zu geben.

@@ -1,4 +1,6 @@
 ---
+title: "Methodik"
+
 execute:
   message: false
   echo: false
@@ -9,13 +11,5 @@ bibliography: references.bib
 lang: de
 number-sections: false
 ---
-```{r}
-library(dplyr)
-library(tidyr)
-library(readxl)
-library(ggplot2)
-library(DT)
-```
-# Methodik
 
-In den folgenden Abschnitten werden die Details der Methodik der Studie beschrieben. Zunächst wird die Stichprobe erläutert. Anschließend werden die Messinstrumente und -methoden zur Erfassung der notwendigen Daten für die Bestimmung des Wirkungsgrads dargelegt. Außerdem werden die Pilotierung und das finale Studiendesign beschrieben.
+In den folgenden Abschnitten werden die Details der Methodik der Studie umfassend dargelegt. Zunächst wird die Stichprobe sowie die Auswahlkriterien beschrieben. Anschließend werden die Messinstrumente und -methoden zur präzisen Erfassung der leistungsphysiologischen Parameter im Humanphysiologischen Labor detailliert erläutert. Darüber hinaus werden die Pilotierungsphase und das finale Studiendesign vorgestellt.

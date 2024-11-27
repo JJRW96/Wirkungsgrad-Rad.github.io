@@ -1,0 +1,2548 @@
+---
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+      
+filters:
+  - shinylive
+
+execute: 
+  message: false
+  echo: false
+  warning: false
+  error: false
+bibliography: references.bib
+lang: de
+number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+    
+nocite: |
+  @Heck2006, @Keul1972, @Stegemann1991, @DeMarees2003, @Brooks2004, @Karlsson1971, @Knuttgen1973, @Hultman1967, @Harris1974, @Gaitanos1993, @Bangsbo1993, @Walter1999; @Nelson2012; @Horn2021 ; @Putman1998; Parolin1999; @Bogdanis1996;   @Hill1924, @Margaria1933, @Margaria1963, @Margaria1964, @DiPrampero1971, @Margaria1972, @DiPrampero1973, @Katch1973, @Roberts1978, @Beneke2002, @Beneke2004, @Francescato2003, @Dunst2023a, @Dunst2023b, @Berg1947, @Henry1950a, @Henry1950, @Henry1951, @DeMoor1954, @Henry1956, @Royce1969, @Katch1972, @DiPrampero1981, @Oezyener2001, @Dunst2023b, @Langley2024, @Parolin2000
+---
+
+@Parolin1999 @Parolin2000
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption {
+  text-align: justify;
+}
+
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(ggplot2)
+library(DT)
+library(extrafont)
+library(shiny)
+library(plotly)
+library(shinylive)
+```
+
+# Anaerobe- alaktazide Energiekomponente (W~PCr~)
+
+```{r}
+# VO2 (t) IN ALLEN FOLGENDEN FORMELN ANPASSEN UND EINFÜGEN FALLS NÖTIG
+
+
+
+# Francescato2023 für gute Einleitung und Historie zur italieneishen Ansicht zur EPOC abs ca. S.60
+
+# Stirling2005 für gute Modellbeschriebung der 3-Phasen für VO2_on sowie EPOC --> Evtl. nochmal dei dleay der EPOC finktionen beschrieben
+
+#Unbedingt @Brooks2012 mit einbauen !!!!
+#Und @Brooks2004 ab Seite 218 für kritische Sichtweise der EPOC
+
+#BEIM BEGINN und Ende von Muskelübungen beim Menschen hinkt derO₂-Verbrauch (V˙O2V˙O2), wie am Mund gemessen, den mechanischenEreignissen der Kontraktion hin-terher. Daraus folgt, dass das V˙O2V˙O2durch den Mund zu Beginn für den Energiebedarf der Muskeln unzureichendist; am Ende ist es überschüssig. @DiPrampero1983
+
+#Um die der anaeroben- alaktazide Energiekomponente W~PCr~ zu bestimmen,
+#wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem
+#Ende der Belastung betrachtet.
+
+#Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und
+#Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu
+#erbringende mechanische Leistung an.
+
+#Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende
+#der Übung ausgeglichen wird.
+
+#Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder
+#Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+
+#Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise
+#oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach
+#Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist
+#als das anfänglich eingegangene Sauerstoffdefizit [@DeMarees2003, 377].
+#im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
+
+#Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern
+#von Blut und Gewebe freigesetzt wird (O\~2, Speicher\~.
+
+#Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der
+#anaeroben Schwelle, wird durch die Spaltung von energiereichen
+#Phosphaten, hauptsächlich Phosphokreatin (PC),
+#gedeckt.[@Francescato2003]
+
+#Die EPOC gliedert sich in einen langsamen Teil, die sogenannte
+#„slow-component“ (= V̇O2EPOCslow) und einen schnellen Teil, die
+#„fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils
+#auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von
+#O2-Speichern (Hämoglobin, Myoglobin) nach der Belastung zurückzuführen
+#und repräsentiert somit den alaktaziden Teil der anaeroben
+#Energiebereitstellung.
+
+#Neben der Wiederherstellung der energiereichen Phosphate können auch
+#Faktoren wie der Transport von Laktat *( Glukoneogenese aus Laktat)*,
+#eine erhöhte Körperkerntemperatur, eine gestei-gerte Durchblutung oder
+#eine erhöhte Ventilation zur "fast-component" des EPOC beitragen
+#(Børsheim & Bahr, 2003)
+
+#Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig
+#geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität
+#des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die
+#Rückumwandlung des angefallenen Laktats als potenzielle Ursachen
+#ge-nannt (Åstrand et al., 2003, S. 241; Bahr & Sejersted, 1991) +
+#*(Erhöhter Sauerstoffbedarf des Körpergewebes infolge einer erhöhten
+#Körpertemperatur und eines erhöhten Katecholaminspiegels (eine erhöhte
+#Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse)
+#Erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur mit
+#einem entsprechend vergrößerten Sauerstoffbedarf Vermehrte Produktion
+#des Schilddrüsenhormons Thyroxin).*
+
+#Da der Anteil der Energieversorgung durch das anaerob-alaktazide System
+#an der gesamten umgesetzten chemischen Energie während einer Belastung
+#nicht *(oder nur schwer durch Biopsie)* direkt messbar ist, wird die
+#schnelle Komponente der EPOC berechnet und als Schätz-wert für den WPCr
+#verwendet (R. Beneke et al., 2004).
+
+#--\> 3. Komponente der ultra slow anteil auch kurz besprechen, aber im
+#Kontext der Arbeit nicht relevant (Gründe: Erhöhter Muskeltonus
+#Zelluläre Regenerationsvorgänge Stimulation energiebereitstellender
+#Mechanismen (z. B. Atmungskette))*(Margaria et al., 1933)
+  
+```
+
+Um die anaeroben-alaktazide Energiekomponente W~PCr~ zu bestimmen, wurde
+der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem Ende der
+Belastung betrachtet. Zu Beginn der körperlichen Belastung passt sich
+das Herz-Kreislauf- und Atmungssystem nur verzögert an den gestiegenen
+Sauerstoffbedarf für die zu erbringende mechanische Leistung an. Dies
+führt zu einem Sauerstoffdefizit bzw. einer Sauerstoffschuld, die am
+Ende der Übung ausgeglichen wird [@DiPrampero1983].<br>Statt den häufig
+verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt
+laut [@Brooks2004, 218; @Gaesser1984] der Begriff "Excess post-exercise
+oxygen consumption" (EPOC) die nachgeatmete Sauerstoffmenge nach
+Arbeitsende über den Ruhebedarf hinaus besser, da diese meist größer ist
+als das anfänglich eingegangene Sauerstoffdefizit [@DeMarees2003, 377].
+Im Folgenden wird der Begriff EPOC verwendet.
+
+Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern
+von Blut und Gewebe freigesetzt wird. Der verbleibende Anteil, bei
+Belastungsintensitäten unterhalb der anaeroben Schwelle, wird durch die
+Spaltung von energiereichen Phosphaten, hauptsächlich dem Phosphokreatin
+(PCr), gedeckt [@Francescato2003]. **WAS IST ÜBER DER AS???**
+
+**Die erhöhte Sauerstoffaufnahme nach einer Belastung dient der Wiederherstellung des homöostatischen Gleichgewichts des Körpers. Diese Regeneration umfasst aus energetischer Sicht hauptsächlich die Resynthese des während der Belastung genutzten Phosphokreatins (PCr), insbesondere durch den aeroben Abbau von Laktat (siehe Kapitel 6.2). Daher muss die dafür benötigte Sauerstoffmenge, die von Dauer und Intensität der vorangegangenen Belastung abhängt, energetisch der Belastungsphase zugeordnet werden. [@Baum2008; @Dunst2019].**
+
+Die EPOC gliedert sich in einen langsamen Teil, die sogenannte
+"slow-component" $\dot{V}O_{2,EPOC,slow}$ und einen schnellen Teil, die
+"fast-component" $\dot{V}O_{2,EPOC,fast}$ (siehe @fig-EPOC). Der erhöhte $\dot{V}O_{2}$ des schnellen Teils
+ist größtenteils auf die Auffüllung der ATP- und CrP-Speicher sowie die
+Wiederauffüllung von O~2~-Speichern (Hämoglobin, Myoglobin) nach der
+Belastung zurückzuführen und repräsentiert somit den alaktaziden Teil
+der anaeroben Energiebereitstellung. Neben der Wiederherstellung der
+energiereichen Phosphate können auch Faktoren wie der Transport von
+Laktat (Glukoneogenese aus Laktat), eine erhöhte Körperkerntemperatur,
+eine gesteigerte Durchblutung oder eine erhöhte Ventilation zur
+"fast-component" des EPOC beitragen [@Børsheim2003].
+
+Die Ursachen für den langsamen Teil der EPOC sind nicht eindeutig
+geklärt, jedoch werden verschiedene Faktoren wie eine erhöhte Aktivität
+des Sympathikus, des Stoffwechsels, des Herz-Kreislauf-Systems sowie die
+Rückumwandlung des angefallenen Laktats als potenzielle Ursachen genannt
+[@Astrand2003, 241; @Bahr1991]. Weitere mögliche Gründe beinhalten einen
+erhöhten Sauerstoffbedarf des Körpergewebes infolge einer erhöhten
+Körpertemperatur und eines erhöhten Katecholaminspiegels (eine erhöhte
+Adrenalinausschüttung verursacht eine Steigerung oxidativer Prozesse),
+eine erhöhte Tätigkeit des Herzmuskels und der Atmungseigenmuskulatur
+mit einem entsprechend vergrößerten Sauerstoffbedarf sowie eine
+vermehrte Produktion des Schilddrüsenhormons Thyroxin **QUELLE!!!!**.<br>Obwohl es auch
+eine ultra-langsame Komponente der EPOC gibt, die durch Faktoren wie
+erhöhten Muskeltonus, zelluläre Regenerationsvorgänge und die
+Stimulation energiebereitstellender Mechanismen (z.B. Atmungskette)
+verursacht wird [@Margaria1933], ist diese im Kontext der vorliegenden
+Arbeit nicht relevant.
+
+Da der Anteil der Energieversorgung durch das anaerob-alaktazide System
+an der gesamten umgesetzten chemischen Energie während einer Belastung
+nicht oder nur sehr schwer direkt messbar ist, wird die schnelle
+Komponente der EPOC modelliert und als Basis für die für die Berechnung der anaeroben-alaktazide Energiekomponente
+verwendet [@Beneke2004].
+
+**BESSERER ÜBERGANG**
+
+![Zeitlicher Verlauf der Komponenten der Excess Post-Exercise Oxygen Consumption (EPOC) (modifiziert nach Åstrand & Rodahl, 2003, S. 240).](images/EPOC_Astrand_mod.png){#fig-EPOC .caption}
+
+::: columns
+::: {.column width="48%"}
+```{r echo=FALSE, output=FALSE}
+library(flextable)
+library(dplyr)
+library(officer)
+##### EPOC-Werte #####
+#Tabelle (angelehnt an @Roberts1978)
+data <- data.frame(
+  Quelle = c(
+    "Hill et al. (1924)",
+    "Margaria et al. (1933)",
+    "Margaria et al. (1963)",
+    "Margaria et al. (1964)",
+    "Di Prampero (1971)",
+    "Margaria (1972)",
+    "Di Prampero et al. (1973)",
+    "Shephard (1972)",
+    "Katch (1973)",
+    "Roberts & Morton (1978)",
+    "Beneke et al. (2002)",
+    "Beneke et al. (2004)",
+    "Francescato et al. (2003)",
+    "Dunst et al. (2023a)",
+    "Dunst et al. (2023b)",
+    "Langley (2024)"
+  ),
+  
+  EPO_PCr_ml = c(
+    "-", "36.8", "-", "-", "45.0", "40.0", "32.0", "-", 
+    "-", "37.45", "-", "32.13 ± 2.59",
+    "Sehr Leicht: 11.72 ± 2.4\nLeicht: 20.72 ± 3.4\nModerat: 32.73 ± 3.5",
+    "3s: 18.77 ± 4.56\n8s: 26.60 ± 6.00\n12s: 29.47 ± 6.13\n60s: 33.25 ± 7.43", 
+    "3s: 16.96 ± 3.68\n8s: 24.78 ± 2.01\n12s: 27.34 ± 5.13\n60s: 28.68 ± 5.36", 
+    "10s: 63.71 ± 16.06\n15s: 68.00 ± 17.48\n30s: 78.34 ± 15.02"
+  ),
+  
+  EPO_PCr_L = c(
+    "-", "2.50", "-", "2.77", "-", "-", "-", "-",
+    "-", "2.79", "1.904 ± 0.563", "2.48 ± 0.20", 
+    "-",
+    "3s: 1.44 ± 0.35\n8s: 2.04 ± 0.46\n12s: 2.26 ± 0.47\n60s: 2.55 ± 0.57", 
+    "3s: 1.52 ± 0.33\n8s: 2.22 ± 0.18\n12s: 2.45 ± 0.46\n60s: 2.57 ± 0.48",
+    "10s: 4.92 ± 1.24\n15s: 5.25 ± 1.35\n30s: 6.05 ± 1.16"
+  ),
+  
+  EPO_ges_ml = c(
+    "-", "-", "75.0", "-", "-", "-", "-", "67.0",
+    "68.0", "70.0", "-", "-",
+    "Sehr Leicht: 29.2 ± 5.9\nLeicht: 51.6 ± 8.4\nModerat: 81.5 ± 8.8",
+    "-", "-", "-"
+  ),
+  
+  EPO_ges_L = c(
+    "7.5", "-", "4.65", "-", "-", "-", "-", "5.00",
+    "4.89", "4.93", "-", "-",
+    "-",
+    "-", "-","-"
+  ),
+  
+  stringsAsFactors = FALSE
+)
+
+# Erstellen der Tabelle
+ft_EPOC <- flextable(data) %>%
+  set_caption("Angaben zu EPOC-Mengen in der Fachliteratur") %>%
+  set_header_labels(
+    Quelle = "Quelle",
+    EPO_PCr_ml = "",
+    EPO_PCr_L = "",
+    EPO_ges_ml = "",
+    EPO_ges_L = ""
+  ) %>%
+  compose(
+    part = "header",
+    j = 2,
+    value = as_paragraph("EPOC", as_sub("PCr"), " [ml·kg⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 3,
+    value = as_paragraph("EPOC", as_sub("PCr"), " [l]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 4,
+    value = as_paragraph("EPOC", as_sub("ges"), " [ml·kg⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 5,
+    value = as_paragraph("EPOC", as_sub("ges"), " [l]")
+  ) %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = as_paragraph(
+      "EPOC", as_sub("ges"), " [ml·kg⁻¹]: auf Körpermasse normierte EPOC-Werte; ",
+      "EPOC", as_sub("ges"), " [l]: EPOC der gesamten Modellfunktion; ",
+      "EPOC", as_sub("PCr"), " [l]: EPOC der schnellen Komponente; ",
+      "Zeitangaben (3s, 8s, 10s, 12s, 15s, 30s, 60s): Dauer maximaler Sprints auf dem Radergometer; ",
+      "Intensitätsangaben: Belastungsintensitäten (sehr leicht, leicht, moderat)"
+    ),
+    colwidths = 5
+  ) %>%
+  font(fontname = "Arial", part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = fp_border(color = "darkgrey", width = 0.5))
+
+# Setzen der Tabelle auf volle Breite
+ft_EPOC <- set_table_properties(ft_EPOC, width = 1, layout = "autofit")
+
+```
+
+```{r}
+#| label: tbl-EPOC
+#| tbl-cap-location: bottom
+#| tbl-cap: "EPOC"
+
+# Anzeigen der Tabelle
+ft_EPOC
+```
+@tbl-EPOC
+:::
+::: {.column width="2%"}
+:::
+::: {.column width="48%"}
+```{r echo=FALSE, output=FALSE}
+library(flextable)
+library(dplyr)
+library(officer)
+##### EPOC-Modellparameter #####
+#Tabelle angepasst und erweitert nach Katch et al. 1972
+data <- data.frame(
+  Quelle = c(
+    "Margaria et al. (1933)",
+    "Berg (1947)",
+    "Henry & DeMoor (1950)",
+    "Henry & Berg (1950)",
+    "Henry et al. (1951)",
+    "DeMoor (1954)",
+    "Henry & DeMoor (1956)",
+    "Royce (1969)",
+    "Katch et al. (1972)",
+    "Di Prampero et al. (1973)",
+    "Katch (1973)",
+    "Roberts & Morton (1978)",
+    "Di Prampero (1981)",
+    "Özyener et al. (2001)",
+    "Beneke et al. (2002)",
+    "Dunst et al. (2023a)",
+    "Dunst et al. (2023b)",
+    "Langley et al. (2024)"
+  ),
+  
+  A = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "-", "2.80", "2.330", "-",
+    "-", "2.777 ± 0.445", "2.49 ± 0.62",
+    "3s: 1.99 ± 0.44\n8s: 2.74 ± 0.38\n12s: 2.88 ± 0.50\n60s: 3.03 ± 0.45",
+    "-"
+  ),
+  
+  tauA = c(
+    "≈ 0.60", "0.75", "0.90 - 0.94", "0.66 - 0.71", "1.08 - 1.16", 
+    "0.88", "1.04", "1.31", "0.66",
+    "≈ 0.72", "0.69", "0.66", "0.60 - 0.72",
+    "M: 0.48 ± 0.10\nH: 0.70 ± 0.18\nVH: 0.55 ± 0.08\nS: 0.58 ± 0.18",
+    "0.70 ± 0.20", "0.84 ± 0.13",
+    "3s: 0.82 ± 0.14\n8s: 0.84 ± 0.12\n12s: 0.84 ± 0.13\n60s: 0.85 ± 0.13",
+    "-"
+  ),
+  
+  B = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "-", "1.443", "0.367", "-",
+    "-", "0.675 ± 0.257", "0.51 ± 0.34",
+    "3s: 0.20 ± 0.17\n8s: 0.42 ± 0.13\n12s: 0.58 ± 0.12\n60s: 0.98 ± 0.30",
+    "-"
+  ),
+  
+  tauB = c(
+    "≈ 50.00", "-", "6.94 - 8.00", "-", "-",
+    "5.65", "5.92", "23.81", "14.71",
+    "21.70 - 28.90", "16.94", "6.87", "21.65",
+    "VH: 7.67 ± 2.05\nS: 8.98 ± 6.32", "14.10 ± 13.50", "7.34 ± 3.67",
+    "3s: 5.72 ± 2.52\n8s: 6.46 ± 3.38\n12s: 8.03 ± 3.10\n60s: 9.36 ± 5.11",
+    "-"
+  ),
+  
+  W_PCR = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "...", "-", "-", "...",
+    "-", "40.2 ± 10.6", "3s: 30.10 ± 7.32\n8s: 42.64 ± 9.61\n12s: 47.23 ± 9.82\n60s: 53.30 ± 11.91",
+    "3s: 31.83 ± 6.98\n8s: 46.50 ± 3.79\n12s: 51.24 ± 9.52\n60s: 53.73 ± 9.96",
+    "10s: 102.93 ± 25.91\n15s: 109.83 ± 28.30\n30s: 126.39 ± 24.25"
+  ),
+  
+  stringsAsFactors = FALSE
+)
+
+# Erstellen der Tabelle mit flextable
+ft_EPOC_Modell <- flextable(data) %>%
+  compose(
+    part = "header",
+    j = 2:6,
+    value = as_paragraph(
+      c("A [ml·min⁻¹]", "τA [min]", "B [ml·min⁻¹]", "τB [min]", "W~PCr [kJ]")
+    )
+  ) %>%
+  set_caption("Modellparameter Bi-Exponentialfunktion") %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = as_paragraph(
+      "A [ml·min⁻¹]: Amplitude der schnellen EPOC-Komponente; τA [min]: Zeitkonstante der schnellen EPOC-Komponente; ",
+      "B [ml·min⁻¹]: Amplitude der langsamen EPOC-Komponente; τB [min]: Zeitkonstante der langsamen EPOC-Komponente; ",
+      "W~PCr [kJ]: Berechnete anaerobe- alaktazide Energiekomponente; ",
+      "Zeitangaben (3s, 8s, 10s, 12s, 15s, 30s, 60s): Dauer maximaler Sprints auf dem Radergometer; ",
+      "Intensitätsangaben: M: moderate, H: heavy, VH: very heavy, S: severe exercise intensities"
+    ),
+    colwidths = 6
+  ) %>%
+  font(fontname = "Arial", part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = fp_border(color = "darkgrey", width = 0.5))
+
+# Setzen der Tabelle auf volle Breite
+ft_EPOC_Modell <- set_table_properties(ft_EPOC_Modell, width = 1, layout = "autofit")
+
+```
+
+```{r}
+#| label: tbl-EPOC_Modell
+#| tbl-cap-location: bottom
+#| tbl-cap: "EPOC_Modell"
+
+# Anzeigen der Tabelle
+ft_EPOC_Modell
+```
+@tbl-EPOC_Modell
+::: 
+:::
+
+## Modellierung von W~PCr~
+
+Um die anaerob-alaktazide Energiekomponente während jedem Belastungsintervall zu bestimmen, wurde die EPOC mittels nichtlinearer Regression unter Verwendung des folgenden bi-exponentiellen Modells mit vier freien Parametern modelliert [@Oezyener2001; @Beneke2002]:
+
+$$
+\dot{V}O_{2EPOC} = A_{fast} \cdot e^{-(t / \tau_{fast})} + A_{slow} \cdot e^{-(t / \tau_{slow})} + \dot{V}O_{2,Referenz}
+$$ {#eq-VO2EPOC}
+
+-   $A_{\text{fast}}$: Amplitude der schnellen EPOC-Komponente
+-   $A_{\text{slow}}$: Amplitude der langsamen EPOC-Komponente
+-   $\tau_{\text{schnell}}$: Zeitkonstante der schnellen
+    EPOC-Komponente
+-   $\tau_{\text{slow}}$: Zeitkonstante der langsamen
+    EPOC-Komponente
+
+Da die Probanden während der Erholungsphasen nicht vollständig ruhten, sondern bei 50 Watt weiterfuhren, erreichte der $\dot{V}O_{2}$ in der Nachatmungsphase ($\dot{V}O_{2,EPOC}$) nach einem initialen rapiden Abfall ein Plateau, das signifikant höher war als der $\dot{V}O_{2}$ im Ruhezustand ($\dot{V}O_{2,Ruhe}$). Für die Modellierung der EPOC wurde daher anstelle von $\dot{V}O_{2,Ruhe}$ ein individueller Referenzwert ($\dot{V}O_{2,Referenz}$) berechnet, der den erhöhten Sauerstoffumsatz bei der in der Nachbelastungsphase vorgegebenen mechanischen Leistung von P~mech,Referenz~ = 50 Watt widerspiegelt. Die Berechnung des $\dot{V}O_{2,Referenz}$ erfolgte auf Basis der Messdaten aus der Referenzphase, die vor der ersten Belastung ebenfalls bei 50 Watt absolviert wurde. Der individuelle $\dot{V}O_{2,Referenz}$-Wert wurde als Mittelwert der verbleibenden $\dot{V}O_{2}$-Messwerte bestimmt, nachdem Ausreißer mittels einer rollenden Fensteranalyse eliminiert wurden.<br>
+Da bei einigen Probanden Messfehler oder unnatürlich hohe $\dot{V}O_{2}$-Werte auftraten, wurde ebenfalls ein theoretischer $\dot{V}O_{2,Referenz}$ berechnet. Dieser setzt sich aus dem $\dot{V}O_{2,Ruhe}$ und einem standardisierten Arbeitsaufwand für P~mech~ von 50 Watt zusammen (siehe @eq-VO2_Referenz). Der standardisierte Arbeitsaufwand, auch als Energie-Effizienz beziehungsweise im Englischen als "oxygen cost of work" bezeichnet, charakterisiert die Änderung des $\dot{V}O_{2}$ bezogen auf die Änderung der P~mech~ ($\frac{\Delta\dot{V}O_2}{\Delta\text{WR}}$).<br>
+In der Literatur finden sich verschiedene Normwerte der Energie-Effizienz bei der Fahrradergometrie. Nach @Rassouli2015 liegen diese zwischen 8,5 und 11,0 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>]. @Wasserman2011 geben Werte von etwa 10 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] an, wobei für trainierte Radfahrer leicht erhöhte Werte von etwa 11 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] charakteristisch sind. Von @Heck2022 wird für die Fahrradergometrie ein Referenzwert von etwa 12 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] genannt. Experimentelle Untersuchungen von @Hansen1984 ergaben einen mittleren Anstieg von 9,3 ± 1,35 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>]. @Oezyener2001 zeigten eine belastungsabhängige Abstufung der Energie-Effizienz: von 11,52 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] bei moderater über 11,02 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] bei hoher und 10,72 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] bei sehr hoher bis hin zu 9,99 [ml ∙ min<sup>-1</sup> ∙ Watt<sup>-1</sup>] bei Ausbelastungen.<br>
+Basierend auf den Literaturbefunden wurde für die Berechnung der $\dot{V}O_{2,Referenz}$ ein konservativer Wert von 10 [ml ∙ min<sup>-1</sup> ∙ W<sup>-1</sup>] für $\frac{\Delta\dot{V}O_2}{\Delta\text{WR}}$ verwendet. Bei einer Abweichung des ursprünglich ermittelten Messwertes von mehr als 10% vom theoretischen Wert wurde der ermittelte Messwert durch den theoretischen Wert ersetzt, sodass physiologisch plausible $\dot{V}O_{2,Referenz}$-Werte für die folgenden Berechnungen gegeben sind.
+
+$$ 
+\begin{align}
+\dot{V}O_{2,\text{Referenz}} &= \dot{V}O_{2,\text{Ruhe}} + \frac{\Delta\dot{V}O_2}{\Delta\text{WR}} \cdot P_{\text{mech,Referenz}} \\ 
+\dot{V}O_{2,\text{Referenz}}\,[\text{l} \cdot \text{min}^{-1}] &= \dot{V}O_{2,\text{Ruhe}}\,[\text{l} \cdot \text{min}^{-1}] + 0.010\,[\text{l} \cdot \text{min}^{-1} \cdot \text{W}^{-1}] \cdot 50\,[\text{W}]
+\end{align}
+$${#eq-VO2_Referenz}
+
+Die Anpassung der Modellparameter aus @eq-VO2EPOC erfolgte für jeden Belastungsdurchgang in einem dreistufigen Verfahren. Diese sequentielle Modellierung ermöglichte eine systematische Anpassung der Parameter an die individuelle $\dot{V}O_{2}$-Nachbelastungskinetik unter Berücksichtigung physiologisch fundierter Grenzwerte aus der Literatur. Die einzelnen Modellierungsschritte werden in den folgenden Unterkapiteln detailliert erläutert. @Tabelle-EPOC fasst die relevanten Normwerte der EPOC-Parameter zusammen.
+
+### 1. Schritt - Bestimmung von $\tau${.unnumbered .unlisted}
+
+```{r}
+#Sauerstoffabfall anders nach hohen anaeroben Belastungen und aeroben Belastungen, deshalb individuelle Kinetik wichtig. Nach ca. 2 Minuten der alaktazide Teil weitesgehend beendet ist bietet sich hier 2tau an. –\> MW von tau2 beschreiben (liegt er in dieser Zeitspanne? Und wie verhält sich tau mit der Höhe der Belastung?) –\> Nach dem Ende einer aeroben Belastung ist der unmittelbare Abfall des VO2 vermutlich auf einen plötzlichen Abfall des Herzzeitvolumens zurückzuführen (die Herzfrequenz sinkt unter diesen Bedingungen ebenfalls sehr schnell) (3). Dies kompensiert den Zufluss von gemischt-venösem Blut mit niedrigem Sauerstoffgehalt zur Lunge, was dazu tendieren würde, einen hohen VO2 während der ersten Halbkreislaufzeit aufrechtzuerhalten.***
+
+#Im Gegensatz dazu bleibt nach dem Ende einer supramaximalen Belastung die Herzfrequenz für einige Sekunden auf maximalem Niveau (Abb. 5), was darauf hindeutet, dass das Herzzeitvolumen zu Beginn der Erholung zunächst hoch bleibt. Dies legt nahe, dass die Mechanismen, die das Herzzeitvolumen und damit die Sauerstoffversorgung der aktiven Gewebe steuern, unter diesen beiden Bedingungen völlig unterschiedlich sind und dass td nicht einfach ein Abbild der Kreislaufzeit ist.***
+
+#Weiterhin sollte td, wenn dies wirklich der Fall wäre, praktisch konstant sein, unabhängig von der Intensität und Dauer der vorangegangenen Belastung, und etwa der Hälfte der Kreislaufzeit entsprechen. \@DiPrampero1973***
+```
+
+Um den Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$ in Abhängigkeit von
+der individuellen Abfallkinetik des $\dot{V}O_{2,EPOC}$ für jede
+Nachatmungsphase zu bestimmen, wurde im **ersten Schritt** die
+Zeitkonstante $\tau$ mittels einer nichtlinearen Regression basierend
+auf folgendem exponentiellen Drei-Parameter-Modell modelliert:
+
+$$
+\dot{V}O_{2EPOC} = A \cdot e^{-(t / \tau)} + C
+$$
+
+Anhand von $\tau$ wurde der Zeitraum der $\dot{V}O_{2EPOC, \text{fast}}$
+im Verhältnis zur $\dot{V}O_{2EPOC, \text{slow}}$ abgegrenzt. Hierbei
+diente das Zweifache der Zeitkonstante ($2\tau$) als Grenzwert, der
+den Zeitpunkt markiert, zu dem ungefähr 86,5 % des Abfalls von
+$\dot{V}O_{2,EPOC}$ stattgefunden hat.
+
+![Bestimmung von $\tau$](images/01_1_tau.html){#fig-TAU width="1200"
+height="500"}
+
+### 2. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{slow}}${.unnumbered .unlisted}
+
+Um die Abfallkinetik der $\dot{V}O_{2EPOC, \text{slow}}$ unter
+idealisierten Ruhebedingungen zu simulieren, wurde der Zeitraum für die
+$\dot{V}O_{2EPOC, \text{slow}}$ von $2\tau$ bis $8\tau$ festgelegt Bis
+zum Zeitpunkt $8\tau$ haben annähernd 99,75% des Abfalls von
+$\dot{V}O_{2,EPOC}$ stattgefunden. In einem **zweiten Schritt** erfolgte
+die Modellierung der $\dot{V}O_{2EPOC, \text{slow}}$ mithilfe einer
+nichtlinearen Regression, basierend auf folgendem exponentiellen
+Drei-Parameter-Modell, unter Berücksichtigung der Werte von
+$\dot{V}O_{2,EPOC}$ im Zeitfenster von $2\tau$ bis $8\tau$ sowie
+simulierten Ruhewerten ab 1800 Sekunden.:
+
+```{r}
+#--\> Paper anschauen, welches auch fast und slow Komponente abgrenzt –\> welches ????
+#EVTL DEN ZEITPUNKT DES GEDACHTEN RUHEWERTES ABHÄNGIG VON DER INTENSITÄT FESTMACHEN ODER ANHAND DER INDIVIDUELLEN KINETIK, bzw. bei tau 20 ....
+
+```
+
+$$
+\dot{V}O_{2EPOC, slow} = A_{slow} \cdot e^{-(t / \tau_{slow})} + \dot{V}O_{2,Ruhe}
+$$
+
+![Bestimmung von
+$\dot{V}O_{2EPOC, \text{slow}}$](images/01_1_slow.html){#fig-SLOW
+width="1200" height="500"}
+
+### 3. Schritt - Modellierung von $\dot{V}O_{2EPOC, \text{fast}}${.unnumbered .unlisted}
+
+In einem **dritten Schritt** wurde schließlich die Modellfunktion der
+$\dot{V}O_{2EPOC, \text{fast}}$ der gesamten bi-exponentiellen
+Modellfunktion festgelegt, unter Einbeziehung der bereits bestimmten
+Parameter der $\dot{V}O_{2EPOC, \text{slow}}$ und $\dot{V}O_{2,Ruhe}$:
+
+$$
+\dot{V}O_{2EPOC, fast} = A_{fast} \cdot e^{-(t / \tau_{fast})}
+$$
+
+![Bestimmung von
+$\dot{V}O_{2EPOC, \text{fast}}$](images/01_1.html){#fig-FAST
+width="1200" height="500"}
+
+## Berechnung von W~PCR~
+
+**NOCH ÜBERARBEITEN**
+
+Für die  Quantifizierung der Sauerstoffmenge VO~2,PCr~ im Kontext der Nachbelastungs-Sauerstoffkinetik, die der Rephosphorylierung von Kreatinphosphat zugeordnet wird, erfolgt zunächst die integration des Funktionsterm , der die schnelle Komponente der Nachatmung beschribt $\dot{V}O_{2EPOC, \text{fast}}$ vom Zeitpunkt des Belastungsabbruchs bzw. dem Start der Nachbelastung (NB~Start~) bis zum Endzeitpunkt der Nachbelastung (NB~Ende~) [@Dunst2019]. 
+
+$$
+VO_{2,EPOC,fast}\,[l] = \int\limits_{NB_{Start}}^{NB_{Ende}}A_{fast} \cdot e^{-(t / \tau_{fast})} \, dt
+$$ {#eq-VO2EPOCFAST}
+
+**Ist es hier dann VO2 oder nur O2???**
+
+Umd nun die tatächliche O~2~ Menge, die der Wiederherstellung von PCr zuzuordnen ist zu berechnen muss noch der Teil des von den Muskeln
+verstoffwechseltem O~2~, der durch die Erschöpfung der körpereigenen O~2~-Speicher gedeckt wurde von VO~2,EPOC,fast~ abgezogen werden [@Francescato2003; @Beneke2002]. Die Rolle der körpereignenen O~2~-Speicher sowie die Berecehnung derer wird im folgenden Kapitel beschrieben. 
+
+$$
+VO_{2,PCr}\,[l] = VO_{2,EPOC, fast}\,[l] - O_{2}\text{-Speicher}\,[l]
+$$ {#eq-VO2PCR}
+
+
+Die bestimmte O~2~-Menge VO~2, PCr~ repräsentiert daher die korrigiert Netto-EPOC, welche durch die initiale PCr-Spaltung entstanden ist.
+
+
+Damit kann wiederum die während der Belastung anaerob alaktazid bereitgestellte Energiemenge W~PCr~ [kJ] bestimmt werden, indem VO~2PCr~ mit dem kalorischen Äquivalent für Kohlenhydrate (kÄ~KH~) von 21,131 kJ pro Liter O~2~ [@Stegemann1991, 59] multipliziert wird [@Beneke2002; @Beneke2004; @Knuttgen1970; @Roberts1978].
+
+$$
+W_{PCr}\,[kJ] = VO_{2PCr}\,[l] \cdot kÄ_{KH}\,[kJ\cdot l^{-1}]
+$$ {#eq-WPCR}
+
+
+**It should be also pointed out that the true O2 deficit can not be repaid during the exercise (for a review see [24]), a fact that is also supported by the essential identity of the gross O2 deficit incurred at work onset and of the gross O2 debt paid at work offset (see Results). @Francescato2003 **
+
+
+# Berechnung der O~2~-Speicher
+
+```{r}
+#[@DiPrampero1983] drucharbeiten!!!!!
+#In addition, 02 is drawn from the body stores, i.e. 02 content of the lungs, physically dissolved 02, myoglobin but mainly mixed venous blood. As originally described by Bock et al. (1928a), the O2 content of this last (Cvo) decreases curvilin- . S " " .2 S • early with VO2, the slope of the Cvo ' vs. VO2 functxon becoming progres- sively smaller the greater VO2 s. [@DiPrampero1981]
+```
+
+**Absolute Mengen Beschreiben: @DiPrampero1970 = 550ml; @Astrand2003 = 500ml und @Beneke2002 = 400ml; [@Margaria1976, 33] = 550ml**
+
+
+Beim Übergang von Ruhe zu Arbeit, wird ein Teil des von den Muskeln
+verstoffwechseltem Sauerstoffs (O~2~) durch die Erschöpfung der
+körpereigenen O~2~-Speicher gedeckt. Diese Speicher umfassen hauptsächlich die
+pulmonalen Sauerstoffspeichern in den Lungen (ΔO~2~S~p~) und im venösen
+Blut (ΔO~2~S~v~) sowie ein nach @Francescato2003 sehr kleine an Muskelmyoglobin gebundenen
+Sauerstoffmengen (ΔO~2~S~m~), welcher in der Berechnung in dieser Arbeit jedoch vernachlössigt wird. 
+
+Somit setzten sich die gesamten körpereignenen O~2~-Speicher durch die Summierung der zwei  Haupt-Komponenten wie folgt zusammen:
+$$
+O_{2}\text{-Speicher}\,[l] = \Delta O_2S_{p}\,[l] + \Delta O_2S_{v}\,[l]
+$$
+Die verschiedenen Bestandteile tragen je
+nach Art, Intensität und Bedingungen der Übung unterschiedlich zu den
+Anforderungen der arbeitenden Muskeln bei (siehe @fig-UNTER und
+@fig-UEBER) [@DiPrampero1981]. Deren Beträge sind jedoch nicht in den
+gemessenen Atemgasen zu sehen, weshalb die tatsächlich verstoffwechselte
+Menge an O~2~ auf Muskelebene unterschätzt wird. Folglich sollte das aus
+den Atemgasen berechnete EPOC~gross~, größer sein als das EPOC auf
+Muskelebene, um einen Betrag, der der Veränderung der körpereigenen
+O~2~-Speicher während des Übergangs von Ruhe zu stabilem Zustand oder
+umgekehrt entspricht. Dieses EPOC wird als EPOC~netto~ bezeichnet und
+wie folgt berechnet [@DiPrampero1983]:
+
+```{r}
+#Auf der Grundlage der Berechnungen des Sauerstoffdefizites sowie wurde das insgesamt gemessene
+#Brutto-Sauerstoffdefizit korrigiert, um das Netto-Sauerstoffdefizit zu
+#erhalten, welches das Sauerstoffäquivalent der Spaltung von
+#Phosphokreatin (PC) bei Arbeitsbeginn darstellt. Die bestimmte Menge an
+#EPOC (Excess Post-exercise Oxygen Consumption) repräsentiert daher
+#dieses korrigierte Sauerstoffdefizit, das durch die initiale PC-Spaltung
+#entstanden ist.
+```
+
+$$
+EPOC_{net} [l] = EPOC [l] - O_{2, Speicher}[l]
+$$ {#eq-EPOCNET}
+
+::: columns
+::: {.column width="48%"}
+![Schematische Darstellung des Zeitverlaufs der energetischen Prozesse
+bei Belastungsbeginn unterhalb der $\dot{V}O_{2, max}$. Die Fläche eLa
+zeigt die quantitativen Beiträge der Laktatproduktion. Kurve 3 stellt
+den Verlauf des tatsächlich gemessenen Sauerstoffvolumenstroms
+($\dot{V}O_2$) dar. O~2~Speicher repräsentiert die Ausschöpfung der
+körpereigenen Sauerstoffspeicher, wobei Kurve 2' den zeitlichen Verlauf
+der Wiederauffüllung des O~2~Speicher abbildet. Die Fläche
+$\dot{V}O_{2}^{al}$ zeigt die Menge des verstoffwechselten PCr in
+O~2~-Äquivalenten an. Der zeitliche Verlauf der PCr-Resynthese nach der
+Übung wird durch Kurve 1' dargestellt. t~1/2~ von 1 und 1' = 15 s;
+t~1/2~ von 2 und 2' = 25 s; t~1/2~ von 3 = 40 s (diPrampero,
+1981).](images/VO2_Unterschwellig.png){#fig-UNTER .caption}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+![Schematische darstellung des Zeitverlaufs der energetischen Prozesse
+bei Belastungsbeginn oberhalb der $\dot{V}O_{2, max}$. Die gestrichelte
+Linie repräsentiert den Beginn der Glykolyse, welche einsetzt, wenn
+$\dot{V}O_{2, max}$ erreicht wurde. Die Fläche La stellt die Menge des
+anaerob-laktaziden Energieumsatzes dar. Die restlichen Beschriftungen
+haben die gleiche Bedeutung wie in Abbildung ???. t~1/2~ von 1 und 1' =
+15 s; t~1/2~ von 2\* = 30 s; t~1/2~ von 2' = 30 s (diPrampero,
+1981).](images/VO2_Ueberschwellig.png){#fig-UEBER .caption}
+:::
+:::
+
+Die absolute Menge der verschiedenen Bestandteile der O~2~-Speicher
+wurden mittels der von @Francescato2003 beschriebenen Methode wie folgt
+bestimmt.
+
+## Pulmonaler O~2~-Speicher (ΔO~2~S~p~)
+
+```{r}
+### Die Wahl der Exponentialfunktionen wie in Ozyner2001 beschreiben für VO2-Modellfunktion und EPOC-Modellfunktion und wie in Barstow & Mole1991  
+# Die Fitting - Parameter aus den beiden Studien beschrieben und die Vorteile er beiden Arten gegenüberstellen!!!!!
+
+### Whip Wassermann 1972
+#Im Gegensatz zu den Sauerstoffaufnahme-Kinetiken bei leichten und moderaten Arbeitsintensitäten erhöht sich die Zeit bis zum Erreichen des Gleichgewichts erheblich bei Arbeitsraten über der anaeroben Schwelle. Tatsächlich wurde bei den höchsten Arbeitsraten in diesen Studien ein Gleichgewichtszustand des Sauerstoffverbrauchs in der 6. Minute nicht erreicht.
+#Es ist möglicherweise nicht gerechtfertigt anzunehmen, dass die Sauerstoffaufnahme, die als scheinbare einfache exponentielle Funktion (hin zu einem projizierten Gleichgewichtswert) in Zeiträumen von nur 30 Sekunden anstieg, diesem Muster weiter folgen würde, wenn die Arbeit länger fortgesetzt würde. Unsere Ergebnisse zeigen, dass die Transport- und Aufnahmecharakteristika des gesamten Sauerstoffverbrauchsprozesses in der Lage sind, auf moderate, konstante Belastungen zu reagieren, indem sie eine Änderungsrate der Sauerstoffaufnahme induzieren, die proportional zum "Fehlersignal" der Sauerstoffaufnahme ist (d. h. der Unterschied zwischen der erforderlichen und der aktuellen Sauerstoffaufnahme zu diesem Zeitpunkt). Diese Erkenntnis stimmt mit der Arbeit von DiPrampero et al. und Margaria et al. überein. Bei höheren Arbeitsraten ist jedoch die Zeit bis zum Erreichen des Gleichgewichts stark verzögert und die Rate des Sauerstofftransports steigt langsamer an, was durch einen zweiten exponentiellen Prozess beschrieben werden kann. Diese Ergebnisse bei höheren Arbeitsraten zeigen, dass das Sauerstoffdefizit als Bruchteil des insgesamt für konstante Arbeit erforderlichen Sauerstoffs progressiv zunimmt, wenn die Arbeitslast über die anaerobe Schwelle hinaus erhöht wird. Ein solcher Befund wurde bereits zuvor berichtet.
+#Da der Anteil des Sauerstoffdefizits, der aus gespeicherten Sauerstoff- und energiereichen Phosphatquellen (hauptsächlich Kreatinphosphat) stammt, in der frühen Phase der Arbeit genutzt wird, ist es vorhersehbar, dass der Anteil des Sauerstoffdefizits, der aus der Produktion von Milchsäure resultiert, bei höheren Arbeitsraten ebenfalls in einem zunehmend größeren Ausmaß ansteigt. 
+#Der Index k(ΔVO˙2)k(ΔVO˙2​) (Minute 3-6) hat sich als nützlicher Indikator für die relative Nähe zu einem Gleichgewichtszustand der Sauerstoffaufnahme erwiesen. Die Bedeutung des ΔVO˙2ΔVO˙2​ ist, dass ein Teil des Energiebedarfs durch Glykolyse und Milchsäurebildung gedeckt wird, da die anderen verfügbaren Energie- und Sauerstoffspeicher in den aktiven Geweben wahrscheinlich innerhalb von 2-3 Minuten aufgebraucht sind. Wir glauben, dass der ΔVO˙2(56)ΔVO˙2​(56)-Index eine nützliche Darstellung der langsamen Komponente des Anstiegs der Sauerstoffaufnahme ist, die vermutlich den anaeroben Energiemechanismus widerspiegelt.
+```
+
+ΔO~2~S~p~ kann nach @Francescato2003 aus der Differenz zwischen der
+Zeitkonstante des am Mund gemessenen Sauerstoffvolumenstroms zum Start
+der Belastung (τ~Start~) und der Zeitkonstante des auf alveolärer Ebene
+gemessenen Sauerstoffvolumenstroms (τ~alveolär~) sowie dem netto
+Steady-State-Sauerstoffvolumenstrom während der Belastung
+$\dot{V}O_{2net, SS}$ geschätzt werden.<br /> Als Näherung wurde dafür
+zunächst der Sauerstoffvolumenstrom in Abhängigkeit von der Zeit während
+der Belastung modelliert. Dies erfolgte für jedes Belastungsintervall
+mittels nichtlinearer Regression unter Verwendung des in @eq-VO2_Start1
+beschriebenen mono-exponentiellen 3-Parameter-Modells
+[@Francescato2003]. Da die Probanden in den Erholungsphasen nicht
+vollständig ruhten, war der Sauerstoffvolumenstrom zu Beginn der
+Belastung ($\dot{V}O_{2, Start}$) signifikant höher als
+$\dot{V}O_{2,Ruhe}$, weshalb @eq-VO2_Start1 zu @eq-VO2_Start2 für die
+Berechnung angepasst werden musste. $\dot{V}O_{2net, SS}$ wurde
+als der Wert der Modellfunktion von $\dot{V}O_{2gross, SS}$ zum Zeitpunkt $4 \cdot τ_{Start}$
+abzüglich $\dot{V}O_{2,Ruhe}$ bestimmt. Bis zum Zeitpunkt
+$4 \cdot τ_{Start}$ hat ungefähr 98,2 % des Anstiegs von
+$\dot{V}O_{2, Belastung}(t)$ stattgefunden. Daher wurde dieser Zeitpunkt
+näherungsweise als Steady-State (SS) Wert des Sauerstoffvolumenstroms
+während der Belastung festgelegt. Ein Modellierungsbeispiel ist in
+@fig-VO2_Start zu sehen:
+
+**Genaueres im Kapitel EXKURS!!!!**
+
+$$
+\dot{V}O_{2, Belastung}(t) = \dot{V}O_{2gross, SS} \cdot \left(1 - e^{-\frac{t - TD}{\tau_{Start}}}\right) + \dot{V}O_{2, Ruhe}
+$$ {#eq-VO2_Start1}
+
+$$
+\dot{V}O_{2, Belastung}(t) = \dot{V}O_{2gross, SS} \cdot \left(1 - e^{-\frac{t - TD}{\tau_{Start}}}\right) + \dot{V}O_{2, Start}
+$$ {#eq-VO2_Start2}
+
+![Modellierung des Sauerstoffvolumenstroms zu Beginn einer Belastung
+($\dot{V}O_{2, \text{Start}}$)](images/VO2_Start_Plot.html){#fig-VO2_Start
+.caption width="1200" height="500"}
+
+```{r}
+#Modellparameter beschreiben und Tabelle oder Referenzen für die gewählten  Startwerte einfügen**
+```
+
+In der Studie von @Francescato2003 führten die Probanden auf einem
+speziellen Widerstandsergometer für die Wadenmuskulatur (M.
+gastrocnemius) wiederholte Fußstreckungen bei gestrecktem Knie und
+verschiedenen Intensitäten durch, wobei für jede Belastung die
+körpereigenen Sauerstoffspeicher berechnet wurden.<br> Da der pulmonale
+Sauerstoffspeicher in der beschriebenen Studie basierend auf dem Anteil
+der aktiven Muskelmasse bestimmt wurde, wird in der vorliegenden
+Berechnung der Sauerstoffvolumenstrom ebenfalls mit dem Anteil der
+aktiven Muskelmasse verrechnet, deren Berechnung in @sec-MM beschrieben
+wird.
+
+$$
+\Delta \dot{V}O_{2net, aktiv, SS}\,[l \cdot min^{-1}] = \Delta \dot{V}O_{2net, SS}\,[l \cdot min^{-1}] \cdot \frac{Muskelmasse_{aktiv}\,[kg]}{Körpermasse\,[kg]}
+$$ {#eq-dO2SP}
+
+Die alveoläre Zeitkonstante τ~alveolär~ wurde von @Cautero2002 beim
+Radfahren mit 34.3s festegelegt und wurde für die folgenden Berechnungen
+als feste Konstante verwendet.<br> Anschließend konnte ΔO~2~S~p~ mit
+folgender Gleichung bestimmt werden:
+
+$$
+\Delta O_{2}S_{p}\,[l] = \Delta \dot{V}O_{2net, aktiv, SS}\,[l \cdot min^{-1}] \cdot (\tau_{Start}\,[min] - \tau_{alveolär}\,[min])
+$$
+
+> **Berechnungsbeispiel von ΔO~2~S~p~ für Test 01_02:**<br>
+> $\Delta O_{2}S_{p}\,[l] = 3.709\,[l \cdot min^{-1}]  \cdot \left(\frac{20.75\,[kg]}{76.00\,[kg]}\right) \cdot \left(\frac{47.75}{60}\,[min] - \frac{34.3}{60}\,[min] \right)= 0.228\,[l]$
+
+### Bestimmung der aktiven Muskelmasse: {#sec-MM .unnumbered .unlisted}
+
+Zunächst wurde die gesamte Muskelmasse der Probanden abhängig vom
+Geschlecht eingeschätzt. Dies erfolgte anhand der von @Janssen2000
+mittels Magnetresonanzbildgebung bestimmten Verteilung der
+Skelettmuskelmasse von 468 Männern und Frauen im Alter von 18 bis 88
+Jahren. Da es sich in der vorliegenden Untersuchung um sehr aktive
+Sportler mit vergleichsweise geringem Körperfettanteil handelte, wurde
+jeweils von einer aktiven Muskelmasse ausgegangen, die der oberen Grenze
+der Stichprobe im Alter von 18-29 Jahren entsprach. Für Frauen entsprach
+die Relative Skelettmuskelmasse laut @fig-MM etwa 34% der
+Gesamtkörpermasse und für Männer etwa 42%.
+
+![Tabellarische Darstellung der Probandenmerkmale aus Janssen et al.
+(2000). Werte sind Gruppendurchschnittswerte ± SD. n: Anzahl der
+Probanden; Weight: Gewicht; Height: Größe; BMI: Body-Mass-Index; Total
+SM: Gesamt-Skelettmuskelmasse; Relative SM: Relative Skelettmuskelmasse
+in Prozent; Lower Body SM: Skelettmuskelmasse des Unterkörpers; Upper
+Body SM: Skelettmuskelmasse des
+Oberkörpers.](images/Muskelmassenanteil.png){#fig-MM .caption}
+
+In anderen Untersuchungen wurde der Anteil der aktiven Muskelmasse an
+der Gesamtmuskelmasse (Muskelmasse~aktiv~) beim Radfahren im Sitzen in
+der Regel auf 60%-75% [@Heck2022] bis zu 80% bei hochintensiven
+Belastungen geschätzt [@Beneke2002]. Da nach @Janssen2000 der Anteil der
+Muskulatur des Unterkörpers im Bezug zur gesamten Muskelmasse für die
+bereits beschriebene Stichprobe bei Frauen ca. 57,3% und bei Männern ca.
+54,8% beträgt, scheint ein Wert von 65% als Anteil der aktiven
+Muskelmasse an der Gesamtmuskelmasse für das Radfahren im Sitzen ein
+plausibler Wert zu sein.<br>Beim Radfahren im Stehen ändert sich die
+Unterstützung des Körpergewichts deutlich, da die Unterstützung des
+Sattels entfällt und das Gewicht nun verstärkt von den Händen am Lenker
+getragen wird. Dies führt zu einer stärkeren Aktivierung der Muskulatur,
+insbesondere der Oberkörper- und Armmuskeln [@Duc2008; @Caldwell1998;
+@Li1998; @Ryschon1991a; @Bosak2001; @Tanaka1987; @Arkesteijn2016].
+Aufgrund dessen wird angenommen, dass ein größerer Anteil von ca. 75%
+der aktiven Muskelmasse an der Gesamtmuskelmasse für das Radfahren im
+Stehen beteiligt ist. Muskelmasse~aktiv~ wird wie folgt berechnet:
+
+$$
+Muskelmasse_{aktiv}\,[kg] = 
+\begin{cases} 
+Körpermasse\,[kg] \cdot 0.34 \cdot 0.65 \quad\rightarrow & \text{♀ | Sitzen} \\
+Körpermasse\,[kg] \cdot 0.34 \cdot 0.75 \quad\rightarrow & \text{♀ | Stehen} \\
+Körpermasse\,[kg] \cdot 0.42 \cdot 0.65 \quad\rightarrow & \text{♂ | Sitzen} \\
+Körpermasse\,[kg] \cdot 0.42 \cdot 0.75 \quad\rightarrow & \text{♂ | Stehen} \\
+\end{cases}
+$$ {#eq-MMAKTIV}
+
+## Venöser O~2~-Speicher (ΔO~2~S~v~)
+
+::: columns
+::: {.column width="50%"}
+![Schematische Darstellung der Komponenten des Sauerstofftransports und
+der Sauerstoffdiffusion von der Kapillare zu den
+Muskelzellen-Mitochondrien. C~a~O~2~: arterielle O~2~-Konzentration;
+C~v~O~2~: venöser O~2~-Gehalt; DO~2~: Diffusivität von O~2~; Mb:
+Myoglobin; P~mito~O~2~: mitochondrialer O~2~-Partialdruck; P~mv~O~2~:
+mikrovaskuläre O~2~-Partialdruck; $\dot{Q}$: Herzminutenvolumen;
+$\dot{V}O_2$: Sauerstoffvolumenstrom (Barstow,
+2019)](images/Fick.png){#fig-FICK .caption}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="48%"}
+Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem
+Produkt des venösen Blutvolumens (VBV) und der Veränderung der
+arteriovenösen Sauerstoffdifferenz im Steady-State Δ(C~a~ -
+C~v~)<sup>SS</sup> und derjenigen in Ruhe Δ(C~a~ - C~v~)<sup>Ruhe</sup>
+[@Francescato2003]:
+
+$$
+\Delta O_2S_{v} = \left[ \Delta (C_a - C_v)^{Belastung} - \Delta (C_a - C_v)^{Ruhe} \right] \cdot VBV
+$$ {#eq-O2S1}
+
+Mit Hilfe der Fick'sche Gleichung @eq-FICK1 kann @eq-O2S1 zu @eq-O2S2
+umgestellt werden. Die Fick'sche Gleichung besagt, dass der
+Sauerstoffvolumenstrom $\dot{V}O_2$ das Produkt aus dem
+Herzminutenvolumen (Q) und der arteriovenösen Sauerstoffdifferenz
+(C~a~ - C~v~) ist (siehe @fig-FICK) . Dabei steht C~a~ für die
+Sauerstoffkonzentration im arteriellen Blut und C~v~ für die
+Sauerstoffkonzentration im venösen Blut [@Fick1855; @Barstow2019].
+
+$$
+\dot{V}O_2 = \dot{Q} \cdot (C_a - C_v) \Rightarrow (C_a - C_v) = \frac{\dot{V}O_2}{\dot{Q}} 
+$$ {#eq-FICK1}
+
+Für den Belastungs und Ruhezustand lässt sich @eq-FICK1 wie folgt
+umformen, wobei $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ das
+Herzminutenvolumen in Ruhe und unter Belastung beschreibt:
+
+$$ 
+(C_a - C_v) = \frac{\dot{V}O_2}{\dot{Q}}\Rightarrow
+\begin{cases} 
+\Delta (C_a - C_v)^{Belastung} = \frac{\dot{V}O_{2, Belastung}}{\dot{Q}_{Belastung}} \\ 
+\Delta (C_a - C_v)^{Ruhe} = \frac{\dot{V}O_{2, Ruhe}}{\dot{Q}_{Ruhe}}
+\end{cases} 
+$$ {#eq-FICK2}
+:::
+:::
+
+Setzt man die beiden Ausdrücke aus @eq-FICK2 in @eq-O2S1 ein, erhält man
+folgende Endgleichung:
+
+$$
+\Delta O_2S_{v}\,[l] = \left[ \frac{\dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]}{\dot{Q}_{Belastung}\,[l \cdot min^{-1}]} - \frac{\dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]}{\dot{Q}_{Ruhe}\,[l \cdot min^{-1}]} \right] \cdot VBV\,[l]
+$$ {#eq-O2S2}
+
+> **Berechnungsbeispiel von ΔO~2~S~p~ für Test 01_02:**<br>
+> $\Delta O_2S_{v}\,[l] = \left[ \frac{4.118\,[l \cdot min^{-1}]}{27.819\,[l \cdot min^{-1}]} - \frac{0.409\,[l \cdot min^{-1}]}{5.529\,[l \cdot min^{-1}]} \right] \cdot 3.405\,[l] = 0.252 [l]$
+
+VBV sowie $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ wurden wie folgt
+berechnet:
+
+```{r}
+#Normieren auf aktive Muskelmasse macht für folgende Berechnung keinen Unterschied
+
+# Diese Gleichung stellt die Berechnung der Veränderung der
+#Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der
+#arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in
+#Verbindung mit dem venösen Blutvolumen betrachtet werden.Diese Gleichung stellt die Berechnung der Veränderung der
+#Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der
+#arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in
+#Verbindung mit dem venösen Blutvolumen betrachtet werden.
+```
+
+### Berechnung des VBV, $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ {#sec-VBV_Q .unnumbered .unlisted}
+
+::: columns
+::: {.column width="74%"}
+Das venöse Blutvolumen wurde für die Berechnung als 64% des gesamten
+Blutvolumens angenommen [@Astrand2003, 147], welches wiederum als 7% der
+Körpermasse (in Kilogramm) angesetzt wurde [@Tandon2011, 113]. Dies
+ergibt die folgende Formel:
+
+$$ 
+VBV\,[l] =  0.64 \cdot 0.07\cdot Körpermasse\,[kg]
+$$ {#eq-VBV}
+
+Das individuelle Herzminutenvolumen jedes Probanden in Ruhe
+$\dot{Q}_{Ruhe}$ und unter Belastung $\dot{Q}_{Belastung}$ wurde
+basierend auf den Daten der Studie von @Astrand1964, die bei
+verschiedenen Intensitäten auf dem Fahrradergometer das
+Herzminutenvolumen gemessen haben, berechnet. Die in @fig-HZV zu
+sehenden Regressionsgleichungen wurden durch lineare Regression der
+Herzminutenvolumina in Abhängigkeit vom Sauerstoffvolumenstrom
+bestimmt.<br /> Um $\dot{Q}_{Belastung}$ zu berechnen, wurde der
+modellierte Steady-State-Sauerstoffvolumenstrom der jeweiligen
+Belastungsintensität $\dot{V}O_{2gross, SS}$ bzw. der jeweilige
+$\dot{V}O_{2, Ruhe}$ jedes Probanden für die Berechnung verwendet.
+Abhängig von der prozentualen Auslastung $VO_{2, Prozent}$ des
+$\dot{V}O_{2gross, SS}$ im Vergleich zum im 1. Stufentest erreichten
+maximalen Sauerstoffvolumenstroms des Probanden und des Geschlechts
+wurde die passende Regressionsgleichung, @eq-QBELASTUNG für
+$\dot{Q}_{Belastung}$ oder @eq-QRUHE für $\dot{Q}_{Ruhe}$ ausgewählt
+[@Francescato2003].
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="24%"}
+![Beziehung zwischen Herzminutenvolumen und Sauerstoffvolumenstrom auf
+dem Radergometer (Åstrand,
+1964)](images/Herzminutenvolumen.png){#fig-HZV .caption}
+:::
+:::
+
+$$
+\dot{Q}_{Belastung}\,[l \cdot min^{-1}] = 
+\begin{cases} 
+9.88 + 3.23 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀ | }VO_{2, Prozent} \leq 70 \%\\    
+3.66 + 6.81 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀ | }VO_{2, Prozent} \geq 70 \%\\
+6.55 + 4.35 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂ | }VO_{2, Prozent} \leq 70 \% \\
+3.07 + 6.01 \cdot \dot{V}O_{2gross, SS}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂ | }VO_{2, Prozent} \geq 70 \%
+\end{cases}
+$$ {#eq-QBELASTUNG}
+
+$$
+\dot{Q}_{Ruhe}\,[l \cdot min^{-1}] = 
+\begin{cases} 
+3.66 + 6.81 \cdot \dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♀} \\    
+3.07 + 6.01 \cdot \dot{V}O_{2, Ruhe}\,[l \cdot min^{-1}]\quad\rightarrow & \text{♂}
+\end{cases}
+$$ {#eq-QRUHE}
+
+## O~2~-Speicher im Myoglobin (ΔO~2~S~m~) {.unnumbered .unlisted}
+
+**Werden hier nicht beachtet, da zu klein**
+
+Ein weiterer Bestandteil der körpereigenen Sauerstoffspeichers umfasst den O~2~, der an Muskelmyoglobin gebunden ist. Hier unterscheiden sich die Angaben in der Literatur. @Astrand2003 bis zu 500ml während nach den Berechnungen von @Francescato2003 die ΔO~2~S~m~ höchstens 1% der gesamten körperigenen O~2~-Speicher einnehmen. Da die Berechnungen der anderen O~2~-Speicher Komponenten auf den Berechnungen von @Francescato2003 basieren wird in dieser Arbeut auf grund des zu vernchlässigenden Anteils der ΔO~2~S~m~ auf eine Berechnung verzichtet.
+
+@Margaria1976 noch einbauen
+
+**Auf Basis der Daten von @Mole1999 kann die Myoglobin-Desaturierung während des Trainings anhand der erbrachten mechanischen Leistung P~mech~ geschätzt werden. @Mole1999 bestimmten die in @fig-DeoxyMB abgebildete Beziehung zwischen dem Prozentsatz an desoxymyoglobin (%deoxyMb) und der mechanischen Leistung wie folgt:**
+
+$$
+\% \text{deoxyMb} = 2.09 \cdot P_{mech}\,[Watt] + 14.2
+$$ {#eq-DEOXYMB}
+
+
+```{r}
+
+# Unterschied zwischen Hämoglobin und myoglobin kurz anschneiden. Außerdem Otto et al. 2013 für O2 am Haemoglobin.
+
+# ***Normieren auf aktive Muskelmasse***
+
+# ::: columns
+# ::: {.column width="74%"}
+# [@Francescato2003; @Mole1999; @Masuda1999]
+
+# Ein weiterer Bestandteil der körpereigenen Sauerstoffspeichers umfasst
+# den Sauerstoff, der an Muskelmyoglobin gebunden ist. Auf Basis der Daten
+# von @Mole1999 kann die Myoglobin-Desaturierung während des Trainings
+# anhand der erbrachten mechanischen Leistung P~mech~ geschätzt werden.
+# @Mole1999 bestimmten die in @fig-DeoxyMB abgebildete Beziehung zwischen
+# dem Prozentsatz an desoxymyoglobin (%deoxyMb) und der mechanischen
+# Leistung wie folgt:
+
+# $$
+# \% \text{deoxyMb} = 2.09 \cdot P_{mech}\,[Watt] + 14.2
+# $$ {#eq-DEOXYMB}
+
+# $$
+# P_{mech/kg,aktiv}\,[\text{Watt} \cdot \text{kg}^{-1}] = \frac{P_{mech}\,[\text{Watt}]}{Muskelmasse_{aktiv}\,[\text{kg}]}
+# $$ {#eq-PMECHKG}
+
+# Unter der Annahme einer Myoglobinkonzentration von 4,46 g/kg Nassmuskel,
+# wie von Masuda et al. \[25\] berichtet, und einer
+# Sauerstoffbindungskapazität von 1,34 mlO2/g Myoglobin, kann die
+# zusätzliche Menge an Sauerstoff, die durch Myoglobin-Desaturierung
+# freigesetzt wird, wie folgt berechnet werden:
+
+# $$ 
+# \Delta O_2S_{M}\,[ml] = \left(\frac{2.09 \cdot P_{mech}\,[Watt]}{100}\right) \cdot 4.46\,[g \cdot kg^{-1}] \cdot 1.34\,[ml \cdot O_{2} \cdot kg^{-1}] \cdot Muskelmasse_{aktiv}\,[kg] 
+# $$ {#eq-D02DEF}
+
+# Hierbei repräsentiert P~mech~ die mechanische Leistung. Die individuelle
+# Muskelmasse der Plantarflexoren (PF) wird in Kilogramm angegeben. Diese
+# Formel ermöglicht es, den Teil des Sauerstoffspeichers zu berechnen, der
+# spezifisch durch die Desaturierung von Myoglobin während des Übergangs
+# von Ruhe zu Arbeit freigesetzt wird.
+# :::
+
+# ::: {.column width="2%"}
+# :::
+
+# ::: {.column width="24%"}
+# ![Beziehung zwischen dem Prozentsatz an Desoxymyoglobin (%deoxyMb) und
+# der mechanischen Leistung (Molé,
+# 1999)](images/DeoxyMB.png){#fig-DeoxyMB .caption}
+# :::
+# :::
+
+# > ***Beispielberechnung - Test 01_02:***<br>
+# > $\Delta O_{2}S_{p}\,[l] = 3.709\,[l \cdot min^{-1}] \cdot \left(\frac{47.75}{60}\,[min] - \frac{34.3}{60}\,[min] \right) \cdot 0.273 = 0.228\,[l]$
+
+# $$ 
+# O_2\text{def} = EPOC - \Delta O_2S_p - \Delta O_2S_v - \Delta O_2S_m
+# $$ {#eq-02DEF}
+
+# Diese Gleichung stellt die Berechnung der Veränderung der
+# Sauerstoffspeicher im venösen Blut dar, wobei die Differenzen der
+# arteriovenösen Sauerstoffkonzentrationen unter Belastung und in Ruhe in
+# Verbindung mit dem venösen Blutvolumen betrachtet werden.
+
+# Auf dieser Grundlage wurde das insgesamt gemessene
+# Brutto-Sauerstoffdefizit korrigiert, um das Netto-Sauerstoffdefizit zu
+# erhalten, welches das Sauerstoffäquivalent der Spaltung von
+# Phosphokreatin (PC) bei Arbeitsbeginn darstellt. Die bestimmte Menge an
+# EPOC (Excess Post-exercise Oxygen Consumption) repräsentiert daher
+# dieses korrigierte Sauerstoffdefizit, das durch die initiale PC-Spaltung
+# entstanden ist.
+
+# Entspricht die ermittelte Menge den in der Literatur angegebenen
+# Sauerstoffspeichern? z.B. Maragria1982 - 0,55 L usw....?
+
+# The oxygen drawn from the stores at maximum oxygen consumption can be 
+# estimated by assuming that (a) the saturation of haemoglobin with oxygen 
+# of the venous blood is about 55 per cent less than at rest (venous HbO2 = 20 
+# per cent of Hb instead of 75 per cent); (b) the volume of venous blood is 80 
+# per cent of the total blood volume; and (c) the myoglobin, the concentration 
+# of which in the muscles is about 2g per kg, is completely desaturated of oxygen 
+# in maximal or supramaximal exercise, but in rest it is completely saturated. 
+# The depletion of oxygen stores in maximal exercise can therefore be calculated 
+# as amounting to about 0-5501.
+```
+
+## Bestimmen von VO2_corrected oder true {.unnumbered .unlisted}
+
+## Validierung der W~PCR~ Werte
+
+**ATP-Speicher noch kurz erwähnen**
+
+**In der Literatur finden sich verschiedene Angaben zum zeitlichen Verlauf der PCr-Resynthese: Von t<sub>1/2</sub> = 21-22 s [@Harris1976], und t<sub>1/2</sub> = 24,3 s bei niedriger sowie t<sub>1/2</sub> = 34,7 s bei moderater Belastung [@McCann1995] (@fig-MCCANN) bis hin zu t<sub>1/2</sub> = 30-40 s [@DiPrampero1969]. Unter Annahme einer 4-5-fachen Halbwertszeit, welche einer Wiederherstellung der PCr-Speicher von ca. 93,8-96,9 % entspricht, resultieren aus den genannten Halbwertszeiten theoretische Erholungsdauern von etwa 84-200 s. Diese berechneten Werte liegen weitgehend in dem Bereich der in der Literatur zu findenden Erholungszeiten von 60-120 s [@Hargreaves2006; @Hargreaves2020] bis 180-300 s [@Morton2008].**
+
+
+**Verwendet man $\dot{V}O_{2,EPOC,fast}$ als nötigen Sauerstoffumsatz für die Resynthese des PCr, sollte der Zeitverlauf bzw. die Zeitkonstante des $\dot{V}O_{2,EPOC,fast}$-Abfalls theoretisch dem Zeitverlauf der PCr-Resynthese entsprechen. Die $\dot{V}O_{2,EPOC,fast}$-Kinetik verläuft jedoch etwas langsamer als die PCr-Resynthese, was auf den zusätzlichen Sauerstoffbedarf zur Wiederauffüllung der O2-Speicher zurückzuführen ist [@DiPrampero1981]. Basierend auf den beschriebenen PCr-Halbwertszeiten (t<sub>1/2</sub> = 21-40 s) und der Umrechnung in Zeitkonstanten ($\tau$ = t<sub>1/2</sub>/ln(2)) sollten die $\tau_{fast}$-Werte der $\dot{V}O_{2,EPOC,fast}$-Modellfunktionen ungefähr lim Bereich von $\tau$ = 30,3-57,7 s liegen.**
+
+**Von den verfügbaren Reserven anorganischer Phosphate in der Skelettmuskulatur können nur etwa 88% für die muskuläre Energiebereitstellung metabolisiert werden. Diese Limitierung resultiert aus dem Umstand, dass bereits eine Reduktion der intrazellulären ATP-Konzentration um 20-40% gegenüber dem Ruhewert zur muskulären Kontraktionsinsuffizienz führt. ATP-Reserven sind ca. 5 mmol pro kg Muskelfeuchtmasse [@Hargreaves2006, 8;@Heck2022, 40]**
+
+
+Um die physiologische Plausibilität der bestimmten W~PCr~ Mengen zu überprüfen, vergleichbar mit dem Vorgehen von @Dunst2019 für jeden Probanden Minimal-, Durchschnitts- und Maximal- Normwerte des PCr-Umsatzes bestimmt. Diese Berechnungen basieren auf der bereits berechneten aktiven Muskelmasse, Literatur-Normwerten der Kreatinphosphatspeicher (PCr) sowie aus der Literatur abgeleiteten physiologischen Fakten. In folgender Tabelle sind mehrere mittels Muskelbiospie oder mittels 31P-Magnetresonanzspektroskopie (englisch: Phosphorus Magnetic Resonance Spectroscopy = P-MRS) ermittelte PCr-Werte sowie Normwerte aus der Fachliteratur dargestellt: 
+
+```{r echo=FALSE, output=FALSE}
+#| echo: false
+library(flextable)
+library(dplyr)
+library(officer)
+
+##### PCr-Werte ######
+data <- data.frame(
+  Autoren = c(
+    "Hultman et al. (1967)", "Karlsson et al. (1971)", "Keul et al. (1972)", "Knuttgen et al. (1973)", "Harris et al. (1974)",
+    "Stegemann (1991)", "Gaitanos et al. (1993)", "Bangsbo et al. (1993)","McCann et al. (1995)", "Bogdanis et al. (1996)", "Putman et al. (1998)", "Walter et al. (1999)", "Parolin et al. (1999)",
+    "Parolin et al. (2000)", "de Marées (2003); Heck (2006)", "Brooks et al. (2004)", "Nelson & Cox (2012)", "Heck et al. (2022)"
+  ),
+  PCr_Konzentration = c(
+    "16.07 ± 1.66 ≙ (67.8 ± 7.0*)", "15.7 ± 2.15", "10 - 30", "17.9 ± 1.84", "17.89 ± 1.81 ≙ (75.5 ± 7.63*)",
+    "16.6 - 21.3 ≙ (70-90*)", "18.13 ± 1.71 ≙ (76.5 ± 7.2*)", "17.5 - 20.3", "23.6 ± 0.98", "17.82 ± 1.04 ≙ (75.2 ± 4.4*)", "20.52 ± 0.81 ≙ (86.6 ± 3.4*)", "37.7 ± 2.8", "20.9 ± 1.1 ≙ (88.2 ± 4.7*)",
+    "ca. 19 ≙ (ca. 80*)", "15 - 20",  "28", "30", "20 - 25"
+  ),
+  Messungsmethode = c(
+    "Muskelbiopsie", "Muskelbiopsie", "Literaturangabe", "Muskelbiopsie", "Muskelbiopsie",
+    "Literaturangabe", "Muskelbiopsie", "P-MRS","P-MRS","Muskelbiopsie", "Muskelbiopsie", "P-MRS",
+    "Muskelbiopsie","Muskelbiopsie", "Literaturangabe", "Literaturangabe", "Literaturangabe",  "Literaturangabe"
+  ),
+  stringsAsFactors = FALSE
+)
+
+# Umbenennen der Spalten
+colnames(data)[2] <- "PCr-Konzentration [mmol·kg⁻¹ Trockenmuskelmasse]"
+colnames(data)[3] <- "Bestimmungsmethode / Datenbasis"
+
+# Funktion zur Auswahl der ersten verfügbaren Schriftart
+select_available_font <- function(font_list) {
+  available_fonts <- systemfonts::system_fonts()$family
+  for (font in font_list) {
+    if (font %in% available_fonts) {
+      return(font)
+    }
+  }
+  return("sans-serif")  # Fallback zu einer generischen sans-serif Schriftart
+}
+
+# Liste der bevorzugten Schriftarten
+preferred_fonts <- c("Calibri", "Arial", "Helvetica")
+
+# Auswahl der ersten verfügbaren Schriftart
+chosen_font <- select_available_font(preferred_fonts)
+
+# Erstellen der Tabelle mit flextable
+ft_PCr <- flextable(data) %>%
+  set_caption("Angaben zu PCr-Konzentrationen in der Fachliteratur") %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = "*Werte in Klammern zeigen die tatsächlich in der Studie gemessene PCr-Konzentration im Feuchtmuskel. Die Werte außerhalb der Klammern sind auf die Trockenmuskelmasse umgerechnet. Für die Umrechnung wurde nach Putman et al. (1998) ein Verhältnis von 1:4.22 verwendet.",
+    colwidths = 3
+  ) %>%
+  font(fontname = chosen_font, part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = officer::fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = officer::fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = officer::fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = officer::fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = officer::fp_border(color = "darkgrey", width = 0.5))
+
+# Setzen der Tabelle auf volle Breite
+ft_PCr <- set_table_properties(ft_PCr, width = 1, layout = "autofit")
+```
+
+```{r}
+#| label: tbl-PCr
+#| tbl-cap-location: bottom
+#| tbl-cap: "PCr"
+
+# Anzeigen der Tabelle
+ft_PCr
+```
+
+@tbl-PCr
+
+Wie in der Tabelle zu sehen varriireen die in der Literatur berichteten PCr-Werte variieren stark und reichen von 15,7 [@Bangsbo1993] bis 37,7 mmol/kg [@Walter1999]. Diese große Variabilität ist wahrscheinlich auf die unterschiedlichen Methoden zurückzuführen, mit denen diese Werte bestimmt wurden. Im Allgemeinen werden niedrigere Werte gefunden, wenn PCr aus Muskelbiopsien bestimmt wird, da wahrscheinlich ein gewisser artifizieller PC-Abbau zwischen Probenahme und Einfrieren stattfindet [@Francescato2003].
+Für die Plausibilität-Bestimmung der berechneten W~PCr~ wurden somit anahnd der tatsächlihce gemessenen Werte der Tabelle eine Durchschnittwerte (PCr~Norm~ = 20.34 [mmol \cdot kg^-1]) sowie in Minimal- (PCr~min~ = 15.7 [mmol \cdot kg^-1]) und Maximalwert bestimmt (PCr~max~ = 37.7 [mmol \cdot kg^-1]).
+PCr~Norm~ entspricht somit ungefähr dem häufig in der Literatur verwendetem Normwert von 20 mmol \cdot kg^-1[@DeMarees2003, 346; @Heck2022, 40].     
+
+![PCr-Kinetik während (a, c) und nach (b, d) submaximaler Belastung der Unterarmmuskulatur bei unterschiedlichen Intensitäten. Dargestellt sind Mittelwerte ± SEM der PCr-Konzentration (mmol·kg<sub>TG</sub><sup>-1</sup>) über die Zeit (s) bei niedriger (a & b) und moderater Belastung (c & d). Die Zeitkonstanten (τ) betrugen während der Belastung τ = 33s ≙ t<sub>1/2</sub> = 22.9s (a) bzw. τ = 53s ≙ t<sub>1/2</sub> = 36.7s (c) und in der Erholungsphase τ = 35s ≙ t<sub>1/2</sub> = 24.3s (b) bzw. τ = 50s ≙ t<sub>1/2</sub> = 34.7s (d). (Modifiziert nach McCann et al., 1995, aus Heck et al., 2022)](images/MCCann_PCr.png){#fig-MCCANN .caption}
+
+::: columns
+::: {.column width="64%"}
+### P/O~2~-Verhältnis 
+Für die Berechnung der PCr-Speicher in der Muskulatur muss das P/O~2~-Verhältnis (P/O~2~) bestimmt werden. Dieses Verhältnis gibt an, wie viele Mol energiereiche Phosphatverbindungen, in diesem Fall PCr, durch den Verbrauch eines Mols Sauerstoff resynthetisiert werden können.
+
+PCr dient wie in @fig-STEGEMANN zu sehen zu Belastungsbeginn als leicht verfügbare Quelle von Phosphorylgruppen für die schnelle Synthese von ATP aus ADP. Sinkt der akute Energiebedarf nach Belastungsende, wird im Katabolismus produziertes ATP verwendet, um die PCr-Reserven wieder aufzufüllen, indem die Creatin-Kinase-Reaktion umgekehrt wird. Wobei pro Mol CrP ein Mol ATP benötigt wird. Das Enzym Creatin-Kinase katalysiert die folgende reversible Reaktion [@Nelson2012, 526]:
+
+$$
+\text{ADP} + \text{PCr} \stackrel{\text{Creatin-Kinase}}{\rightleftharpoons} \text{ATP} + \text{Cr}
+$$
+Indem man die benötigte Sauerstoffmenge in Mol für die Synthese von einem Mol ATP bestimmt, was wiederum einem Mol PCr entspricht, kann dann P/O~2~ bestimmt werden. 
+
+Abhängig vom verstoffwechselten Substrat und des angenommenen Wertes der daraus reultierenden ATp-Ausbeute ergibt sich P/O~2~ des jewieligen Substrates. 
+
+Die Angaben der Gesamtausbeute an ATP-Molekülen beim vollständigen oxidativen Abbau eines Glukosemoleküls (C~6~H~12~O~6~) in der der Atmungskette unterscheiden sich deutlich. In der Regel werden Werte zwischen 30 und 38 ATP-Molekülen pro Glukosemolekül angegeben. Besonders in älterer Fachliteratur finden sich eher die höheren Werte von bspw. 36 ATP-Molekülen pro Glukosemolekül [@McGilvery1975, 19; @Stegemann1991, 43; @Brooks2004, 35] während in modernerer Fachliteratur eher Werte von 30 bis 32 ATP-Molekülen pro Glukosemolekül angegeben werden [@Nelson2012, 759; @Horn2021, 272]. 
+Da wie in @eq-KH zu sehen ein Mol C~6~H~12~O~6~ (≙180 g) mit 6 mol O~2~ (≙134,4 Liter) zu 6 mol H~2~O und 6 mol CO~2~ (≙134,4 Liter) reagiert, kann man das P/O~2~-Verhältnis für Glukose (P/O~2,KH~) wie in @eq-PO_KH berechnen [@Stegemann1991,57]. 
+
+$$
+\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \rightarrow 6\text{CO}_2 + 6\text{H}_2\text{O}
+$${#eq-KH}
+
+$$ 
+\text{P/O}_{\text{2,KH}} = \begin{cases}
+\frac{36 \text{ mol ATP}}{6 \text{ mol O}_2} = 6.0 \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} \\
+\frac{30 \text{ mol ATP}}{6 \text{ mol O}_2} = 5.0 \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} 
+\end{cases}
+$${#eq-PO_KH}
+
+Das P/O~2~-Verhältnis~KH~ von 6.0 entspricht dem Wert aus @fig-MCGILVERY, in der folgenden Arbeit wird jedoch das P/O~2~KH~ von 5.0 verwendet.
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="34%"}
+![Sauerstoffvolumenstrom und EPOC sowie die parallel dazu verlaufende Konzentration des PCr und ATP im Trockenmuskel (Stegemann,
+1990)](images/Stegemann_EPOC_PCr.png){#fig-STEGEMANN .caption}
+
+![Konventionell berechnete Werte für die Ausbeute an energiereichem Phosphat aus verschiedenen Brennstoffen. Die Werte für "fatty acids" (Fettsäuren) sind berechnete Mittelwerte für ein Gemisch, das der Zusammensetzung des menschlichen Fettgewebes entspricht. (McGilvery,
+1975)](images/McGilvery.png){#fig-MCGILVERY .caption}
+:::
+:::
+
+Werden nicht nur Glukose sondern auch Fettsäuren oxidativ verstoffwechselt ändert sich P/O~2~. Fettsäuren werden nur unter aeroben Bedingungen  im Rahmen der β-Oxidation abgebaut, da das ATP – im Unterschied zur Glykolyse – erst in der Atmungskette entstehen kann. 
+Die vollständige Oxidation eines Moleküls der am häufigsten verstoffwechselten Fettsäure, der Palmitinsäure (C~16~H~32~O~2~; 1 Mol ≙ 256 g), im menschlichen Körper verwendet 23 Moleküle O~2~ und genereiert je nach Literaturangaben zwischen 106 Mol ATP [@Nelson2012, 675;@Horn2021, 272] und 129 Mol ATP [@Stegemann1991,44; @Brooks2004, 35].
+
+$$
+\text{C}_{16}\text{H}_{32}\text{O}_2 + 23\text{O}_2 \rightarrow 16\text{CO}_2 + 16\text{H}_2\text{O} 
+$${#eq-FETT}
+
+Somit lässt sich das P/O~2~-Verhältnis für Fettsäuren (P/O~2~Fett~) vereinfacht wie folgt berechnen:
+
+$$ 
+\text{P/O}_\text{2,Fett} = \begin{cases}
+\frac{129 \text{ mol ATP}}{23 \text{ mol O}_2} = 5.61 \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]}\\
+\frac{106 \text{ mol ATP}}{23 \text{ mol O}_2} = 4.61 \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} 
+\end{cases}
+$${#eq-PO_KH}
+
+In der Realität werden neben der Palmitinsäure noch weitere Fettsäuren verstoffwechselt, wodurch sich das P/O~2~Fett~ wieder ändern kann. In der folgenden Arbeit wird das "moderne" P/O~2~Fett~ von 4.61 verwendet.
+
+
+::: columns
+::: {.column width="66%"}
+Kennt man den Anteil des verstoffwechselten Substrates kann anschließend das P/O~2~-Verhältnis für die jeweilige Belastung ermittelt werden. Die Substratverteilung von Kohlenhydraten und Fetten lässt sich mit Hilfe des RQ und unter nicht-Berücksichtigung des Eiweisstoffwechsels näherungsweise mit @eq-SUBSTRATE einschätzen [@Astrand2003, 372]. Das dementsprechende   P/O~2~-Verhältnis der Belastuing (P/O~2~-Verhältnis~Bel~) lässt sich dann mit @eq-PO_BEL berechnen. Die prozentuale Substratverteilung sowie P/O~2~-Verhältnis~Bel~ für die belastungsspezifischen RQ-Werte sind in @tbl-SUBSTRATE dargestellt.     
+$$
+\text{KH}\% = \frac{RQ - 0.70}{0.30} \cdot 100 \\
+\text{Fett}\% = \frac{1.00 - RQ}{0.30} \cdot 100
+$$ {#eq-SUBSTRATE}
+
+$$ 
+\begin{gathered}
+\text{P/O}_{2,\text{Bel}} = \frac{\text{P/O}_{2,\text{Fett}} \cdot (1.00 - RQ) + \text{P/O}_{2,\text{KH}} \cdot (RQ - 0.70)}{0.30}  \\
+\hspace{2.2cm}\downarrow \\
+\text{P/O}_{2,\text{Bel}} = \frac{4.61 \cdot (1.00 - RQ) + 5.0 \cdot (RQ - 0.70)}{0.30}
+\end{gathered}
+$$ {#eq-PO_BEL}
+
+:::
+::: {.column width="2%"}
+:::
+::: {.column width="32%"}
+```{r echo=FALSE, output=FALSE}
+library(DT)
+# RQ und Substrate und P/O2
+RQ_Substrate <- data.frame(
+  RQ = c(0.700, 0.710, 0.720, 0.730, 0.740, 0.750, 0.760, 0.770, 0.780, 0.790, 
+         0.800, 0.810, 0.820, 0.830, 0.840, 0.850, 0.860, 0.870, 0.880, 0.890, 
+         0.900, 0.910, 0.920, 0.930, 0.940, 0.950, 0.960, 0.970, 0.980, 0.990, 1.000),
+  Fett_Prozent = c(100.0, 96.7, 93.3, 90.0, 86.7, 83.3, 80.0, 76.7, 73.3, 70.0,
+                   66.7, 63.3, 60.0, 56.7, 53.3, 50.0, 46.7, 43.3, 40.0, 36.7,
+                   33.3, 30.0, 26.7, 23.3, 20.0, 16.7, 13.3, 10.0, 6.7, 3.3, 0.0),
+  KH_Prozent = c(0.0, 3.3, 6.7, 10.0, 13.3, 16.7, 20.0, 23.3, 26.7, 30.0,
+                 33.3, 36.7, 40.0, 43.3, 46.7, 50.0, 53.3, 56.7, 60.0, 63.3,
+                 66.7, 70.0, 73.3, 76.7, 80.0, 83.3, 86.7, 90.0, 93.3, 96.7, 100.0),
+  PO_Ratio = c(4.610, 4.623, 4.636, 4.649, 4.662, 4.675, 4.688, 4.701, 4.714, 4.727,
+               4.740, 4.753, 4.766, 4.779, 4.792, 4.805, 4.818, 4.831, 4.844, 4.857,
+               4.870, 4.883, 4.896, 4.909, 4.922, 4.935, 4.948, 4.961, 4.974, 4.987, 5.000)
+)
+
+DT_RQ_Substrate <- datatable(RQ_Substrate, options = list(
+  dom = 'tp',
+  pageLength = 8,
+  autoWidth = TRUE,
+  scrollX = FALSE,
+  columnDefs = list(
+    list(title = "RQ", targets = 0),
+    list(title = "Fett %", targets = 1),
+    list(title = "KH %", targets = 2),
+    list(title = "P/O<sub>2</sub> - Verhältnis", targets = 3)
+  )
+), rownames = FALSE, escape = FALSE) %>%
+  formatRound(columns = 1, digits = 2) %>%
+  formatRound(columns = 2:3, digits = 1) %>%
+  formatRound(columns = 4, digits = 3)
+```
+
+```{r}
+#| label: tbl-SUBSTRATE
+#| tbl-cap-location: bottom
+#| tbl-cap: "Zusammenhang zwischen dem respiratorischem Koeffizienten RQ und dem prozentualen verstoffwechseltem Substrat sowie dem P/O<sub>2</sub> - Verhältnis [mol ATP &middot; mol O<sub>2</sub><sup>-1</sup>]"
+
+DT_RQ_Substrate
+```
+::: 
+:::
+
+Mit Kentniss von P/O~2~Bel~, VO2~fast,corrected~. Muskelmasse~aktiv~ und dem Volumen von Sauerstoff unter Standardbedingungen (V~m,O2~ = 22,414 Litern) (siehe [Energieumsatzberechnung](http://localhost:3402/Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.html#pulmonaler-sauerstoffspeicher-%CE%B4o2sp)) [@Ciba-Geigy1977, 45] kann nun die PCr Menge in mmol normiert auf die aktive Muskelfeuchtmasse (PCr~Bel~) für jede Belastung berechnet werden.
+
+$$
+\text{PCr}_{\text{Bel}} \, = \frac{\text{VO2}_{\text{fast,corrected}} \cdot \text{P/O}_{2,\text{Bel}} \cdot 1000}{\text{Muskelmasse}_{\text{aktiv}} \cdot V_{m,O_2}} \\
+\text{PCr}_{\text{Bel}} \text{ [mmol} \cdot \text{kg}^{-1}\text{]} \, = \frac{\text{VO2}_{\text{fast,true}} \text{ [L]} \cdot \text{P/O}_{2,\text{Bel}} \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} \cdot 1000}{\text{Muskelmasse}_{\text{aktiv}} \text{ [kg]} \cdot 22.414 \text{ [L} \cdot \text{mol O}_2^{-1}\text{]}}
+$$ {#eq-PCr}
+
+> **Berechnungsbeispiel für PCr:**<br>
+> Muskelmasse<sub>aktiv</sub> = 20 [kg]; VO<sub>2fast,true</sub> = 1.5 [l]; P/O<sub>2,Bel</sub> = 4.935 [mol ATP · mol O<sub>2</sub><sup>-1</sup>] <br>
+> <br>
+> $PCr = \frac{1.5 \cdot 4.935 \cdot 1000}{20 \cdot 22.414} = \frac{7402.5}{448.28} = 16.51 [mmol \cdot kg^{-1}]$
+
+Durch das Umstellen von @eq-PCr und dem EInsetzten von PCr~min~  PCr~Norm~ und PCr~max~ kann man ebenfalls Minimal-, Durchschnitts- und Maximal- Normwerte für den notwendigen Sauerstoffumsatz nach der Belastung für  verschiedene Muskelmasse~aktiv~ und P/O~2~Bel~ WErte für die Resynthese des Kreatinphosphats berechnet werden wie ifolgt bestimmt werden.
+
+$$
+\begin{align}
+VO_{\text{2PCr, Norm}} &= \frac{\text{Muskelmasse}_{\text{aktiv}} \cdot \text{PCr}_{\text{Norm}} \cdot 22.414}{\text{P/O}_{2,\text{Bel}} \cdot 1000} \notag \\ 
+&\hspace{3.35cm}\downarrow \\
+VO_{\text{2PCr, Norm-min}} \,[\text{l}] &= \frac{\text{Muskelmasse}_{\text{aktiv}}\,[\text{kg}] \cdot 15 \,[\text{mmol} \cdot \text{kg}^{-1}] \cdot 22.414}{\text{P/O}_{2,\text{Bel}} \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} \cdot 1000} \\
+VO_{\text{2PCr, Norm-avg}} \,[\text{l}] &= \frac{\text{Muskelmasse}_{\text{aktiv}}\,[\text{kg}] \cdot 20 \,[\text{mmol} \cdot \text{kg}^{-1}] \cdot 22.414}{\text{P/O}_{2,\text{Bel}} \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} \cdot 1000} \\
+VO_{\text{2PCr, Norm-max}} \,[\text{l}] &= \frac{\text{Muskelmasse}_{\text{aktiv}}\,[\text{kg}] \cdot 35 \,[\text{mmol} \cdot \text{kg}^{-1}] \cdot 22.414}{\text{P/O}_{2,\text{Bel}} \text{ [mol ATP} \cdot \text{mol O}_2^{-1}\text{]} \cdot 1000}
+\end{align}
+$$ {#eq-VO2PCR}
+
+
+> **Berechnungsbeispiel für VO₂PCr,Norm-avg:**<br>
+> Muskelmasse~aktiv~ = 20kg; PCr = 20 mmol\cdotkg^{-1}; P/O~2~ Ratio = 4.935 mol ATP \cdot mol O~2~^{-1}
+> VO₂PCr,Norm-avg [l] = \frac{20 [kg] \cdot 20 [mmol \cdot kg^{-1}] \cdot 22.414}{4.935 [mol ATP \cdot mol O~2~^{-1}] \cdot 1000} = \frac{8965.6}{4935} = 1.817 [l]$
+
+
+
+
+
+
+
+** @Mahler1979 anschauen!!!!! **
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Multipliziert man die Berechneten Sauerstoff-Normwerte der PCr_Resythese mit dem kÄ~**für 0.96**~, erhält man die äquivalenten Energie-Normwerte der PCr_Resythese in kJ-->  **In den anderen Publikationen wird auch oft 20.9 oder genauer 20.926 nach @DiPrampero1981 verwendet für einen RQ = 0.96), also hier auch**
+
+$$
+\begin{align}
+W_{\text{PCr, Norm-min}}\,[\text{kJ}] &= VO_{\text{2PCr, Norm-min}}\,[\text{l}] \cdot 20.926 \,[\text{kJ} \cdot \text{l}^{-1}]\\
+W_{\text{PCr, Norm-avg}}\,[\text{kJ}] &= VO_{\text{2PCr, Norm-avg}}\,[\text{l}] \cdot 20.926 \,[\text{kJ} \cdot \text{l}^{-1}]\\
+W_{\text{PCr, Norm-max}}\,[\text{kJ}] &= VO_{\text{2PCr, Norm-max}}\,[\text{l}] \cdot 20.926 \,[\text{kJ} \cdot \text{l}^{-1}]
+\end{align}
+$$ {#eq-WPCRNORM}
+
+Durch umstellen von @eq-VO2NORM und einsetzten der der EPOC zugewiesenen Sauerstoffmenge VO~2PCr~kann  das verstoffwechselte  Kreatinphosphat im mmol pro kg Muskelfeuchtmasse berechnet werden.
+
+
+
+## Exkurs: $\dot{V}O_{2}$-Kinetik 
+### Monoexponentielle $\dot{V}O_{2}$-Modellfunktion{.unnumbered .unlisted}
+
+**NOCH BESCHREIBEN WIE UND WANN VO2SS BESTIMMT WIRD --> tau4!!!!!!**
+
+Der Anstieg des Sauerstoffvolumenstroms $\dot{V}O_{2}\thinspace(t)$ zu Beginn einer leichten bis moderaten körperlichen Belastung auf dem Fahrradergometer unterhalb der Laktatschwelle (LT[^1]) wurde traditionell in der Literatur als monoexponentiell beschrieben, mit einer Amplitude von ungefähr 9–10 ml O~2~·W^-1^·min^-1^ [@Barstow1991; @Bearden2000]. Die Zeitkonstante $\tau_{\text{Start}}$ beschreibt die Geschwindigkeit, mit der der Sauerstoffvolumenstrom den Gleichgewichtszustand $\dot{V}O_{2,\text{brutto, SS}}$ erreicht. Dies lässt sich mit der folgenden Formel darstellen [@Hill1924; @Henry1956; @Margaria1965; @Whipp1971; @Oezyener2001; @Francescato2003; @Clark2014]:
+
+[^1]:Die LT beschreibt den Punkt, an dem das Blutlaktat bei zunehmender Belastungsintensität über das Ruheniveau hinaus zu akkumulieren beginnt [@Sietsema2020]. 
+
+$$
+\dot{V}O_{2,\text{Belastung}}\thinspace(t) = \dot{V}O_{2,\text{brutto, SS}} \cdot \left(1 - e^{-\frac{t - TD}{\tau_{\text{Start}}}}\right) + \dot{V}O_{2,\text{Start}}
+$$ {#eq-VO2_Start1}
+
+Dabei beschreibt $\dot{V}O_{2,\text{Start}}$ den Sauerstoffvolumenstrom zu Beginn der Belastung, und $\dot{V}O_{2,\text{netto, SS}}$ bezeichnet den Steady-State-Wert abzüglich des Ruhe-Sauerstoffvolumenstroms $\dot{V}O_{2, \text{Ruhe}}$. In der folgenden Shiny-App wird ein Beispiel dieser Modellfunktion gezeigt, wie in @eq-VO2_Start1 beschrieben. Eigene $\dot{V}O_{2}$-Daten können hochgeladen und mittels nichtlinearer Regression an die Beispieldaten angepasst werden.
+
+#### Monoexponentielle $\dot{V}O_{2}$-Shiny-App{.unnumbered .unlisted}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+
+library(shiny)
+library(plotly)
+library(minpack.lm)
+
+# Beispieldaten
+t_data <- c(0, 2.8, 5.3, 8.6, 10.4, 15.2, 19.7, 22.5, 24.5, 26.2, 28.2, 31.6, 33.5, 35.3, 37, 38.5, 40.3, 41.9, 43.5, 45.2, 46.8, 48.4, 50, 51.5, 53.3, 54.8, 56.5, 57.9, 59.5, 61.1, 62.9, 64.3, 65.8, 67.7, 69.1, 70.7, 72.4, 73.9, 75.7, 77.2, 78.9, 80.5, 82.7, 84.1, 85.5, 87, 88.6, 90.2, 91.5, 92.9, 94.3, 95.8, 97.6, 99.1, 100.5, 102.1, 103.5, 105.3, 106.6, 108.1, 109.6, 111.4, 112.8, 114.3, 115.8, 117.7, 119.1, 120.8, 122.3, 124.2, 125.7, 127.2, 128.8, 131.1, 132.5, 133.9, 135.4, 136.9, 138.4, 140, 141.3, 143, 144.5, 146.1, 147.6, 149, 150.5, 152.3, 153.9, 155.6, 156.9, 158.6, 160.1, 162.4, 163.7, 165.1)
+VO2_data <- c(0.465, 0.34, 0.466, 0.503, 0.452, 0.687, 0.846, 0.963, 0.936, 1.125, 1.238, 1.541, 1.395, 1.685, 1.689, 1.622, 1.917, 1.732, 1.835, 1.801, 1.664, 1.744, 1.891, 1.85, 1.858, 1.89, 2.108, 1.962, 1.992, 1.972, 2.026, 1.868, 1.949, 2.033, 1.887, 1.856, 2.112, 2.117, 2.129, 1.994, 2.03, 1.925, 1.916, 1.949, 1.956, 2.119, 1.894, 2.034, 1.766, 1.994, 1.985, 2.068, 1.796, 2.172, 2.09, 2.017, 2.152, 2.238, 2.027, 2.214, 2.159, 2.098, 1.963, 2.063, 2.292, 2.21, 1.84, 2.102, 2.1, 2.086, 2.008, 2.048, 1.978, 1.87, 2.16, 1.977, 2.335, 2.053, 2.084, 2.056, 2.005, 2.161, 2.088, 2.161, 2.078, 2.038, 2.117, 2.148, 2.043, 2.342, 2.142, 2.306, 2.043, 1.881, 1.918, 2.252)
+
+# UI
+ui <- fluidPage(
+  titlePanel("V̇O2-Modellfunktion"),
+  fluidRow(
+    column(3,
+     style = "height: 90vh; overflow-y: auto;",
+     
+      tags$h4(tags$strong("Modellparameter:")),
+      sliderInput("VO2", "V̇O2 Amplitude", min = 0.0, max = 7.0, value = 1.7, step = 0.001),
+      sliderInput("Tau", "Tau", min = 5, max = 360, value = 23, step = 1.0),
+      sliderInput("VO2_Start", "V̇O2 Start", min = 0.0, max = 4.0, value = 0.4, step = 0.001),
+      sliderInput("VO2_Ruhe", "V̇O2 Ruhe", min = 0, max = 1, value = 0.3, step = 0.001),
+      sliderInput("time_delay", "Zeitverzögerung", min = 0, max = 300, value = 11, step = 1),
+      conditionalPanel(
+        condition = "output.showFitSlider",
+        sliderInput("nlsLM_end", "nlsLM Ende", min = 10, max = max(t_data), value = max(t_data), step = 1)
+      ),
+      actionButton("toggle_data", "Beispieldaten einfügen"),
+      br(), br(),
+      fileInput("file_upload", "CSV-Datei hochladen", accept = ".csv"),
+      tags$h4(tags$strong("Modelanpassung:")),
+      actionButton("optimize", "nlsLM - Fit"),
+      br(), br(),
+      tags$h4(tags$strong("Berechnung - Ruhesauerstoffaufnahme:")),
+      radioButtons("geschlecht", "Geschlecht:", choices = c("Männlich", "Weiblich")),
+      sliderInput("koerpermasse", "Körpermasse [kg]:", min = 40, max = 150, value = 55),
+      sliderInput("koerperlaenge", "Körperlänge [cm]:", min = 140, max = 220, value = 160),
+      sliderInput("alter", "Alter [Jahre]:", min = 18, max = 100, value = 24),
+      sliderInput("rq", "RQ:", min = 0.7, max = 1.0, value = 0.77, step = 0.01),
+      actionButton("berechne_vo2_ruhe", "VO2 Ruhe berechnen")
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server
+server <- function(input, output, session) {
+  show_data <- reactiveVal(FALSE)
+  uploaded_data <- reactiveVal(NULL)
+  
+  observeEvent(input$toggle_data, {
+    show_data(!show_data())
+    max_t <- max(t_data)
+    updateSliderInput(session, "nlsLM_end", min = input$time_delay, max = max_t, value = max_t)
+  })
+  
+  observeEvent(input$file_upload, {
+    req(input$file_upload)
+    df <- read.csv(input$file_upload$datapath)
+    if ("t_s" %in% names(df) && "VO2_t" %in% names(df)) {
+      uploaded_data(df)
+      show_data(TRUE)
+      max_t <- max(df$t_s)
+      updateSliderInput(session, "nlsLM_end", min = input$time_delay, max = max_t, value = max_t)
+    } else {
+      showModal(modalDialog(
+        title = "Invalid CSV",
+        "Die csv-Datei muss 't_s' und 'VO2_t' als Spaltennamen beinhalten.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  # Neue Funktionen zur Berechnung des Grundumsatzes und RMR
+  berechne_grundumsatz <- function(geschlecht, masse, laenge, alter) {
+    if (geschlecht == "Männlich") {
+      return(66.5 + (13.75 * masse) + (5.003 * laenge) - (6.775 * alter))
+    } else {
+      return(655.1 + (9.563 * masse) + (1.850 * laenge) - (4.676 * alter))
+    }
+  }
+  
+  berechne_rmr <- function(grundumsatz, rq, geschlecht) {
+    ka <- 19.946  # Annahme für RQ = 0.77, passen Sie dies an, wenn nötig
+    faktor <- if(geschlecht == "Männlich") 1.287 else 1.278
+    return((grundumsatz / (24 * 60 * ka)) * 4.1868 * faktor)
+  }
+  
+  # Reaktion auf den Klick des "VO2 Ruhe berechnen" Buttons
+  observeEvent(input$berechne_vo2_ruhe, {
+    grundumsatz <- berechne_grundumsatz(
+      input$geschlecht,
+      input$koerpermasse,
+      input$koerperlaenge,
+      input$alter
+    )
+    
+    rmr <- berechne_rmr(grundumsatz, input$rq, input$geschlecht)
+    
+    # Aktualisieren Sie den VO2_Ruhe Slider mit dem berechneten Wert
+    updateSliderInput(session, "VO2_Ruhe", value = round(rmr, 3))
+    
+    # Zeigen Sie eine Benachrichtigung mit dem berechneten Wert an
+    showNotification(paste("Berechnete Ruhesauerstoffaufnahme:", round(rmr, 3), "l/min"), type = "message")
+  })
+  
+  
+  
+  observe({
+    if (input$VO2_Start < input$VO2_Ruhe) {
+      updateSliderInput(session, "VO2_Start", value = input$VO2_Ruhe)
+    }
+  })
+  
+  output$showFitSlider <- reactive({
+    show_data()
+  })
+  outputOptions(output, "showFitSlider", suspendWhenHidden = FALSE)
+  
+  observeEvent(input$optimize, {
+    if (show_data()) {
+      Beispieldaten <- if (is.null(uploaded_data())) {
+        data.frame(t_s = t_data, VO2_t = VO2_data)
+      } else {
+        uploaded_data()
+      }
+      
+      t_delay <- isolate(input$time_delay)
+      nlsLM_end <- isolate(input$nlsLM_end)
+      
+      # Finde den nächstgelegenen Zeitpunkt zu t_delay
+      closest_index <- which.min(abs(Beispieldaten$t_s - t_delay))
+      
+      # Setze VO2_Start auf den gerundeten Wert des nächsten Punktes
+      VO2_Start <- round(Beispieldaten$VO2_t[closest_index], 3)
+      
+      updateSliderInput(session, "VO2_Start", value = VO2_Start)
+      
+      data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay & Beispieldaten$t_s <= nlsLM_end, ]
+      
+      start_values <- list(VO2 = isolate(input$VO2), Tau = isolate(input$Tau))
+      
+      fit <- try(nlsLM(VO2_t ~ VO2 * (1 - exp(-(t_s - t_delay) / Tau)) + VO2_Start,
+                       data = data_subset,
+                       start = start_values,
+                       lower = c(VO2 = 0.5, Tau = 5),
+                       upper = c(VO2 = 7.0, Tau = 360),
+                       control = nls.control(maxiter = 1024)), silent = TRUE)
+      
+      if (!inherits(fit, "try-error")) {
+        params <- as.list(coef(fit))
+        updateSliderInput(session, "VO2", value = params$VO2)
+        updateSliderInput(session, "Tau", value = params$Tau)
+      } else {
+        showModal(modalDialog(
+          title = "nlsLM fehlgeschlagen",
+          "Die nicht-lineare Regression mittels Levenberg-Marquardt-Algorithmus konnte nicht erfolgreich durchgeführt werden.",
+          easyClose = TRUE,
+          footer = NULL
+        ))
+      }
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    VO2 <- input$VO2
+    Tau <- input$Tau
+    VO2_Start <- input$VO2_Start
+    t_delay <- input$time_delay
+    VO2_Ruhe <- input$VO2_Ruhe
+    nlsLM_end <- input$nlsLM_end
+    
+    model_function <- function(t_s, VO2, Tau, VO2_Start, t_delay) {
+      VO2 * (1 - exp(-(t_s - t_delay) / Tau)) + VO2_Start
+    }
+    
+    Beispieldaten <- if (show_data() && !is.null(uploaded_data())) {
+      uploaded_data()
+    } else {
+      data.frame(t_s = t_data, VO2_t = VO2_data)
+    }
+    
+    tau4 <- 4 * Tau
+    max_t <- max(Beispieldaten$t_s, na.rm = TRUE)
+    max_x <- max(1.05 * tau4 + t_delay, max_t * 1.05)
+    t_s <- seq(0, max_x * 1.20, by = 1)
+    model_values <- ifelse(t_s >= t_delay, model_function(t_s, VO2, Tau, VO2_Start, t_delay), NA)
+    VO2_SS_gross <- model_function(tau4 + t_delay, VO2, Tau, VO2_Start, t_delay)
+    VO2_SS_net <- VO2_SS_gross - VO2_Ruhe
+    max_y <- max(1.05 * VO2_SS_gross, max(Beispieldaten$VO2_t, na.rm = TRUE) * 1.05)
+    
+    eq_text <- sprintf("V̇O₂ = %.3f * (1 - e<sup>-(t - %.2f) / %.2f</sup>) + %.3f",
+                       VO2, t_delay, Tau, VO2_Start)
+    VO2_SS_gross_text <- sprintf("V̇O₂ <sub>SS,brutto</sub>: %.3f", VO2_SS_gross)
+    VO2_SS_net_text <- sprintf("V̇O₂ <sub>SS,netto</sub>: %.3f", VO2_SS_net)
+    t_halb <- Tau * log(2)
+    
+    shapes <- list(
+      list(
+        type = "line", x0 = t_delay, x1 = t_delay, y0 = 0, y1 = max_y * 1.2,
+        line = list(color = "gray", width = 1, dash = "dash")
+      ),
+      list(
+        type = "line", x0 = Tau + t_delay, x1 = Tau + t_delay, y0 = 0, y1 = max_y * 1.2,
+        line = list(color = "gray", width = 1, dash = "dash")
+      ),
+      list(
+        type = "line", x0 = tau4 + t_delay, x1 = tau4 + t_delay, y0 = 0, y1 = max_y * 1.2,
+        line = list(color = "gray", width = 1, dash = "dash")
+      ),
+      if (show_data()) {
+        list(
+          type = "line", x0 = nlsLM_end, x1 = nlsLM_end, y0 = 0, y1 = max_y * 1.2,
+          line = list(color = "gray", width = 1, dash = "dash")
+        )
+      },
+      list(
+        type = "line", x0 = 0, x1 = max_x, y0 = VO2_Ruhe, y1 = VO2_Ruhe,
+        line = list(color = '#1CADE4', width = 1, dash = "solid")
+      )
+    )
+    
+   p <- plot_ly() %>%
+      add_trace(x = ~t_s, y = ~model_values, type = 'scatter', mode = 'lines',
+                name = 'Modellfunktion', line = list(color = '#EF6F6A')) %>%
+      layout(title = "V̇O<sub>2</sub>-Modellfunktion",
+             margin = list(t = 40),
+             xaxis = list(title = "t [s]", range = c(0, max_x)),
+             yaxis = list(title = "V̇O<sub>2</sub> [l·min<sup>-1</sup>]", tickformat = ".3f"),
+             shapes = shapes,
+             annotations = list(
+               list(
+                 x = max_x * 0.70,
+                 y = max_y * 0.6,
+                 text = eq_text,
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 12,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = max_x * 0.70,
+                 y = max_y * 0.5,
+                 text = VO2_SS_gross_text,
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 12,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = max_x * 0.70,
+                 y = max_y * 0.4,
+                 text = VO2_SS_net_text,
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 12,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = max_x * 0.70,
+                 y = max_y * 0.3,
+                 text = paste("T<sub>1/2</sub>:", round(t_halb, 1)," s"),
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 12,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = t_delay, y = max_y * 0.9, text = sprintf("t<sub>delay</sub>: %.1f s", t_delay), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                 textangle = -90, font = list(size = 11)
+               ),
+               list(
+                 x = Tau + t_delay, y = max_y * 0.9, text = sprintf("tau: %.1f s", Tau), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                 textangle = -90, font = list(size = 11)
+               ),
+               list(
+                 x = tau4 + t_delay, y = max_y * 0.9, text = sprintf("4tau: %.1f s", tau4), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                 textangle = -90, font = list(size = 11)
+               ),
+               if (show_data()) {
+                 list(
+                   x = nlsLM_end, y = max_y * 0.9, text = sprintf("nlsLM Ende: %.1f s", nlsLM_end), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                   textangle = -90, font = list(size = 11)
+                 )
+               }
+             )) %>%
+      add_trace(x = ~t_s, y = ~rep(VO2_Ruhe, length(t_s)), type = 'scatter', mode = 'lines',
+                name = 'V̇O<sub>2, Ruhe</sub>', line = list(color = '#1CADE4'))
+    
+    if (show_data()) {
+      model_values_at_data <- model_function(Beispieldaten$t_s, VO2, Tau, VO2_Start, t_delay)
+      
+      data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay & Beispieldaten$t_s <= input$nlsLM_end, ]
+      
+      ss_res <- sum((data_subset$VO2_t - model_values_at_data[Beispieldaten$t_s >= t_delay & Beispieldaten$t_s <= input$nlsLM_end])^2, na.rm = TRUE)
+      ss_tot <- sum((data_subset$VO2_t - mean(data_subset$VO2_t, na.rm = TRUE))^2, na.rm = TRUE)
+      r_squared <- 1 - (ss_res / ss_tot)
+      
+      p <- p %>%
+        add_trace(data = Beispieldaten, x = ~t_s, y = ~VO2_t, type = 'scatter', mode = 'markers+lines',
+                  name = 'V̇O<sub>2</sub>', 
+                  marker = list(color = 'rgba(38, 131, 198, 0.9)', size = 5.0),
+                  line = list(color = 'rgba(38, 131, 198, 1.0)', width = 0.65, dash = '4 4')) %>%
+        layout(annotations = list(
+          list(
+            x = max_x * 0.70,
+            y = max_y * 0.2,
+            text = sprintf("R²: %.3f", r_squared),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              family = "Arial, sans-serif",
+              size = 12,
+              color = "black"
+            )
+          )
+        ))
+    }
+    
+    p
+  })
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+        <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+        <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+          <li>Beispiel VO2-Daten oder eigene VO2-Daten als CSV-Datei einfügen.</li>
+          <li>Die Zeitverzögerung festlegen, um den Startpunkt der Modellanpassung zu bestimmen, und bei Bedarf das Ende der Anpassung anpassen.</li>
+          <li>Modellanpassung 'Fit: nlsLM' durchführen.</li>
+          <li>Alternativ: Manuelle Modellanpassung der Modellparameter mit den Schiebereglern.</li>
+        </ol>
+        <div style='margin-top: 20px;'></div>
+        <pre style='background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+VO2-Daten können als CSV-Datei im folgenden Format hochgeladen werden:
+t_s,VO2_t
+0.0,0.479
+1.0,0.459
+2.3,0.488
+…
+        </pre>
+      </div>"
+    )
+  })
+}
+
+# App ausführen
+shinyApp(ui = ui, server = server)
+
+
+
+```
+
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+### Modellanpassung - Details:{.unnumbered .unlisted}
+
+**nlsLM - Fit:**
+
+- Verwendete Funktion: nlsLM
+- Parameter: V̇O2 (Amplitude), Tau
+- Modell: V̇O2_t ~ V̇O2 · (1 - exp(-(t_s - t_delay) / Tau)) + V̇O2_Start
+- Grenzen:
+  - V̇O2: *0.5 bis 7.0 l/min*
+  - Tau: *5 bis 360 s*
+- Prozess:
+  a) Bestimmung des V̇O2_Start-Wertes:
+     - Finden des nächstgelegenen Zeitpunkts zu t_delay in den Daten
+     - Setzen von V̇O2_Start auf den gerundeten V̇O2-Wert dieses Punktes
+  b) Datenauswahl:
+     - Verwendung der Daten zwischen *t_delay* und *nlsLM_end*
+  c) Startwertebestimmung:
+     - Verwendung der aktuellen Slider-Werte für V̇O2 und Tau
+  d) Durchführung der nicht-linearen Regression:
+     - Verwendung des Levenberg-Marquardt-Algorithmus
+     - Maximale Iterationen: *1024*
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+  
+:::
+
+## Drei-Phasen-Modell{.unnumbered .unlisted}
+
+Die Analyse der $\dot{V}O_{2}$-Kinetik kann durch die Berücksichtigung von Zeitverzögerungen und/oder Exponentialfunktionen zweiter Ordnung verfeinert werden. Dazu kann die Anpassungsreaktion des $\dot{V}O_{2}\thinspace(t)$ nach Beginn der sportlichen Betätigung in drei Phasen unterteilt werden, wie in @fig-3_Phasen zu sehen [@Whipp1982]. Dies ermöglicht es, die erhöhte Komplexität der $\dot{V}O_{2}$-Kinetik oberhalb der LT besser darzustellen und eine präzisere Analyse der physiologischen Anpassungen bei körperlicher Belastung durchzuführen, da oberhalb der LT der $\dot{V}O_2$-Umsatz über 10 ml O~2~·W^-1^·min^-1^  steigt [@Barstow1994; @Bearden2000; @Sietsema2020]. Die 3 Phasen lassen sich wie folgt beschreiben:
+
+::: columns
+::: {.column width="72%"}
+![Beispiel der Drei-Phasen der VO2-Kinetik bis zum Erreichen eines SS nach Beginn der Belastung (McNulty & Robergs, 2017)](images/McNulty2017_VO2_3_Phase.png){#fig-3_Phasen height="500"} 
+:::
+::: {.column width="2%"}
+:::
+::: {.column width="25%"}
+:::
+:::
+
+
+
+
+
+
+::: columns
+::: {.column width="60%"}
+**Phase 1:**<br>
+Phase I, häufig als kardiodynamische Phase bezeichnet, umfasst ungefähr die ersten 10 bis 25 Sekunden nach Beginn der Belastung. Aufgrund des schnellen Anstiegs des Herzzeitvolumens und des Lungenblutflusses zu Beginn der Belastung steigt $\dot{V}O_2\thinspace(t)$ abrupt an. In dieser Phase bleibt die Zusammensetzung des gemischtvenösen Blutes sowie der respiratorische Quotient $RQ\thinspace(t) = \frac{\dot{V}CO_{2}\thinspace(t)}{\dot{V}O_{2}\thinspace(t)}$ im Vergleich zum Ruhezustand unverändert. Somit ist der Anstieg des $\dot{V}O_2\thinspace(t)$ ausschließlich auf das erhöhte Herzminutenvolumen zurückzuführen, da sich die Sauerstoffkonzentration im arteriellen und venösen Blut (C~a~ und C~v~) noch nicht verändert haben. Dies lässt sich mit Hilfe der Fick'schen Gleichung @eq-FICK verdeutlichen [@Fick1855; @Whipp1982; @Stirling2005; @Clark2014; @Sietsema2020].
+
+$$
+\dot{V}O_2 = \dot{Q} \cdot (C_a - C_v) 
+$$ {#eq-FICK}
+
+Da die anfängliche „kardiodynamische“ Phase der $\dot{V}O_2$-Reaktion nicht direkt den Sauerstoffumsatz der aktiven Muskulatur repräsentiert, werden in der Regel die ersten 20 bis 25 Sekunden von Phase I bei Modellierungen der $\dot{V}O_2$-Kinetik aus der Modellanpassung ausgeschlossen [@Bearden2000; @Oezyener2001].
+
+**Phase 2:**<br>
+Phase 2 folgt auf Phase 1 und ist durch einen schnellen, monoexponentiellen Anstieg des $\dot{V}O_2$ gekennzeichnet. Die Zeitkonstante beträgt im Durchschnitt etwa 30 [@Sietsema2020] bis 33 Sekunden [@Oezyener2001]. Anschließend wird entweder ein SS erreicht oder der $\dot{V}O_2$ steigt weiter an, was dann in dem Modell als Phase 3 bezeichnet wird [@Stirling2005].
+
+**Phase 3:**<br>
+In Phase 3 des $\dot{V}O_2$-Modells wird bei leichten bis moderaten Belastungen unterhalb der Laktatschwelle (LT) nach etwa 3 Minuten ein stabiler Zustand (SS) erreicht. Dieses Verhalten beschreibt, wie der $\dot{V}O_2$ sich im 3-Phasen-Modell für Belastungen unterhalb der LT verhält. Bei Belastungen oberhalb der LT erreicht der $\dot{V}O_2$ nach der primären Anpassungsreaktion keinen SS mehr, sondern steigt weiter an (siehe @fig-Verlauf_ON). Diese zusätzliche Komponente, meist als "slow component" bezeichnet und überlagert die anfängliche monoexponentielle Funktion aus Phase 2. 
+:::
+::: {.column width="2%"}
+:::
+::: {.column width="38%"}   
+![Beispiele der VO<sub>2</sub>-Anstiegskinetik eines Probanden für verschiedene Belastungsintensitäten: sehr intensiv, schwer, mittelschwer und moderat (von oben nach unten). Unterhalb der VO<sub>2</sub>-Daten ist der entsprechende Residuenplot zu sehen. In Spalte A wird eine Modellfunktion mit mono-exponentieller Kurvenanpassung gezeigt, in Spalte B eine mit bi-exponentieller Anpassung (Özyener, 2001).](images/Ozyener_ON.png){#fig-Verlauf_ON}
+::: 
+:::
+Mathematische Modellierungen haben gezeigt, dass die langsame Komponente etwa 90 bis 200 Sekunden nach Beginn des Übergangs einsetzt [@Whipp1972; @Barstow1991; @Bearden2000; @Sietsema2020]. Die Komponente der Anpassungsreaktion bis zum Beginn der slow component wird in der Literatur oft als "primary component" oder "fundamental component" bezeichnet [@Barstow1994; @Oezyener2001]. Im Folgenden wird diese Hauptkomponente mit dem Index "fast" gekennzeichnet.
+
+
+### Biexponentielle $\dot{V}O_{2}$-Modellfunktion{.unnumbered .unlisted}
+
+Phase 2 und 3 des 3-Phasen-Modells lassen sich mit Hilfe der @eq-VO2_Start2 modellieren:  
+
+$$
+\dot{V}O_2\thinspace(t) = \dot{V}O_{2,\text{fast}} \cdot \left(1 - e^{-\frac{t_s - t_\text{delay, fast}}{\tau_\text{fast}}}\right) + 
+\dot{V}O_{2,\text{slow}} \cdot \left(1 - e^{-\frac{t_s - t_\text{delay,slow}}{\tau_\text{slow}}}\right) + 
+\dot{V}O_{2,\text{Start}}
+$${#eq-VO2_Start2}
+
+$\dot{V}O_{2,\text{fast}}$ repräsentiert die Amplitude der Hauptkomponente, während $\dot{V}O_{2,\text{slow}}$ die Amplitude der slow component beschreibt. Die Zeitkonstanten $\tau_\text{fast}$ und $\tau_\text{slow}$ steuern die Geschwindigkeit der jeweiligen Reaktionsprozesse, wobei die Zeitverzögerungen $t_\text{delay, fast}$ und $t_\text{delay, slow}$ den Beginn dieser Prozesse bestimmen. $\dot{V}O_{2,\text{Start}}$ beschreibt den Sauerstoffvolumenstrom zu Beginn der Belastung.
+
+In der folgenden Shiny-App wird die Modellanpassung der Gleichung @eq-VO2_Start2 an Beispieldaten demonstriert. Eigene $\dot{V}O_{2}$-Daten können hochgeladen und mittels nichtlinearer Regression an die Modellparameter angepasst werden.
+
+#### Biexponentielle $\dot{V}O_{2}$-Shiny-App{.unnumbered .unlisted}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+
+library(shiny)
+library(plotly)
+library(minpack.lm)
+library(dplyr)
+library(shinyjs)
+
+# Beispieldaten
+t_data <- c(0.0, 2.7, 5.3, 8.3, 11.5, 13.6, 15.4, 17.1, 19.8, 21.1, 22.3, 23.5, 24.9, 27.5, 30.9, 32.4, 35.0, 38.3, 39.7, 41.6, 43.7, 45.3, 46.8, 49.8, 52.0, 53.6, 55.5, 57.5, 59.0, 60.7, 62.4, 64.4, 66.6, 68.1, 69.8, 71.4, 73.3, 75.0, 76.7, 78.4, 80.0, 82.2, 83.9, 85.4, 87.3, 88.8, 90.6, 92.0, 93.6, 94.8, 96.3, 97.9, 99.5, 101.1, 102.7, 104.3, 106.0, 107.7, 109.3, 110.9, 112.5, 114.8, 116.4, 118.1, 119.7, 121.3, 122.8, 124.3, 125.9, 127.4, 128.9, 130.6, 132.1, 133.6, 135.6, 137.1, 138.6, 140.1, 141.6, 143.1, 144.4, 145.8, 147.2, 148.4, 149.9, 151.6, 153.1, 154.7, 156.1, 157.4, 158.7, 160.5, 161.9, 163.3, 164.7, 166.2, 167.6, 169.1, 172.6, 173.9, 175.4, 176.7, 178.1, 179.6, 181.0, 182.4, 183.8, 185.3, 186.7, 188.2, 189.6, 191.0, 192.4, 193.8, 195.2, 196.6, 198.0, 199.3, 200.7, 202.0, 203.3, 204.7, 206.1, 207.5, 208.8, 210.2, 211.6, 213.0, 214.3, 215.7, 217.1, 218.4, 219.8, 221.1, 222.4, 223.7, 225.0, 226.3, 227.7, 229.0, 230.5, 231.9, 233.1, 234.4)
+VO2_data <- c(0.823, 0.898, 0.966, 1.122, 1.281, 1.313, 1.463, 1.537, 1.602, 1.595, 1.598, 1.674, 1.923, 2.168, 2.439, 2.670, 2.797, 2.712, 2.688, 2.968, 3.228, 3.371, 3.673, 3.938, 4.076, 3.959, 3.886, 3.880, 3.928, 3.962, 4.173, 4.381, 4.268, 4.208, 4.234, 4.132, 4.109, 4.192, 4.304, 4.493, 4.352, 4.349, 4.332, 4.346, 4.345, 4.373, 4.320, 4.286, 4.353, 4.346, 4.287, 4.322, 4.250, 4.332, 4.257, 4.161, 4.120, 4.144, 4.115, 4.158, 4.186, 4.206, 4.220, 4.259, 4.291, 4.279, 4.295, 4.339, 4.371, 4.425, 4.448, 4.474, 4.517, 4.536, 4.544, 4.528, 4.432, 4.371, 4.367, 4.430, 4.492, 4.535, 4.510, 4.433, 4.399, 4.305, 4.308, 4.304, 4.366, 4.434, 4.501, 4.535, 4.512, 4.463, 4.509, 4.529, 4.586, 4.624, 4.740, 4.769, 4.788, 4.794, 4.824, 4.830, 4.888, 4.887, 4.915, 4.924, 4.955, 4.965, 4.982, 4.992, 5.016, 5.024, 5.033, 5.066, 5.081, 5.053, 5.035, 4.997, 5.018, 5.038, 5.035, 5.039, 4.970, 4.970, 4.973, 4.964, 4.945, 4.953, 4.974, 4.984, 4.997, 4.995, 4.946, 4.997, 5.014, 5.092, 5.072, 5.111, 5.088, 5.065, 5.061, 5.038)
+
+# UI
+ui <- fluidPage(
+  useShinyjs(),
+  titlePanel("Bi-exponentielle V̇O2-Modellfunktion"),
+  fluidRow(
+    column(3,
+           style = "height: 90vh; overflow-y: auto;",
+           
+           tags$h4(tags$strong("Modellparameter:")),
+           sliderInput("VO2", "V̇O2_fast", min = 0.0, max = 7.0, value = 3.7, step = 0.01),
+           sliderInput("tau_fast", "Tau_fast", min = 10, max = 120, value = 45, step = 0.1),
+           sliderInput("VO2_Start", "V̇O2_Start", min = 0.0, max = 4.0, value = 0.8, step = 0.01),
+           sliderInput("VO2_Ruhe", "V̇O2_Ruhe", min = 0, max = 1, value = 0.4, step = 0.1),
+           sliderInput("time_delay", "Zeitverzögerung_fast", min = 0, max = 600, value = 0, step = 1),
+           sliderInput("VO2_slow", "V̇O2_slow", min = 0.0, max = 1.0, value = 0.3, step = 0.01),
+           sliderInput("tau_slow", "Tau_slow", min = 90, max = 600, value = 110, step = 0.1),
+           sliderInput("time_delay_slow", "Zeitverzögerung_slow", min = 0, max = 1200, value = 160, step = 1),
+           conditionalPanel(
+             condition = "output.showFitSlider",
+             sliderInput("nlsLM_end", "nlsLM Ende", min = 10, max = 300, value = 300, step = 1)
+           ),
+           actionButton("toggle_data", "Beispieldaten einfügen"),
+           br(), br(),
+           fileInput("file_upload", "CSV-Datei hochladen", accept = ".csv"),
+           tags$h4(tags$strong("Modellanpassung:")),
+           actionButton("fit_fast", "1. Fit: Schnelle Komponente"),br(),
+           actionButton("fit_slow", "2. Fit: Langsame Komponente & Verfeinerung"),br(),
+           actionButton("fit_optimize", "3. Fit: Optimierung")
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server
+server <- function(input, output, session) {
+  show_data <- reactiveVal(FALSE)
+  uploaded_data <- reactiveVal(NULL)
+  current_data <- reactiveVal(NULL)
+  current_r_squared <- reactiveVal(NA)
+  
+  calculate_r_squared <- function(observed, predicted) {
+    ss_res <- sum((observed - predicted)^2, na.rm = TRUE)
+    ss_tot <- sum((observed - mean(observed, na.rm = TRUE))^2, na.rm = TRUE)
+    return(1 - (ss_res / ss_tot))
+  }
+  
+  observeEvent(input$toggle_data, {
+    show_data(!show_data())
+    if (show_data()) {
+      current_data(data.frame(t_s = t_data, VO2_t = VO2_data))
+    } else {
+      current_data(NULL)
+    }
+  })
+  
+  observeEvent(input$file_upload, {
+    req(input$file_upload)
+    df <- read.csv(input$file_upload$datapath)
+    if ("t_s" %in% names(df) && "VO2_t" %in% names(df)) {
+      uploaded_data(df)
+      current_data(df)
+      show_data(TRUE)
+    } else {
+      showModal(modalDialog(
+        title = "Invalid CSV",
+        "Die csv-Datei muss 't_s' und 'VO2_t' als Spaltennamen beinhalten.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  observe({
+    req(input$VO2_Start, input$VO2_Ruhe)
+    if (input$VO2_Start < input$VO2_Ruhe) {
+      updateSliderInput(session, "VO2_Start", value = input$VO2_Ruhe)
+    }
+  })
+  
+  # Hilfsfunktion zur Bestimmung des nächstgelegenen VO2-Wertes
+  find_nearest_VO2 <- function(data, t_delay) {
+    req(data, t_delay)
+    if (nrow(data) == 0) return(NA)
+    
+    index <- which.min(abs(data$t_s - t_delay))
+    return(data$VO2_t[index])
+  }
+  
+  
+  observeEvent(input$fit_fast, {
+    req(current_data())
+    Beispieldaten <- current_data()
+    
+    t_delay <- isolate(input$time_delay)
+    
+    # Bestimme den nächstgelegenen VO2-Wert als VO2_Start
+    VO2_Start <- find_nearest_VO2(Beispieldaten, t_delay)
+    
+    # Aktualisiere den VO2_Start Slider
+    updateSliderInput(session, "VO2_Start", value = VO2_Start)
+    
+    data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay, ]
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    
+    withProgress(message = 'Fitting in progress', value = 0, {
+      for (i in 1:100) {
+        # Randomisierte Startwerte innerhalb der Slider-Grenzen
+        VO2_start <- runif(1, 0.5, 7.0)
+        tau_fast_start <- runif(1, 10, 120)
+        
+        start_values <- list(
+          VO2 = VO2_start,
+          tau_fast = tau_fast_start
+        )
+        
+        fit <- try(nlsLM(VO2_t ~ VO2 * (1 - exp(-(t_s - t_delay) / tau_fast)) + VO2_Start,
+                         data = data_subset,
+                         start = start_values,
+                         lower = c(VO2 = 0.5, tau_fast = 10),
+                         upper = c(VO2 = 7.0, tau_fast = 120),
+                         control = nls.control(maxiter = 1024)), silent = TRUE)
+        
+        if (!inherits(fit, "try-error")) {
+          rss <- sum(residuals(fit)^2)
+          if (rss < best_rss) {
+            best_rss <- rss
+            best_fit <- fit
+          }
+        }
+        
+        incProgress(1/100, detail = paste("Iteration", i))
+      }
+    })
+    
+    if (!is.null(best_fit)) {
+      params <- as.list(coef(best_fit))
+      updateSliderInput(session, "VO2", value = params$VO2)
+      updateSliderInput(session, "tau_fast", value = params$tau_fast)
+      updateSliderInput(session, "VO2_slow", value = 0)
+      updateSliderInput(session, "tau_slow", value = 0)
+      
+      predicted <- VO2_Start + params$VO2 * (1 - exp(-(data_subset$t_s - t_delay) / params$tau_fast))
+      r_squared <- calculate_r_squared(data_subset$VO2_t, predicted)
+      current_r_squared(r_squared)
+      
+      showNotification(sprintf("Schritt 1 erfolgreich. R²: %.3f", r_squared), type = "message")
+    } else {
+      showModal(modalDialog(
+        title = "nlsLM fehlgeschlagen",
+        "Die nicht-lineare Regression mittels Levenberg-Marquardt-Algorithmus konnte nicht erfolgreich durchgeführt werden.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  observeEvent(input$fit_slow, {
+    req(current_data())
+    Beispieldaten <- current_data()
+    
+    req(input$time_delay, input$VO2_Start, input$VO2, input$tau_fast)
+    
+    t_delay <- input$time_delay
+    VO2_Start <- input$VO2_Start
+    VO2 <- input$VO2
+    tau_fast <- input$tau_fast
+    
+    # Setze VO2_slow und tau_slow auf die initialen Werte
+    VO2_slow <- 0.4
+    tau_slow <- 160
+    
+    data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay, ]
+    
+    # Berechne die obere Grenze für t_delay_slow
+    t_delay_slow_upper <- max(Beispieldaten$t_s)
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    best_t_delay_slow <- NULL
+    best_VO2_fast <- VO2
+    best_tau_fast <- tau_fast
+    best_VO2_slow <- VO2_slow
+    best_tau_slow <- tau_slow
+    
+    # Berechne die Anzahl der Iterationen für t_delay_slow
+    num_iterations <- floor(t_delay_slow_upper - (tau_fast + t_delay)) + 1
+    
+    withProgress(message = 'Fitting in progress', value = 0, {
+      for (i in 1:num_iterations) {
+        t_delay_slow <- tau_fast + t_delay + i - 1
+        
+        # Fit VO2_fast und tau_fast nach unten
+        current_VO2_fast <- best_VO2_fast
+        current_tau_fast <- best_tau_fast
+        current_VO2_slow <- best_VO2_slow
+        current_tau_slow <- best_tau_slow
+        
+        model <- function(VO2_fast, tau_fast, VO2_slow, tau_slow, t_delay_slow) {
+          VO2_fast * (1 - exp(-(data_subset$t_s - t_delay) / tau_fast)) + 
+            VO2_slow * (1 - exp(-(pmax(data_subset$t_s - t_delay_slow, 0)) / tau_slow)) + 
+            VO2_Start
+        }
+        
+        current_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, current_tau_fast, current_VO2_slow, current_tau_slow, t_delay_slow))^2)
+        
+        # Optimiere VO2_fast und tau_fast
+        while (TRUE) {
+          improved <- FALSE
+          
+          # Versuche VO2_fast zu reduzieren
+          if (current_VO2_fast > 0.1) {
+            new_VO2_fast <- max(0.1, current_VO2_fast - 0.01)
+            new_rss <- sum((data_subset$VO2_t - model(new_VO2_fast, current_tau_fast, current_VO2_slow, current_tau_slow, t_delay_slow))^2)
+            if (new_rss < current_rss) {
+              current_VO2_fast <- new_VO2_fast
+              current_rss <- new_rss
+              improved <- TRUE
+            }
+          }
+          
+          # Versuche tau_fast zu reduzieren
+          if (current_tau_fast > 10) {
+            new_tau_fast <- max(10, current_tau_fast - 0.1)
+            new_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, new_tau_fast, current_VO2_slow, current_tau_slow, t_delay_slow))^2)
+            if (new_rss < current_rss) {
+              current_tau_fast <- new_tau_fast
+              current_rss <- new_rss
+              improved <- TRUE
+            }
+          }
+          
+          if (!improved) break
+        }
+        
+        # Optimiere VO2_slow und tau_slow
+        # Zuerst nach unten
+        while (TRUE) {
+          improved <- FALSE
+          
+          # Versuche VO2_slow zu reduzieren
+          if (current_VO2_slow > 0.05) {
+            new_VO2_slow <- max(0.05, current_VO2_slow - 0.01)
+            new_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, current_tau_fast, new_VO2_slow, current_tau_slow, t_delay_slow))^2)
+            if (new_rss < current_rss) {
+              current_VO2_slow <- new_VO2_slow
+              current_rss <- new_rss
+              improved <- TRUE
+            }
+          }
+          
+          # Versuche tau_slow zu reduzieren
+          if (current_tau_slow > 90) {
+            new_tau_slow <- max(90, current_tau_slow - 0.1)
+            new_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, current_tau_fast, current_VO2_slow, new_tau_slow, t_delay_slow))^2)
+            if (new_rss < current_rss) {
+              current_tau_slow <- new_tau_slow
+              current_rss <- new_rss
+              improved <- TRUE
+            }
+          }
+          
+          if (!improved) break
+        }
+        
+        # Dann nach oben
+        while (TRUE) {
+          improved <- FALSE
+          
+          # Versuche VO2_slow zu erhöhen
+          if (current_VO2_slow < 1.0) {  # Angenommen, 1.0 ist die obere Grenze für VO2_slow
+            new_VO2_slow <- min(1.0, current_VO2_slow + 0.01)
+            new_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, current_tau_fast, new_VO2_slow, current_tau_slow, t_delay_slow))^2)
+            if (new_rss < current_rss) {
+              current_VO2_slow <- new_VO2_slow
+              current_rss <- new_rss
+              improved <- TRUE
+            }
+          }
+          
+          # Versuche tau_slow zu erhöhen
+          new_tau_slow <- current_tau_slow + 0.1
+          new_rss <- sum((data_subset$VO2_t - model(current_VO2_fast, current_tau_fast, current_VO2_slow, new_tau_slow, t_delay_slow))^2)
+          if (new_rss < current_rss) {
+            current_tau_slow <- new_tau_slow
+            current_rss <- new_rss
+            improved <- TRUE
+          }
+          
+          if (!improved) break
+        }
+        
+        if (current_rss < best_rss) {
+          best_rss <- current_rss
+          best_t_delay_slow <- t_delay_slow
+          best_VO2_fast <- current_VO2_fast
+          best_tau_fast <- current_tau_fast
+          best_VO2_slow <- current_VO2_slow
+          best_tau_slow <- current_tau_slow
+        }
+        
+        incProgress(1 / num_iterations, detail = paste("Iteration", i, "von", num_iterations))
+      }
+    })
+    
+    if (!is.null(best_t_delay_slow)) {
+      updateSliderInput(session, "time_delay_slow", value = best_t_delay_slow)
+      updateSliderInput(session, "VO2", value = best_VO2_fast)
+      updateSliderInput(session, "tau_fast", value = best_tau_fast)
+      updateSliderInput(session, "VO2_slow", value = best_VO2_slow)
+      updateSliderInput(session, "tau_slow", value = best_tau_slow)
+      
+      predicted <- VO2_Start + best_VO2_fast * (1 - exp(-(data_subset$t_s - t_delay) / best_tau_fast)) +
+        best_VO2_slow * (1 - exp(-(pmax(data_subset$t_s - best_t_delay_slow, 0)) / best_tau_slow))
+      r_squared <- calculate_r_squared(data_subset$VO2_t, predicted)
+      current_r_squared(r_squared)
+      
+      showNotification(sprintf("Schritt 2 erfolgreich. R²: %.3f", r_squared), type = "message")
+    } else {
+      showModal(modalDialog(
+        title = "Fit fehlgeschlagen",
+        "Die Anpassung für die langsame Komponente konnte nicht erfolgreich durchgeführt werden.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  observeEvent(input$fit_optimize, {
+    req(current_data())
+    Beispieldaten <- current_data()
+    
+    req(input$time_delay, input$VO2_Start, input$VO2, input$tau_fast, input$VO2_slow, input$tau_slow, input$time_delay_slow)
+    
+    t_delay <- input$time_delay
+    VO2_Start <- input$VO2_Start
+    
+    data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay, ]
+    
+    # Werte aus Schritt 2
+    VO2_step2 <- input$VO2
+    tau_fast_step2 <- input$tau_fast
+    VO2_slow_step2 <- input$VO2_slow
+    tau_slow_step2 <- input$tau_slow
+    t_delay_slow_step2 <- input$time_delay_slow
+    
+    # Berechne R² für Schritt 2
+    step2_predicted <- VO2_Start + VO2_step2 * (1 - exp(-(data_subset$t_s - t_delay) / tau_fast_step2)) +
+      VO2_slow_step2 * (1 - exp(-(pmax(data_subset$t_s - t_delay_slow_step2, 0)) / tau_slow_step2))
+    step2_r_squared <- calculate_r_squared(data_subset$VO2_t, step2_predicted)
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    
+    withProgress(message = 'Optimierung läuft', value = 0, {
+      for (i in 1:1000) {
+        # Randomisierte Startwerte innerhalb der festgelegten Grenzen
+        VO2_start <- runif(1, VO2_step2 * 0.98, VO2_step2 * 1.02)
+        tau_fast_start <- runif(1, max(10, tau_fast_step2 - 3), tau_fast_step2 + 3)
+        VO2_slow_start <- runif(1, VO2_slow_step2 * 0.98, VO2_slow_step2 * 1.02)
+        tau_slow_start <- runif(1, max(90, tau_slow_step2 - 3), tau_slow_step2 + 3)
+        t_delay_slow_start <- runif(1, max(0, t_delay_slow_step2 - 5), t_delay_slow_step2 + 5)
+        
+        start_values <- list(
+          VO2 = VO2_start,
+          tau_fast = tau_fast_start,
+          VO2_slow = VO2_slow_start,
+          tau_slow = tau_slow_start,
+          t_delay_slow = t_delay_slow_start
+        )
+        
+        fit <- try(nlsLM(VO2_t ~ VO2 * (1 - exp(-(t_s - t_delay) / tau_fast)) + 
+                           VO2_slow * (1 - exp(-(t_s - t_delay_slow) / tau_slow)) + VO2_Start,
+                         data = data_subset,
+                         start = start_values,
+                         lower = c(VO2 = VO2_step2 * 0.98, 
+                                   tau_fast = max(10, tau_fast_step2 - 3), 
+                                   VO2_slow = VO2_slow_step2 * 0.98, 
+                                   tau_slow = max(90, tau_slow_step2 - 3), 
+                                   t_delay_slow = max(0, t_delay_slow_step2 - 5)),
+                         upper = c(VO2 = VO2_step2 * 1.02, 
+                                   tau_fast = tau_fast_step2 + 3, 
+                                   VO2_slow = VO2_slow_step2 * 1.02, 
+                                   tau_slow = tau_slow_step2 + 3, 
+                                   t_delay_slow = t_delay_slow_step2 + 5),
+                         control = nls.control(maxiter = 1024)), silent = TRUE)
+        
+        if (!inherits(fit, "try-error")) {
+          rss <- sum(residuals(fit)^2)
+          if (rss < best_rss) {
+            best_rss <- rss
+            best_fit <- fit
+          }
+        }
+        
+        incProgress(1/1000, detail = paste("Iteration", i))
+      }
+    })
+    
+    if (!is.null(best_fit)) {
+      params <- as.list(coef(best_fit))
+      step3_predicted <- VO2_Start + params$VO2 * (1 - exp(-(data_subset$t_s - t_delay) / params$tau_fast)) +
+        params$VO2_slow * (1 - exp(-(pmax(data_subset$t_s - params$t_delay_slow, 0)) / params$tau_slow))
+      step3_r_squared <- calculate_r_squared(data_subset$VO2_t, step3_predicted)
+      
+      if (step3_r_squared > step2_r_squared) {
+        updateSliderInput(session, "VO2", value = params$VO2)
+        updateSliderInput(session, "tau_fast", value = params$tau_fast)
+        updateSliderInput(session, "VO2_slow", value = params$VO2_slow)
+        updateSliderInput(session, "tau_slow", value = params$tau_slow)
+        updateSliderInput(session, "time_delay_slow", value = params$t_delay_slow)
+        
+        current_r_squared(step3_r_squared)
+        showNotification(sprintf("Optimierung erfolgreich. Neues R²: %.3f", step3_r_squared), type = "message")
+      } else {
+        current_r_squared(step2_r_squared)
+        showNotification(sprintf("Kein besserer Fit gefunden. Ergebnisse von Schritt 2 beibehalten. R²: %.3f", step2_r_squared), type = "warning")
+      }
+    } else {
+      current_r_squared(step2_r_squared)
+      showNotification(sprintf("Optimierung fehlgeschlagen. Ergebnisse von Schritt 2 beibehalten. R²: %.3f", step2_r_squared), type = "warning")
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    req(input$VO2, input$tau_fast, input$VO2_slow, input$tau_slow, input$VO2_Start, input$time_delay, input$time_delay_slow, input$VO2_Ruhe)
+    
+    VO2 <- input$VO2
+    tau_fast <- input$tau_fast
+    VO2_slow <- input$VO2_slow
+    tau_slow <- input$tau_slow
+    VO2_Start <- input$VO2_Start
+    t_delay <- input$time_delay
+    t_delay_slow <- input$time_delay_slow
+    VO2_Ruhe <- input$VO2_Ruhe
+    
+    model_function <- function(t_s, VO2, tau_fast, VO2_slow, tau_slow, VO2_Start, t_delay, t_delay_slow) {
+      VO2 * (1 - exp(-(pmax(t_s - t_delay, 0)) / tau_fast)) + 
+        pmax(VO2_slow * (1 - exp(-(pmax(t_s - t_delay_slow, 0)) / tau_slow)), 0) + 
+        VO2_Start
+    }
+    
+    model_fast <- function(t_s, VO2, tau_fast, t_delay) {
+      VO2 * (1 - exp(-(pmax(t_s - t_delay, 0)) / tau_fast))
+    }
+    
+    model_slow <- function(t_s, VO2_slow, tau_slow, t_delay_slow) {
+      pmax(VO2_slow * (1 - exp(-(pmax(t_s - t_delay_slow, 0)) / tau_slow)), 0)
+    }
+    
+    Beispieldaten <- current_data()
+    
+    max_t <- if (!is.null(Beispieldaten) && nrow(Beispieldaten) > 0) max(Beispieldaten$t_s, na.rm = TRUE) else 300
+    max_x <- max_t * 1.20
+    t_s <- seq(0, max_x * 1.20, by = 1)
+    
+    model_values <- ifelse(t_s >= t_delay, model_function(t_s, VO2, tau_fast, VO2_slow, tau_slow, VO2_Start, t_delay, t_delay_slow), NA)
+    fast_values <- ifelse(t_s >= t_delay, model_fast(t_s, VO2, tau_fast, t_delay), NA)
+    slow_values <- ifelse(t_s >= t_delay_slow, model_slow(t_s, VO2_slow, tau_slow, t_delay_slow), NA)
+    
+    max_y <- if (!is.null(Beispieldaten) && nrow(Beispieldaten) > 0) max(Beispieldaten$VO2_t, na.rm = TRUE) * 1.05 else max(model_values, na.rm = TRUE) * 1.05
+    
+    eq_text <- sprintf("V̇O₂ = %.2f * (1 - e<sup>-(t - %.0f) / %.1f</sup>) + %.2f * (1 - e<sup>-(t - %.1f) / %.0f</sup>) + %.2f",
+                       VO2, t_delay, tau_fast, VO2_slow, t_delay_slow, tau_slow, VO2_Start)
+    t_halb <- tau_fast * log(2)
+    
+    shapes <- list(
+      list(
+        type = "line", x0 = t_delay, x1 = t_delay, y0 = 0, y1 = max_y * 1.2,
+        line = list(color = "gray", width = 1, dash = "dash")
+      ),
+      list(
+        type = "line", x0 = t_delay_slow, x1 = t_delay_slow, y0 = 0, y1 = max_y * 1.2,
+        line = list(color = "gray", width = 1, dash = "dash")
+      )
+    )
+    
+    p <- plot_ly() %>%
+      add_trace(x = ~t_s, y = ~model_values, type = 'scatter', mode = 'lines',
+                name = 'V̇O2-Modellfunktion', line = list(color = '#EF6F6A')) %>%
+      add_trace(x = ~t_s, y = ~fast_values, type = 'scatter', mode = 'lines', 
+                name = 'V̇O<sub>2</sub><sub>fast</sub>', line = list(color = '#42BA97')) %>%
+      add_trace(x = ~t_s, y = ~slow_values, type = 'scatter', mode = 'lines', 
+                name = 'V̇O<sub>2</sub><sub>slow</sub>', line = list(color = '#BB7693')) %>%
+      layout(title = "Biexponentielle V̇O<sub>2</sub>-Modellfunktion",
+             margin = list(t = 40),
+             xaxis = list(title = "t [s]", range = c(0, max_x)),
+             yaxis = list(title = "V̇O<sub>2</sub> [l·min<sup>-1</sup>]", tickformat = ".1f"),
+             shapes = shapes,
+             annotations = list(
+               list(
+                 x = max_x * 0.35,
+                 y = max_y * 0.3,
+                 text = eq_text,
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 10,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = max_x * 0.35,
+                 y = max_y * 0.2,
+                 text = paste("T<sub>1/2</sub>:", round(t_halb, 1)," s"),
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   family = "Arial, sans-serif",
+                   size = 10,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = t_delay, y = max_y * 0.85, text = sprintf("t<sub>delay</sub>: %.1f s", t_delay), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                 textangle = -90, font = list(size = 11)
+               ),
+               list(
+                 x = t_delay_slow, y = max_y * 0.85, text = sprintf("t<sub>delay_slow</sub>: %.1f s", t_delay_slow), showarrow = FALSE, xanchor = "left", yanchor = "bottom",
+                 textangle = -90, font = list(size = 11)
+               )
+             )) %>%
+      add_trace(x = ~t_s, y = ~rep(VO2_Ruhe, length(t_s)), type = 'scatter', mode = 'lines',
+                name = 'V̇O<sub>2, Ruhe</sub>', line = list(color = '#1CADE4'))
+    
+    if (show_data() && !is.null(Beispieldaten) && nrow(Beispieldaten) > 0) {
+      data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay, ]
+      
+      model_values_at_data <- model_function(data_subset$t_s, VO2, tau_fast, VO2_slow, tau_slow, VO2_Start, t_delay, t_delay_slow)
+      
+      r_squared <- calculate_r_squared(data_subset$VO2_t, model_values_at_data)
+      current_r_squared(r_squared)
+      
+      current_r_squared(r_squared)  # Aktualisieren Sie die reaktive Variable
+      
+      p <- p %>%
+        add_trace(data = Beispieldaten, x = ~t_s, y = ~VO2_t, type = 'scatter', mode = 'markers+lines',
+                  name = 'V̇O<sub>2</sub>', 
+                  marker = list(color = 'rgba(38, 131, 198, 0.9)', size = 5.0),
+                  line = list(color = 'rgba(38, 131, 198, 1.0)', width = 0.65, dash = '4 4'))
+      
+      p$x$layout$annotations <- c(p$x$layout$annotations,
+                                  list(
+                                    list(
+                                      x = max_x * 0.35,
+                                      y = max_y * 0.10,
+                                      text = sprintf("R²: %.3f", current_r_squared()),
+                                      showarrow = FALSE,
+                                      xanchor = 'left',
+                                      yanchor = 'bottom',
+                                      font = list(
+                                        family = "Arial, sans-serif",
+                                        size = 10,
+                                        color = "black"
+                                      )
+                                    )
+                                  ))
+    }
+    
+    p
+  })
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+      <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+      <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+        <li>Beispiel-VO2-Daten einfügen oder eigene VO2-Daten als CSV-Datei hochladen.</li>
+        <li>Zeitverzögerung_fast festlegen, um den Startpunkt der Modellanpassung zu bestimmen.</li>
+        <li>Schrittweise die Modellanpassung durchführen:
+          <ol>
+            <li>Fit: Schnelle Komponente</li>
+            <li>Fit: Langsame Komponente Verfeinerung</li>
+            <li>Fit: Optimierung</li>
+          </ol>
+        </li>
+        <li>Alternative: Manuelle Anpassung der Modellparameter über die Schieberegler.</li>
+      </ol>
+      <div style='margin-top: 20px;'></div>
+      <pre style='background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+VO2-Daten können als CSV-Datei im folgenden Format hochgeladen werden:
+t_s,VO2_t
+0.0,0.479
+1.0,0.459
+2.3,0.488
+…
+      </pre>
+    </div>"
+    )
+  })
+}
+
+# App ausführen
+shinyApp(ui = ui, server = server)
+
+
+```  
+
+
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+### Modellanpassung - Details:{.unnumbered .unlisted}
+
+**1. Schnelle Komponente (1. Fit):**
+
+- Verwendete Funktion: nlsLM
+- Parameter: V̇O2_fast, tau_fast
+- Grenzen:
+  - V̇O2_fast: *0.5 bis 7.0 l/min*
+  - tau_fast: *10 bis 120 s*
+- Prozess: *100 Iterationen* mit zufälligen Startwerten
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+
+**2. Langsame Komponente & Verfeinerung (2. Fit):**
+
+- Parameter: V̇O2_fast, tau_fast, V̇O2_slow, tau_slow, t_delay_slow
+- Initiale Werte (basierend auf Ozyener et al., 2001):
+  - V̇O2_slow: *0.4 l/min*
+  - tau_slow: *160 s*
+- Grenzen:
+  - V̇O2_slow: *0.05 bis 1.0 l/min*
+  - tau_slow: *90 bis Unendlich s*
+  - t_delay_slow: *tau_fast + t_delay bis max(t_s)*
+- Prozess für t_delay_slow:
+  a) Berechnung des Suchbereichs: von *(tau_fast + t_delay)* bis zum maximalen Zeitpunkt der Daten
+  b) Iteration durch jeden möglichen Wert in diesem Bereich (*1-Sekunden-Schritte*)
+  c) Für jeden t_delay_slow-Wert:
+     - Berechnung der RSS mit festen Werten für V̇O2_slow (*0.4 l/min*) und tau_slow (*160 s*)
+  d) Auswahl des t_delay_slow-Wertes mit der niedrigsten RSS
+- Optimierung von V̇O2_fast und tau_fast:
+  a) Schrittweise Reduzierung von V̇O2_fast (*0.01 l/min*) und tau_fast (*0.1 s*)
+  b) Bei jeder Änderung: Berechnung der neuen RSS
+  c) Akzeptanz der Änderung nur bei Verbesserung der RSS
+  d) Wiederholung bis keine Verbesserung mehr möglich
+- Optimierung von V̇O2_slow und tau_slow:
+  a) Zunächst Reduzierung: V̇O2_slow (*0.01 l/min*) und tau_slow (*0.1 s*)
+  b) Dann Erhöhung: V̇O2_slow (*0.01 l/min*) und tau_slow (*0.1 s*)
+  c) Bei jeder Änderung: Berechnung der neuen RSS
+  d) Akzeptanz der Änderung nur bei Verbesserung der RSS
+  e) Wiederholung jeder Richtung bis keine Verbesserung mehr möglich
+
+**3. Optimierung (3. Fit):**
+
+- Verwendete Funktion: nlsLM
+- Parameter: V̇O2_fast, tau_fast, V̇O2_slow, tau_slow, t_delay_slow
+- Grenzen: Basierend auf den Ergebnissen von Schritt 2
+  - V̇O2_fast: *±2% des Wertes aus Schritt 2*
+  - tau_fast: *±3 s des Wertes aus Schritt 2 (Minimum 10 s)*
+  - V̇O2_slow: *±2% des Wertes aus Schritt 2*
+  - tau_slow: *±3 s des Wertes aus Schritt 2 (Minimum 90 s)*
+  - t_delay_slow: *±5 s des Wertes aus Schritt 2 (Minimum 0 s)*
+- Prozess: *1000 Iterationen* mit zufälligen Startwerten innerhalb der Grenzen
+- Optimierung: Minimierung der RSS
+
+:::
+
+
+
+### Methodik: Umgang mit $\dot{V}O_{2}$-Daten in dieser Arbeit{.unnumbered .unlisted}
+In dieser Arbeit wurde der Anstieg des $\dot{V}O_{2}\thinspace(t)$ nach Belastungsbeginn für jede Belastungsstufe wie folgt analysiert: Zunächst wurden aus den Atemzug-für-Atemzug $\dot{V}O_{2}$-Daten die Ausreißer entfernt. Danach erfolgte eine Glättung der Daten mittels eines gleitenden 3-Atemzug-Durchschnitts, gefolgt von der Kurvenanpassung.
+
+Vor der Kurvenanpassung wurde die Zeitverzögerung der Hauptkomponente des $\dot{V}O_{2}\thinspace(t)$ grafisch so bestimmt, dass die Phase-I-Daten der kardiorespiratorischen Antwort nicht einbezogen wurden. Dies entsprach in der Regel dem von [@Bearden2000; @Stirling2005] beschriebenen Zeitraum von 10-25 Sekunden für Phase 1. Die Kurvenanpassung wurde anschließend mit @eq-VO2_Start2 an die jeweiligen Daten durchgeführt. Die Modellparameter der Kurvenanpassung wurden wie folgt gewählt:
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+### Parameter - Kurvenanpassung:{.unnumbered .unlisted}
+
+- Verwendete Funktion: nlsLM
+  * Maximale Iterationen: *1024*
+  * Verwendung des Levenberg-Marquardt-Algorithmus
+- Parameter: V̇O2 (Amplitude), Tau
+- Modell: V̇O2_t ~ V̇O2 · (1 - exp(-(t_s - t_delay) / Tau)) + V̇O2_Start
+- Grenzen:
+  * V̇O2: *0.5 bis 7.0 l/min*
+  * Tau: *5 bis 360 s*
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+
+:::
+
+
+
+```{r} 
+### Dauer der Zeitkonstante bei verschiedenen Intensitäten unterschiedlich
+# @Oezyener2001 fanden, dass der Wert von τ~Start~ für die Sauerstoffaufnahme im Durchschnitt bei 33 ± 16 s liegt, unabhängig von der Belastungshöhe. 
+# -Im Gegensatz dazu berichten andere Studien von einem Anstieg von τ~Start~ mit zunehmender Belastung (Linnarsson 1974).
+# Wasserman et al. [@Wasserman1967] prognostizierten und fanden experimentell heraus, dass der Sauerstoffverbrauch bei schweren Arbeitsbelastungen länger ansteigt als bei moderaten Intensitäten. Henry und DeMoor [@Henry1956] stellten ebenfalls fest, dass die Zeit bis zum Erreichen eines stabilen Zustands der Sauerstoffaufnahme (VO2) mit steigender Arbeitslast zunimmt. Im Gegensatz dazu berichten Di Prampero et al. [@DiPrampero1970] und Margaria et al. [@Margaria1965], dass das Muster des VO2-Anstiegs zum stabilen Zustand unabhängig von der Arbeitsintensität gleich ist und dieser Anstieg durch einen einzigen exponentiellen Prozess beschrieben wird, wobei die Reaktionskonstante für alle Arbeitslasten gleich ist.
+# 
+# **Moderate Intensität:**
+# Die pulmonale V̇O~2~steigt monoexponentiell und erreicht innerhalb von etwa 3 Minuten einen Steady State [@Whipp1982; @Hughson1988; @Whipp1994]. Die V̇O~2~ erhöht sich linear zur Arbeitsrate um etwa 10 ml·min^-1·W^-1. Sobald der Steady State erreicht ist, sind ATP-Resynthese und oxidative Phosphorylierung im Gleichgewicht [@Kindermann1979; @Faude2009].
+# 
+# **Schwere Intensität:**
+# Die schwere Intensität liegt zwischen der maximalen Leistungsfähigkeit (GXT) und der kritischen Leistung (CP) [@Hill1993]. Bei schwerer Belastung ist der oxidative Bedarf höher, und der Steady State verzögert sich durch die V̇O~2~ Slow Component. Die O~2~-Kosten steigen auf etwa 13 ml·min^-1·W^-1 [@WhippWasserman1972; @PearceMilhorn1977; @WhippMahler1980; @BarstowMole1991]. Die arterielle Laktatkonzentration steigt über die Ausgangswerte, erreicht aber ein erhöhtes Gleichgewicht [@Billat2003].
+# 
+# **Schwere Intensität:**
+# In der Forschung ist umstritten, ob die primäre V̇O~2~-Kinetik bei schwerer Belastung langsamer ist als bei moderater. Dies könnte auf eine größere Zeitkonstante oder eine zusätzliche Slow Component in V̇O~2~ hindeuten, die einen verzögerten Steady State über dem vorhergesagten Niveau erreicht [@PatersonWhipp1991; @BarstowMole1991].
+# 
+# **Sehr schwere Intensität:**
+# Bei sehr schwerer Intensität, oberhalb des maximalen Laktat-Steady-State oder der kritischen Leistung, erreichen weder V̇O~2~ noch arterielle Laktatkonzentration einen Steady State [@GaesserPoole1996]. Beide steigen unaufhaltsam, bis Ermüdung eintritt und maximale V̇O~2~-Werte erreicht werden [@WassermanWhipp1975; @GaesserPoole1996].
+
+```
+
+
+
+## Quellenverzeichnis
+
+::: {#refs}
+:::

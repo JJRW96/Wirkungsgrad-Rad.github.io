@@ -1,5 +1,14 @@
 ---
-title: "EPOC-Daten"
+title: "Phyisologische Nachbelastungsparameter"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+    fig-responsive: true
+    
+filters:
+  - shinylive
+    
 bibliography: references.bib
 lang: de
 number-sections: false
@@ -14,48 +23,864 @@ lightbox:
   loop: false
   css-class: "my-css-class"
   
-execute:
+execute: 
   message: false
   echo: false
   warning: false
   error: false
+  freeze: true
+  order: sequential
+  
+nocite: |
+  @Heck2006, @Keul1972, @Stegemann1991, @DeMarees2003, @Brooks2004, @Karlsson1971, @Knuttgen1973, @Hultman1967, @Harris1974, @Gaitanos1993, @Bangsbo1993, @Walter1999; @Nelson2012; @Horn2021 ; @Putman1998; Parolin1999; @Bogdanis1996;   @Hill1924, @Margaria1933, @Margaria1963, @Margaria1964, @DiPrampero1971, @Margaria1972, @DiPrampero1973, @Katch1973, @Roberts1978, @Beneke2002, @Beneke2004, @Francescato2003, @Dunst2023a, @Dunst2023b, @Berg1947, @Henry1950a, @Henry1950, @Henry1951, @DeMoor1954, @Henry1956, @Royce1969, @Katch1972, @DiPrampero1981, @Oezyener2001, @Dunst2023b, @Langley2024, @Parolin2000
 ---
 
-# Test
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+
+```
+
+```{r}
+# dfs laden
+EPOC_data_df <- readRDS("rds/EPOC_data_df.rds")
+EPOC_data_df_short <- readRDS("rds/EPOC_data_df_short.rds")
+Bedingungen_data <- readRDS("rds/Bedingungen_data.rds")
+```
+
+```{r echo=FALSE, output=FALSE}
+library(flextable)
+library(dplyr)
+library(officer)
+##### EPOC-Modellparameter #####
+#Tabelle angepasst und erweitert nach Katch et al. 1972
+data <- data.frame(
+  Quelle = c(
+    "Margaria et al. (1933)",
+    "Berg (1947)",
+    "Henry & DeMoor (1950)",
+    "Henry & Berg (1950)",
+    "Henry et al. (1951)",
+    "DeMoor (1954)",
+    "Henry & DeMoor (1956)",
+    "Royce (1969)",
+    "Katch et al. (1972)",
+    "Di Prampero et al. (1973)",
+    "Katch (1973)",
+    "Roberts & Morton (1978)",
+    "Di Prampero (1981)",
+    "Özyener et al. (2001)",
+    "Beneke et al. (2002)",
+    "Dunst et al. (2023a)",
+    "Dunst et al. (2023b)",
+    "Langley et al. (2024)"
+  ),
+  
+  A = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "-", "2.80", "2.330", "-",
+    "-", "2.777 ± 0.445", "2.49 ± 0.62",
+    "3s: 1.99 ± 0.44\n8s: 2.74 ± 0.38\n12s: 2.88 ± 0.50\n60s: 3.03 ± 0.45",
+    "-"
+  ),
+  
+  tauA = c(
+    "≈ 0.60", "0.75", "0.90 - 0.94", "0.66 - 0.71", "1.08 - 1.16", 
+    "0.88", "1.04", "1.31", "0.66",
+    "≈ 0.72", "0.69", "0.66", "0.60 - 0.72",
+    "M: 0.48 ± 0.10\nH: 0.70 ± 0.18\nVH: 0.55 ± 0.08\nS: 0.58 ± 0.18",
+    "0.70 ± 0.20", "0.84 ± 0.13",
+    "3s: 0.82 ± 0.14\n8s: 0.84 ± 0.12\n12s: 0.84 ± 0.13\n60s: 0.85 ± 0.13",
+    "-"
+  ),
+  
+  B = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "-", "1.443", "0.367", "-",
+    "-", "0.675 ± 0.257", "0.51 ± 0.34",
+    "3s: 0.20 ± 0.17\n8s: 0.42 ± 0.13\n12s: 0.58 ± 0.12\n60s: 0.98 ± 0.30",
+    "-"
+  ),
+  
+  tauB = c(
+    "≈ 50.00", "-", "6.94 - 8.00", "-", "-",
+    "5.65", "5.92", "23.81", "14.71",
+    "21.70 - 28.90", "16.94", "6.87", "21.65",
+    "VH: 7.67 ± 2.05\nS: 8.98 ± 6.32", "14.10 ± 13.50", "7.34 ± 3.67",
+    "3s: 5.72 ± 2.52\n8s: 6.46 ± 3.38\n12s: 8.03 ± 3.10\n60s: 9.36 ± 5.11",
+    "-"
+  ),
+  
+  W_PCR = c(
+    "-", "-", "-", "-", "-", "-", "-", "-", "-",
+    "...", "-", "-", "...",
+    "-", "40.2 ± 10.6", "3s: 30.10 ± 7.32\n8s: 42.64 ± 9.61\n12s: 47.23 ± 9.82\n60s: 53.30 ± 11.91",
+    "3s: 31.83 ± 6.98\n8s: 46.50 ± 3.79\n12s: 51.24 ± 9.52\n60s: 53.73 ± 9.96",
+    "10s: 102.93 ± 25.91\n15s: 109.83 ± 28.30\n30s: 126.39 ± 24.25"
+  ),
+  
+  stringsAsFactors = FALSE
+)
+
+# Erstellen der Tabelle mit flextable
+ft_EPOC_Modell <- flextable(data) %>%
+  compose(
+    part = "header",
+    j = 2,
+    value = as_paragraph("A", " [ml·min⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 3,
+    value = as_paragraph("τ", as_sub("A"), " [min]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 4,
+    value = as_paragraph("B", " [ml·min⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 5,
+    value = as_paragraph("τ", as_sub("B"), " [min]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 6,
+    value = as_paragraph("W", as_sub("PCr"), " [kJ]")
+  ) %>%
+  set_caption("Modellparameter Bi-Exponentialfunktion") %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = as_paragraph(
+      "A [ml·min⁻¹]: Amplitude der schnellen EPOC-Komponente; τA [min]: Zeitkonstante der schnellen EPOC-Komponente; ",
+      "B [ml·min⁻¹]: Amplitude der langsamen EPOC-Komponente; τB [min]: Zeitkonstante der langsamen EPOC-Komponente; ",
+      "W~PCr [kJ]: Berechnete anaerobe- alaktazide Energiekomponente; ",
+      "Zeitangaben (3s, 8s, 10s, 12s, 15s, 30s, 60s): Dauer maximaler Sprints auf dem Radergometer; ",
+      "Intensitätsangaben: M: moderate, H: heavy, VH: very heavy, S: severe exercise intensities"
+    ),
+    colwidths = 6
+  ) %>%
+  line_spacing(space = 1.1, part = "footer") %>%
+  font(fontname = "Source Sans Pro", part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = fp_border(color = "darkgrey", width = 0.5))
+
+ft_EPOC_Modell <- set_table_properties(ft_EPOC_Modell, width = 1, layout = "autofit")
+
+```
+
+```{r echo=FALSE, output=FALSE}
+library(flextable)
+library(dplyr)
+library(officer)
+##### EPOC-Werte #####
+#Tabelle (angelehnt an @Roberts1978)
+data <- data.frame(
+  Quelle = c(
+    "Hill et al. (1924)",
+    "Margaria et al. (1933)",
+    "Margaria et al. (1963)",
+    "Margaria et al. (1964)",
+    "Di Prampero (1971)",
+    "Margaria (1972)",
+    "Di Prampero et al. (1973)",
+    "Shephard (1972)",
+    "Katch (1973)",
+    "Roberts & Morton (1978)",
+    "Beneke et al. (2002)",
+    "Beneke et al. (2004)",
+    "Francescato et al. (2003)",
+    "Dunst et al. (2023a)",
+    "Dunst et al. (2023b)",
+    "Langley (2024)"
+  ),
+  
+  EPO_fast_ml = c(
+    "-", "36.8", "-", "-", "45.0", "40.0", "32.0", "-", 
+    "-", "37.45", "-", "32.13 ± 2.59",
+    "Sehr Leicht: 11.72 ± 2.4\nLeicht: 20.72 ± 3.4\nModerat: 32.73 ± 3.5",
+    "3s: 18.77 ± 4.56\n8s: 26.60 ± 6.00\n12s: 29.47 ± 6.13\n60s: 33.25 ± 7.43", 
+    "3s: 16.96 ± 3.68\n8s: 24.78 ± 2.01\n12s: 27.34 ± 5.13\n60s: 28.68 ± 5.36", 
+    "10s: 63.71 ± 16.06\n15s: 68.00 ± 17.48\n30s: 78.34 ± 15.02"
+  ),
+  
+  EPO_fast_L = c(
+    "-", "2.50", "-", "2.77", "-", "-", "-", "-",
+    "-", "2.79", "1.904 ± 0.563", "2.48 ± 0.20", 
+    "-",
+    "3s: 1.44 ± 0.35\n8s: 2.04 ± 0.46\n12s: 2.26 ± 0.47\n60s: 2.55 ± 0.57", 
+    "3s: 1.52 ± 0.33\n8s: 2.22 ± 0.18\n12s: 2.45 ± 0.46\n60s: 2.57 ± 0.48",
+    "10s: 4.92 ± 1.24\n15s: 5.25 ± 1.35\n30s: 6.05 ± 1.16"
+  ),
+  
+  EPO_ges_ml = c(
+    "-", "-", "75.0", "-", "-", "-", "-", "67.0",
+    "68.0", "70.0", "-", "-",
+    "Sehr Leicht: 29.2 ± 5.9\nLeicht: 51.6 ± 8.4\nModerat: 81.5 ± 8.8",
+    "-", "-", "-"
+  ),
+  
+  EPO_ges_L = c(
+    "7.5", "-", "4.65", "-", "-", "-", "-", "5.00",
+    "4.89", "4.93", "-", "-",
+    "-",
+    "-", "-","-"
+  ),
+  
+  stringsAsFactors = FALSE
+)
+
+# Erstellen der Tabelle
+ft_EPOC <- flextable(data) %>%
+  set_caption("Angaben zu EPOC-Mengen in der Fachliteratur") %>%
+  set_header_labels(
+    Quelle = "Quelle",
+    EPO_fast_ml = "",
+    EPO_fast_L = "",
+    EPO_ges_ml = "",
+    EPO_ges_L = ""
+  ) %>%
+  compose(
+    part = "header",
+    j = 2,
+    value = as_paragraph("EPOC", as_sub("fast"), " [ml·kg⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 3,
+    value = as_paragraph("EPOC", as_sub("fast"), " [l]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 4,
+    value = as_paragraph("EPOC", as_sub("ges"), " [ml·kg⁻¹]")
+  ) %>%
+  compose(
+    part = "header",
+    j = 5,
+    value = as_paragraph("EPOC", as_sub("ges"), " [l]")
+  ) %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = as_paragraph(
+      "EPOC", as_sub("ges"), " [ml·kg⁻¹]: auf Körpermasse normierte EPOC-Werte; ",
+      "EPOC", as_sub("ges"), " [l]: EPOC der gesamten Nachbelstung; ",
+      "EPOC", as_sub("fast"), " [ml·kg⁻¹]: auf Körpermasse normierte EPOC die der Rephosphorylierung von PCr zuzuordnen ist; ",
+      "EPOC", as_sub("fast"), " [l]: EPOC die der Rephosphorylierung von PCr zuzuordnen ist; ",
+      "Zeitangaben (3s, 8s, 10s, 12s, 15s, 30s, 60s): Dauer maximaler Sprints auf dem Radergometer; ",
+      "Intensitätsangaben: Belastungsintensitäten (sehr leicht, leicht, moderat)"
+    ),
+    colwidths = 5
+  ) %>%
+  line_spacing(space = 1.1, part = "footer") %>%
+  font(fontname = "Source Sans Pro", part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = fp_border(color = "darkgrey", width = 0.5))
+
+# Setzen der Tabelle auf volle Breite
+ft_EPOC <- set_table_properties(ft_EPOC, width = 1, layout = "autofit")
+
+```
+
+```{r echo=FALSE, output=FALSE}
+#| echo: false
+library(flextable)
+library(dplyr)
+library(officer)
+
+##### PCr-Werte ######
+data <- data.frame(
+  Autoren = c(
+    "Hultman et al. (1967)", "Karlsson et al. (1971)", "Keul et al. (1972)", "Knuttgen et al. (1973)", "Harris et al. (1974)",
+    "Stegemann (1991)", "Gaitanos et al. (1993)", "Bangsbo et al. (1993)","McCann et al. (1995)", "Bogdanis et al. (1996)", "Putman et al. (1998)", "Walter et al. (1999)", "Parolin et al. (1999)",
+    "Parolin et al. (2000)", "de Marées (2003); Heck (2006)", "Brooks et al. (2004)", "Nelson & Cox (2012)", "Heck et al. (2022)"
+  ),
+  PCr_Konzentration = c(
+    "16.07 ± 1.66 ≙ (67.8 ± 7.0*)", "15.7 ± 2.15", "10 - 30", "17.9 ± 1.84", "17.89 ± 1.81 ≙ (75.5 ± 7.63*)",
+    "16.6 - 21.3 ≙ (70-90*)", "18.13 ± 1.71 ≙ (76.5 ± 7.2*)", "17.5 - 20.3", "23.6 ± 0.98", "17.82 ± 1.04 ≙ (75.2 ± 4.4*)", "20.52 ± 0.81 ≙ (86.6 ± 3.4*)", "37.7 ± 2.8", "20.9 ± 1.1 ≙ (88.2 ± 4.7*)",
+    "ca. 19 ≙ (ca. 80*)", "15 - 20",  "28", "30", "20 - 25"
+  ),
+  Messungsmethode = c(
+    "Muskelbiopsie", "Muskelbiopsie", "Literaturangabe", "Muskelbiopsie", "Muskelbiopsie",
+    "Literaturangabe", "Muskelbiopsie", "P-MRS","P-MRS","Muskelbiopsie", "Muskelbiopsie", "P-MRS",
+    "Muskelbiopsie","Muskelbiopsie", "Literaturangabe", "Literaturangabe", "Literaturangabe",  "Literaturangabe"
+  ),
+  stringsAsFactors = FALSE
+)
+
+# Umbenennen der Spalten
+colnames(data)[2] <- "PCr-Konzentration [mmol·kg⁻¹ Trockenmuskelmasse]"
+colnames(data)[3] <- "Bestimmungsmethode / Datenbasis"
+
+# Funktion zur Auswahl der ersten verfügbaren Schriftart
+select_available_font <- function(font_list) {
+  available_fonts <- systemfonts::system_fonts()$family
+  for (font in font_list) {
+    if (font %in% available_fonts) {
+      return(font)
+    }
+  }
+  return("sans-serif")  # Fallback zu einer generischen sans-serif Schriftart
+}
+
+# Liste der bevorzugten Schriftarten
+preferred_fonts <- c("Source Sans Pro", "Arial", "Helvetica")
+
+# Auswahl der ersten verfügbaren Schriftart
+chosen_font <- select_available_font(preferred_fonts)
+
+# Erstellen der Tabelle mit flextable
+ft_PCr <- flextable(data) %>%
+  theme_zebra(odd_header = "grey92", even_header = "#EFEFEF", odd_body = "#F9F9F9", even_body = "#FFFFFF") %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = "*Werte in Klammern zeigen die tatsächlich in der Studie gemessene PCr-Konzentration im Feuchtmuskel. Die Werte außerhalb der Klammern sind auf die Trockenmuskelmasse umgerechnet. Für die Umrechnung wurde nach Putman et al. (1998) ein Verhältnis von 1:4.22 verwendet.",
+    colwidths = 3
+  ) %>%
+  line_spacing(space = 1.1, part = "footer") %>%
+  font(fontname = chosen_font, part = "all") %>%
+  fontsize(size = 12, part = "header") %>%
+  fontsize(size = 11, part = "body") %>%
+  fontsize(size = 10, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = officer::fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = officer::fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = officer::fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = officer::fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = officer::fp_border(color = "darkgrey", width = 0.5))
+
+# Setzen der Tabelle auf volle Breite
+ft_PCr <- set_table_properties(ft_PCr, width = 1, layout = "autofit")
+```
+
+# Interaktive Analyse der erfassten Nachbelastungsparameter
+Die folgende Shiny-App zeigt eine interaktive Tabellenübersicht der EPOC-Parameter sämtlicher Belastungsdurchgänge. Die Shiny-App ermöglicht einen flexiblen Wechsel zwischen der Darstellung aller individuellen Testdurchläufe und einer zusammengefassten Übersicht mit Mittelwerten sowie zugehörigen Standardabweichungen. Die Filterfunktion erlaubt eine gezielte Analyse der Daten nach verschiedenen Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend). Für die gefilterten Daten werden sowohl die entsprechenden Mittelwerte als auch die zugehörigen Boxplots mit den statistischen Kennwerten (Mittelwert, Median, erstes Quartil, drittes Quartil, Minimum und Maximum) visualisiert. Zusätzlich besteht die Option, einzelne Probanden in die Analyse ein- oder auszuschließen. <br>
+Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der EPOC-basierten Parameter. Eine ausführliche Beschreibung der enthaltenen Parameter sowie deren Berechnungsmethoden findet sich im Kapitel "Energieumsatzberechnung".
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+
+library(shiny)
+library(plotly)
+library(minpack.lm)
+library(dplyr)
+library(shinyjs)
+library(shinylive)
+library(DT)
+library(dplyr)
+
+EPOC_data_df_short <- data.frame(
+  `Proband` = c( "20", "23", "20", "10", "01", "20", "19", "15", "20", "15", "19", "23", "23", "22", "19", "01", "23", "15", "01", "20", "22", "06", "06", "13", "20", "06", "01", "06", "22", "01", "23", "15", "23", "19", "01", "22", "06", "19", "15", "10", "19", "10", "10", "06", "15", "10", "13", "13", "13", "10", "13", "13", "22", "22" ),
+  `Nr` = c( 2, 2, 5, 1, 1, 3, 2, 2, 1, 4, 4, 1, 3, 3, 1, 6, 4, 1, 3, 4, 4, 3, 6, 1, 6, 2, 2, 1, 2, 5, 6, 3, 5, 3, 4, 1, 5, 6, 6, 4, 5, 2, 6, 4, 5, 3, 2, 3, 6, 5, 4, 5, 5, 6 ),
+  `Bedingung` = c( "stehen", "sitzen", "stehen", "stehen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "stehen", "stehen", "sitzen", "stehen", "stehen", "stehen", "stehen", "sitzen", "sitzen", "sitzen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "sitzen", "stehen", "stehen", "sitzen", "sitzen", "sitzen", "stehen", "sitzen", "stehen", "sitzen", "stehen", "stehen", "sitzen", "stehen", "sitzen", "sitzen", "sitzen", "sitzen", "stehen", "sitzen", "sitzen", "stehen", "stehen", "stehen", "sitzen", "sitzen", "sitzen", "stehen" ),
+  `Intensität` = c( "leicht", "leicht", "schwer", "leicht", "leicht", "moderat", "leicht", "leicht", "leicht", "moderat", "moderat", "leicht", "moderat", "moderat", "leicht", "schwer", "moderat", "leicht", "moderat", "moderat", "moderat", "moderat", "schwer", "leicht", "schwer", "leicht", "leicht", "leicht", "leicht", "schwer", "schwer", "moderat", "schwer", "moderat", "moderat", "leicht", "schwer", "schwer", "schwer", "moderat", "schwer", "leicht", "schwer", "moderat", "schwer", "moderat", "leicht", "moderat", "schwer", "schwer", "moderat", "schwer", "schwer", "schwer" ),
+  `P_Tot` = c( 262.464492841036, 204.303811710974, 332.282195549595, 342.780201343152, 315.087785382455, 297.033969571712, 247.499507416179, 278.360889376064, 297.677841174368, 330.104243714921, 272.461438312168, 199.166908885976, 230.539973534982, 265.6271457606, 255.677641947778, 377.269342767856, 223.28140151954, 317.381745748518, 343.249556933665, 313.722436973434, 278.279940401837, 319.563716705383, 334.696918549422, 328.689199107333, 347.559610294167, 296.008730999173, 315.356007475201, 291.340972880708, 236.218071887388, 376.01429973294, 255.967028389931, 350.889509890097, 248.864184197347, 267.481373216035, 345.621870862815, 245.195285695477, 342.797408580074, 306.49260579391, 400.223676014955, 400.467853364667, 297.602794954409, 364.604429952782, 452.463577903494, 320.346360885814, 363.61916212901, 419.799963753223, 348.476140134227, 357.035734534098, 383.031683804794, 431.054304415492, 375.551234669824, 395.659416230325, 297.955305580942, 291.810409732378 ),
+  `P_Tot_kg` = c( 3.28080616051295, 3.40506352851623, 4.15352744436994, 4.18024635784332, 4.14589191292704, 3.7129246196464, 3.80768472947968, 3.662643281264, 3.7209730146796, 4.34347689098581, 4.19171443557181, 3.31944848143294, 3.84233289224969, 5.53389887001251, 3.93350218381197, 4.96407029957705, 3.72135669199234, 4.17607560195419, 4.51644153860085, 3.92153046216792, 5.79749875837161, 4.37758516034771, 4.58488929519755, 4.56512776537963, 4.34449512867708, 4.05491412327634, 4.14942115098949, 3.99097223124258, 4.92120983098725, 4.94755657543343, 4.26611713983218, 4.61696723539601, 4.14773640328911, 4.11509804947746, 4.54765619556336, 5.10823511865578, 4.69585491205581, 4.71527085836785, 5.26610100019677, 4.88375430932521, 4.57850453776014, 4.44639548722904, 5.51784851101822, 4.3883063135043, 4.78446265959224, 5.11951175308808, 4.83994639075315, 4.95882964630691, 5.31988449728881, 5.25675980994502, 5.21598937041422, 5.49526966986562, 6.20740219960296, 6.07938353609121 ),
+  `VO2_fast [l]` = c( 0.96, 0.607, 1.639, 1.313, 1.514, 1.457, 1.024, 1.461, 1.338, 1.746, 1.315, 0.978, 0.843, 0.866, 1.335, 1.894, 1.03, 1.585, 1.798, 1.599, 0.77, 1.767, 1.72, 1.702, 1.841, 1.516, 1.741, 1.873, 0.976, 2.102, 1.056, 1.844, 1.272, 1.494, 2.065, 0.92, 2.238, 1.9, 2.305, 2.355, 1.633, 2.095, 2.443, 1.965, 2.513, 2.24, 1.977, 2.403, 2.416, 2.896, 2.168, 2.599, 1.323, 1.592 ),
+  `VO2_fast [ml·kg⁻¹]` = c( 12, 10.117, 20.487, 16.012, 19.921, 18.212, 15.754, 19.224, 16.725, 22.974, 20.231, 16.3, 14.05, 18.042, 20.538, 24.921, 17.167, 20.855, 23.658, 19.987, 16.042, 24.205, 23.562, 23.639, 23.012, 20.767, 22.908, 25.658, 20.333, 27.658, 17.6, 24.263, 21.2, 22.985, 27.171, 19.167, 30.658, 29.231, 30.329, 28.72, 25.123, 25.549, 29.793, 26.918, 33.066, 27.317, 27.458, 33.375, 33.556, 35.317, 30.111, 36.097, 27.562, 33.167 ),
+  `VO2_PCr [l]` = c( 0.881326683453614, 0.567338622471479, 1.15500720981244, 1.22451023492507, 1.15307272417817, 1.23315671063888, 0.964418082656628, 1.29422084745126, 1.24444000990949, 1.36171294296438, 1.22784075003155, 0.931329655998791, 0.802097969151435, 0.743007413702281, 1.26437551550286, 1.48599981658848, 0.982361782175615, 1.37204600026034, 1.39505990474171, 1.48790829698463, 0.71704802991477, 1.54792848799749, 1.34214076446633, 1.60102567518758, 1.52556580915843, 1.42768633866492, 1.4931441828057, 1.69904560080879, 0.921586275014691, 1.53638486734834, 0.99509187848723, 1.60320999309521, 1.20125384268526, 1.43295281180786, 1.94654853975589, 0.871225883946091, 1.87236234958019, 1.68759701085331, 1.7407037064195, 2.23416989337053, 1.55385504638769, 2.01836015147108, 1.97142270283645, 1.78994937144439, 2.23229153460507, 2.0972263033792, 1.89052275302542, 2.24751004799388, 2.26820091796984, 2.66918403146221, 2.07867959407358, 2.32095777423171, 1.26672486296133, 1.53034784844715 ),
+  `VO2_PCr [ml·kg⁻¹]` = c( 11.017, 9.456, 14.438, 14.933, 15.172, 15.414, 14.837, 17.029, 15.556, 17.917, 18.89, 15.522, 13.368, 15.479, 19.452, 19.553, 16.373, 18.053, 18.356, 18.599, 14.939, 21.204, 18.385, 22.236, 19.07, 19.557, 19.647, 23.275, 19.2, 20.216, 16.585, 21.095, 20.021, 22.045, 25.612, 18.151, 25.649, 25.963, 22.904, 27.246, 23.905, 24.614, 24.042, 24.52, 29.372, 25.576, 26.257, 31.215, 31.503, 32.551, 28.871, 32.236, 26.39, 31.882 ),
+  `A` = c( 1.96853805933122, 1.400589497508, 2.64956241342874, 2.1604045494099, 2.87441032426097, 2.52056056179226, 1.84393479865602, 2.44400592564149, 2.35721347694176, 2.61200132804692, 2.33907547765617, 1.45623167578483, 1.52610340341567, 1.92442867545319, 2.15729308369842, 3.28672166918179, 1.77547266918707, 2.02161277769517, 2.94946999571547, 2.33826139487561, 1.66377713661249, 2.63576748670546, 2.6898256424256, 2.83783959306843, 2.97463977879735, 2.31361109383699, 2.76500010776138, 2.54284955135887, 1.92514014807071, 3.3831224524058, 1.75779224715248, 2.536340372703, 1.87722056044015, 2.30027466338024, 2.93296787077607, 1.83466639173281, 3.13730149771854, 2.5749084352138, 3.01427080108144, 3.4367410423055, 2.58222111832511, 2.90762708381452, 3.93483763701336, 2.66278308419996, 3.21398643843765, 3.35472612896959, 2.84892292389244, 3.42284186664568, 3.13532276045424, 3.98654223896197, 3.37592659893924, 3.28766170250584, 1.96336563198873, 2.2675550123827 ),
+  `TauA` = c( 29.2545927061767, 25.9920107264182, 37.1074331285121, 36.4737962580314, 31.6012601281756, 34.6933353737479, 33.3206938276531, 35.8686768539494, 34.0630483674912, 40.10183399704, 33.739940633961, 40.3137798230143, 33.15942547369, 27.012411971033, 37.1300689845286, 34.5736549488844, 34.8072866603377, 47.0432664555503, 36.5835239565148, 41.042216324616, 27.7635494258752, 40.2260569315626, 38.3636004846602, 35.9872471526475, 37.1408355941758, 39.3186371598837, 37.7702403007247, 44.1997111713008, 30.405623103155, 37.2737107840821, 36.0427130957334, 43.6136250047317, 40.6547866873092, 38.9752350039479, 42.2375049354042, 30.0736281615138, 42.8062897598595, 44.2796748810132, 45.877887277618, 41.1214641290446, 37.9526301895619, 43.2377208503524, 37.2542992500825, 44.2670311551895, 46.9201530673052, 40.0580018570513, 41.6394955172716, 42.1212198785951, 46.2372897481545, 43.5878225276321, 38.5312556992918, 47.428331077384, 40.419169558325, 42.1143294568839 ),
+  `B` = c( 0.762259540563672, 0.537883018246354, 1.09316491761365, 1.37822185770486, 0.795731063729053, 0.938273823934112, 0.665338286994262, 0.821847270460427, 0.57609247617268, 1.18810164912192, 0.730775735565554, 0.448307134173176, 0.61159596500095, 0.586915330737221, 0.671651825049121, 1.04030359237589, 0.459351426171045, 1.0370431256474, 0.875745662343808, 0.924892078140441, 0.983154891537892, 0.451328584090035, 0.910094626261335, 0.663250982791973, 1.31391742678641, 0.73739419634572, 0.647681269919138, 0.599321855848691, 0.322987737768159, 1.46874332263873, 0.701439923346846, 0.753359701830418, 0.562698672596687, 0.683228892018821, 0.921711971809909, 0.507653219994727, 0.672427145029958, 1.018922918844, 1.28618786527952, 0.915113293042382, 0.823208458737991, 0.666781348748074, 1.4027355837968, 0.557099443619083, 1.02003249636885, 1.20897273431467, 0.500695429626246, 0.506855960337451, 0.819433680519768, 0.992243105750508, 0.62853716767691, 0.757848973803961, 1.17274918165575, 0.786628343185306 ),
+  `TauB` = c( 978.549732238889, 1033.37134749511, 979.866669108872, 376.698914471902, 642.486126510751, 935.868524224663, 912.615095274944, 1068.63734181218, 1216.53830498368, 900.001541606669, 939.839771015159, 1079.67902040564, 1026.07797543504, 1118.65077790939, 955.518078242896, 464.856516087109, 941.671374496368, 797.04612318404, 937.494722939042, 939.563355925206, 257.709297342, 952.160916696907, 454.843319979365, 425.66397977872, 830.450630792729, 409.014761536618, 982.179972933037, 888.618834493456, 285.334132658871, 337.822194038772, 830.202297009071, 958.976358636518, 894.103850882136, 1052.46042079465, 637.152727770957, 1011.72294131538, 1049.83611433569, 541.763773221628, 570.378813714513, 805.171015041267, 931.203505083548, 959.200496054509, 503.503530902522, 870.217310858426, 1046.39502374293, 542.920399342471, 795.469811615834, 886.615196374702, 338.141381536082, 763.618286671796, 658.85499476351, 845.932476284739, 401.292774098876, 626.49406981245 ),
+  `R_squared_off` = c( 0.909975993532463, 0.837803651480948, 0.928785461219863, 0.94514485156876, 0.9386805110079, 0.9304466606446, 0.949202308636193, 0.800448885953364, 0.861734193461481, 0.89074392140538, 0.915726200208509, 0.86794375908347, 0.846006002851208, 0.864357081140998, 0.947386410034897, 0.96869209449461, 0.930828843368122, 0.909618544019569, 0.937082261803184, 0.912572376081985, 0.936246164295534, 0.958716641799683, 0.974323356725068, 0.958463195370036, 0.959878170734752, 0.965537194559105, 0.943003670627289, 0.967315861778594, 0.948160006922003, 0.974851225749369, 0.929205964904726, 0.897566320213485, 0.950361690002179, 0.911379764665711, 0.966717779448989, 0.922618306009658, 0.954756593441938, 0.975207568614983, 0.970935741347775, 0.949752719051438, 0.95018957051212, 0.960892510659637, 0.971760751278341, 0.967672233674131, 0.922266293215431, 0.970960636012716, 0.962258679351103, 0.953582930773798, 0.965871305732817, 0.970935608195162, 0.965619411114026, 0.932952536370353, 0.96873257727345, 0.941307071143409 ),
+  `Masse` = c( 80, 60, 80, 82, 76, 80, 65, 76, 80, 76, 65, 60, 60, 48, 65, 76, 60, 76, 76, 80, 48, 73, 73, 72, 80, 73, 76, 73, 48, 76, 60, 76, 60, 65, 76, 48, 73, 65, 76, 82, 65, 82, 82, 73, 76, 82, 72, 72, 72, 82, 72, 72, 48, 48 ),
+  `aktive_Muskelmasse` = c( 25.2, 13.26, 25.2, 25.83, 23.94, 25.2, 17.745, 23.94, 21.84, 23.94, 20.475, 15.3, 13.26, 12.24, 20.475, 23.94, 15.3, 20.748, 20.748, 21.84, 10.608, 22.995, 19.929, 22.68, 21.84, 19.929, 20.748, 22.995, 12.24, 20.748, 13.26, 20.748, 15.3, 17.745, 23.94, 10.608, 22.995, 20.475, 20.748, 25.83, 17.745, 22.386, 22.386, 19.929, 23.94, 22.386, 19.656, 22.68, 22.68, 25.83, 19.656, 19.656, 10.608, 12.24 ),
+  `VO2_Referenz` = c( 0.852692307692308, 0.896472222222222, 0.852692307692308, 0.9478, 0.997235294117647, 0.852692307692308, 0.769533333333333, 0.898278038452436, 0.852692307692308, 0.898278038452436, 0.769533333333333, 0.896472222222222, 0.896472222222222, 0.772045454545454, 0.769533333333333, 0.997235294117647, 0.896472222222222, 0.898278038452436, 0.997235294117647, 0.852692307692308, 0.772045454545454, 0.934166666666667, 0.934166666666667, 0.999544642857143, 0.852692307692308, 0.934166666666667, 0.997235294117647, 0.934166666666667, 0.772045454545454, 0.997235294117647, 0.896472222222222, 0.898278038452436, 0.896472222222222, 0.769533333333333, 0.997235294117647, 0.772045454545454, 0.934166666666667, 0.769533333333333, 0.898278038452436, 0.9478, 0.769533333333333, 0.9478, 0.9478, 0.934166666666667, 0.898278038452436, 0.9478, 0.999544642857143, 0.999544642857143, 0.999544642857143, 0.9478, 0.999544642857143, 0.999544642857143, 0.772045454545454, 0.772045454545454 ),
+  `VO2_Ruhe` = c( 0.415642091286353, 0.320312513138994, 0.415642091286353, 0.398544621667437, 0.409079599507683, 0.415642091286353, 0.352584633817119, 0.398278038452436, 0.415642091286353, 0.398278038452436, 0.352584633817119, 0.320312513138994, 0.320312513138994, 0.293734941358178, 0.352584633817119, 0.409079599507683, 0.320312513138994, 0.398278038452436, 0.409079599507683, 0.415642091286353, 0.293734941358178, 0.390487656996456, 0.390487656996456, 0.378852606093004, 0.415642091286353, 0.390487656996456, 0.409079599507683, 0.390487656996456, 0.293734941358178, 0.409079599507683, 0.320312513138994, 0.398278038452436, 0.320312513138994, 0.352584633817119, 0.409079599507683, 0.293734941358178, 0.390487656996456, 0.352584633817119, 0.398278038452436, 0.398544621667437, 0.352584633817119, 0.398544621667437, 0.398544621667437, 0.390487656996456, 0.398278038452436, 0.398544621667437, 0.378852606093004, 0.378852606093004, 0.378852606093004, 0.398544621667437, 0.378852606093004, 0.378852606093004, 0.293734941358178, 0.293734941358178 ),
+  `VO2_gross_SS` = c( 3.343, 2.589, 4.515, 4.49, 4.413, 3.87, 3.107, 3.864, 3.632, 4.499, 3.667, 2.762, 2.871, 3.234, 3.452, 5.227, 2.969, 3.985, 4.576, 3.996, 3.415, 4.042, 4.482, 4.297, 4.676, 3.884, 4.121, 3.899, 2.917, 5.395, 3.162, 4.362, 3.19, 3.415, 4.685, 3.048, 4.404, 4.049, 4.97, 5.082, 3.866, 4.475, 6.024, 4.095, 4.804, 5.224, 4.185, 4.659, 4.975, 5.556, 4.504, 4.918, 3.74, 3.46 ),
+  `VO2_net_SS` = c( 2.99, 2.211, 4.162, 4.042, 4.004, 3.517, 2.837, 3.466, 3.279, 4.101, 3.397, 2.384, 2.493, 2.962, 3.182, 4.818, 2.591, 3.587, 4.167, 3.643, 3.143, 3.652, 4.092, 3.858, 4.323, 3.494, 3.712, 3.509, 2.645, 4.986, 2.784, 3.964, 2.812, 3.145, 4.276, 2.776, 4.014, 3.779, 4.572, 4.634, 3.596, 4.027, 5.576, 3.705, 4.406, 4.776, 3.746, 4.22, 4.536, 5.108, 4.065, 4.479, 3.468, 3.188 ),
+  `O2_Speicher` = c( 0.078673316546386, 0.0396613775285205, 0.483992790187561, 0.0884897650749257, 0.360927275821829, 0.223843289361119, 0.059581917343372, 0.166779152548743, 0.0935599900905114, 0.384287057035625, 0.0871592499684474, 0.0466703440012086, 0.0409020308485652, 0.122992586297719, 0.0706244844971358, 0.408000183411516, 0.0476382178243846, 0.212953999739657, 0.402940095258288, 0.111091703015365, 0.05295197008523, 0.219071512002509, 0.377859235533666, 0.100974324812419, 0.315434190841573, 0.0883136613350763, 0.247855817194301, 0.173954399191212, 0.0544137249853085, 0.565615132651657, 0.0609081215127698, 0.240790006904785, 0.0707461573147371, 0.0610471881921419, 0.118451460244106, 0.048774116053909, 0.365637650419813, 0.212402989146693, 0.564296293580497, 0.120830106629472, 0.0791449536123128, 0.0766398485289226, 0.471577297163552, 0.175050628555612, 0.28070846539493, 0.142773696620804, 0.0864772469745804, 0.155489952006121, 0.14779908203016, 0.226815968537793, 0.0893204059264171, 0.278042225768293, 0.0562751370386684, 0.0616521515528528 ),
+  `WPCR [kJ]` = c( 20.0850465423653, 12.6965495989553, 34.2902015925505, 27.4821699879124, 31.6802161112372, 30.4984776431253, 21.4286379386612, 30.5740225524332, 28.0038277225803, 36.5319284929076, 27.5247587171684, 20.4747667848941, 17.6492367465268, 18.1300981323392, 27.9363638122276, 39.6317447397119, 21.553565910973, 33.1688499686331, 37.6326230455095, 33.4702406668707, 16.1103549922823, 36.9785204851612, 35.9897193229997, 35.6181567424239, 38.5319530264023, 31.7266183846898, 36.4233486561016, 39.1990072033563, 20.4150867446054, 43.9800095256712, 22.096322000744, 38.5802191673912, 26.6171749722825, 31.2682379997246, 43.2056488523188, 19.2432269438889, 46.8380509157804, 39.7650180588991, 48.2303759489023, 49.2890388398866, 34.1798598741031, 43.8466552246499, 51.1255727272009, 41.1103482929047, 52.5942699027425, 46.8685291216685, 41.3733921483723, 50.2831812671132, 50.5602945386413, 60.6033336725209, 45.3671114664453, 54.3825961144162, 27.6772885508452, 33.3060165093306 ),
+  `WPCR_corrected_calc` = c( 18.4426421779503, 11.8721280138382, 24.1696808725351, 25.6241011760421, 24.1291998261524, 25.8050373268292, 20.1814127976726, 27.082865453765, 26.041151647366, 28.4952050444725, 25.6937955351603, 19.4890043814307, 16.7847021024629, 15.5481731391339, 26.4583220374129, 31.0960321619306, 20.5569026538069, 28.7114346014479, 29.1930235666251, 31.1359690227005, 15.0049470739965, 32.3919515398355, 28.0856376372225, 33.5030632789753, 31.9239901224492, 29.8757643229022, 31.245535169392, 35.5542282425247, 19.2851143909574, 32.1503897341314, 20.8232926492238, 33.5487723155105, 25.1374379120318, 29.9859705398912, 40.7334747429318, 18.2312728474559, 39.181054527315, 35.3146550491163, 36.4259657605345, 46.7522391886717, 32.5159707007087, 42.2362045296838, 41.2539914795555, 37.4564805468453, 46.7129326531457, 43.8865576245131, 39.5610791298099, 47.0313952643199, 47.4643724094369, 55.8553450423781, 43.4984491855838, 48.5683623835727, 26.5074844823288, 32.024059076605 ),
+  `PCr_used` = c( 7.60356602256785, 9.30207354098021, 10.1243191506377, 10.251658470869, 10.4995638504036, 10.7241466350026, 11.8159946024478, 11.878944032617, 12.2557560826791, 12.5974495577602, 13.2464591643906, 13.2693823244692, 13.2916067528663, 13.3032190777621, 13.5330965585286, 13.5671304414631, 14.2200536921488, 14.4155474091979, 14.735389883485, 14.8512236193746, 14.852799787393, 14.8695954062443, 14.9153609880197, 15.306480112249, 15.3487108203284, 15.6581585926993, 15.6878783597047, 16.0210769482657, 16.3695041116711, 16.4000431343536, 16.6639295262184, 17.0685191813564, 17.5252953239563, 17.650185581983, 17.7247369160029, 17.8557543111729, 18.0806586967894, 18.3500049998374, 18.5810316647284, 19.1061622566461, 19.3934782562727, 19.6544488496343, 19.7595804944576, 19.8397827687998, 20.705443096442, 20.8030282658488, 21.0222964425904, 21.8322115277183, 22.033201708123, 23.0062302363358, 23.3600668813323, 26.2883571085472, 26.4466088815684, 27.3276401508419 )
+  , check.names = FALSE
+)
+
+# Spaltennamen ändern
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "R_squared_off"] <- "R2_off"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "aktive_Muskelmasse"] <- "MM_akt [kg]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "WPCR_corrected_calc"] <- "WPCR_corrected [kJ]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "P_Tot"] <- "P_Tot [W]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "P_Tot_kg"] <- "P_Tot_kg [W·kg⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "A"] <- "A [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "TauA"] <- "TauA [s]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "B"] <- "B [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "TauB"] <- "TauB [s]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_Referenz"] <- "VO2_Referenz [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "Masse"] <- "Masse [kg]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_Ruhe"] <- "VO2_Ruhe [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_gross_SS"] <- "VO2_gross_SS [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_net_SS"] <- "VO2_net_SS [l·min⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "O2_Speicher"] <- "O2_Speicher [l]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "PCr_used"] <- "PCr_used [mmol·kg⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_fast [l]"] <- "EPOC_fast [l]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_fast [ml·kg⁻¹]"] <- "EPOC_fast [ml·kg⁻¹]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_PCr [l]"] <- "EPOC_PCr [l]"
+names(EPOC_data_df_short)[names(EPOC_data_df_short) == "VO2_PCr [ml·kg⁻¹]"] <- "EPOC_PCr [ml·kg⁻¹]"
+
+# UI Definition
+ui <- fluidPage(
+  titlePanel("Interaktive Übersicht der EPOC-Parameter"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      width = 2,
+      style = "height: 90vh; overflow-y: auto;",
+      radioButtons("viewType", "Datenansicht:",
+                   choices = c("Einzelwerte" = "individual",
+                               "Mittelwerte & BP" = "means"),
+                   selected = "means"),
+      checkboxGroupInput("selectedBedingung", "Bedingungen:",
+                         choices = unique(EPOC_data_df_short$Bedingung),
+                         selected = unique(EPOC_data_df_short$Bedingung)),
+      checkboxGroupInput("selectedIntensität", "Intensitäten:",
+                         choices = unique(EPOC_data_df_short$Intensität),
+                         selected = unique(EPOC_data_df_short$Intensität)),
+      radioButtons("selectedVariable", "Variable für Boxplot:",
+                   choices = c(
+                     "A [l·min⁻¹]" = "A [l·min⁻¹]",
+                     "TauA [s]" = "TauA [s]",            
+                     "B [l·min⁻¹]" = "B [l·min⁻¹]",
+                     "TauB [s]" = "TauB [s]",            
+                     "R² off" = "R2_off",
+                     "O2 Speicher [l]" = "O2_Speicher [l]",
+                     "EPOC fast [l]" = "EPOC_fast [l]",
+                     "EPOC fast [ml·kg⁻¹]" = "EPOC_fast [ml·kg⁻¹]",
+                     "EPOC PCr [l]" = "EPOC_PCr [l]",
+                     "EPOC PCr [ml·kg⁻¹]" = "EPOC_PCr [ml·kg⁻¹]",
+                     "WPCR [kJ]" = "WPCR [kJ]",
+                     "WPCR corrected [kJ]" = "WPCR_corrected [kJ]",
+                     "PCr used [mmol·kg⁻¹]" = "PCr_used [mmol·kg⁻¹]"
+                   ),
+                   selected = "EPOC_fast [l]"),
+      checkboxGroupInput("selectedProband", "Probanden:",
+                         choices = sort(unique(EPOC_data_df_short$Proband)),
+                         selected = sort(unique(EPOC_data_df_short$Proband)))
+    ),
+    mainPanel(
+      width = 10,
+      conditionalPanel(
+        condition = "input.viewType == 'means'",
+        plotlyOutput("boxplot")
+      ),
+      DTOutput("epocTable")
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # Hilfsfunktion für Nachkommastellen
+  get_digits_for_column <- function(col_name) {
+    if(col_name %in% c("VO2_gross_SS [l·min⁻¹]", "EPOC_fast [l]", "VO2_net_SS [l·min⁻¹]", 
+                       "O2_Speicher [l]", "VO2_Referenz [l·min⁻¹]", "VO2_Ruhe [l·min⁻¹]",
+                       "EPOC_fast [ml·kg⁻¹]", "EPOC_PCr [l]", "EPOC_PCr [ml·kg⁻¹]")) {
+      return(3)
+    } else if(col_name %in% c("P_Tot_kg [W·kg⁻¹]", "A [l·min⁻¹]", "B [l·min⁻¹]", 
+                              "MM_akt [kg]", "R2_off", "WPCR [kJ]" , "WPCR_corrected [kJ]", 
+                              "PCr_used [mmol·kg⁻¹]")) {
+      return(2)
+    } else if(col_name %in% c("P_Tot [W]", "TauA [s]", "TauB [s]")) {
+      return(1)
+    } else if(col_name %in% c("Nr", "Masse [kg]")) {
+      return(0)
+    }
+    return(2)
+  }
+  
+  # Reaktive gefilterte Daten für Tabelle
+  filtered_data <- reactive({
+    data <- EPOC_data_df_short
+    
+    if (length(input$selectedProband) > 0) {
+      data <- data %>% filter(Proband %in% input$selectedProband)
+    }
+    
+    if (length(input$selectedBedingung) > 0) {
+      data <- data %>% filter(Bedingung %in% input$selectedBedingung)
+    }
+    
+    if (length(input$selectedIntensität) > 0) {
+      data <- data %>% filter(Intensität %in% input$selectedIntensität)
+    }
+    
+    if (input$viewType == "means") {
+      # Bestimme Gruppierungsvariablen basierend auf Auswahl
+      group_vars <- c()
+      if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+        group_vars <- "Bedingung"
+      } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+        group_vars <- "Intensität"
+      } else if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) > 0) {
+        group_vars <- c("Bedingung", "Intensität")
+      }
+      
+      if (length(group_vars) == 0) {
+        grouped_data <- data %>%
+          summarise(across(where(is.numeric), 
+                           list(mean = ~mean(., na.rm = TRUE),
+                                sd = ~sd(., na.rm = TRUE)))) %>%
+          mutate(Gruppe = "Gesamt")
+        group_vars <- "Gruppe"
+      } else {
+        grouped_data <- data %>%
+          group_by(across(all_of(group_vars))) %>%
+          summarise(across(where(is.numeric), 
+                           list(mean = ~mean(., na.rm = TRUE),
+                                sd = ~sd(., na.rm = TRUE)))) %>%
+          ungroup()
+      }
+      
+      result_data <- grouped_data %>%
+        select(all_of(group_vars))
+      
+      numeric_cols <- names(data)[sapply(data, is.numeric)]
+      for(col in numeric_cols) {
+        mean_col <- paste0(col, "_mean")
+        sd_col <- paste0(col, "_sd")
+        
+        if(mean_col %in% names(grouped_data) && sd_col %in% names(grouped_data)) {
+          digits <- get_digits_for_column(col)
+          result_data[[col]] <- paste0(
+            format(round(grouped_data[[mean_col]], digits), nsmall = digits),
+            " ± ",
+            format(round(grouped_data[[sd_col]], digits), nsmall = digits)
+          )
+        }
+      }
+      
+      return(result_data)
+    }
+    
+    return(data)
+  })
+  
+  # Reaktive gefilterte Daten für Plots
+  filtered_data_plots <- reactive({
+    data <- EPOC_data_df_short %>%
+      filter(Proband %in% input$selectedProband)
+    
+    if (length(input$selectedBedingung) > 0) {
+      data <- data %>% filter(Bedingung %in% input$selectedBedingung)
+    }
+    
+    if (length(input$selectedIntensität) > 0) {
+      data <- data %>% filter(Intensität %in% input$selectedIntensität)
+    }
+    
+    # Gruppierung basierend auf Auswahl
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+      data$Gruppe <- data$Bedingung
+    } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+      data$Gruppe <- data$Intensität
+    } else {
+      data$Gruppe <- paste(data$Intensität, data$Bedingung, sep = "_")
+    }
+    
+    return(data)
+  })
+  
+  # Color Map
+  color_map <- reactive({
+    c(
+      "leicht_sitzen" = "#42BA97", "leicht_stehen" = "#62A39F",
+      "moderat_sitzen" = "#1CADE4", "moderat_stehen" = "#2683C6",
+      "schwer_sitzen" = "#EF5350", "schwer_stehen" = "#C8133B"
+    )
+  })
+  
+  # Tabellen-Output
+  output$epocTable <- renderDT({
+    data <- filtered_data()
+    
+    if (input$viewType == "individual") {
+      columnDefs <- lapply(seq_len(ncol(data)), function(i) {
+        list(
+          targets = i-1,
+          width = paste0(max(
+            nchar(names(data)[i]),
+            max(nchar(as.character(data[[i]])))
+          ) * 10, "px"),
+          className = "dt-nowrap"
+        )
+      })
+      
+      datatable(data,
+                options = list(
+                  pageLength = 10,
+                  scrollX = TRUE,
+                  scrollCollapse = TRUE,
+                  autoWidth = FALSE,
+                  columnDefs = columnDefs
+                )
+      ) %>%
+        formatRound(
+          columns = c("VO2_gross_SS [l·min⁻¹]", "EPOC_fast [l]", "VO2_net_SS [l·min⁻¹]", 
+                      "O2_Speicher [l]", "VO2_Referenz [l·min⁻¹]", "VO2_Ruhe [l·min⁻¹]",
+                      "EPOC_fast [ml·kg⁻¹]", "EPOC_PCr [l]", "EPOC_PCr [ml·kg⁻¹]"),
+          digits = 3
+        ) %>%
+        formatRound(
+          columns = c("P_Tot_kg [W·kg⁻¹]", "A [l·min⁻¹]", "B [l·min⁻¹]", 
+                      "MM_akt [kg]", "R2_off", "WPCR_corrected [kJ]", 
+                      "PCr_used [mmol·kg⁻¹]"),
+          digits = 2
+        ) %>%
+        formatRound(
+          columns = c("P_Tot [W]", "TauA [s]", "TauB [s]"),
+          digits = 1
+        ) %>%
+        formatRound(
+          columns = c("Nr", "Masse [kg]"),
+          digits = 0
+        )
+    } else {
+      columnDefs <- lapply(seq_len(ncol(data)), function(i) {
+        list(
+          targets = i-1,
+          width = paste0(max(
+            nchar(names(data)[i]),
+            max(nchar(as.character(data[[i]])))
+          ) * 10, "px"),
+          className = "dt-nowrap"
+        )
+      })
+      
+      datatable(data,
+                options = list(
+                  pageLength = 10,
+                  scrollX = TRUE,
+                  scrollCollapse = TRUE,
+                  autoWidth = FALSE,
+                  columnDefs = columnDefs
+                ),
+                escape = FALSE
+      )
+    }
+  })
+  
+  # Boxplot
+  output$boxplot <- renderPlotly({
+    data <- filtered_data_plots()
+    color_map_values <- color_map()
+    
+    # Farben anpassen basierend auf Gruppierung
+    if (length(input$selectedBedingung) > 0 && length(input$selectedIntensität) == 0) {
+      colors <- c("sitzen" = "#42BA97", "stehen" = "#62A39F")
+    } else if (length(input$selectedBedingung) == 0 && length(input$selectedIntensität) > 0) {
+      colors <- c("leicht" = "#42BA97", "moderat" = "#1CADE4", "schwer" = "#EF5350")
+    } else {
+      colors <- color_map_values
+    }
+    
+    p <- plot_ly(data = data, 
+                 x = ~Gruppe, 
+                 y = as.formula(paste0("~`", input$selectedVariable, "`")),
+                 type = "box",
+                 color = ~Gruppe,
+                 colors = colors[unique(data$Gruppe)],
+                 opacity = 0.8,
+                 line = list(color = "black", width = 0.9),
+                 boxpoints = "outliers",
+                 pointpos = 0,
+                 marker = list(color = "black", size = 4),
+                 boxmean = TRUE,
+                 hoverlabel = list(bgcolor = "#F5F5F5"),
+                 showlegend = FALSE
+    ) %>%
+      layout(title = paste('Boxplot:', input$selectedVariable),
+             margin = list(t = 40),
+             xaxis = list(title = "Gruppe"),
+             yaxis = list(title = input$selectedVariable))
+    
+    return(p)
+  })
+}
+
+# App starten
+shinyApp(ui = ui, server = server)
+```
+
+# Deskriptive Analyse der EPOC-Modellparameter und W~PCr~-Komponenten
+Die folgenden Tabellen präsentieren eine umfassende deskriptive Analyse der EPOC-Modellparameter und der W~PCr~-Komponenten. Die Werte werden als Mittelwert ± Standardabweichung dargestellt, ergänzt durch minimale und maximale Messwerte (@tbl-EPOC_mean). Die weiteren Tabellen differenzieren die Daten nach den experimentellen Bedingungen (Sitzen vs. Stehen; @tbl-EPOC_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer; @tbl-EPOC_Intensitaet_mean) sowie nach der Kombination beider Faktoren (@tbl-EPOC_Bedingung_Intensitaet_mean).<br>
+Die analysierten Parameter umfassen die Amplituden (A, B) und Zeitkonstanten (τ~A~, τ~B~) der schnellen und langsamen EPOC-Komponenten, den Sauerstoffvolumenstrom während der Referenzphase ($\dot{V}O_{2,Referenz}$) sowie das Bestimmtheitsmaß (R~off~^2^) der EPOC-Modellanpassung. Zusätzlich werden die absolute und körpermassennormierte EPOC für die gesamte PCr-Rephosphorylierung (EPOC~fast~) sowie die um den Sauerstoffspeicher korrigierte EPOC (EPOC~PCr~) dargestellt. Ergänzend werden der Sauerstoffspeicher (O~2~-Speicher), die berechnete anaerobe-alaktazide Energiekomponente (W~PCr~), deren um die O~2~-Speicher korrigierter Wert (W~PCr,corrected~) und die umgesetzte PCr-Menge pro kg Muskelfeuchmasse (PCr~used~) ausgewiesen.
+
+::: {.panel-tabset}
+### Gesamtdaten
+```{r}
+#| label: tbl-EPOC_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Gesamtdaten: Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD, Min & Max"
+
+ft_EPOC_stats_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_mean.rds")
+
+# Anzeigen der Tabelle
+ft_EPOC_stats_mean
+```
+### Bedingungen
+```{r}
+#| label: tbl-EPOC_Bedingung_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen"
+
+ft_EPOC_stats_Bedingung_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Bedingung_mean.rds")
+
+# Anzeigen der Tabelle
+ft_EPOC_stats_Bedingung_mean
+```
+### Intensitäten
+```{r}
+#| label: tbl-EPOC_Intensitaet_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Intensitäten"
+
+ft_EPOC_stats_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Intensitaet_mean.rds")
+
+# Anzeigen der Tabelle
+ft_EPOC_stats_Intensitaet_mean
+```
+### Bedingungen & Intensitäten
+```{r}
+#| label: tbl-EPOC_Bedingung_Intensitaet_mean
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen und Intensitäten"
+
+ft_EPOC_stats_Bedingung_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Bedingung_Intensitaet_mean.rds")
+
+# Anzeigen der Tabelle
+ft_EPOC_stats_Bedingung_Intensitaet_mean
+```
+:::
+
+#### Modellparameter der EPOC-Kinetik { .unlisted }
+Die EPOC-Kinetik wurde mittels eines bi-exponentiellen Modells charakterisiert. Die Modellgüte erwies sich mit einer Varianzaufklärung von 94% über alle Messungen (R^2^~off~ = 0.93 ± 0.04) als robust. Selbst der niedrigste beobachtete R^2^-Wert von 0.78 weist auf eine ausgeprägte Modellgüte hin. Die ermittelten Modellparameter des bi-exponentiellen Modells zeigen eine gute Übereinstimmung mit ausgewählten Referenzwerten aus der Literatur (nachfolgend als Literaturmittel bezeichnet, welches die Mittelwerte sowie Minima und Maxima der auf starke Ausreißer bereinigten Literaturstichprobe umfasst; @tbl-EPOC_Modell & @tbl-EPOC).<br>
+Die mittlere Amplitude der schnellen Komponente A liegt mit 2.53 [l·min^-1^] sehr nahe am Literaturmittel von 2.64 [l·min^-1^] (Range (R): 1.99-3.03 [l·min^-1^]). Die schnelle Zeitkonstante τ~A~ von 0.63 [min] ist etwas niedriger als das Literaturmittel von 0.81 [min] (R: 0.48-1.31 [min]), liegt aber im Normbereich. Die Amplitude der langsamen Komponente B fällt mit 0.85 [l·min^-1^] höher aus als der Literaturmittelwert von 0.70 [l·min^-1^] (R: 0.20-1.44 [l·min^-1^]), bleibt aber innerhalb des in der Literatur dokumentierten Wertebereichs. Die langsame Zeitkonstante τ~B~ von 10.93 [min] entspricht gut dem Literaturmittel von 12.85 [min] (R: 5.65-28.90 [min]).<br> 
+Bei der Betrachtung der Intensitätsabstufungen zeigen die Modellparameter A und B sowie die Zeitkonstante τ~A~ bei höheren Intensitäten größere Werte als bei niedrigeren Intensitäten. Die Zeitkonstante τ~B~ weist hingegen in der schweren Belastungsstufe niedrigere Werte auf als in den leichten und moderaten Intensitätsbereichen.
+Die erhobene Referenz-Sauerstoffaufnahme betrug $\dot{V}\text{O}_{2,\text{Referenz}} = 0.90 \pm 0.08 \text{ [l}\cdot\text{min}^{-1}]$ (0.77-1.00).  
+
+#### EPOC-Werte { .unlisted }
+Der absolute EPOC~fast~-Wert betrug 1.610 ± 0.528 [l] (R: 0.562-2.821) und liegt damit unter dem Literaturmittelwert von 2.23 ± 0.42 [l] (R: 1.44-2.79). Die auf Körpergewicht normierte EPOC~fast~-Menge betrug 22.74 ± 6.15 [ml·kg^-1^] (R: 9.37-34.97) und liegt entsprechend unter dem Literaturmittelwert von 28.93 ± 8.47 [ml·kg^-1^] (R: 11.72-45.0). Die Referenzwerte von @Langley2024 wurden aufgrund ihrer deutlich höheren Ausprägung nicht in die Berechnung des Literaturmittels einbezogen, wobei die methodischen Unterschiede aufgrund unzureichender Dokumentation nicht nachvollzogen werden können. Die abzüglich der O~2~-Speicher berechnete EPOC~PCr~ liegt mit 1.427 ± 0.471 [l] (R: 0.522-2.594) deutlich unter dem Literaturmittelwert für EPOC~fast~ von 2.23 ± 0.42 [l]. Entsprechend ist auch der körpergewichtsbezogene EPOC~PCr~-Wert von 20.23 ± 5.74 [ml·kg^-1^] niedriger als der EPOC~fast~-Literaturmittelwert von 28.93 ± 8.47 [ml·kg^-1^], liegt jedoch noch im unteren Bereich der dokumentierten Referenzwerte. 
+
+#### Körpereigene Sauerstoffspeicher { .unlisted }
+Die berechneten O~2~-Speicher betrugen 0.184 ± 0.144 [l] (R: 0.040-0.566) und liegen damit deutlich unter den in der Literatur dokumentierten Werten zwischen 0.400 Liter [@Beneke2002] bis 0.550 Liter [@DiPrampero1970; @Margaria1976, 33]. Lediglich die höheren Werte des gemessenen Wertebereichs erreichen die in der Literatur angegebenen Referenzwerte. Da die Belastung aus einer standardisierten Referenzphase bei 50 Watt und nicht aus vollständiger körperlicher Ruhe gestartet wurde, resultierte erwartungsgemäß eine geringere Mobilisierung der O~2~-Speicher im Vergleich zu einem Belastungsbeginn aus dem Ruhezustand, was die gegenüber den Referenzwerten geringeren Werte erklären könnte.
+
+#### Anaerobe-alaktazide Energiekomponente { .unlisted }
+Die berechnete mittlere W~PCr~ betrug 33.70 ± 11.05 [kJ] (R: 11.76-59.04) und liegt damit unter dem aggregierten Literaturmittelwert aus @Beneke2002, @Dunst2023a und @Dunst2023b von 44.75 ± 9.71 [kJ] (R: 30.10-53.73). Die um die O~2~-Speicher korrigierte W~PCr,corrected~ liegt mit 29.86 ± 9.85 [kJ] (R: 10.93-54.29) entsprechend noch deutlicher unter diesem Mittelwert. 
+Da W~PCr~ aus den absoluten EPOC~fast~ oder EPOC~PCr~-Werten bestimmt wird und die mittlere Körpermasse der Gesamtstichprobe der drei zitierten Studien mit 85.7 ± 8.7 kg deutlich über der mittleren Masse der Probanden dieser Studie von 70.4 ± 10.4 kg lag, sind diese durchschnittlich niedrigeren absoluten Werte physiologisch erklärbar. Zudem wurden in den Referenzstudien ausschließlich maximale Sprinttests durchgeführt, die typischerweise zu einer höheren Erschöpfung der PCr-Speicher führen als die Belastungen der vorliegenden Untersuchung. Die W~PCr~-Werte aus @Langley2024 liegen wieder deutlich über dem Literaturmittelwert und auch über dem erwarteten physiologischen Bereich auf Basis der PCr-Konzentration der Muskelfeuchtmasse.<br>
+Wie in @fig-PCr_Ref ersichtlich, liegt die Mehrheit der bestimmten PCr~used~-Werte sowie der Mittelwert von 15.88 ± 4.49 [mmol·kg^-1^] (R: 7.04-27.01) unter dem aus @tbl-PCr ermittelten Literatur-Normwert der Kreatinphosphatspeicher (PCr) im Trockenmuskel von 20.34 [mmol·kg^-1^]. Auch die höchsten berechneten PCr~used~-Werte befinden sich innerhalb des dokumentierten physiologischen Referenzbereichs von 15.7 [mmol·kg^-1^] bis 37.7 [mmol·kg^-1^].<br>
+Bei der Betrachtung zwischen den Intensitätsstufen zeigen die Parameter EPOC~fast~, EPOC~PCr~ sowie die daraus abgeleiteten Größen W~PCr~, W~PCr,corrected~ und PCr~used~ wie zu erwarten bei höheren Intensitäten größere Werte als bei niedrigeren Intensitäten. Die O~2~-Speicher weisen ebenfalls bei höheren Intensitäten größere Werte auf. 
+
+![Validität der PCr_used Werte im Vergleich zu den Normwerten](images/p_PCr.html){#fig-PCr_Ref width="1100" height="450"}
+
+::: {.callout-note collapse="true"}
+### Tabelle 3 & 4: Literaturübersicht zu Modellparametern und Mengen der EPOC
+```{r}
+#| label: tbl-EPOC_Modell
+#| tbl-cap-location: top
+#| tbl-cap: "Literaturbasierte EPOC-Modellparameter der Bi-Exponentialfunktion"
+
+# Anzeigen der Tabelle
+ft_EPOC_Modell
+```
+
+```{r}
+#| label: tbl-EPOC
+#| tbl-cap-location: top
+#| tbl-cap: "Gesamt-EPOC-Mengen & EPOC-Mengen der schnellen Komponente aus der Fachliteratur"
+
+# Anzeigen der Tabelle
+ft_EPOC
+```
+:::
+
+::: {.callout-note collapse="true"}
+### Tabelle 5: Literaturübersicht zu PCr-Konzentrationen
+```{r}
+#| label: tbl-PCr
+#| tbl-cap-location: bottom
+#| tbl-cap: "Angaben zu PCr-Konzentrationen in der Fachliteratur"
+
+# Anzeigen der Tabelle
+ft_PCr
+```
+::: 
+
+```{r}
+#Beschrieben wie die ermittelte tau bzw. 2tau im ersten Schritt mit den Literaturangaben des Abfalls der EPOC zusammenhänt --> Laut @DiPrampero1973 ca. zwischen 25-30 Halbwertszeit. Und weitere Werte in der Tabelle. Wie gut wurde das getroffen, hat sich das drei schrittige Modell bewährt? –\> MW von tau2 beschreiben (liegt er in dieser Zeitspanne? Und wie verhält sich tau mit der Höhe der Belastung?)
+```
+
+
+# EPOC-Modellfunktionen aller Testdurchläufe
+Die folgenden Abbildungen zeigen den dreischrittigen Modellierungsprozess der individuellen EPOC-Kinetik für die Testdurchläufe aller Probanden. Für jeden Durchgang ist die sequentielle Anpassung der EPOC-Komponenten dargestellt: Im ersten Schritt die Modellierung der Zeitkonstante tau. Im zweiten Schritt die Anpassung der EPOC~slow~ und im dritten Schritt die Modellierung der EPOC~fast~ und die Integration beider Komponenten im bi-exponentiellen Gesamtmodell. Für jede Modellanpassung sind die entsprechenden Modellfunktionen, Bestimmtheitsmaße (R^2^) und verschiedene Zeitkonstanten angegeben. Die Visualisierung ermöglicht einen direkten Vergleich der individuellen EPOC-Charakteristiken und der Modellierungsgüte zwischen den verschiedenen Testdurchläufen.
 
 ::: {.panel-tabset}
 ## Proband 01
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/01_1_tau.html){width="1200" height="500"}
-![Test 1](images/01_1_slow.html){width="1200" height="500"}
-![Test 1](images/01_1.html){width="1200" height="500"}
+![Test 1](images/01_1_tau.svg){width="1100" height="450"}
+![Test 1](images/01_1_slow.svg){width="1100" height="450"}
+![Test 1](images/01_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/01_2_tau.html){width="1200" height="500"}
-![Test 2](images/01_2_slow.html){width="1200" height="500"}
-![Test 2](images/01_2.html){width="1200" height="500"}
+![Test 2](images/01_2_tau.svg){width="1100" height="450"}
+![Test 2](images/01_2_slow.svg){width="1100" height="450"}
+![Test 2](images/01_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/01_3_tau.html){width="1200" height="500"}
-![Test 3](images/01_3_slow.html){width="1200" height="500"}
-![Test 3](images/01_3.html){width="1200" height="500"}
+![Test 3](images/01_3_tau.svg){width="1100" height="450"}
+![Test 3](images/01_3_slow.svg){width="1100" height="450"}
+![Test 3](images/01_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/01_4_tau.html){width="1200" height="500"}
-![Test 4](images/01_4_slow.html){width="1200" height="500"}
-![Test 4](images/01_4.html){width="1200" height="500"}
+![Test 4](images/01_4_tau.svg){width="1100" height="450"}
+![Test 4](images/01_4_slow.svg){width="1100" height="450"}
+![Test 4](images/01_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/01_5_tau.html){width="1200" height="500"}
-![Test 5](images/01_5_slow.html){width="1200" height="500"}
-![Test 5](images/01_5.html){width="1200" height="500"}
+![Test 5](images/01_5_tau.svg){width="1100" height="450"}
+![Test 5](images/01_5_slow.svg){width="1100" height="450"}
+![Test 5](images/01_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/01_6_tau.html){width="1200" height="500"}
-![Test 6](images/01_6_slow.html){width="1200" height="500"}
-![Test 6](images/01_6.html){width="1200" height="500"}
+![Test 6](images/01_6_tau.svg){width="1100" height="450"}
+![Test 6](images/01_6_slow.svg){width="1100" height="450"}
+![Test 6](images/01_6.svg){width="1100" height="450"}
 
 :::
 
@@ -63,34 +888,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/06_1_tau.html){width="1200" height="500"}
-![Test 1](images/06_1_slow.html){width="1200" height="500"}
-![Test 1](images/06_1.html){width="1200" height="500"}
+![Test 1](images/06_1_tau.svg){width="1100" height="450"}
+![Test 1](images/06_1_slow.svg){width="1100" height="450"}
+![Test 1](images/06_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/06_2_tau.html){width="1200" height="500"}
-![Test 2](images/06_2_slow.html){width="1200" height="500"}
-![Test 2](images/06_2.html){width="1200" height="500"}
+![Test 2](images/06_2_tau.svg){width="1100" height="450"}
+![Test 2](images/06_2_slow.svg){width="1100" height="450"}
+![Test 2](images/06_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/06_3_tau.html){width="1200" height="500"}
-![Test 3](images/06_3_slow.html){width="1200" height="500"}
-![Test 3](images/06_3.html){width="1200" height="500"}
+![Test 3](images/06_3_tau.svg){width="1100" height="450"}
+![Test 3](images/06_3_slow.svg){width="1100" height="450"}
+![Test 3](images/06_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/06_4_tau.html){width="1200" height="500"}
-![Test 4](images/06_4_slow.html){width="1200" height="500"}
-![Test 4](images/06_4.html){width="1200" height="500"}
+![Test 4](images/06_4_tau.svg){width="1100" height="450"}
+![Test 4](images/06_4_slow.svg){width="1100" height="450"}
+![Test 4](images/06_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/06_5_tau.html){width="1200" height="500"}
-![Test 5](images/06_5_slow.html){width="1200" height="500"}
-![Test 5](images/06_5.html){width="1200" height="500"}
+![Test 5](images/06_5_tau.svg){width="1100" height="450"}
+![Test 5](images/06_5_slow.svg){width="1100" height="450"}
+![Test 5](images/06_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/06_6_tau.html){width="1200" height="500"}
-![Test 6](images/06_6_slow.html){width="1200" height="500"}
-![Test 6](images/06_6.html){width="1200" height="500"}
+![Test 6](images/06_6_tau.svg){width="1100" height="450"}
+![Test 6](images/06_6_slow.svg){width="1100" height="450"}
+![Test 6](images/06_6.svg){width="1100" height="450"}
 
 :::
 
@@ -98,34 +923,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/10_1_tau.html){width="1200" height="500"}
-![Test 1](images/10_1_slow.html){width="1200" height="500"}
-![Test 1](images/10_1.html){width="1200" height="500"}
+![Test 1](images/10_1_tau.svg){width="1100" height="450"}
+![Test 1](images/10_1_slow.svg){width="1100" height="450"}
+![Test 1](images/10_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/10_2_tau.html){width="1200" height="500"}
-![Test 2](images/10_2_slow.html){width="1200" height="500"}
-![Test 2](images/10_2.html){width="1200" height="500"}
+![Test 2](images/10_2_tau.svg){width="1100" height="450"}
+![Test 2](images/10_2_slow.svg){width="1100" height="450"}
+![Test 2](images/10_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/10_3_tau.html){width="1200" height="500"}
-![Test 3](images/10_3_slow.html){width="1200" height="500"}
-![Test 3](images/10_3.html){width="1200" height="500"}
+![Test 3](images/10_3_tau.svg){width="1100" height="450"}
+![Test 3](images/10_3_slow.svg){width="1100" height="450"}
+![Test 3](images/10_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/10_4_tau.html){width="1200" height="500"}
-![Test 4](images/10_4_slow.html){width="1200" height="500"}
-![Test 4](images/10_4.html){width="1200" height="500"}
+![Test 4](images/10_4_tau.svg){width="1100" height="450"}
+![Test 4](images/10_4_slow.svg){width="1100" height="450"}
+![Test 4](images/10_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/10_5_tau.html){width="1200" height="500"}
-![Test 5](images/10_5_slow.html){width="1200" height="500"}
-![Test 5](images/10_5.html){width="1200" height="500"}
+![Test 5](images/10_5_tau.svg){width="1100" height="450"}
+![Test 5](images/10_5_slow.svg){width="1100" height="450"}
+![Test 5](images/10_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/10_6_tau.html){width="1200" height="500"}
-![Test 6](images/10_6_slow.html){width="1200" height="500"}
-![Test 6](images/10_6.html){width="1200" height="500"}
+![Test 6](images/10_6_tau.svg){width="1100" height="450"}
+![Test 6](images/10_6_slow.svg){width="1100" height="450"}
+![Test 6](images/10_6.svg){width="1100" height="450"}
 
 :::
 
@@ -133,34 +958,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/13_1_tau.html){width="1200" height="500"}
-![Test 1](images/13_1_slow.html){width="1200" height="500"}
-![Test 1](images/13_1.html){width="1200" height="500"}
+![Test 1](images/13_1_tau.svg){width="1100" height="450"}
+![Test 1](images/13_1_slow.svg){width="1100" height="450"}
+![Test 1](images/13_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/13_2_tau.html){width="1200" height="500"}
-![Test 2](images/13_2_slow.html){width="1200" height="500"}
-![Test 2](images/13_2.html){width="1200" height="500"}
+![Test 2](images/13_2_tau.svg){width="1100" height="450"}
+![Test 2](images/13_2_slow.svg){width="1100" height="450"}
+![Test 2](images/13_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/13_3_tau.html){width="1200" height="500"}
-![Test 3](images/13_3_slow.html){width="1200" height="500"}
-![Test 3](images/13_3.html){width="1200" height="500"}
+![Test 3](images/13_3_tau.svg){width="1100" height="450"}
+![Test 3](images/13_3_slow.svg){width="1100" height="450"}
+![Test 3](images/13_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/13_4_tau.html){width="1200" height="500"}
-![Test 4](images/13_4_slow.html){width="1200" height="500"}
-![Test 4](images/13_4.html){width="1200" height="500"}
+![Test 4](images/13_4_tau.svg){width="1100" height="450"}
+![Test 4](images/13_4_slow.svg){width="1100" height="450"}
+![Test 4](images/13_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/13_5_tau.html){width="1200" height="500"}
-![Test 5](images/13_5_slow.html){width="1200" height="500"}
-![Test 5](images/13_5.html){width="1200" height="500"}
+![Test 5](images/13_5_tau.svg){width="1100" height="450"}
+![Test 5](images/13_5_slow.svg){width="1100" height="450"}
+![Test 5](images/13_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/13_6_tau.html){width="1200" height="500"}
-![Test 6](images/13_6_slow.html){width="1200" height="500"}
-![Test 6](images/13_6.html){width="1200" height="500"}
+![Test 6](images/13_6_tau.svg){width="1100" height="450"}
+![Test 6](images/13_6_slow.svg){width="1100" height="450"}
+![Test 6](images/13_6.svg){width="1100" height="450"}
 
 :::
 
@@ -168,34 +993,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/15_1_tau.html){width="1200" height="500"}
-![Test 1](images/15_1_slow.html){width="1200" height="500"}
-![Test 1](images/15_1.html){width="1200" height="500"}
+![Test 1](images/15_1_tau.svg){width="1100" height="450"}
+![Test 1](images/15_1_slow.svg){width="1100" height="450"}
+![Test 1](images/15_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/15_2_tau.html){width="1200" height="500"}
-![Test 2](images/15_2_slow.html){width="1200" height="500"}
-![Test 2](images/15_2.html){width="1200" height="500"}
+![Test 2](images/15_2_tau.svg){width="1100" height="450"}
+![Test 2](images/15_2_slow.svg){width="1100" height="450"}
+![Test 2](images/15_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/15_3_tau.html){width="1200" height="500"}
-![Test 3](images/15_3_slow.html){width="1200" height="500"}
-![Test 3](images/15_3.html){width="1200" height="500"}
+![Test 3](images/15_3_tau.svg){width="1100" height="450"}
+![Test 3](images/15_3_slow.svg){width="1100" height="450"}
+![Test 3](images/15_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/15_4_tau.html){width="1200" height="500"}
-![Test 4](images/15_4_slow.html){width="1200" height="500"}
-![Test 4](images/15_4.html){width="1200" height="500"}
+![Test 4](images/15_4_tau.svg){width="1100" height="450"}
+![Test 4](images/15_4_slow.svg){width="1100" height="450"}
+![Test 4](images/15_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/15_5_tau.html){width="1200" height="500"}
-![Test 5](images/15_5_slow.html){width="1200" height="500"}
-![Test 5](images/15_5.html){width="1200" height="500"}
+![Test 5](images/15_5_tau.svg){width="1100" height="450"}
+![Test 5](images/15_5_slow.svg){width="1100" height="450"}
+![Test 5](images/15_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/15_6_tau.html){width="1200" height="500"}
-![Test 6](images/15_6_slow.html){width="1200" height="500"}
-![Test 6](images/15_6.html){width="1200" height="500"}
+![Test 6](images/15_6_tau.svg){width="1100" height="450"}
+![Test 6](images/15_6_slow.svg){width="1100" height="450"}
+![Test 6](images/15_6.svg){width="1100" height="450"}
 
 :::
 
@@ -203,34 +1028,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/19_1_tau.html){width="1200" height="500"}
-![Test 1](images/19_1_slow.html){width="1200" height="500"}
-![Test 1](images/19_1.html){width="1200" height="500"}
+![Test 1](images/19_1_tau.svg){width="1100" height="450"}
+![Test 1](images/19_1_slow.svg){width="1100" height="450"}
+![Test 1](images/19_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/19_2_tau.html){width="1200" height="500"}
-![Test 2](images/19_2_slow.html){width="1200" height="500"}
-![Test 2](images/19_2.html){width="1200" height="500"}
+![Test 2](images/19_2_tau.svg){width="1100" height="450"}
+![Test 2](images/19_2_slow.svg){width="1100" height="450"}
+![Test 2](images/19_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/19_3_tau.html){width="1200" height="500"}
-![Test 3](images/19_3_slow.html){width="1200" height="500"}
-![Test 3](images/19_3.html){width="1200" height="500"}
+![Test 3](images/19_3_tau.svg){width="1100" height="450"}
+![Test 3](images/19_3_slow.svg){width="1100" height="450"}
+![Test 3](images/19_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/19_4_tau.html){width="1200" height="500"}
-![Test 4](images/19_4_slow.html){width="1200" height="500"}
-![Test 4](images/19_4.html){width="1200" height="500"}
+![Test 4](images/19_4_tau.svg){width="1100" height="450"}
+![Test 4](images/19_4_slow.svg){width="1100" height="450"}
+![Test 4](images/19_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/19_5_tau.html){width="1200" height="500"}
-![Test 5](images/19_5_slow.html){width="1200" height="500"}
-![Test 5](images/19_5.html){width="1200" height="500"}
+![Test 5](images/19_5_tau.svg){width="1100" height="450"}
+![Test 5](images/19_5_slow.svg){width="1100" height="450"}
+![Test 5](images/19_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/19_6_tau.html){width="1200" height="500"}
-![Test 6](images/19_6_slow.html){width="1200" height="500"}
-![Test 6](images/19_6.html){width="1200" height="500"}
+![Test 6](images/19_6_tau.svg){width="1100" height="450"}
+![Test 6](images/19_6_slow.svg){width="1100" height="450"}
+![Test 6](images/19_6.svg){width="1100" height="450"}
 
 :::
 
@@ -238,34 +1063,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/20_1_tau.html){width="1200" height="500"}
-![Test 1](images/20_1_slow.html){width="1200" height="500"}
-![Test 1](images/20_1.html){width="1200" height="500"}
+![Test 1](images/20_1_tau.svg){width="1100" height="450"}
+![Test 1](images/20_1_slow.svg){width="1100" height="450"}
+![Test 1](images/20_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/20_2_tau.html){width="1200" height="500"}
-![Test 2](images/20_2_slow.html){width="1200" height="500"}
-![Test 2](images/20_2.html){width="1200" height="500"}
+![Test 2](images/20_2_tau.svg){width="1100" height="450"}
+![Test 2](images/20_2_slow.svg){width="1100" height="450"}
+![Test 2](images/20_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/20_3_tau.html){width="1200" height="500"}
-![Test 3](images/20_3_slow.html){width="1200" height="500"}
-![Test 3](images/20_3.html){width="1200" height="500"}
+![Test 3](images/20_3_tau.svg){width="1100" height="450"}
+![Test 3](images/20_3_slow.svg){width="1100" height="450"}
+![Test 3](images/20_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/20_4_tau.html){width="1200" height="500"}
-![Test 4](images/20_4_slow.html){width="1200" height="500"}
-![Test 4](images/20_4.html){width="1200" height="500"}
+![Test 4](images/20_4_tau.svg){width="1100" height="450"}
+![Test 4](images/20_4_slow.svg){width="1100" height="450"}
+![Test 4](images/20_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/20_5_tau.html){width="1200" height="500"}
-![Test 5](images/20_5_slow.html){width="1200" height="500"}
-![Test 5](images/20_5.html){width="1200" height="500"}
+![Test 5](images/20_5_tau.svg){width="1100" height="450"}
+![Test 5](images/20_5_slow.svg){width="1100" height="450"}
+![Test 5](images/20_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/20_6_tau.html){width="1200" height="500"}
-![Test 6](images/20_6_slow.html){width="1200" height="500"}
-![Test 6](images/20_6.html){width="1200" height="500"}
+![Test 6](images/20_6_tau.svg){width="1100" height="450"}
+![Test 6](images/20_6_slow.svg){width="1100" height="450"}
+![Test 6](images/20_6.svg){width="1100" height="450"}
 
 :::
 
@@ -273,34 +1098,34 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/22_1_tau.html){width="1200" height="500"}
-![Test 1](images/22_1_slow.html){width="1200" height="500"}
-![Test 1](images/22_1.html){width="1200" height="500"}
+![Test 1](images/22_1_tau.svg){width="1100" height="450"}
+![Test 1](images/22_1_slow.svg){width="1100" height="450"}
+![Test 1](images/22_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/22_2_tau.html){width="1200" height="500"}
-![Test 2](images/22_2_slow.html){width="1200" height="500"}
-![Test 2](images/22_2.html){width="1200" height="500"}
+![Test 2](images/22_2_tau.svg){width="1100" height="450"}
+![Test 2](images/22_2_slow.svg){width="1100" height="450"}
+![Test 2](images/22_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/22_3_tau.html){width="1200" height="500"}
-![Test 3](images/22_3_slow.html){width="1200" height="500"}
-![Test 3](images/22_3.html){width="1200" height="500"}
+![Test 3](images/22_3_tau.svg){width="1100" height="450"}
+![Test 3](images/22_3_slow.svg){width="1100" height="450"}
+![Test 3](images/22_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/22_4_tau.html){width="1200" height="500"}
-![Test 4](images/22_4_slow.html){width="1200" height="500"}
-![Test 4](images/22_4.html){width="1200" height="500"}
+![Test 4](images/22_4_tau.svg){width="1100" height="450"}
+![Test 4](images/22_4_slow.svg){width="1100" height="450"}
+![Test 4](images/22_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/22_5_tau.html){width="1200" height="500"}
-![Test 5](images/22_5_slow.html){width="1200" height="500"}
-![Test 5](images/22_5.html){width="1200" height="500"}
+![Test 5](images/22_5_tau.svg){width="1100" height="450"}
+![Test 5](images/22_5_slow.svg){width="1100" height="450"}
+![Test 5](images/22_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/22_6_tau.html){width="1200" height="500"}
-![Test 6](images/22_6_slow.html){width="1200" height="500"}
-![Test 6](images/22_6.html){width="1200" height="500"}
+![Test 6](images/22_6_tau.svg){width="1100" height="450"}
+![Test 6](images/22_6_slow.svg){width="1100" height="450"}
+![Test 6](images/22_6.svg){width="1100" height="450"}
 
 :::
 
@@ -308,34 +1133,40 @@ execute:
 
 ::: {.panel-tabset}
 ### Test 1
-![Test 1](images/23_1_tau.html){width="1200" height="500"}
-![Test 1](images/23_1_slow.html){width="1200" height="500"}
-![Test 1](images/23_1.html){width="1200" height="500"}
+![Test 1](images/23_1_tau.svg){width="1100" height="450"}
+![Test 1](images/23_1_slow.svg){width="1100" height="450"}
+![Test 1](images/23_1.svg){width="1100" height="450"}
 
 ### Test 2
-![Test 2](images/23_2_tau.html){width="1200" height="500"}
-![Test 2](images/23_2_slow.html){width="1200" height="500"}
-![Test 2](images/23_2.html){width="1200" height="500"}
+![Test 2](images/23_2_tau.svg){width="1100" height="450"}
+![Test 2](images/23_2_slow.svg){width="1100" height="450"}
+![Test 2](images/23_2.svg){width="1100" height="450"}
 
 ### Test 3
-![Test 3](images/23_3_tau.html){width="1200" height="500"}
-![Test 3](images/23_3_slow.html){width="1200" height="500"}
-![Test 3](images/23_3.html){width="1200" height="500"}
+![Test 3](images/23_3_tau.svg){width="1100" height="450"}
+![Test 3](images/23_3_slow.svg){width="1100" height="450"}
+![Test 3](images/23_3.svg){width="1100" height="450"}
 
 ### Test 4
-![Test 4](images/23_4_tau.html){width="1200" height="500"}
-![Test 4](images/23_4_slow.html){width="1200" height="500"}
-![Test 4](images/23_4.html){width="1200" height="500"}
+![Test 4](images/23_4_tau.svg){width="1100" height="450"}
+![Test 4](images/23_4_slow.svg){width="1100" height="450"}
+![Test 4](images/23_4.svg){width="1100" height="450"}
 
 ### Test 5
-![Test 5](images/23_5_tau.html){width="1200" height="500"}
-![Test 5](images/23_5_slow.html){width="1200" height="500"}
-![Test 5](images/23_5.html){width="1200" height="500"}
+![Test 5](images/23_5_tau.svg){width="1100" height="450"}
+![Test 5](images/23_5_slow.svg){width="1100" height="450"}
+![Test 5](images/23_5.svg){width="1100" height="450"}
 
 ### Test 6
-![Test 6](images/23_6_tau.html){width="1200" height="500"}
-![Test 6](images/23_6_slow.html){width="1200" height="500"}
-![Test 6](images/23_6.html){width="1200" height="500"}
+![Test 6](images/23_6_tau.svg){width="1100" height="450"}
+![Test 6](images/23_6_slow.svg){width="1100" height="450"}
+![Test 6](images/23_6.svg){width="1100" height="450"}
 
 :::
 :::
+
+# Quellenverzeichnis
+
+::: {#refs}
+:::
+

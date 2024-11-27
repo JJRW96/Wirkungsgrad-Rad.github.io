@@ -6,9 +6,10 @@ execute:
   error: false
   
 bibliography: references.bib
----
-Werden noch ergänzt...
 
+nocite: |
+  @Arkesteijn2016, @Astrand1964, @Astrand2003, @Bader1972, @Bahr1991, @Barstow2019, @Bell2009, @Beneke2002, @Beneke2004, @Beneke2007, @Berkemeier2020, @Boning1984, @Boning2017, @Bosak2001, @Bouillod2018, @Brooks2004, @Brooks2012, @Caldwell1998, @Cathcart1926, @Cautero2002, @Chavarren1999, @Coast1985, @CORTEXBiophysikGmbH2017, @DeMaares2003, @DeMarees2003, @dePauw2013, @Diamant1968, @DiPrampero1973, @DiPrampero1981, @DiPrampero1983, @Duc2008, @Earnest2005, @EKFDiagnostics2013, @Ettema2009, @Fick1855, @Francescato2003, @Gaesser1975, @Gaesser1984, @Gladden2008, @Hansen2007, @Hansen2008, @Harnish2007, @Harris1918, @Heck2022, @Jacobs2006, @Janssen2000, @Jeukendrup2000, @Jeukendrup2019, @Juel2008, @Kistemaker2023, @Kroidl2007, @LanchaJunior2015, @Li1998, @Luhtanen1987, @Lunn2019, @Maassen1999, @Macfarlane2012, @Mader1981, @Margaria1933, @Margaria1976, @Masuda1999, @McArdle2009, @Micklewright2006, @Millet2002, @Mole1999, @Ozyener2001, @Robergs2004, @Roberts1978, @Ronnestadt2022, @Ryschon1991, @Stegemann1991, @Tanaka1987, @Tanaka1996, @Tandon2011, @Todd1986, @Turpin2017, @VanHall2010, @Vicon2022, @Wahl2009, @Whipp1969, @Winter1979, @Winter2009, @Zuntz1901
+---
 # Quellenverzeichnis
 ::: {#refs}
 :::

@@ -47,6 +47,12 @@ jobs:
             any::readxl
             any::extrafont
             any::flextable
+            any::curl
+            any::reactable
+            any::afex
+            any::emmeans
+            any::stats
+
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

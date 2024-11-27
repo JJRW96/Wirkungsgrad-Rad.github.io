@@ -92,6 +92,9 @@ DT_kÄ <- datatable(
   formatRound(columns = c(2,3,4), digits = 2)
 ```
 
+```{r}
+# Abschnitte noch mit Sport Nutrition von Jeukendrup2010 ergänzen -> Dort sehr gut erklärt und dargestellt!!! S.80 ff.
+```
 
 Der physiologische Gesamtenergieumsatz (W~TOT~) wurde auf Grundlage der Berechnungsmethode nach @Beneke2002 bestimmt. Hierfür werden eine Atemgasanalyse und Blutlaktattests während der Belastung durchgeführt. Anhand der erhobenen Werte lässt sich der aerobe (W~AER~), anaerob-laktazide (W~BLC~) sowie der anaerob-alaktazide Energieanteil (W~PCr~) einer Belastung abschätzen. Die Berechnungsmethoden der einzelnen Anteile werden in den folgenden Kapiteln beschrieben. Der gesamte physiologische Energiebedarf (W~TOT~) der Belastung wird anschließend durch die Summierung der einzelnen Energiekomponenten berechnet.
 
@@ -99,18 +102,16 @@ $$
 W_{TOT} = W_{AER} + W_{BLC} + W_{PCr} 
 $${#eq-WTOT}
 
-Es gibt zwei Ansätze zur Bestimmung des Energieertrags pro verbrauchter Sauerstoffeinheit. Der klassische Ansatz besteht darin, die indirekte Kalorimetrie zu nutzen, um den Sauerstoffvolumenstrom sowie die Kohlensstoffdioxidabgabe während der Belastung zu bestimmen, und dann standardisierte Tabellen zu verwenden, um den Energieverbrauch in kcal/min oder kJ/min zu berrechnen. Ein anderer Ansatz besteht darin auf Basis des Sauerstoffvolumenstroms die ADP-zu-ATP-Phosphorylierungsrate unter Verwendung von Annahmen aus der  Biochemie zu berechnen. Letztere Methode wird als "theoretisch-thermodynamischer Ansatz" (im Original: "theoretical-thermodynamic approach") bezeichnet und wurde erstmals von @Whipp1969 verwendet. Da beide Methoden seht ähnliche Ergebnisse liefern, aber die "klassische Methode" einfachere zu benutzen ist und außerdem Auskunft über die Verteilung der Energiesubstrate liefern kann wurde die "klassische Methode" für die folgenden Berechnungen verwendet [@Brooks2012]. In folgendem Abschnitt werden die Grundlagen der Energieumsatzberechnung sowie der indirekten Kalorimetrie beschrieben: 
+Es gibt zwei Ansätze zur Bestimmung des Energieertrags pro verbrauchter Sauerstoffeinheit. Der klassische Ansatz besteht darin, die indirekte Kalorimetrie zu nutzen, um den Sauerstoffvolumenstrom sowie die Kohlensstoffdioxidabgabe während der Belastung zu bestimmen, und dann standardisierte Tabellen zu verwenden, um den Energieverbrauch in kcal/min oder kJ/min zu berrechnen. Ein anderer Ansatz besteht darin auf Basis des Sauerstoffvolumenstroms die ADP-zu-ATP-Phosphorylierungsrate unter Verwendung von Annahmen aus der  Biochemie zu berechnen. Letztere Methode wird als "theoretisch-thermodynamischer Ansatz" (im Original: "theoretical-thermodynamic approach") bezeichnet und wurde erstmals von @Whipp1969 verwendet. Da beide Methoden sehr ähnliche Ergebnisse liefern und die klassische Methode einfacher anzuwenden ist sowie zusätzlich Einblicke in die Verteilung der Energiesubstrate ermöglicht, wurde sie für die folgenden Berechnungen verwendet [@Brooks2012]. In folgendem Abschnitt werden die Grundlagen der Energieumsatzberechnung sowie der indirekten Kalorimetrie beschrieben: 
 
 ## Indirekte Kalorimetrie
 ### Stöchiometrische Grundlagen der Energieumsatzberechnung
 
 
 ::: columns
-::: {.column width="65%"}
+::: {.column width="67%"}
 Mit Hilfe der indirekten Kalorimetrie kann der Energieumsatz einer Person in Ruhe oder während einer Belastung bestimmt werden. Im Gegensatz zur direkten Kalorimetrie, bei der die Wärmeabgabe eines Organismus gemessen wird, basiert die indirekte Kalorimetrie auf der Analyse der Atemgase, welche mit einem Spirometriemesssystems erfasst werden können.
-
-Mit der stöchiometrische Beziehung zwischen dem verbrannten Nährstoff, dem dabei verstoffwechseltem Sauerstoff (O~2~) und dem abgegebenen Kohlendioxid (CO~2~) können die stöchiometrische Grundgleichungen für die Kohlenhydrat- und Fettoxidation (@eq-KH und @eq-FETT) aufgestellt werden und der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Diese Zusammenhänge der Stoffwechselrate im Hinblick auf den O~2~-Umsatz und der CO~2~-Abgabe, die durch den respiratorischen Quotienten ($\text{RQ} = \frac{\dot{V}\text{CO}_2}{\dot{V}\text{O}_2}$) beschrieben werden, sowie die Menge der dabei verstoffwechselten Kohlenhydrate und Fette wurden zu Beginn des 20. Jahrhunderts unter anderem von @Zuntz1901a entwickelt und werden immer noch in ähnlicher Form verwendet (siehe @tbl-stegemann)[@Brooks2004, 10].
-Die stöchiometrische Gleichung für die Oxidation von Glukose (C~6~H~12~O~6~) lautet:
+Mit der stöchiometrische Beziehung zwischen dem verbrannten Nährstoff, dem dabei verstoffwechseltem Sauerstoff (O~2~) und dem abgegebenen Kohlendioxid (CO~2~) können die stöchiometrische Grundgleichungen für die Kohlenhydrat-, Fett- und Eiweißoxidation (@eq-KH, @eq-FETT und @eq-EIW) aufgestellt werden und der Energieumsatz und der Substratumsatz eines Individuums berechnet werden. Diese Zusammenhänge der Stoffwechselrate im Hinblick auf den O~2~-Umsatz und der CO~2~-Abgabe, die durch den respiratorischen Quotienten ($\text{RQ} = \frac{\dot{V}\text{CO}_2}{\dot{V}\text{O}_2}$) beschrieben werden, sowie die Menge der dabei verstoffwechselten Nährstoffe wurden zu Beginn des 20. Jahrhunderts unter anderem von @Zuntz1901a entwickelt und werden immer noch in ähnlicher Form verwendet (siehe @tbl-stegemann)[@Brooks2004, 10]. Die stöchiometrische Gleichung für die Oxidation von Glukose (C~6~H~12~O~6~) lautet:
 
 $$
 \begin{aligned}
@@ -119,10 +120,10 @@ $$
 \end{aligned}
 $${#eq-KH}
 
-Ein Molekül Glukose reagiert mit sechs Molekülen O~2~, wobei sechs Moleküle  CO~2~ und sechs Moleküle Wasser (H~2~O) entstehen. Das Molekulargewicht der Glukose beträgt ca. 180 g/mol. Ein Mol O~2~ entspricht unter Standartbedingungen ca. 22,4 Liter. Quantitativ reagiert also ein Mol C~6~H~12~O~6~ (≙180 g) mit 6 mol O~2~ (≙134,4 Liter) zu 6 mol H~2~O und 6 mol CO~2~ (≙134,4 Liter) [@Stegemann1991,57]. 
+Ein Molekül Glukose reagiert mit sechs Molekülen O~2~, wobei sechs Moleküle  CO~2~ und sechs Moleküle Wasser (H~2~O) entstehen. Das Molekulargewicht der Glukose beträgt ca. 180 g/mol. Ein Mol O~2~ entspricht unter Standartbedingungen von 0 Grad Celcius wie in @eq-VMO2 gezeigt ca. 22.414 Liter [@Ciba-Geigy1977, 45]. Quantitativ reagiert also ein Mol C~6~H~12~O~6~ (≙180 g) mit 6 mol O~2~ (≙134,4 Liter) zu 6 mol H~2~O und 6 mol CO~2~ (≙134,4 Liter) [@Stegemann1991,57]. 
 
 :::
-::: {.column width="4%"}
+::: {.column width="2%"}
 :::
 ::: {.column width="31%"}
 ```{r}
@@ -137,36 +138,54 @@ DT_stegemann
 ::: 
 :::
 
-ΔG beschreibt die Änderung der Gibbs'schen freien Energie bei der Verbrennung von Glukose mit O~2~. Das negative Vorzeichen zeigt, dass die Reaktion spontan (von selbst ablaufend) und exergon (Energie freisetzend) ist.
 ```{r}
 #Bader nachschlagen
 ```
-Das kalorische Äquivalent für einen Liter O~2~ erhält man, indem man die Energie, die bei der vollständigen Verbrennung von 1 Mol Glukose frei wird (ΔG = 2869 kJ) [@Stegemann1991, 43], durch die dabei verbrauchte Menge an O~2~ teilt. Das kalorische Äquivalent (kÄ~KH~) des Sauerstoffs für die Glukoseverbrennung beträgt nach @eq-kAeKH ungefähr:
+
+
+$$ 
+\text{Umrechnung von 0 Grad Celsius in Kelvin:} \\ 
+\text{T} \text{ [K]} = \text{T [}^{\,\circ} \text{C]} + 273.15\rightarrow 0\,^{\circ}\text{C} + 273.15 = 273.15 \text{ K} \\[10pt]
+\text{Definition des Standarddruckes P =} \,1 \text{ atm} = 101325 \text{ Pa} \\
+\text{Universelle molare Gaskonstante R}  = 8.314 \text{ J} \cdot \text{mol}^{-1} \cdot \text{K}^{-1} \\ \downarrow \\
+V_{m,O_2} \text{ [L} \cdot \text{mol}^{-1}\text{]} = \frac{R \cdot T}{P} \cdot 1000 \\
+V_{m,O_2} = \frac{8.314 \text{ [J} \cdot \text{mol}^{-1} \cdot \text{K}^{-1}\text{]} \cdot 273.15 \text{ [K]}}{101325 \text{ [Pa}\text{]}} \cdot 1000 \text{ [L} \cdot \text{m}^{-3}\text{]} = 22.414 \text{ L} \cdot \text{mol}^{-1}
+$$ {#eq-VMO2}
+
+Die Änderung der Gibbs'schen freien Energie bei der Verbrennung von Glukose mit O~2~ 
+wird in @eq-KH durch ΔG ausgedrückt, wobei das negative Vorzeichen verdeutlicht, dass es sich 
+um eine spontan ablaufende, exergone Reaktion handelt, bei der Energie freigesetzt 
+wird.<br>
+Das kalorische Äquivalent der Kohlenhydratoxidation (kÄ~KH~) für einen Liter O~2~ erhält man, indem man die Energie, die bei der vollständigen Verbrennung von einem Mol Glukose frei wird (ΔG = 2869 kJ) [@Stegemann1991, 43], durch die dabei verbrauchte Menge an O~2~ teilt. kÄ~KH~ beträgt nach @eq-kAeKH ungefähr:
 
 $$
 kÄ_{\text{KH}} = \frac{2869\,[\text{kJ}]}{134,4\,[\text{l} \cdot \text{O}_2]} \approx 21,3\,[\text{kJ} \cdot \text{l}^{-1} \cdot \text{O}_2^{-1}]
 $${#eq-kAeKH}
 
-Nach gleicher Vorgehensweise kann man auch das kalorische Äquivalent des Sauerstoffs (kÄ~FETT~) für Fettsäureverbrennung näherungsweise bestimmen. Je nach oxidierter Fettsäure liegt der RQ zwischen 0,69 und 0,73 [@McArdle2009, 186]. Für die Palmitinsäure lautet die Summenformel (C~16~H~32~O~2~) und die stöchiometrische Gleichung:
+Lipide enthalten im Vergleich zu Kohlenhydraten deutlich weniger Sauerstoffatome und benötigen daher mehr Sauerstoff im Oxidationsprozess. Außerdem können Fettsäuren im Gegensatz zu Kohlenhydraten, deren biochemische Formel immer die gleiche ist (C~6~H~12~O~6~), unterschiedliche chemische Zusammensetzungen haben. Der verstoffwechselte O~2~ und das produzierte CO~2~ hängen dabei von der Art des oxidierten Lipids ab.<br> 
+Die vollständige Oxidation eines Moleküls der am häufigsten verstoffwechselten Fettsäure, der Palmitinsäure (C~16~H~32~O~2~; 1 Mol ≙ 256 g), im menschlichen Körper verwendet 23 Moleküle O~2~ und produziert dabei 16 Moleküle CO~2~ und 16 Moleküle H~2~O. Die stöchiometrische Gleichung der Verstoffwechselung lautet somit:
 
 $$
 \begin{aligned}
 \text{C}_{16}\text{H}_{32}\text{O}_2 + 23\text{O}_2 &\rightarrow 16\text{CO}_2 + 16\text{H}_2\text{O} \quad (\Delta G = -9871 \text{kJ}) \\
-\text{RQ} &= \frac{\text{CO}_2}{\text{O}_2} = \frac{23}{16} \approx 0.7
+\text{RQ} &= \frac{\text{CO}_2}{\text{O}_2} = \frac{16}{23} \approx 0.696
 \end{aligned}
 $${#eq-FETT}
 
-Mit der frei werdenen Energie des vollständigen Abbaus von 1 Mol Palmitinsäure von ΔG = 9871 kJ und dem Volumen von 23 Mol O~2~ unter Standartbedingungen von 515,2 Liter beträgt das kÄ~FETT~:
+Der RQ von Palmitinsäure entspricht daher 0,696. Je nach Art der oxidierten Fettsäure kann der RQ für Lipide zwischen 0,686 für Lignocerinsäure (C~24~H~48~O~2~) und 0,727 für Caprylsäure (C~8~H~16~O~2~) variieren [@McArdle2009, 186; @Jeukendrup2019, 100]. Für die Berechnungen der Substratanteile wird in der Regel jedoch der RQ der Palmitinoxidation von etwa 0,7 verwendet.
+
+Das kalorische Äquivalent der Fettsäureoxidation (kÄ~FETT~) kann berechnet werden, indem die frei werdende Energie beim vollständigen Abbau eines Mols Palmitinsäure (ΔG = 9871 kJ) und das Volumen von 23 Mol O~2~ unter Standardbedingungen (515,2 Liter) verwendet werden:
 
 $$
 kÄ_{\text{FETT}} = \frac{9871\,[\text{kJ}]}{515,2\,[\text{l} \cdot \text{O}_2]} \approx 19,2\,[\text{kJ} \cdot \text{l}^{-1} \cdot \text{O}_2^{-1}]
 $${#eq-kAeFETT}
 
-Die in @eq-kAeKH und @eq-kAeFETT berechneten Werte entsprechen ungefähr den häufig zur Energieumsatzberechnung benutzten Werten geläufiger Tabellen (siehe @tbl-stegemann und @tbl-kAEQ) [@Stegemann1991, 57].<br>Daraus wird deutlich, dass bei der Oxidation von Kohlenhydraten im Vergleich zu Fett etwa 7,4% mehr Energie pro verbrauchtem O₂ frei wird [@Brooks2012]:
+
+Die in @eq-kAeKH und @eq-kAeFETT berechneten Werte entsprechen ungefähr den häufig zur Energieumsatzberechnung benutzten Werten geläufiger Tabellen (siehe @tbl-stegemann und @tbl-kAEQ) [@Stegemann1991, 57].<br>Aus den Berechnungen wird deutlich, dass bei der Oxidation von Kohlenhydraten im Vergleich zu Fett etwa 7,4% mehr Energie pro verbrauchtem O₂ frei wird [@Brooks2012]:
 $$
 \frac{5.05 - 4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]}{4.70 \, [\text{kcal} \cdot \text{Liter}^{-1} \, \text{O}_2]} = 0.074 \approx 7.4\%
 $$
-Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten O~2~-Umsatzrate förderlich, Kohlenhydrate zu verstoffwechseln, während es aufgrund der nahezu unbegrenzten körpereigenen Fettspeicher bei sehr lang andauernden Belastungen vorteilhaft ist, verstärkt Fettstoffwechsel zu betreiben.
+Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten O~2~-Umsatzrate förderlich, primär Kohlenhydrate zu verstoffwechseln, während es aufgrund der nahezu unbegrenzten körpereigenen Fettspeicher bei sehr lang andauernden Belastungen vorteilhaft ist, verstärkt Fettstoffwechsel zu betreiben.
 
 ```{r}
 #| label: tbl-kAEQ
@@ -176,7 +195,10 @@ Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten O~2~-
 DT_kÄ
 ```
 
-Aus den aufgeührten Berechnungen kann entnommen werden, dass bei einem RQ von 0.70 Lipide und bei einem RQ von 1.00 Kohlenhydrate als primäre Energiequelle dienen. Für RQ-Werte zwischen 0.70 und 1.00 lassen sich die relativen Beiträge von Lipiden und Kohlenhydraten zur Energiequelle sowie deren Beitrag zum Energiefluss interpolieren. Dies ist in @tbl-stegemann dargestellt.
+Aus den angegebenen Berechnungen ergibt sich, dass bei einem RQ von etwa 0,70 Lipide und bei einem RQ von 1,00 Kohlenhydrate die Hauptenergiequelle sind. Für RQ-Werte zwischen 0.70 und 1.00 lassen sich die relativen Beiträge von Lipiden und Kohlenhydraten zur Energiequelle sowie deren Beitrag zum Energiefluss interpolieren. Dies ist in @tbl-stegemann dargestellt. 
+
+
+Der Proteinstoffwechsel wird in den durchgeführten Berechnungen nicht berücksichtigt. Die Gründe dafür und die Rolle von Eiweiß als Brennstoff werden in Abschnitt @sec-EIW genauer beschrieben.
 
 ### Unterschiede zwischen RQ und RER und deren Relevanz
 
@@ -212,10 +234,89 @@ Aus den oben beschriebenen Gründen unterscheidet sich der RQ vom RER während d
 
 Für die folgenden Berechnungen des Energieumsatzes wird davon ausgegangen, dass RER während der Belastung gleich RQ ist. Bei RER-Werten, die kleiner als 0,7 oder größer als 1,0 sind, werden die jeweils nächstliegenden RQ-Werte (0,7 bzw. 1,0) aus @tbl-stegemann verwendet.
 
-### Rolle des Proteinmetabolismus bei der Energieumsatzberechnung
-Abschnitt noch in Arbeit
 
-...
+
+### Proteinoxidation im aeroben Stoffwechsel {#sec-EIW}
+
+###In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energie-umsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger & Schommer, 2013).
+
+Kohlenhydrate und Fette stellen in der Regel den Großteil der metabolischen Energie bereit, die zur Regeneration von ATP benötigt wird, um Muskelarbeit zu leisten. Auch der Abbau von Proteinen kann bis zu 20 verschiedene Aminosäuren bereitstellen, von denen einige oxidiert werden können.
+Bevor die verschiednen Brennstoffe Kohlenhydrate, Fette und Proteine in die Stoffwechselwege des Katabolismus eintreten können, müssen sie verdaut, assimiliert, verteilt und von den Zellen aufgenommen werden. Für Aminosäuren ist noch ein zusätzlicher Schritt notwendig: die Entfernung der Aminogruppe (-NH~2~). Dies erfolgt durch Transaminierung, bei der die Aminogruppe auf eine α-Ketosäure übertragen wird, oder durch oxidative Desaminierung, die Ammoniak freisetzt. Das entstandene Ammoniak wird in der Leber durch den Harnstoffzyklus in Harnstoff (CO(NH~2~)~2~) umgewandelt. Während dieser Prozesse können schwefelhaltige Aminosäuren zu Sulfaten abgebaut werden. Der entstandene Harnstoff und die Sulfate werden anschließend über den Urin ausgeschieden.
+
+Das verbleibende Kohlenstoffskelett der Aminosäuren kann ähnlich wie Kohlenhydrate und Fette zu CO~2~ und H~2~O oxidiert werden. Der Sauerstoffverbrauch und die CO~2~-Produktion variieren je nach Art des Proteins [@Brooks2012; @Jeukendrup2019, 100].<br>
+Ein Beispiel für die Oxidation eines Proteins (Albumin) ist das folgende:
+
+$$
+\begin{aligned}
+\text{C}_{72}\text{H}_{112}\text{N}_2\text{O}_{22}\text{S} + 77 \text{O}_2 &\rightarrow 63 \text{CO}_2 + 38 \text{H}_2\text{O} + \text{SO}_3 + 9 \text{CO(NH}_2)_2 \quad \\
+\text{RQ} &= \frac{\text{CO}_2}{\text{O}_2} = \frac{63}{77} = 0.818
+\end{aligned}
+$${#eq-EIW}
+
+
+Aufgrund der komplexeren Prozesse der Proteinoxidation ist die Hierarchie der Substratnutzung in Bezug auf die Zeit seit der Assimilation und der metabolischen Leistung: Kohlenhydrate → Lipide → Aminosäuren.
+
+
+Während körperlicher Ruhe trägt die Aminosäureoxidation nur etwa 15 % zum Energieverbrauch bei. Während körperlicher Belastung sinkt dieser Beitrag wahrscheinlich auf weniger als 5 %, da Kohlenhydrate und Fette als Hauptbrennstoffe wichtiger werden. Bei längerer körperlicher Betätigung, insbesondere wenn die Kohlenhydratverfügbarkeit eingeschränkt ist, kann die Aminosäureoxidation geringfügig zunehmen. Dennoch überschreitet der Beitrag von Proteinen zum Gesamtenergieverbrauch selten 10 %. In Phasen starker Kalorienrestriktion, wenn die Glykogenspeicher erschöpft sind, gewinnt der Proteinkatabolismus an Bedeutung und wird zu einer wichtigeren Energiequelle für die Muskelarbeit.
+
+
+Früh wurde klar, dass körperliche Bewegung wenig Einfluss auf die Stickstoffausscheidung im Urin hat. Todd et al. stellten fest, dass körperliche Aktivität nicht zu einem negativen Stickstoffhaushalt führt, solange die Nahrungsenergie ausreicht. Da wenig zusätzlicher Stickstoff im Urin wegen Bewegung ausgeschieden wird und Messungen schwierig sind, verzichteten Forscher darauf, die Messungen des pulmonalen RER für die Nutzung von Aminosäuren und Proteinen zu korrigieren. Daher nahm man an, dass Kohlenhydrat- und fettbasierte Brennstoffe die bevorzugten Energiesubstrate für Bewegung sind.
+@Brooks2012
+
+
+Diese Berechnungen gehen davon aus, dass Protein kein wichtiger Energieträger ist. In einigen extremen Bedingungen kann Protein bis zu 15 % des gesamten Energieverbrauchs beitragen. In diesem Fall sollte eine Korrektur für die Proteinoxidation vorgenommen werden. Um diese Korrektur vorzunehmen, werden Urinproben gesammelt und die Proteinoxidation aus dem Stickstoffgehalt geschätzt. Ein Gramm Stickstoff im Urin repräsentiert die Oxidation von 6,25 g Protein. Dieses Ergebnis wird von den Raten der Fett- und Kohlenhydratoxidation subtrahiert.
+
+-> Diesen Abschnitt noch mit dem aus Brooks ergänzen
+
+Wie bereits erwähnt, erhöht das Messen sowohl des O~2~-Verbrauchs als auch der CO~2~-Produktion die Genauigkeit der Schätzung des Energieverbrauchs, da der Energieäquivalent für Sauerstoff leicht unterschiedlich ist, je nachdem, welches Substrat verwendet wird. Wenn zum Beispiel die V~O~2~ 600 L/Tag, die V~CO~2~ 500 L/Tag und die Stickstoffausscheidung 25 g/Tag beträgt, beträgt der Energieverbrauch 12.068 kJ (2.886 kcal). Mit der einfachen Formel (d. h. ohne Berücksichtigung der Proteinoxidation) beträgt das Ergebnis 12.120 kJ (2.892 kcal), ein Unterschied von nur 0,2 %.
+
+
+
+
+
+
+
+
+Wenn eine Mischung aus Kohlenhydraten und Fetten oxidiert wird, entspricht der O~2~-Verbrauch der Summe des für die Oxidation der Kohlenhydrate benötigten O~2~ plus des für Fette benötigten. Ebenso ist die CO~2~-Produktion die Summe der CO~2~-Produktion aus Kohlenhydraten und der CO~2~-Produktion aus Fetten. Wenn zum Beispiel 100 g Kohlenhydrate und 50 g Fett oxidiert werden, beträgt der O~2~-Verbrauch (100 \times 0,746) + (50 \times 2,009) = 175 L. Die CO~2~-Produktion beträgt (100 \times 0,743) + (50 \times 1,414) = 145 L. Der RQ ist \(\frac{145}{175} = 0,829\).
+
+Wenn Experimente mit indirekter Kalorimetrie durchgeführt werden und V~O~2~ und V~CO~2~ gemessen werden, wird die umgekehrte Berechnung verwendet:
+
+$$
+\text{Rate der Kohlenhydratoxidation (g/min)} \times \text{O}_2 (\text{L/g}) + \text{Rate der Fettoxidation (g/min)} \times \text{O}_2 (\text{L/g}) = \text{VO}_2 (\text{L/min})
+$$
+
+$$
+\text{Rate der Kohlenhydratoxidation (g/min)} \times \text{CO}_2 (\text{L/g}) + \text{Rate der Fettoxidation (g/min)} \times \text{CO}_2 (\text{L/g}) = \text{VCO}_2 (\text{L/min})
+$$
+
+Diese Berechnungen ergeben zwei Gleichungen mit zwei unbekannten Variablen, die gelöst werden können:
+
+$$
+\text{Kohlenhydratoxidation (g/min)} = 4,585 \times \text{VCO}_2 - 3,226 \times \text{VO}_2
+$$
+$$
+\text{Fettoxidation (g/min)} = 1,695 \times \text{VO}_2 - 1,701 \times \text{VCO}_2
+$$
+
+
+
+
+
+
+
+
+Die Anwendung des RQ basiert auf der Annahme, dass der Austausch von O~2~ und CO~2~ am Mund die Prozesse repräsentiert, die in den Geweben, die die Brennstoffe oxidieren, ablaufen. Diese Annahme ist in Ruhe und während leichter bis ziemlich intensiver körperlicher Betätigung (bis zu etwa 85 % von V~O~2~max) gültig. Aber da der am Mund gemessene RER nicht immer die Oxidationsprozesse in den Zellen widerspiegelt, wird er normalerweise als respiratorischer Austauschquotient (RER, oder R) bezeichnet. Für moderate bis hohe Trainingsintensitäten, bei denen Glykogen eine wichtige Energiequelle ist (50 % bis 75 % V~O~2~max), sollten die Gleichungen im hervorgehobenen Feld verwendet werden.
+
+Eine häufige Bedingung, bei der der RER vom RQ abweicht, ist die Hyperventilation. Während der Hyperventilation werden überschüssige Mengen an CO~2~ ausgeatmet. Dieses CO~2~ stammt nicht aus Stoffwechselprozessen, sondern ist einfach eine zusätzliche Ausscheidung der CO~2~-Speicher des Körpers. (CO~2~ wird hauptsächlich in Form von Bicarbonat in den extrazellulären Körperflüssigkeiten gespeichert.) Da während der Hyperventilation kaum Änderungen in der V~O~2~ auftreten, steigt der RER in der Regel über 1,00 und spiegelt eindeutig nicht mehr den Zellstoffwechsel wider.
+
+Eine weitere Situation, in der sich der RER vom RQ unterscheidet, ist während anstrengender körperlicher Betätigung bei Intensitäten über 80 % von V~O~2~max. Bei diesen hohen Trainingsintensitäten führen hohe glykolytische Raten im Muskel zur Produktion und Anhäufung von Milchsäure. Die mit dieser Säure assoziierten Wasserstoffionen müssen gepuffert werden. Das Bicarbonatpuffersystem des Körpers neutralisiert die Säure. Wasserstoffionen binden sich mit Bicarbonationen (HCO~3~^−^) zu H~2~CO~3~ und anschließend zu H~2~O und CO~2~:
+
+$$
+\text{H}^+ + \text{HCO}_3^- \rightarrow \text{H}_2\text{CO}_3 \rightarrow \text{H}_2\text{O} + \text{CO}_2
+$$
+
+Dieses CO~2~ wird ausgeatmet, und infolgedessen steigt der RER schnell an und kann Werte zwischen 1,00 und 1,30 erreichen. Dieser Anstieg spiegelt nicht den Zellstoffwechsel wider; daher ist die Berechnung des Energieverbrauchs oder der Substratnutzung nur während des Gleichgewichtszustands gültig, wenn keine Anhäufung von Milchsäure erfolgt. Situationen, in denen die Lipogenese (d. h. die Synthese von Fett aus Kohlenhydraten) und die Ketogenese (die Bildung von Ketonkörpern) eine Rolle spielen, sind weitere Beispiele für Bedingungen, bei denen der RER vom RQ abweichen kann.
+
 ```{r}
 #Bisher haben wir, wie in der sportphysiologischen Praxis üblich, die Berechnungen der verstoffwechselten Brennstoffe vereinfacht, indem der Eiweißstoffwechsel vernachlässigt wurde. Tatsächlich wird diese Rechnung jedoch zusätzlich durch die Proteinoxidation beeinflusst. 
 

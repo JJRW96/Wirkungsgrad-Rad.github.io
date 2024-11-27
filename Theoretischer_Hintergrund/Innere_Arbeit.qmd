@@ -30,6 +30,12 @@ caption {
 #@Winter1979 @Winter2009 ***–\> Darauf beziehen***
 #Auszug aus Luhtanen et al. (1987) –> The internal work ( W,) performed during one revolution was calculated from the translator, rotational and potential energy states allowing energy transfer between segments and from state to state (Winter 1979).
 
+# UNBEDING FRANCESCATO1995 DURCHARBEITEN !!!!! EINFACHE ERKLÄRUNGEN UND FORMELN!!!!
+# UND SJØGAARD für die Beschriebung meiner Berechnung
+# UND UNBEDINGT BELL2009 und TOKUI2008 und 2007 -> Hier auch schöne Abbildung der VO2 Kosten von Pint
+
+##Die mechanische innere Leistung (Wint) beim Radfahren wurde von di Prampero et al. (1979) durch grafische Analyse der Bewegung der unteren Extremitäten berechnet. Dabei wurde angenommen, dass die Winkelgeschwindigkeit konstant ist und sich nur die unteren Extremitäten bewegen. Aus dieser Analyse schlossen sie, dass Wint mit der 3. Potenz der Tretfrequenz (fp) zunimmt, beschrieben durch $$ W_{int} = c \times f_p^3 $$, wobei Wint in Watt gemessen wird, fp in Hertz und c für einen normalen 70-kg-Probanden zwischen 5,1 und 7 J·s⁻¹ lag. Bei einem angenommenen Gesamtwirkungsgrad der inneren Leistung (Wint) von 0,22 ergab die theoretische Analyse von di Prampero et al. (1979) folgende Werte für a: 8,3 W bei 40 U/min, 28,0 W bei 60 U/min, 66,4 W bei 80 U/min und 130,0 W bei 100 U/min.
+
 ```
 
 Innere Arbeit, auch bekannt als Blind- oder Leerleistung, spielt eine zentrale Rolle bei zyklischen Bewegungen wie dem Radfahren. Sie resultiert aus der erforderlichen Rotation und Verschiebung der Gliedmaßenschwerpunkte, was unerlässlich für die Aufrechterhaltung der Gesamtkörperbalance ist. Die Innere Arbeit, obwohl sie keine externen vortriebswirksamen Kräfte erzeugt, ist für die kontinuierliche Bewegung entscheidend und unterscheidet sich damit von der externen Arbeit, die für den direkten Vortrieb verantwortlich ist.
@@ -101,6 +107,89 @@ In den folgenden Abschnitten wird beschrieben, wie aus den erfassten Kinematikda
 **Ermittlung der kinetischen Energie:** Die rotatorische kinetische Energie wird für den Oberschenkel, den Unterschenkel sowie die Fahrradkurbel berechnet, basierend auf ihren jeweiligen Winkelgeschwindigkeiten (omega_SpOS & omega_SpUS) und Trägheitsmomenten (thetaOS & thetaUS). Die translatorische kinetische Energie wird aus den Geschwindigkeiten der Schwerpunkte der Beinsegmente (v_SpOS & v_SpUS) sowie den jeweiligen Segmentmassen (mOS & mUS) bestimmt.
 
 **Berechnung der inneren Arbeit & Blindleistung:** Die zentrale Größe in dieser Berechnung ist die integrierte Leistung, die Blindleistung, die aus der Änderung der kinetischen Energie über die Zeit integriert wird. Die Blindleistung reflektiert, wie viel Arbeit vom Fahrer in einem bestimmten Zeitintervall geleistet wird. Die Berechnung der Blindleistung erfolgt sowohl für die rotierende als auch für die translatorische Bewegung.
+
+
+
+## Schritte in der Berechnung
+
+In den folgenden Abschnitten wird beschrieben, wie aus den erfassten Kinematikdaten des Fahrradfahrens mechanische und kinematische Parameter der Tretbewegung berechnet wurden. Diese Berechnungen basieren auf der Kinematik von Drehbewegungen menschlicher Gliederketten, die eine wichtige Grundlage für das Verständnis der Bewegungsmechanik beim Radfahren darstellen. Die Analyse zielt darauf ab, ein detailliertes Verständnis der Bewegungs- und Leistungsdynamik zu ermöglichen, und berücksichtigt dabei die Wechselbeziehungen zwischen den achsenbezogenen kinematischen Größen – wie Winkel und Winkelgeschwindigkeiten – der menschlichen Bein-Gliederketten. Diese Größen werden in Abhängigkeit von der Winkelgeschwindigkeit des Pedalarms sowie den geometrischen Beziehungen der Gliederketten bestimmt. Die Bestimmung der relevanten Parameter erfolgte folgendermaßen:
+
+**Berechnung der relevanten Winkel:** Zunächst wurden die Winkel bestimmt, die die Positionen und Bewegungen der Füße (P~1~), Knie (P~2~) und Hüfte (P~3~) relativ zur Kurbelachse des Fahrrads repräsentieren. Diese Winkel beschreiben die Ausrichtung und Bewegung der Beine während des Pedalzykluses. Der Winkel phi~1~, der die jeweilige Winkelstellung des Kurbelarmes im Bezug zu einem Startpunkt während des Pedalzykluses repräsentiert, wird aus der Position von P~1~ relativ zur Kurbelachse berechnet @eq-phi1. 
+
+$$
+\phi_1 = \text{atan2}(P1_y, P1_x)
+$$ {#eq-phi1}
+
+**Berechnung der Winkelgeschwindigkeiten:** Aus den Änderungen der Winkel über die Zeit werden Winkelgeschwindigkeiten (omega) abgeleitet @eq-omega. Zusätzlich werden die Winkelgeschwindigkeiten für das obere (Oberschenkel) und untere Segment (Unterschenkel) des Beines separat berechnet.
+
+$$
+\omega = \frac{\Delta \phi_1}{\Delta t}
+$$ {#eq-omega}
+
+**Ermittlung der kinetischen Energie:** Die rotatorische kinetische Energie wird für den Oberschenkel, den Unterschenkel sowie die Fahrradkurbel berechnet, basierend auf ihren jeweiligen Winkelgeschwindigkeiten (omega~SPOberschenkel~ & omega~SPUnterschenkel~) und Trägheitsmomenten (theta~Oberschenkel~ & theta~Unterschenkel~) @eq-Ekin_rot. Die translatorische kinetische Energie wird aus den Geschwindigkeiten der Schwerpunkte der Beinsegmente (v~SPOberschenkel~ & v~SPUnterschenkel~) sowie den jeweiligen Segmentmassen (m~Oberschenkel~ & m~Unterschenkel~) bestimmt @eq-Ekin_trans. Hierbei stehen SPOberschenkel und SPUnterschenkel für die Schwerpunkte (SP) des Oberschenkels bzw. Unterschenkels.
+
+$$
+E_{kin,rot} = \frac{1}{2}(I_{Oberschenkel} \cdot \omega_{Oberschenkel}^2 + I_{Unterschenkel} \cdot \omega_{Unterschenkel}^2 + I_{Kurbel} \cdot \omega_{Kurbel}^2)
+$$ {#eq-Ekin_rot}
+
+$$
+E_{kin,trans} = \frac{1}{2}(m_{Oberschenkel} \cdot v_{Oberschenkel}^2 + m_{Unterschenkel} \cdot v_{Unterschenkel}^2)
+$$ {#eq-Ekin_trans}
+
+**Berechnung der inneren Arbeit & Blindleistung:** Die zentrale Größe in dieser Berechnung ist die integrierte Leistung, die Blindleistung, die aus der Änderung der kinetischen Energie über die Zeit integriert wird. Die Blindleistung reflektiert, wie viel Arbeit vom Fahrer in einem bestimmten Zeitintervall geleistet wird. Die Berechnung der Blindleistung erfolgt sowohl für die rotierende als auch für die translatorische Bewegung. Die Leistung (PInt_Rechts) wird schließlich als Änderung der Gesamtenergie pro Zeiteinheit berechnet @eq-PInt_Rechts.
+
+$$
+P_{Int,Rechts} = \frac{\Delta E_{kin,ges}}{\Delta t}
+$$ {#eq-PInt_Rechts}
+
+Um die Qualität der Daten zu gewährleisten und mögliche Fehler in der Markerauzeichnung zu korrigieren, werden Ausreißer in PInt_Rechts identifiziert und durch gleitende Mittelwerte ersetzt. PInt_Links wird durch eine zeitliche Verschiebung von PInt_Rechts um einen halben Zyklus berechnet. Negative Werte in beiden Leistungskurven werden auf null gesetzt, um physiologisch sinnvolle Ergebnisse zu erhalten @eq-PInt_Rechts_Positiv @eq-PInt_Links_Positiv:
+
+$$
+P_{Int,Rechts,Positiv} = \max(P_{Int,Rechts}, 0)
+$$ {#eq-PInt_Rechts_Positiv}
+
+$$
+P_{Int,Links,Positiv} = \max(P_{Int,Links}, 0)
+$$ {#eq-PInt_Links_Positiv}
+
+PInt_Kinematik ergibt sich als Summe der Mittelwerte von PInt_Rechts_Positiv und PInt_Links_Positiv @eq-PInt_Kinematik:
+
+$$
+P_{Int,Kinematik} = \overline{P_{Int,Rechts,Positiv}} + \overline{P_{Int,Links,Positiv}}
+$$ {#eq-PInt_Kinematik}
+
+Zur weiteren Verbesserung der Datenqualität insbesondere für die Datendarstellung werden die Leistungskurven mittels eines gleitenden Fensters geglättet.
+
+Diese detaillierte Analyse der Leistungsparameter bietet wertvolle Einblicke in die Bewegungsmechanik und Effizienz des Radfahrens, die für weitere biomechanische Studien oder die Optimierung der Fahrleistung genutzt werden können.
+
+Im Anschluss an die Berechnung von PInt_Kinematik wurde ein Verfahren entwickelt, um PInt_Kinematik_Modell zu erstellen. Dieses Modell dient dazu, vergleichbare Daten für Probanden zu generieren, für die keine Kinematikdaten verfügbar waren. Der Prozess basiert auf der Nutzung von PInt_Modell, einer berechneten internen Leistung, die auf simulierten Daten statt auf tatsächlichen Kinematikdaten beruht. Anschließend wurde eine Differenz (PInt_Diff) zwischen PInt_Kinematik und PInt_Modell berechnet, um die systematischen Abweichungen zwischen den beiden Methoden zu quantifizieren @eq-PInt_Diff.
+
+$$
+P_{Int,Diff} = P_{Int,Kinematik} - P_{Int,Modell}
+$$ {#eq-PInt_Diff}
+
+Dabei wurden die Werte für den ersten Probanden aufgrund zu großer Abweichungen trotz der Glättung der Ausreißer gegenüber PInt_Kinematik entfernt. 
+
+Für die Erstellung von PInt_Kinematik_Modell wurden zunächst die mittleren Differenzen zwischen PInt_Kinematik und PInt_Modell für die Bedingungen "stehen" und "sitzen" berechnet. Diese mittleren Differenzen wurden dann verwendet, um die fehlenden PInt_Kinematik-Werte zu schätzen, indem sie zu den entsprechenden PInt_Modell-Werten addiert wurden @eq-PInt_Kinematik_Modell. 
+
+$$
+P_{Int,Kinematik,Modell} = 
+\begin{cases} 
+P_{Int,Modell} + \overline{P_{Int,Diff,stehen}} & \text{für Bedingung "stehen"} \\
+P_{Int,Modell} + \overline{P_{Int,Diff,sitzen}} & \text{für Bedingung "sitzen"}
+\end{cases}
+$$ {#eq-PInt_Kinematik_Modell}
+
+Dieses Verfahren ermöglichte es, für alle Probanden und Bedingungen vergleichbare PInt_Kinematik_Modell-Werte zu generieren, auch wenn keine direkten Kinematikdaten verfügbar waren.
+
+
+### DIE ABBILDUNGEN DIE ICH IN DER MA HABEN MÖCHTE DANN NOCH UPDATEN ###
+
+
+
+
+
+
 :::
 
 ::: {.column width="35%"}

@@ -152,8 +152,10 @@ $$ {#eq-VO2_NET}
 Der aerobe Energieteil am physiologischen Gesamtenergieumsatz (W~AER~) einer Belastung kann dann berechnet werden, indem die über $\dot{V}O_{2, Ruhe}$ hinausgehende akkumulierte Sauerstoffaufnahme während des Belastungszeitraumes ($\dot{V}O_{2, Netto}$) mit dem durchschnittlichen kalorischen Äquivalent (kÄ) des Belastungszeitraumes aus @tbl-stegemann multipliziert wird (= kÄ~Bel~) [@Stegemann1991, 59]:
 
 $$
-W_{AER}\;[kJ] = \dot{V}O_{2,Netto}\,(t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}]
+W_{AER}\;[kJ] = \dot{V}O_{2,Netto}\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-1}]
 $$ {#eq-WAER}
+
+**Umrechnung von kJ in Watt noch einbauen**
 
 ## Quellenverzeichnis
 

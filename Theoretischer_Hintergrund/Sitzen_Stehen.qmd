@@ -38,18 +38,23 @@ Ein Großteil der bisherigen Untersuchungen zum Wirkungsgrad beim Radfahren wurd
 
 ```{r}
 #Genauer erklären mit in [@Arkesteijn2016; @Berkemeier2020; @Li1998; @Kistemaker2023] und in [@Duc2008, @Turpin2017] -> Turpin mit schönen Darstellungen
+
+# DIE NEUE STUDIE VON CARLSSON2024 NOCH EINBAUEN!!!!!!!
 ```
 
 Betrachtet man die bisherigen Untersuchungen zur Effizienz des Radfahrens im Stehen, zeigt sich, dass die Effizienz bei niedrigen und mäßigen Trainingsintensitäten unter 70% des maximalen Sauerstoffvolumenstroms ($\dot{V}O_{2, max}$) in der stehenden Position geringer ist als in sitzender Position [@Ryschon1991a; @Tanaka1996a]. Bei höheren Intensitäten über 70% der $\dot{V}O_{2, max}$ scheint der negative Effekt des Stehens auf die Effizienz jedoch zu verschwinden [@Arkesteijn2016; @Harnish2007; @Millet2002]. Beim Radfahren im Stehen können allerdings kurzfristig höhere Leistungen erbracht werden, was vermutlich auf die größere Kraftentwicklung pro Umdrehung zurückzuführen ist [@Hansen2008; @Millet2002]. @Berkemeier2020 stellten fest, dass beim Fahren im Stehen bei einer Ge-schwindigkeit von ca. 13 km/h und einer Steigung von 8% im Vergleich zum Fahren in sitzender Position unter gleichen Bedingungen, eine erhöhte $\dot{V}O_{2, max}$ und Herzrate auftrat.
 
 ```{r}
-# Tabelle mit Wirkungsgraden im Stehen und Sitzen einbauen
+# Tabelle mit Wirkungsgraden im Stehen und Sitzen einbauen --> GIBT NUR WENIGE ODER KEINE, ABER ANHAND DER VO2 KOSTEN UMRECHENN
 # Die größere Kraftentwicklung pro Umdrehung genauer erklären
 ```
 
 Eine Vielzahl der bisher erwähnten Untersuchungen, welche die Effizienz beim Radfahren, in stehender und sitzender Position verglichen haben, bestimmten den physiologischen Energieumsatz ausschließlich über den gemessenen Sauerstoffvolumenstrom ($\dot{V}O_{2}$) als Grundlage für ihre Berechnungen.<br>
 Meistens wurde nur η~brutto~ bestimmt, der anfällig für Änderungen in der erbrachten Leistung ist. @Harnish2007 bestimmten η~netto~, welcher weniger anfällig gegenüber Leistungsveränderungen ist, und fanden keine signifikanten Unterschiede des η~brutto~ im Stehen und Sitzen. η~brutto~ berücksichtigt jedoch nicht die interne Arbeit der Beinbewegungen, was bedeutet, dass er von der Trittrate abhängig ist. Soll die interne Arbeit bei der Bestimmung des Wirkungsgrades berücksichtigt werden, eignet sich η~muskulär~, welcher ähnlich hoch ist wie η~netto~, aber keine Abhängigkeit von der Trittrate zeigt [@Boning2017]. 
 Bisher gibt es nach Wissen des Autors keine Studien, die den muskulären Wirkungsgrad beim Radfahren in sitzender und stehender Position unter Berücksichtigung von verschiedenen Einflussfaktoren wie Trittfrequenz und Intensität untersucht haben. Daher ist das Ziel dieser Arbeit, η~muskulär~ in sitzender und stehender Position auf dem Rad bei verschiedenen Belastungsintensitäten zu vergleichen.
+
+**Abschnitt nochmal korrigieren und erweitern**
+**Richtig auf alle Forschungsfragen hinleiten**
 
 
 ## Quellenverzeichnis

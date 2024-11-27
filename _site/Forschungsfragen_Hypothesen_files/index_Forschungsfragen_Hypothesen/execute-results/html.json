@@ -1,0 +1,15 @@
+{
+  "hash": "3276cc9e891d63c105e92d09c4195a8b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Forschungsfragen & Hypothesen\"\n\nexecute:\n  message: false\n  echo: false\n  warning: false\n  error: false\n  \nbibliography: references.bib\nlang: de\nnumber-sections: false\n---\n\n::: {.cell}\n<style type=\"text/css\">\np {\n  text-align: justify\n}\ncaption, .figure-caption {\n  text-align: left;\n}\nfigure.quarto-float-tbl figcaption {\n  text-align: left !important;\n}\n\n</style>\n:::\n\n::: {.cell}\n\n:::\n\n\n\n# Forschungsfragen & Hypothesen\n\n## Forschungsfragen\n\n## Hypothesen",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

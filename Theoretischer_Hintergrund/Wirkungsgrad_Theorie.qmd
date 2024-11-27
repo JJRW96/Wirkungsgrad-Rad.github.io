@@ -1,14 +1,22 @@
 ---
-execute:
+title: "Wirkungsgrad"
+
+execute: 
   message: false
   echo: false
   warning: false
   error: false
-  
 bibliography: references.bib
 lang: de
 number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+
 tbl-cap-location: bottom
+
+nocite: |
+  @Dickinson1929, @Henry1950, @Gaesser1975, @Seabury1977, @Suzuki1979, @Luhtanen1987, @Francescato1995, @Chavarren1999, @Beneke2002, @Millet2002, @Harnish2007, @Bell2009, @Bouillod2014, @Dunst2023a, @Zoladz2023a, @Carlsson2024
 ---
 
 ```{css}
@@ -16,8 +24,11 @@ tbl-cap-location: bottom
 p {
   text-align: justify
 }
-caption {
-  text-align: justify;
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
 }
 
 ```
@@ -33,28 +44,37 @@ library(DT)
 library(extrafont)
 ```
 
+**Geile Einleitung in @Beneke2001**
+
 ::: columns
-::: {.column width="48%"}
-Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.<br> Es existieren mehrere Möglichkeiten den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten . Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten. In der nachfolgenden Tabelle sind verschiedene Möglichkeiten zur Wirkungsgradberechnung aufgeführt [@Boning2017; @Luhtanen1987; @Gaesser1975]:
+::: {.column width="52%"}
+Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.<br> Es existieren mehrere Möglichkeiten den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten. Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten. In der nachfolgenden Tabelle sind verschiedene Möglichkeiten zur Wirkungsgradberechnung aufgeführt [@Boning2017; @Luhtanen1987; @Gaesser1975]:
 :::
 
-::: {.column width="4%"}
+::: {.column width="2%"}
 :::
 
-::: {.column width="48%"}
+::: {.column width="46%"}
 | Wirkungsgrade |               Berechnung                |
 |---------------|:---------------------------------------:|
-| η~brutto~     |            P~mech~ / E~Tot~             |
-| η~netto~      |      P~mech~ / (E~Tot~ - E~Ruhe~)       |
-| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
-| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Leerbewegung~)   |
+| η~Brutto~     |            P~mech~ / E~Aerob~             |
+| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
+| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
 | η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
+| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
+| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
 
-: Berechnungswege verschiedener Wirkungsgrade nach (Böning et al., 2017) {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]"}
+: Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
+
 :::
 :::
 
 [^1]: In der englischsprachigen Literatur wird der Begriff „efficiency“ meist gleichbedeutend für die Wörter "Wirkungsgrad" und "Effizienz" verwendet. Die Effizienz beschreibt allgemein das Verhältnis zwischen dem erreichten Ergebnis und dem dafür benötigten Aufwand oder den dafür eingesetzten Ressourcen, während der Wirkungsgrad spezifisch angibt, wie viel Prozent der aufgewandten Energie tatsächlich in nutzbare Energie umgewandelt wird. So kann im Kontext dieser Arbeit Wirkungsgrad und Effizienz gleichbedeutend sein, solange sich die Effizienz auf das prozentuale Verhältnis von aufgebrachter chemischer Energie gegenüber der tatsächlich erbrachten mechanischen Leistung bezieht.
+
+**Temperaturregulation bei körperlicher Belastung bzw. wo geht die Wärmeenergie hin noch mit einbeziehen und beschrieben!!!!!!!!!!!!!! --> Aschoff, Stegemann, deMaares S.552, Astrand S. 396**
+**Statt über indirekte Kaliometrie über die Wärmeabgabe den Wirkungsgrad gegenrechnen oder direkt Berechnen?????**
+
+**NOCH ZUSÄTzLICH DIE BERECHNUNG VON WIRK_TOTAL MIT BESCHREBEN --> VERGLICH ZWISCHEN WIRK MUSKULÄR UND TOTAL --> EINFLUSS VON PINT**
 
 ```{r}
 #Auch in @Gaesser1975 beschrieben***<br> ***-\> Studie von [@Ettema2009] noch mit einbeziehen<br> 
@@ -65,59 +85,59 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 ## IN TABELLEN VERLINKEN!!!!
 
 #Hopker2010 für den Vergleich von Frauen und Männer beim Radfahren
+
+#EINTELUNG IN DER TABELLE der PROBANDEN NACH der TABELLE von @Jeukendrup2000 vornehmen. Oder nach @dePauw2013 
+# -> Oder Beides wie in @Ronnestadt2022 "All cyclists were categorized as performance level 4 to 5 (17), equal to being elite (18)."
 ```
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| **Autoren**                                                                                                                                                                                                                                                                                          | **Belastungsintensität**                                  | **Trittrate \[U/min\]**   | **Teilnehmende**                                              | **Berechneter η** | **Wirkungsgrad \[%\]**                                            |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| @Gaesser1975                                                                                                                                                                                                                                                                                         | 32,7 \| 65,4 \| 98,1 \| 130,8 \[Watt\]                    | 40 \| 60 \| 80 \| 100     | N = 12 \| 19–24 J \| m                                        | η~brutto~         | η~40~ = 12-20 \| η~60~ = 12-20 \| η~80~ = 10-19 \| η~100~ = 8-17  |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      | Belastungsdauer:<br>6-8 min                               |                           | Fortgeschrittene                                              | η~netto~          | η~40~ = 19-24 \| η~60~ = 19-24 \| η~80~ = 15-22 \| η~100~ = 10-19 |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               | η~Arbeit~         | η~40~ = 25-26 \| η~60~ = 26-27 \| η~80~ = 26 \| η~100~ = 27-28    |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               | (η~Delta~)        | → η steigt mit steigender Belastungsintensität                    |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| @Luhtanen1987                                                                                                                                                                                                                                                                                        | 50% VO~2max~ \| AerT \| AnT \| AnT + 30W \| AnT + 60 Watt | 60                        | N = 12 \| 21–38 J \| m                                        | η~brutto~         | η~brutto~ = 19.7 ± 2.8 - 17.4 ± 1.0                               |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      | Belastungsdauer: <br>5 min                                |                           | Fortgeschrittene VO~2max~ = <br>59.6±2.5 \[l·min^-1^·kg^-1^\] | η~netto~          | η~netto~ = 21.8 ± 2.4 - 17.5 ± 0.7                                |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               | η~Arbeit~         | η~Arbeit~ = 29.7 ± 4.2 - 21.0 ± 1.5                               |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   | → η sinkt mit steigender Belastungsintensität                     |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| @Chavarren1999                                                                                                                                                                                                                                                                                       | 54% \| 63%\| 73% \| 80% \| 87% \| 93% der VO~2max~        | 60 \| 80 \| 100 \| 120    | N = 7 \| 22–25 J \| m                                         | η~brutto~         | η~brutto =~ 13.02 +- 0.4 - ca. 20                                 |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      | Belastungsdauer: <br>6 min                                |                           | Profis                                                        | (η~Delta~)        | → η~brutto~ steigt mit steigender Belastungsintensität            |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           | P~max~ = 371 (15) \[Watt\]                                    |                   | → η~brutto~ sinkt mit steigender Drehzahl                         |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           | VO~2max~ = <br>67.77±5.07\[l·min^-1^·kg^-1\]^                 |                   |                                                                   |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| @Beneke2002                                                                                                                                                                                                                                                                                          | WAnT                                                      | WAnT = 170 - 80 RPM       | N = 7 \| 21.6 ± 3.8 J \| m                                    | η~netto~          | η~netto, WAnT~ = 16.2 ± 1.6                                       |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      | Stufentest letzte Stufe bei 362 ± 41 Watt                 | ST = ?                    | Sportartfremd: <br>Rugby Spieler                              |                   | η~netto, ST~ = 24.1 ± 1.7                                         |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           | VO~2max =~ <br>51.34 ± 9.44 \[l·min^-1^·kg^-1^\]              |                   |                                                                   |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| @Bell2009                                                                                                                                                                                                                                                                                            | 75% der ventilatorischen Schwelle                         | nD = 45 \| 60 \| 75 \| 90 | N = 16 \| 19-74 J. \| f                                       | η~netto~          | η~netto~ = 15,5-31,5                                              |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           | Amateure                                                      | η~muskulär~       | η~muskulär~ = 23,8-39,5                                           |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| <div style="font-size: 66%;">                                                                                                                                                                                                                                                                        |                                                           |                           |                                                               |                   |                                                                   |
-|                                                                                                                                                                                                                                                                                                      |                                                           |                           |                                                               |                   |                                                                   |
-| Dickenson 1929<br>Whipp & Wassermann 1969<br>Growden1950<br>Henry & deMoor 1950<br>Astrand1952<br>Michael et al. 1961<br>Banister & Jackson 1967<br>Rode & Shephard 1973<br>Kaneko et al. 1979<br>Suzuki 1979<br>Coast & Welch 1985<br>Ericson 1988<br>Francescato et al. 1995<br>Zoladz et al. 1998 |                                                           |                           |                                                               |                   |                                                                   |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
-| Tabelle wird noch erweitert                                                                                                                                                                                                                                                                          | ...                                                       | ...                       | ...                                                           | ...               | ...                                                               |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+---------------------------+---------------------------------------------------------------+-------------------+-------------------------------------------------------------------+
+```{r}
+#| label: tbl-Wirkungsgrad
+#| tbl-cap-location: top
+#| tbl-cap:  "Tabellarische Übersicht unterschiedlich berechneter Wirkungsgrade beim Fahrradfahren unter verschiedenen Bedingungen"
 
-: Übersicht der in verschiedenen Studien berechneten Wirkungsgrade beim Fahrradfahren im Sitzen {#tbl-Wirkungsgrade tbl-colwidths="\[15, 10, 12, 17, 11, 40\]"}
+library(flextable)
+library(dplyr)
+library(officer)
+
+ft_Wirkungsgrad <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Theoretischer_Hintergrund/rds/ft_Wirkungsgrad.rds")
+
+# Anzeigen der Tabelle
+ft_Wirkungsgrad
+```
+
+## Werte aus der Literatur
+
+Die aus der Fachliteratur ausgewählten und in der @tbl-Wirkungsgrad dargestellten Wirkungsgrade zeigen eine erhebliche Variabilität, wobei systematische Unterschiede zwischen den verschiedenen Berechnungsmethoden erkennbar sind. 
+
+Der Bruttowirkungsgrad (η~brutto~) weist konsistent die niedrigsten Werte aller berechneten Wirkungsgrade auf. Die Spannweite der gemessenen Werte reicht von unter 10% [@Gaesser1975;@Dunst2023a], die charakteristischerweise bei extrem hoher Drehzahl, sehr geringer Last oder einer Kombination beider Faktoren auftreten, bis zu Maximalwerten von 23,6% [@Seabury1977], die bei hohen Lasten und moderaten Drehzahlen dokumentiert wurden. Mit typischen Werten zwischen 19% und 22% stellt sich ein charakteristischer Bereich dar, der in vielen Studien bestätigt wird. In der Regel steigt η~brutto~ mit steigender Belastungsintensität, da hier der Anteil des Ruheenergiestoffwechsels kleiner wird und sinkt mit hohen Trittraten.
+
+Der Nettowirkungsgrad (η~netto~) eliminiert den Einfluss des Ruheenergieumsatzes und zeigt dadurch systematisch höhere Werte als der Bruttowirkungsgrad. Die dokumentierten Werte in den Studien bewegen sich überwiegend zwischen 19% und 24%. Die Abhängigkeit von der Belastungsintensität zeigt in der Literatur unterschiedliche Effekte: Während @Luhtanen1987 einen Abfall des η~netto~ von 21,8% auf 17,5% und @Henry1950 von 21,2% auf 19,3% mit steigender Intensität dokumentiert, berichten sowohl @Gaesser1975 als auch @Harnish2007 einen Anstieg des η~netto~ mit zunehmender Belastung. Diese gegensätzlichen Befunde könnten auf unterschiedliche Testprotokolle und Probandencharakteristika zurückzuführen sein. Ein konsistenterer Effekt zeigt sich bei der Trittrate: Hohe Drehzahlen führen hier zu einem deutlichen Abfall des η~netto~ [@Gaesser1975; @Dickinson1929].
+
+Der Delta-Wirkungsgrad (η~delta~) weist mit Ausnahme von η~Muskulär~ die höchsten Werte der verschiedenen Berechnungsmethoden auf. Die dokumentierten Werte bewegen sich typischerweise zwischen 23% und 28%. Die Spannweite reicht von Minimalwerten um 20% [@Suzuki1979] bis zu Maximalwerten von über 32% [@Francescato1995]. Im Gegensatz zu η~brutto~ und η~netto~ zeigt η~delta~ keinen Abfall mit steigender Trittrate, da durch die Berechnungsmethode der Energieumsatz für das Pedalieren ohne Last, welcher mit steigender Drehzahl zunimmt, nicht einbezogen wird. So berichten @Francescato1995, @Chavarren1999 und @Gaesser1975 sogar einen Anstieg des η~delta~ mit steigender Drehzahl. Differenzierte Ergebnisse zeigen sich bei @Suzuki1979: Bei Probanden mit überwiegend schnellen Muskelfasern (FT) steigt η~delta~ bei hohen Drehzahlen an, während bei Probanden mit überwiegend langsamen Muskelfasern (ST) η~delta~ bei hohen Drehzahlen abnimmt.
+
+Der Arbeitswirkungsgrad (η~Arbeit~) wurde in zwei der in @tbl-Wirkungsgrad dargestellten Studien systematisch untersucht. @Gaesser1975 dokumentiert Werte zwischen 25% und 28%, während @Luhtanen1987 einen Bereich von 21,0% bis 29,7% berichtet. Die Werte bewegen sich damit in einer ähnlichen Größenordnung wie der Delta-Wirkungsgrad. Bezüglich der Einflussfaktoren zeigen sich unterschiedliche Effekte: @Gaesser1975 beobachtet einen Anstieg des η~Arbeit~ mit zunehmender Trittfrequenz. @Luhtanen1987 dokumentiert eine Reduktion des η~Arbeit~ bei steigender Belastungsintensität.
+
+Der Muskuläre Wirkungsgrad (η~Muskulär~) wurde in @tbl-Wirkungsgrad nur von @Bell2009 berichtet und bei normalen Muskeltermperatur werten von durschnittlich 30.2 ± 3.1 bei älteren Menschen und 32.0 ± 3.1 % bei Jungen und bei erhöhten Muskeltemperatur werten von durschnittlich 27.9 ± 4.1 bei älteren 34.0 ± 5.5% bei jüngeren werten angebene. Hier zeigen sich inverse Effekte. Während bei den jungen  der Wirkungsgrad snstiegt mi erhöhter muskeltempaeratur sinkt er bei älteren menschen. Diese berichtetn WErte sind die höchsten durchschnittlichen η WErte aller Wirkungsgrad wertein @tbl-Wirkungsgrad. 
+
+Obwohl ein erhöhter η~Muskulär~ aufgrund der Einbeziehung der internen Arbeit für die Aufrechterhaltung der Pedallierbewegung im Vergleich zu den in dieser Studie berichteten η~netto~ Wert als plausibel erscheint, erscheinen die dokumentierten Werte im Vergleich zu den anderen in @tbl-Wirkungsgrad berichteten η~arbeit~ und η~delta~ Werten außergewöhnlich hoch. Dies gilt ebenso für den von @Bell2009 dokumentierten η~netto~ Wert im Vergleich zu den übrigen Studien. Die Autoren selbst diskutieren diese Auffälligkeit und deuten eine mögliche Überschätzung ihrer Werte im Vergleich zur existierenden Literatur an.
+
+
+@fig-dePauw
+
+![Leistungsniveaus De Pauw et al. (2013)](images/de_Pauw_Leistungsniveau.png){#fig-dePauw .caption} 
+
+@tbl-Wirkungsgrad
+
+
+
+
+
 
 ## Limitationen bei Wirkungsgradberechnungen
 
 Neben den genannten Studien gibt es noch weitere Untersuchungen, welche den Wirkungsgrad im Radsport ermittelt haben. Bei diesen Untersuchungen ist jedoch zu beachten, dass bei der Berechnung des Wirkungsgrades verschiedene Faktoren berücksichtigt werden müssen, die das Ergebnis beeinflussen können. Die verschiedenen Wirkungsgrade verhalten sich unterschiedlich in Bezug auf Änderungen von P~mech~ bei körperlicher Belastung auf dem Radergometer. Zum Beispiel hängt η~brutto~ stark von der Belastungsintensität ab und steigt, wenn P~mech~ zunimmt. Dies liegt daran, dass der prozentuale Anteil des Ruhestoffwechsels, das heißt der Energie, die für die Aufrechterhaltung grundlegender Körperfunktionen im Ruhezustand erforderlich ist, abnimmt, wenn die Gesamtleistung während sportlicher Aktivitäten ansteigt. η~Arbeit~ und η~delta~ verhalten sich ähnlich [@Boning1984]. Im Gegensatz dazu ist η~netto~ weniger leistungsabhängig [@Chavarren1999; @Coast1985]. Bei der Berechnung von η~netto~ werden Veränderungen der Trittrate nicht berücksichtigt, obwohl diese den Nettowirkungsgrad beeinflussen können, selbst wenn P~mech~ unverändert bleibt.
+
+
 
 ```{r}
 #Studien präzisieren welche Defizite aufweißen
@@ -139,7 +159,9 @@ P~Int~ berechnet sich aus der rotatorischen kinetischen Energiekomponente (E~kin
 #Zudem sollte die potenzielle Energie und deren Nutzung für die Hubarbeit des gesamten Körperschwerpunktes berücksichtigt werden.
 ```
 
-Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die Aufrechterhaltung der Gesamtbweegung essentiell. Dies steht im Gegensatz zur externen Arbeit (W~Ext~), die direkt mechanische Energie auf das System überträgt, um Vortrieb zu erzeugen. Verschiedene Faktoren beeinflussen die aufzubringende innere Arbeit und führen speziell bei hohen Trittraten zu mehr metabolischen Kosten. Dazu zählen die durch die Hill-Gleichung beschriebene verringerte Muskelkraft bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Agonisten/Antagonisten-Aktivierung mit verstärktem Abbremsen sowie Reibungs- und Viskositätswiderstände in Gelenken und Strukturen. Besonders das verstärkte Abbremsen bei hohen Drehzahlen durch die Antagonisten erhöht die Blindleistungsanforderungen. Die innere Arbeit sowie deren Berechnung wird in dem Abschnitt "Innere Arbeit" genauer beschrieben.<br> Soll P~Int~ bei der Wirkungsgradberechnung berücksichtigt werden, eignet sich der sogenannte muskuläre Wirkungsgrad (η~muskulär~) (auch "true efficiency" nach @Luhtanen1987). Dieser beachtet die aufgewandte W~Int~ in der Berechnung und ist daher weniger von Änderungen der Trittrate abhängig als η~netto~.
+Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die Aufrechterhaltung der Gesamtbweegung essentiell. Dies steht im Gegensatz zur externen Arbeit (W~Ext~), die direkt mechanische Energie auf das System überträgt, um Vortrieb zu erzeugen. Verschiedene Faktoren beeinflussen die aufzubringende innere Arbeit und führen speziell bei hohen Trittraten zu mehr metabolischen Kosten. Dazu zählen die durch die Hill-Gleichung beschriebene verringerte Muskelkraft bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Agonisten/Antagonisten-Aktivierung mit verstärktem Abbremsen sowie Reibungs- und Viskositätswiderstände in Gelenken und Strukturen. Besonders das verstärkte Abbremsen bei hohen Drehzahlen durch die Antagonisten erhöht die Blindleistungsanforderungen. Die innere Arbeit sowie deren Berechnung wird in dem Abschnitt "Innere Arbeit" genauer beschrieben.<br> Soll P~Int~ bei der Wirkungsgradberechnung berücksichtigt werden, eignet sich der sogenannte muskuläre Wirkungsgrad (η~muskulär~) @Boning2017 (auch "true efficiency" nach @Luhtanen1987). Dieser beachtet die aufgewandte W~Int~ in der Berechnung und ist daher weniger von Änderungen der Trittrate abhängig als η~netto~.
+
+**Einfluss der Trittrate auch in @Beneke2001 gut zusammengefasst!!!!!!!!!!!**
 
 ```{r}
 ## Link Sections
@@ -166,11 +188,45 @@ Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die A
 
 Ein weiterer Aspekt, der in vielen Untersuchungen des Wirkungsgrades beim Radfahren ungenau bestimmt wurde, ist der physiologische Gesamtenergieumsatz. Häufig wurden nicht die verschiedenen Energiekomponenten (aerobe, anaerobe-laktazide sowie anaerobe-alaktazide Energiekomponente) berechnet, sondern nur der Sauerstoffvolumenstrom[^2] gemessen und als Grundlage für die Wirkungsgradberechnung der während der Belastung umgesetzten chemischen Energie verwendet [@Boning2017]. Dadurch wird insbesondere bei hochintensiven Belastungen die Menge des durch anaerobe Glykolyse und energiereiche Phosphate bereitgestellten ATPs vernachlässigt, was zu einer Unterschätzung der gesamten umgesetzten chemischen Energie führt [@Brooks2004, 354].
 
-[^2]: Der Sauerstoffvolumenstrom oder auch Sauerstofffluss bezeichnet die Menge an Sauerstoff, die innerhalb einer bestimmten Zeitspanne durch ein System oder eine Einheit fließt. In der Sportwissenschaft werden diese Begriffe normalerweise gleichbedeutend mit dem Begriff "Sauerstoffaufnahme" verwendet. In dieser Arbeit beschreibt die Sauerstoffaufnahme das Gesamtvolumen an Sauerstoff, das der Körper innerhalb einem bestimmten Zeitintervall aufgenommen
+[^2]: Der Sauerstoffvolumenstrom oder auch Sauerstofffluss bezeichnet die Menge an Sauerstoff, die innerhalb einer bestimmten Zeitspanne durch ein System oder eine Einheit fließt. In der Sportwissenschaft werden diese Begriffe normalerweise gleichbedeutend mit dem Begriff "Sauerstoffaufnahme" verwendet. In dieser Arbeit beschreibt die Sauerstoffaufnahme das Gesamtvolumen an Sauerstoff, das der Körper innerhalb einem bestimmten Zeitintervall aufgenommen hat.
 
 ```{r}
 # Überleitung Energieberechnung
 ```
+
+### Wirk Delta
+
+In der folgenden Arbeit werden alle in Tabell oben beschirebenen Wirkunggrade für die voliegenden Datne berechnet mit der ausnahme von Wirk_Delta. Wirk delta kann aber wie folge beserchnet werden: 
+### Genaue Berechnugn von Delta Efficiency 
+Die Delta-Effizienz (Δη) quantifiziert den mechanischen Wirkungsgrad während zyklischer Bewegungen am Fahrradergometer und wird aus der linearen Beziehung zwischen Sauerstoffaufnahme (V̇O₂) und externer mechanischer Leistung (P) ermittelt. Die Berechnung basiert auf einer linearen Regressionsanalyse der Form:
+
+V̇O₂ = a + bP
+
+wobei:
+- a = y-Achsenabschnitt [mlO₂·min⁻¹]
+- b = Steigung der Regressionsgeraden [mlO₂·W⁻¹·min⁻¹]
+
+Die gemessenen V̇O₂-Werte [mlO₂·min⁻¹] werden unter Berücksichtigung des respiratorischen Quotienten (RQ) in mechanische Leistung transformiert. Das kalorische Äquivalent (kcal·lO₂⁻¹) wird dabei für den jeweiligen RQ-Wert bestimmt und in Joule umgerechnet. Aufgrund der zeitlichen Dimension der V̇O₂-Werte (min⁻¹) erfolgt eine Konversion in Sekunden.
+
+Gegeben:
+- Steigung b = 11,65 mlO₂·kg⁻¹·W⁻¹
+- RQ = 0,97
+- Kalorisches Äquivalent bei RQ 0,97 ≈ 4,985 kcal·lO₂⁻¹
+- Umrechnung: 1 kcal = 4186,8 J
+
+Berechnung:
+Δη = 1/(b × (4,985 × 4186,8/1000)/60)
+Δη = 1/(11,65 × 20,87/60)
+Δη = 1/4,053
+Δη ≈ 0,247 = 24,7%
+
+Die ermittelte Delta-Effizienz von 24,7% repräsentiert einen biomechanisch plausiblen Wert für submaximale zyklische Bewegungen am Fahrradergometer. Die Berechnung berücksichtigt sowohl das spezifische kalorische Äquivalent in Abhängigkeit vom respiratorischen Quotienten als auch die erforderliche temporale Transformation.
+
+Siehe @Francescato1995, @Gaesser1975, @Zoladz2023a, @Ettema2009
+
+
+
+
 
 # Quellenverzeichnis
 

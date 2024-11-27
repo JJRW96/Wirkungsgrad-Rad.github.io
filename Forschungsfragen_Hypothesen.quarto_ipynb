@@ -1,0 +1,73 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Forschungsfragen & Hypothesen\"\n",
+        "\n",
+        "execute:\n",
+        "  message: false\n",
+        "  echo: false\n",
+        "  warning: false\n",
+        "  error: false\n",
+        "  \n",
+        "bibliography: references.bib\n",
+        "lang: de\n",
+        "number-sections: false\n",
+        "---\n",
+        "\n",
+        "```{css}\n",
+        "#| echo: false\n",
+        "p {\n",
+        "  text-align: justify\n",
+        "}\n",
+        "caption, .figure-caption {\n",
+        "  text-align: left;\n",
+        "}\n",
+        "figure.quarto-float-tbl figcaption {\n",
+        "  text-align: left !important;\n",
+        "}\n",
+        "\n",
+        "```\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "Aus dem zuvor vorgestellten Forschungsdefizit und dem daraus folgenden Ziel der Arbeit ergeben sich folgende Forschungsfrage und Hypothesen.\n",
+        "\n",
+        "## Forschungsfrage:\n",
+        "\n",
+        "Wie unterscheidet sich der muskuläre Wirkungsgrad bei verschiedenen Belastungsintensitäten auf dem Radergometer im Sitzen und Stehen?\n",
+        "\n",
+        "Die Forschungsfrage zielt darauf ab, die Effizienz der Bewegungsausführung unter verschiedenen Körperhaltungen und Intensitätsstufen zu untersuchen und trägt damit zum Verständnis der biomechanischen Zusammenhänge im Radsport bei.\n",
+        "\n",
+        "## Hypothesen:\n",
+        "\n",
+        "1.  Hypothese zur niedrigen Belastungsintensität:\n",
+        "\n",
+        "    -   Der muskuläre Wirkungsgrad bei niedrigen Intensitäten ist im Sitzen signifikant höher als der muskuläre Wirkungsgrad im Stehen.\n",
+        "\n",
+        "2.  Hypothese zur moderaten und hohen Belastungsintensität:\n",
+        "\n",
+        "    -   Der muskuläre Wirkungsgrad bei moderaten und hohen Intensitäten im Sitzen unterscheidet sich nicht signifikant von dem muskulären Wirkungsgrad im Stehen.\n",
+        "\n",
+        "Zur Prüfung der Hypothesen wird der muskuläre Wirkungsgrad für jede Bedingungen (Stehen und Sitzen) sowie jede INtensität (licht, moderat, schwer) bestimmt und kann dann anschließend statsitisch untersucht werdne.\n",
+        "\n",
+        "Statistische Prüfung: H0: Es besteht kein signifikanter Unterschied im muskulären Wirkungsgrad zwischen Sitzen und Stehen bei verschiedenen Belastungsintensitäten. H1: Es besteht ein signifikanter Unterschied im muskulären Wirkungsgrad zwischen Sitzen und Stehen bei verschiedenen Belastungsintensitäten."
+      ],
+      "id": "c2437e60"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

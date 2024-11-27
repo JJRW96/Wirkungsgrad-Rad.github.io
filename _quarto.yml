@@ -4,6 +4,9 @@ project:
   output-dir: _site
   resources: 
   - shinylive-sw.js
+  
+execute:
+  engine: knitr
  
 website:
   title: "Wirkungsgrad auf dem Radergometer im Sitzen und Stehen"
@@ -19,18 +22,19 @@ website:
     align: center
     style: "docked"
     search: true
-    collapse-level: 3
+    collapse-level: 2 #Ab welchem Level die Unterpunkt nicht mehr angezeigt werden. Bei 2 wird bspw. bei Energieumsatz die Unterpunkte eingeklappt
     contents:
-      - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
-        contents: 
-          - Theoretischer_Hintergrund/Wirkungsgrad_Theorie.qmd
-          - section: Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.qmd
-            contents:
-              - Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.qmd
-              - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.qmd
-              - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.qmd
-          - Theoretischer_Hintergrund/Innere_Arbeit.qmd
-          - Theoretischer_Hintergrund/Sitzen_Stehen.qmd
+      #- section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
+        #contents: 
+           #- Theoretischer_Hintergrund/Wirkungsgrad_Theorie.qmd
+          #- section: Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.qmd
+           # contents:
+              #- Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.qmd
+               #- Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.qmd
+              #- Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.qmd
+          #- Theoretischer_Hintergrund/Innere_Arbeit.qmd
+          #- Theoretischer_Hintergrund/Sitzen_Stehen.qmd
+      - Forschungsfragen_Hypothesen.qmd
       - section: Methodik/index_Methodik.qmd
         contents: 
           - Methodik/Stichprobe.qmd
@@ -38,47 +42,16 @@ website:
           - Methodik/Studiendesign.qmd
       - section: Ergebnisse/index_Ergebnisse.qmd
         contents:
+          - Ergebnisse/Drehzahl_Stufentests.qmd
           - Ergebnisse/VO2_Daten.qmd
           - Ergebnisse/EPOC_Daten.qmd
-          - Ergebnisse/Laktat_Daten.qmd
-          - section: Ergebnisse/Ergometer/index_Ergometer.qmd
-            contents: 
-              - Ergebnisse/Ergometer/Efficiency.qmd
-              - Ergebnisse/Ergometer/Innere_Arbeit_Results.qmd
-              - Ergebnisse/Ergometer/Pedal_Smoothness.qmd 
-      - Datensätze.qmd
+          - Ergebnisse/Ergometer_Daten.qmd
+          - Ergebnisse/Wirkungsgrad_Statistik.qmd
+      - Diskussion.qmd
+      #- Datensätze.qmd
+      - Abkuerzungsverzeichnis.qmd
       - Quellen.qmd
       
-      
-      #- Test.qmd
-       #- section:Ergebnisse/EPOC/index_EPOC.qmd
-          #contents:
-            #- Ergebnisse/EPOC/Proband01.qmd
-            #- Ergebnisse/EPOC/Proband06.qmd
-            #- Ergebnisse/EPOC/Proband10.qmd 
-            #- Ergebnisse/EPOC/Proband13.qmd
-            #- Ergebnisse/EPOC/Proband15.qmd 
-            #- Ergebnisse/EPOC/Proband19.qmd
-            #- Ergebnisse/EPOC/Proband20.qmd 
-            #- Ergebnisse/EPOC/Proband22.qmd
-            #- Ergebnisse/EPOC/Proband23.qmd
-            #- section: EPOC/index_EPOC.qmd
-        #contents: 
-          #- EPOC/Proband01.qmd
-          #- EPOC/Proband06.qmd
-          #- EPOC/Proband10.qmd 
-          #- EPOC/Proband13.qmd
-          #- EPOC/Proband15.qmd 
-          #- EPOC/Proband19.qmd
-          #- EPOC/Proband20.qmd 
-          #- EPOC/Proband22.qmd
-          #- EPOC/Proband23.qmd 
-      #- Laktat.qmd
-      #- section: Ergometer/index_Ergometer.qmd
-        #contents: 
-          #- Ergometer/Efficiency.qmd
-          #- Ergometer/Innere_Arbeit_Results.qmd
-          #- Ergometer/Pedal_Smoothness.qmd 
 
 lang: de
 number-sections: true
@@ -93,8 +66,8 @@ format:
       gutter-width: 1.5rem
       
     theme:
-      light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
-      dark: [cosmo, theme-dark.scss]
+      light: cosmo
+      dark: [cosmo, theme-dark.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
     css: styles.css
     toc: true
     toc-expand: 3
