@@ -75,7 +75,9 @@ Hypothesen:
 
 ### Warum η~muskulär~ so wie er sit
 η~muskulär~ und η~Total~ bis uaf die Einbeziheung der inneren Arbeit gleich. Innere Arbeit in Sitzenn durcshchnittlic 37.5 ± 11.3 und im Stehen 22.1 ± 6.9 mit signifikanten Unterschide. Beid über die Intensitäten konstatnt, da Drehzahlabhänigg und diese war jeweils gleich.  Deshalb auch deutlich größere Differenz zwsichen  η~muskulär~ und η~Total~ von leichter und schwerer Intensität von durschchnittlich 0.80 bzw. 0.34, da PInt fast gleichbleibt, aber der pyhiologische Energieumsatz steigt. Da PInt in Sitzen signifikant höher war ist η~muskulär~ auch höher ims itzen als stehen. Denn ohen Pint wie in η~total~ keine isgnifikanz.
-Dehalb zeigt η~Total~ eher die anhand der Literatur erwarteten Verhalten. 
+Dehalb zeigt η~Total~ eher die anhand der Literatur erwarteten Verhalten.
+
+FAZIT: Wirk muskulär wahrscheinlich nur für das Sitzen repräsentativ, aber für die Stheen Bedingung wahrscheinlich etwas unterschätzt, da PInt im stehen vermutlich unterschätzt wurde.
 
 ## Weitere Wirkungsgrade {.unlisted}
 
@@ -113,6 +115,7 @@ Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 ## Limitationen
 
 -   Stichprobengröße
+- Lecihte Intensität zu schwer und mittlere wohl auch
 -  Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche Drehzahl kaum höher als im Sitzen
 - Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen auf die EPOC-Messung und keine geregelte Drehzahl in deise rphase
 - Zu Kruze ERholung nach den jeweiige nBElstungen, vor allem an Testtag 2 nach dem Sprinttetst. Sprinttest unnötig keine Rückckkerh auf Laktat bAseline

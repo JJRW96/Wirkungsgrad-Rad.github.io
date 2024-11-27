@@ -637,7 +637,7 @@ shinyApp(ui = ui, server = server)
 
 ::: columns
 ::: {.column width="60%"}
-Die folgenden Tabellen bieten sowohl eine detaillierte deskriptive Auswertung als auch inferenzstatistische Analysen der berechneten Wirkungsgrade (Berechnungswege siehe @tbl-Wirkungsgrad_Berechnungen) sowie dafür relevanter Parameter des Energiestoffwechsels und ergometrischer Parameter, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden zunächst in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. In den weiteren Tabellen erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen; @tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer; @tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren (@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zusätzlich werden die Ergebnisse der Post-hoc Analysen mittels Tukey HSD Test für die Vergleiche der verschiedenen Intensitäten sowohl gesamt (@tbl-Post_hoc_Intensitaet_Wirk_muskulär & @tbl-Post_hoc_Intensitaet_Wirk_Arbeit) als auch spezifisch für die sitzende Position (@tbl-Post_hoc_sitzen) präsentiert. Ergänzend zeigt eine einfaktorielle ANOVA die Vergleiche von η~muskulär~ zwischen den Bedingungen Sitzen und Stehen für jede Intensitätsstufe (@tbl-ANOVA).<br>
+Die folgenden Tabellen bieten sowohl eine detaillierte deskriptive Auswertung als auch inferenzstatistische Analysen der berechneten Wirkungsgrade (Berechnungswege siehe @tbl-Wirkungsgrad_Berechnungen) sowie dafür relevanter Parameter des Energiestoffwechsels und ergometrischer Parameter, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden zunächst in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. In den weiteren Tabellen erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen; @tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer; @tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren (@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zusätzlich werden die Ergebnisse der Post-hoc Analysen mittels Tukey HSD Test für die Vergleiche der verschiedenen Intensitäten sowohl gesamt (@tbl-Post_hoc_Intensitaet_Wirk_muskulär & @tbl-Post_hoc_Intensitaet_Wirk_Arbeit) als auch spezifisch für die sitzende Position (@tbl-Post_hoc_sitzen) präsentiert. Ergänzend zeigt eine einfaktorielle ANOVA die Vergleiche von η~muskulär~ zwischen den Bedingungen Sitzen und Stehen für jede Intensitätsstufe (@tbl-ANOVA_Wirk_muskulaer).<br>
 Die analysierten Parameter umfassen die Wirkungsgrade η~muskulär~, η~Total~, η~Netto~, η~Brutto~, η~Arbeit,sitzen~ sowie die Komponenten der Energiebereitstellung W~TOT~, W~Aerob~, W~PCr~, W~BLC~ und die Delta-Blutlaktatakkumulation ΔBLC. Die Leistungsparameter P~Tot~, P~mech~, P~Int~ sowie die Drehzahl werden ebenfalls dargestellt.
 :::
 
@@ -756,14 +756,25 @@ ft_post_hoc_sitzen
 ```
 
 ```{r}
-#| label: tbl-ANOVA
+#| label: tbl-ANOVA_Wirk_muskulaer
 #| tbl-cap-location: top
-#| tbl-cap: "Einfaktorielle ANOVAs zum Vergleich der Intensitäten je Bedingung"
+#| tbl-cap: "Einfaktorielle ANOVAs zum Vergleich des muskulären Wirkungsgrades der verschiedenen Intensitäten je Bedingung"
 
-ft_anova <- readRDS("rds/ft_anova.rds")
+ft_anova_Wirk_muskulär <- readRDS("rds/ft_anova_Wirk_muskulär.rds")
 
 # Anzeigen der Tabelle
-ft_anova
+ft_anova_Wirk_muskulär 
+```
+
+```{r}
+#| label: tbl-ANOVA_Wirk_Total
+#| tbl-cap-location: top
+#| tbl-cap: "Einfaktorielle ANOVAs zum Vergleich des Gesamtwirkungsgrades der verschiedenen Intensitäten je Bedingung"
+
+ft_anova_Wirk_Total <- readRDS("rds/ft_anova_Wirk_Total.rds")
+
+# Anzeigen der Tabelle
+ft_anova_Wirk_Total 
 ```
 
 ```{r}
@@ -795,13 +806,15 @@ ft_post_hoc_Stehen_Wirk_Brutto
 Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Unterschied zwischen den Bedingungen (F(1,8) = 7.64, p = .024, η~p~^2^ = .489).<br>
 Bei Betrachtung der verschiedenen Intensitätsstufen zeigt sich ein systematischer Abfall des η~muskulär~ von 24.94 ± 1.27% bei leichter über 24.50 ± 1.01% bei moderater bis zu 24.14 ± 0.90% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). Die Post-hoc-Analysen zeigen einen tendenziell signifikanten Unterschied zwischen leichter und schwerer Intensität mit einer mittleren Effektstärke (p = .074, d = .75), während die Vergleiche zwischen moderater und leichter Intensität (p = .443, d = 0.41) sowie zwischen schwerer und moderater Intensität (p = .574, d = 0.34) keine signifikanten Unterschiede aufweisen.<br>
 Die einfaktorielle Varianzanalyse des η~muskulär~ innerhalb der Bedingungen zeigt in sitzender Position einen signifikanten Effekt der Intensität (F(2,16) = 10.19, p = .001, η~p~^2^ = .560). Die Post-hoc-Analysen zeigen zwischen leichter und schwerer Intensität einen signifikanten Unterschied mit einer großen Effektstärke (p = .017, d = 1.31). Der Vergleich zwischen moderater und leichter Intensität weist eine große Effektstärke auf, erreicht jedoch keine Signifikanz (p = .217, d = .83). Zwischen schwerer und moderater Intensität zeigt sich ein nicht-signifikanter Unterschied bei mittlerer Effektstärke (p = .427, d = .63) (@tbl-Post_hoc_sitzen). In der stehenden Position hingegen bleibt der η~muskulär~ über die Intensitäten hinweg relativ stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F(2,16) = 0.55, p = .590, η~p~^2^ = .064).<br>
-Eine differenzierte Analyse der Positionen (sitzend/stehend) innerhalb der einzelnen Intensitätsstufen zeigt, dass der Unterschied zwischen sitzender und stehender Position mit zunehmender Intensität abnimmt. Bei leichter Intensität zeigt der Vergleich zwischen sitzender und stehender Position einen hochsignifikanten Unterschied (F(1,8) = 16.63, p = .004, η~p~^2^ = .675), bei moderater Intensität einen tendenziell signifikanten Unterschied (F(1,8) = 5.26, p = .051, η~p~^2^ = .397) und bei schwerer Intensität keine signifikanten Unterschiede zwischen den Positionen (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) (@tbl-ANOVA). <br>
+Eine differenzierte Analyse der Positionen (sitzend/stehend) innerhalb der einzelnen Intensitätsstufen zeigt, dass der Unterschied zwischen sitzender und stehender Position mit zunehmender Intensität abnimmt. Bei leichter Intensität zeigt der Vergleich zwischen sitzender und stehender Position einen hochsignifikanten Unterschied (F(1,8) = 16.63, p = .004, η~p~^2^ = .675), bei moderater Intensität einen tendenziell signifikanten Unterschied (F(1,8) = 5.26, p = .051, η~p~^2^ = .397) und bei schwerer Intensität keine signifikanten Unterschiede zwischen den Positionen (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) (@tbl-ANOVA_Wirk_muskulaer). <br>
 Die ermittelten η~muskulär~-Werte dieser Studie liegen, mit durchschnittlich 24.53 ± 1.10%, deutlich unterhalb der in @tbl-Wirkungsgrad dokumentierten Werte für η~muskulär~ von 31.0 ± 4.3% [@Bell2009]. Dass die hier ermittelten Werte niedriger ausfallen ist nachvollziehbar, da die Ergebnisse von @Bell2009 auch im Vergleich zur übrigen Literatur außergewöhnlich hohe Wirkungsgrade aufweisen, was auch in der Originalpublikation kritisch reflektiert wurde. Eine direkte Vergleichbarkeit der Absolutwerte ist daher nur eingeschränkt gegeben.
 
 #### Gesamtwirkungsgrad { .unlisted} 
 Der Gesamtwirkungsgrad η~Total~ liegt mit durchschnittlich 22.19 ± 1.07% (Range (R): 19.77-24.72%) erwartungsgemäß unter dem η~muskulär~. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 22.06 ± 0.70%, stehen: 22.32 ± 1.34%). Die nicht-parametrische Analyse mittels Wilcoxon-Test bestätigt dabei keine signifikanten Unterschiede zwischen den Bedingungen (V = 139, p = .234, r = .229). Auch über die Intensitäten hinweg bleibt η~Total~ weitgehend stabil mit einem leichten Abfall von 22.35 ± 1.10% bei leichter zu 22.01 ± 0.96% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt entsprechend keinen signifikanten Effekt der Intensität (F~(2,16)~ = 1.26, p = .311, η~p~^2^ = .136).<br>
 Bei differenzierter Betrachtung des η~Total~ innerhalb der Bedingungen zeigt sich in sitzender Position ein tendenziell signifikanter Effekt der Intensität (F~(2,16)~ = 3.11, p = .072) mit großer Effektstärke (η~p~^2^ = .280). In der stehenden Position hingegen bleibt der η~Total~ über die Intensitäten hinweg sehr stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F~(2,16)~ = 0.09, p = .911, η~p~^2^ = .012).<br>
 Bei leichter und moderater Intensität zeigte der Vergleich zwischen sitzender und stehender Position keine signifikanten Unterschiede (F(1,8) = 0.031, p = .865, η~p~^2^ = .004; F(1,8) = 0.663, p = .439, η~p~^2^ = .077). Bei schwerer Intensität präsentierte sich ein nicht signifikanter Unterschied mit großer Effektstärke (F(1,8) = 2.388, p = .161, η~p~^2^ = .230).
+
+Die Analyse zwischen sitzender und stehender Position offenbarte bei leichter Intensität keinen signifikanten Unterschied (F(1,8) = 0.210, p = .659, η~p~^2^ = .026). Auch bei moderater Intensität zeigten sich keine signifikanten Abweichungen (F(1,8) = 0.658, p = .441, η~p~^2^ = .076). Bei schwerer Intensität wurde ein nicht signifikanter Unterschied mit großer Effektstärke beobachtet (F(1,8) = 2.557, p = .148, η~p~^2^ = .242).<br>
 
 #### Bruttowirkungsgrad { .unlisted} 
 Der Nettowirkungsgrad η~Netto~ beträgt durchschnittlich 24.94 ± 1.23% (R: 22.13-28.18%). Zwischen den Bedingungen (sitzen: 24.81 ± 0.82%, stehen: 25.07 ± 1.55%) zeigt der Wilcoxon-Test keine signifikanten Unterschiede (V = 139, p = .234, r = .229). Über die Intensitäten hinweg ist ein leichter Anstieg von 24.79 ± 1.22% bei leichter zu 25.08 ± 1.30% bei schwerer Intensität zu beobachten. Die einfaktorielle Varianzanalyse zeigt jedoch keinen signifikanten Effekt der Intensität (F(2,16) = 0.59, p = .565, η~p~^2^ = .069).<br>

@@ -2126,7 +2126,7 @@ anova_results_Wirk_Brutto <- anova_results_list[[4]]
 
 ################################################################
 # Erstellen der Flextable für Wirk_muskulär
-ft_anova <- flextable(anova_results_Wirk_muskulär) %>%
+ft_anova_Wirk_muskulär <- flextable(anova_results_Wirk_muskulär) %>%
   set_header_labels(
     Vergleich = " ",  # Temporärer Platzhalter
     F_Wert = "F-Statistik",
@@ -2169,7 +2169,7 @@ ft_anova <- flextable(anova_results_Wirk_muskulär) %>%
     values = as_paragraph(
       "Signifikanzniveaus: *** p < 0.001; ** p < 0.01; * p < 0.05"
     ),
-    colwidths = 6
+    colwidths = 7
   ) %>%
   line_spacing(space = 1.2, part = "footer") %>%
   font(fontname = "Source Sans Pro", part = "all") %>%
@@ -2189,22 +2189,103 @@ ft_anova <- flextable(anova_results_Wirk_muskulär) %>%
   )
 
 # Setzen der Tabelle auf volle Breite
-ft_anova <- set_table_properties(
-  ft_anova, 
+ft_anova_Wirk_muskulär <- set_table_properties(
+  ft_anova_Wirk_muskulär, 
   width = 1, 
   layout = "autofit"
 )
 
 # Anzeigen der Tabelle
-ft_anova
+ft_anova_Wirk_muskulär
 
 # Speichern in ...Probanden_Energieberechnung/xlsm
-saveRDS(ft_anova, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova.rds")
-ft_anova <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova.rds")
+saveRDS(ft_anova_Wirk_muskulär, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova_Wirk_muskulär.rds")
+ft_anova_Wirk_muskulär <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova_Wirk_muskulär.rds")
 
 # Speichern in ...Ergebnisse/rds
-saveRDS(ft_anova, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova.rds")
-ft_anova <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova.rds")
+saveRDS(ft_anova_Wirk_muskulär, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova_Wirk_muskulär.rds")
+ft_anova_Wirk_muskulär <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova_Wirk_muskulär.rds")
+########################################################################################
+# Erstellen der Flextable für Wirk_Total
+ft_anova_Wirk_Total <- flextable(anova_results_Wirk_Total) %>%
+  set_header_labels(
+    Vergleich = " ",  # Temporärer Platzhalter
+    F_Wert = "F-Statistik",
+    df1 = "df",  
+    df2 = "df", 
+    p_Wert = "Signifikanzniveau",
+    partial_eta = "η²p"  # Geändert von ges zu partial_eta
+  ) %>%
+  compose(
+    part = "header",
+    i = 1, j = "Vergleich",
+    value = as_paragraph("ANOVA: Vergleiche von ", "η", as_sub("Total"))
+  ) %>%
+  compose(
+    part = "header",
+    i = 1,
+    j = "partial_eta",  # Geändert von ges zu partial_eta
+    value = as_paragraph("η", as_sup("2"))  
+  ) %>%
+  compose(  # df mit Zähler
+    part = "header",
+    j = "df1",
+    value = as_paragraph("df", as_sub("Zähler"))
+  ) %>%
+  compose(  # df mit Nenner
+    part = "header",
+    j = "df2",
+    value = as_paragraph("df", as_sub("Nenner"))
+  ) %>%
+  theme_zebra(
+    odd_header = "grey92",
+    even_header = "grey92",
+    odd_body = "#F9F9F9",
+    even_body = "#FFFFFF"
+  ) %>%
+  align(align = "center", part = "all") %>%
+  align(j = 1, align = "left", part = "all") %>%
+  bold(part = "header") %>%
+  add_footer_row(
+    values = as_paragraph(
+      "Signifikanzniveaus: *** p < 0.001; ** p < 0.01; * p < 0.05"
+    ),
+    colwidths = 7
+  ) %>%
+  line_spacing(space = 1.2, part = "footer") %>%
+  font(fontname = "Source Sans Pro", part = "all") %>%
+  fontsize(size = 13, part = "header") %>%
+  fontsize(size = 13, part = "body") %>%
+  fontsize(size = 11, part = "footer") %>%
+  padding(padding = 4, part = "all") %>%
+  border_outer(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  border_inner_h(part = "body", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  border_inner_v(part = "all", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline(i = 1, part = "header", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  hline_top(part = "footer", border = fp_border(color = "lightgrey", width = 0.5)) %>%
+  hline_bottom(part = "footer", border = fp_border(color = "darkgrey", width = 0.5)) %>%
+  colformat_double(
+    j = c("F_Wert", "partial_eta"),  # Geändert von ges zu partial_eta
+    digits = 3
+  )
+
+# Setzen der Tabelle auf volle Breite
+ft_anova_Wirk_Total <- set_table_properties(
+  ft_anova_Wirk_Total, 
+  width = 1, 
+  layout = "autofit"
+)
+
+# Anzeigen der Tabelle
+ft_anova_Wirk_Total
+
+# Speichern in ...Probanden_Energieberechnung/xlsm
+saveRDS(ft_anova_Wirk_Total, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova_Wirk_Total.rds")
+ft_anova_Wirk_Total <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/ft_anova_Wirk_Total.rds")
+
+# Speichern in ...Ergebnisse/rds
+saveRDS(ft_anova_Wirk_Total, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova_Wirk_Total.rds")
+ft_anova_Wirk_Total <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova_Wirk_Total.rds")
 
 ########################################################################################
 ##### Post-hoc für Intensitäten und Wirk_Brutto #####
