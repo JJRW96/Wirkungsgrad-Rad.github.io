@@ -509,7 +509,7 @@ Die innere Leistung wurde über verschiedene Berechnungsansätze ermittelt: Die 
 #| tbl-cap: "Gesamtdaten: Ergometrische Parameter: MW ± SD, Min & Max"
 
 library(flextable)
-ft_Ergometer_stats_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Ergometer_stats_mean.rds")
+ft_Ergometer_stats_mean <- readRDS("rds/ft_Ergometer_stats_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Ergometer_stats_mean
@@ -520,7 +520,7 @@ ft_Ergometer_stats_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Ergometrische Parameter: MW ± SD nach Bedingungen"
 
-ft_Ergometer_stats_Bedingung_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Ergometer_stats_Bedingung_mean.rds")
+ft_Ergometer_stats_Bedingung_mean <- readRDS("rds/ft_Ergometer_stats_Bedingung_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Ergometer_stats_Bedingung_mean
@@ -531,7 +531,7 @@ ft_Ergometer_stats_Bedingung_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Ergometrische Parameter: MW ± SD nach Intensitäten"
 
-ft_Ergometer_stats_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Ergometer_stats_Intensitaet_mean.rds")
+ft_Ergometer_stats_Intensitaet_mean <- readRDS("rds/ft_Ergometer_stats_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Ergometer_stats_Intensitaet_mean
@@ -542,7 +542,7 @@ ft_Ergometer_stats_Intensitaet_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Ergometrische Parameter: MW ± SD nach Bedingungen und Intensitäten"
 
-ft_Ergometer_stats_Bedingung_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Ergometer_stats_Bedingung_Intensitaet_mean.rds")
+ft_Ergometer_stats_Bedingung_Intensitaet_mean <- readRDS("rds/ft_Ergometer_stats_Bedingung_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Ergometer_stats_Bedingung_Intensitaet_mean

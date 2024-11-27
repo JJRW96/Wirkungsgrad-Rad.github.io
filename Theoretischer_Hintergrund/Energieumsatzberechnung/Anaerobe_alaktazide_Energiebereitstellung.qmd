@@ -287,7 +287,8 @@ Eine Zusammenstellung relevanter Referenzwerte aus der Fachliteratur, sowohl fü
 #| tbl-cap-location: top
 #| tbl-cap: "Gesamt-EPOC-Mengen & EPOC-Mengen der schnellen Komponente aus der Fachliteratur"
 
-ft_EPOC <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC.rds")
+library(flextable)
+ft_EPOC <- readRDS("rds/ft_EPOC.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC
@@ -302,7 +303,7 @@ ft_EPOC
 #| tbl-cap-location: top
 #| tbl-cap: "Literaturbasierte EPOC-Modellparameter der Bi-Exponentialfunktion"
 
-ft_EPOC_Modell <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_Modell.rds")
+ft_EPOC_Modell <- readRDS("rds/ft_EPOC_Modell.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC_Modell
@@ -943,7 +944,7 @@ sowie Normwerte aus der Fachliteratur dargestellt:
 #| tbl-cap-location: bottom
 #| tbl-cap: "Angaben zu PCr-Konzentrationen in der Fachliteratur"
 
-ft_PCr <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_PCr.rds")
+ft_PCr <- readRDS("rds/ft_PCr.rds")
 
 
 # Anzeigen der Tabelle

@@ -747,7 +747,7 @@ Die analysierten Parameter umfassen die Amplituden (A, B) und Zeitkonstanten (τ
 #| tbl-cap-location: top
 #| tbl-cap: "Gesamtdaten: Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD, Min & Max"
 
-ft_EPOC_stats_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_mean.rds")
+ft_EPOC_stats_mean <- readRDS("rds/ft_EPOC_stats_mean.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC_stats_mean
@@ -758,7 +758,7 @@ ft_EPOC_stats_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen"
 
-ft_EPOC_stats_Bedingung_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Bedingung_mean.rds")
+ft_EPOC_stats_Bedingung_mean <- readRDS("rds/ft_EPOC_stats_Bedingung_mean.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC_stats_Bedingung_mean
@@ -769,7 +769,7 @@ ft_EPOC_stats_Bedingung_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Intensitäten"
 
-ft_EPOC_stats_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Intensitaet_mean.rds")
+ft_EPOC_stats_Intensitaet_mean <- readRDS("rds/ft_EPOC_stats_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC_stats_Intensitaet_mean
@@ -780,7 +780,7 @@ ft_EPOC_stats_Intensitaet_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Parameter der EPOC-Modellanpassung und der W~PCr~: MW ± SD nach Bedingungen und Intensitäten"
 
-ft_EPOC_stats_Bedingung_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_EPOC_stats_Bedingung_Intensitaet_mean.rds")
+ft_EPOC_stats_Bedingung_Intensitaet_mean <- readRDS("rds/ft_EPOC_stats_Bedingung_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_EPOC_stats_Bedingung_Intensitaet_mean

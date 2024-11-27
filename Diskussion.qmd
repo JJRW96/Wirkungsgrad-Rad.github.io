@@ -15,74 +15,130 @@ editor:
 
 tbl-cap-location: bottom
 ---
-
 # Diskussion
-## Forschungsfragen und Hypothesen { .unlisted}
-Aufbau und Besprechung anhand der fomulierten Hypothesen:
+
+Aufbau der Diskussion anhand der fomulierten Forschungsfragen und
+Hypothesen:
 
 ### Forschungsfragen:
-*1.  Unterschiede des zwischen den Körperpositionen Sitzen und Stehen?*
-*2.  Unterschiede des muskulären Wirkungsgrades den Belastungsintensitäten?*
-*3.  Unterschiede des muskulären Wirkungsgrades zwischen den Belastungsintensitäten in den Körperpositionen?*
+
+1.  *Unterschiede des zwischen den Körperpositionen Sitzen und Stehen?*
+
+2.  *Unterschiede des η~muskulär~ den Belastungsintensitäten?*
+
+3.  *Unterschiede des η~muskulär~ zwischen den Belastungsintensitäten in
+    den Körperpositionen?*
 
 ### Hypothesen:
 
-1.  Vergleich der Körperpositionen Sitzen und Stehen:
-    -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen Sitzen und Stehen
-2.  Vergleich der Belastungsintensitäten leicht moderat und schwer:
-    -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen leichten, moderaten und schweren Belastungsintensitäten
-3.  Interaktion von Körperposition und Belastungsintensität:
-    -   Bei niedrigen Intensitäten gibt es keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
-    -   Bei mittleren und hohen Intensitäten gibt es keine statistisch signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
+1.  *Keine signifikanten Unterschiede des η~muskulär~ zwischen Sitzen
+    und Stehen*
+
+2.  *Keine signifikanten Unterschiede des η~muskulär~ zwischen leichten,
+    moderaten und schweren Belastungsintensitäten*
+
+3.  *Unterschiede zwischen den Intensitäten der Bedingungen*
+
+    1.  *Bei niedrigen Intensitäten gibt es keine signifikanten
+        Unterschiede des η~muskulär~ zwischen sitzender und stehender
+        Position.*
+
+    2.  *Bei mittleren und hohen Intensitäten gibt es keine statistisch
+        signifikanten Unterschiede des η~muskulär~ zwischen sitzender
+        und stehender Position*
+
+### Zu Hypothese 1
+
+-   η~muskulär~ signifikant höher in sitzender Position (24.98 ± 1.06% vs. 24.07 ±
+    0.96%) (F(1,8) = 7.64, p = .024, η~p~^2^ = .489) → Hypothese widerlegt
 
 
-### Vergleich der Körperpositionen Sitzen und Stehen
-- η~muskulär~ höher in sitzender Position (24.98 ± 1.06% vs. 24.07 ± 0.96%), Hypothese widerlegt
-- Mögliche Erklärung: Geringere Stabilisationsanforderungen, günstigere Körperposition im Sitzen
-- Unterschied reduziert sich bei höherer Intensität, da Positionseinfluss geringer wird
+### Zu Hypothese 2
 
-### Vergleich der Belastungsintensitäten
-- η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -> 24.14 ± 0.90%), Hypothese widerlegt
-- Mögliche Ursache: Erhöhter Anteil ineffizienter schnell-kontraktiler Fasern bei hoher Intensität
+-   Signifikanter Effekt der Intensität auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395).η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -\>
+    24.14 ± 0.90%)  → **Hypothese widerlegt**
 
-### Interaktion von Körperposition und Belastungsintensität
-- Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit Intensität ab
-- Bestätigt Hypothese teilweise: Kein Unterschied bei hoher Intensität
+-   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .074, d = .75). Moderat und leicht (p = .443, d = 0.41) sowie moderat und schwerer  (p = .574, d = 0.34) nicht signifikant
 
-## Weitere Wirkungsgrade { .unlisted}
-- η~Total~: Keine Unterschiede zwischen Positionen und Intensitäten
-    - Kompensation der η~muskulär~-Unterschiede auf übergeordneter Ebene
-- η~Netto~: Anstieg nur in stehender Position mit Intensität
-    - Abweichend von Literatur, möglicherweise bedingt durch Belastungsprotokoll
-- η~Brutto~: Anstieg mit Intensität nur in stehender Position
-    - Übereinstimmend mit Literatur, Ursache: Verbesserung Energietransformation
-- η~Arbeit~: Abfall mit Intensität in sitzender Position
-    - Bestätigt Literatur, mögliche Erklärung: Ineffizientere Faserrekrutierung
+-   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der Sitzen BEdingug (F(2,16) = 10.19, p = .001, η~p~^2^ = .560).  → **Hypothese widerlegt**
 
-## Mechanische Leistung und Bewegungsökonomie { .unlisted}
-- P~mech,max~ höher im Stehen als Sitzen
-    - Bessere Ausnutzung Schwerkraft, günstigere Körperposition im Stehen
-- Torque Efficiency und Pedal Smoothness steigen mit Intensität
-    - Optimierung Bewegungskoordination bei höherer Belastung
-    - Zusammenhang mit mechanischer Leistungsfähigkeit
+- Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d = .83) sowie moderat und schwerer  (p = .427, d = .63) nicht signifikant
 
-## Ausblick und Limitationen { .unlisted}
-- Weitere Untersuchung positionsspezifischer Unterschiede via Kinematik, EMG
-- Übertragbarkeit auf andere Sportarten prüfen
-- Praktische Implikationen für Training und Leistungsoptimierung
-- Limitationen: Stichprobengröße, indirekte Bestimmung innere Leistung
 
-Zusätzliche Aspekte:
-- Vergleich der ermittelten η~muskulär~-Werte mit Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der vorliegenden Studie
-    - Mögliche Erklärung: Referenzstudien weisen außergewöhnlich hohe Wirkungsgrade auf
-    - Direkte Vergleichbarkeit der Absolutwerte daher nur eingeschränkt möglich
-- Analyse der weiteren Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~, η~Arbeit~) ermöglicht umfassenderes Verständnis der Energietransformationsprozesse
-    - Identifikation von Kompensationsmechanismen auf übergeordneter Ebene
-    - Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen Bedingungen und Intensitäten
-- Untersuchung der Zusammenhänge zwischen mechanischer Leistung, Torque Efficiency und Pedal Smoothness
-    - Hinweise auf Optimierung der Bewegungskoordination bei höherer Belastung
-    - Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
+### Zu Hypothese 3
+-   Signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
 
+
+auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395).η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -\>
+    24.14 ± 0.90%)  → **Hypothese widerlegt**
+
+-   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .074, d = .75). Moderat und leicht (p = .443, d = 0.41) sowie moderat und schwerer  (p = .574, d = 0.34) nicht signifikant
+
+-   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der Sitzen BEdingug (F(2,16) = 10.19, p = .001, η~p~^2^ = .560).  → **Hypothese widerlegt**
+
+- Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d = .83) sowie moderat und schwerer  (p = .427, d = .63) nicht signifikant
+
+-   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit
+    Intensität ab
+-   Bestätigt Hypothese teilweise: Kein Unterschied bei hoher Intensität
+
+## Weitere Wirkungsgrade {.unlisted}
+
+-   η~Total~: Keine Unterschiede zwischen Positionen und Intensitäten
+    -   Kompensation der η~muskulär~-Unterschiede auf übergeordneter
+        Ebene
+-   η~Netto~: Anstieg nur in stehender Position mit Intensität
+    -   Abweichend von Literatur, möglicherweise bedingt durch
+        Belastungsprotokoll
+-   η~Brutto~: Anstieg mit Intensität nur in stehender Position
+    -   Übereinstimmend mit Literatur, Ursache: Verbesserung
+        Energietransformation
+-   η~Arbeit~: Abfall mit Intensität in sitzender Position
+    -   Bestätigt Literatur, mögliche Erklärung: Ineffizientere
+        Faserrekrutierung
+
+## Mechanische Leistung und Bewegungsökonomie {.unlisted}
+
+-   P~mech,max~ höher im Stehen als Sitzen
+    -   Bessere Ausnutzung Schwerkraft, günstigere Körperposition im
+        Stehen
+-   Torque Efficiency und Pedal Smoothness steigen mit Intensität
+    -   Optimierung Bewegungskoordination bei höherer Belastung
+    -   Zusammenhang mit mechanischer Leistungsfähigkeit
+
+## Ausblick und Limitationen {.unlisted}
+
+-   Weitere Untersuchung positionsspezifischer Unterschiede via
+    Kinematik, EMG
+-   Übertragbarkeit auf andere Sportarten prüfen
+-   Praktische Implikationen für Training und Leistungsoptimierung
+-   Limitationen: Stichprobengröße, indirekte Bestimmung innere Leistung
+
+Zusätzliche Aspekte: - Vergleich der ermittelten η~muskulär~-Werte mit
+Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der
+vorliegenden Studie - Mögliche Erklärung: Referenzstudien weisen
+außergewöhnlich hohe Wirkungsgrade auf - Direkte Vergleichbarkeit der
+Absolutwerte daher nur eingeschränkt möglich - Analyse der weiteren
+Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~, η~Arbeit~) ermöglicht
+umfassenderes Verständnis der Energietransformationsprozesse -
+Identifikation von Kompensationsmechanismen auf übergeordneter Ebene -
+Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen
+Bedingungen und Intensitäten - Untersuchung der Zusammenhänge zwischen
+mechanischer Leistung, Torque Efficiency und Pedal Smoothness - Hinweise
+auf Optimierung der Bewegungskoordination bei höherer Belastung -
+Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
+
+::: {.callout-note collapse="true"}
+#### Wirkungsgradberechnungen
+| Wirkungsgrade |               Berechnung                |
+|---------------|:---------------------------------------:|
+| η~Brutto~     |            P~mech~ / E~Aerob~             |
+| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
+| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
+| η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
+| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
+| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
+:::
 
 
 # Quellenverzeichnis

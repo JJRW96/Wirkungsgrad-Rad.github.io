@@ -58,7 +58,7 @@ library(dplyr)
 library(officer)
 library(DT)
 
-ft_ST_stats<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_ST_stats.rds")
+ft_ST_stats<- readRDS("rds/ft_ST_stats.rds")
 
 # Anzeigen der Tabelle
 ft_ST_stats
@@ -120,7 +120,7 @@ library(dplyr)
 library(officer)
 library(DT)
 
-ST_table<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ST_table.rds")
+ST_table<- readRDS("rds/ST_table.rds")
 
 # Anzeigen der Tabelle
 ST_table
@@ -192,7 +192,7 @@ library(dplyr)
 library(officer)
 library(DT)
 
-ft_DT_stats<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_DT_stats.rds")
+ft_DT_stats<- readRDS("rds/ft_DT_stats.rds")
 
 # Anzeigen der Tabelle
 ft_DT_stats

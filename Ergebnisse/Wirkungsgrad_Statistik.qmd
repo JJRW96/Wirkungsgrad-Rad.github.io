@@ -682,7 +682,7 @@ ft_Wirkungsgrad_stats_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Deskriptive Statistik der Wirkungsgrade und Energiebereitstellung: MW ± SD, Min & Max nach Bedingungen"
 
-ft_Wirkungsgrad_stats_Bedingung_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Wirkungsgrad_stats_Bedingung_mean.rds")
+ft_Wirkungsgrad_stats_Bedingung_mean <- readRDS("rds/ft_Wirkungsgrad_stats_Bedingung_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Wirkungsgrad_stats_Bedingung_mean
@@ -704,7 +704,7 @@ ft_Wirkungsgrad_stats_Intensitaet_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test der Intensitäten für den muskulären Wirkungsgrad"
 
-ft_post_hoc_Intensität_Wirk_muskulär <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_Intensität_Wirk_muskulär.rds")
+ft_post_hoc_Intensität_Wirk_muskulär <- readRDS("rds/ft_post_hoc_Intensität_Wirk_muskulär.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_Intensität_Wirk_muskulär
@@ -715,7 +715,7 @@ ft_post_hoc_Intensität_Wirk_muskulär
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test der Intensitäten für den Bruttowirkungsgrad"
 
-ft_post_hoc_Intensität_Wirk_Brutto<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_Intensität_Wirk_Brutto.rds")
+ft_post_hoc_Intensität_Wirk_Brutto<- readRDS("rds/ft_post_hoc_Intensität_Wirk_Brutto.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_Intensität_Wirk_Brutto
@@ -726,7 +726,7 @@ ft_post_hoc_Intensität_Wirk_Brutto
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test der Intensitäten für den Arbeitswirkungsgrad im Sitzen"
 
-ft_post_hoc_Wirk_Arbeit <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_Wirk_Arbeit.rds")
+ft_post_hoc_Wirk_Arbeit <- readRDS("rds/ft_post_hoc_Wirk_Arbeit.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_Wirk_Arbeit
@@ -738,7 +738,7 @@ ft_post_hoc_Wirk_Arbeit
 #| tbl-cap-location: top
 #| tbl-cap: "Deskriptive Statistik der Wirkungsgrade und Energiebereitstellung: MW ± SD, Min & Max nach Bedingungen und Intensitäten"
 
-ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean.rds")
+ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean <- readRDS("rds/ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean
@@ -749,7 +749,7 @@ ft_Wirkungsgrad_stats_Bedingung_Intensitaet_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test des muskulären Wirkungsgrades zwischen den Intensitäten innerhalb der Bedingung Sitzen"
 
-ft_post_hoc_sitzen <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_sitzen.rds")
+ft_post_hoc_sitzen <- readRDS("rds/ft_post_hoc_sitzen.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_sitzen
@@ -760,7 +760,7 @@ ft_post_hoc_sitzen
 #| tbl-cap-location: top
 #| tbl-cap: "Einfaktorielle ANOVAs zum Vergleich der Intensitäten je Bedingung"
 
-ft_anova <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_anova.rds")
+ft_anova <- readRDS("rds/ft_anova.rds")
 
 # Anzeigen der Tabelle
 ft_anova
@@ -771,7 +771,7 @@ ft_anova
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test des Nettowirkungsgrades zwischen den Intensitäten innerhalb der Bedingung Stehen"
 
-ft_post_hoc_Stehen_Wirk_Netto <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_Stehen_Wirk_Netto.rds")
+ft_post_hoc_Stehen_Wirk_Netto <- readRDS("rds/ft_post_hoc_Stehen_Wirk_Netto.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_Stehen_Wirk_Netto
@@ -782,7 +782,7 @@ ft_post_hoc_Stehen_Wirk_Netto
 #| tbl-cap-location: top
 #| tbl-cap: "Tukey-HSD-Post-hoc-Test des Bruttowirkungsgrades zwischen den Intensitäten innerhalb der Bedingung Stehen"
 
-ft_post_hoc_Stehen_Wirk_Brutto <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_post_hoc_Stehen_Wirk_Brutto.rds")
+ft_post_hoc_Stehen_Wirk_Brutto <- readRDS("rds/ft_post_hoc_Stehen_Wirk_Brutto.rds")
 
 # Anzeigen der Tabelle
 ft_post_hoc_Stehen_Wirk_Brutto
@@ -830,7 +830,7 @@ library(flextable)
 library(dplyr)
 library(officer)
 
-ft_Wirkungsgrad <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Wirkungsgrad.rds")
+ft_Wirkungsgrad <- readRDS("rds/ft_Wirkungsgrad.rds")
 
 # Anzeigen der Tabelle
 ft_Wirkungsgrad
