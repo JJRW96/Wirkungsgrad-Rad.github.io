@@ -34,7 +34,11 @@ Aus dem im vorherigen Kapitel vorgestellten Forschungsdefizit und dem daraus fol
 
 1.  Gibt es Unterschiede des muskulären Wirkungsgrades zwischen den Körperpositionen Sitzen und Stehen?
 
-2.  Gibt es Unterschiede des muskulären Wirkungsgrades bei leichten, moderaten und schweren Belastungsintensitäten?
+2.  *Gibt es Unterschiede des muskulären Wirkungsgrades bei leichten, moderaten und schweren Belastungsintensitäten?*
+
+    -   *Ist diese Forschungsfrage sinnvoll, oder nur die Beiden anderen?*
+
+    -   *Gibt hier kein wirkliche Grundlage aus der Literatur.*
 
 3.  Gibt es Unterschiede des muskulären Wirkungsgrades in den verschiedenen Belastungsintensitäten zwischen den Körperpositionen?
 
@@ -42,21 +46,19 @@ Aus dem im vorherigen Kapitel vorgestellten Forschungsdefizit und dem daraus fol
 
 1.  Vergleich der Körperpositionen Sitzen und Stehen:
     -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen Sitzen und Stehen
-2.  Vergleich der Belastungsintensitäten leicht moderat und schwer:
-    -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen leichten, moderaten und schweren Belastungsintensitäten
+2.  *Vergleich der Belastungsintensitäten leicht moderat und schwer:*
+    -   *Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen leichten, moderaten und schweren Belastungsintensitäten*
 3.  Interaktion von Körperposition und Belastungsintensität:
     -   Bei niedrigen Intensitäten gibt es keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
     -   Bei mittleren und hohen Intensitäten gibt es keine statistisch signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
 
 #### Explorative Analysen:
+
 Die komparativen Analysen umfassen eine umfassende Untersuchung verschiedener Wirkungsgradtypen und deren zugrundeliegender physiologischer sowie mechanischer Energiekomponenten. Parallel zur Analyse des muskulären Wirkungsgrades (η~muskulär~) werden komplementär folgende weitere Wirkungsgrade einer systematischen, vergleichenden statistischen Analyse unterzogen:
 
-- Gesamtwirkungsgrad (η~Total~)
-- Nettowirkungsgrad (η~Netto~) 
-- Bruttowirkungsgrad (η~Brutto~)
-- Arbeitswirkungsgrad (η~Arbeit~) nur hinsichtlich Belastungsintensität
+-   Gesamtwirkungsgrad (η~Total~)
+-   Nettowirkungsgrad (η~Netto~)
+-   Bruttowirkungsgrad (η~Brutto~)
+-   Arbeitswirkungsgrad (η~Arbeit~) nur hinsichtlich Belastungsintensität
 
 Zielsetzung ist die Identifikation und Charakterisierung potenzieller Wirkmechanismen, die Unterschiede zwischen verschiedenen Intensitäten und Bedingungen erklären können.
-
-
-
