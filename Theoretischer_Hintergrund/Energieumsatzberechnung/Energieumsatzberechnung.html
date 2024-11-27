@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wirkungsgrad auf dem Radergometer im Sitzen und Stehen</title>
+<title>energieumsatzberechnung – Wirkungsgrad auf dem Radergometer im Sitzen und Stehen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,12 +89,12 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-a1e4c769dfb8ba454fda448df42b92ec.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2fb225055046be9ab762d5df9ca3bfa2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-57d81532e27bc75cb4e27d881e21697c.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -126,7 +126,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -165,13 +165,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -196,73 +196,21 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theoretischer Hintergrund</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Wirkungsgrad_Theorie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Wirkungsgrad</span></a>
+  <a href="../../Forschungsfragen_Hypothesen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forschungsfragen &amp; Hypothesen</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Energieumsatzberechnung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aerobe Energiekomponente (W<sub>AER</sub>)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anaerobe- laktazide Energiekomponente (W<sub>BLC</sub>)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anaerobe- alaktazide Energiekomponente (W<sub>PCr</sub>)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Innere_Arbeit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Innere Arbeit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Theoretischer_Hintergrund/Sitzen_Stehen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Radfahren im Sitzen und Stehen</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methodik</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Methodik/Stichprobe.html" class="sidebar-item-text sidebar-link">
@@ -286,65 +234,54 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Ergebnisse/index_Ergebnisse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
+ <span class="menu-text">Ergebnisse &amp; Statistik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Drehzahl_Stufentests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eingangsuntersuchungen</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Ergebnisse/VO2_Daten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">VO2-Belastungsdaten</span></a>
+ <span class="menu-text">Phyisologische Belastungsparameter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Ergebnisse/EPOC_Daten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPOC-Daten</span></a>
+ <span class="menu-text">Phyisologische Nachbelastungsparameter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Laktat_Daten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Laktat-Leistungs-Beziehung</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../Ergebnisse/Ergometer/index_Ergometer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergometer Daten</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Efficiency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Torque Efficiency</span></a>
+  <a href="../../Ergebnisse/Ergometer_Daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergometrische Leistungsparameter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Innere_Arbeit_Results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Innere Arbeit</span></a>
+  <a href="../../Ergebnisse/Wirkungsgrad_Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wirkungsgrad- und Stoffwechselparameter</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Pedal_Smoothness.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pedal Smoothness</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Datensätze.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datensätze</span></a>
+  <a href="../../Diskussion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diskussion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Abkuerzungsverzeichnis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abkürzungsverzeichnis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -377,7 +314,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -431,7 +368,7 @@ W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-
 <p>Um die der anaeroben- alaktazide Energiekomponente W<sub>PCr</sub> zu bestimmen, wurde der Verlauf des Sauerstoffvolumenstroms zu Beginn und nach dem Ende der Belastung betrachtet.</p>
 <p>Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungssystem nur verzögert an den gestiegenen Sauerstoffbedarf für zu erbringende mechanische Leistung an.</p>
 <p>Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende der Übung ausgeglichen wird.</p>
-<p>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="citation" data-cites="Brooks2004 Gaesser1984">(<a href="#ref-Brooks2004" role="doc-biblioref">Brooks et al., 2004, S. 218</a>; <a href="#ref-Gaesser1984" role="doc-biblioref">Gaesser &amp; Brooks, 1984</a>)</span> <strong><em>+ Brooks 1970 und 1981 nachschlagen</em></strong> der Begriff “Excess post-exercise oxygen consumption” oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit <span class="citation" data-cites="DeMaares2003">(<a href="#ref-DeMaares2003" role="doc-biblioref"><strong>DeMaares2003?</strong></a>)</span>. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</p>
+<p>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="citation" data-cites="Brooks2004 Gaesser1984">(<a href="#ref-Brooks2004" role="doc-biblioref">Brooks et al., 2004, S. 218</a>; <a href="#ref-Gaesser1984" role="doc-biblioref">Gaesser &amp; Brooks, 1984</a>)</span> <strong><em>+ Brooks 1970 und 1981 nachschlagen</em></strong> der Begriff “Excess post-exercise oxygen consumption” oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit <span class="citation" data-cites="DeMarees2003">(<a href="#ref-DeMarees2003" role="doc-biblioref">Marées, 2003, S. 377</a>)</span>. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</p>
 <p>Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.</p>
 <p>Der verbleibende Anteil, bei Belastungsintensitäten unterhalb der anaeroben Schwelle, wird durch die Spaltung von energiereichen Phosphaten, hauptsächlich Phosphokreatin (PC), gedeckt.<span class="citation" data-cites="Francescato2003">(<a href="#ref-Francescato2003" role="doc-biblioref">Francescato et al., 2003</a>)</span></p>
 <p>Die EPOC gliedert sich in einen langsamen Teil, die sogenannte „slow-component“ (= V̇O2EPOCslow) und einen schnellen Teil, die „fast-component“. Der erhöhte V̇O2 des schnelle Teils ist größtenteils auf die Auffüllung der ATP- und CrP-Speicher + der Wiederauffüllung von O2-Speichern (Hämoglobin, Myoglobin) nach der Belastung zurückzuführen und repräsentiert somit den alaktaziden Teil der anaeroben Energiebereitstellung.</p>
@@ -464,10 +401,10 @@ W_{AER}\;[kJ] = VO_{2,Netto} (t)\;[l] \cdot \overline{kÄ}_{Bel}\;[kJ \cdot l^{-
 <p>Die Berechnung der Sauerstoffspeicher im venösen Blut basiert auf dem Produkt aus dem venösen Blutvolumen (VBV) und der Veränderung zwischen der arteriovenösen Sauerstoffdifferenz im Steady-State ([Δ(Ca - Cv)_s]) und derjenigen in Ruhe ([Δ(Ca - Cv)_r]). Das venöse Blutvolumen wurde dabei als 65% des gesamten Blutvolumens angenommen, welches wiederum als 7% der Körpermasse (in Kilogramm) angesetzt wurde. Die Herzleistung (Q), die den individuellen mechanischen Leistungen in der vorliegenden Arbeit entspricht, wurde aus Daten für ähnliche Wadenübungen geschätzt. Dies ermöglichte es, die lineare Beziehung zwischen (Q) (Liter/Minute) und mechanischer Leistung (Ws, Watt) zu bestimmen als: <span class="math inline">\(Q = 0.40 \cdot Ws + 5.84\)</span> (n = 5, r² = 0.945). Die individuellen Werte für (O_2^{Sv}) wurden dann aus den entsprechenden (VO_2) und (Q) Werten abgeleitet, wobei letztere auf der Grundlage der obigen Gleichung aus der entsprechenden mechanischen Leistung abgeleitet wurden. Diese Werte sind in Tabelle 2 für die drei Übungsbedingungen aufgeführt.</p>
 <p>Basierend auf den Werten der Studie von <span class="citation" data-cites="Astrand1964">Åstrand et al. (<a href="#ref-Astrand1964" role="doc-biblioref">1964</a>)</span>, die bei verschiedenen Intensitäten auf dem Fahrradergometer gemessen wurden, wurde das individuelle Herzzeitvolumen in Ruhe (Q<sub>Ruhe</sub>) und unter Belastung (Q<sub>Belastung</sub>) für jeden Probanden ermittelt. Die Regressionsgleichungen wurden durch lineare Regression der Herzzeitvolumina in Abhängigkeit vom des Sauerstoffvolumenstroms (<span class="math inline">\(\dot{V}O_{2}[l\cdot min^{-1}]\)</span>) bestimmt und beschreiben die Beziehung zwischen (<span class="math inline">\(\dot{V}O_{2}[l\cdot min^{-1}]\)</span>) und Herzzeitvolumen, wie in <a href="#fig-HZV" class="quarto-xref">Abbildung&nbsp;1</a> zu sehen ist. <br> Um Q<sub>Belastung</sub> zu berechnen, wurde der modellierte Steady-State-Sauerstoffvolumenstrom der jeweiligen Belastungsintensität (<span class="math inline">\(\dot{V}O_{2, SS}\)</span>) bzw. der jeweilige VO~2, Ruhe~ jedes Probanden für die Berechnung verwendet. Je nachdem, ob <span class="math inline">\(\dot{V}O_{2, SS}\)</span> mehr als 70% der im 1. Stufentest bestimmten VO<sub>2max</sub> des Probanden betrug und abhängig vom Geschlecht, wurde die passende Regressionsgleichung für Q<sub>Belastung</sub> <a href="#eq-QBELASTUNG" class="quarto-xref">Gleichung&nbsp;7</a> oder Q<sub>Ruhe</sub> <a href="#eq-QRUHE" class="quarto-xref">Gleichung&nbsp;8</a> ausgewählt und der passende Wert eingesetzt.</p>
 </div><div class="column" style="width:25%;">
-<div id="fig-HZV" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-HZV" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-HZV-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/Herzzeitvolumen.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="images/Herzzeitvolumen.png" class="img-fluid figure-img"></a>
+<a href="images/Herzzeitvolumen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Abbildung&nbsp;1: Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand, 1964)"><img src="images/Herzzeitvolumen.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-HZV-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Abbildung&nbsp;1: Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand, 1964)
@@ -560,6 +497,9 @@ Harris, J. A., &amp; Benedict, F. G. (1918). <span>A Biometric Study of Human Ba
 <div id="ref-Janssen2000" class="csl-entry" role="listitem">
 Janssen, I., Heymsfield, S. B., Wang, Z. M., &amp; Ross, R. (2000). <span>Skeletal muscle mass and distribution in 468 men and women aged 18-88 yr</span>. <em>Journal of Applied Physiology</em>, <em>89</em>(1), 81–88. <a href="https://doi.org/10.1152/jappl.2000.89.1.81">https://doi.org/10.1152/jappl.2000.89.1.81</a>
 </div>
+<div id="ref-DeMarees2003" class="csl-entry" role="listitem">
+Marées, H. de. (2003). <em><span>Sportphysiologie</span></em> (H. Heck &amp; U. Bartmus, Hrsg.; 9. Edition, S. 799). Sportverlag Strauss.
+</div>
 <div id="ref-Stegemann1991" class="csl-entry" role="listitem">
 Stegemann, J. (1991). <em><span>Leistungsphysiologie</span></em> (4. Edition, S. 385). Georg Thieme Verlag.
 </div>
@@ -568,9 +508,6 @@ Stegemann, J. (1991). <em><span>Leistungsphysiologie</span></em> (4. Edition, S.
 
 <!-- -->
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Abbildung&nbsp;1: Beziehung zwischen Herzzeitvolumen und Sauerstoffvolumenstrom auf dem Radergometer (Astrand, 1964)</span>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -753,18 +690,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -796,7 +722,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -855,7 +801,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -952,7 +898,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1265,7 +1210,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld<span class="op">,</span> die am Ende der Übung ausgeglichen wird.</span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="ex">[</span><span class="ss">@Brooks2004</span><span class="op">,</span> 218; <span class="im">@Gaesser1984</span>] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff <span class="st">"Excess post-exercise oxygen consumption"</span> oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut <span class="ex">[</span><span class="ss">@Brooks2004</span><span class="op">,</span> 218; <span class="im">@Gaesser1984</span>] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff <span class="st">"Excess post-exercise oxygen consumption"</span> oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMarees2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.</span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.</span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
@@ -1396,7 +1341,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span> {<span class="pp">#refs</span>}</span>
 <span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1412,30 +1357,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

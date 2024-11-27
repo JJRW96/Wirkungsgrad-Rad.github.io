@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wirkungsgrad auf dem Radergometer im Sitzen und Stehen - Ergometer Daten</title>
+<title>Ergometer Daten – Wirkungsgrad auf dem Radergometer im Sitzen und Stehen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Ergebnisse/Ergometer/Efficiency.html" rel="next">
-<link href="../../Ergebnisse/Laktat_Daten.html" rel="prev">
+<link href="../../Ergebnisse/Ergometer/Leistung_Effizienz.html" rel="next">
+<link href="../../Ergebnisse/Drehzahl_Stufentests.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -104,6 +104,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="../../site_libs/datatables-binding-0.33/datatables.js"></script>
+
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="../../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="../../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="../../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -115,13 +135,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Ergebnisse/index_Ergebnisse.html">Ergebnisse</a></li><li class="breadcrumb-item"><a href="../../Ergebnisse/Ergometer/index_Ergometer.html">Ergometer Daten</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Ergebnisse/index_Ergebnisse.html">Ergebnisse &amp; Statistik</a></li><li class="breadcrumb-item"><a href="../../Ergebnisse/Ergometer/index_Ergometer.html">Ergometer Daten</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -150,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Theoretischer Hintergrund</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -165,11 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Energieumsatzberechnung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.html" class="sidebar-item-text sidebar-link">
@@ -206,13 +226,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methodik</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a href="../../Forschungsfragen_Hypothesen/index_Forschungsfragen_Hypothesen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forschungsfragen &amp; Hypothesen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Forschungsfragen_Hypothesen/Forschungsfragen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forschungsfragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Forschungsfragen_Hypothesen/Hypothesen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypothesen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Methodik/Stichprobe.html" class="sidebar-item-text sidebar-link">
@@ -231,17 +274,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Studiendesign</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Methodik/Datenverarbeitung_Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenverarbeitung &amp; Statistik</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Ergebnisse/index_Ergebnisse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
+ <span class="menu-text">Ergebnisse &amp; Statistik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Ergebnisse/index_Deskriptive_Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deskriptive Statistik</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Wirkungsgrad_Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wirkungsgrad &amp; Energieanteile</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Ergebnisse/VO2_Daten.html" class="sidebar-item-text sidebar-link">
@@ -256,35 +320,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Test_shinylive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/index_Inferenzstatistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inferenzstatistik</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Ergebnisse/Laktat_Daten.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Laktat-Leistungs-Beziehung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Ergebnisse/Drehzahl_Stufentests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drehzahl &amp; Stufentests</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Ergebnisse/Ergometer/index_Ergometer.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Ergometer Daten</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Efficiency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Torque Efficiency</span></a>
+  <a href="../../Ergebnisse/Ergometer/Leistung_Effizienz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Library und dfs laden</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Innere_Arbeit_Results.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Ergebnisse/Ergometer/Innere_Leistung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Innere Arbeit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Ergebnisse/Ergometer/Pedal_Smoothness.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pedal Smoothness</span></a>
   </div>
 </li>
       </ul>
@@ -299,6 +377,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Abkuerzungsverzeichnis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abkürzungsverzeichnis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Quellen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quellenverzeichnis</span></a>
   </div>
@@ -308,13 +392,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Ergebnisse/index_Ergebnisse.html">Ergebnisse</a></li><li class="breadcrumb-item"><a href="../../Ergebnisse/Ergometer/index_Ergometer.html">Ergometer Daten</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Ergebnisse/index_Ergebnisse.html">Ergebnisse &amp; Statistik</a></li><li class="breadcrumb-item"><a href="../../Ergebnisse/Ergometer/index_Ergometer.html">Ergometer Daten</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Ergometer Daten</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
@@ -333,7 +417,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Folgende dargestellte Ergebnisse sind weder aktuell noch vollständig und repräsentieren nicht die endgültigen Ergebnisse der Masterarbeit. Sie dienen lediglich dazu, einen Überblick über die verschiedenen modellierten und berechneten Daten zu geben.</p>
+<div class="cell">
+<style type="text/css">
+p {
+  text-align: justify
+}
+</style>
+</div>
+<p>Die folgende interaktive Tabelle zeigt eine Übersicht der am Ergometer gemessenen und daraus berechneten Parameter der jeweiligen Belastungsdurchgänge. Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der Leistungsparameter und ergometrischer Kennwerte.</p>
+<div class="cell" data-tbl-cap-location="top">
+<div id="tbl-Ergometer" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Ergometer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Gesamtdaten: Leistungsparameter und ergometrischer Kennwerte
+</figcaption>
+<div aria-describedby="tbl-Ergometer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-37e44c851a11293d1435" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-37e44c851a11293d1435">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54"],[1,1,1,1,1,1,6,6,6,6,6,6,10,10,10,10,10,10,13,13,13,13,13,13,15,15,15,15,15,15,19,19,19,19,19,19,20,20,20,20,20,20,22,22,22,22,22,22,23,23,23,23,23,23],[1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6],["stehen","sitzen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","stehen","sitzen","stehen","sitzen","sitzen","stehen","stehen","sitzen","stehen","sitzen","stehen","sitzen","sitzen","stehen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","sitzen","stehen","sitzen","stehen","sitzen","stehen","stehen","sitzen","stehen","sitzen","sitzen","stehen","stehen","sitzen","sitzen","stehen","stehen","sitzen","sitzen","stehen","stehen","sitzen"],["leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer","leicht","leicht","moderat","moderat","schwer","schwer"],[77,84,84,77,84,77,59,79,59,79,59,79,62,92,92,62,62,92,76,100,76,100,100,76,95,67,95,67,67,95,83,85,85,83,85,83,88,59,59,88,59,88,85,64,64,85,85,64,75,88,88,75,75,88],[76.65643765053167,86.40073409026428,86.15183471822198,76.96995340102042,86.14920013427735,77.75450304271858,59.66964641263121,79.34073331197102,59.0120747230942,78.63153321329753,58.57781477946587,74.83760140627972,64.40313537221022,93.43095393877493,93.47981361323083,64.65136769392079,63.92266669718425,92.92601748638904,76.17871919801189,100.7258841506317,76.49653102271631,100.706804663599,101.4937378681953,76.28959309156137,94.92221473454634,67.30253176400059,95.69080607435212,67.75633343760173,68.90893931831019,97.23262169489946,82.31579997253418,85.1151334584554,84.98674233860369,82.41219198187537,85.6636667989095,82.54340007019043,88.35253372192383,59.28433330281575,59.64583052723626,87.96820019022624,59.07539998881022,88.67498363980935,86.1743334757487,65.94317119428112,65.51066672007242,86.08125433435116,85.34893336486816,66.27281811616962,75.2098000386556,87.71066681416829,88.0529021962314,75.79593327331543,75.78913338216145,88.28207887958321],[290,290,320,320,350,350,280,280,305,305,325,325,325,325,380,380,410,410,305,305,335,335,360,360,270,270,305,305,330,330,225,225,245,245,275,275,250,250,280,280,315,315,230,230,260,260,280,280,185,185,210,210,235,235],[286.1968099436662,279.8561217447755,308.0581850373852,316.4228609623349,340.8261839198757,347.2884354751828,277.2402092277332,271.4553281327662,304.4673477477885,298.2311908089544,325.4129923608238,309.6946173979849,323.1507371567694,316.844325140231,371.9644182651205,380.6556668844626,411.7745287938076,405.4784975756111,300.6116800634985,294.2762540549577,330.9746101941957,323.263418911815,347.8775280406319,356.5237587919934,264.0425551250728,264.0460978013022,296.595675684983,312.8213677257285,338.3748122121032,340.6556249790656,222.2991444970926,217.7253887100542,237.1498621109278,238.5104760306758,268.2995406764418,270.2675604372296,259.6095048120669,246.9847069491085,281.3408381837622,276.1526507874846,316.9245359689061,309.0696381609849,220.9074521017678,221.311649982903,250.9361067979925,254.0716992155721,274.3672923048399,276.7379180995918,175.4671814806064,173.1815376258304,199.0484292390612,199.114857295449,224.703097248925,224.2265933656658],[3.765747499258764,3.682317391378624,4.053397171544543,4.163458696872827,4.484555051577312,4.569584677305039,3.797811085311413,3.718566138805017,4.170785585586142,4.085358778204854,4.457712224120875,4.242392019150477,3.940862648253286,3.863955184636964,4.536151442257567,4.642142279078813,5.021640595046432,4.944859726531839,4.175162223104147,4.087170195207744,4.596869586030495,4.489769707108541,4.831632333897665,4.951718872111019,3.474244146382537,3.474290760543449,3.902574680065566,4.116070627970111,4.452300160685566,4.482310854987706,3.41998683841681,3.349621364770063,3.648459417091196,3.669391938933473,4.127685241176026,4.157962468265071,3.245118810150836,3.087308836863856,3.516760477297027,3.451908134843558,3.961556699611327,3.86337047701231,4.602238585453497,4.610659374643812,5.227835558291509,5.293160400324417,5.715985256350835,5.765373293741497,2.924453024676773,2.886358960430508,3.317473820651018,3.318580954924152,3.745051620815417,3.737109889427762],[66.42,80.67,85.59999999999999,72.95,87.65000000000001,78.67,80.04000000000001,86.41,86.78,88.63,88.23999999999999,92.41,73.98999999999999,73.77,81.11,85.39,91.79000000000001,84.47,72.05,72.34,79.17,76.95,79.78,85.17,66.52,69.93000000000001,72.41,82.58,87.01000000000001,79.53,65.43000000000001,72.54000000000001,77.02,70.47,80.77,78.76000000000001,64.47,62.05,68.40000000000001,71.34999999999999,77.44,75.09999999999999,81.98999999999999,82.22,91.47,89.76000000000001,92.56,97.11,50.58,59.59,65.12,56.31,63.19,72.06],[430.8984532694527,346.9322684314894,359.8947945212742,433.727303347072,388.8671952719546,441.471798101275,346.3791363789514,314.1391111077409,350.8669291073101,336.5017608890117,368.7925018827883,335.1223669388677,436.7429548781901,429.476010923678,458.5725651305383,445.7854394926915,448.6161250762614,480.0289900999203,417.2546764199479,406.7865221829671,418.0291947957295,420.0689752850049,436.036881620291,418.6099777422717,396.9315522333383,377.5620763602268,409.5781558428889,378.797651732435,388.9067173540072,428.3239574843936,339.7384751247346,300.1635667956853,307.8938243141808,338.4702073826182,332.1725170171256,343.1743455459784,402.6541950443498,398.0611541864891,411.2920763989341,387.0259043467154,409.2362470702827,411.5428196054743,269.4474350243089,269.1661495471952,274.3357587461473,283.0514434998693,296.4067425550169,284.9676306967164,346.9143297769608,290.6449140647153,305.6546477173902,353.5909062419651,355.6157602494874,311.1815100141674],[720.7139291724599,550.6978545618563,587.4170976555532,787.0120128904227,634.9317378528077,846.1188443475419,578.6098112128144,526.7542216904689,618.6162377928374,583.1782139384221,677.4683926240896,586.2949277501915,674.2105037135988,609.9311009070414,688.0500265997977,751.4533511783281,782.3427795527219,747.1148608597113,697.7391786151037,599.783453121439,741.0441023276425,642.7505495345104,678.2611189908674,767.313623578198,546.3427107286374,596.5921964058898,563.0988215545682,659.3494214432407,701.3363411679837,587.6028745583391,523.9184030615627,432.9324900419132,452.9477365333875,558.4054847363104,513.3094993807819,603.3618776934337,560.0270855423687,643.9007738304704,709.3543446829148,560.0276861954944,751.2185244739971,600.3718759174687,405.8186622958426,446.7500256824246,484.0179906172476,441.8235695908078,475.6917724315683,525.9372259400978,541.9673550780662,411.6790833971335,443.3344259222985,582.8259956545052,614.8776460569497,473.9236304523722],[9.483078015427104,7.246024402129688,7.729172337573068,10.3554212222424,8.35436497174747,11.13314268878345,7.926161797435814,7.21581125603382,8.474195038258047,7.988742656690714,9.280388940056021,8.031437366440979,8.222079313580473,7.438184157402944,8.390853982924362,9.164065258272295,9.540765604301487,9.111156839752576,9.690821925209773,8.330325737797764,10.29227919899503,8.927090965757088,9.420293319317603,10.65713366080831,7.188719878008387,7.849897321130129,7.409195020454844,8.675650282147904,9.228109752210312,7.731616770504462,8.060283124024041,6.660499846798665,6.968426715898269,8.590853611327853,7.897069221242798,9.282490426052826,7.000338569279609,8.04875967288088,8.866929308536434,7.00034607744368,9.390231555924965,7.504648448968359,8.454555464496719,9.30729220171718,10.08370813785933,9.204657699808495,9.910245258991006,10.95702554041871,9.032789251301104,6.861318056618892,7.388907098704975,9.713766594241752,10.24796076761583,7.898727174206202],[39.71018157957399,50.81845142967432,52.44283597921813,40.20559480410257,53.67918527312416,41.04487659094552,47.91488216326898,51.53358377681474,49.217483982331,51.13894581124468,48.03367889981953,52.82232588748227,47.93024365192065,51.94756008818786,54.06066476056871,50.65592778148766,52.63351814012084,54.27257826313659,43.083675000186,49.06375001235238,44.66328105906169,50.29376002026403,51.28961668305742,46.46389010134128,48.32910734233625,44.25905993943962,52.67204695370523,47.44394361353926,48.24715223634129,57.9737846304978,42.43010804699134,50.29084065485026,52.35700346489027,42.71277459663651,52.26857110575553,44.79360901461389,46.35659801358415,38.3575726240913,39.66153732511825,49.31053546004247,42.18806188130365,51.47969959263576,54.43501559342432,49.53813928602299,51.84437596585701,57.50523890132864,57.67753579221507,52.61805106206937,32.37596874360295,42.06712087404446,44.89803128303587,34.16368843875023,36.54435946564125,47.31281138094671],[48.33,50.2,50.31,48.74,50.1,49.16,48.83,47.25,48.87,47.74,48.51,48.13,49.1,47.89,48.24,49.08,49.15,48.32,50.47,51.64,50.42,52.2,52.58,50.35,48.94,48.97,48.42,48.87,48.36,48.81,46.98,47.29,46.58,45.97,46.3,45.61,48.33,47.48,47.28,47.99,47.43,48.98,46.68,47.57,47.92,46.93,47.05,47.83,47.46,48.28,48.55,47.93,47.89,47.39],[51.67,49.8,49.69,51.26,49.9,50.84,51.17,52.75,51.13,52.26,51.49,51.87,50.9,52.11,51.76,50.92,50.85,51.68,49.53,48.36,49.58,47.8,47.42,49.65,51.06,51.03,51.58,51.13,51.64,51.19,53.02,52.71,53.42,54.03,53.7,54.39,51.67,52.52,52.72,52.01,52.57,51.02,53.32,52.43,52.08,53.07,52.95,52.17,52.54,51.72,51.45,52.07,52.11,52.61],[null,null,null,null,null,null,14.10076365297498,24.55340286640681,15.09636895759414,22.11517007685987,17.38441621924993,25.00230115143667,null,null,null,null,null,null,null,54.19988607926953,26.06112433990202,52.28781575800863,47.78188818969289,26.50792501280083,53.33919062344547,14.31479157476161,54.29383420511363,17.28287598919281,25.24434991690701,59.56805103588908,33.37849745068531,29.77411870612531,30.33151110510708,33.95096228149196,29.30325427796724,36.2250453566804,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[25.0030113782592,35.80129339476635,35.49277956062031,25.31104583995013,35.4895234774056,26.09294323214306,11.27728229199118,26.51140164348815,10.908542042465,25.80680799201135,10.66948748225852,22.24864864883682,15.74150012585299,48.06151247689149,48.13695315244292,15.9242224196747,15.3918115611545,47.28648799222414,24.18955498330463,55.91780866724418,24.49357074656717,55.8860388484466,57.20640030747718,24.2953284415851,49.51712532386202,17.65005411056491,50.72972114714051,18.00949461891409,18.94429864102427,53.22158738631583,26.73833679680653,29.56004788339882,29.42648083827896,26.832378813769,30.13524736091162,26.96074210046495,38.36974402664191,11.59182183139762,11.80516732742011,37.87119385028969,11.46969552015918,38.79137979752274,24.58924125805042,11.0184578439549,10.80307490207792,24.50964885060598,23.88942094044258,11.18452757225622,19.8117633448399,31.42368174948406,31.79295196026142,20.27858016356106,20.27312288789145,32.04184268860573],[28.89097543878923,35.49988573042554,35.1913718962795,29.19900990048016,35.18811581306479,29.98090729267308,14.10076365297498,24.55340286640681,15.09636895759414,22.11517007685987,17.38441621924993,25.00230115143667,19.62946418638301,47.76010481255067,47.83554548810211,19.81218648020473,19.27977562168453,46.98508032788332,28.07751904383466,54.19988607926953,26.06112433990202,52.28781575800863,47.78188818969289,26.50792501280083,53.33919062344547,14.31479157476161,54.29383420511363,17.28287598919281,25.24434991690701,59.56805103588908,33.37849745068531,29.77411870612531,30.33151110510708,33.95096228149196,29.30325427796724,36.2250453566804,38.0683363623011,15.47978589192764,15.69313138795014,37.56978618594888,15.35765958068921,38.48997213318193,24.2878335937096,14.90642190448493,14.69103896260795,24.20824118626516,23.58801327610176,15.07249163278625,23.69972740536992,31.12227408514324,31.4915442959206,24.16654422409109,24.16108694842148,31.74043502426491],[30.98093735855225,49.99997085681482,49.4263049800275,31.4908886354531,49.42025929211552,32.79459119267165,10.92504279218791,34.15026908371152,10.45136040077976,32.94551229577444,10.14710034876071,27.03265662441672,16.65437445755559,73.767219490831,73.92164670874482,16.91263003562574,16.16291984594431,72.18543566481603,28.62553365937796,87.49500868710891,29.10622553834832,87.42873433696899,90.19364006566457,28.79254933611386,72.8402574683913,18.40880630945991,75.22823516234638,18.91035177835384,20.23029808173905,80.19513169965448,35.23161882024684,40.27420011938177,40.03174445599691,35.39693417201744,41.32248464529688,35.62289429453992,57.55094379203418,11.66638158629504,11.95354654999543,56.55607246259324,11.50278757536354,58.39570209428788,31.24923562081921,10.71536527978598,10.43700145986792,31.11444175679311,30.06907431893319,10.93123977369498,22.66394020626805,41.92251516722633,42.58065901467023,23.37875064230652,23.37036224672096,43.0256941239315],[1.83,1.83,1.83,1.83,1.83,1.83,1.84,1.84,1.84,1.84,1.84,1.84,1.8,1.8,1.8,1.8,1.8,1.8,1.79,1.79,1.79,1.79,1.79,1.79,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.76,1.86,1.86,1.86,1.86,1.86,1.86,1.57,1.57,1.57,1.57,1.57,1.57,1.63,1.63,1.63,1.63,1.63,1.63],[76,76,76,76,76,76,73,73,73,73,73,73,82,82,82,82,82,82,72,72,72,72,72,72,76,76,76,76,76,76,65,65,65,65,65,65,80,80,80,80,80,80,48,48,48,48,48,48,60,60,60,60,60,60],[0.893,0.893,0.893,0.893,0.893,0.893,0.9059999999999999,0.9059999999999999,0.9059999999999999,0.9059999999999999,0.9059999999999999,0.9059999999999999,0.8759999999999999,0.8759999999999999,0.8759999999999999,0.8759999999999999,0.8759999999999999,0.8759999999999999,4.23,4.23,4.23,4.23,4.23,4.23,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.851,0.925,0.925,0.925,0.925,0.925,0.925,0.7490000000000001,0.7490000000000001,0.7490000000000001,0.7490000000000001,0.7490000000000001,0.7490000000000001,0.78,0.78,0.78,0.78,0.78,0.78],[0.439,0.439,0.439,0.439,0.439,0.439,0.446,0.446,0.446,0.446,0.446,0.446,0.427,0.427,0.427,0.427,0.427,0.427,0.423,0.423,0.423,0.423,0.423,0.423,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.412,0.458,0.458,0.458,0.458,0.458,0.458,0.359,0.359,0.359,0.359,0.359,0.359,0.379,0.379,0.379,0.379,0.379,0.379],[0.5823057616063918,0.5823057616063918,0.5823057616063918,0.5823057616063918,0.5823057616063918,0.5823057616063918,0.5907935341555457,0.5907935341555457,0.5907935341555457,0.5907935341555457,0.5907935341555457,0.5907935341555457,0.5675711409153923,0.5675711409153923,0.5675711409153923,0.5675711409153923,0.5675711409153923,0.5675711409153923,0.5617517245189372,0.5617517245189372,0.5617517245189372,0.5617517245189372,0.5617517245189372,0.5617517245189372,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.5479096640870647,0.6059785474750735,0.6059785474750735,0.6059785474750735,0.6059785474750735,0.6059785474750735,0.6059785474750735,0.4705454282000835,0.4705454282000835,0.4705454282000835,0.4705454282000835,0.4705454282000835,0.4705454282000835,0.4968832860944308,0.4968832860944308,0.4968832860944308,0.4968832860944308,0.4968832860944308,0.4968832860944308],[0.586,0.586,0.586,0.586,0.586,0.586,0.5760000000000001,0.5760000000000001,0.5760000000000001,0.5760000000000001,0.5760000000000001,0.5760000000000001,0.617,0.617,0.617,0.617,0.617,0.617,0.5649999999999999,0.5649999999999999,0.5649999999999999,0.5649999999999999,0.5649999999999999,0.5649999999999999,0.586,0.586,0.586,0.586,0.586,0.586,0.532,0.532,0.532,0.532,0.532,0.532,0.602,0.602,0.602,0.602,0.602,0.602,0.509,0.509,0.509,0.509,0.509,0.509,0.579,0.579,0.579,0.579,0.579,0.579],[0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.367,0.367,0.367,0.367,0.367,0.367,0.387,0.387,0.387,0.387,0.387,0.387,0.362,0.362,0.362,0.362,0.362,0.362,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.3720000000000001,0.346,0.346,0.346,0.346,0.346,0.346,0.38,0.38,0.38,0.38,0.38,0.38,0.32,0.32,0.32,0.32,0.32,0.32,0.354,0.354,0.354,0.354,0.354,0.354],[0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.175,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.175,0.175,0.175,0.175,0.175,0.175,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725,0.17,0.17,0.17,0.17,0.17,0.17,0.1725,0.1725,0.1725,0.1725,0.1725,0.1725]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Proband<\/th>\n      <th>Nr<\/th>\n      <th>Bedingung<\/th>\n      <th>Intensität<\/th>\n      <th>nD_Vorgabe [U·min⁻¹]<\/th>\n      <th>nD [U·min⁻¹]<\/th>\n      <th>P_mech_Vorgabe [W]<\/th>\n      <th>P_mech [W]<\/th>\n      <th>P_mech_kg [W·kg⁻¹]<\/th>\n      <th>Torque Efficiency [%]<\/th>\n      <th>P_mech_abs [W]<\/th>\n      <th>P_max [W]<\/th>\n      <th>P_max_kg [W·kg⁻¹]<\/th>\n      <th>Pedal_Smoothness [%]<\/th>\n      <th>P_L_percent [%]<\/th>\n      <th>P_R_percent [%]<\/th>\n      <th>P_Int_Kinematik [W]<\/th>\n      <th>P_Int_Modell [W]<\/th>\n      <th>P_Int_Kinematik_Modell [W]<\/th>\n      <th>P_Int_Minetti [W]<\/th>\n      <th>Koerperlaenge [m]<\/th>\n      <th>Masse [kg]<\/th>\n      <th>lBein [m]<\/th>\n      <th>lOS [m]<\/th>\n      <th>lUS [m]<\/th>\n      <th>uOS [m]<\/th>\n      <th>uUS [m]<\/th>\n      <th>lKurbel [m]<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollX":true,"scrollCollapse":true,"autoWidth":false,"rownames":false,"columnDefs":[{"targets":28,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":21,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":23,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":24,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":25,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":26,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":27,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":9,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":13,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":20,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":11,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":12,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":17,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":18,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":19,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":22,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":26,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":10,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":14,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":15,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":16,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\", null);\n  }"},{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\", null);\n  }"},{"targets":"_all","className":"dt-nowrap"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Proband","targets":1},{"name":"Nr","targets":2},{"name":"Bedingung","targets":3},{"name":"Intensität","targets":4},{"name":"nD_Vorgabe [U·min⁻¹]","targets":5},{"name":"nD [U·min⁻¹]","targets":6},{"name":"P_mech_Vorgabe [W]","targets":7},{"name":"P_mech [W]","targets":8},{"name":"P_mech_kg [W·kg⁻¹]","targets":9},{"name":"Torque Efficiency [%]","targets":10},{"name":"P_mech_abs [W]","targets":11},{"name":"P_max [W]","targets":12},{"name":"P_max_kg [W·kg⁻¹]","targets":13},{"name":"Pedal_Smoothness [%]","targets":14},{"name":"P_L_percent [%]","targets":15},{"name":"P_R_percent [%]","targets":16},{"name":"P_Int_Kinematik [W]","targets":17},{"name":"P_Int_Modell [W]","targets":18},{"name":"P_Int_Kinematik_Modell [W]","targets":19},{"name":"P_Int_Minetti [W]","targets":20},{"name":"Koerperlaenge [m]","targets":21},{"name":"Masse [kg]","targets":22},{"name":"lBein [m]","targets":23},{"name":"lOS [m]","targets":24},{"name":"lUS [m]","targets":25},{"name":"uOS [m]","targets":26},{"name":"uUS [m]","targets":27},{"name":"lKurbel [m]","targets":28}],"order":[],"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.columnDefs.6.render","options.columnDefs.7.render","options.columnDefs.8.render","options.columnDefs.9.render","options.columnDefs.10.render","options.columnDefs.11.render","options.columnDefs.12.render","options.columnDefs.13.render","options.columnDefs.14.render","options.columnDefs.15.render","options.columnDefs.16.render","options.columnDefs.17.render","options.columnDefs.18.render","options.columnDefs.19.render","options.columnDefs.20.render","options.columnDefs.21.render","options.columnDefs.22.render","options.columnDefs.23.render","options.columnDefs.24.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
 
 
 <!-- -->
@@ -519,18 +625,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -562,7 +657,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -616,12 +733,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/JJRW96\.github\.io\/Wirkungsgrad-Rad\.github\.io\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -946,25 +1063,173 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Ergebnisse/Laktat_Daten.html" class="pagination-link" aria-label="Laktat-Leistungs-Beziehung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Laktat-Leistungs-Beziehung</span>
+      <a href="../../Ergebnisse/Drehzahl_Stufentests.html" class="pagination-link" aria-label="Drehzahl &amp; Stufentests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Drehzahl &amp; Stufentests</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Ergebnisse/Ergometer/Efficiency.html" class="pagination-link" aria-label="Torque Efficiency">
-        <span class="nav-page-text">Torque Efficiency</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Ergebnisse/Ergometer/Leistung_Effizienz.html" class="pagination-link" aria-label="Library und dfs laden">
+        <span class="nav-page-text">Library und dfs laden</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Ergometer Daten"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Folgende dargestellte Ergebnisse sind weder aktuell noch vollständig und repräsentieren nicht die endgültigen Ergebnisse der Masterarbeit. Sie dienen lediglich dazu, einen Überblick über die verschiedenen modellierten und berechneten Daten zu geben.</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> de</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false  </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> false</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="an">engine:</span><span class="co"> knitr</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{css}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> echo<span class="in">:</span> false</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">justify</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Die folgende interaktive Tabelle zeigt eine Übersicht der am Ergometer gemessenen und daraus berechneten Parameter der jeweiligen Belastungsdurchgänge.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der Leistungsparameter und ergometrischer Kennwerte.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a># Library und dfs laden</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>plotly<span class="in">)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>ggplot2<span class="in">)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>tidyr<span class="in">)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>htmltools<span class="in">)</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>htmlwidgets<span class="in">)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>shiny<span class="in">)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>RColorBrewer<span class="in">)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>patchwork<span class="in">)</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>minpack<span class="fu">.lm</span><span class="in">)</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>zoo<span class="in">)</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>purrr<span class="in">)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>readxl<span class="in">)</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Erg_data_komplett &lt;- readRDS<span class="in">(</span>"rds/Erg_data_komplett<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a># Anpassen des Wertes für Proband 13 unter den spezifischen Bedingungen</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Erg_data_komplett$nD_Vorgabe<span class="ex">[</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">  Erg_data_komplett</span><span class="op">$</span><span class="ss">Proband </span><span class="op">=</span>= 13 <span class="op">&amp;</span> </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  Erg_data_komplett$Nr == 2 <span class="op">&amp;</span> </span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  Erg_data_komplett$Intensität == "leicht" <span class="op">&amp;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  Erg_data_komplett$nD_Vorgabe != 100</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>] &lt;- 100</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>saveRDS<span class="in">(</span>Erg_data_komplett<span class="op">,</span> "C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>saveRDS<span class="in">(</span>Erg_data_komplett<span class="op">,</span> "C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/Ergometer/rds/Erg_data_komplett<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Erg_data_komplett &lt;- readRDS<span class="in">(</span>"rds/Erg_data_komplett<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a># Erg_data_short erstellen</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Erg_data_short &lt;- Erg_data_komplett<span class="ex">[</span><span class="op">,</span> c<span class="in">(</span>"Proband"<span class="op">,</span> "Nr"<span class="op">,</span> "Bedingung"<span class="op">,</span> "Intensität"<span class="op">,</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>                                       "nD_Vorgabe"<span class="op">,</span>"nD"<span class="op">,</span> "P_mech_Vorgabe"<span class="op">,</span> "P_mech"<span class="op">,</span> </span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>                                       "W_kg"<span class="op">,</span> "Efficiency"<span class="op">,</span> "P_mean_abs"<span class="op">,</span> "P_max"<span class="op">,</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>                                       "P_max_kg"<span class="op">,</span> "Pedal_Smoothness"<span class="op">,</span> "P_L_percent"<span class="op">,</span> </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>                                       "P_R_percent"<span class="op">,</span> "PInt_Kinematik"<span class="op">,</span> "PInt_Modell"<span class="op">,</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>                                       "PInt_Kinematik_Modell"<span class="op">,</span> "P_Int_Min"<span class="op">,</span> "Koerperlaenge"<span class="op">,</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>                                       "Masse"<span class="op">,</span> "lBein"<span class="op">,</span> "lOS"<span class="op">,</span> "lUS"<span class="op">,</span> "uOS"<span class="op">,</span> "uUS"<span class="op">,</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>                                       "lKurbel"<span class="in">)</span>]</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "nD"] &lt;- "nD <span class="ex">[</span><span class="ss">U·min⁻¹</span><span class="ex">]</span>"</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "nD_Vorgabe"] &lt;- "nD_Vorgabe <span class="ex">[</span><span class="ss">U·min⁻¹</span><span class="ex">]</span>"</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_mech_Vorgabe"] &lt;- "P_mech_Vorgabe <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_mech"] &lt;- "P_mech <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "W_kg"] &lt;- "P_mech_kg <span class="ex">[</span><span class="ss">W·kg⁻¹</span><span class="ex">]</span>"</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "Efficiency"] &lt;- "Torque Efficiency <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_mean_abs"] &lt;- "P_mech_abs <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_max"] &lt;- "P_max <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_max_kg"] &lt;- "P_max_kg <span class="ex">[</span><span class="ss">W·kg⁻¹</span><span class="ex">]</span>"</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "Pedal_Smoothness"] &lt;- "Pedal_Smoothness <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_L_percent"] &lt;- "P_L_percent <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_R_percent"] &lt;- "P_R_percent <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "PInt_Kinematik"] &lt;- "P_Int_Kinematik <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "PInt_Modell"] &lt;- "P_Int_Modell <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "PInt_Kinematik_Modell"] &lt;- "P_Int_Kinematik_Modell <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "P_Int_Min"] &lt;- "P_Int_Minetti <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "Koerperlaenge"] &lt;- "Koerperlaenge <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "Masse"] &lt;- "Masse <span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span>"</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "lBein"] &lt;- "lBein <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "lOS"] &lt;- "lOS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "lUS"] &lt;- "lUS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "uOS"] &lt;- "uOS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "uUS"] &lt;- "uUS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>names<span class="in">(</span>Erg_data_short<span class="in">)</span><span class="ex">[</span><span class="ss">names(Erg_data_short) </span><span class="op">=</span>= "lKurbel"] &lt;- "lKurbel <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>DT<span class="in">)</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a># Gruppierte Variablen nach Dezimalstellen</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>digits_0 &lt;- c<span class="in">(</span>"nD_Vorgabe <span class="ex">[</span><span class="ss">U·min⁻¹</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>              "P_mech_Vorgabe <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="in">)</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>digits_1 &lt;- c<span class="in">(</span>"nD <span class="ex">[</span><span class="ss">U·min⁻¹</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>              "P_mech <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>              "P_Int_Minetti <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>              "P_mech_abs <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>              "P_max <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>              "P_Int_Kinematik <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>              "P_Int_Modell <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>              "P_Int_Kinematik_Modell <span class="ex">[</span><span class="ss">W</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>              "Masse <span class="ex">[</span><span class="ss">kg</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>              "uOS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>              "Torque Efficiency <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>              "Pedal_Smoothness <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>              "P_L_percent <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>              "P_R_percent <span class="ex">[</span><span class="ss">%</span><span class="ex">]</span>"<span class="in">)</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>digits_2 &lt;- c<span class="in">(</span>"P_mech_kg <span class="ex">[</span><span class="ss">W·kg⁻¹</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>              "P_max_kg <span class="ex">[</span><span class="ss">W·kg⁻¹</span><span class="ex">]</span>"<span class="in">)</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>digits_3 &lt;- c<span class="in">(</span>"lKurbel <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>              "Koerperlaenge <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>              "lBein <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>              "lOS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span> </span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>              "lUS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>              "uOS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="op">,</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>              "uUS <span class="ex">[</span><span class="ss">m</span><span class="ex">]</span>"<span class="in">)</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a># Datentabelle erstellen und formatieren</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>dt_Ergometer &lt;- datatable<span class="in">(</span>Erg_data_short<span class="op">,</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>          options = list<span class="in">(</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>            pageLength = 10<span class="op">,</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>            scrollX = TRUE<span class="op">,</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>            scrollCollapse = TRUE<span class="op">,</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>            autoWidth = FALSE<span class="op">,</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>            rownames = FALSE<span class="op">,</span>  # Entfernt die Zeilennummern</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>            columnDefs = list<span class="in">(</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>              list<span class="in">(</span>targets = '_all'<span class="op">,</span> className = 'dt-nowrap'<span class="in">)</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>            <span class="in">)</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>          <span class="in">))</span> %<span class="op">&gt;</span>%</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>  formatRound<span class="in">(</span>columns = digits_0<span class="op">,</span> digits = 0<span class="in">)</span> %<span class="op">&gt;</span>%</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>  formatRound<span class="in">(</span>columns = digits_1<span class="op">,</span> digits = 1<span class="in">)</span> %<span class="op">&gt;</span>%</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>  formatRound<span class="in">(</span>columns = digits_2<span class="op">,</span> digits = 2<span class="in">)</span> %<span class="op">&gt;</span>%</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>  formatRound<span class="in">(</span>columns = digits_3<span class="op">,</span> digits = 3<span class="in">)</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> label<span class="in">:</span> tbl-Ergometer</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Gesamtdaten<span class="in">:</span> Leistungsparameter und ergometrischer Kennwerte" </span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>dt_Ergometer</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
