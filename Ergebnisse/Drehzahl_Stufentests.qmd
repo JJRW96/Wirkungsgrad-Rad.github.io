@@ -46,7 +46,6 @@ library(DT)
   
 
 # Stufentests 
-
 Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählter physiologischer und ergometrischer Parameter der Stufentests, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-ST_mean) dargestellt. Die analysierten Parameter umfassen die maximale mechanische Leistung (P~mech,max~) im Sitzen und Stehen, sowohl als absolute Werte als auch gewichtsbezogenen Werte [W·kg^-1^], den maximales Sauerstoffvolumenstrom ($\dot{V}\text{O}_{2,\text{max}}$) in absoluten [l·min^-1^] und relativen [ml·min^-1^·kg^-1^] Einheiten für beide Stufentests, die bestimmten ventilatorischen Schwellen (VT~1~, VT~2~), sowie die vorgegebenen Leistungen (P~mech,Vorgabe~) und Drehzahlen (nD~Vorgabe~) für die verschiedenen Belastungsintensitäten. Zusätzlich werden die maximale Herzrate (HR~ST,max~) und der O~2~-Umsatz pro Watt (O~2~-Cost of Work) dargestellt.
 
 ```{r}
@@ -227,7 +226,7 @@ betrug während des Drehzahltests für die Drehzahlwerte über 80 min^-1^ im Dur
 18.49 ± 2.13%, mit einem Maximum von 23.10% und einem Minimum von 16.40%.
 
 #### Zusammenhang des VO~2,net~ und P~Int,Modell,DT~ { .unlisted }
-Der Sauerstoffumsatz pro Watt P~Int,Modell,DT~ (O~2~-Cost of Work~DT,Modell~) lag bei 14.867 ml·min^-1^·W^-1^ und damit über den in der Literatur beschriebenen Werten von 8.5-12.0 ml·min^-1^·W^-1^ für die Fahrradergometrie [@Rassouli2015; @Wasserman2011; @Heck2022; @Oezyener2001) (siehe @fig-DT_O2cost_all & @fig-DT_O2cost_mean).
+Der Sauerstoffumsatz pro Watt P~Int,Modell,DT~ (O~2~-Cost of Work~DT,Modell~) lag bei 14.867 ml·min^-1^·W^-1^ und damit über den in der Literatur beschriebenen Werten von 8.5-12.0 ml·min^-1^·W^-1^ für die Fahrradergometrie [@Rassouli2015; @Wasserman2011; @Heck2022; @Oezyener2001] (siehe @fig-DT_O2cost_all & @fig-DT_O2cost_mean).
 
 ::: {.panel-tabset}
 ## Alle Probanden { .unlisted }
@@ -245,7 +244,7 @@ Der zusätzliche Sauerstoffumsatz für die Leerbewegung (Pedalieren ohne Widerst
 ![Zusammenhang der VO~2,net~ und Drehzahl-Werte aus dem Drehzahltest](images/p_VO2_nD_DT_all.html){#fig-DT_VO2_nD_all width="1100" height="450"}
 
 ## Gemittelte Werte { .unlisted }
-![Zusammenhang der gemittelten VO~2,net~ und Drehzahl-Werten aus dem Drehzaltest](images/p_VO2_nD_DT.html){#fig-DT_VO2_nD_mean width="1100" height="450"}
+![Zusammenhang der gemittelten VO~2,net~ und Drehzahl-Werten aus dem Drehzahltest](images/p_VO2_nD_DT.html){#fig-DT_VO2_nD_mean width="1100" height="450"}
 
 ## Logarithmierte Darstellung { .unlisted }
 ![Logarithmierte Darstellung des Zusammenhangs zwischen VO~2,net~ und Drehzahl-Werten aus dem Drehzahltest](images/p_VO2_nD_DT_log.html){#fig-DT_VO2_nD_log width="1100" height="450"}
