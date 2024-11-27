@@ -16,7 +16,7 @@ editor:
 tbl-cap-location: bottom
 ---
 
-# Diskussion
+# Stichpunkte: Diskussion
 
 Aufbau der Diskussion anhand der formulierten Forschungsfragen und
 Hypothesen:
@@ -53,15 +53,14 @@ Hypothesen:
 -   η~muskulär~ signifikant höher in sitzender Position (24.98 ± 1.06%
     vs. 24.07 ± 0.96%) (F(1,8) = 7.64, p = .024, η~p~^2^ = .489) **→
     Hypothese widerlegt**
-    -   Effekt zeigt sich primär aufgrund des signifikant höheren PTot
-        in der sitzenden Bedingung während sich gleichzeitig WTOT nicht
-        signifikant unterscheidet. Berechnung von PTOT bzw. P~Int~ für
-        die Stehen-Bedingung zu hinterfragen.
-    -   Bei der Ausklammerung von P~Int~, was dann ηTotal entspricht,
-        zeigt sich kein signifikanter Unterschied.
--   ηNetto und ηBrutto unterschieden sich ebenfalls nicht signifikant
-    sind jedoch in den beiden sowie bei ηTotal stets nicht signifikant
-    höher im Stehen
+    -   Effekt primär durch signifikant höhere P~Tot~ in sitzender
+        Bedingung bei konstanter W~TOT~
+    -   Methodische Limitation: Berechnungsvalidität von P~Tot~ bzw.
+        P~Int~ für Stehen-Bedingung ist zu hinterfragen
+    -   Bei Ausklammerung von P~Int~ kein signifikanter Unterschied →
+        siehe η~Total~
+-   ηNetto und ηBrutto unterschieden sich nicht signifikant
+    -   Tendenziell höhere Werte in stehender Position
 
 ### Zu Hypothese 2
 
@@ -71,89 +70,87 @@ Hypothesen:
     widerlegt**
 
     -   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und
-        schwer (p = .074, d = .75). Moderat und leicht (p = .443, d =
-        0.41) sowie moderat und schwerer (p = .574, d = 0.34) nicht
-        signifikant
+        schwer (p = .074, d = .75)
+    -   Moderate und schwere sowie moderate und leichte
+        Intensitätsstufen ohne statistisch signifikanten Unterschied
 
 -   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der
     Sitzen Bedingung (F(2,16) = 10.19, p = .001, η~p~^2^ = .560). **→
     Hypothese widerlegt**
 
     -   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und
-        schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d =
-        .83) sowie moderat und schwerer (p = .427, d = .63) nicht
-        signifikant
+        schwer (p = .017, d = 1.31).
+    -   Moderat und leicht (p = .217, d = .83) sowie moderat und
+        schwerer (p = .427, d = .63) nicht signifikant
 
--   Mit steigender Belastungsintensität verhalten sich die verschiedenen
-    Wirkungsgrade unterschiedlich.
+-   Wirkungsgradverhalten bei steigender Belastungsintensität:
 
-    -   η~muskulär~ und η~Total~ sinken tendenziell ab, da wohl hier
-        W~TOT~ überproportional ansteigt gegenüber P~TOT~ für
-        η~muskulär~ bzw. P~mech~ für η~Total~. Jedoch nur bei
-        η~muskulär~ signifikant, was womöglich damit zu erklären ist,
-        dass P~Int~ nicht ansteigt mit steigender Belastungsintensität
-        und somit der η~muskulär~ noch stärker abfällt als η~Total~
+    -   η~muskulär~ und η~Total~ sinken tendenziell ab, da W~TOT~
+        überproportional ansteigt gegenüber P~TOT~ für η~muskulär~ bzw.
+        P~mech~ für η~Total~. Jedoch nur bei η~muskulär~ signifikant,
+        was womöglich damit zu erklären ist, dass P~Int~ nicht ansteigt
+        mit steigender Belastungsintensität und somit der η~muskulär~
+        noch stärker abfällt als η~Total~
 
     -   η~Arbeit,sitzen~ verhält sich mit steigender
         Belastungsintensität innerhalb der Sitzen Bedingung vergleichbar
         wie η~muskulär~, da zwischen der leichten und schweren
         Belastungsintensität jeweils ein signifikanter Unterschied
-        besteht. Die Unterschiede der Beiden bestehen nur darin, wie die
-        Kosten für die innere Leistung bestimmt wurden. Für η~muskulär~
-        wurden diese anhand des biomechanischen Modells oder 3D-
-        Kinematik errechnet, während der Sauerstoffumsatz für die
-        Bewegungen anhand des Drehzahltests in η~Arbeit,sitzen~
-        berechnet wurde. So scheinen beide Berechnungsansätze valide
-        Methoden für die Bestimmung der inneren Arbeit für das Radfahren
-        im Stehen zu sein. Für die stehende Bedingung können die beiden
-        nicht verglichen werden, da η~Arbeit~ nicht für Stehen berechnet
-        wurde.
+        besteht. Die Unterschiede bestehen nur darin, wie die Kosten für
+        die innere Leistung bestimmt wurden. Für η~muskulär~ wurden
+        diese anhand des biomechanischen Modells oder 3D-Kinematik
+        errechnet, während der Sauerstoffumsatz für die Bewegungen
+        anhand des Drehzahltests in η~Arbeit,sitzen~ berechnet wurde. So
+        scheinen beide Berechnungsansätze valide Methoden für die
+        Bestimmung der inneren Arbeit zu sein. Für die stehende
+        Bedingung können die beiden nicht verglichen werden, da
+        η~Arbeit~ nicht für Stehen berechnet wurde
 
     -   η~Netto~ zeigt gegensätzliches Verhalten bei steigender
         Belastungsintensität. Die Mittelwerte von η~Netto~ steigen bei
         höheren Intensitäten im Mittel über beide Bedingungen, auch wenn
-        keine signifikanten Unterschiede festzustellen sind. Aber
-        innerhalb der jeweiligen Bedingungen zeigt sich ein sehr
-        geringer nicht signifikanter Abfall für η~Netto~, bzw. ein fast
-        konstanter Nettowirkungsgrad innerhalb der Sitzen Bedingung,
-        aber während dem Stehen ein konstanter nicht signifikanter
-        Anstieg von leicht zu schwer.
+        keine signifikanten Unterschiede festzustellen sind. Innerhalb
+        der jeweiligen Bedingungen zeigt sich ein sehr geringer nicht
+        signifikanter Abfall für η~Netto~, bzw. ein fast konstanter
+        Nettowirkungsgrad innerhalb der Sitzen Bedingung, aber während
+        dem Stehen ein konstanter nicht signifikanter Anstieg von leicht
+        zu schwer
 
     -   η~Brutto~ steigt wie zu erwarten signifikant an mit steigender
         Intensität, was auf den kleiner werdenden prozentualen Anteil
-        der Ruhenergieumsatzes zurückzuführen ist.
+        des Ruhenergieumsatzes zurückzuführen ist
 
 ### Zu Hypothese 3
 
 -   Signifikanter Effekt zwischen der leichten Intensität zwischen
-    Sitzen und Stehen. Sitzen signifikant höher (25.68 ± 1.03 vs. 24.20
-    ± 1.05). (F(1,8) = 16.63, p = .004, η~p~^2^ = .675) → **Hypothese
-    bestätigt**
+    Sitzen und Stehen von η~muskulär~. Sitzen signifikant höher (25.68 ±
+    1.03 vs. 24.20 ± 1.05). Die statistische Analyse zeigt eine hohe
+    Signifikanz und Effektstärke (F(1,8) = 16.63, p = .004, η~p~^2^ =
+    .675) → **Hypothese bestätigt**
 
--   Tendenziell signifikanter, aber nicht signifikanter Effekt zwischen
-    der moderaten Intensität zwischen Sitzen und Stehen. Sitzen
-    signifikant höher (24.92 ± 0.78 vs. 24.08 ± 1.08). → **Hypothese
-    tendentiell bestätigt**
+-   Tendenziell signifikanter, aber nicht vollständig signifikanter
+    Effekt zwischen der moderaten Intensität zwischen Sitzen und Stehen.
+    Sitzen weiterhin numerisch höher (24.92 ± 0.78 vs. 24.08 ± 1.08) →
+    **Hypothese tendentiell bestätigt**
 
--   Nicht signifikanter Effekt zwischen der schweren Intensität zwischen
-    Sitzen und Stehen. Sitzen signifikant höher (24.36 ± 0.99 vs. 23.92
-    ± 0.81) (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) → **Hypothese
-    bestätigt**
+-   Nicht signifikanter Effekt von η~muskulär~ zwischen der schweren
+    Intensität zwischen Sitzen und Stehen. Sitzen numerisch höher (24.36
+    ± 0.99 vs. 23.92 ± 0.81), jedoch zeigt statistische Prüfung keine
+    relevante Differenz (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) →
+    **Hypothese bestätigt**
 
 -   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit
-    steigender Intensität ab → **Hypothese bestätigt**
+    steigender Intensität systematisch ab → **Hypothese bestätigt**
 
 -   Alle anderen Wirkungsgradberechnungsmethoden zeigen keine
     vergleichbaren signifikanten Ergebnisse.
 
-    -   Aufgrund dessen, dass P~Tot~ bzw. P~Int~ in allen
-        Intensitätsbedingungen im Sitzen höher ist als im Stehen, ebenso
-        wie beim Vergleich der mittleren P~TOT~ und P~INT~-Werte
-        zwischen den Bedingungen, sind die Unterschiede
-        höchstwahrscheinlich auf die höhere berechnete innere Arbeit
-        zurückzuführen.
+    -   Die konsistent höheren P~Tot~ bzw. P~Int~-Werte im Sitzen über
+        alle Intensitätsbedingungen hinweg legen nahe, dass die
+        beobachteten Unterschiede höchstwahrscheinlich auf eine erhöhte
+        berechnete innere Arbeitsleistung zurückzuführen sind
 
-### Warum η~muskulär~ so ist wie er ist
+### Erklärung der statistisch signifikanten Unterschiede von η~muskulär~
 
 η~muskulär~ und η~Total~ sind bis auf die Einbeziehung der inneren
 Arbeit in dei Berechnung gleich. Innere Arbeit ist im Sitzen im Mittel
@@ -178,9 +175,9 @@ Verhaltensweisen.
     -   η~muskulär~ wahrscheinlich valide Ergebnisse für das Fahren im
         Sitzen, aber die Ergebnisse für das Stehen sind anzuzweifeln.
 
-    -   Für den Vergleich der beiden Bedingungen wahrscheinlich
-        η~Total~ am besten geeignet und hier sind im Gegensatz zu
-        η~muskulär~ keine signifikanten Ergebnisse zu sehen.
+    -   Für den Vergleich der beiden Bedingungen wahrscheinlich η~Total~
+        am besten geeignet und hier sind im Gegensatz zu η~muskulär~
+        keine signifikanten Ergebnisse zu sehen.
 
 Identifikation von Kompensationsmechanismen auf übergeordneter Ebene -
 Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen
@@ -189,39 +186,71 @@ mechanischer Leistung, Torque Efficiency und Pedal Smoothness - Hinweise
 auf Optimierung der Bewegungskoordination bei höherer Belastung -
 Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 
-## \## Relevanz für die Praxis
-- Das Fahren im Stehen stellt bezüglich des Wirkungsgrades eine valide Alternative zum Sitzen dar, um kurzzeitig die Körperposition zu variieren und unterschiedliche Muskelgruppen zu belasten. Wie beschrieben, ist der gemittelte η~muskulär~ über alle Intensitäten in stehender Position niedriger als im Sitzen. Dieser Wirkungsgrad eignet sich jedoch, wie bereits diskutiert, für die Berechnungen im Sitzen nur bedingt als Bewertungsmethode.
+## Relevanz für die Praxis
 
-- Ein entscheidender Aspekt beim Radfahren in der Praxis, der in der Studie nicht berücksichtigt wurde, ist der signifikante Anstieg des Luftwiderstands beim Wechsel von sitzender zu stehender Position. Dies kann insbesondere bei Profiradsportlern, die hohe Geschwindigkeiten sowohl auf ebenen Strecken als auch in bergigen Terrains erreichen, zu einer substantiellen Reduktion der Geschwindigkeit bei gleichbleibender mechanischer Leistung führen. Daher ist das Fahren im Stehen in der Praxis primär für kurze Zeitintervalle an steilen Anstiegen oder in Situationen mit geringer Geschwindigkeit sinnvoll, bei denen der Luftwiderstand gegenüber der Gravitationskraft oder dem Rollwiderstand eine untergeordnete Rolle spielt.<br>
-Eine potenzielle Ausnahme bilden Situationen, in denen kurzzeitig sehr hohe mechanische Leistungen erforderlich sind. Gemäß vorliegender Literatur kann im Stehen über kurze Zeiträume eine höhere mechanische Leistung generiert werden.
+-   Das Fahren im Stehen stellt bezüglich des Wirkungsgrades eine valide
+    Alternative zum Sitzen dar, um kurzzeitig die Körperposition zu
+    variieren und unterschiedliche Muskelgruppen zu belasten. Wie
+    beschrieben, ist der gemittelte η~muskulär~ über alle Intensitäten
+    in stehender Position niedriger als im Sitzen. Dieser Wirkungsgrad
+    eignet sich jedoch, wie bereits diskutiert, für die Berechnungen im
+    Sitzen nur bedingt als Bewertungsmethode.
+
+-   Ein entscheidender Aspekt beim Radfahren in der Praxis, der in der
+    Studie nicht berücksichtigt wurde, ist der signifikante Anstieg des
+    Luftwiderstands beim Wechsel von sitzender zu stehender Position.
+    Dies kann insbesondere bei Profiradsportlern, die hohe
+    Geschwindigkeiten sowohl auf ebenen Strecken als auch in bergigen
+    Terrains erreichen, zu einer substantiellen Reduktion der
+    Geschwindigkeit bei gleichbleibender mechanischer Leistung führen.
+    Daher ist das Fahren im Stehen in der Praxis primär für kurze
+    Zeitintervalle an steilen Anstiegen oder in Situationen mit geringer
+    Geschwindigkeit sinnvoll, bei denen der Luftwiderstand gegenüber der
+    Gravitationskraft oder dem Rollwiderstand eine untergeordnete Rolle
+    spielt.<br> Eine potenzielle Ausnahme bilden Situationen, in denen
+    kurzzeitig sehr hohe mechanische Leistungen erforderlich sind. Gemäß
+    vorliegender Literatur kann im Stehen über kurze Zeiträume eine
+    höhere mechanische Leistung generiert werden.
 
 ## Limitationen
 
-- Stichprobengröße
-- Leichte Intensität zu schwer und mittlere wohl auch
-- Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche Drehzahl kaum höher als im Sitzen
-    - Wurde vergleichbar berechnet wie im Sitzen. Aber Haltearbeit sowie vertikale Änderungen des Körperschwerpunktes nicht einbezogen.
-- Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen auf die EPOC-Messung und keine geregelte Drehzahl in dieser Phase
-- Zu kurze Erholung nach den jeweiligen Belastungen, vor allem an Testtag 2 nach dem Sprinttest. Sprinttest unnötig, keine Rückkehr auf Laktat-Baseline
-- Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen Schwellen durch das 30s-Stufenprotokoll im Vergleich zum BDR-Protokoll 
-- Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und der Berechnung des WPCR
-- Fahren im Sitzen erolgte in fester  POsition auf einem Ergometer ohne weitere freiheitsgrade von links nach rechts, so wie beim Farhen draußen. Hier also abweichung von der Praxis und evtl. nicht repräsentativ. 
-- Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B System, insbesondere bei hohen Ventilationsraten 
-- Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der Körperlänge und Körpermasse nicht für jeden 3D-Kinematik-Daten vorhanden
+-   Geringe Stichprobengröße
+-   Leichte und moderate Intensität zu schwer
+-   Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche
+    Drehzahl kaum höher als im Sitzen
+    -   Wurde vergleichbar berechnet wie im Sitzen
+    -   Haltearbeit sowie vertikale Änderungen des Körperschwerpunktes
+        nicht einbezogen
+-   Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen
+    auf die EPOC-Messung
+    -   Keine geregelte Trittrate in dieser Phase
+-   Zu kurze Erholung nach den jeweiligen Belastungen, vor allem an
+    Testtag 2 nach dem Sprinttest
+    -   Sprinttest unnötig, keine Rückkehr auf Laktat-Baseline
+-   Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen
+    Schwellen durch das 30s-Stufenprotokoll im Vergleich zum
+    BDR-Protokoll
+-   Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und
+    der Berechnung des WPCR aufgrund der 50-Watt Nachbelastung
+-   Mögliche Ungenauigkeiten der Atemgasmessung bei hohen
+    Ventilationsraten
+-   Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen
+    und -schwerpunkte für die 3D-Bewegungsanalyse
 
 ## Ausblick
 
--   Weiterer Studien mit größerer Stichprobengröße, um die Validität der
-    Ergebnisse zu erhöhen gibt ja teilweise große effekte die abe rnicht
+-   Weitere Studien mit größerer Stichprobengröße, um die Validität der
+    Ergebnisse zu erhöhen, gibt teilweise große Effekte, die aber nicht
     signifikant sind
 -   Vergleich der verwendeten EPOC-Berechnungsmethode mit anderen
     Ansätzen aus der Literatur
--   Untersuchung des Einflusses von Trainingszustand und Geschlecht auf
-    den muskulären Wirkungsgrad Berücksichtigung der Wärmeabgabe und
-    -produktion bei der Berechnung des Gesamtenergieumsatzes und des
-    Wirkungsgrades
--   WElchen EInfluss haben Torque Efficiency oder Pedal-Smoothness (hohe
+-   Berücksichtigung der Wärmeabgabe bei der Berechnung des
+    Gesamtenergieumsatzes und des Wirkungsgrades, bzw. Berechnung des
+    Wirkungsgrades über die Wärmeabgabe
+-   Einfluss der Torque Efficiency oder Pedal-Smoothness (hohe
     Leistungsspitzen) auf den Wirkungsgrad
+-   Einfluss von Kurbellängen auf den Wirkungsgrad
+-   ...
 
 ::: {.callout-note collapse="true"}
 #### Wirkungsgradberechnungen

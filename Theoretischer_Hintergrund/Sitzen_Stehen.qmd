@@ -42,7 +42,7 @@ Ein Großteil der bisherigen Untersuchungen zum Wirkungsgrad beim Radfahren wurd
 # DIE NEUE STUDIE VON CARLSSON2024 NOCH EINBAUEN!!!!!!!
 ```
 
-Betrachtet man die bisherigen Untersuchungen zur Effizienz des Radfahrens im Stehen, zeigt sich, dass die Effizienz bei niedrigen und mäßigen Trainingsintensitäten unter 70% des maximalen Sauerstoffvolumenstroms ($\dot{V}O_{2, max}$) in der stehenden Position geringer ist als in sitzender Position [@Ryschon1991a; @Tanaka1996a]. Bei höheren Intensitäten über 70% der $\dot{V}O_{2, max}$ scheint der negative Effekt des Stehens auf die Effizienz jedoch zu verschwinden [@Arkesteijn2016; @Harnish2007; @Millet2002]. Beim Radfahren im Stehen können allerdings kurzfristig höhere Leistungen erbracht werden, was vermutlich auf die größere Kraftentwicklung pro Umdrehung zurückzuführen ist [@Hansen2008; @Millet2002]. @Berkemeier2020 stellten fest, dass beim Fahren im Stehen bei einer Ge-schwindigkeit von ca. 13 km/h und einer Steigung von 8% im Vergleich zum Fahren in sitzender Position unter gleichen Bedingungen, eine erhöhte $\dot{V}O_{2, max}$ und Herzrate auftrat.
+Betrachtet man die bisherigen Untersuchungen zur Effizienz des Radfahrens im Stehen, zeigt sich, dass die Effizienz bei niedrigen und mäßigen Trainingsintensitäten unter 70% des maximalen Sauerstoffvolumenstroms ($\dot{V}O_{2, max}$) in der stehenden Position geringer ist als in sitzender Position [@Ryschon1991a; @Tanaka1996a]. Bei höheren Intensitäten über 70% der $\dot{V}O_{2, max}$ scheint der negative Effekt des Stehens auf die Effizienz jedoch zu verschwinden [@Arkesteijn2016; @Harnish2007; @Millet2002]. Beim Radfahren im Stehen können allerdings kurzfristig höhere Leistungen erbracht werden, was vermutlich auf die größere Kraftentwicklung pro Umdrehung zurückzuführen ist [@Hansen2008; @Millet2002]. @Berkemeier2020 stellten fest, dass beim Fahren im Stehen bei einer Geschwindigkeit von ca. 13 km/h und einer Steigung von 8% im Vergleich zum Fahren in sitzender Position unter gleichen Bedingungen, eine erhöhte $\dot{V}O_{2, max}$ und Herzrate auftrat.
 
 ```{r}
 # Tabelle mit Wirkungsgraden im Stehen und Sitzen einbauen --> GIBT NUR WENIGE ODER KEINE, ABER ANHAND DER VO2 KOSTEN UMRECHENN
@@ -55,6 +55,8 @@ Bisher gibt es nach Wissen des Autors keine Studien, die den muskulären Wirkung
 
 **Abschnitt nochmal korrigieren und erweitern**
 **Richtig auf alle Forschungsfragen hinleiten**
+
+**IN Harnisch noch das Verhalten des Wirkungsgrad in den INtensitäten besprechen**
 
 
 ## Quellenverzeichnis
