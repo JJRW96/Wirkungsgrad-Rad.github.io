@@ -16,12 +16,10 @@ editor:
 tbl-cap-location: bottom
 ---
 
-# Stichpunkte: Diskussion
-
-Aufbau der Diskussion anhand der formulierten Forschungsfragen und
+In Stichüunkten: Aufbau der Diskussion anhand der formulierten Forschungsfragen und
 Hypothesen:
 
-### Forschungsfragen:
+## Forschungsfragen:
 
 1.  *Unterschiede zwischen den Körperpositionen Sitzen und Stehen?*
 
@@ -30,7 +28,7 @@ Hypothesen:
 3.  *Unterschiede des η~muskulär~ zwischen den Belastungsintensitäten in
     den Körperpositionen?*
 
-### Hypothesen:
+## Hypothesen:
 
 1.  *Keine signifikanten Unterschiede des η~muskulär~ zwischen Sitzen
     und Stehen*
@@ -48,6 +46,19 @@ Hypothesen:
         signifikanten Unterschiede des η~muskulär~ zwischen sitzender
         und stehender Position*
 
+::: {.callout-note collapse="true"}
+#### Wirkungsgradberechnungen
+
+| Wirkungsgrade |                   Berechnung                   |
+|---------------|:----------------------------------------------:|
+| η~Brutto~     |               P~mech~ / E~Aerob~               |
+| η~Netto~      |         P~mech~ / (E~Aerob~ - E~Ruhe~)         |
+| η~Total~      |          P~mech~ / (E~Tot~ - E~Ruhe~)          |
+| η~muskulär~   |    (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~)     |
+| η~Arbeit~     | P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~) |
+| η~delta~      |               ΔP~mech~ / ΔE~Tot~               |
+:::
+
 ### Zu Hypothese 1
 
 -   η~muskulär~ signifikant höher in sitzender Position (24.98 ± 1.06%
@@ -59,7 +70,7 @@ Hypothesen:
         P~Int~ für Stehen-Bedingung ist zu hinterfragen
     -   Bei Ausklammerung von P~Int~ kein signifikanter Unterschied →
         siehe η~Total~
--   ηNetto und ηBrutto unterschieden sich nicht signifikant
+-   η~Netto~ und η~Brutto~ unterschieden sich nicht signifikant
     -   Tendenziell höhere Werte in stehender Position
 
 ### Zu Hypothese 2
@@ -152,20 +163,23 @@ Hypothesen:
 
 ### Erklärung der statistisch signifikanten Unterschiede von η~muskulär~
 
-η~muskulär~ und η~Total~ sind bis auf die Einbeziehung der inneren
-Arbeit in dei Berechnung gleich. Innere Arbeit ist im Sitzen im Mittel
-37.5 ± 11.3 und im Stehen 22.1 ± 6.9 mit signifikanten Unterschieden.
-Beide P~Int~ Mittelwerte sind über die Intensitäten konstant, da
-Drehzahlabhängig und diese war jeweils gleich. Deshalb auch deutlich
-größere Differenz zwischen η~muskulär~ und η~Total~ von leichter und
-schwerer Intensität von durchschnittlich 0.80 bzw. 0.34, da P~Int~ fast
-gleichbleibt, aber der physiologische Energieumsatz steigt. Da P~Int~ im
-Sitzen signifikant höher war, ist η~muskulär~ auch höher im Sitzen als
-im Stehen. Denn ohne P~Int~ wie in η~Total~ keine Signifikanz. Deshalb
-zeigt η~Total~ eher die anhand der Literatur erwarteten
-Verhaltensweisen.
+-   η~muskulär~ und η~Total~ unterscheiden sich lediglich durch die
+    Einbeziehung der inneren Arbeit. Die innere Arbeit variiert
+    signifikant zwischen Sitzen (37.5 ± 11.3) und Stehen (22.1 ± 6.9).
 
-#### Fazit:
+-   Die P~Int~ Mittelwerte bleiben über alle Intensitäten konstant, da
+    sie drehzahlabhängig sind und die Drehzahl nahezu identisch bleibt.
+    Dadurch zeigt sich eine deutlich größere Differenz zwischen
+    η~muskulär~ und η~Total~ von durchschnittlich 0.80 bei leichter und
+    0.34 bei schwerer Intensität, weil P~Int~ nahezu gleichbleibt,
+    während der physiologische Energieumsatz steigt.
+
+-   Da P~Int~ im Sitzen signifikant höher war, ist η~muskulär~ auch
+    höher im Sitzen als im Stehen. Ohne Berücksichtigung von P~Int~ (wie
+    in η~Total~) zeigt sich keine Signifikanz. Daher repräsentiert
+    η~Total~ eher die in der Literatur erwarteten Verhaltensweisen.
+
+#### Fazit von η~muskulär~:
 
 -   η~muskulär~ wahrscheinlich nur für das Sitzen repräsentativ, aber
     für die stehenden Bedingung wahrscheinlich etwas unterschätzt. Hier
@@ -178,13 +192,6 @@ Verhaltensweisen.
     -   Für den Vergleich der beiden Bedingungen wahrscheinlich η~Total~
         am besten geeignet und hier sind im Gegensatz zu η~muskulär~
         keine signifikanten Ergebnisse zu sehen.
-
-Identifikation von Kompensationsmechanismen auf übergeordneter Ebene -
-Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen
-Bedingungen und Intensitäten - Untersuchung der Zusammenhänge zwischen
-mechanischer Leistung, Torque Efficiency und Pedal Smoothness - Hinweise
-auf Optimierung der Bewegungskoordination bei höherer Belastung -
-Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 
 ## Relevanz für die Praxis
 
@@ -226,7 +233,7 @@ Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
     -   Keine geregelte Trittrate in dieser Phase
 -   Zu kurze Erholung nach den jeweiligen Belastungen, vor allem an
     Testtag 2 nach dem Sprinttest
-    -   Sprinttest unnötig, keine Rückkehr auf Laktat-Baseline
+    -   Sprinttest kontraproduktiv keine Rückkehr auf Laktat-Baseline
 -   Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen
     Schwellen durch das 30s-Stufenprotokoll im Vergleich zum
     BDR-Protokoll
@@ -236,6 +243,7 @@ Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
     Ventilationsraten
 -   Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen
     und -schwerpunkte für die 3D-Bewegungsanalyse
+-   ...
 
 ## Ausblick
 
@@ -252,18 +260,6 @@ Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 -   Einfluss von Kurbellängen auf den Wirkungsgrad
 -   ...
 
-::: {.callout-note collapse="true"}
-#### Wirkungsgradberechnungen
-
-| Wirkungsgrade |                   Berechnung                   |
-|---------------|:----------------------------------------------:|
-| η~Brutto~     |               P~mech~ / E~Aerob~               |
-| η~Netto~      |         P~mech~ / (E~Aerob~ - E~Ruhe~)         |
-| η~Total~      |          P~mech~ / (E~Tot~ - E~Ruhe~)          |
-| η~muskulär~   |    (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~)     |
-| η~Arbeit~     | P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~) |
-| η~delta~      |               ΔP~mech~ / ΔE~Tot~               |
-:::
 
 # Quellenverzeichnis
 
