@@ -77,7 +77,6 @@ unique_HR_max <- Energieanteile_data %>%
 Testtag_1_df <- Testtag_1_df %>%
   left_join(unique_HR_max, by = "Proband")
 
-
 #################################################################################################
 
 # Erstelle Drehzahltest_df mit den ausgewählten Spalten
@@ -122,6 +121,11 @@ digits_3 <- c("O2_Cost_nD_Vorgabe [l·min⁻¹]")
 selected_columns <- c(digits_0, digits_1, digits_2, digits_3)
 Drehzahltest_df_selected <- Drehzahltest_df[, selected_columns]
 
+# Speichern in ...Probanden_Energieberechnung/xlsm
+saveRDS(Drehzahltest_df_selected, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Drehzahltest_df_selected.rds")
+saveRDS(Drehzahltest_df_selected, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/Drehzahltest_df_selected.rds")
+Drehzahltest_df_selected <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/Drehzahltest_df_selected.rds")
+
 # Datentabelle erstellen und formatieren
 DT_table <- datatable(Drehzahltest_df_selected,
                       options = list(
@@ -147,7 +151,7 @@ DT_table <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit
 
 # Speichern in ...Ergebnisse/rds
 saveRDS(DT_table, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/DT_table.rds")
-DT_table<- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/DT_table.rds")
+DT_table <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/DT_table.rds")
 
 #######
 # Berechnung der Statistiken
@@ -586,6 +590,12 @@ digits_3 <- c("ST1_VO2_max_rel [ml·min⁻¹·kg⁻¹]",
 # Auswählen der gewünschten Spalten
 selected_columns <- c(digits_0, digits_1, digits_2, digits_3)
 Stufentest_df_selected <- Stufentest_df[, selected_columns]
+
+# Speichern in ...Probanden_Energieberechnung/xlsm
+saveRDS(Stufentest_df_selected, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Stufentest_df_selected.rds")
+saveRDS(Stufentest_df_selected, "C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/Stufentest_df_selected.rds")
+Stufentest_df_selected <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Stufentest_df_selected.rds")
+
 
 # Datentabelle erstellen und formatieren
 ST_table <- datatable(Stufentest_df_selected,

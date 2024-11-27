@@ -15,6 +15,7 @@ editor:
 
 tbl-cap-location: bottom
 ---
+
 # Diskussion
 
 Aufbau der Diskussion anhand der fomulierten Forschungsfragen und
@@ -49,35 +50,109 @@ Hypothesen:
 
 ### Zu Hypothese 1
 
--   η~muskulär~ signifikant höher in sitzender Position (24.98 ± 1.06% vs. 24.07 ±
-    0.96%) (F(1,8) = 7.64, p = .024, η~p~^2^ = .489) → Hypothese widerlegt
-
+-   η~muskulär~ signifikant höher in sitzender Position (24.98 ± 1.06%
+    vs. 24.07 ± 0.96%) (F(1,8) = 7.64, p = .024, η~p~^2^ = .489) **→
+    Hypothese widerlegt**
 
 ### Zu Hypothese 2
 
--   Signifikanter Effekt der Intensität auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% - 24.14 ± 0.90%)  → **Hypothese widerlegt**
+-   Signifikanter Effekt der Intensität auf η~muskulär~ (F(2,16) = 5.23,
+    p = .018, η~p~^2^ = .395). η~muskulär~ nimmt mit steigender
+    Intensität ab (24.94 ± 1.27% - 24.14 ± 0.90%) **→ Hypothese
+    widerlegt**
 
--   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .074, d = .75). Moderat und leicht (p = .443, d = 0.41) sowie moderat und schwerer  (p = .574, d = 0.34) nicht signifikant
+    -   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und
+        schwer (p = .074, d = .75). Moderat und leicht (p = .443, d =
+        0.41) sowie moderat und schwerer (p = .574, d = 0.34) nicht
+        signifikant
 
--   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der Sitzen BEdingug (F(2,16) = 10.19, p = .001, η~p~^2^ = .560).  → **Hypothese widerlegt**
+-   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der
+    Sitzen BEdingug (F(2,16) = 10.19, p = .001, η~p~^2^ = .560). **→
+    Hypothese widerlegt**
 
-- Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d = .83) sowie moderat und schwerer  (p = .427, d = .63) nicht signifikant
+    -   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und
+        schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d =
+        .83) sowie moderat und schwerer (p = .427, d = .63) nicht
+        signifikant
 
+-   Mit steigender Belastungsintensität verhalten sich die vrschiedenen
+    Wirkungsgrade untershciedlich.
+
+    -   η~muskulär~ und η~Total~ sinken tendentiell ab, da wohl hier
+        W~TOT~ überproportional ansteigt geenüber P~TOT~ für η~muskulär~
+        bzw. P~mech~ für η~Total~. Jedoch nur bei η~muskulär~
+        signifikant.
+
+    -   η~Arbeit,sitzen~ verhält isich mit steigender
+        Belastungsintenität innerhalb der Sitzen Bedingung vergelcihbar
+        wie η~muskulär~ da zwischen der leichten und schweren
+        Beasltungsintensität jeweils in signifikanter utnerschied
+        besteht. Die unterschiede der Beiden bestht nur darin, wie die
+        Kosten für die innere Leistung bestimmt wurden. Für η~muskulär~
+        wurden diese anhand der Biomechnsichen modells oder 3 d
+        kinematik errechnet während der Sauerstoffumsatz für dei
+        leerbwegungun anhand des Drehzaltests in η~Arbeit,sitzen~
+        berechnet wurde. So scheinen Beide berechnungsansätze valide
+        Methoden für die Bestimmung der inneren Arbeit für das Radfahren
+        im tehen zu sein.
+
+    -   η~Netto~ zeigt gegensätzliches Berhalten bei steigender
+        BElastungsintensität. Die Mitetlwerte von η~Netto~ steigen bei
+        höheren Intensitäten im Mittel über beide Bedingugnen auch wenn
+        kein signifikantenUntershciede feszustellen sind. ABer innerhalb
+        der jewieligen Bedingungen zeigt sich ein sehr geringer nicht
+        signifikanter Abfall für η~Netto~ , bzw. ein fast konstanter
+        nettoirkungsgrad innerhalb der Sitzen Bedingung während im
+        Stehen ein
+
+    -   
+
+    -   enen leichten Abfall η~Brutto~,
 
 ### Zu Hypothese 3
--   Signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
 
--   Kein signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
+-   Signifikanter Effekt zwischen der leichten Intensität zwischen
+    Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20
+    ± 1.05). (F(1,8) = 16.63, p = .004, η~p~^2^ = .675) → **Hypothese
+    bestätigt**
 
--   Kein signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
+-   Tendentiall aber nicht signifikanter Effekt zwischen der moderaten
+    Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher (
+    24.92 ± 0.78 vs. 24.08 ± 1.08 ). → **Hypothese tendentiell
+    bestätigt**
 
--   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit steigender Intensität ab → **Hypothese bestätigt**
+-   Nicht signifikanter Effekt zwischen der schweren Intensität zwischen
+    Sitzen und Stehen. Sitzen signifikant höher ( 24.36 ± 0.99 vs. 23.92
+    ± 0.81) (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) → **Hypothese
+    bestätigt**
+
+-   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit
+    steigender Intensität ab → **Hypothese bestätigt**
 
 ### Warum η~muskulär~ so wie er sit
-η~muskulär~ und η~Total~ bis uaf die Einbeziheung der inneren Arbeit gleich. Innere Arbeit in Sitzenn durcshchnittlic 37.5 ± 11.3 und im Stehen 22.1 ± 6.9 mit signifikanten Unterschide. Beid über die Intensitäten konstatnt, da Drehzahlabhänigg und diese war jeweils gleich.  Deshalb auch deutlich größere Differenz zwsichen  η~muskulär~ und η~Total~ von leichter und schwerer Intensität von durschchnittlich 0.80 bzw. 0.34, da PInt fast gleichbleibt, aber der pyhiologische Energieumsatz steigt. Da PInt in Sitzen signifikant höher war ist η~muskulär~ auch höher ims itzen als stehen. Denn ohen Pint wie in η~total~ keine isgnifikanz.
-Dehalb zeigt η~Total~ eher die anhand der Literatur erwarteten Verhalten.
 
-FAZIT: Wirk muskulär wahrscheinlich nur für das Sitzen repräsentativ, aber für die Stheen Bedingung wahrscheinlich etwas unterschätzt, da PInt im stehen vermutlich unterschätzt wurde.
+η~muskulär~ und η~Total~ bis uaf die Einbeziheung der inneren Arbeit
+gleich. Innere Arbeit in Sitzenn durcshchnittlic 37.5 ± 11.3 und im
+Stehen 22.1 ± 6.9 mit signifikanten Unterschide. Beid über die
+Intensitäten konstatnt, da Drehzahlabhänigg und diese war jeweils
+gleich. Deshalb auch deutlich größere Differenz zwsichen η~muskulär~ und
+η~Total~ von leichter und schwerer Intensität von durschchnittlich 0.80
+bzw. 0.34, da PInt fast gleichbleibt, aber der pyhiologische
+Energieumsatz steigt. Da PInt in Sitzen signifikant höher war ist
+η~muskulär~ auch höher ims itzen als stehen. Denn ohen Pint wie in
+η~total~ keine isgnifikanz. Dehalb zeigt η~Total~ eher die anhand der
+Literatur erwarteten Verhalten.
+
+Bei leichter und moderater Intensität zeigte der Vergleich zwischen
+sitzender und stehender Position keine signifikanten Unterschiede
+(F(1,8) = 0.031, p = .865, η~p~^2^ = .004; F(1,8) = 0.663, p = .439,
+η~p~^2^ = .077). Bei schwerer Intensität präsentierte sich ein nicht
+signifikanter Unterschied mit großer Effektstärke (F(1,8) = 2.388, p =
+.161, η~p~^2^ = .230).
+
+FAZIT: Wirk muskulär wahrscheinlich nur für das Sitzen repräsentativ,
+aber für die Stheen Bedingung wahrscheinlich etwas unterschätzt, da PInt
+im stehen vermutlich unterschätzt wurde.
 
 ## Weitere Wirkungsgrade {.unlisted}
 
@@ -94,7 +169,6 @@ FAZIT: Wirk muskulär wahrscheinlich nur für das Sitzen repräsentativ, aber f�
     -   Bestätigt Literatur, mögliche Erklärung: Ineffizientere
         Faserrekrutierung
 
-
 Zusätzliche Aspekte: - Vergleich der ermittelten η~muskulär~-Werte mit
 Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der
 vorliegenden Studie - Mögliche Erklärung: Referenzstudien weisen
@@ -109,47 +183,56 @@ mechanischer Leistung, Torque Efficiency und Pedal Smoothness - Hinweise
 auf Optimierung der Bewegungskoordination bei höherer Belastung -
 Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 
-## Relevanz für die Praxis
-- 
+## \## Relevanz für die Praxis
 
 ## Limitationen
 
 -   Stichprobengröße
-- Lecihte Intensität zu schwer und mittlere wohl auch
--  Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche Drehzahl kaum höher als im Sitzen
-- Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen auf die EPOC-Messung und keine geregelte Drehzahl in deise rphase
-- Zu Kruze ERholung nach den jeweiige nBElstungen, vor allem an Testtag 2 nach dem Sprinttetst. Sprinttest unnötig keine Rückckkerh auf Laktat bAseline
-- Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen Schwellen durch das 30s-Stufenprotokoll im Vergleich zum BDR-Protokoll
--Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und der Berechnung des WPCR
-- Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B System, insbesondere bei hohen Ventilationsraten
-Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der Körperlänge und Körpermasse
-nIcht fü jeden 3D Kinematik Daten vorhanden
-
-
+-   Lecihte Intensität zu schwer und mittlere wohl auch
+-   Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche
+    Drehzahl kaum höher als im Sitzen
+-   Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen
+    auf die EPOC-Messung und keine geregelte Drehzahl in deise rphase
+-   Zu Kruze ERholung nach den jeweiige nBElstungen, vor allem an
+    Testtag 2 nach dem Sprinttetst. Sprinttest unnötig keine Rückckkerh
+    auf Laktat bAseline
+-   Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen
+    Schwellen durch das 30s-Stufenprotokoll im Vergleich zum
+    BDR-Protokoll -Mögliche Ungenauigkeiten bei der Modellierung der
+    EPOC-Kurven und der Berechnung des WPCR
+-   Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B
+    System, insbesondere bei hohen Ventilationsraten Mögliche
+    Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und
+    -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der
+    Körperlänge und Körpermasse nIcht fü jeden 3D Kinematik Daten
+    vorhanden
 
 ## Ausblick
-- Weiterer Studien mit größerer Stichprobengröße, um die Validität der Ergebnisse zu erhöhen gibt ja teilweise große effekte die abe rnicht signifikant sind
-- Vergleich der verwendeten EPOC-Berechnungsmethode mit anderen Ansätzen aus der Literatur
-- Untersuchung des Einflusses von Trainingszustand und Geschlecht auf den muskulären Wirkungsgrad
-Berücksichtigung der Wärmeabgabe und -produktion bei der Berechnung des Gesamtenergieumsatzes und des Wirkungsgrades
-- WElchen EInfluss haben Torque Efficiency oder Pedal-Smoothness (hohe Leistungsspitzen) auf  den Wirkungsgrad
 
-
-
-
+-   Weiterer Studien mit größerer Stichprobengröße, um die Validität der
+    Ergebnisse zu erhöhen gibt ja teilweise große effekte die abe rnicht
+    signifikant sind
+-   Vergleich der verwendeten EPOC-Berechnungsmethode mit anderen
+    Ansätzen aus der Literatur
+-   Untersuchung des Einflusses von Trainingszustand und Geschlecht auf
+    den muskulären Wirkungsgrad Berücksichtigung der Wärmeabgabe und
+    -produktion bei der Berechnung des Gesamtenergieumsatzes und des
+    Wirkungsgrades
+-   WElchen EInfluss haben Torque Efficiency oder Pedal-Smoothness (hohe
+    Leistungsspitzen) auf den Wirkungsgrad
 
 ::: {.callout-note collapse="true"}
 #### Wirkungsgradberechnungen
-| Wirkungsgrade |               Berechnung                |
-|---------------|:---------------------------------------:|
-| η~Brutto~     |            P~mech~ / E~Aerob~             |
-| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
-| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
-| η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
-| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
-| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
-:::
 
+| Wirkungsgrade |                   Berechnung                   |
+|---------------|:----------------------------------------------:|
+| η~Brutto~     |               P~mech~ / E~Aerob~               |
+| η~Netto~      |         P~mech~ / (E~Aerob~ - E~Ruhe~)         |
+| η~Total~      |          P~mech~ / (E~Tot~ - E~Ruhe~)          |
+| η~muskulär~   |    (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~)     |
+| η~Arbeit~     | P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~) |
+| η~delta~      |               ΔP~mech~ / ΔE~Tot~               |
+:::
 
 # Quellenverzeichnis
 

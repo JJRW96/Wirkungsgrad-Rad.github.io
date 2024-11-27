@@ -111,7 +111,7 @@ $\dot{V}O_{2}$-Daten aller Probanden im ST1, 11.16 ml·min^-1^·W^-1^ (@fig-ST_O
 ::: {.callout-note collapse="true"}
 ## Tabelle: Parameter der Stufentests aller Probanden{ .unlisted }
 ```{r}
-#| label: tbl-ST_DT
+#| label: tbl-ST_table
 #| tbl-cap-location: top
 #| tbl-cap: "Parameter der Stufentests aller Probanden"
 
@@ -125,6 +125,65 @@ ST_table<- readRDS("rds/ST_table.rds")
 ST_table
 ```
 ::: 
+
+```{r}
+#| label: tbl-ST_table
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter des Drehzahltests aller Probanden"
+
+library(flextable)
+library(dplyr)
+library(officer)
+library(DT)
+
+Stufentest_df_selected <- readRDS("rds/Stufentest_df_selected.rds")
+
+# Gruppierte Variablen nach Dezimalstellen
+digits_0 <- c("Proband")
+
+digits_1 <- c("P_mech_max_sitzen [W]",
+              "P_mech_max_stehen [W]",
+              "P_mech_Vorgabe_leicht [W]",
+              "P_mech_Vorgabe_moderat [W]",
+              "P_mech_Vorgabe_schwer [W]",
+              "VT1 [W]",
+              "VT2 [W]",
+              "nD_Vorgabe_sitzen [U·min⁻¹]",
+              "nD_Vorgabe_stehen [U·min⁻¹]",
+              "HR_ST_max [min⁻¹]")
+digits_2 <- c("P_mech_max_sitzen_kg [W·kg⁻¹]",
+              "P_mech_max_stehen_kg [W·kg⁻¹]",
+              "ST1_VO2_max_abs [l·min⁻¹]",
+              "ST2_VO2_max_abs [l·min⁻¹]",
+              "O2_Cost_of_Work_ST1 [ml·min⁻¹·W⁻¹]")
+digits_3 <- c("ST1_VO2_max_rel [ml·min⁻¹·kg⁻¹]",
+              "ST2_VO2_max_rel [ml·min⁻¹·kg⁻¹]")
+
+# Datentabelle erstellen und formatieren
+ST_table <- datatable(Stufentest_df_selected,
+                      options = list(
+                        pageLength = 10,
+                        scrollX = TRUE,
+                        scrollCollapse = TRUE,
+                        autoWidth = FALSE,
+                        rownames = FALSE,
+                        columnDefs = list(
+                          list(targets = '_all', className = 'dt-nowrap')
+                        )
+                      )) %>%
+  formatRound(columns = digits_0, digits = 0) %>%
+  formatRound(columns = digits_1, digits = 1) %>%
+  formatRound(columns = digits_2, digits = 2) %>%
+  formatRound(columns = digits_3, digits = 3)
+
+ST_table
+```
+::: 
+
+
+
+
+
 
 # Physiologische Parameter beider Stufentests { .unlisted }
 Die folgenden Abbildungen zeigen die individuellen Verläufe der Herzrate, der respiratorischen 
@@ -252,6 +311,53 @@ Der zusätzliche Sauerstoffumsatz für die Leerbewegung (Pedalieren ohne Widerst
 Das kubische Modell entspricht dabei den physikalischen Gegebenheiten, da die kinetische Energie der zyklisch bewegten Beinmassen proportional zum Quadrat der Winkelgeschwindigkeit ist ($\text{E}_{\text{kin}} \propto \omega^2$). Die innere Leistung als zeitliche Änderung dieser Energie ($P = \frac{dE}{dt}$) führt durch die zusätzliche Multiplikation mit der Winkelgeschwindigkeit zu einem kubischen Zusammenhang mit der Drehzahl.
 
 ![Zusammenhang der P~Int,Modell~ und Drehzahl-Werte aus dem Drehzahltest](images/p_PInt_nD_DT_all.html){#fig-DT_PInt_nD_all width="1100" height="450"}
+
+::: {.callout-note collapse="true"}
+## Tabelle: Parameter des Drehzahltests aller Probanden{ .unlisted }
+```{r}
+#| label: tbl-DT_table
+#| tbl-cap-location: top
+#| tbl-cap: "Parameter des Drehzahltests aller Probanden"
+
+library(flextable)
+library(dplyr)
+library(officer)
+library(DT)
+
+Drehzahltest_df_selected <- readRDS("rds/Drehzahltest_df_selected.rds")
+
+digits_0 <- c("Proband")
+digits_1 <- c("nD_DT_max [min⁻¹]",
+              "nD_DT_60 [min⁻¹]",
+              "P_Int_Modell_DT_max [W]",
+              "P_Int_Modell_DT_60 [W]",
+              "VO2_DT_percent [%]",
+              "HR_DT_max [min⁻¹]",
+              "HR_ST_max [min⁻¹]")
+digits_2 <- c("η_DT_netto [%]",
+              "O2_Cost_of_Work_DT_Modell [ml·min⁻¹·W⁻¹]")
+digits_3 <- c("O2_Cost_nD_Vorgabe [l·min⁻¹]")
+
+# Datentabelle erstellen und formatieren
+DT_table <- datatable(Drehzahltest_df_selected,
+                      options = list(
+                        pageLength = 10,
+                        scrollX = TRUE,
+                        scrollCollapse = TRUE,
+                        autoWidth = FALSE,
+                        rownames = FALSE,
+                        columnDefs = list(
+                          list(targets = '_all', className = 'dt-nowrap')
+                        )
+                      )) %>%
+  formatRound(columns = digits_0, digits = 0) %>%
+  formatRound(columns = digits_1, digits = 1) %>%
+  formatRound(columns = digits_2, digits = 2) %>%
+  formatRound(columns = digits_3, digits = 3)
+
+DT_table
+```
+::: 
 
 ## Physiologische Parameter des Drehzahltests { .unlisted }
 
