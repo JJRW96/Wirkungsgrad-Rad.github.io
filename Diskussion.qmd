@@ -17,8 +17,24 @@ tbl-cap-location: bottom
 ---
 
 # Diskussion
-
 ## Forschungsfragen und Hypothesen { .unlisted}
+Aufbau und Besprechung anhand der fomulierten Hypothesen:
+
+### Forschungsfragen:
+*1.  Unterschiede des zwischen den Körperpositionen Sitzen und Stehen?*
+*2.  Unterschiede des muskulären Wirkungsgrades den Belastungsintensitäten?*
+*3.  Unterschiede des muskulären Wirkungsgrades zwischen den Belastungsintensitäten in den Körperpositionen?*
+
+### Hypothesen:
+
+1.  Vergleich der Körperpositionen Sitzen und Stehen:
+    -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen Sitzen und Stehen
+2.  Vergleich der Belastungsintensitäten leicht moderat und schwer:
+    -   Keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen leichten, moderaten und schweren Belastungsintensitäten
+3.  Interaktion von Körperposition und Belastungsintensität:
+    -   Bei niedrigen Intensitäten gibt es keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
+    -   Bei mittleren und hohen Intensitäten gibt es keine statistisch signifikanten Unterschiede des muskulären Wirkungsgrades zwischen sitzender und stehender Position
+
 
 ### Vergleich der Körperpositionen Sitzen und Stehen
 - η~muskulär~ höher in sitzender Position (24.98 ± 1.06% vs. 24.07 ± 0.96%), Hypothese widerlegt
