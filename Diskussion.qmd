@@ -55,9 +55,9 @@ Hypothesen:
     Hypothese widerlegt**
     -   Effekt zeigt sich primär aufgrund des signifikant höheren PTot
         in der sitzenden Bedingung während sich gleichzeitig WTOT nicht
-        signifikant unterscheidet. Berechnung von PTOT bzw. PInt für die
-        Stehen-Bedingung zu hinterfragen.
-    -   Bei der Ausklammerung von PInt, was dann ηTotal entspricht,
+        signifikant unterscheidet. Berechnung von PTOT bzw. P~Int~ für
+        die Stehen-Bedingung zu hinterfragen.
+    -   Bei der Ausklammerung von P~Int~, was dann ηTotal entspricht,
         zeigt sich kein signifikanter Unterschied.
 -   ηNetto und ηBrutto unterschieden sich ebenfalls nicht signifikant
     sind jedoch in den beiden sowie bei ηTotal stets nicht signifikant
@@ -88,11 +88,11 @@ Hypothesen:
     Wirkungsgrade unterschiedlich.
 
     -   η~muskulär~ und η~Total~ sinken tendenziell ab, da wohl hier
-        W~TOT~ überproportional ansteigt gegenüber P~TOT~ für η~muskulär~
-        bzw. P~mech~ für η~Total~. Jedoch nur bei η~muskulär~
-        signifikant, was womöglich damit zu erklären ist, dass PInt nicht
-        ansteigt mit steigender Belastungsintensität und somit der
-        η~muskulär~ noch stärker abfällt als η~Total~
+        W~TOT~ überproportional ansteigt gegenüber P~TOT~ für
+        η~muskulär~ bzw. P~mech~ für η~Total~. Jedoch nur bei
+        η~muskulär~ signifikant, was womöglich damit zu erklären ist,
+        dass P~Int~ nicht ansteigt mit steigender Belastungsintensität
+        und somit der η~muskulär~ noch stärker abfällt als η~Total~
 
     -   η~Arbeit,sitzen~ verhält sich mit steigender
         Belastungsintensität innerhalb der Sitzen Bedingung vergleichbar
@@ -106,22 +106,22 @@ Hypothesen:
         berechnet wurde. So scheinen beide Berechnungsansätze valide
         Methoden für die Bestimmung der inneren Arbeit für das Radfahren
         im Stehen zu sein. Für die stehende Bedingung können die beiden
-        nicht verglichen werden, da η~Arbeit~ nicht für Stehen
-        berechnet wurde.
+        nicht verglichen werden, da η~Arbeit~ nicht für Stehen berechnet
+        wurde.
 
     -   η~Netto~ zeigt gegensätzliches Verhalten bei steigender
         Belastungsintensität. Die Mittelwerte von η~Netto~ steigen bei
         höheren Intensitäten im Mittel über beide Bedingungen, auch wenn
         keine signifikanten Unterschiede festzustellen sind. Aber
-        innerhalb der jeweiligen Bedingungen zeigt sich ein sehr geringer
-        nicht signifikanter Abfall für η~Netto~, bzw. ein fast konstanter
-        Nettowirkungsgrad innerhalb der Sitzen Bedingung, aber während
-        dem Stehen ein konstanter nicht signifikanter Anstieg von leicht
-        zu schwer.
+        innerhalb der jeweiligen Bedingungen zeigt sich ein sehr
+        geringer nicht signifikanter Abfall für η~Netto~, bzw. ein fast
+        konstanter Nettowirkungsgrad innerhalb der Sitzen Bedingung,
+        aber während dem Stehen ein konstanter nicht signifikanter
+        Anstieg von leicht zu schwer.
 
     -   η~Brutto~ steigt wie zu erwarten signifikant an mit steigender
-        Intensität, was auf den kleiner werdenden prozentualen Anteil der
-        Ruhenergieumsatzes zurückzuführen ist.
+        Intensität, was auf den kleiner werdenden prozentualen Anteil
+        der Ruhenergieumsatzes zurückzuführen ist.
 
 ### Zu Hypothese 3
 
@@ -130,10 +130,10 @@ Hypothesen:
     ± 1.05). (F(1,8) = 16.63, p = .004, η~p~^2^ = .675) → **Hypothese
     bestätigt**
 
--   Tendenziell signifikanter, aber nicht signifikanter Effekt zwischen der moderaten
-    Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher
-    (24.92 ± 0.78 vs. 24.08 ± 1.08). → **Hypothese tendentiell
-    bestätigt**
+-   Tendenziell signifikanter, aber nicht signifikanter Effekt zwischen
+    der moderaten Intensität zwischen Sitzen und Stehen. Sitzen
+    signifikant höher (24.92 ± 0.78 vs. 24.08 ± 1.08). → **Hypothese
+    tendentiell bestätigt**
 
 -   Nicht signifikanter Effekt zwischen der schweren Intensität zwischen
     Sitzen und Stehen. Sitzen signifikant höher (24.36 ± 0.99 vs. 23.92
@@ -144,71 +144,44 @@ Hypothesen:
     steigender Intensität ab → **Hypothese bestätigt**
 
 -   Alle anderen Wirkungsgradberechnungsmethoden zeigen keine
-    vergleichbaren signifikanten Ergebnisse. Aufgrund dessen, dass P~Tot~
-    bzw. P~Int~ in allen Intensitätsbedingungen im Sitzen höher ist als
-    im Stehen, ebenso wie beim Vergleich der mittleren P~TOT~ und
-    P~INT~-Werte zwischen den Bedingungen, sind die Unterschiede
-    höchstwahrscheinlich auf die höhere berechnete innere Arbeit
-    zurückzuführen.
+    vergleichbaren signifikanten Ergebnisse.
 
-### Warum η~muskulär~ so wie er sit
+    -   Aufgrund dessen, dass P~Tot~ bzw. P~Int~ in allen
+        Intensitätsbedingungen im Sitzen höher ist als im Stehen, ebenso
+        wie beim Vergleich der mittleren P~TOT~ und P~INT~-Werte
+        zwischen den Bedingungen, sind die Unterschiede
+        höchstwahrscheinlich auf die höhere berechnete innere Arbeit
+        zurückzuführen.
 
-η~muskulär~ und η~Total~ bis uaf die Einbeziheung der inneren Arbeit
-gleich. Innere Arbeit in Sitzenn durcshchnittlic 37.5 ± 11.3 und im
-Stehen 22.1 ± 6.9 mit signifikanten Unterschide. Beid über die
-Intensitäten konstatnt, da Drehzahlabhänigg und diese war jeweils
-gleich. Deshalb auch deutlich größere Differenz zwsichen η~muskulär~ und
-η~Total~ von leichter und schwerer Intensität von durschchnittlich 0.80
-bzw. 0.34, da PInt fast gleichbleibt, aber der pyhiologische
-Energieumsatz steigt. Da PInt in Sitzen signifikant höher war ist
-η~muskulär~ auch höher ims itzen als stehen. Denn ohen Pint wie in
-η~total~ keine isgnifikanz. Dehalb zeigt η~Total~ eher die anhand der
-Literatur erwarteten Verhalten.
+### Warum η~muskulär~ so ist wie er ist
 
-Bei leichter und moderater Intensität zeigte der Vergleich zwischen
-sitzender und stehender Position keine signifikanten Unterschiede
-(F(1,8) = 0.031, p = .865, η~p~^2^ = .004; F(1,8) = 0.663, p = .439,
-η~p~^2^ = .077). Bei schwerer Intensität präsentierte sich ein nicht
-signifikanter Unterschied mit großer Effektstärke (F(1,8) = 2.388, p =
-.161, η~p~^2^ = .230).
+η~muskulär~ und η~Total~ sind bis auf die Einbeziehung der inneren
+Arbeit in dei Berechnung gleich. Innere Arbeit ist im Sitzen im Mittel
+37.5 ± 11.3 und im Stehen 22.1 ± 6.9 mit signifikanten Unterschieden.
+Beide P~Int~ Mittelwerte sind über die Intensitäten konstant, da
+Drehzahlabhängig und diese war jeweils gleich. Deshalb auch deutlich
+größere Differenz zwischen η~muskulär~ und η~Total~ von leichter und
+schwerer Intensität von durchschnittlich 0.80 bzw. 0.34, da P~Int~ fast
+gleichbleibt, aber der physiologische Energieumsatz steigt. Da P~Int~ im
+Sitzen signifikant höher war, ist η~muskulär~ auch höher im Sitzen als
+im Stehen. Denn ohne P~Int~ wie in η~Total~ keine Signifikanz. Deshalb
+zeigt η~Total~ eher die anhand der Literatur erwarteten
+Verhaltensweisen.
 
 #### Fazit:
 
--   Wirk muskulär wahrscheinlich nur für das Sitzen repräsentativ, aber
-    für die Stheen Bedingung wahrscheinlich etwas unterschätzt, da PInt
-    im stehen vermutlich unterschätzt wurde. Hier alos noch mehr
-    Forschungsbedarf um die PInt fürs Stehen och präziser einscötzen zu
-    können.
+-   η~muskulär~ wahrscheinlich nur für das Sitzen repräsentativ, aber
+    für die stehenden Bedingung wahrscheinlich etwas unterschätzt. Hier
+    also noch mehr Forschungsbedarf, um die P~Int~ fürs Stehen noch
+    präziser einschätzen zu können.
 
--   Wirk muskulär wahrschienlich valide Egebnisse für das Farhen im
-    sitzen, aber die Ergebnisse für das Stehen sind anzuzweifeln.
+    -   η~muskulär~ wahrscheinlich valide Ergebnisse für das Fahren im
+        Sitzen, aber die Ergebnisse für das Stehen sind anzuzweifeln.
 
-    -   Fur den Vergleich der beiden Bedingungen wahrscheinlich
-        Wirk_Total am besten geeginet und hier sind im Gegensatz zu Wirk
-        muskulär keine signifikanten Ergebnisse.
+    -   Für den Vergleich der beiden Bedingungen wahrscheinlich
+        η~Total~ am besten geeignet und hier sind im Gegensatz zu
+        η~muskulär~ keine signifikanten Ergebnisse zu sehen.
 
-## Weitere Wirkungsgrade {.unlisted}
-
--   η~Total~: Keine Unterschiede zwischen Positionen und Intensitäten
-    -   Kompensation der η~muskulär~-Unterschiede auf übergeordneter
-        Ebene
--   η~Netto~: Anstieg nur in stehender Position mit Intensität
-    -   Abweichend von Literatur, möglicherweise bedingt durch
-        Belastungsprotokoll
--   η~Brutto~: Anstieg mit Intensität nur in stehender Position
-    -   Übereinstimmend mit Literatur, Ursache: Verbesserung
-        Energietransformation
--   η~Arbeit~: Abfall mit Intensität in sitzender Position
-    -   Bestätigt Literatur, mögliche Erklärung: Ineffizientere
-        Faserrekrutierung
-
-Zusätzliche Aspekte: - Vergleich der ermittelten η~muskulär~-Werte mit
-Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der
-vorliegenden Studie - Mögliche Erklärung: Referenzstudien weisen
-außergewöhnlich hohe Wirkungsgrade auf - Direkte Vergleichbarkeit der
-Absolutwerte daher nur eingeschränkt möglich - Analyse der weiteren
-Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~, η~Arbeit~) ermöglicht
-umfassenderes Verständnis der Energietransformationsprozesse -
 Identifikation von Kompensationsmechanismen auf übergeordneter Ebene -
 Ableitung potenzieller Wirkmechanismen für Unterschiede zwischen
 Bedingungen und Intensitäten - Untersuchung der Zusammenhänge zwischen
@@ -217,31 +190,24 @@ auf Optimierung der Bewegungskoordination bei höherer Belastung -
 Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
 
 ## \## Relevanz für die Praxis
+- Das Fahren im Stehen stellt bezüglich des Wirkungsgrades eine valide Alternative zum Sitzen dar, um kurzzeitig die Körperposition zu variieren und unterschiedliche Muskelgruppen zu belasten. Wie beschrieben, ist der gemittelte η~muskulär~ über alle Intensitäten in stehender Position niedriger als im Sitzen. Dieser Wirkungsgrad eignet sich jedoch, wie bereits diskutiert, für die Berechnungen im Sitzen nur bedingt als Bewertungsmethode.
+
+- Ein entscheidender Aspekt beim Radfahren in der Praxis, der in der Studie nicht berücksichtigt wurde, ist der signifikante Anstieg des Luftwiderstands beim Wechsel von sitzender zu stehender Position. Dies kann insbesondere bei Profiradsportlern, die hohe Geschwindigkeiten sowohl auf ebenen Strecken als auch in bergigen Terrains erreichen, zu einer substantiellen Reduktion der Geschwindigkeit bei gleichbleibender mechanischer Leistung führen. Daher ist das Fahren im Stehen in der Praxis primär für kurze Zeitintervalle an steilen Anstiegen oder in Situationen mit geringer Geschwindigkeit sinnvoll, bei denen der Luftwiderstand gegenüber der Gravitationskraft oder dem Rollwiderstand eine untergeordnete Rolle spielt.<br>
+Eine potenzielle Ausnahme bilden Situationen, in denen kurzzeitig sehr hohe mechanische Leistungen erforderlich sind. Gemäß vorliegender Literatur kann im Stehen über kurze Zeiträume eine höhere mechanische Leistung generiert werden.
 
 ## Limitationen
 
--   Stichprobengröße
--   Lecihte Intensität zu schwer und mittlere wohl auch
--   Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche
-    Drehzahl kaum höher als im Sitzen
-    -   Wurde vergleichbar berechnet wie im Sitzen. Aber Haltearbeit
-        sowie vertikale Änderungen des Körperschwerpunktes nicht
-        einbezogen.
--   Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen
-    auf die EPOC-Messung und keine geregelte Drehzahl in deise rphase
--   Zu Kruze ERholung nach den jeweiige nBElstungen, vor allem an
-    Testtag 2 nach dem Sprinttetst. Sprinttest unnötig keine Rückckkerh
-    auf Laktat bAseline
--   Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen
-    Schwellen durch das 30s-Stufenprotokoll im Vergleich zum
-    BDR-Protokoll -Mögliche Ungenauigkeiten bei der Modellierung der
-    EPOC-Kurven und der Berechnung des WPCR
--   Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B
-    System, insbesondere bei hohen Ventilationsraten Mögliche
-    Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und
-    -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der
-    Körperlänge und Körpermasse nIcht fü jeden 3D Kinematik Daten
-    vorhanden
+- Stichprobengröße
+- Leichte Intensität zu schwer und mittlere wohl auch
+- Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche Drehzahl kaum höher als im Sitzen
+    - Wurde vergleichbar berechnet wie im Sitzen. Aber Haltearbeit sowie vertikale Änderungen des Körperschwerpunktes nicht einbezogen.
+- Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen auf die EPOC-Messung und keine geregelte Drehzahl in dieser Phase
+- Zu kurze Erholung nach den jeweiligen Belastungen, vor allem an Testtag 2 nach dem Sprinttest. Sprinttest unnötig, keine Rückkehr auf Laktat-Baseline
+- Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen Schwellen durch das 30s-Stufenprotokoll im Vergleich zum BDR-Protokoll 
+- Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und der Berechnung des WPCR
+- Fahren im Sitzen erolgte in fester  POsition auf einem Ergometer ohne weitere freiheitsgrade von links nach rechts, so wie beim Farhen draußen. Hier also abweichung von der Praxis und evtl. nicht repräsentativ. 
+- Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B System, insbesondere bei hohen Ventilationsraten 
+- Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der Körperlänge und Körpermasse nicht für jeden 3D-Kinematik-Daten vorhanden
 
 ## Ausblick
 

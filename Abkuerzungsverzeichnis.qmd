@@ -98,7 +98,9 @@ $$
 &\text{W}_{\text{PCr}} \text{ [kJ]}:&& \text{ Berechnete anaerobe-alaktazide Energiekomponente} \\[1ex]
 &\text{W}_{\text{PCr,corrected}} \text{ [kJ]}:&& \text{ Berechnete anaerobe-alaktazide Energiekomponente abzüglich der Sauerstoffspeicher} \\[1ex]
 &\text{W}_{\text{TOT}} \text{ [kJ]}: && \text{ Gesamtenergieumsatz aus allen Stoffwechselwegen} \\[1ex]
+ \end{alignat*}
 $$
+
 
 ::: {#refs}
 :::

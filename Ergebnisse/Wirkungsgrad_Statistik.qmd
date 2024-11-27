@@ -670,7 +670,7 @@ library(flextable)
 library(dplyr)
 library(officer)
 
-ft_Wirkungsgrad_stats_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Wirkungsgrad_stats_mean.rds")
+ft_Wirkungsgrad_stats_mean <- readRDS("rds/ft_Wirkungsgrad_stats_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Wirkungsgrad_stats_mean
@@ -693,7 +693,7 @@ ft_Wirkungsgrad_stats_Bedingung_mean
 #| tbl-cap-location: top
 #| tbl-cap: "Deskriptive Statistik der Wirkungsgrade und Energiebereitstellung: MW ± SD, Min & Max nach Intensitäten"
 
-ft_Wirkungsgrad_stats_Intensitaet_mean <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad.github.io/Ergebnisse/rds/ft_Wirkungsgrad_stats_Intensitaet_mean.rds")
+ft_Wirkungsgrad_stats_Intensitaet_mean <- readRDS("rds/ft_Wirkungsgrad_stats_Intensitaet_mean.rds")
 
 # Anzeigen der Tabelle
 ft_Wirkungsgrad_stats_Intensitaet_mean
