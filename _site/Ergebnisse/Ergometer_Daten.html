@@ -98,9 +98,9 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <meta name="shinylive:serviceworker_dir" content="..">
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
-<link href="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -234,7 +234,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../Methodik/index_Methodik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">index_Methodik.html</span></a>
+ <span class="menu-text">Methodik</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -3078,7 +3078,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-515"><a href="#cb3-515" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Gesamtdaten<span class="in">:</span> Ergometrische Parameter<span class="in">:</span> MW ± SD<span class="op">,</span> Min <span class="op">&amp;</span> Max"</span>
 <span id="cb3-516"><a href="#cb3-516" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-517"><a href="#cb3-517" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>flextable<span class="in">)</span></span>
-<span id="cb3-518"><a href="#cb3-518" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_Ergometer_stats_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb3-518"><a href="#cb3-518" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_mean &lt;- readRDS<span class="in">(</span>"rds/ft_Ergometer_stats_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb3-519"><a href="#cb3-519" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-520"><a href="#cb3-520" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb3-521"><a href="#cb3-521" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_mean</span>
@@ -3089,7 +3089,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-528"><a href="#cb3-528" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb3-529"><a href="#cb3-529" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Ergometrische Parameter<span class="in">:</span> MW ± SD nach Bedingungen"</span>
 <span id="cb3-530"><a href="#cb3-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-531"><a href="#cb3-531" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_Ergometer_stats_Bedingung_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb3-531"><a href="#cb3-531" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_mean &lt;- readRDS<span class="in">(</span>"rds/ft_Ergometer_stats_Bedingung_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb3-532"><a href="#cb3-532" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-533"><a href="#cb3-533" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb3-534"><a href="#cb3-534" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_mean</span>
@@ -3100,7 +3100,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-541"><a href="#cb3-541" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb3-542"><a href="#cb3-542" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Ergometrische Parameter<span class="in">:</span> MW ± SD nach Intensitäten"</span>
 <span id="cb3-543"><a href="#cb3-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-544"><a href="#cb3-544" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_Ergometer_stats_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb3-544"><a href="#cb3-544" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"rds/ft_Ergometer_stats_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb3-545"><a href="#cb3-545" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-546"><a href="#cb3-546" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb3-547"><a href="#cb3-547" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Intensitaet_mean</span>
@@ -3111,7 +3111,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-554"><a href="#cb3-554" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb3-555"><a href="#cb3-555" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Ergometrische Parameter<span class="in">:</span> MW ± SD nach Bedingungen und Intensitäten"</span>
 <span id="cb3-556"><a href="#cb3-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-557"><a href="#cb3-557" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_Ergometer_stats_Bedingung_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb3-557"><a href="#cb3-557" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"rds/ft_Ergometer_stats_Bedingung_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb3-558"><a href="#cb3-558" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-559"><a href="#cb3-559" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb3-560"><a href="#cb3-560" aria-hidden="true" tabindex="-1"></a>ft_Ergometer_stats_Bedingung_Intensitaet_mean</span>
@@ -5494,7 +5494,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"fade","selector":".lightbox","skin":"my-css-class","closeEffect":"fade","descPosition":"right","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"fade","skin":"my-css-class","closeEffect":"fade","descPosition":"right"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

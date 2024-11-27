@@ -85,7 +85,7 @@ Zu Beginn der körperlichen Belastung passt sich das Herz-Kreislauf- und Atmungs
 
 Dies führt zu einem Sauerstoffdefizit bzw. Sauerstoffschuld, die am Ende der Übung ausgeglichen wird.
 
-Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMaares2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
+Statt den häufig verwendeten Begriffen Sauerstoffdefizit oder Sauerstoffschuld beschreibt laut [@Brooks2004, 218; @Gaesser1984] ***+ Brooks 1970 und 1981 nachschlagen*** der Begriff "Excess post-exercise oxygen consumption" oder kurz EPOC die nachgeatmete Sauerstoffmenge nach Arbeitsende über den Ruhebedarf hinaus besser,da diese meist größer ist als das anfänglich eingegangene Sauerstoffdefizit [@DeMarees2003, 377]. Im folgenden wird der Begriff EPOC verwendet in dieser Arbeit.
 
 Ein Teil des EPOC wird durch Sauerstoff gedeckt, der aus den Speichern von Blut und Gewebe freigesetzt wird.
 

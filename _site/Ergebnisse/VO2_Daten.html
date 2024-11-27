@@ -98,9 +98,9 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <meta name="shinylive:serviceworker_dir" content="..">
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
-<link href="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -2863,7 +2863,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>dplyr<span class="in">)</span></span>
 <span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>library<span class="in">(</span>officer<span class="in">)</span></span>
 <span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_VO2_stats_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_mean &lt;- readRDS<span class="in">(</span>"rds/ft_VO2_stats_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_mean</span>
@@ -2874,7 +2874,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Parameter der VO2-Modellanpassung und der W<span class="op">~</span>PCr<span class="op">~</span><span class="in">:</span> MW ± SD nach Bedingungen"</span>
 <span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_VO2_stats_Bedingung_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_mean &lt;- readRDS<span class="in">(</span>"rds/ft_VO2_stats_Bedingung_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_mean</span>
@@ -2885,7 +2885,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Parameter der VO2-Modellanpassung und der W<span class="op">~</span>PCr<span class="op">~</span><span class="in">:</span> MW ± SD nach Intensitäten"</span>
 <span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_VO2_stats_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"rds/ft_VO2_stats_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Intensitaet_mean</span>
@@ -2896,7 +2896,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap-location<span class="in">:</span> top</span>
 <span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>#<span class="op">|</span> tbl-cap<span class="in">:</span> "Parameter der VO2-Modellanpassung und der W<span class="op">~</span>PCr<span class="op">~</span><span class="in">:</span> MW ± SD nach Bedingungen und Intensitäten"</span>
 <span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"C<span class="in">:</span>/Users/johan/OneDrive/Desktop/SpoWi/WS 22<span class="op">,</span>23/Masterarbeit - Wirkungsgrad/Wirkungsgrad-Rad<span class="fu">.github.io</span>/Ergebnisse/rds/ft_VO2_stats_Bedingung_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
+<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_Intensitaet_mean &lt;- readRDS<span class="in">(</span>"rds/ft_VO2_stats_Bedingung_Intensitaet_mean<span class="fu">.rds</span>"<span class="in">)</span></span>
 <span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a># Anzeigen der Tabelle</span>
 <span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a>ft_VO2_stats_Bedingung_Intensitaet_mean</span>
@@ -4319,7 +4319,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"skin":"my-css-class","closeEffect":"fade","selector":".lightbox","loop":false,"descPosition":"right","openEffect":"fade"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","openEffect":"fade","descPosition":"right","selector":".lightbox","skin":"my-css-class","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

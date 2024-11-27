@@ -789,6 +789,7 @@ ft_post_hoc_Stehen_Wirk_Brutto
 ```
 :::
 
+**HIER NOCH DIE ANOVA TABLE VON WIRK TOTAL EINFÜGEN**
 
 #### Muskulärer Wirkungsgrad { .unlisted}
 Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Unterschied zwischen den Bedingungen (F(1,8) = 7.64, p = .024, η~p~^2^ = .489).<br>

@@ -55,8 +55,7 @@ Hypothesen:
 
 ### Zu Hypothese 2
 
--   Signifikanter Effekt der Intensität auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395).η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -\>
-    24.14 ± 0.90%)  → **Hypothese widerlegt**
+-   Signifikanter Effekt der Intensität auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% - 24.14 ± 0.90%)  → **Hypothese widerlegt**
 
 -   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .074, d = .75). Moderat und leicht (p = .443, d = 0.41) sowie moderat und schwerer  (p = .574, d = 0.34) nicht signifikant
 
@@ -68,19 +67,15 @@ Hypothesen:
 ### Zu Hypothese 3
 -   Signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
 
+-   Kein signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
 
-auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395).η~muskulär~ nimmt mit steigender Intensität ab (24.94 ± 1.27% -\>
-    24.14 ± 0.90%)  → **Hypothese widerlegt**
+-   Kein signifikanter Effekt zwischen der leichten Intensität zwischen Sitzen und Stehen. Sitzen signifikant höher ( 25.68 ± 1.03 vs. 24.20 ± 1.05). → **Hypothese bestätigt**
 
--   Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .074, d = .75). Moderat und leicht (p = .443, d = 0.41) sowie moderat und schwerer  (p = .574, d = 0.34) nicht signifikant
+-   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit steigender Intensität ab → **Hypothese bestätigt**
 
--   Signifikanter Effekt der Intensität auf η~muskulär~ innerhalb der Sitzen BEdingug (F(2,16) = 10.19, p = .001, η~p~^2^ = .560).  → **Hypothese widerlegt**
-
-- Post-hoc-Analysen: Signifikanter Unterschied zwischen leicht und schwer (p = .017, d = 1.31). Moderat und leicht (p = .217, d = .83) sowie moderat und schwerer  (p = .427, d = .63) nicht signifikant
-
--   Unterschied in η~muskulär~ zwischen Sitzen und Stehen nimmt mit
-    Intensität ab
--   Bestätigt Hypothese teilweise: Kein Unterschied bei hoher Intensität
+### Warum η~muskulär~ so wie er sit
+η~muskulär~ und η~Total~ bis uaf die Einbeziheung der inneren Arbeit gleich. Innere Arbeit in Sitzenn durcshchnittlic 37.5 ± 11.3 und im Stehen 22.1 ± 6.9 mit signifikanten Unterschide. Beid über die Intensitäten konstatnt, da Drehzahlabhänigg und diese war jeweils gleich.  Deshalb auch deutlich größere Differenz zwsichen  η~muskulär~ und η~Total~ von leichter und schwerer Intensität von durschchnittlich 0.80 bzw. 0.34, da PInt fast gleichbleibt, aber der pyhiologische Energieumsatz steigt. Da PInt in Sitzen signifikant höher war ist η~muskulär~ auch höher ims itzen als stehen. Denn ohen Pint wie in η~total~ keine isgnifikanz.
+Dehalb zeigt η~Total~ eher die anhand der Literatur erwarteten Verhalten. 
 
 ## Weitere Wirkungsgrade {.unlisted}
 
@@ -97,22 +92,6 @@ auf η~muskulär~ (F(2,16) = 5.23, p = .018, η~p~^2^ = .395).η~muskulär~ nimm
     -   Bestätigt Literatur, mögliche Erklärung: Ineffizientere
         Faserrekrutierung
 
-## Mechanische Leistung und Bewegungsökonomie {.unlisted}
-
--   P~mech,max~ höher im Stehen als Sitzen
-    -   Bessere Ausnutzung Schwerkraft, günstigere Körperposition im
-        Stehen
--   Torque Efficiency und Pedal Smoothness steigen mit Intensität
-    -   Optimierung Bewegungskoordination bei höherer Belastung
-    -   Zusammenhang mit mechanischer Leistungsfähigkeit
-
-## Ausblick und Limitationen {.unlisted}
-
--   Weitere Untersuchung positionsspezifischer Unterschiede via
-    Kinematik, EMG
--   Übertragbarkeit auf andere Sportarten prüfen
--   Praktische Implikationen für Training und Leistungsoptimierung
--   Limitationen: Stichprobengröße, indirekte Bestimmung innere Leistung
 
 Zusätzliche Aspekte: - Vergleich der ermittelten η~muskulär~-Werte mit
 Referenzdaten aus der Literatur zeigt deutlich niedrigere Werte in der
@@ -127,6 +106,34 @@ Bedingungen und Intensitäten - Untersuchung der Zusammenhänge zwischen
 mechanischer Leistung, Torque Efficiency und Pedal Smoothness - Hinweise
 auf Optimierung der Bewegungskoordination bei höherer Belastung -
 Möglicher Zusammenhang zwischen Bewegungsökonomie und Leistungsfähigkeit
+
+## Relevanz für die Praxis
+- 
+
+## Limitationen
+
+-   Stichprobengröße
+-  Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche Drehzahl kaum höher als im Sitzen
+- Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen auf die EPOC-Messung und keine geregelte Drehzahl in deise rphase
+- Zu Kruze ERholung nach den jeweiige nBElstungen, vor allem an Testtag 2 nach dem Sprinttetst. Sprinttest unnötig keine Rückckkerh auf Laktat bAseline
+- Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen Schwellen durch das 30s-Stufenprotokoll im Vergleich zum BDR-Protokoll
+-Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und der Berechnung des WPCR
+- Mögliche Ungenauigkeiten der Atemgasmessung durch das MetaMax 3B System, insbesondere bei hohen Ventilationsraten
+Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen und -schwerpunkte für die 3D-Bewegungsanalyse, da nur anhand der Körperlänge und Körpermasse
+nIcht fü jeden 3D Kinematik Daten vorhanden
+
+
+
+## Ausblick
+- Weiterer Studien mit größerer Stichprobengröße, um die Validität der Ergebnisse zu erhöhen gibt ja teilweise große effekte die abe rnicht signifikant sind
+- Vergleich der verwendeten EPOC-Berechnungsmethode mit anderen Ansätzen aus der Literatur
+- Untersuchung des Einflusses von Trainingszustand und Geschlecht auf den muskulären Wirkungsgrad
+Berücksichtigung der Wärmeabgabe und -produktion bei der Berechnung des Gesamtenergieumsatzes und des Wirkungsgrades
+- WElchen EInfluss haben Torque Efficiency oder Pedal-Smoothness (hohe Leistungsspitzen) auf  den Wirkungsgrad
+
+
+
+
 
 ::: {.callout-note collapse="true"}
 #### Wirkungsgradberechnungen

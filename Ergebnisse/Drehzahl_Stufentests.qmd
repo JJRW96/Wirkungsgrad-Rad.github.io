@@ -41,7 +41,7 @@ library(dplyr)
 library(tidyr)
 library(readxl)
 library(ggplot2)
-library(DT)
+
 ```
   
 
@@ -56,7 +56,6 @@ Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählt
 library(flextable)
 library(dplyr)
 library(officer)
-library(DT)
 
 ft_ST_stats<- readRDS("rds/ft_ST_stats.rds")
 
@@ -113,12 +112,11 @@ $\dot{V}O_{2}$-Daten aller Probanden im ST1, 11.16 ml·min^-1^·W^-1^ (@fig-ST_O
 ```{r}
 #| label: tbl-ST_DT
 #| tbl-cap-location: top
-#| tbl-cap: "Parameter der Drehzahltests aller Probanden"
+#| tbl-cap: "Parameter der Stufentests aller Probanden"
 
 library(flextable)
 library(dplyr)
 library(officer)
-library(DT)
 
 ST_table<- readRDS("rds/ST_table.rds")
 
@@ -190,7 +188,6 @@ Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählt
 library(flextable)
 library(dplyr)
 library(officer)
-library(DT)
 
 ft_DT_stats<- readRDS("rds/ft_DT_stats.rds")
 
