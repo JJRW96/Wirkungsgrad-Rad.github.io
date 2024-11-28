@@ -164,8 +164,11 @@ server <- function(input, output, session) {
     reg_coefficients <- coef(lin_reg)
     
     # Formatierte Regressionsergebnisse
-    equation_text <- sprintf("y = %.4f * x + %.4f", 
+    equation_text <- sprintf("%s(%s) = %.4f · %s + %.4f", 
+                             input$y_variable,
+                             input$x_variable,
                              reg_coefficients[input$x_variable], 
+                             input$x_variable,
                              reg_coefficients["(Intercept)"])
     r_squared_text <- sprintf("R² = %.4f", reg_summary$r.squared)
     

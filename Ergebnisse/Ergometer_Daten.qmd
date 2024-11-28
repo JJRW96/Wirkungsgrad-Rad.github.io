@@ -1099,7 +1099,9 @@ lin_reg <- lm(Efficiency ~ W_kg, data = P_Ges_df)
 summary_lin_reg <- summary(lin_reg)
 f_stat <- summary_lin_reg$fstatistic
 p_value <- format.pval(pf(f_stat["value"], f_stat["numdf"], f_stat["dendf"], lower.tail = FALSE), digits = 4)
-equation_text <- sprintf("y = %.2fx + %.2f", coef(lin_reg)["W_kg"], coef(lin_reg)["(Intercept)"])
+equation_text <- sprintf("Torque Efficiency(P<sub>mech</sub>) = %.2f · P<sub>mech</sub> + %.2f", 
+                         coef(lin_reg)["W_kg"], 
+                         coef(lin_reg)["(Intercept)"])
 r_squared_text <- sprintf("R² = %.2f", summary_lin_reg$r.squared)
 f_stat_text <- sprintf("F (%d, %d) = %.2f, p = %s", f_stat["numdf"], f_stat["dendf"], f_stat["value"], p_value)
 # Berechnung der Regressionsgeraden
@@ -1140,7 +1142,9 @@ P_Ges_df <- P_Ges_df %>%
 lin_reg <- lm(Pedal_Smoothness ~ W_kg, data = P_Ges_df)
 reg_coefficients <- coef(lin_reg)
 r_squared <- summary(lin_reg)$r.squared
-equation_text <- sprintf("y = %.2fx + %.2f", reg_coefficients["W_kg"], reg_coefficients["(Intercept)"])
+equation_text <- sprintf("Pedal Smoothness(P<sub>mech</sub>) = %.2f · P<sub>mech</sub> + %.2f", 
+                         coef(lin_reg)["W_kg"], 
+                         coef(lin_reg)["(Intercept)"])
 r_squared_text <- sprintf("R² = %.2f", r_squared)
 summary_lin_reg <- summary(lin_reg)
 f_stat <- summary_lin_reg$fstatistic
@@ -1187,7 +1191,9 @@ P_Ges_df <- P_Ges_df %>%
 lin_reg <- lm(Pedal_Smoothness ~ Efficiency, data = P_Ges_df)
 reg_coefficients <- coef(lin_reg)
 r_squared <- summary(lin_reg)$r.squared
-equation_text <- sprintf("y = %.2fx + %.2f", reg_coefficients["Efficiency"], reg_coefficients["(Intercept)"])
+equation_text <- sprintf("Pedal Smoothness(Efficiency) = %.2f · Efficiency + %.2f", 
+                         reg_coefficients["Efficiency"], 
+                         reg_coefficients["(Intercept)"])
 r_squared_text <- sprintf("R² = %.2f", r_squared)
 summary_lin_reg <- summary(lin_reg)
 f_stat <- summary_lin_reg$fstatistic
@@ -1226,7 +1232,7 @@ p_TE_PS
 :::
 
 ## Interaktive Analyse der Zusammenhänge ausgewählter verschiedener Leistungsparameter mittels linearer Regression
-Die folgende Shiny-App bietet die Möglichkeit zur Analyse von weiteren Zusammenhängen ausgewählter Leistungsparameter. In der Seitenleiste können die ausgewählten Daten nach Probanden, Intensitäten und Bedingungen gefiltert werden. Die Auswahl der X- und Y-Achse definiert die Variablen für die Regressionsanalyse. Es wird ein interaktives Streudiagramm mit Regressionslinie erstellt, das den linearen Zusammenhang der gewählten Parameter darstellt. Die Anwendung analysiert verschiedene anthropometrische sowie physiologische und ergometrische Leistungsparameter. Für jede Parameterkombination erfolgt eine lineare Regressionsanalyse mit Regressionsgleichung, Bestimmtheitsmaß (R^2^) und statistischer Signifikanz.
+Die folgende Shiny-App bietet die Möglichkeit zur Analyse von weiteren Zusammenhängen ausgewählter Leistungsparameter. In der Seitenleiste können die ausgewählten Daten nach Probanden, Intensitäten und Bedingungen gefiltert werden. Die Auswahl der x- und y-Achse definiert die Variablen für die Regressionsanalyse. Es wird ein interaktives Streudiagramm mit Regressionslinie erstellt, das den linearen Zusammenhang der gewählten Parameter darstellt. Die Anwendung analysiert verschiedene anthropometrische sowie physiologische und ergometrische Leistungsparameter. Für jede Parameterkombination erfolgt eine lineare Regressionsanalyse mit Regressionsgleichung, Bestimmtheitsmaß (R^2^) und statistischer Signifikanz.
 
 ```{shinylive-r}
 #| standalone: true
@@ -1238,6 +1244,27 @@ library(broom)
 library(RColorBrewer)
 library(DT)
 
+# Spalten umbenennen
+names(Bedingungen_data)[names(Bedingungen_data) == "W*Aerob [kJ]"] <- "W_Aerob"
+names(Bedingungen_data)[names(Bedingungen_data) == "WPCR [kJ]"] <- "W_PCR"
+names(Bedingungen_data)[names(Bedingungen_data) == "WBLC [kJ]"] <- "W_BLC"
+names(Bedingungen_data)[names(Bedingungen_data) == "WTOT [kJ]"] <- "W_TOT"
+names(Bedingungen_data)[names(Bedingungen_data) == "Efficiency"] <- "Torque_Efficiency"
+
+Bedingungen_data$P_mech_kg <- Bedingungen_data$P_mech / Bedingungen_data$Masse
+Bedingungen_data$VO2_max <- Bedingungen_data$VO2_kg_max * Bedingungen_data$Masse
+
+# Auswahl der gewünschten Variablen
+Bedingungen_data_Shiny_Regression_vars <- c("Proband", "Nr", "Bedingung", "Intensität", 
+                                             "Torque_Efficiency", "Pedal_Smoothness", 
+                                             "Wirk_Brutto", "Wirk_Netto", "Wirk_Total", "Wirk_Muskulär",
+                                             "Masse", "P_mech", "nD", "VO2_kg_max", "HR_percent", "VO2_percent", 
+                                             "VO2_avg", "VO2_net_SS", "W_Aerob", "W_PCR", "W_TOT", "W_BLC")
+
+# Erstellen des Datensatzes für Shiny-Regression
+Bedingungen_data_Shiny_Regression <- Bedingungen_data[, Bedingungen_data_Shiny_Regression_vars]
+
+# Bedingungen_data_Shiny_Regression manuell erstellen
 Bedingungen_data_Shiny_Regression <- data.frame(
   `Proband` = c( "01", "01", "01", "01", "01", "01", "06", "06", "06", "06", "06", "06", "10", "10", "10", "10", "10", "10", "13", "13", "13", "13", "13", "13", "15", "15", "15", "15", "15", "15", "19", "19", "19", "19", "19", "19", "20", "20", "20", "20", "20", "20", "22", "22", "22", "22", "22", "22", "23", "23", "23", "23", "23", "23" ),
   `Nr` = c( 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ),
@@ -1293,7 +1320,7 @@ ui <- fluidPage(
   titlePanel("Interaktive Regressionsanalyse"),
   
   fluidRow(
-    column(2,
+    column(3,
            wellPanel(
              selectInput("x_variable", "X-Achse:", 
                          choices = selected_vars,
@@ -1315,7 +1342,7 @@ ui <- fluidPage(
                                 selected = levels(Bedingungen_data_Shiny_Regression$Proband))
            )
     ),
-    column(10,
+    column(9,
            plotlyOutput("regressionPlot", height = "calc(65vh - 150px)")
     )
   ),
@@ -1327,7 +1354,6 @@ ui <- fluidPage(
     )
   )
 )
-
 
 server <- function(input, output, session) {
   
@@ -1377,8 +1403,11 @@ server <- function(input, output, session) {
     reg_coefficients <- coef(lin_reg)
     
     # Formatierte Regressionsergebnisse
-    equation_text <- sprintf("y = %.4f * x + %.4f", 
+    equation_text <- sprintf("%s(%s) = %.4f · %s + %.4f", 
+                             input$y_variable,
+                             input$x_variable,
                              reg_coefficients[input$x_variable], 
+                             input$x_variable,
                              reg_coefficients["(Intercept)"])
     r_squared_text <- sprintf("R² = %.4f", reg_summary$r.squared)
     
@@ -1452,7 +1481,6 @@ server <- function(input, output, session) {
     NULL
   })
 }
-
 
 shinyApp(ui, server)
 ```
@@ -2134,7 +2162,7 @@ plot3 <- plot_ly(df, x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatte
     layout(title = paste('Test', name),
            margin = list(t = 40),
            yaxis = list(title = "P<sub>Int,Kinematik</sub> [Watt]", range = c(0, 80), dtick = 10), 
-           xaxis = list(title = "Frame", dtick = 200),
+           xaxis = list(title = "Frame", dtick = 100, range = c(0, max(df$Frame))),
            annotations = list(
              list(
                x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
@@ -2588,7 +2616,7 @@ coef_cubic <- coef(cubic_model)
 # Berechne y_max basierend auf der kubischen Funktion bei x = 120
 y_max <- coef_cubic[1] * x_max^3
 
-equation_text_cubic <- sprintf("y = %.8fx³", coef_cubic[1])
+equation_text_cubic <- sprintf("P<sub>Int,Modell</sub>(nD) = %.8f ⋅ nD³", coef_cubic[1])
 r_squared_cubic <- summary_cubic$r.squared
 r_squared_text_cubic <- sprintf("R² = %.3f", r_squared_cubic)
 
@@ -2671,7 +2699,7 @@ coef_cubic <- coef(cubic_model)
 # Berechne y_max basierend auf der kubischen Funktion bei x = 120
 y_max <- coef_cubic[1] * x_max^3
 
-equation_text_cubic <- sprintf("y = %.8fx³", coef_cubic[1])
+equation_text_cubic <- sprintf("P<sub>Int,Kinematik</sub>(nD) = %.8f ⋅ nD³", coef_cubic[1])
 r_squared_cubic <- summary_cubic$r.squared
 r_squared_text_cubic <- sprintf("R² = %.3f", r_squared_cubic)
 
@@ -2753,7 +2781,7 @@ coef_cubic <- coef(cubic_model)
 # Berechne y_max basierend auf der kubischen Funktion bei x = 120
 y_max <- coef_cubic[1] * x_max^3
 
-equation_text_cubic <- sprintf("y = %.8fx³", coef_cubic[1])
+equation_text_cubic <- sprintf("P<sub>Int,Kinematik,Modell</sub>(nD) = %.8f ⋅ nD³", coef_cubic[1])
 r_squared_cubic <- summary_cubic$r.squared
 r_squared_text_cubic <- sprintf("R² = %.3f", r_squared_cubic)
 
@@ -2820,9 +2848,18 @@ plot_PInt_Kin_Mod
 :::
 
 ### Modellvergleich: Einfluss von Körpermasse und Drehzahl auf die innere Leistung { .unlisted }
+::: columns
+::: {.column width="56%"}
 Die nachfolgenden Abbildungen zeigen die berechnete innere Leistung (P~Int~) in Abhängigkeit von Drehzahl und Körpermasse auf Basis des biomechanischen Modells (@fig-PInt_Modell) und die Berechnung nach @Minetti2001 (@fig-PInt_Minetti). Beide Berechnungsmethoden weisen eine nicht-lineare Charakteristik der P~Int~ auf, die sowohl mit steigender Drehzahl als auch mit zunehmender Körpermasse progressiv ansteigt. Diese Systematik manifestiert sich in einer systematisch gestaffelten Verteilung der Kurvenverläufe entsprechend der verschiedenen Körpermassen.
-Für einen exemplarischen Vergleich bei 70 kg Körpermasse ergeben sich folgende P~Int~-Werte:
+Für einen exemplarischen Vergleich bei 70 kg Körpermasse ergeben sich die P~Int~-Werte der @tbl-PInt_Vergleich.
 
+Während das biomechanische Modell initial einen vergleichbaren Anstieg aufweist, zeigt die Minetti-Berechnung insbesondere bei Trittraten oberhalb von 150 U ⋅ min^-1^ einen deutlich stärkeren Anstieg. Diese abweichenden Charakteristika in den Anstiegen resultieren speziell im hohen Drehzahlbereich in deutlichen Differenzen der absoluten Leistungswerte, wobei die Minetti-Berechnung bei einer Trittrate von 200 U ⋅ min^-1^ nahezu das Dreifache der modellierten Werte erreicht.
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="42%"}
 | Drehzahl [U·min^-1^] | P~Int,Modell~ [W] | P~Int,Minetti~ [W] |
 |----------------------|------------|-------------|
 | 60                   | 13.4       | 10.71       |
@@ -2830,11 +2867,14 @@ Für einen exemplarischen Vergleich bei 70 kg Körpermasse ergeben sich folgende
 | 100                  | 62.0       | 82.6        |
 | 120                  | 107.1      | 171.4       |
 | 150                  | 209.1      | 418.4       |
-| 200                  | 495.6      | ~1322.2     |
+| 200                  | 495.6      | 1322.2      |
 
 : Vergleich der P~Int,Modell~ und P~Int,Minetti~ für ausgewählte Drehzahlen. {#tbl-PInt_Vergleich .striped .hover}
 
-Während das biomechanische Modell initial einen vergleichbaren Anstieg aufweist, zeigt die Minetti-Berechnung insbesondere bei Trittraten oberhalb von 150 U ⋅ min^-1^ einen deutlich stärkeren Anstieg. Diese abweichenden Charakteristika in den Anstiegen resultieren speziell im hohen Drehzahlbereich in deutlichen Differenzen der absoluten Leistungswerte, wobei die Minetti-Berechnung bei einer Trittrate von 200 U ⋅ min^-1^ nahezu das Dreifache der modellierten Werte erreicht.
+:::
+:::
+
+
 
 ::: panel-tabset
 
