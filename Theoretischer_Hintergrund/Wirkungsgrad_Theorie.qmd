@@ -163,29 +163,6 @@ Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die A
 
 **Einfluss der Trittrate auch in @Beneke2001 gut zusammengefasst!!!!!!!!!!!**
 
-```{r}
-## Link Sections
-
-#The answer by Franky works, but Quarto imposes for blogs a special file organisation which requires to be carefull.
-#Each post is a new folder and the default file name is index.qmd, so you have something like for your source:
-#post1/
-    #index.qmd
-    #... possibly other files
-#post2/
-    #index.qmd
-#... and so forth ...
-
-#you can rename index.qmd file, but usually you just let it as-is.
-
-#In post2/index.qmd you can refer to post1 using the Julian's trick like this:
-
-#[in my previous post](../post1/index.qmd]  
-#you can also refer to parts of other posts using the standard quarto cross-reference syntax:
-#[in the figure from my previous post](../post1/index.qmd#fig-elephant]  
-#works also for sections, equations, etc.
-
-```
-
 Ein weiterer Aspekt, der in vielen Untersuchungen des Wirkungsgrades beim Radfahren ungenau bestimmt wurde, ist der physiologische Gesamtenergieumsatz. Häufig wurden nicht die verschiedenen Energiekomponenten (aerobe, anaerobe-laktazide sowie anaerobe-alaktazide Energiekomponente) berechnet, sondern nur der Sauerstoffvolumenstrom[^2] gemessen und als Grundlage für die Wirkungsgradberechnung der während der Belastung umgesetzten chemischen Energie verwendet [@Boning2017]. Dadurch wird insbesondere bei hochintensiven Belastungen die Menge des durch anaerobe Glykolyse und energiereiche Phosphate bereitgestellten ATPs vernachlässigt, was zu einer Unterschätzung der gesamten umgesetzten chemischen Energie führt [@Brooks2004, 354].
 
 [^2]: Der Sauerstoffvolumenstrom oder auch Sauerstofffluss bezeichnet die Menge an Sauerstoff, die innerhalb einer bestimmten Zeitspanne durch ein System oder eine Einheit fließt. In der Sportwissenschaft werden diese Begriffe normalerweise gleichbedeutend mit dem Begriff "Sauerstoffaufnahme" verwendet. In dieser Arbeit beschreibt die Sauerstoffaufnahme das Gesamtvolumen an Sauerstoff, das der Körper innerhalb einem bestimmten Zeitintervall aufgenommen hat.
@@ -197,6 +174,7 @@ Ein weiterer Aspekt, der in vielen Untersuchungen des Wirkungsgrades beim Radfah
 ### Wirk Delta
 
 In der folgenden Arbeit werden alle in Tabell oben beschirebenen Wirkunggrade für die voliegenden Datne berechnet mit der ausnahme von Wirk_Delta. Wirk delta kann aber wie folge beserchnet werden: 
+
 ### Genaue Berechnugn von Delta Efficiency 
 Die Delta-Effizienz (Δη) quantifiziert den mechanischen Wirkungsgrad während zyklischer Bewegungen am Fahrradergometer und wird aus der linearen Beziehung zwischen Sauerstoffaufnahme (V̇O₂) und externer mechanischer Leistung (P) ermittelt. Die Berechnung basiert auf einer linearen Regressionsanalyse der Form:
 
