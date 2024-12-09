@@ -384,9 +384,7 @@ ft_PCr <- flextable(data) %>%
 ft_PCr <- set_table_properties(ft_PCr, width = 1, layout = "autofit")
 ```
 
-# Interaktive Analyse der erfassten Nachbelastungsparameter
-Die folgende Shiny-App zeigt eine interaktive Tabellenübersicht der EPOC-Parameter sämtlicher Belastungsdurchgänge. Die Shiny-App ermöglicht einen flexiblen Wechsel zwischen der Darstellung aller individuellen Testdurchläufe und einer zusammengefassten Übersicht mit Mittelwerten sowie zugehörigen Standardabweichungen. Die Filterfunktion erlaubt eine gezielte Analyse der Daten nach verschiedenen Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend). Für die gefilterten Daten werden sowohl die entsprechenden Mittelwerte als auch die zugehörigen Boxplots mit den statistischen Kennwerten (Mittelwert, Median, erstes Quartil, drittes Quartil, Minimum und Maximum) visualisiert. Zusätzlich besteht die Option, einzelne Probanden in die Analyse ein- oder auszuschließen. <br>
-Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der EPOC-basierten Parameter. Eine ausführliche Beschreibung der enthaltenen Parameter sowie deren Berechnungsmethoden findet sich im Kapitel "Energieumsatzberechnung".
+## Interaktive Analyse der Nachbelastungsparameter { .unlisted}
 
 ```{shinylive-r}
 #| standalone: true

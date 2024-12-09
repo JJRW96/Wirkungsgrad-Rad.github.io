@@ -4,28 +4,27 @@ format:
   html:
     resources: 
       - shinylive-sw.js
-
 filters:
   - shinylive
-  
 execute:
+  
   message: false
   echo: false
   warning: false
   error: false
-  
 bibliography: references.bib
 lang: de
 number-sections: false  
 jupyter: false
 engine: knitr
-
 tbl-cap-location: bottom
-
 nocite: |
   @Dickinson1929, @Henry1950, @Gaesser1975, @Seabury1977, @Suzuki1979, @Luhtanen1987, @Francescato1995, @Chavarren1999, @Beneke2002, @Millet2002, @Harnish2007, @Bell2009, @Bouillod2014, @Dunst2023a, @Zoladz2023a, @Carlsson2024
+editor: 
+  markdown: 
+    wrap: 108
 ---
-  
+
 ```{css}
 #| echo: false
 p {
@@ -40,9 +39,8 @@ figure.quarto-float-tbl figcaption {
 
 ```
 
-# Interaktive Analyse der physiologischen Energieumsätze und mechanischen Wirkungsgrade
-Die folgende Shiny-App visualisiert die Zusammensetzung des physiologischen Energieumsatzes der ausgewählten Probanden in Form eines Balkendiagramms. Dabei werden die Komponenten des Gesamtenergieumsatzes  W~aerob~, W~BLC~ und W~PCr~ für jede der ausgewählten Belastungsintensitäten differenziert dargestellt. Die Auswahlfelder in der Seitenleiste ermöglichen eine gezielte Analyse der Daten nach verschiedenen Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend) sowie die Option, einzelne Probanden in die Analyse ein- oder auszuschließen. Für die gefilterten Daten werden die entsprechenden Mittelwerte in der interaktiven Tabelle unterhalb des Diagramms dargestellt.
-  
+## Interaktive Analyse der Energieumsatz-Komponenten {.unlisted}
+
 ```{shinylive-r}
 #| standalone: true
 #| viewerHeight: 1200
@@ -342,7 +340,7 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-Die nachfolgende Shiny-App stellt die verschiedenen Wirkungsgrade η~muskulär~, η~Total~, η~Arbeit~, η~Netto~ und η~Brutto~ der ausgewählten Probanden als Boxplots und Histogramme dar. Ergänzend werden für die ausgewählten Wirkungsgrade Histogramme angezeigt, die deren Verteilung veranschaulichen. Eine gezielte Analyse der Daten wird durch Auswahlfelder in der Seitenleiste ermöglicht, die verschiedene Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend) sowie die Option zur Ein- oder Ausschließung einzelner Probanden bieten. Die statistischen Kennwerte (Mittelwert, Median, Quartile, Minimum und Maximum) der gefilterten Daten werden beim Überfahren der Boxplots mit der Maus angezeigt.
+## Interaktive Analyse der Wirkungsgradberechnungen {.unlisted}
 
 ```{shinylive-r}
 #| standalone: true
@@ -635,32 +633,49 @@ shinyApp(ui = ui, server = server)
 
 # Deskriptive und inferenzstatistische Analyse der Wirkungsgrade
 
-::: columns
+:::::: columns
 ::: {.column width="60%"}
-Die folgenden Tabellen bieten sowohl eine detaillierte deskriptive Auswertung als auch inferenzstatistische Analysen der berechneten Wirkungsgrade (Berechnungswege siehe @tbl-Wirkungsgrad_Berechnungen) sowie dafür relevanter Parameter des Energiestoffwechsels und ergometrischer Parameter, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden zunächst in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. In den weiteren Tabellen erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen; @tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer; @tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren (@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zusätzlich werden die Ergebnisse der Post-hoc Analysen mittels Tukey HSD Test für die Vergleiche der verschiedenen Intensitäten sowohl gesamt (@tbl-Post_hoc_Intensitaet_Wirk_muskulär & @tbl-Post_hoc_Intensitaet_Wirk_Arbeit) als auch spezifisch für die sitzende Position (@tbl-Post_hoc_sitzen) präsentiert. Ergänzend zeigt eine einfaktorielle ANOVA die Vergleiche von η~muskulär~ zwischen den Bedingungen Sitzen und Stehen für jede Intensitätsstufe (@tbl-ANOVA_Wirk_muskulaer).<br>
-Die analysierten Parameter umfassen die Wirkungsgrade η~muskulär~, η~Total~, η~Netto~, η~Brutto~, η~Arbeit,sitzen~ sowie die Komponenten der Energiebereitstellung W~TOT~, W~Aerob~, W~PCr~, W~BLC~ und die Delta-Blutlaktatakkumulation ΔBLC. Die Leistungsparameter P~Tot~, P~mech~, P~Int~ sowie die Drehzahl werden ebenfalls dargestellt.
+Die folgenden Tabellen bieten sowohl eine detaillierte deskriptive Auswertung als auch inferenzstatistische
+Analysen der berechneten Wirkungsgrade (Berechnungswege siehe @tbl-Wirkungsgrad_Berechnungen) sowie dafür
+relevanter Parameter des Energiestoffwechsels und ergometrischer Parameter, wobei alle Werte als Mittelwert
+± Standardabweichung angegeben werden. Die Daten werden zunächst in einer Gesamtübersicht mit Mittelwerten
+sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. In den weiteren Tabellen
+erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen;
+@tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer;
+@tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren
+(@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zusätzlich werden die Ergebnisse der Post-hoc Analysen
+mittels Tukey HSD Test für die Vergleiche der verschiedenen Intensitäten sowohl gesamt
+(@tbl-Post_hoc_Intensitaet_Wirk_muskulär & @tbl-Post_hoc_Intensitaet_Wirk_Arbeit) als auch spezifisch für
+die sitzende Position (@tbl-Post_hoc_sitzen) präsentiert. Ergänzend zeigt eine einfaktorielle ANOVA die
+Vergleiche von η~muskulär~ zwischen den Bedingungen Sitzen und Stehen für jede Intensitätsstufe
+(@tbl-ANOVA_Wirk_muskulaer).<br> Die analysierten Parameter umfassen die Wirkungsgrade η~muskulär~,
+η~Total~, η~Netto~, η~Brutto~, η~Arbeit,sitzen~ sowie die Komponenten der Energiebereitstellung W~TOT~,
+W~Aerob~, W~PCr~, W~BLC~ und die Delta-Blutlaktatakkumulation ΔBLC. Die Leistungsparameter P~Tot~, P~mech~,
+P~Int~ sowie die Drehzahl werden ebenfalls dargestellt.
 :::
 
 ::: {.column width="2%"}
 :::
 
 ::: {.column width="38%"}
-| Wirkungsgrade |               Berechnung                |
-|---------------|:---------------------------------------:|
-| η~Brutto~     |            P~mech~ / E~Aerob~             |
-| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
-| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
-| η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
-| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
-| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
+| Wirkungsgrade |                   Berechnung                   |
+|---------------|:----------------------------------------------:|
+| η~Brutto~     |               P~mech~ / E~Aerob~               |
+| η~Netto~      |         P~mech~ / (E~Aerob~ - E~Ruhe~)         |
+| η~Total~      |          P~mech~ / (E~Tot~ - E~Ruhe~)          |
+| η~muskulär~   |    (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~)     |
+| η~Arbeit~     | P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~) |
+| η~delta~      |               ΔP~mech~ / ΔE~Tot~               |
 
-: Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover}
+: Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Luhtanen et al. (1987) und
+Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen
+tbl-colwidths="\[30,70\]" .hover}
+:::
+::::::
 
-:::
-:::
-    
-::: {.panel-tabset}
+::: panel-tabset
 ### Gesamtdaten
+
 ```{r}
 #| label: tbl-Wirkungsgrad_mean
 #| tbl-cap-location: top
@@ -677,6 +692,7 @@ ft_Wirkungsgrad_stats_mean
 ```
 
 ### Bedingungen
+
 ```{r}
 #| label: tbl-Wirkungsgrad_Bedingung_mean
 #| tbl-cap-location: top
@@ -687,7 +703,9 @@ ft_Wirkungsgrad_stats_Bedingung_mean <- readRDS("rds/ft_Wirkungsgrad_stats_Bedin
 # Anzeigen der Tabelle
 ft_Wirkungsgrad_stats_Bedingung_mean
 ```
+
 ### Intensitäten
+
 ```{r}
 #| label: tbl-Wirkungsgrad_Intensitaet_mean
 #| tbl-cap-location: top
@@ -733,6 +751,7 @@ ft_post_hoc_Wirk_Arbeit
 ```
 
 ### Bedingungen & Intensitäten
+
 ```{r}
 #| label: tbl-Wirkungsgrad_Bedingung_Intensitaet_mean
 #| tbl-cap-location: top
@@ -800,37 +819,179 @@ ft_post_hoc_Stehen_Wirk_Brutto
 ```
 :::
 
-#### Muskulärer Wirkungsgrad { .unlisted}
-Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Unterschied zwischen den Bedingungen (F(1,8) = 7.64, p = .024, η~p~^2^ = .489).<br>
-Bei Betrachtung der verschiedenen Intensitätsstufen zeigt sich ein systematischer Abfall des η~muskulär~ von 24.94 ± 1.27% bei leichter über 24.50 ± 1.01% bei moderater bis zu 24.14 ± 0.90% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). Die Post-hoc-Analysen zeigen einen tendenziell signifikanten Unterschied zwischen leichter und schwerer Intensität mit einer mittleren Effektstärke (p = .074, d = .75), während die Vergleiche zwischen moderater und leichter Intensität (p = .443, d = 0.41) sowie zwischen schwerer und moderater Intensität (p = .574, d = 0.34) keine signifikanten Unterschiede aufweisen.<br>
-Die einfaktorielle Varianzanalyse des η~muskulär~ innerhalb der Bedingungen zeigt in sitzender Position einen signifikanten Effekt der Intensität (F(2,16) = 10.19, p = .001, η~p~^2^ = .560). Die Post-hoc-Analysen zeigen zwischen leichter und schwerer Intensität einen signifikanten Unterschied mit einer großen Effektstärke (p = .017, d = 1.31). Der Vergleich zwischen moderater und leichter Intensität weist eine große Effektstärke auf, erreicht jedoch keine Signifikanz (p = .217, d = .83). Zwischen schwerer und moderater Intensität zeigt sich ein nicht-signifikanter Unterschied bei mittlerer Effektstärke (p = .427, d = .63) (@tbl-Post_hoc_sitzen). In der stehenden Position hingegen bleibt der η~muskulär~ über die Intensitäten hinweg relativ stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F(2,16) = 0.55, p = .590, η~p~^2^ = .064).<br>
-Eine differenzierte Analyse der Positionen (sitzend/stehend) innerhalb der einzelnen Intensitätsstufen zeigt, dass der Unterschied zwischen sitzender und stehender Position mit zunehmender Intensität abnimmt. Bei leichter Intensität zeigt der Vergleich zwischen sitzender und stehender Position einen hochsignifikanten Unterschied (F(1,8) = 16.63, p = .004, η~p~^2^ = .675), bei moderater Intensität einen tendenziell signifikanten Unterschied (F(1,8) = 5.26, p = .051, η~p~^2^ = .397) und bei schwerer Intensität keine signifikanten Unterschiede zwischen den Positionen (F(1,8) = 1.41, p = .269, η~p~^2^ = .150) (@tbl-ANOVA_Wirk_muskulaer). <br>
-Die ermittelten η~muskulär~-Werte dieser Studie liegen, mit durchschnittlich 24.53 ± 1.10%, deutlich unterhalb der in @tbl-Wirkungsgrad dokumentierten Werte für η~muskulär~ von 31.0 ± 4.3% [@Bell2009]. Dass die hier ermittelten Werte niedriger ausfallen ist nachvollziehbar, da die Ergebnisse von @Bell2009 auch im Vergleich zur übrigen Literatur außergewöhnlich hohe Wirkungsgrade aufweisen, was auch in der Originalpublikation kritisch reflektiert wurde. Eine direkte Vergleichbarkeit der Absolutwerte ist daher nur eingeschränkt gegeben.
+## Operationalisierung der Hypothesen zum muskulären Wirkungsgrad {.unlisted}
 
-#### Gesamtwirkungsgrad { .unlisted} 
-Der Gesamtwirkungsgrad η~Total~ liegt mit durchschnittlich 22.19 ± 1.07% (Range (R): 19.77-24.72%) erwartungsgemäß unter dem η~muskulär~. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 22.06 ± 0.70%, stehen: 22.32 ± 1.34%). Die nicht-parametrische Analyse mittels Wilcoxon-Test bestätigt dabei keine signifikanten Unterschiede zwischen den Bedingungen (V = 139, p = .234, r = .229). Auch über die Intensitäten hinweg bleibt η~Total~ weitgehend stabil mit einem leichten Abfall von 22.35 ± 1.10% bei leichter zu 22.01 ± 0.96% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt entsprechend keinen signifikanten Effekt der Intensität (F~(2,16)~ = 1.26, p = .311, η~p~^2^ = .136).<br>
-Bei differenzierter Betrachtung des η~Total~ innerhalb der Bedingungen zeigt sich in sitzender Position ein tendenziell signifikanter Effekt der Intensität (F~(2,16)~ = 3.11, p = .072) mit großer Effektstärke (η~p~^2^ = .280). In der stehenden Position hingegen bleibt der η~Total~ über die Intensitäten hinweg sehr stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F~(2,16)~ = 0.09, p = .911, η~p~^2^ = .012).<br>
-Bei leichter und moderater Intensität zeigte der Vergleich zwischen sitzender und stehender Position keine signifikanten Unterschiede (F(1,8) = 0.031, p = .865, η~p~^2^ = .004; F(1,8) = 0.663, p = .439, η~p~^2^ = .077). Bei schwerer Intensität präsentierte sich ein nicht signifikanter Unterschied mit großer Effektstärke (F(1,8) = 2.388, p = .161, η~p~^2^ = .230) (@tbl-ANOVA_Wirk_Total).
+Die erste Forschungshypothese, welche die mittleren Unterschiede zwischen den Fahrpositionen über alle
+Intensitäten betrachtet, wurde in folgende statistische Hypothesen überführt:
 
-#### Nettowirkungsgrad { .unlisted} 
-Der Nettowirkungsgrad η~Netto~ beträgt durchschnittlich 24.94 ± 1.23% (R: 22.13-28.18%). Zwischen den Bedingungen (sitzen: 24.81 ± 0.82%, stehen: 25.07 ± 1.55%) zeigt der Wilcoxon-Test keine signifikanten Unterschiede (V = 139, p = .234, r = .229). Über die Intensitäten hinweg ist ein leichter Anstieg von 24.79 ± 1.22% bei leichter zu 25.08 ± 1.30% bei schwerer Intensität zu beobachten. Die einfaktorielle Varianzanalyse zeigt jedoch keinen signifikanten Effekt der Intensität (F(2,16) = 0.59, p = .565, η~p~^2^ = .069).<br>
-Bei differenzierter Analyse des η~Netto~ innerhalb der Bedingungen zeigt sich in sitzender Position kein signifikanter Effekt der Intensität (F(2,16) = 0.07, p = .929, η~p~^2^ = .009), mit homogenen Werten über alle Intensitätsstufen (leicht: 24.89 ± 0.86%, moderat: 24.78 ± 0.70%, schwer: 24.77 ± 0.97%). In stehender Position hingegen ergibt sich ein signifikanter Effekt der Intensität (F(2,16) = 4.18, p = .035, η~p~^2^ = .343), charakterisiert durch einen systematischen Anstieg von leichter (24.70 ± 1.54%) über moderate (25.12 ± 1.65%) zu schwerer Intensität (25.39 ± 1.56%). Die Post-hoc Analysen zeigen jedoch keine signifikanten Unterschiede zwischen den einzelnen Intensitätsstufen (alle p > .63) (@tbl-Post_hoc_stehen_Wirk_Netto).<br>
-Die positionsvergleichende Analyse ergab bei leichter Intensität keinen signifikanten Unterschied (F(1,8) = 0.148, p = .711, η~p~^2^ = .018). Ebenso zeigte sich bei moderater Intensität kein signifikanter Unterschied (F(1,8) = 0.842, p = .386, η~p~^2^ = .095). Bei schwerer Intensität wurde ein nicht signifikanter Unterschied mit großer Effektstärke festgestellt (F(1,8) = 2.880, p = .128, η~p~^2^ = .265).
-<br>
-Die ermittelten η~Netto~-Werte liegen mit einer Spanne von 22.13-28.18% und einem Mittelwert von 24.94% oberhalb der in @tbl-Wirkungsgrad am häufigsten dokumentierten η~Netto~-Werte von ca. 19-24%. Im Gegensatz zu @Harnish2007, die in beiden Körperpositionen einen Anstieg des η~Netto~ mit zunehmender Intensität dokumentierten, zeigt die vorliegende Untersuchung ausschließlich in stehender Position einen signifikanten Intensitätseffekt.
+-   **H~0~**: Der η~muskulär~ unterscheidet sich im Mittel über alle Intensitäten nicht zwischen sitzender und
+    stehender Fahrposition.<br>➙ η~muskulär,sitzen~ = η~muskulär,stehen~
 
-#### Bruttowirkungsgrad { .unlisted}
-Der Bruttowirkungsgrad η~Brutto~ liegt mit 22.43 ± 1.17% (R: 19.65-25.76%) erwartungsgemäß unter dem Nettowirkungsgrad und zeigt zwischen den Bedingungen (sitzen: 22.30 ± 0.78%, stehen: 22.55 ± 1.47%) keine signifikanten Unterschiede (V = 131, p = .167, r = .266). Über die Intensitätsstufen hinweg zeigt sich, bedingt durch den reduzierten Anteil des Ruheenergieumsatzes am aeroben Energieumsatz, ein systematischer Anstieg von leichter (22.06 ± 1.17%) über moderate (22.46 ± 1.18%) zu schwerer Intensität (22.76 ± 1.13%). Die einfaktorielle Varianzanalyse bestätigt einen signifikanten Effekt der Intensität (F(2,16) = 5.17, p = .019, η~p~^2^ = .393).<br>
-Die Analyse des η~Brutto~ innerhalb der Bedingungen zeigt in sitzender Position keinen signifikanten Effekt der Intensität (F(2,16) = 0.80, p = .469, η~p~^2^ = .090), mit einem leichten Anstieg von leichter (22.12 ± 0.90%) zu schwerer Intensität (22.48 ± 0.74%). In stehender Position hingegen ergibt sich ein signifikanter Effekt der Intensität (F(2,16) = 13.72, p < .001, η~p~^2^ = .632), mit einem deutlicheren Anstieg von leichter (22.00 ± 1.45%) zu schwerer Intensität (23.04 ± 1.41%). Die Post-hoc Analysen zeigen dabei eine mittlere Effektstärke zwischen leichter und schwerer Intensität (d = 0.71), wenngleich die Unterschiede das Signifikanzniveau nicht erreichen (p = .308) (@tbl-Post_hoc_stehen_Wirk_Brutto).<br>
-Die Analyse zwischen sitzender und stehender Position offenbarte bei leichter Intensität keinen signifikanten Unterschied (F(1,8) = 0.210, p = .659, η~p~^2^ = .026). Auch bei moderater Intensität zeigten sich keine signifikanten Abweichungen (F(1,8) = 0.658, p = .441, η~p~^2^ = .076). Bei schwerer Intensität wurde ein nicht signifikanter Unterschied mit großer Effektstärke beobachtet (F(1,8) = 2.557, p = .148, η~p~^2^ = .242).<br>
-Die ermittelten η~Brutto~-Werte bewegen sich mit einer Spanne von 19.65-25.76% und einem Mittelwert von 22.43% im oberen Bereich der in @tbl-Wirkungsgrad am häufigsten dokumentierten η~Brutto~-Werte von etwa 19-23%. Der beobachtete Anstieg des η~Brutto~ mit zunehmender Intensität, korrespondiert mit den Befunden mehrerer Studien (@Seabury1977, @Chavarren1999, @Zoladz2023a), die ebenfalls einen systematischen Anstieg des η~Brutto~ bei höherer Belastungsintensität dokumentierten.
+-   **H~1~**: Der η~muskulär~ unterscheidet sich im Mittel über alle Intensitäten zwischen sitzender und
+    stehender Fahrposition.<br>➙ η~muskulär,sitzen~ ≠ η~muskulär,stehen~
 
-#### Arbeitswirkungsgrad { .unlisted} 
-Der Arbeitswirkungsgrad η~Arbeit,sitzen~ wurde aufgrund des nicht bestimmten Sauerstoffumsatzes für die Leerbewegung im Stehen ausschließlich für die sitzende Position berechnet. Mit durchschnittlich 25.91 ± 1.39% (R: 23.54-28.64%) liegt er über dem muskulären Wirkungsgrad und weist die höchsten Werte im Vergleich zu allen anderen berechneten Wirkungsgraden auf. Über die Intensitäten hinweg zeigt sich ein systematischer Abfall von leichter (26.86 ± 1.48%) über moderater (25.81 ± 0.96%) zu schwerer Intensität (25.05 ± 1.16%). Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt der Intensität (F~(2,16)~ = 13.34, p < .001) mit großer Effektstärke (η~p~^2^ = .63). Die Post-hoc Analysen bestätigen signifikante Unterschiede zwischen folgenden Intensitätsstufen (schwer-leicht: p = .009, d = -1.389; schwer-moderat: p = .021, d = -1.199). Zwischen der moderaten und leichten Intensitätsstufe zeigte sich ein tendenziell signifikanter Unterschied (p = .067, d = -0.941) (@tbl-Post_hoc_Intensitaet_Wirk_Arbeit).<br>
-Die für die sitzende Position ermittelten η~Arbeit~-Werte ordnen sich mit durchschnittlich 25.91 ± 1.39% in dem mittleren Bereich der von @Gaesser1975 (25-28%) und @Luhtanen1987 (21.0-29.7%) berichteten Spannweiten ein. Die beobachtete systematische Reduktion des η~Arbeit~ mit zunehmender Belastungsintensität bestätigt dabei die von @Luhtanen1987 dokumentierten Effekte.
+Für die zweite Forschungshypothese, die eine intensitätsabhängige Beziehung zwischen den Fahrpositionen
+annimmt, wurden nachstehende statistische Teilhypothesen formuliert:
+
+-   **H~0,leicht~**: Der η~muskulär~ unterscheidet sich bei leichter Intensität nicht zwischen
+    sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen,leicht~ = η~muskulär,stehen,leicht~ 
+    
+-   **H~1,leicht~**: Der η~muskulär~ unterscheidet sich bei leichter Intensität zwischen sitzender
+    und stehender Fahrposition.<br>➙ η~muskulär,sitzen,leicht~ ≠ η~muskulär,stehen,leicht~
+
+-   **H~0,moderat-schwer~**: Der η~muskulär~ unterscheidet sich bei moderater und schwerer Intensität
+    nicht zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen,moderat-schwer~ =
+    η~muskulär,stehen,moderat-schwer~
+
+-   **H~1,moderat-schwer~**: Der η~muskulär~ unterscheidet sich bei moderater und schwerer Intensität
+    zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen,moderat-schwer~ ≠
+    η~muskulär,stehen,moderat-schwer~ 
+
+Zur Hypothesenprüfung wurden einfaktorielle Varianzanalysen (ANOVAs) durchgeführt. Für die erste Hypothese
+wurde eine ANOVA mit dem Faktor "Position" (sitzend/stehend) über alle Intensitäten hinweg berechnet. Die
+zweite Hypothese wurde mittels separater ANOVAs für jede Intensitätsstufe (leicht, moderat, schwer) mit dem
+Faktor "Position" überprüft. Zusätzlich wurden zur differenzierten Analyse der Intensitätseffekte weitere
+ANOVAs innerhalb der jeweiligen Positionen durchgeführt. Bei signifikanten Haupteffekten erfolgten
+Post-hoc-Analysen zur detaillierten Aufklärung der Unterschiede. Die Effektstärken wurden mittels partiellem
+Eta-Quadrat (η~p~^2^) und Cohens d quantifiziert.
+
+## Inferenzstatistische Analyse des muskulären Wirkungsgrad {.unlisted}
+
+Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer
+Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant
+höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Unterschied zwischen den Bedingungen (F(1,8) =
+7.64, p = .024, η~p~^2^ = .489). Somit wird die H~0~ der ersten Hypothese verworfen und die H~1~
+angenommen.
+
+Bei Betrachtung der verschiedenen Intensitätsstufen zeigt sich ein
+systematischer Abfall des η~muskulär~ von 24.94 ± 1.27% bei leichter über 24.50 ± 1.01% bei moderater bis zu
+24.14 ± 0.90% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt
+der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). Die Post-hoc-Analysen zeigen einen tendenziell
+signifikanten Unterschied zwischen leichter und schwerer Intensität mit einer mittleren Effektstärke (p =
+.074, d = .75), während die Vergleiche zwischen moderater und leichter Intensität (p = .443, d = 0.41) sowie
+zwischen schwerer und moderater Intensität (p = .574, d = 0.34) keine signifikanten Unterschiede
+aufweisen.
+
+Die einfaktorielle Varianzanalyse des η~muskulär~ innerhalb der Bedingungen zeigt in
+sitzender Position einen signifikanten Effekt der Intensität (F(2,16) = 10.19, p = .001, η~p~^2^ = .560).
+Die Post-hoc-Analysen zeigen zwischen leichter und schwerer Intensität einen signifikanten Unterschied mit
+einer großen Effektstärke (p = .017, d = 1.31). Der Vergleich zwischen moderater und leichter Intensität
+weist eine große Effektstärke auf, erreicht jedoch keine Signifikanz (p = .217, d = .83). Zwischen schwerer
+und moderater Intensität zeigt sich ein nicht-signifikanter Unterschied bei mittlerer Effektstärke (p =
+.427, d = .63) (@tbl-Post_hoc_sitzen). In der stehenden Position hingegen bleibt der η~muskulär~ über die
+Intensitäten hinweg relativ stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F(2,16) =
+0.55, p = .590, η~p~^2^ = .064).
+
+Eine differenzierte Analyse der Positionen (sitzend/stehend) innerhalb
+der einzelnen Intensitätsstufen zeigt, dass der Unterschied zwischen sitzender und stehender Position mit
+zunehmender Intensität abnimmt. Bei leichter Intensität zeigt der Vergleich zwischen sitzender und stehender
+Position einen hochsignifikanten Unterschied (F(1,8) = 16.63, p = .004, η~p~^2^ = .675), weshalb die H~0,leicht~ verworfen und die H~1,leicht~ angenommen wird. Bei moderater Intensität zeigt
+sich ein tendenziell signifikanter Unterschied (F(1,8) = 5.26, p = .051, η~p~^2^ = .397) und bei schwerer
+Intensität keine signifikanten Unterschiede zwischen den Positionen (F(1,8) = 1.41, p = .269, η~p~^2^ =
+.150) (@tbl-ANOVA_Wirk_muskulaer). Aufgrund dieser Ergebnisse wird für moderate und schwere Intensität die
+H~0,moderat-schwer~ beibehalten.
+
+Die ermittelten η~muskulär~-Werte dieser Studie liegen,
+mit durchschnittlich 24.53 ± 1.10% (R: 22.46 - 26.91%), deutlich unterhalb der in @Bell2009 dokumentierten
+Werte für η~muskulär~ von 31.0 ± 4.3%. Dass die hier ermittelten Werte niedriger ausfallen, ist
+nachvollziehbar, da die Ergebnisse von @Bell2009 auch im Vergleich zur übrigen Literatur außergewöhnlich
+hohe Wirkungsgrade aufweisen, was auch in der Originalpublikation kritisch reflektiert wurde. Eine direkte
+Vergleichbarkeit der Absolutwerte mit denen von @Bell2009 ist daher nur eingeschränkt gegeben. Die
+ermittelten η~muskulär~-Werte liegen zudem unter den von @Luhtanen1987 berichteten Durchschnittswerten von
+ca. 25.35 ± 3.15%, mit Werten zwischen 21.0 ± 1.5% bis 29.7 ± 4.2%.
+
+## Explorative inferenzstatistische Analysen
+
+Im Rahmen der explorativen Analysen wurden weitere Wirkungsgrade sowie deren zugrundeliegende physiologische und mechanische Energiekomponenten untersucht. Die Analyse dieser Parameter erfolgte nach den zuvor beschriebenen statistischen Verfahren. Diese explorative Analyse ermöglicht ein tiefergehendes Verständnis der Gründe für potentielle Unterschiede der Wirkungsgrade zwischen den Fahrpositionen.
+
+#### Gesamtwirkungsgrad {.unlisted}
+
+Der Gesamtwirkungsgrad η~Total~ liegt mit durchschnittlich 22.19 ± 1.07% (Range (R): 19.77-24.72%)
+erwartungsgemäß unter dem η~muskulär~. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede
+(sitzen: 22.06 ± 0.70%, stehen: 22.32 ± 1.34%). Die nicht-parametrische Analyse mittels Wilcoxon-Test
+bestätigt dabei keine signifikanten Unterschiede zwischen den Bedingungen (V = 139, p = .234, r = .229).
+Auch über die Intensitäten hinweg bleibt η~Total~ weitgehend stabil mit einem leichten Abfall von 22.35 ±
+1.10% bei leichter zu 22.01 ± 0.96% bei schwerer Intensität. Die einfaktorielle Varianzanalyse zeigt
+entsprechend keinen signifikanten Effekt der Intensität (F~(2,16)~ = 1.26, p = .311, η~p~^2^ = .136).<br>
+Bei differenzierter Betrachtung des η~Total~ innerhalb der Bedingungen zeigt sich in sitzender Position ein
+tendenziell signifikanter Effekt der Intensität (F~(2,16)~ = 3.11, p = .072) mit großer Effektstärke
+(η~p~^2^ = .280). In der stehenden Position hingegen bleibt der η~Total~ über die Intensitäten hinweg sehr
+stabil, was durch die einfaktorielle Varianzanalyse bestätigt wird (F~(2,16)~ = 0.09, p = .911, η~p~^2^ =
+.012).<br> Bei leichter und moderater Intensität zeigte der Vergleich zwischen sitzender und stehender
+Position keine signifikanten Unterschiede (F(1,8) = 0.031, p = .865, η~p~^2^ = .004; F(1,8) = 0.663, p =
+.439, η~p~^2^ = .077). Bei schwerer Intensität präsentierte sich ein nicht signifikanter Unterschied mit
+großer Effektstärke (F(1,8) = 2.388, p = .161, η~p~^2^ = .230) (@tbl-ANOVA_Wirk_Total).
+
+#### Nettowirkungsgrad {.unlisted}
+
+Der Nettowirkungsgrad η~Netto~ beträgt durchschnittlich 24.94 ± 1.23% (R: 22.13-28.18%). Zwischen den
+Bedingungen (sitzen: 24.81 ± 0.82%, stehen: 25.07 ± 1.55%) zeigt der Wilcoxon-Test keine signifikanten
+Unterschiede (V = 139, p = .234, r = .229). Über die Intensitäten hinweg ist ein leichter Anstieg von 24.79
+± 1.22% bei leichter zu 25.08 ± 1.30% bei schwerer Intensität zu beobachten. Die einfaktorielle
+Varianzanalyse zeigt jedoch keinen signifikanten Effekt der Intensität (F(2,16) = 0.59, p = .565, η~p~^2^ =
+.069).<br> Bei differenzierter Analyse des η~Netto~ innerhalb der Bedingungen zeigt sich in sitzender
+Position kein signifikanter Effekt der Intensität (F(2,16) = 0.07, p = .929, η~p~^2^ = .009), mit homogenen
+Werten über alle Intensitätsstufen (leicht: 24.89 ± 0.86%, moderat: 24.78 ± 0.70%, schwer: 24.77 ± 0.97%).
+In stehender Position hingegen ergibt sich ein signifikanter Effekt der Intensität (F(2,16) = 4.18, p =
+.035, η~p~^2^ = .343), charakterisiert durch einen systematischen Anstieg von leichter (24.70 ± 1.54%) über
+moderate (25.12 ± 1.65%) zu schwerer Intensität (25.39 ± 1.56%). Die Post-hoc Analysen zeigen jedoch keine
+signifikanten Unterschiede zwischen den einzelnen Intensitätsstufen (alle p \> .63)
+(@tbl-Post_hoc_stehen_Wirk_Netto).<br> Die positionsvergleichende Analyse ergab bei leichter Intensität
+keinen signifikanten Unterschied (F(1,8) = 0.148, p = .711, η~p~^2^ = .018). Ebenso zeigte sich bei
+moderater Intensität kein signifikanter Unterschied (F(1,8) = 0.842, p = .386, η~p~^2^ = .095). Bei schwerer
+Intensität wurde ein nicht signifikanter Unterschied mit großer Effektstärke festgestellt (F(1,8) = 2.880, p
+= .128, η~p~^2^ = .265). <br> Die ermittelten η~Netto~-Werte liegen mit einer Spanne von 22.13-28.18% und
+einem Mittelwert von 24.94% oberhalb der in @tbl-Wirkungsgrad am häufigsten dokumentierten η~Netto~-Werte
+von ca. 19-24%. Im Gegensatz zu @Harnish2007, die in beiden Körperpositionen einen Anstieg des η~Netto~ mit
+zunehmender Intensität dokumentierten, zeigt die vorliegende Untersuchung ausschließlich in stehender
+Position einen signifikanten Intensitätseffekt.
+
+#### Bruttowirkungsgrad {.unlisted}
+
+Der Bruttowirkungsgrad η~Brutto~ liegt mit 22.43 ± 1.17% (R: 19.65-25.76%) erwartungsgemäß unter dem
+Nettowirkungsgrad und zeigt zwischen den Bedingungen (sitzen: 22.30 ± 0.78%, stehen: 22.55 ± 1.47%) keine
+signifikanten Unterschiede (V = 131, p = .167, r = .266). Über die Intensitätsstufen hinweg zeigt sich,
+bedingt durch den reduzierten Anteil des Ruheenergieumsatzes am aeroben Energieumsatz, ein systematischer
+Anstieg von leichter (22.06 ± 1.17%) über moderate (22.46 ± 1.18%) zu schwerer Intensität (22.76 ± 1.13%).
+Die einfaktorielle Varianzanalyse bestätigt einen signifikanten Effekt der Intensität (F(2,16) = 5.17, p =
+.019, η~p~^2^ = .393).<br> Die Analyse des η~Brutto~ innerhalb der Bedingungen zeigt in sitzender Position
+keinen signifikanten Effekt der Intensität (F(2,16) = 0.80, p = .469, η~p~^2^ = .090), mit einem leichten
+Anstieg von leichter (22.12 ± 0.90%) zu schwerer Intensität (22.48 ± 0.74%). In stehender Position hingegen
+ergibt sich ein signifikanter Effekt der Intensität (F(2,16) = 13.72, p \< .001, η~p~^2^ = .632), mit einem
+deutlicheren Anstieg von leichter (22.00 ± 1.45%) zu schwerer Intensität (23.04 ± 1.41%). Die Post-hoc
+Analysen zeigen dabei eine mittlere Effektstärke zwischen leichter und schwerer Intensität (d = 0.71),
+wenngleich die Unterschiede das Signifikanzniveau nicht erreichen (p = .308)
+(@tbl-Post_hoc_stehen_Wirk_Brutto).<br> Die Analyse zwischen sitzender und stehender Position offenbarte bei
+leichter Intensität keinen signifikanten Unterschied (F(1,8) = 0.210, p = .659, η~p~^2^ = .026). Auch bei
+moderater Intensität zeigten sich keine signifikanten Abweichungen (F(1,8) = 0.658, p = .441, η~p~^2^ =
+.076). Bei schwerer Intensität wurde ein nicht signifikanter Unterschied mit großer Effektstärke beobachtet
+(F(1,8) = 2.557, p = .148, η~p~^2^ = .242).<br> Die ermittelten η~Brutto~-Werte bewegen sich mit einer
+Spanne von 19.65-25.76% und einem Mittelwert von 22.43% im oberen Bereich der in @tbl-Wirkungsgrad am
+häufigsten dokumentierten η~Brutto~-Werte von etwa 19-23%. Der beobachtete Anstieg des η~Brutto~ mit
+zunehmender Intensität, korrespondiert mit den Befunden mehrerer Studien (@Seabury1977, @Chavarren1999,
+@Zoladz2023a), die ebenfalls einen systematischen Anstieg des η~Brutto~ bei höherer Belastungsintensität
+dokumentierten.
+
+#### Arbeitswirkungsgrad {.unlisted}
+
+Der Arbeitswirkungsgrad η~Arbeit,sitzen~ wurde aufgrund des nicht bestimmten Sauerstoffumsatzes für die
+Leerbewegung im Stehen ausschließlich für die sitzende Position berechnet. Mit durchschnittlich 25.91 ±
+1.39% (R: 23.54-28.64%) liegt er über dem muskulären Wirkungsgrad und weist die höchsten Werte im Vergleich
+zu allen anderen berechneten Wirkungsgraden auf. Über die Intensitäten hinweg zeigt sich ein systematischer
+Abfall von leichter (26.86 ± 1.48%) über moderater (25.81 ± 0.96%) zu schwerer Intensität (25.05 ± 1.16%).
+Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt der Intensität (F~(2,16)~ = 13.34, p \<
+.001) mit großer Effektstärke (η~p~^2^ = .63). Die Post-hoc Analysen bestätigen signifikante Unterschiede
+zwischen folgenden Intensitätsstufen (schwer-leicht: p = .009, d = -1.389; schwer-moderat: p = .021, d =
+-1.199). Zwischen der moderaten und leichten Intensitätsstufe zeigte sich ein tendenziell signifikanter
+Unterschied (p = .067, d = -0.941) (@tbl-Post_hoc_Intensitaet_Wirk_Arbeit).<br> Die für die sitzende
+Position ermittelten η~Arbeit~-Werte ordnen sich mit durchschnittlich 25.91 ± 1.39% in dem unteren Bereich
+der von @Gaesser1975 (25-28%) berichteten Spannweite ein. Die beobachtete systematische Reduktion des
+η~Arbeit~ mit zunehmender Belastungsintensität steht dabei im Kontrast zu den von @Gaesser1975
+dokumentierten Effekten.
 
 ::: {.callout-note collapse="true"}
 ### Tabellarische Übersicht unterschiedlich berechneter Wirkungsgrade
+
 ```{r}
 #| label: tbl-Wirkungsgrad
 #| tbl-cap-location: top
@@ -847,28 +1008,84 @@ ft_Wirkungsgrad
 ```
 :::
 
-#### Parameter des physiologischen Energieumsatzes { .unlisted}
-Der physiologische Gesamtenergieumsatz W~TOT~ beträgt im Mittel 386.3 ± 75.5 kJ (R: 227.8-567.1 kJ). Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 384.1 ± 79.3 kJ, stehen: 388.5 ± 73.0 kJ). Die einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen (F~(1,8)~ = 0.410, p = .540, η~p~^2^ = .049). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (344.2 ± 56.4 kJ) über moderate (389.3 ± 69.4 kJ) zu schwerer Intensität (425.4 ± 79.2 kJ) zu beobachten. Die einfaktorielle Varianzanalyse bestätigt einen signifikanten Effekt der Intensität (F~(2,16)~ = 10.19, p = .001, η~p~^2^ = .560). Bei differenzierter Betrachtung des W~TOT~ innerhalb der Bedingungen zeigt sich dieser Anstieg sowohl in sitzender (leicht: 342.5 ± 60.2 kJ, moderat: 388.7 ± 72.7 kJ, schwer: 421.1 ± 89.7 kJ) als auch in stehender Position (leicht: 345.9 ± 55.9 kJ, moderat: 389.9 ± 70.3 kJ, schwer: 429.7 ± 72.4 kJ).
+#### Parameter des physiologischen Energieumsatzes {.unlisted}
 
-Der aerobe Energiebeitrag W~Aerob~ macht mit durchschnittlich 343.2 ± 65.1 kJ (R: 211.7-502.4 kJ) den Großteil des Gesamtenergieumsatzes aus. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 341.0 ± 68.2 kJ, stehen: 345.5 ± 62.9 kJ). Die einfaktorielle Varianzanalyse bestätigt keine signifikanten Unterschiede zwischen den Bedingungen (F~(1,8)~ = 0.559, p = .476, η~p~^2^ = .065). Über die Intensitäten hinweg zeigt sich ein systematischer Anstieg von leichter (309.9 ± 48.8 kJ) über moderate (346.0 ± 59.1 kJ) zu schwerer Intensität (373.8 ± 71.8 kJ).
+Der physiologische Gesamtenergieumsatz W~TOT~ beträgt im Mittel 386.3 ± 75.5 kJ (R: 227.8-567.1 kJ).
+Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 384.1 ± 79.3 kJ, stehen: 388.5 ± 73.0
+kJ). Die einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den
+Bedingungen (F~(1,8)~ = 0.410, p = .540, η~p~^2^ = .049). Über die Intensitäten hinweg ist ein
+systematischer Anstieg von leichter (344.2 ± 56.4 kJ) über moderate (389.3 ± 69.4 kJ) zu schwerer Intensität
+(425.4 ± 79.2 kJ) zu beobachten. Die einfaktorielle Varianzanalyse bestätigt einen signifikanten Effekt der
+Intensität (F~(2,16)~ = 10.19, p = .001, η~p~^2^ = .560). Bei differenzierter Betrachtung des W~TOT~
+innerhalb der Bedingungen zeigt sich dieser Anstieg sowohl in sitzender (leicht: 342.5 ± 60.2 kJ, moderat:
+388.7 ± 72.7 kJ, schwer: 421.1 ± 89.7 kJ) als auch in stehender Position (leicht: 345.9 ± 55.9 kJ, moderat:
+389.9 ± 70.3 kJ, schwer: 429.7 ± 72.4 kJ).
 
-Der anaerobe Energiebeitrag W~PCr~ beträgt im Mittel 31.0 ± 9.9 kJ (R: 11.9-55.9 kJ). Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 30.6 ± 9.4 kJ, stehen: 31.5 ± 10.5 kJ). Die einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen (F~(1,8)~ = 0.535, p = .485, η~p~^2^ = .063). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (26.4 ± 8.0 kJ) über moderate (31.2 ± 10.4 kJ) zu schwerer Intensität (35.5 ± 9.9 kJ) zu beobachten.
+Der aerobe Energiebeitrag W~Aerob~ macht mit durchschnittlich 343.2 ± 65.1 kJ (R: 211.7-502.4 kJ) den
+Großteil des Gesamtenergieumsatzes aus. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede
+(sitzen: 341.0 ± 68.2 kJ, stehen: 345.5 ± 62.9 kJ). Die einfaktorielle Varianzanalyse bestätigt keine
+signifikanten Unterschiede zwischen den Bedingungen (F~(1,8)~ = 0.559, p = .476, η~p~^2^ = .065). Über die
+Intensitäten hinweg zeigt sich ein systematischer Anstieg von leichter (309.9 ± 48.8 kJ) über moderate
+(346.0 ± 59.1 kJ) zu schwerer Intensität (373.8 ± 71.8 kJ).
 
-Der anaerobe Energiebeitrag W~BLC~ beträgt im Mittel 12.0 ± 4.9 kJ (R: 4.2-24.8 kJ). Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 12.5 ± 5.3 kJ, stehen: 11.5 ± 4.4 kJ). Die einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen (F~(1,8)~ = 0.865, p = .380, η~p~^2^ = .098). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (7.6 ± 2.1 kJ) über moderate (11.9 ± 3.2 kJ) zu schwerer Intensität (15.8 ± 4.5 kJ) zu beobachten.
+Der anaerobe Energiebeitrag W~PCr~ beträgt im Mittel 31.0 ± 9.9 kJ (R: 11.9-55.9 kJ). Zwischen den
+Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 30.6 ± 9.4 kJ, stehen: 31.5 ± 10.5 kJ). Die
+einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen
+(F~(1,8)~ = 0.535, p = .485, η~p~^2^ = .063). Über die Intensitäten hinweg ist ein systematischer Anstieg
+von leichter (26.4 ± 8.0 kJ) über moderate (31.2 ± 10.4 kJ) zu schwerer Intensität (35.5 ± 9.9 kJ) zu
+beobachten.
 
-Die Netto-Blutlaktatakkumulation (ΔBLC) beträgt im Mittel 2.75 ± 1.19 mmol·l^-1^ (R: 1.08-6.67 mmol·l^-1^). Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 2.82 ± 1.30 mmol·l^-1^, stehen: 2.60 ± 1.07 mmol·l^-1^). Der Wilcoxon-Test bestätigt keine signifikanten Unterschiede zwischen den Bedingungen (V = 217, p = .509, r = .127). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (1.74 ± 0.44 mmol·l^-1^) über moderate (2.72 ± 0.80 mmol·l^-1^) zu schwerer Intensität (3.68 ± 1.24 mmol·l^-1^) zu beobachten. Bei differenzierter Betrachtung der ΔBLC innerhalb der Bedingungen zeigt sich dieser Anstieg sowohl in sitzender (leicht: 1.72 ± 0.54 mmol·l^-1^, moderat: 2.80 ± 0.83 mmol·l^-1^, schwer: 3.95 ± 1.16 mmol·l^-1^) als auch in stehender Position (leicht: 1.76 ± 0.34 mmol·l^-1^, moderat: 2.64 ± 0.79 mmol·l^-1^, schwer: 3.41 ± 1.32 mmol·l^-1^).
+Der anaerobe Energiebeitrag W~BLC~ beträgt im Mittel 12.0 ± 4.9 kJ (R: 4.2-24.8 kJ). Zwischen den
+Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 12.5 ± 5.3 kJ, stehen: 11.5 ± 4.4 kJ). Die
+einfaktorielle Varianzanalyse zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen
+(F~(1,8)~ = 0.865, p = .380, η~p~^2^ = .098). Über die Intensitäten hinweg ist ein systematischer Anstieg
+von leichter (7.6 ± 2.1 kJ) über moderate (11.9 ± 3.2 kJ) zu schwerer Intensität (15.8 ± 4.5 kJ) zu
+beobachten.
+
+Die Netto-Blutlaktatakkumulation (ΔBLC) beträgt im Mittel 2.75 ± 1.19 mmol·l^-1^ (R: 1.08-6.67 mmol·l^-1^).
+Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 2.82 ± 1.30 mmol·l^-1^, stehen: 2.60
+± 1.07 mmol·l^-1^). Der Wilcoxon-Test bestätigt keine signifikanten Unterschiede zwischen den Bedingungen (V
+= 217, p = .509, r = .127). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (1.74 ±
+0.44 mmol·l^-1^) über moderate (2.72 ± 0.80 mmol·l^-1^) zu schwerer Intensität (3.68 ± 1.24 mmol·l^-1^) zu
+beobachten. Bei differenzierter Betrachtung der ΔBLC innerhalb der Bedingungen zeigt sich dieser Anstieg
+sowohl in sitzender (leicht: 1.72 ± 0.54 mmol·l^-1^, moderat: 2.80 ± 0.83 mmol·l^-1^, schwer: 3.95 ± 1.16
+mmol·l^-1^) als auch in stehender Position (leicht: 1.76 ± 0.34 mmol·l^-1^, moderat: 2.64 ± 0.79 mmol·l^-1^,
+schwer: 3.41 ± 1.32 mmol·l^-1^).
 
 #### Ergometrische Parameter zur Bestimmung des Wirkungsgrades
-Die Gesamtleistung P~Tot~ beträgt im Mittel 316.5 ± 57.9 W (R: 199.2-452.5 W). Zwischen den Bedingungen zeigen sich signifikante Unterschiede (F~(1,8)~ = 6.388, p = .035, η~p~^2^ = .444) mit höheren Werten in sitzender Position (322.0 ± 60.1 W) im Vergleich zur stehenden Position (311.0 ± 56.2 W). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (285.9 ± 48.2 W) über moderate (317.3 ± 54.6 W) zu schwerer Intensität (346.4 ± 56.6 W) zu beobachten. Dieser Anstieg zeigt sich sowohl in sitzender (leicht: 292.9 ± 51.9 W, moderat: 322.2 ± 58.1 W, schwer: 350.9 ± 61.6 W) als auch in stehender Position (leicht: 278.9 ± 46.1 W, moderat: 312.4 ± 53.8 W, schwer: 341.9 ± 54.6 W).
 
-Die mechanische Leistung P~mech~ beträgt im Mittel 286.7 ± 54.3 W (R: 173.2-411.8 W). Zwischen den Bedingungen zeigen sich signifikante Unterschiede (F~(1,8)~ = 13.460, p = .006, η~p~^2^ = .628) mit niedrigeren Werten in sitzender Position (284.6 ± 53.4 W) im Vergleich zur stehenden Position (288.9 ± 56.1 W). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (256.4 ± 43.7 W) über moderate (287.8 ± 51.2 W) zu schwerer Intensität (316.0 ± 52.6 W) zu beobachten. Dieser Anstieg zeigt sich sowohl in sitzender (leicht: 255.3 ± 44.2 W, moderat: 284.9 ± 50.7 W, schwer: 313.4 ± 53.3 W) als auch in stehender Position (leicht: 257.5 ± 45.8 W, moderat: 290.6 ± 54.6 W, schwer: 318.7 ± 55.1 W).
+Die Gesamtleistung P~Tot~ beträgt im Mittel 316.5 ± 57.9 W (R: 199.2-452.5 W). Zwischen den Bedingungen
+zeigen sich signifikante Unterschiede (F~(1,8)~ = 6.388, p = .035, η~p~^2^ = .444) mit höheren Werten in
+sitzender Position (322.0 ± 60.1 W) im Vergleich zur stehenden Position (311.0 ± 56.2 W). Über die
+Intensitäten hinweg ist ein systematischer Anstieg von leichter (285.9 ± 48.2 W) über moderate (317.3 ± 54.6
+W) zu schwerer Intensität (346.4 ± 56.6 W) zu beobachten. Dieser Anstieg zeigt sich sowohl in sitzender
+(leicht: 292.9 ± 51.9 W, moderat: 322.2 ± 58.1 W, schwer: 350.9 ± 61.6 W) als auch in stehender Position
+(leicht: 278.9 ± 46.1 W, moderat: 312.4 ± 53.8 W, schwer: 341.9 ± 54.6 W).
 
-Die interne Leistung P~Int~ beträgt im Mittel 29.8 ± 12.1 W (R: 14.1-59.6 W). Zwischen den Bedingungen zeigen sich signifikante Unterschiede (V = 369, p < .001, r = .830) mit höheren Werten in sitzender Position (37.5 ± 11.3 W) im Vergleich zur stehenden Position (22.1 ± 6.9 W). Über die Intensitäten hinweg ist die interne Leistung weitgehend konstant (leicht: 29.5 ± 12.6 W, moderat: 29.5 ± 12.3 W, schwer: 30.4 ± 12.0 W). Dies zeigt sich sowohl in sitzender (leicht: 37.6 ± 11.6 W, moderat: 37.3 ± 11.8 W, schwer: 37.5 ± 11.9 W) als auch in stehender Position (leicht: 21.4 ± 7.4 W, moderat: 21.8 ± 6.9 W, schwer: 23.2 ± 7.1 W).
+Die mechanische Leistung P~mech~ beträgt im Mittel 286.7 ± 54.3 W (R: 173.2-411.8 W). Zwischen den
+Bedingungen zeigen sich signifikante Unterschiede (F~(1,8)~ = 13.460, p = .006, η~p~^2^ = .628) mit
+niedrigeren Werten in sitzender Position (284.6 ± 53.4 W) im Vergleich zur stehenden Position (288.9 ± 56.1
+W). Über die Intensitäten hinweg ist ein systematischer Anstieg von leichter (256.4 ± 43.7 W) über moderate
+(287.8 ± 51.2 W) zu schwerer Intensität (316.0 ± 52.6 W) zu beobachten. Dieser Anstieg zeigt sich sowohl in
+sitzender (leicht: 255.3 ± 44.2 W, moderat: 284.9 ± 50.7 W, schwer: 313.4 ± 53.3 W) als auch in stehender
+Position (leicht: 257.5 ± 45.8 W, moderat: 290.6 ± 54.6 W, schwer: 318.7 ± 55.1 W).
 
-Die Drehzahl beträgt im Mittel 79.4 ± 12.2 U·min^-1^ (R: 58.6-101.5 U·min^-1^). Zwischen den Bedingungen zeigen sich signifikante Unterschiede (V = 378, p < .001, r= .872) mit höheren Werten in sitzender Position (89.1 ± 6.6 U·min^-1^) im Vergleich zur stehenden Position (69.8 ± 8.1 U·min^-1^). Über die Intensitäten hinweg bleibt die Drehzahl konstant (leicht: 79.4 ± 12.3 U·min^-1^, moderat: 79.4 ± 12.3 U·min^-1^, schwer: 79.4 ± 12.6 U·min^-1^). Dies zeigt sich sowohl in sitzender (leicht: 89.1 ± 6.3 U·min^-1^, moderat: 89.1 ± 6.6 U·min^-1^, schwer: 89.0 ± 7.7 U·min^-1^) als auch in stehender Position (leicht: 69.7 ± 8.2 U·min^-1^, moderat: 69.8 ± 8.4 U·min^-1^, schwer: 69.9 ± 8.6 U·min^-1^).
+Die interne Leistung P~Int~ beträgt im Mittel 29.8 ± 12.1 W (R: 14.1-59.6 W). Zwischen den Bedingungen
+zeigen sich signifikante Unterschiede (V = 369, p \< .001, r = .830) mit höheren Werten in sitzender
+Position (37.5 ± 11.3 W) im Vergleich zur stehenden Position (22.1 ± 6.9 W). Über die Intensitäten hinweg
+ist die interne Leistung weitgehend konstant (leicht: 29.5 ± 12.6 W, moderat: 29.5 ± 12.3 W, schwer: 30.4 ±
+12.0 W). Dies zeigt sich sowohl in sitzender (leicht: 37.6 ± 11.6 W, moderat: 37.3 ± 11.8 W, schwer: 37.5 ±
+11.9 W) als auch in stehender Position (leicht: 21.4 ± 7.4 W, moderat: 21.8 ± 6.9 W, schwer: 23.2 ± 7.1 W).
+
+Die Drehzahl beträgt im Mittel 79.4 ± 12.2 U·min^-1^ (R: 58.6-101.5 U·min^-1^). Zwischen den Bedingungen
+zeigen sich signifikante Unterschiede (V = 378, p \< .001, r= .872) mit höheren Werten in sitzender Position
+(89.1 ± 6.6 U·min^-1^) im Vergleich zur stehenden Position (69.8 ± 8.1 U·min^-1^). Über die Intensitäten
+hinweg bleibt die Drehzahl konstant (leicht: 79.4 ± 12.3 U·min^-1^, moderat: 79.4 ± 12.3 U·min^-1^, schwer:
+79.4 ± 12.6 U·min^-1^). Dies zeigt sich sowohl in sitzender (leicht: 89.1 ± 6.3 U·min^-1^, moderat: 89.1 ±
+6.6 U·min^-1^, schwer: 89.0 ± 7.7 U·min^-1^) als auch in stehender Position (leicht: 69.7 ± 8.2 U·min^-1^,
+moderat: 69.8 ± 8.4 U·min^-1^, schwer: 69.9 ± 8.6 U·min^-1^).
 
 # Quellenverzeichnis
 
 ::: {#refs}
 :::
-

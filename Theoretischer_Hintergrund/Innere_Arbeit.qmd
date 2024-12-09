@@ -1,14 +1,22 @@
 ---
+title: "Innere Arbeit"
+
 execute:
+  
   message: false
   echo: false
   warning: false
   error: false
-  
 bibliography: references.bib
 lang: de
 number-sections: false
 tbl-cap-location: bottom
+editor: 
+  markdown: 
+    wrap: 108
+    
+nocite: |
+  @Winter2009
 ---
 
 ```{css}
@@ -16,40 +24,636 @@ tbl-cap-location: bottom
 p {
   text-align: justify
 }
-caption {
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
   text-align: justify;
 }
-
 ```
 
-# Innere Arbeit {#sec-InnereArbeit}
 
+:::::: columns
+::: {.column width="50%"}
+Die während des Radfahrens auf dem Fahrradergometer zu erbringende mechanische Gesamtarbeit (W~Tot~) setzt
+sich aus zwei Komponenten zusammen:<br>
+Der äußeren mechanischen Arbeit (W~Ext~) gegen das Bremsmoment des
+Ergometers sowie der inneren Arbeit (W~Int~), welche die energetischen Aufwendungen für die Bewegung der
+unteren Extremitäten zur Aufrechterhaltung der zyklischen Tretbewegung beschreibt. Die korrespondierenden
+Leistungen werden als Gesamtleistung (P~Tot~) bzw. innere (P~Int~) und äußere Leistung (P~Ext~,
+gleichbedeutend mit P~mech~ in dieser Arbeit) bezeichnet:
 
+$$
+\begin{gathered}
+W_{Tot} = W_{Ext} +  W_{int} \\
+P_{Tot} = P_{Ext/mech} +  P_{int}
+\end{gathered}
+$$ {#eq-W_P-Tot}
+
+Sowohl die Realisierung der äußeren als auch der inneren Leistung erfordert einen entsprechenden
+physiologischen Energieumsatz, der sich in einem erhöhten Sauerstoffvolumenstrom ($\dot{V}O_{2}$)
+widerspiegelt (@fig-Pint_Pext) [@Tokui2008].
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="48%"}
+![Darstellung der inneren (P~Int~), äußeren (P~ext~ ≙ P~mech~) und Gesamtleistung (P~Tot~) sowie des
+erhöhten Sauerstoffvolumenstroms (V̇O₂) für die Erbringung von P~Int~ und P~ext~ beim Radfahren ohne oder mit
+Last (Tokui & Hirakoba, 2008).](images\Innere_Leistung_Tokui.png){#fig-Pint_Pext}
+:::
+::::::
+
+Verschiedene Faktoren determinieren den Betrag der inneren Arbeit und führen insbesondere bei hohen
+Trittraten zu einem gesteigerten physiologischen Energieumsatz. Nach @Minetti2011 sind für diesen Effekt
+drei zentrale Mechanismen verantwortlich. Zum einen die durch die Hill-Gleichung beschriebene verminderte
+Kraftproduktion der Muskeln bei hoher Kontraktionsgeschwindigkeit. Des Weiteren durch die Koaktivierung von
+Agonisten und Antagonisten, welche in einer verstärkten Abbremsung der Streckbewegung der unteren Extremität
+resultiert. Als dritter Mechanismus wirkt der Reibungs- und Viskositätswiderstand von Gelenkknorpel, Bändern
+und weiteren bewegungsunterstützenden Strukturen.
+
+**Im Rahmen der Radfahrbewegung bewegen sich Beine und Gliedmaßen entlang eines spezifischen Pfades und
+benötigen dafür Energie, um diese Bewegung aufrechtzuerhalten. Aus physikalischer Perspektive entsteht dabei bei einem vollständigen Bewegungszyklus keine Nettoarbeit, da Anfangs- und Endpositionen gleich sind. Diese muskuläre Leistung reflektiert die innere Arbeit, die, obwohl ohne direkten Beitrag zum Vortrieb, für die Bewegungsdynamik essentiell ist. Während eines Bewegungszyklus findet dabei ein kontinuierlicher Energieaustausch sowohl zwischen diesen Energieformen innerhalb eines Segments als auch zwischen verschiedenen Segmenten statt. Durch eine detaillierte Betrachtung dieser Prozesse – das Erfassen aller Energiebeiträge entlang des Bewegungsverlaufs – erhalten wir ein umfassendes Verständnis der energetischen Anforderungen der Bewegung.**
+
+# Berechnungsmethoden der inneren Arbeit
+
+Zur Berechnung der inneren Arbeit bei Bewegungen des Körpers wurden verschiedene Ansätze entwickelt. Diese
+stützen sich entweder auf experimentelle Messungen des metabolischen Energieaufwands oder auf Berechnungen,
+die auf theoretischen biomechanischen Modellen oder kinematischen Daten basieren. Im Folgenden werden
+ausgewählte Methoden vorgestellt und die in dieser Arbeit angewandte Methodik detailliert erläutert.
+
+## Berechnungsmethoden der inneren Arbeit auf Basis metabolischer Messungen
+
+Eine praktische Lösung zur Messung der metabolischen Kosten der inneren Arbeit bzw. inneren Leistung, hier
+ausgedrückt als $\dot{V}O_{2,\text{unloaded}}$ oder O~2~-Cost~nD~, ist die Erfassung des
+$\dot{V}O_{2,\text{net}}$ während Pedalierbewegungen ohne Last. Dabei wird eine Bedingung geschaffen, bei
+der keine externe Arbeit verrichtet werden kann, wodurch theoretisch die gesamte vom Muskelsystem geleistete
+Arbeit ausschließlich mit der Bewegungsenergie der Körpersegmente korreliert und in Wärmeenergie umgewandelt
+wird. Die Messungen erfolgen dabei in der Regel systematisch über verschiedene Drehzahlbereiche oder
+spezifisch bei jener Trittrate, die für die anschließende Wirkungsgradberechnung unter Belastungsbedingungen
+verwendet werden soll [@Whipp1969; @Gaesser1975; @Hagberg1981; @Hintzy-Cloutier2003].
+
+Eine alternative Methode zur Bestimmung von $\Delta\dot{V}O_{2,\text{unloaded}}$ basiert auf der
+Extrapolation des y-Achsenabschnitts der linearen $\Delta\dot{V}O_{2,\text{net}} - \Delta P_{\text{mech}}$
+Regression aus mehreren Belastungsstufen, analog zum bereits beschriebenen Verfahren der
+Deltawirkungsgradberechnung [@Gaesser1975; @Francescato1995; @Sjøgaard2002].<br> Die Validität dieses
+linearen Modells wurde jedoch kritisch diskutiert [@Ettema2009a], da oberhalb der ersten Laktatschwelle[^1]
+der $\dot{V}O_2$-Umsatz aufgrund der langsamen Komponente der O~2~-Kinetik nicht mehr linear zur erbrachten
+P~mech~ ansteigt [@Barstow1994; @Bearden2000; @Sietsema2020]. Als Alternative wurde daher eine kurvilineare
+Regression zur Beschreibung der $\Delta\dot{V}O_{2,\text{net}} - \Delta P_{\text{mech}}$ Beziehung während
+ansteigender Last vorgeschlagen [@Hintzy-Cloutier2003].
+
+[^1]: Die LT beschreibt den Punkt, an dem das Blutlaktat bei zunehmender Belastungsintensität über das
+    Ruheniveau hinaus zu akkumulieren beginnt [@Sietsema2020].
+
+Nach @Hintzy-Cloutier2003 zeigten die tatsächlich gemessenen $\dot{V}O_{2,\text{unloaded}}$ signifikant
+höhere Werte als die theoretisch ermittelten $\dot{V}O_{2,\text{unloaded}}$-Werte mittels linearer und
+kurvilinearer Regression. Als potenzielle Ursachen für diese erhöhten $\dot{V}O_{2,\text{unloaded}}$-Werte
+wurden der zusätzliche Energieaufwand zur Körperstabilisierung, der über den Energieumsatz der reinen
+Beinbewegung ohne Leistungsproduktion hinausgeht, sowie die experimentelle Schwierigkeit der exakten
+Reproduktion der unbelasteten Bedingung identifiziert.
+
+### Bestimmung der metabolischen Kosten der inneren Arbeit in dieser Untersuchung {.unlisted}
+
+Die vorliegende Untersuchung nutzte zur Bestimmung der metabolischen Kosten der inneren Leistung ein
+Verfahren, das vergleichbar mit dem oben beschriebenen ist. Dabei wurden die tatsächlichen Werte bei
+verschiedenen Trittraten gemessen. Das methodische Vorgehen unterschied sich jedoch in der Durchführung, da
+hier ein stufenartiger Drehzahltest zum Einsatz kam. Die Probanden begannen mit einer Trittrate von 70
+U·min^-1^, die alle 30 Sekunden um 5 U·min^-1^ gesteigert wurde, bis die vorgegebene Trittrate nicht mehr
+aufrechterhalten werden konnte.<br> Für jeden Probanden erfolgte die Berechnung des gewichtsbezogenen
+$\dot{V}O_{2,\text{net}}$ für alle erreichten Drehzahlstufen von 70 U·min^-1^ bis zur individuell höchsten
+Drehzahl in 1 U·min^-1^ Schritten. Der Zusammenhang zwischen dem $\dot{V}O_{2,\text{net}}$
+\[ml·kg^-1^·min^-1^\] und der Drehzahl \[U·min^-1^\] wurde durch die Auftragung der Werte auf der y- bzw.
+x-Achse des Koordinatensystems dargestellt. Basierend auf den Daten aller Probanden erfolgte eine
+mathematische Modellierung des Zusammenhangs zwischen Drehzahl und $\dot{V}O_{2,\text{net}}$ mittels
+kubischer Modellanpassung. Die Wahl des kubischen Modells erfolgte auf der Basis des theoretisch zu
+erwartenden Anstiegs der P~Int~ mit der dritten Potenz der Drehzahl. Die theoretischen Grundlagen hierfür
+werden in den folgenden Abschnitten näher erläutert. Die kubische Modellfunktion ermöglichte dann die
+Bestimmung des theoretischen zusätzlichen Sauerstoffumsatzes (O~2~-Cost~nD,Vorgabe~) für jede vorgegebene
+Drehzahl in der Sitzbedingung. Die O~2~-Cost~nD,Vorgabe~-Werte konnten jedoch nicht für die stehende
+Bedingung berechnet werden, da der Drehzahltest ausschließlich im Sitzen durchgeführt wurde.
+
+## Berechnungsmethoden der inneren Arbeit auf Basis biomechanischer Modelle
+
+Die erste Untersuchung der Arbeit, die erforderlich ist, um die Gliedmaßen während der Fortbewegung in Bezug
+auf den Körperschwerpunkt zu beschleunigen, wurde von @Fenn1930 mithilfe einfacher Filmaufnahmen
+durchgeführt. Zu diesem Zweck wurden die Aufnahmen vor einem weißen Holzgitter gemacht, welches ein
+Koordinatensystem mit Quadraten von 1 Meter Seitenlänge bildete (@fig-Fenn_WInt). Die Positionen der
+Körpersegmente sowie die Segmentschwerpunkte konnten dann mithilfe der Filmaufnahmen vor dem
+Koordinatengitter für die verschiedenen Zeitpunkte des Sprints ermittelt werden. Auf dieser Grundlage
+berechnete @Fenn1930 die kinetische translatorische sowie rotatorische Energie der einzelnen Körpersegmente
+in Relation zum Körperschwerpunkt. Daraus leitete er die Gesamtenergiekurve der Körpersegmente ab, die die
+Veränderung der berechneten Energie über die Zeit während des Sprints beschreiben konnte.
+
+::: {.callout-note collapse="true"}
+### Abbildung 2: Analyse der Kniestreckbewegung mit Darstellung von Winkel- und Energieänderungen aus (Fenn & Morrison, 1930)
+
+![Darstellung der Veränderungen des Kniewinkels und des Oberschenkenwinkels relativ zur Horizontalen in
+Kombination mit Energieänderungen, berechnet aus einem kinematischen Modell während einer Kniestreckübung
+mit externen Leistungen von 20 W (dünne Linien) und 40 W (dicke Linien). Dargestellt über fünf verschiedene
+Kontraktionsraten in 2-Sekunden-Perioden. Die positiven Gesamtenergieänderungen des Oberschenkels (ΔEtot
+Thigh) und Unterschenkels (ΔEtot Lower Leg) werden separat dargestellt. Ebenso wie die Energieänderungen der
+potentiellen Energie (ΔE pot) und kinetischen Energie (ΔE kin). Abschließend wird die Gesamtsumme aller
+Energieänderungen (ΔE tot) visualisiert [@Fenn1930].](images/Fenn_WInt.png){#fig-Fenn_WInt}
+:::
+
+Der Begriff der „internal work" (innere Arbeit) wurde erstmals von @Cavagna1976 eingeführt und beschreibt
+die Arbeit, die erforderlich ist, um die Gliedmaßen in Bezug auf den Körperschwerpunkt während der
+Fortbewegung zu beschleunigen. Der von Cavagna verwendete Berechnungsansatz für die innere Arbeit basierte
+dabei auf den Methoden von @Fenn1930.
+
+**Dieser Teil ist nohc ein bsischen unzusammenhangslo**
+
+Cavagna und Kollegen [@Cavagna1976; @Cavagna1977; @Willems1995] kamen zu dem Schluss, dass bei der
+Berechnung der inneren Arbeit während der Fortbewegung davon ausgegangen werden sollte, dass der
+Energietransfer von kinetischer und potentieller Energie ausschließlich zwischen den Segmenten derselben
+Gliedmaße erfolgt. Zusätzlich berechneten sie mit Hilfe von Kraftmessplatten die Energieänderungen des
+Gesamtkörperschwerpunkts in Relation zum Boden, um die externe Arbeit bei der Fortbewegung zu bestimmen. Auf
+diese Weise konnte die Gesamtarbeit der Muskeln durch die Kombination von innerer und äußerer Arbeit
+ermittelt werden (@eq-W_P-Tot). Im Gegensatz dazu kann die externe Arbeit beim Radfahren direkt gemessen
+werden, weshalb dieser Aspekt bei der Berechnung der Gesamtarbeit hier vernachlässigt werden kann
+[@Hansen2004].
+
+@Minetti1998 entwickelten, basierend auf den theoretischen Grundlagen von @Cavagna1977 eine Software, um die
+innere Arbeit verschiedener Bewegungen zu berechnen. Durch den Einsatz von Motion-Capture-Technologie und
+unter der Annahme eines kubischen Zusammenhangs zwischen Trittrate und innerer Arbeit bzw. Leistung,
+formulierte @Minetti2001 folgende Modellgleichung für die Berechung der W~Int~ einer Pedalumdrehung für das
+Radfahren:
+
+$$
+W_{\text{int, Minetti}} = 0.153 \cdot m \cdot nD^3
+$$ {#eq-Minetti}
+
+Die innere Arbeit (W~int,Minetti~) einer Pedalumdrehung wird dabei durch das Produkt aus dem empirisch
+ermittelten Trägheitsparameter von $q = 0.153$, der Körpermasse (m) in Kilogramm und der Trittrate (nD) in
+Hertz zur dritten Potenz berechnet. Diese Gleichung erwies sich als universell einsetzbar für verschiedene
+Fahrradtypen und einen breiten Bereich von Trittraten.
+
+> **Berechnungsbeispiel von W~int,Minetti~ und P~int,Minetti~ :**<br> Körpermasse = 70 \[kg\]; q = 0.153
+> \[l\]; Trittrate<sub>avg</sub> = 80 \[U·min^-1^\] = $\frac{80}{60}$ \[Hz\]; Testdauer = 300 \[s\] <br> 
+> $W_{\text{Int \kern0.05em pro \kern0.05em Umdrehung}}$  = 0.153 · 70 · (1.33)^3^ = 25.39 \[J\] \  |   Umdrehungen<sub>avg</sub> = 1.33 · 300 = 400 \[U\]<br> 
+> $W_{\text{Int \kern0.05em gesamt}}$ = 25.39 · $\frac{400}{1000}$ = 10.156 \[kJ\]<br> 
+> $P_{Int}$ = 10.156 · $\frac{1000}{300}$ = 33.85 \[W\]
+
+**Zu minetti: Die Summe der Zunahmen im zeitlichen Verlauf, über einen vollständigen Zyklus, der absoluten
+Rotationsenergie und der relativen (in Bezug auf den Schwerpunkt) kinetischen linearen Energie von
+benachbarten Segmenten in jeder Gliedmaße wurde verwendet, um Wint zu berechnen. -\> Wieß nicht mehr genau
+wpher**
+
+### Segmentiertes Modell zur Berechnung der inneren Arbeit beim Gehen nach Winter (1979) {.unlisted}
+
+@Winter1979 entwickelte einen systematischen Ansatz zur Berechnung der inneren Arbeit, der sich von bisher
+vorgestellten Berchnungsmodellen bezüglich verschiedener methodischer Grundannahmen der W~Int~-Berechnung
+unterscheiden. Dabei wird der menschliche Bewegungsapparat als segmentiertes Modell dargestellt, indem der
+Körper in biomechanisch relevante Segmente für die Analyse des Gangzyklus unterteilt wird. @Winter1979
+fasste den oberen Körperbereich als eine biomechanische Einheit zusammen, die aus Kopf, Armen und Rumpf
+besteht und als HAT-Segment (Head, Arms, Trunk) bezeichnet wird. Die unteren Extremitäten wurden jeweils in
+drei funktionelle Einheiten Oberschenkel, Unterschenkel und Fuß untergliedert. Zur präzisen Erfassung der
+Bewegungsabläufe dieser Körpersegmente wurden Marker an definierten anatomischen Referenzpunkten platziert,
+die eine exakte Aufzeichnung der Bewegungskoordinaten ermöglichten.
+
+Die Laufbewegung wurde für die Analyse ausschließlich in der Sagittalebene betrachtet, wobei der
+Energiebetrag des Armschwungs vollständig vernachlässigt wurde. Aufgrund der angenommenen Symmetrie des
+Gangs erfolgte eine Übertragung der Bewegungsdaten des linken Beins auf das rechte Bein. Energieaustausche
+in Nebenbewegungsrichtungen sowie Einflüsse durch Boden und Luftwiderstand wurden als vernachlässigbar klein
+eingestuft, wodurch die Energieerhaltung im betrachteten System gewahrt blieb. Dieser methodische Ansatz
+ermöglichte die Berechnung der inneren Arbeit durch die Analyse der potentiellen und kinetischen
+Energiekomponenten der verschiedenen Körpersegmente während der Laufbewegung. Die Gesamtenergie der
+verschiedenen Körpersegmente zu jedem Zeitpunkt $t$ wurde mit folgender Formel berechnet:
+
+$$E_{gesamt}(t) = \sum_{i=1}^{N} [E_{pot}(i,t) + E_{kin,trans}(i,t) + E_{kin,rot}(i,t)]$$ {#eq-E_gesamt}
+
+In @eq-E_gesamt kennzeichnet der Laufindex $i$ die fortlaufende Nummerierung jedes einzelnen Körpersegments.
+Der Summenoperator $\sum_{i=1}^{N}$ beschreibt die systematische Addition der Energiekomponenten für alle
+definierten Körpersegmente von 1 bis N, wobei $N$ die Gesamtzahl der analysierten Körpersegmente darstellt.
+Die einzelnen zeitabhängigen Energiekomponenten setzen sich wie folgt zusammen:
+
+-   $E_{pot}(t)$ bezeichnet die potentielle Energie eines Körpersegments im Gravitationsfeld und wird berechnet durch
+$E_{pot}(t) = m \cdot g \cdot h(t)$ mit der Segmentmasse $m$, der Gravitationskonstante $g$ und der
+zeitabhängigen vertikalen Körpersegmentposition $h(t)$.
+
+-   $E_{kin,trans}(t)$ beschreibt die translatorische
+kinetische Energie durch lineare Bewegung eines Segments nach
+$E_{kin,trans}(t) = \frac{1}{2} \cdot m \cdot v(t)^2$, wobei $m$ die Segmentmasse und $v(t)$ die momentane
+Translationsgeschwindigkeit darstellt.
+
+-   $E_{kin,rot}(t)$ repräsentiert die rotatorische kinetische Energie
+durch Rotation eines Segments nach $E_{kin,rot}(t) = \frac{1}{2} \cdot I \cdot \omega(t)^2$ mit dem
+Trägheitsmoment $I$ und der momentanen Winkelgeschwindigkeit $\omega(t)$.
+
+Die innere Arbeit berechnet sich
+dann aus der Summe aller Energieänderungen über die analysierten Zeitintervalle:
+
+$$W_{int} = \sum_{i=1}^{k} \Delta E_i(t)$$ {#eq-WInt}
+
+Wobei $\Delta E_i(t)$ die Änderung der Gesamtenergie im $i$-ten Zeitintervall als Differenz
+$E_{gesamt}(t_{i+1}) - E_{gesamt}(t_i)$ und $k$ die Gesamtanzahl der analysierten Zeitintervalle darstellt.
+Die durchschnittliche innere Leistung berechnet sich aus der Summe aller Energieänderungen, dividiert durch
+die kumulierte Zeitdauer $T$ der Energieänderungen:
+
+$$P_{int} = \frac{\sum_{i=1}^{k} \Delta E_i(t)}{T} = \frac{W_{int}}{T}$$ {#eq-PInt}
+
+Unter der physiologisch begründeten Annahme, dass ausschließlich positive Energieänderungen der
+Körpersegmente als relevante Arbeit zu betrachten sind, können für die Berechnung der inneren Leistung
+selektiv die positiven Energieänderungen berücksichtigt werden. Die innere Leistung berechnet sich dann aus
+der Summe aller positiven Energieänderungen, dividiert durch die kumulierte Zeitdauer $T$ der positiven
+Energietransformationen:
+
+$$P_{int} = \frac{\sum_{i=1}^{k} \max(0,\Delta E_i(t))}{T}$$ {#eq-PInt_positiv}
+
+Die Funktion $\max(0,\Delta E_i(t))$ selektiert ausschließlich positive Energieänderungen, indem negative
+Energieänderungen mit einem Nullwert ersetzt werden.
+
+### Berechnung der inneren Arbeit für andere Bewegungsformen 
+
+### Knierextensionen von Hansen 2002 {.unlisted}
+
+:::::: columns
+::: {.column width="63%"}
+@Sjøgaard2002 entwickelten basierend auf dem Modell von @Winter1979 einen Ansatz zur Quantifizierung der
+inneren Arbeit bei Knieextensionen und vergleichen die biomechanischen W~Int~-Berechungen mit Berechnungen
+von W~Int~ auf metabolsicher Basis.<br> Mit Hilfe zweidimensionaler Videoaufzeichnungen in der Sagittalebene
+wurde ein detailliertes kinematisches Zweisegment-Modell der Beinbewegung erstellt. Aufbauend auf der
+theoretischen Annahme eines unmittelbaren Energietransfers zwischen potentieller und kinetischer Energie der
+Segmente wurde zunächst die Gesamtenergie der Körpersegmente gemäß @eq-E_gesamt bestimmt. Anschließend
+erfolgte die Berechnung der inneren Arbeit (W~Int~) und Leistung (P~Int~) nach den Gleichungen @eq-WInt,
+@eq-PInt und @eq-PInt_positiv.
+
+Der Zusammenhang zwischen den berechneten P~Int~-Werten und der Kontraktionsrate wurde durch eine
+Polynomfunktion dritten Grades approximiert (@eq-PInt_Modell). Dabei repräsentiert x die Kontraktionsrate
+und a sowie b stellen die entsprechenden Regressionskoeffizienten dar (@fig-Pint_Sjogaard_Modell):
+
+$$P_\text{int} = ax + bx^3$$ {#eq-PInt_Modell}
+
+Die Wahl der Modellfunktion basiert auf physikalischen Überlegungen: Die kinetische Energie (E~kin~) eines
+Segments steigt quadratisch mit dessen Geschwindigkeit an. Folglich nehmen die zeitabhängigen Änderungen der
+E~kin~ in Relation zur Kontraktionsrate mit der dritten Potenz zu. Da die potentielle Energie (E~pot~) pro
+Kontraktion geschwindigkeitsunabhängig ist, sollten die zeitabhängigen Änderungen der E~pot~ linear
+proportional zur Kontraktionsrate verlaufen.
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="35%"}
+![Darstellung der inneren Leistung (IP) im Verhältnis zur Kontraktionsrate. Die durchgezogene Linie
+repräsentiert eine Polynommodellgleichung dritten Grades, angepasst an die Datenpunkte: IP = 0,0299x +
+0,00002617x³ (R² = 0,996), wobei x die Kontraktionsrate repräsentiert (modifiziert nach Sjøgaard et al.
+(2002)).](images\Pint_Sjogaard_Modell.png){#fig-Pint_Sjogaard_Modell}
+:::
+::::::
+
+In @fig-PInt_Sjogaard sind die resultierenden
+Energieänderungsverläufe der beiden Segmente für fünf verschiedene Kontraktionsraten und zwei externe
+Leistungsniveaus dargestellt.
+
+Die Autoren fanden vergleichbare Ergebnisse zwischen den W~Int~-Berechnungen beider Ansätze, wenn bei den
+biomechanischen Modellen ausschließlich die positiven Anteile der Energieänderungen berücksichtigt wurden.
+Diese Übereinstimmung ermöglichte eine physiologische Validierung des kinematischen Modells von @Winter1979
+für Knieextensionen.
+
+::: {.callout-note collapse="true"}
+### Abbildung 4: Analyse der Kniestreckbewegung mit Darstellung von Winkel- und Energieänderungen aus (Sjøgaard et al., 2002)
+
+![Darstellung der Veränderungen des Kniewinkels und des Oberschenkenwinkels relativ zur Horizontalen in
+Kombination mit Energieänderungen, geschätzt aus einem kinematischen Modell während einer Kniestreckübung
+mit externen Leistungen von 20 W (dünne Linien) und 40 W (dicke Linien). Dargestellt über fünf verschiedene
+Kontraktionsraten in 2-Sekunden-Perioden. Die positiven Gesamtenergieänderungen des Oberschenkels (ΔEtot
+Thigh) und Unterschenkels (ΔEtot Lower Leg) werden separat dargestellt. Ebenso wie die Energieänderungen der
+potentiellen Energie (ΔE pot) und kinetischen Energie (ΔE kin). Abschließend wird die Gesamtsumme aller
+Energieänderungen (ΔE tot) visualisiert (Sjøgaard et al.,
+2002).](images/Pint_Sjogaard.png){#fig-PInt_Sjogaard}
+:::
+
+### Vergleich der Modelle aus @Hansen2004 {.unlisted}
+
+Aufbauend auf der Validierung des W~Int~-Berechnungsmodells von @Winter1979 für Knieextensionen untersuchten
+@Hansen2004 die Übertragbarkeit der W~Int~- Berechnungen auf das Radfahren. Die Autoren verglichen dabei
+metabolische Messungen der inneren Arbeit mit fünf verschiedenen kinematischen Berechnungsmodellen
+[@Winter1979; @Wells1986; @Widrick1992; @Willems1995].
+
+Die ursprünglich für zweidimensionale (2D) Analysen konzipierten Modelle wurden in dieser Studie sowohl
+zweidimensional als auch dreidimensional berechnet. Die Berechnungsgrundlage aller Modelle basierte auf der
+Summierung der kinetischen und potentiellen Energien der verschiedenen Körpersegmente. Die Modelle
+unterschieden sich trotz dieser gemeinsamen Basis in mehreren wesentlichen Aspekten. Diese umfassten die
+Anzahl der einbezogenen Körpersegmente, insbesondere den Ein- oder Ausschluss der Armsegmente, sowie die
+Annahmen zum Energietransfer zwischen den Beinen oder beschränkt auf gleichseitige Gliedmaßen. Zusätzlich
+variierten die Modelle im Ein- oder Ausschluss der Energieänderungen aus den potentiellen und kinetischen
+Energieänderungen des Gesamtkörperschwerpunkts sowie in der Berücksichtigung ausschließlich positiver oder
+aller Gesamtenergieänderungen.
+
+Folgende von @Hansen2004 auf das Radfahren übertragene Modelle zur Berechnung der inneren Leistung wurden
+verwendet:
+
+-   *Winter-Modell (IPwinter):* Drei Beinsegmente sowie das HAT-Segment und mit einem Energietransfer
+    zwischen allen Segmenten unter ausschließlicher Einbeziehung positiver Energieänderungen [@Winter1979].
+
+-   *Wells-Modell (IPwells):* Vergleichbar mit IPwinter aber unter zusätzlicher Berücksichtigung negativer
+    Energieänderungen [@Wells1986].
+
+-   *Widrick-Modell (IPwidrick):* Ansatz von Wells aber mit Ausschluss des Energietransfers zwischen den
+    Beinen und Beschränkung auf die Beinsegmente [@Widrick1992].
+
+-   *Willems-Modell:* Zwei Berechnungsvarianten [@Willems1995]:
+
+    -   *IPwillems:* Berechnung der kinetischen Energieänderungen der Segmente in Relation zum
+        Körperschwerpunkt und mit Energietransfer ausschließlich zwischen Segmenten derselben Extremität.
+        Einschließlich der potentiellen und kinetischen Energieänderungen des Körperschwerpunkts.
+
+    -   *IPwillems-COM:* Identische Berechnung unter Ausschluss der potentiellen und kinetischen
+        Energieänderungen des Körperschwerpunkts.
+
+Die Gegenüberstellung der verschiedenen Modelle und der metabolisch ermittelten inneren Leistung (IPmet) ist
+in @fig-Modellverlgeich_1 dargestellt. Mit zunehmender Trittrate zeigten alle Modelle einen nichtlinearen
+Anstieg der inneren Leistung. Die höchsten P~Int~-Werte wurden dabei mit dem IPwidrick-Modell bestimmt,
+gefolgt von dem IPwells-Modell. Knapp darunter lagen die Werte von IPwillems. Die geringsten inneren
+Leistungen wurden bei IPwillems-COM, IPmet und IPwinter berechnet, wobei IPwillems-COM und IPwinter die
+größte Übereinstimmung mit IPmet zeigten.<br> Wie in @fig-Modellverlgeich_2 dargestellt, wurden die
+Modellberechnungen von IPwells, IPwidrick und IPwillems-COM für niedrige und moderate externe Leistungen mit
+den IP-Berechnungen nach der Minetti-Formel sowie experimentell ermittelten P~Int~-Daten von @Wells1986 und
+@Widrick1992 verglichen. Dabei zeigte sich eine erwartungsgemäß hohe Übereinstimmung zwischen den IPwells-
+und IPwidrick-Werten mit den Messdaten aus den Studien von @Wells1986 und @Widrick1992. Die nach der
+Minetti-Formel berechneten P~Int~-Werte waren vergleichbar mit den Ergebnissen des IPwillems-COM Modells.
+
+@Hansen2004 kamen basierend auf ihren Untersuchungsergebnissen zu der Erkenntnis, dass das IP-Willems-COM-Modell die beste Übereinstimmung mit den berechneten metabolischen Kosten der inneren Leistung beim Radfahren zeigte. Auch das IPWinter-Modell wurde als angemessene Methode zur Bestimmung der IP während des Radfahrens eingeordnet.<br>
+Die Autoren stellten fest, dass sich der beobachtete Anstieg der P~Int~ mit zunehmender Trittrate bei allen
+untersuchten Modellen hauptsächlich durch die Beinbewegungen erklären ließ. Sie argumentierten, dass trotz
+nachgewiesener vertikaler Bewegungen des Körperschwerpunkts in den kinematischen Analysen der Ausschluss der
+potentiellen und kinetischen Energieänderungen des Körperschwerpunkts beim Radfahren im Sitzen
+gerechtfertigt sei, da das Körpergewicht durch den Sattel gestützt wird.<br> Für das Fahren im Stehen wie in
+der hier vorliegenden Untersuchung muss die von @Hansen2004 getroffene Einschätzung jedoch neu bewertet
+werden, da hier deutlich größere potentielle Energieänderungen zu erwarten sind, wenn das Körpergewicht
+nicht durch den Sattel gestützt wird. Das IPWinter-Modell könnte durch die Berücksichtigung der potentiellen
+Energieänderungen des Segmentschwerpunktes des HAT-Segments für die Berechnung der P~Int~ im Stehen besser
+geeignet sein. Diese Überlegung führte dazu, dass in der vorliegenden Untersuchung das IPWinter-Modell für
+die nachfolgenden Analysen explorativ angewandt wurde.
+
+:::::: columns
+::: {.column width="49%"}
+![Verlauf der inneren Leistung (IP) in Abhängigkeit von der Trittrate, berechnet nach den Modellen IPwinter,
+IPwells, IPwidrick, IPwillems und IPwillems-COM sowie IPmet. Alle Datenpunkte repräsentieren Mittelwerte der
+IP bei niedriger und moderater Last, entsprechend 40% und 70% der mechanischen Leistung bei maximalem
+Sauerstoffvolumenstrom (Hansen et al., 2004).](images/PInt_Modellvergleich_1.png){#fig-Modellverlgeich_1}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![Vergleich der inneren Leistung (IP) in Abhängigkeit von der Trittrate zwischen den Modellen IPwells,
+IPwidrick und IPwillems-COM bei niedriger und moderater Last mit Literaturdaten von Wells et al. (1986),
+Widrick et al. (1992) sowie theoretischen Berechnungen nach Minetti et al. (2001). Alle Datenpunkte stellen
+Mittelwerte ohne Standardfehler dar (Hansen et al.,
+2004).](images/PInt_Modellvergleich_2.png){#fig-Modellverlgeich_2}
+:::
+::::::
+
+## Berechnungsmethoden der Inneren Arbeit anahnd biomechsnischer Modelle in dieser Arbeit
+
+Im Folgenden wird chronologisch die Entwicklung und Anpassung der Berechnungsmethoden zur Bestimmung der
+inneren Arbeit dargestellt, um die verschiedenen methodischen Ansätze und deren Modifikationen zu
+verschiedenen Zeitpunkten nachvollziehbar zu machen. Die Berechnung der inneren Arbeit anhand
+biomechanischer Modelle und 3D-Kinematikdaten erfolgte mehrstufig unter Berücksichtigung verschiedener
+methodischer Herausforderungen. Da nur für vier von neun Probanden reliable Kinematikdaten vorlagen, wurde
+zunächst für alle Teilnehmer ein 2D-Modell auf Basis anthropometrischer Daten erstellt. Dieses beinhaltete
+die Segmente des Oberschenkels sowie ein kombiniertes Segment von Unterschenkel bis Pedale, wobei auf ein
+separates Fußsegment verzichtet wurde.
+
+Zunächst wurden die kinetischen Energieänderungen (translatorisch und rotatorisch) der Segmentschwerpunkte
+eines Beines addiert und deren zeitlicher Verlauf zur Bestimmung der inneren Arbeit herangezogen. Für die
+Berechnung der P~Int,Modell~ wurde dieser Wert für verschiedene Drehzahlen verdoppelt, wobei Energietransfer
+zwischen den Beinen sowie potentielle Energien und deren Änderungen der Segmentschwerpunkte vernachlässigt
+wurden. Diese Methode kam bei Probanden ohne Kinematikdaten zum Einsatz.
+
+Für Probanden mit 3D-Daten erfolgte die Berechnung (P~Int,Kinematik~) nach demselben Prinzip, jedoch
+basierend auf den tatsächlichen Gelenkpositionen während des Fahrens - sowohl im Sitzen als auch im Stehen.
+Die durchschnittliche Differenz zwischen P~Int,Modell~ und P~Int,Kinematik~ wurde als Korrekturwert auf die
+berechneten P~Int,Modell~-Werte der Probanden ohne Kinematikdaten addiert.
+
+Die ursprüngliche Berechnungsmethode für P~Int,Modell~ und P~Int,Kinematik~ zeigte aufgrund der kubischen
+Abhängigkeit der P~Int~ von der Trittrate zwar leicht höhere Werte im Stehen bei gleicher Drehzahl, jedoch
+signifikant niedrigere P~Int~-Werte im Stehen aufgrund der dort signifikant geringeren Trittraten in den
+gleichen Belastungsintensitäten. Da sich jedoch weder die verschiedenen Wirkungsgrade (η~Total~, η~Netto~
+und η~Brutto~ - alle ohne Einbezug der inneren Leistung) noch andere physiologische Parameter wie der
+$\dot{V}O_2$ oder Herzrate bei vergleichbarer mechanischer Leistung zwischen Stehen und Sitzen signifikant
+unterschieden, könnte man auch von einer vergleichbaren innerer Leistung für beide Bedingungen ausgehen -
+was jedoch auf Basis der gewählten Berechnungsmethoden nicht der Fall war.
+
+Aufgrund dessen wurde im Nachhinein ein weiterer explorativer Berechnungsansatz basierend auf dem
+Berechnungsmodell von @Winter1979 durchgeführt, der zusätzlich die potentiellen Energieänderungen der
+Segmentschwerpunkte sowie weitere Körpersegmente (Rumpf, Arme, Kopf) berücksichtigte. Dieser führte zwar zu
+ähnlichen Ergebnissen in der Sitzen-Bedingung, zeigte jedoch deutlich höhere P~Int~-Werte für die
+Stehen-Bedingung. Daher wurden die Ergebnisse der ursprünglichen Berechnungsmethode beibehalten. 
+
+Die verschiedenen methodischen Berechnungsansätze werden in den folgenden Kapiteln detailliert dargestellt.
+
+**Der Energietransfer zwischen den Beinen erscheint dabei als biomechanisch besonders plausibel, da diese über
+die Fahrradkurbel mechanisch gekoppelt sind @Wells1986**
+
+### Simulationsmodell der Pedalbewegung
+
+Aufgrund von Messungenauigkeiten des Kamera-Markersystems war es nicht möglich, für jeden Probanden die
+erforderlichen kinematischen Daten zur Erstellung eines Kinematik-Modells zu erhalten. Daher wurde ein
+einheitliches Simulationsmodell der zyklischen Radfahrbewegung der unteren Extremitäten basierend auf den
+verfügbaren anthropometrischen Daten für alle Probanden erstellt. Zur Reduktion der Modellkomplexität und
+besseren Vergleichbarkeit wurde auf eine Simulation des Sprunggelenks verzichtet und nur zwei Segmente
+(Ober- und Unterschenkel) pro Bein modelliert.<br> 
+Bei Probanden ohne die für die Modellbildung essentiellen
+anthropometrischen Daten wie Länge und Umfang von Ober- und Unterschenkel wurden diese Parameter
+entsprechend den Standardwerten aus den anthropometrischen Tabellen @tbl-Anthropometrische_Tabellen_female
+und @tbl-Anthropometrische_Tabellen_male bestimmt [@Gordon2012]. Die Segment-Längen der Ober- und
+Unterschenkel wurden dabei auf Basis der Körperlänge, die Segment-Umfänge auf Basis der Körpermasse
+zugeordnet.
+
+**Hier auch noch die Modellannahmen Formulieren - Energietransfer innerhalb eines Beindes, aber nicht zischen
+den beinene udn keine EPOT**
+
+:::: {.callout-note collapse="true"}
+#### Verwendete anthropometrische Tabellen für die Bestimmung der Segmentlängen und Segmentumfänge {.unlisted}
+
+::: panel-tabset
+## Frauen
 
 ```{r}
-#@Winter1979 @Winter2009 ***–\> Darauf beziehen***
-#Auszug aus Luhtanen et al. (1987) –> The internal work ( W,) performed during one revolution was calculated from the translator, rotational and potential energy states allowing energy transfer between segments and from state to state (Winter 1979).
+#| label: tbl-Anthropometrische_Tabellen_female
+#| tbl-cap-location: top
+#| tbl-cap: "Anthropometrische Tabellen für die Bestimmung der Segmentlängen und Umfänge der Frauen (Gordon et al., 2012)"
 
-# UNBEDING FRANCESCATO1995 DURCHARBEITEN !!!!! EINFACHE ERKLÄRUNGEN UND FORMELN!!!!
-# UND SJØGAARD für die Beschriebung meiner Berechnung
-# UND UNBEDINGT BELL2009 und TOKUI2008 und 2007 -> Hier auch schöne Abbildung der VO2 Kosten von Pint
+# Benötigte Pakete laden
+library(DT)
 
-##Die mechanische innere Leistung (Wint) beim Radfahren wurde von di Prampero et al. (1979) durch grafische Analyse der Bewegung der unteren Extremitäten berechnet. Dabei wurde angenommen, dass die Winkelgeschwindigkeit konstant ist und sich nur die unteren Extremitäten bewegen. Aus dieser Analyse schlossen sie, dass Wint mit der 3. Potenz der Tretfrequenz (fp) zunimmt, beschrieben durch $$ W_{int} = c \times f_p^3 $$, wobei Wint in Watt gemessen wird, fp in Hertz und c für einen normalen 70-kg-Probanden zwischen 5,1 und 7 J·s⁻¹ lag. Bei einem angenommenen Gesamtwirkungsgrad der inneren Leistung (Wint) von 0,22 ergab die theoretische Analyse von di Prampero et al. (1979) folgende Werte für a: 8,3 W bei 40 U/min, 28,0 W bei 60 U/min, 66,4 W bei 80 U/min und 130,0 W bei 100 U/min.
+# RDS-Datei einlesen
+df_anthro_female <- readRDS("rds/df_anthropometrisch_female.rds")
+
+# Tabelle mit DT erstellen und Formatierung auf 3 Nachkommastellen
+datatable(df_anthro_female) %>%
+  formatRound(columns = names(df_anthro_female), digits = 3)
 
 ```
 
-Innere Arbeit, auch bekannt als Blind- oder Leerleistung, spielt eine zentrale Rolle bei zyklischen Bewegungen wie dem Radfahren. Sie resultiert aus der erforderlichen Rotation und Verschiebung der Gliedmaßenschwerpunkte, was unerlässlich für die Aufrechterhaltung der Gesamtkörperbalance ist. Nach @Sjøgaard2002 ist sie definiert als die Leistung, die aufgebracht werden muss, um die Trägheits- und Gravitationskräfte der bewegten Gliedmaßen zu überwinden. Wie @Minetti1998 hervorhebt, ist dieses Konzept besonders relevant bei symmetrischen Bewegungen wie dem Radfahren, wo sich die Gliedmaßen quasi-symmetrisch zum Körperschwerpunkt bewegen. Die innere Arbeit, obwohl sie keine externen vortriebswirksamen Kräfte erzeugt, ist für die kontinuierliche Bewegung entscheidend und unterscheidet sich damit von der externen Arbeit, die für den direkten Vortrieb verantwortlich ist.
+## Männer
 
-Im Rahmen der Radfahrbewegung bewegen sich Beine und Gliedmaßen entlang eines spezifischen Pfades und benötigen dafür Energie, um diese Bewegung aufrechtzuerhalten. Nach @Winter1979 setzt sich diese Energie aus der potentiellen Energie (PE), der translatorischen kinetischen Energie (TKE) und der rotatorischen kinetischen Energie (RKE) aller bewegten Segmente zusammen. @Minetti2001 zeigten, dass die innere Arbeit beim Radfahren stark von der Geometrie und Masseverteilung der Gliedmaßen sowie der gewählten Tretfrequenz abhängt. Aus physikalischer Perspektive entsteht dabei bei einem vollständigen Bewegungszyklus keine Nettoarbeit, da Anfangs- und Endpositionen gleich sind. Diese muskuläre Leistung reflektiert die innere Arbeit, die, obwohl ohne direkten Beitrag zum Vortrieb, für die Bewegungsdynamik essentiell ist. Während eines Bewegungszyklus findet dabei ein kontinuierlicher Energieaustausch sowohl zwischen diesen Energieformen innerhalb eines Segments als auch zwischen verschiedenen Segmenten statt.
+```{r}
+#| label: tbl-Anthropometrische_Tabellen_male
+#| tbl-cap-location: top
+#| tbl-cap: "Anthropometrische Tabellen für die Bestimmung der Segmentlängen und Umfänge der Männer (Gordon et al., 2012)"
 
-Verschiedene Faktoren beeinflussen diese innere Arbeit und führen insbesondere bei hohen Trittraten zu einer Zunahme der metabolischen Kosten. @Tokui2007 zeigten, dass die innere Leistung exponentiell mit der Trittfrequenz ansteigt und bei 120 U/min bis zu 90 Watt betragen kann. Die metabolischen Kosten steigen nach @Francescato1995 sogar mit der 4,165ten Potenz der Trittrate. Diese Faktoren umfassen die durch die Hill-Gleichung beschriebene verminderte Kraftproduktion der Muskeln bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Aktivierung von Agonisten und Antagonisten – was zu einem erhöhten Abbremsen der Streckbewegung der unteren Extremität führt – und den Reibungs- sowie Viskositätswiderstand von Gelenkknorpel, Bändern und anderen bewegungsunterstützenden Strukturen. Nach @Minetti1998 ist dabei besonders die Anpassung der Bewegungsmuster bei unterschiedlichen Geschwindigkeiten zu berücksichtigen, da diese die Effizienz der Bewegung maßgeblich beeinflusst. @Bell2009 weisen zusätzlich auf die vermehrte Aktivierung von Ca2+-ATPasen für nicht-kontraktile Prozesse und eine verstärkte Rekrutierung von Typ-II-Muskelfasern hin, die eine geringere Effizienz aufweisen.
+# Benötigte Pakete laden
+library(DT)
 
-Durch eine detaillierte Betrachtung dieser Prozesse – das Erfassen aller Energiebeiträge entlang des Bewegungsverlaufs – erhalten wir ein umfassendes Verständnis der energetischen Anforderungen der Bewegung. Bei moderaten Belastungen (100W) und mittleren Trittfrequenzen (60 U/min) beträgt der Anteil der inneren Arbeit etwa 20% des Gesamtenergieumsatzes (@Francescato1995). @Minetti2001 zeigten zudem, dass die Evolution des Fahrraddesigns zu einer stetigen Optimierung dieses Energieverhältnisses führte.
+# RDS-Datei einlesen
+df_anthro_male <- readRDS("rds/df_anthropometrisch_male.rds")
 
+# Tabelle mit DT erstellen und Formatierung auf 3 Nachkommastellen
+datatable(df_anthro_male) %>%
+  formatRound(columns = names(df_anthro_male), digits = 3)
 
-Für die Quantifizierung der inneren Arbeit haben sich verschiedene methodische Ansätze etabliert: (1) Biomechanische Modelle wie von @Winter1979, die alle Segmentbewegungen und deren Energiekomponenten (PE, TKE, RKE) erfassen und den Energieaustausch zwischen Segmenten berücksichtigen. (2) Vereinfachte kinematische Modelle speziell fürs Radfahren wie von @Minetti2001 (Pint = 0.153 * BM * f^3), die die innere Leistung aus Körpermasse und Trittfrequenz berechnen. @Minetti1998 erweiterte diesen Ansatz durch Einbeziehung des "duty factors", der das Verhältnis von Stand- zu Schwungphase beschreibt. (3) Metabolische Ansätze wie von @Francescato1995, die die innere Arbeit aus der Sauerstoffaufnahme bei verschiedenen Belastungen und Frequenzen ableiten. (4) Kombinierte Ansätze wie von @Sjøgaard2002, die biomechanische Modelle durch metabolische Messungen (Sauerstoffaufnahme, Muskeldurchblutung) validieren. (5) Der in dieser Arbeit verwendete Ansatz basiert auf dem biomechanischen Modell von Winter, wurde aber spezifisch für das Radfahren adaptiert. Dabei werden die translatorischen und rotatorischen kinetischen Energien für Ober- und Unterschenkelsegmente sowie die Fahrradkurbel berechnet und deren Änderungen über den Bewegungszyklus analysiert. Zusätzlich berücksichtigt das Modell die Phasenverschiebung zwischen rechtem und linkem Bein und verwendet moderne Datenverarbeitungsmethoden zur Ausreißererkennung und Glättung. Diese Weiterentwicklung ermöglicht eine präzise zeitaufgelöste Analyse der inneren Arbeit während des Radsports.
+```
+:::
+::::
 
-```{r echo=TRUE, output=FALSE}
+#### **Simulationsmodell der Kurbel- und Beinbewegung auf dem Radergometer**
+
+:::::: columns
+::: {.column width="69%"}
+**Anthropometrische Parameter und geometrische Bedingungen des Simulationsmodells:**
+
+Für die Erstellung des biomechanischen Simulationsmodells wurde zunächst ein zweidimensionales Koordinatensystem definiert, dessen Nullpunkt P~0~ im Zentrum der Kurbelachse (0,0) liegt (siehe @fig-Viergelenk_Clauß_2). Ausgehend von diesem Referenzpunkt wurden alle weiteren Positionen im Raum bestimmt. Als Grundlage für das Modell wurden folgende konstante anthropometrische Parameter und geometrische Grundbedingungen festgelegt:
+
+-   Körpermasse (m)
+-   Länge des Oberschenkelsegments (l~OS~ / G~3~[^2])
+-   Länge des Unterschenkelsegments (l~US~ / G~2~)  
+-   Segmentumfänge (u~OS~, u~US~) für das Ober- und Unterschenkelsegment
+-   Länge der Kurbel (l~Kurbel~ / G~1~)
+-   Abstand vom Hüftgelenk zur Kurbelachse (S / G~4~) wurde mittels Lemond-Methode als konstanter Wert aus der Beinlänge (l~Bein~) berechnet: $S/G_{4} = l_{Bein} \cdot 0.883$
+-   Die Position des Hüftgelenks (P~3~) definierte sich durch seine Koordinaten im Raum, wobei P~3x~ mit -0.150 als konstant festgelegt wurde und sich P~3y~ aus der Beziehung $P_{3y} = \sqrt{G_{4}^2 - P_{3x}^2}$ ergibt
+-   Der konstante Winkel δ zwischen G~4~ und der Vertikalen berechnet sich aus: $\delta = \arccos(\frac{P_{3y}}{G_4})$
+
+**Zeitliche Parameter der Pedalbewegung:**
+
+Die Bewegung des Modells wird durch die konstante Drehzahl (nD) sowie eine feste Anzahl von 360 Berechnungsschritten pro Kurbelumdrehung bestimmt. Daraus ergeben sich:
+
+- Die Periodendauer einer vollständigen Kurbelumdrehung: $T = \frac{60}{\text{nD}}$ 
+- Eine konstante Winkelauflösung von 1° pro Berechnungsschritt (n = 360)
+- Das Zeitintervall zwischen den Berechnungsschritten: $\Delta t = \frac{T}{360}$
+- Die konstante Winkelgeschwindigkeit: $\omega = \frac{2\pi}{T}$ 
+
+Die Festlegung auf 360 gleichmäßig verteilte Berechnungsschritte pro Kurbelumdrehung ergibt eine Auflösung von 1° pro Winkelschritt. Diese konstante Winkelauflösung bleibt bei unterschiedlichen Drehzahlen erhalten, während sich das Zeitintervall Δt zwischen zwei Berechnungsschritten entsprechend der Winkelgeschwindigkeit ω adaptiert.
+
+**Variable Parameter des Simulationmodells und Modellierung der zyklischen Bewegung:**
+
+Die Bewegungsanalyse erfolgte durch eine zeitabhängige Berechnung der Gelenkpositionen und Segmentschwerpunkte, wobei G1 der Kurbellänge (l~Kurbel~), G~2~ der Unterschenkellänge, G~3~ der Oberschenkellänge (l~OS~) und G~4~ dem horizontalen Hüftabstand entsprach.<br>
+Zunächst wurde der Kurbelwinkels φ~1~(t) bestimmt, der sich linear mit der Zeit änderte:
+
+- $\phi_1(t) = \omega \cdot t + \phi_1(t_0)$
+
+Aus diesem Kurbelwinkel ergab sich die Position des Fußpunktes P~1~(t), der sich auf einer Kreisbahn um die Kurbelachse bewegte:
+
+- $P_{1x}(t) = G_1 \cdot \sin(\phi_1(t))$
+- $P_{1y}(t) = G_1 \cdot \cos(\phi_1(t))$
+
+Die Bestimmung der Knieposition P~2~(t) erfolgte in mehreren Schritten:
+
+1. Zunächst wurde der variable Abstand c(t) zwischen Fußpunkt P~1~ und Hüftpunkt P~3~ über den Kosinussatz berechnet:
+   - $c(t) = \sqrt{G_1^2 + G_4^2 - 2 \cdot G_1 \cdot G_4 \cdot \cos(\phi_1(t) + \delta)}$
+
+2. Anschließend wurden die für die Bestimmung der Knieposition relevanten Winkel bestimmt:
+   - Der Winkel α(t) zwischen dem Abstandsvektor c(t) und G~4~: 
+     $\alpha(t) = \arcsin(\frac{G_1 \cdot \sin(\phi_1(t) + \delta)}{c(t)})$
+   - Der Winkel β(t) zwischen c(t) und G~3~: 
+     $\beta(t) = \arccos(\frac{G_3^2 + c(t)^2 - G_2^2}{2 \cdot G_3 \cdot c(t)})$
+
+3. Aus diesen Winkeln lies sich die Position des Knies P~2~(t) berechnen:
+   - $P_{2x}(t) = P_{3x} + G_3 \cdot \cos(\frac{\pi}{2} - \beta(t) + \alpha(t) + \delta)$
+   - $P_{2y}(t) = P_{3y} - G_3 \cdot \sin(\frac{\pi}{2} - \beta(t) + \alpha(t) + \delta)$
+   
+Mit den nun bekannten Gelenkpositionen wurden die folgenden Segmentwinkel bestimmt:
+
+   - Der Unterschenkelwinkel φ~2~(t) beschreibt den Winkel zwischen dem Unterschenkelsegment und der horizontalen x-Achse:
+     $\phi_2(t) = \arccos(\frac{P_{2x}(t) - P_{1x}(t)}{G_2})$
+   - Der Oberschenkelwinkel φ~3~(t) ist als Winkel zwischen dem Oberschenkelsegment und der vertikalen y-Achse definiert:
+     $\phi_3(t) = \arccos(\frac{P_{3y} - P_{2y}(t)}{G_3})$
+
+Die Segmentschwerpunkte wurden nach anthropometrischen Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien aus @fig-Segmentmassen_Winter berechnet. Der Faktor λ = 0.433 gibt dabei an, dass der Massenschwerpunkt bei 43,3% der Segmentlänge vom proximalen Ende liegt:
+
+   - Für den Oberschenkel (OS):
+     - $SpOS_x(t) = P_{3x} - 0.433(P_{3x} - P_{2x}(t))$
+     - $SpOS_y(t) = P_{3y} - 0.433(P_{3y} - P_{2y}(t))$
+   - Für den Unterschenkel (US):
+     - $SpUS_x(t) = P_{2x}(t) - 0.433(P_{2x}(t) - P_{1x}(t))$
+     - $SpUS_y(t) = P_{2y}(t) - 0.433(P_{2y}(t) - P_{1y}(t))$
+
+Die momentane Geschwindigkeit jedes Segmentschwerpunkts ergab sich aus der Änderung seiner Position über die Zeit: 
+
+- $v(t) = \sqrt{(\Delta x(t))^2 + (\Delta y(t))^2}/\Delta t$
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="29%"}
+![Schematische Darstellung eines biomechanischen Modells zur Simulation der Pedalbewegung im Radsport,
+basierend auf einer Viergelenk-Gliederkette in der Sagittalebene. Das Modell zeigt die kinematischen
+Zusammenhänge zwischen Kurbel- und Beinbewegung an einem Fahrradergometer (Clauß, 2024; unveröffentlichte
+Arbeit).](images/PInt_Simulation.png){#fig-Viergelenk_Clauß_2}
+
+![Schematische Darstellung der Winkelbeziehungen und Segmentlängen in der Viergelenkkette des biomechanischen Simulationsmodells.(Clauß, 2024; unveröffentlichte
+Arbeit).](images/Viergelenkkette.png){#fig-Viergelenkkette}
+
+![Interaktives Simulationsmodell der Radfahrbewegung mit Gelenkpunkten, Segmentschwerpunkten und den
+jeweiligen Verbindungslinien zwischen den
+Segmenten.](images/Modell_Simulation.html){#fig-Kinematik_Simulationsmodell fig-align="left" width="367"
+height="525"}
+:::
+::::::
+
+In @fig-Kinematik_Simulationsmodell ist beispielhaft eines der erstellten Simulationsmodelle der zyklischen
+Radfahrbewegung im Sitzen dargestellt. Das zweidimensionale Modell zeigt die simulierten Gelenkpunkte der
+Hüfte, des Knies und des Fußes an der Kurbel sowie die Segmentschwerpunkte von Ober- und Unterschenkel. Die
+gestrichelte Kreislinie visualisiert die Kurbelbahn der Pedale mit einem Radius entsprechend der
+Kurbellänge. Die Kurbelposition kann in @fig-Kinematik_Simulationsmodell entweder automatisiert oder manuell
+zwischen 0° und 360° variiert werden.
+
+**Energetische Grundgleichungen und Berechnungen:**
+
+Die Berechnung der rotatorischen und translatorischen kinetischen Energien erfolgte in mehreren aufeinanderfolgenden Schritten basierend auf den zuvor ermittelten kinematischen Parametern:
+
+- Die Segmentmassen der Beinelemente wurden anhand der in @fig-Segmentmassen_Winter dargestellten Werte bestimmt:
+  - Die Masse des Oberschenkels beträgt 10% der Körpermasse: $m_{OS} = \text{m} \cdot 0.1$
+  - Die Masse des Unterschenkels beträgt 4.65% der Körpermasse: $m_{US} = \text{m} \cdot 0.0465$
+
+- Die Trägheitsmomente der Unterschenkel- und Oberschenkelsegmente wurden wie folgt berechnet: 
+  - $\theta_{OS} = \frac{1}{4}m_{OS}\cdot(\frac{u_{OS}}{2\pi})^2 + \frac{1}{12}m_{OS}\cdot l_{OS}^2$
+  - $\theta_{US} = \frac{1}{4}m_{US}\cdot(\frac{u_{US}}{2\pi})^2 + \frac{1}{12}m_{US}\cdot l_{US}^2$
+   
+- Die kinetischen Energien wurden separat für translatorische und rotatorische Bewegungen ermittelt:
+
+   - $E_{kin,trans}(t) = \frac{1}{2}(m_{OS} \cdot v_{OS}(t)^2 + m_{US} \cdot v_{US}(t)^2)$
+   - $E_{kin,rot}(t) = \frac{1}{2}(\theta_{OS} \cdot \omega_{OS}(t)^2 + \theta_{US} \cdot \omega_{US}(t)^2 + \theta_{Kurbel} \cdot \omega_{Kurbel}(t)^2)$
+
+- Die Gesamtenergie ergab sich aus der Summe beider Komponenten:
+   $E_{kin,ges}(t) = E_{kin,trans}(t) + E_{kin,rot}(t)$
+
+**Berechnung und Integration der inneren Leistung:**
+
+Die Leistungsberechnung erfolgte systematisch in mehreren Schritten:
+
+- Die innere mechanische Leistung wurde für beide Beine separat berechnet. Für das linke Bein erfolgte die direkte Berechnung der Leistung aus den Energieänderungen, während für das rechte Bein eine um 180° phasenverschobene Berechnung durchgeführt wurde:
+
+  - $P_{Int,Linkes}(t) = \frac{\Delta E_{kin,ges}(t)}{\Delta t}$
+
+  - $P_{Int,Rechts}(t) = P_{Int,Links}(t + 180°)$
+  
+**SOMIT WURDE DIE ANNAHME GETROFFEN, DASS KEIN ENERGIETRANSFER ZWISCHENDEN BEINEN STATTfinDINET SONDERN NUR ZWISCHEN DEN SEGMENTES DER JEWIELIGEN GLEIDMA?EN**
+
+- Die Momentanleistung zu einem Zeitpunkt wurde aus der zeitlichen Änderung der kinetischen Gesamtenergie bestimmt (siehe @fig-PInt_Modell_Zyklus): $P_{Int}(t) = \frac{\Delta E_{kin,ges}(t)}{\Delta t}$
+
+```{r echo=FALSE, output=FALSE}
 # Library und dfs laden
 library(plotly)
 library(ggplot2)
@@ -91,120 +695,7 @@ df_anthropometrisch_male <- readRDS("rds/df_anthropometrisch_male.rds")
 Kinematik_list <- readRDS("rds/Kinematik_list.rds")
 ```
 
-## Kinematik Daten
-
-Die Bestimmung der inneren Arbeit erfolgte mit Hilfe einer dreidimensionalen Bewegungserfassung. Dazu werden Marker an den Oberflächenrepräsentaten der angenommenen Positionen der relevanten Gelenken für die Bewegung angebracht. Die Einschätzung der Positionen der jeweiligen Gelenkzentren erfolgt aufgrund von anatomischen Annahmen und deren geometrische Beziehungen. Dazu wurde vor den Tests Marker auf einem eng anliegenden Anzug, einer Hose sowie auf Schweißbändern, den Radschuhen und einem Kopfband befestigt. Die Positionierung der Marker orientiert sich am Ganzkörpermodellierungsmodell "Full body modelling with Plug-in Gait", dessen Details in der nachstehenden Abbildung dargestellt sind. Die nahinfrarot reflektierenden Marker wurden durch ein Kamerasystem von acht Vicon Vero Kameras erfasst, die im Labor um das Fahrradergometer positioniert wurden, um den Bereich abzudecken, in dem sich der Proband bewegt. Das Vicon-System erfasst dabei fortlaufend Bilder und verfolgt die Position und Bewegung der Marker im Raum.
-
-![Proband mit allen angelegten Messystemen und Marker-Anzug](images/Marker.png)
-
-## Berechnung der Inneren Arbeit
-
-::: columns
-::: {.column width="65%"}
-In den folgenden Abschnitten wird beschrieben, wie aus den erfassten Kinematikdaten des Fahrradfahrens mechanische und kinematische Parameter der Tretbewegung berechnet wurden. Diese Berechnungen basieren auf der Kinematik von Drehbewegungen menschlicher Gliederketten, die eine wichtige Grundlage für das Verständnis der Bewegungsmechanik beim Radfahren darstellen. Die Analyse zielt darauf ab, ein detailliertes Verständnis der Bewegungs- und Leistungsdynamik zu ermöglichen, und berücksichtigt dabei die Wechselbeziehungen zwischen den achsenbezogenen kinematischen Größen – wie Winkel und Winkelgeschwindigkeiten – der menschlichen Bein-Gliederketten. Diese Größen werden in Abhängigkeit von der Winkelgeschwindigkeit des Pedalarms sowie den geometrischen Beziehungen der Gliederketten bestimmt. Die Bestimmung der relevanten Parameter erfolgte folgendermaßen:
-
-**Berechnung der relevanten Winkel:** Zunächst wurden die Winkel bestimmt, die die Positionen und Bewegungen der Füße (P1), Knie (P2) und Hüfte (P3) relativ zur Kurbelachse des Fahrrads repräsentieren. Diese Winkel beschreiben die Ausrichtung und Bewegung der Beine während des Pedalzykluses. Der Winkel phi1, der die jeweilige Winkelstellung des Kurbelarmes im Bezug zu einem Startpunkt während des Pedalzykluses repräsentiert, wird aus der Position von P1 relativ zur Kurbelachse berechnet.
-
-**Berechnung der Winkelgeschwindigkeiten:** Aus den Änderungen der Winkel über die Zeit werden Winkelgeschwindigkeiten (omega) abgeleitet. Zusätzlich werden die Winkelgeschwindigkeiten für das obere (OS) und untere Segment (US) des Beines separat berechnet.
-
-**Ermittlung der kinetischen Energie:** Die rotatorische kinetische Energie wird für den Oberschenkel, den Unterschenkel sowie die Fahrradkurbel berechnet, basierend auf ihren jeweiligen Winkelgeschwindigkeiten (omega_SpOS & omega_SpUS) und Trägheitsmomenten (thetaOS & thetaUS). Die translatorische kinetische Energie wird aus den Geschwindigkeiten der Schwerpunkte der Beinsegmente (v_SpOS & v_SpUS) sowie den jeweiligen Segmentmassen (mOS & mUS) bestimmt.
-
-**Berechnung der inneren Arbeit & Blindleistung:** Die zentrale Größe in dieser Berechnung ist die integrierte Leistung, die Blindleistung, die aus der Änderung der kinetischen Energie über die Zeit integriert wird. Die Blindleistung reflektiert, wie viel Arbeit vom Fahrer in einem bestimmten Zeitintervall geleistet wird. Die Berechnung der Blindleistung erfolgt sowohl für die rotierende als auch für die translatorische Bewegung.
-
-
-
-## Schritte in der Berechnung
-
-In den folgenden Abschnitten wird beschrieben, wie aus den erfassten Kinematikdaten des Fahrradfahrens mechanische und kinematische Parameter der Tretbewegung berechnet wurden. Diese Berechnungen basieren auf der Kinematik von Drehbewegungen menschlicher Gliederketten, die eine wichtige Grundlage für das Verständnis der Bewegungsmechanik beim Radfahren darstellen. Die Analyse zielt darauf ab, ein detailliertes Verständnis der Bewegungs- und Leistungsdynamik zu ermöglichen, und berücksichtigt dabei die Wechselbeziehungen zwischen den achsenbezogenen kinematischen Größen – wie Winkel und Winkelgeschwindigkeiten – der menschlichen Bein-Gliederketten. Diese Größen werden in Abhängigkeit von der Winkelgeschwindigkeit des Pedalarms sowie den geometrischen Beziehungen der Gliederketten bestimmt. Die Bestimmung der relevanten Parameter erfolgte folgendermaßen:
-
-**Berechnung der relevanten Winkel:** Zunächst wurden die Winkel bestimmt, die die Positionen und Bewegungen der Füße (P~1~), Knie (P~2~) und Hüfte (P~3~) relativ zur Kurbelachse des Fahrrads repräsentieren. Diese Winkel beschreiben die Ausrichtung und Bewegung der Beine während des Pedalzykluses. Der Winkel phi~1~, der die jeweilige Winkelstellung des Kurbelarmes im Bezug zu einem Startpunkt während des Pedalzykluses repräsentiert, wird aus der Position von P~1~ relativ zur Kurbelachse berechnet @eq-phi1. 
-
-$$
-\phi_1 = \text{atan2}(P1_y, P1_x)
-$$ {#eq-phi1}
-
-**Berechnung der Winkelgeschwindigkeiten:** Aus den Änderungen der Winkel über die Zeit werden Winkelgeschwindigkeiten (omega) abgeleitet @eq-omega. Zusätzlich werden die Winkelgeschwindigkeiten für das obere (Oberschenkel) und untere Segment (Unterschenkel) des Beines separat berechnet.
-
-$$
-\omega = \frac{\Delta \phi_1}{\Delta t}
-$$ {#eq-omega}
-
-**Ermittlung der kinetischen Energie:** Die rotatorische kinetische Energie wird für den Oberschenkel, den Unterschenkel sowie die Fahrradkurbel berechnet, basierend auf ihren jeweiligen Winkelgeschwindigkeiten (omega~SPOberschenkel~ & omega~SPUnterschenkel~) und Trägheitsmomenten (theta~Oberschenkel~ & theta~Unterschenkel~) @eq-Ekin_rot. Die translatorische kinetische Energie wird aus den Geschwindigkeiten der Schwerpunkte der Beinsegmente (v~SPOberschenkel~ & v~SPUnterschenkel~) sowie den jeweiligen Segmentmassen (m~Oberschenkel~ & m~Unterschenkel~) bestimmt @eq-Ekin_trans. Hierbei stehen SPOberschenkel und SPUnterschenkel für die Schwerpunkte (SP) des Oberschenkels bzw. Unterschenkels.
-
-$$
-E_{kin,rot} = \frac{1}{2}(I_{Oberschenkel} \cdot \omega_{Oberschenkel}^2 + I_{Unterschenkel} \cdot \omega_{Unterschenkel}^2 + I_{Kurbel} \cdot \omega_{Kurbel}^2)
-$$ {#eq-Ekin_rot}
-
-$$
-E_{kin,trans} = \frac{1}{2}(m_{Oberschenkel} \cdot v_{Oberschenkel}^2 + m_{Unterschenkel} \cdot v_{Unterschenkel}^2)
-$$ {#eq-Ekin_trans}
-
-**Berechnung der inneren Arbeit & Blindleistung:** Die zentrale Größe in dieser Berechnung ist die integrierte Leistung, die Blindleistung, die aus der Änderung der kinetischen Energie über die Zeit integriert wird. Die Blindleistung reflektiert, wie viel Arbeit vom Fahrer in einem bestimmten Zeitintervall geleistet wird. Die Berechnung der Blindleistung erfolgt sowohl für die rotierende als auch für die translatorische Bewegung. Die Leistung (PInt_Rechts) wird schließlich als Änderung der Gesamtenergie pro Zeiteinheit berechnet @eq-PInt_Rechts.
-
-$$
-P_{Int,Rechts} = \frac{\Delta E_{kin,ges}}{\Delta t}
-$$ {#eq-PInt_Rechts}
-
-Um die Qualität der Daten zu gewährleisten und mögliche Fehler in der Markerauzeichnung zu korrigieren, werden Ausreißer in PInt_Rechts identifiziert und durch gleitende Mittelwerte ersetzt. PInt_Links wird durch eine zeitliche Verschiebung von PInt_Rechts um einen halben Zyklus berechnet. Negative Werte in beiden Leistungskurven werden auf null gesetzt, um physiologisch sinnvolle Ergebnisse zu erhalten @eq-PInt_Rechts_Positiv @eq-PInt_Links_Positiv:
-
-$$
-P_{Int,Rechts,Positiv} = \max(P_{Int,Rechts}, 0)
-$$ {#eq-PInt_Rechts_Positiv}
-
-$$
-P_{Int,Links,Positiv} = \max(P_{Int,Links}, 0)
-$$ {#eq-PInt_Links_Positiv}
-
-PInt_Kinematik ergibt sich als Summe der Mittelwerte von PInt_Rechts_Positiv und PInt_Links_Positiv @eq-PInt_Kinematik:
-
-$$
-P_{Int,Kinematik} = \overline{P_{Int,Rechts,Positiv}} + \overline{P_{Int,Links,Positiv}}
-$$ {#eq-PInt_Kinematik}
-
-Zur weiteren Verbesserung der Datenqualität insbesondere für die Datendarstellung werden die Leistungskurven mittels eines gleitenden Fensters geglättet.
-
-Diese detaillierte Analyse der Leistungsparameter bietet wertvolle Einblicke in die Bewegungsmechanik und Effizienz des Radfahrens, die für weitere biomechanische Studien oder die Optimierung der Fahrleistung genutzt werden können.
-
-Im Anschluss an die Berechnung von PInt_Kinematik wurde ein Verfahren entwickelt, um PInt_Kinematik_Modell zu erstellen. Dieses Modell dient dazu, vergleichbare Daten für Probanden zu generieren, für die keine Kinematikdaten verfügbar waren. Der Prozess basiert auf der Nutzung von PInt_Modell, einer berechneten internen Leistung, die auf simulierten Daten statt auf tatsächlichen Kinematikdaten beruht. Anschließend wurde eine Differenz (PInt_Diff) zwischen PInt_Kinematik und PInt_Modell berechnet, um die systematischen Abweichungen zwischen den beiden Methoden zu quantifizieren @eq-PInt_Diff.
-
-$$
-P_{Int,Diff} = P_{Int,Kinematik} - P_{Int,Modell}
-$$ {#eq-PInt_Diff}
-
-Dabei wurden die Werte für den ersten Probanden aufgrund zu großer Abweichungen trotz der Glättung der Ausreißer gegenüber PInt_Kinematik entfernt. 
-
-Für die Erstellung von PInt_Kinematik_Modell wurden zunächst die mittleren Differenzen zwischen PInt_Kinematik und PInt_Modell für die Bedingungen "stehen" und "sitzen" berechnet. Diese mittleren Differenzen wurden dann verwendet, um die fehlenden PInt_Kinematik-Werte zu schätzen, indem sie zu den entsprechenden PInt_Modell-Werten addiert wurden @eq-PInt_Kinematik_Modell. 
-
-$$
-P_{Int,Kinematik,Modell} = 
-\begin{cases} 
-P_{Int,Modell} + \overline{P_{Int,Diff,stehen}} & \text{für Bedingung "stehen"} \\
-P_{Int,Modell} + \overline{P_{Int,Diff,sitzen}} & \text{für Bedingung "sitzen"}
-\end{cases}
-$$ {#eq-PInt_Kinematik_Modell}
-
-Dieses Verfahren ermöglichte es, für alle Probanden und Bedingungen vergleichbare PInt_Kinematik_Modell-Werte zu generieren, auch wenn keine direkten Kinematikdaten verfügbar waren.
-
-
-### DIE ABBILDUNGEN DIE ICH IN DER MA HABEN MÖCHTE DANN NOCH UPDATEN ###
-
-
-
-
-
-
-:::
-
-::: {.column width="35%"}
-![Das auf einer Viergelenk-Gliederkette basierende Simulationsmodell der Kurbel- und Beinbewegung für den Radsport, dargestellt an einem Fahrradergometer (Sagittalebene)](images/PInt_Simulation.png)
-:::
-:::
-
-<!--Dynamik der Beinbewegungen: Zusätzlich zu den oben genannten Berechnungen werden die Längen und Geschwindigkeiten der Beinsegmente analysiert, um ein vollständiges Bild der Bewegungsdynamik zu erhalten. Dies beinhaltet die Berechnung der tatsächlichen Längen der Oberschenkel und Unterschenkel sowie deren Bewegungsgeschwindigkeiten. Diese Informationen sind entscheidend, um die Mechanik der Beinbewegungen während des Fahrradfahrens zu verstehen und um Bereiche für mögliche Verbesserungen in der Effizienz oder in der Technik zu identifizieren. -->
-
-##### **Code zur Berechnung der Inneren Arbeit und Erstellung des Simulationsmodells**
-
-```{r echo=TRUE, output=FALSE}
+```{r echo=FALSE, output=FALSE}
 
 # Neue Spalten für die berechnete Leistung und den verwendeten Faktor 
 Erg_data_df$Faktor_Used <- NA  
@@ -561,51 +1052,1105 @@ Modell_Simulation <- plot_ly(data = df[0000:0360,], frames = ~Grad) %>%
 
 ```
 
-### Erstellung - Simulaitonsmodell
+```{r}
+PInt_df <- PInt_list[["13_5"]]
 
-Aufgrund von Messungenauigkeiten oder Defiziten im Kamerasystem mit Markern war es nicht möglich, für jeden Probanden die erforderlichen kinematischen Daten zur Erstellung eines 2D-Simulationsmodells zu erhalten. Daher wurde zusätzlich ein alternatives Simulationsmodell basierend auf den verfügbaren anthropometrischen Daten der Probanden entwickelt, für die keine konkreten Kinematikdaten vorhanden waren. Für Probanden ohne die für die Modellbildung essentiellen anthropometrischen Daten wie Länge und Umfang von Ober- und Unterschenkel wurden diese Angaben entsprechend den Standardwerten aus folgenden anthropometrischen Tabellen bestimmt (siehe Abschnitt "Anthropometrische Tabellen").
+p_Int_Modell_Zyklus <- plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklusRechts, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
+  add_trace(y = ~PIntMittelZyklusLinks, name = "Links", mode = "lines",
+            line = list(color = "#F4737A")) %>%
+  layout(yaxis = list(title = "P<sub>Int,modell</sub> [Watt]"),
+         margin = list(b = 40)) %>%
+  layout(xaxis = list(title = "Drehwinkel [ °]"))
 
-#### **Simulationsmodell auf Basis anthropometrische Daten und bekannten Größen**
 
-::: columns
-::: {.column width="65%"}
-**Erstellung des Simulationsmodells**
+```
 
-Zunächst wurden alle für die Berechnung essentielle individuelle Parameter wie Körpermasse (Masse), die Längen der Beinsegmente (lOS & lUS), die Länge der Kurbel (lKurbel) sowie die Drehzahl (nD) erstellt. Der Abstand vom Hüftgelenk zur Kurbelachse, bezeichnet als S wurde mittels der Lemond-Methode bestimmt. Zudem wird die Position des Hüftgelenks (P3) im Raum mit seinen Koordinaten P3x und P3y festgelegt.
+```{r}
+#| label: fig-PInt_Modell_Zyklus
+#| fig-cap: "Beispielhafter Verlauf der modellierten inneren Leistung (P<sub>Int,Modell</sub>) über einen kompletten Pedalzyklus (360°), dargestellt mit positiven und negativen Leistungsanteilen für das rechte (grün) und linke Bein (rot)."   
+#| fig-cap-location: bottom
 
-Im nächsten Schritt, wurden die Winkel phi1, alpha und beta ermittelt. Diese Winkel definieren die Position und Bewegung der Beine und sind essentiell für die Berechnung der Winkelgeschwindigkeiten der Beinsegmente (thetaOS & thetaUS) sowie der kinetischen Energien der Beinsegmente und der Kurbel .
+p_Int_Modell_Zyklus
+```
 
-Anschließend wurden die translatorische und rotatorische kinetische Energie für die Oberschenkel- und Unterschenkelsegmente sowie für die Kurbel berechnet. Diese Energien, bezeichnet als Ekin_trans und Ekin_rot, basieren auf den Geschwindigkeiten vOS und vUS sowie den Winkelgeschwindigkeiten omega_SpOS und omega_SpUS. Die Veränderungen dieser Energien über die Zeit (delta_Ekin_trans & delta_Ekin_rot) geben Aufschluss über die geleistete Arbeit und führen zur Berechnung der internen Leistung (PInt_Zyklus_Rechts und PInt_Zyklus_Links).
+- Für die weitere Berechnung wurden nur die positiven Leistungsanteile berücksichtigt, wobei $\max(0, P_{Int}(t))$ ausschließlich positive Energieänderungen selektiert, indem negative Energieänderungen mit einem Nullwert ersetzt werden (siehe @fig-PInt_Modell_Zyklus_positiv):
+  - $P_{Int,Links,pos}(t) = \max(0, P_{Int,Links}(t))$
+  - $P_{Int,Rechts,pos}(t) = \max(0, P_{Int,Rechts}(t))$
+  
+```{r}
+PInt_df <- PInt_list[["13_5"]]
 
-Abschließend wird die interne Leistung für jeden Teil des Pedalzyklus, angegeben durch PInt_Zyklus_Rechts für das rechte Bein und PInt_Zyklus_Links für das linke Bein, berechnet. Die Werte von PInt_Zyklus_Links wurden um einen halben Zyklus verschoben, um die symmetrische Natur des Radfahrens zu reflektieren. Die durchschnittliche interne Leistung, bezeichnet als PInt_Zyklus_mean, ergibt sich aus den positiven Werten der Leistungsberechnungen für beide Beine.
+p_Int_Modell_Zyklus_positiv <- plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklusRechtsPositiv, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
+  add_trace(y = ~PIntMittelZyklusLinksPositiv, name = "Links", mode = "lines",
+            line = list(color = "#F4737A")) %>%
+  add_trace(y = ~PInt_Modell, name = "PInt_Modell", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+  layout(yaxis = list(title = "P<sub>Int,modell</sub> [Watt]"),
+         margin = list(b = 40),
+         annotations = list(
+           list(
+             x = 170,  # x-Position der Annotation
+             y = PInt_df$PInt_Modell[1] + 3.0,  # y-Position etwas über der grauen Linie
+             text = paste("avg(P<sub>Int,modell,positiv</sub>) =", sprintf("%.1f", PInt_df$PInt_Modell[1]), "Watt"),
+             showarrow = FALSE,
+             textposition = "top center"
+           )
+         )) %>%
+  layout(xaxis = list(title = "Drehwinkel [ °]"))
+```
+
+```{r}
+#| label: fig-PInt_Modell_Zyklus_positiv
+#| fig-cap: "Beispielhafte Darstellung der positiven Anteile der modellierten inneren Leistung beider Beine mit berechneter P~int_modell~ als mittlerer Wert der positiven P~int~ Werte über einen vollständigen Kurbelzyklus."
+#| fig-cap-location: bottom
+
+p_Int_Modell_Zyklus_positiv
+```
+
+- Die durchschnittliche innere Leistung wurde aus der Summe der positiven Leistungsanteile beider Beine berechnet:<br> $P_{Int} = \overline{P_{Int,Links,pos}(t)} + \overline{P_{Int,Rechts,pos}(t)}$. 
+
+Im weiteren Verlauf dieser Arbeit wird die modellbasiert berechnete innere Leistung als P~Int,Modell~ bezeichnet.
+
+::: {.callout-note collapse="true"}
+#### Abbildung 10: Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien
+![Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien, jeweils dargestellt
+relativ zur Segmentlänge [@Winter2009, 86]](images\Segmentmassen_Winter.png){#fig-Segmentmassen_Winter}
 :::
 
-::: {.column width="35%"}
-![Das auf einer Viergelenk-Gliederkette basierende Simulationsmodell der Kurbel- und Beinbewegung für den Radsport, dargestellt an einem Fahrradergometer (Sagittalebene)](images/PInt_Simulation.png)
+[^2]: Im Folgenden werden einige Parameter mit zwei verschiedenen Bezeichnungen angegeben
+    (Parameter/Alternative Bezeichnung in der @fig-Viergelenk_Clauß_2), wobei die zweite Bezeichnung der
+    Darstellung in der @fig-Viergelenk_Clauß_2 und die erste der Bezeichnung in den Formeln und dem Code
+    entspricht.
+
+##### ***R-Code zur Berechnung der Inneren Arbeit auf Basis der Modelldaten*** {.unlisted}
+
+*Für die Implementierung der beschriebenen Berechnungen wurde ein R-Skript erstellt, das die kinematische Modellierung der Beinbewegung realisiert. Der Code beinhaltet die Berechnung der Gelenkpunktpositionen (P~1~, P~2~, P~3~), der Segmentwinkel (φ~1~, φ~2~, φ~3~), der Segmentschwerpunkte von Ober- und Unterschenkel sowie deren Geschwindigkeiten. Darauf aufbauend werden die translatorischen und rotatorischen kinetischen Energien bestimmt und deren zeitliche Änderungen zur Berechnung der inneren Leistung genutzt.*
+
+```{r echo=TRUE, eval=FALSE}
+###### Konstanten und Parameter ######
+# Grundlegende Parameter aus Dataframe
+Masse <- as.numeric(Erg_data_df[i, 'Masse'])
+lOS <- as.numeric(Erg_data_df[i, 'lOS'])
+lUS <- as.numeric(Erg_data_df[i, 'lUS'])
+lBein <- as.numeric(Erg_data_df[i, 'lBein'])
+lKurbel <- as.numeric(Erg_data_df[i, 'lKurbel'])
+uOS <- as.numeric(Erg_data_df[i, 'uOS'])
+uUS <- as.numeric(Erg_data_df[i, 'uUS'])
+nD <- as.numeric(Erg_data_df[i, 'nD'])
+Umdrehungen_ges <- as.numeric(Erg_data_df[i, 'Umdrehungen_ges'])
+nD_HZ <- as.numeric(Erg_data_df[i, 'nD_Hz'])
+Testdauer <- 300
+
+# Konstanten und Berechnungsparameter
+Faktor <- 1.00
+S <- lBein * 0.883 * Faktor
+P3x <- -0.150
+P3y <- sqrt((S^2)-(P3x^2))
+P3 <- c(P3x,P3y)
+rRelOS <- 0.1416
+rRelUS <- 0.0433
+lambdaOS <- 0.433
+lambdaUS <- 0.433
+thetaKurbel <- 0.002
+n <- 360
+delta_t <- 60 / (n * nD)
+T <- 60 / nD
+omega <- 2 * pi * nD / 60
+
+###### Massen- und Trägheitsberechnungen ######
+# Segmentmassen
+mOS <- Masse * rRelOS 
+mUS <- Masse * rRelUS 
+
+# Trägheitsmomente
+thetaOS <- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2
+thetaUS <- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2
+
+###### Winkel- und Zeitberechnungen ######
+delta_phi1 <- 2 * pi / n
+phi1 <- seq(0, 2 * pi, by=delta_phi1)[-n]
+grad <- phi1 * 180 / pi
+time <- seq(0, T, by=delta_t)[-n]
+
+###### Koordinaten- und Geometrieberechnungen ######
+# P1 Koordinaten
+P1 <- list(lKurbel * sin(phi1), lKurbel * cos(phi1))
+
+# Geometrische Berechnungen
+G4 <- sqrt(sum(P3^2))
+delta <- acos(P3[2] / S)
+c <- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))
+
+###### Faktoranpassung und Kontrolle ######
+# Schleife zur Faktoranpassung
+while (any(lUS + lOS < c)) {
+    Faktor <- Faktor - 0.01
+    S <- lBein * 0.883 * Faktor
+    P3y <- sqrt((S^2) - (P3x^2))
+    P3 <- c(P3x, P3y)
+    delta <- acos(P3[2] / S)
+    c <- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))
+}
+
+# Kontrollprüfung
+control <- sum(ifelse(lUS + lOS <= c, 1, 0))
+if (control > 0) {
+    print("Mindestens eine Segmentlänge ist größer als c.")
+} else {
+    print("Alle Segmentlängen sind kleiner oder gleich c.")
+}
+
+# Faktor speichern
+Erg_data_df$Faktor_Used[i] <- Faktor
+
+###### Winkelberechnungen ######
+# Grundlegende Winkel
+alpha <- asin(lKurbel * sin(phi1 + delta) / c)
+beta <- acos((lOS^2 + c^2 - lUS^2) / (2 * lOS * c))
+
+# P2 Koordinaten
+P2 <- list(P3[1] + lOS * cos(pi/2 - (alpha + beta + delta)),
+           P3[2] - lOS * sin(pi/2 - (alpha + beta + delta)))
+
+# Segmentwinkel
+phi2 <- acos((P2[[1]] - P1[[1]]) / lUS)
+phi3 <- acos((P3[2] - P2[[2]]) / lOS)
+
+###### Schwerpunktberechnungen ######
+# Schwerpunktkoordinaten
+SpOS <- list(P3[1] - lambdaOS * (P3[1] - P2[[1]]), 
+             P3[2] - lambdaOS * (P3[2] - P2[[2]]))
+SpUS <- list(P2[[1]] - lambdaUS * (P2[[1]] - P1[[1]]), 
+             P2[[2]] - lambdaUS * (P2[[2]] - P1[[2]]))
+
+###### Geschwindigkeits- und Energieberechnungen ######
+# Geschwindigkeitsfunktion
+berechneGeschwindigkeit <- function(Sp, delta_t) {
+    diff_x <- c(diff(Sp[[1]]), Sp[[1]][1] - Sp[[1]][length(Sp[[1]])])
+    diff_y <- c(diff(Sp[[2]]), Sp[[2]][1] - Sp[[2]][length(Sp[[2]])])
+    return(sqrt(diff_x^2 + diff_y^2) / delta_t)
+}
+
+# Geschwindigkeiten
+vOS <- berechneGeschwindigkeit(SpOS, delta_t)
+vUS <- berechneGeschwindigkeit(SpUS, delta_t)
+
+# Kinetische Energie (translatorisch)
+Ekin_trans <- 0.5 * (mOS * vOS^2 + mUS * vUS^2)
+
+###### Winkelgeschwindigkeiten und rotatorische Energie ######
+# Delta Winkelgeschwindigkeiten
+delta_phi2 <- c(diff(phi2), phi2[1] - phi2[length(phi2)])
+delta_phi3 <- c(diff(phi3), phi3[1] - phi3[length(phi3)])
+
+# Winkelgeschwindigkeiten
+omega_SpOS <- delta_phi2 / delta_t
+omega_SpUS <- delta_phi3 / delta_t
+omega_Kurbel <- delta_phi1 / delta_t
+
+# Rotatorische kinetische Energie
+Ekin_rot <- 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2)
+
+###### Energieänderungen und Leistungsberechnung ######
+# Energieänderungen
+delta_Ekin_trans <- c(diff(Ekin_trans), Ekin_trans[1] - Ekin_trans[length(Ekin_trans)])
+delta_Ekin_rot <- c(diff(Ekin_rot), Ekin_rot[1] - Ekin_rot[length(Ekin_rot)])
+delta_Ekin_ges <- delta_Ekin_rot + delta_Ekin_trans
+
+# Leistungsberechnungen
+PInt_Zyklus_Rechts <- delta_Ekin_ges / delta_t
+PInt_Zyklus_Rechts_Positiv <- ifelse(PInt_Zyklus_Rechts < 0, 0, PInt_Zyklus_Rechts)
+
+# Linkes Bein (180° versetzt)
+verschieben <- 180
+PInt_Zyklus_Links <- c(PInt_Zyklus_Rechts[(verschieben + 1):length(PInt_Zyklus_Rechts)], 
+                       PInt_Zyklus_Rechts[1:verschieben])
+PInt_Zyklus_Links_Positiv <- ifelse(PInt_Zyklus_Links < 0, 0, PInt_Zyklus_Links)
+
+# Durchschnittliche Leistung
+PInt_Zyklus_mean <- mean(PInt_Zyklus_Rechts_Positiv) + mean(PInt_Zyklus_Links_Positiv)
+
+```
+
+```{r echo=FALSE, output=FALSE}
+
+# Neue Spalten für die berechnete Leistung und den verwendeten Faktor 
+Erg_data_df$Faktor_Used <- NA  
+Erg_data_df$PInt_Modell <- NA
+
+# ------------ Berechnungen_P_Int ----------
+# Initialisiere die Liste für Dataframes
+PInt_list <- list()
+
+# ------------ Eingabeparameter ------------ 
+# Schleife über alle Zeilen in Erg_data_df
+for(i in 1:nrow(Erg_data_df)) {
+  # Übernahme der Werte aus der aktuellen Zeile...
+  Masse <- as.numeric(Erg_data_df[i, 'Masse'])
+  lOS <- as.numeric(Erg_data_df[i, 'lOS'])
+  lUS <- as.numeric(Erg_data_df[i, 'lUS'])
+  lBein <- as.numeric(Erg_data_df[i, 'lBein'])
+  lKurbel <- as.numeric(Erg_data_df[i, 'lKurbel'])
+  uOS <- as.numeric(Erg_data_df[i, 'uOS'])
+  uUS <- as.numeric(Erg_data_df[i, 'uUS'])
+  nD <- as.numeric(Erg_data_df[i, 'nD'])
+  Umdrehungen_ges <- as.numeric(Erg_data_df[i, 'Umdrehungen_ges'])
+  nD_HZ <- as.numeric(Erg_data_df[i, 'nD_Hz'])
+  Testdauer <- 300
+
+  # Konstanten und weitere Berechnungen
+  Faktor <- 1.00 # Faktor zur Anpassung des Abstandes vom Hüftgelenk zur Kurbelachse
+  S <- lBein * 0.883 * Faktor # Abstand vom Hüftgelenk zur Kurbelachse - Lemond Methode
+  P3x <- -0.150 # x-Koordinate von P3 (Oberflächenrepräsentant der Hüfte) [m]
+  P3y <- sqrt((S^2)-(P3x^2)) # y-Koordinate von P3 (Oberflächenrepräsentant der Hüfte) [m]
+  P3 <- c(P3x,P3y) # kartesische Koordinaten P3 (Oberflächenrepräsentant der Hüfte) [m]
+  rRelOS <- 0.1416 # relative Segmentmasse OS
+  rRelUS <- 0.0433 # relative Segmentmasse US
+  lambdaOS <- 0.433 # Abstand zw. dem proximalen Punkt des Oberschenkelsegments und dessen Schwerpunkt
+  lambdaUS <- 0.433 # Abstand proximaler Segmentpunkt - Schwerpunkt
+  thetaKurbel <- 0.002 # Trägheitsmoment der Fahrradkurbel [kg m^2]
+  n <- 360 # Anzahl Messwerte pro Umdrehung
+  delta_t <- 60 / (n * nD) # Zeitintervalle
+  T <- 60 / nD # Periodendauer einer Umdrehung
+  omega <- 2 * pi * nD / 60 # mittlere Winkelgeschwindigkeit
+  
+  # Segmentmasse OS und US [kg]
+  mOS <- Masse * rRelOS 
+  mUS <- Masse * rRelUS 
+  
+  # Trägheitsmoment des Segments [kg m^2]
+  thetaOS <- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2
+  thetaUS <- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2
+  
+  # Winkel und Geschwindigkeiten berechnen
+  delta_phi1 <- 2 * pi / n # Winkelintervalle
+  phi1 <- seq(0, 2 * pi, by=delta_phi1) # Erstellung von Winkelintervallen für eine komplette Umdrehung
+  phi1 <- phi1[-length(phi1)]  # Entfernt das letzte Element
+  grad <- phi1 * 180 / pi # Umrechnung von Bogenmaß in Grad
+  time <- seq(0, T, by=delta_t) # Erstellung von Zeitintervallen für eine komplette Umdrehung
+  time <- time[-length(time)]  # Entfernt das letzte Element
+  
+  # Berechnung der kartesischen Koordinaten von Punkt P1 in Abhängigkeit von der Zeit
+  P1 <- list(lKurbel * sin(phi1), lKurbel * cos(phi1))
+  
+  # Abstand vom Hüftgelenk zur Kurbelachse (0,0) berechnen
+  G4 <- sqrt(sum(P3^2))
+  
+  # Berechnung des Winkels des Gestänges
+  delta <- acos(P3[2] / S)
+  
+  # Berechnung der Länge des Verbindungssegments zw. Kurbel und Hüftgelenk > 'c' kann nicht kürzer als die Summe der Längen der Beinsegmente sein
+  c <- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))
+  
+  # Schleife zur Anpassung des Faktors, falls c größer als die Summe der Segmentlängen ist
+  while (any(lUS + lOS < c)) {
+    Faktor <- Faktor - 0.01  # Verringere den Faktor um 0.01
+    S <- lBein * 0.883 * Faktor  # Neuberechnung von S
+    P3y <- sqrt((S^2) - (P3x^2))  # Neuberechnung von P3y
+    P3 <- c(P3x, P3y)  # Neuberechnung von P3
+    delta <- acos(P3[2] / S)  # Neuberechnung von delta
+    c <- sqrt(lKurbel^2 + S^2 - 2 * S * lKurbel * cos(phi1 + delta))  # Neuberechnung von c
+  }
+  
+  # Überprüfung, ob die Segmentlängen zusammen größer sind als die berechnete Länge c
+  control <- sum(ifelse(lUS + lOS <= c, 1, 0))
+  
+  # Ausgabe, ob control bzw. die Segmentlängen größer sind als c
+  if (control > 0) {
+    print("Mindestens eine Segmentlänge ist größer als c.")
+  } else {
+    print("Alle Segmentlängen sind kleiner oder gleich c.")
+  }
+  
+  # Speichere den verwendeten Faktor in der Spalte 'Faktor_Used'
+  Erg_data_df$Faktor_Used[i] <- Faktor
+  
+  # Winkelberechnungen für das Beinsegment    
+  alpha <- asin(lKurbel * sin(phi1 + delta) / c) # Winkel zwischen Gestell und c (Verbindungsseg. zwischen Kurbel und Hüftgelenk )               
+  beta <- acos((lOS^2 + c^2 - lUS^2) / (2 * lOS * c)) # Winkel zwischen Oberschenkel und L       
+  
+  # Berechnung der kartesischen Koordinaten von Punkt P2 in Abhängigkeit von der Zeit
+  P2 <- list(P3[1] + lOS * cos(pi/2 - (alpha + beta + delta)),
+             P3[2] - lOS * sin(pi/2 - (alpha + beta + delta)))
+  
+  # Winkelberechnungen zwischen den Segmentpunkten
+  phi2 <- acos((P2[[1]] - P1[[1]]) / lUS)
+  phi3 <- acos((P3[2] - P2[[2]]) / lOS)
+  
+  # Berechnung der kartesischen Koordinaten der Schwerpunkte der Oberschenkel- und Unterschenkelsegmente
+  SpOS <- list(P3[1] - lambdaOS * (P3[1] - P2[[1]]), 
+               P3[2] - lambdaOS * (P3[2] - P2[[2]]))
+  SpUS <- list(P2[[1]] - lambdaUS * (P2[[1]] - P1[[1]]), 
+               P2[[2]] - lambdaUS * (P2[[2]] - P1[[2]]))
+  
+  # Funktion zur Berechnung der Geschwindigkeit
+  berechneGeschwindigkeit <- function(Sp, delta_t) {
+    diff_x <- c(diff(Sp[[1]]), Sp[[1]][1] - Sp[[1]][length(Sp[[1]])])
+    diff_y <- c(diff(Sp[[2]]), Sp[[2]][1] - Sp[[2]][length(Sp[[2]])])
+    return(sqrt(diff_x^2 + diff_y^2) / delta_t)
+  }
+  
+  # Anwenden der Funktion
+  vOS <- berechneGeschwindigkeit(SpOS, delta_t)
+  vUS <- berechneGeschwindigkeit(SpUS, delta_t)
+  
+  # Berechnung der translatorischen kinetischen Energie
+  Ekin_trans <- 0.5 * (mOS * vOS^2 + mUS * vUS^2)
+  
+  # Delta der Winkelgeschwindigkeiten für zyklische Bewegung
+  delta_phi2 <- c(diff(phi2), phi2[1] - phi2[length(phi2)])
+  delta_phi3 <- c(diff(phi3), phi3[1] - phi3[length(phi3)])
+  
+  # Berechnung der Winkelgeschwindigkeiten der Schwerpunkte von Oberschenkel- und Unterschenkel
+  omega_SpOS <- delta_phi2 / delta_t
+  omega_SpUS <- delta_phi3 / delta_t
+  omega_Kurbel <- delta_phi1 / delta_t
+  
+  # Trägheitsmoment des Segments (Vollzylinder, der um eine Querachse (zweizählige Symmetrieachse) rotiert) [kg m^2]
+  thetaOS <- (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS^2
+  thetaUS <- (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS^2
+  
+  # Berechnung der rotatorischen kinetischen Energie
+  Ekin_rot <- 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2)
+  
+  # Delta der kinetischen Energie (translatorisch) für zyklische Bewegung
+  delta_Ekin_trans <- c(diff(Ekin_trans), Ekin_trans[1] - Ekin_trans[length(Ekin_trans)])
+  
+  # Delta der kinetischen Energie (rotatorisch) für zyklische Bewegung
+  delta_Ekin_rot <- c(diff(Ekin_rot), Ekin_rot[1] - Ekin_rot[length(Ekin_rot)])
+  
+  # Delta Gesamt für zyklische Bewegung
+  delta_Ekin_ges <- delta_Ekin_rot + delta_Ekin_trans 
+  
+  # Berechnung der inneren Leistung für die aktuelle Drehzahl und Masse
+  PInt_Zyklus_Rechts <- delta_Ekin_ges / delta_t
+  PInt_Zyklus_Rechts_Positiv <- ifelse(PInt_Zyklus_Rechts < 0, 0, PInt_Zyklus_Rechts)
+  
+  # Verschiebe die Werte von PInt_Zyklus_Rechts um 180 Positionen, um PInt_Zyklus_Links zu erhalten
+  verschieben <- 180 # Die Anzahl der Zeilen, die verschoben werden sollen
+  PInt_Zyklus_Links <- c(PInt_Zyklus_Rechts[(verschieben + 1):length(PInt_Zyklus_Rechts)], 
+                          PInt_Zyklus_Rechts[1:verschieben])
+  PInt_Zyklus_Links_Positiv <- ifelse(PInt_Zyklus_Links < 0, 0, PInt_Zyklus_Links)
+
+  # Durchschnittliche PInt alle Positiven Werte, Negative Werte = 0
+  PInt_Zyklus_mean <- mean(PInt_Zyklus_Rechts_Positiv) + mean(PInt_Zyklus_Links_Positiv)
+  #PInt_Zyklus_mean_0 <- mean(PInt_Zyklus_Rechts_Positiv[PInt_Zyklus_Rechts_Positiv != 0]) + mean(PInt_Zyklus_Links_Positiv[PInt_Zyklus_Links_Positiv != 0])
+  
+  # Geben Sie das berechnete _PInt_mean zurück
+  print(PInt_Zyklus_mean)
+  
+  # Berechnen Sie _PInt_mean für die aktuelle Zeile und speichern Sie es im DataFrame
+  #Erg_data_df$_PInt_mean[i] <- _PInt_mean
+  #Erg_data_df$PInt_Ges_Watt2[i] <- PInt_Ges_Watt2
+  
+  current_df <- data.frame(
+    Time = time,
+    Phi1 = phi1,
+    Grad = grad,
+    P1x = P1[[1]],
+    P1y = P1[[2]],
+    P2x = P2[[1]],
+    P2y = P2[[2]],
+    P3x = rep(P3[1], n),
+    P3y = rep(P3[2], n),
+    SpOS_X = SpOS[[1]],
+    SpOS_Y = SpOS[[2]],
+    SpUS_X = SpUS[[1]],
+    SpUS_Y = SpUS[[2]],
+    VOS = vOS,
+    VUS = vUS,
+    EkinTrans = Ekin_trans,
+    EkinRot = Ekin_rot,
+    DeltaEkinTrans = delta_Ekin_trans,
+    DeltaEkinRot = delta_Ekin_rot,
+    DeltaEkinGes = delta_Ekin_ges,
+    PIntMittelZyklusRechts = PInt_Zyklus_Rechts,
+    PIntMittelZyklusRechtsPositiv = PInt_Zyklus_Rechts_Positiv,
+    PIntMittelZyklusLinks = PInt_Zyklus_Links,
+    PIntMittelZyklusLinksPositiv = PInt_Zyklus_Links_Positiv,
+    PInt_Modell = PInt_Zyklus_mean
+  )
+  
+  # Füge den neuen Dataframe zur Liste hinzu
+  PInt_list[[i]] <- current_df
+  
+  # Benenne das i-te Element der Liste basierend auf den Werten der ersten beiden Spalten in Erg_data_df
+  name <- paste(Erg_data_df[i, 1], Erg_data_df[i, 2], sep = "_")
+  # Überprüfe, ob die Länge des Namens weniger als 4 ist
+  if(nchar(name) < 4) {
+    name <- paste0("0", name)  # Füge eine "0" vor dem Namen hinzu, falls notwendig
+  }
+  names(PInt_list)[i] <- name
+  
+  # Berechnen Sie PInt_mean für die aktuelle Zeile und speichern Sie es im DataFrame
+  Erg_data_df$PInt_Modell[i] <- mean(current_df$PInt_Modell)
+}
+
+df <- PInt_list[["15_5"]]
+
+# Für Website einheitliche Achsen setzen
+range_x <- c(-0.5, 0.5)
+range_y <- c(-0.4, 1)
+
+df$P0x <- 0
+df$P0y <- 0
+
+Modell_Simulation <- plot_ly(data = df[0000:0360,], frames = ~Grad) %>%
+  
+  # Verlauf von P1
+  add_trace(
+    x = ~P1x,
+    y = ~P1y,
+    type = 'scatter',
+    mode = 'lines',
+    name = "P1 Path",
+    line = list(color = 'lightgrey', dash = 'dot'), 
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P1
+  add_trace(
+    x = ~P1x,
+    y = ~P1y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P1",
+    showlegend = FALSE
+  ) %>%
+
+  
+  # Trace für P3
+  add_trace(
+    x = ~P3x,
+    y = ~P3y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P3",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P2
+  add_trace(
+    x = ~P2x,
+    y = ~P2y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P2",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für P0
+  add_trace(
+    x = ~P0x,
+    y = ~P0y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für SPOS
+  add_trace(
+    x = ~SpOS_X,
+    y = ~SpOS_Y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Trace für SPUS
+  add_trace(
+    x = ~SpUS_X,
+    y = ~SpUS_Y,
+    frame = ~Grad,
+    type = 'scatter',
+    mode = 'markers',
+    name = "P0",
+    showlegend = FALSE
+  ) %>%
+  
+  # Segmente hinzufügen
+  add_segments(
+    x = ~P0x, xend = ~P1x,
+    y = ~P0y, yend = ~P1y,
+    frame = ~Grad,
+    line = list(color = 'black'),
+    showlegend = FALSE
+  ) %>%
+  
+  add_segments(
+    x = ~P2x, xend = ~P3x,
+    y = ~P2y, yend = ~P3y,
+    frame = ~Grad,
+    line = list(color = 'darkgrey'),
+    showlegend = FALSE
+  ) %>%
+  
+  add_segments(
+    x = ~P2x, xend = ~P1x,
+    y = ~P2y, yend = ~P1y,
+    frame = ~Grad,
+    line = list(color = 'darkgrey'),
+    showlegend = FALSE
+  ) %>%
+  
+  # Layout und weitere Einstellungen, inklusive der festgelegten Achsenbereiche
+  layout(
+    title = 'Kinematik-Modell',
+    margin = list(t = 40),
+    xaxis = list(title = 'X-Koordinate', range = range_x),
+    yaxis = list(title = 'Y-Koordinate', range = range_y),
+    showlegend = TRUE,
+    legend = list(x = 1, y = 1)
+  ) %>%
+  
+  # Animationsoptionen
+  animation_opts(
+    frame = 100,  # Dauer jedes Frames in Millisekunden
+    redraw = TRUE
+  ) %>%
+  
+  # Animation-Steuerelemente
+  animation_button(
+    label = "Play",
+    method = "animate",
+    args = list(NULL, list(frame = list(duration = 50, redraw = TRUE), fromcurrent = TRUE, mode = "immediate"))
+  ) %>%
+  
+  animation_slider(
+    currentvalue = list(prefix = "Grad: ")
+  )
+
+```
+
+
+### Simulationsmodell der Pedalbewegung auf Basis von Kinematik Daten
+
+Die Erfassung der Trittbewegung erfolgte am zweiten Testtag mittels eines Vicon-3D-Bewegungserfassungssystems mit acht Vero-Kameras, die um das Fahrradergometer positioniert wurden. Gemäß dem "Full body modelling with Plug-in Gait"-Protokoll [@Vicon2022] wurden Nahinfrarot-reflektierende Marker auf enganliegender Kleidung und Radschuhen der Probanden positioniert (@fig-Marker). Diese dienten zur Erfassung der Gelenksegmentpositionen.
+
+::: {.callout-note collapse="true"}
+#### Darstellung der reflektierenden Marker an anatomischen Referenzpunkten eines Probanden {.unlisted}
+
+![Darstellung der Markerpositionierung nach dem "Full body modelling with Plug-in Gait"-Protokoll befestigt
+an enganliegender Kleidung in Frontal-, Seiten- und Rückansicht. Die reflektierenden Marker sind an
+anatomischen Referenzpunkten der Gelenkachsen platziert, um eine dreidimensionale kinematische
+Bewegungsanalyse zu ermöglichen.](images/Marker.png){#fig-Marker}
 :::
+
+Die 3D-Bewegungsdaten wurden mit 100 Hz aufgezeichnet, was bei 1000 Frames pro Durchgang eine präzise Erfassung der Positionskoordinaten ermöglichte. Für die Transformation der 3D-Bewegungsdaten in ein 2D-Modell wurden ausschließlich die linksseitigen Marker (L-Präfix) als Referenzpunkt verwendet. Die ursprünglichen Positionsdaten wurden von Millimeter in Meter konvertiert und relativ zur Kurbelachse als neuem Koordinatenursprung transformiert. Folgende Markerpositionen wurden bestimmt:
+
+- Anatomische Referenzpunkte:
+  - Kopf (LFHD - Left Front Head, LBHD - Left Back Head): Anteriore und posteriore Kopfposition
+  - Nackenpunkt (C7): Marker am 7. Halswirbel
+  - LSJC (Left Shoulder Joint Center): Zentrum des Schultergelenks
+  - LWJC (Left Wrist Joint Center): Zentrum des Handgelenks
+  - Becken (LASI - Left Anterior Superior Iliac, LPSI - Left Posterior Superior Iliac): Vorderer und hinterer Beckenkamm
+  - LHJC (Left Hip Joint Center): Zentrum des Hüftgelenks
+  - LKJC (Left Knee Joint Center): Zentrum des Kniegelenks
+  - LAJC (Left Ankle Joint Center): Zentrum des Sprunggelenks
+  - LToe (Left Toe): Zehenmarker
+
+- Berechnete Bezugspunkte:
+  - Kopfmittelpunkt (aus LFHD und LBHD): Mittelpunkt zwischen anteriorem und posteriorem Kopfmarker
+  - Hüftmittelpunkt (aus LASI und LPSI): Mittelpunkt zwischen vorderem und hinterem Beckenkammmarker
+  
+
+#### 2D-Simulationsmodelle auf Basis der Kinematik Daten
+
+@fig-Kinematik_Simulationsmodell_Sitzen und @fig-Kinematik_Simulationsmodell_Stehen präsentieren die entwickelten 2D-Kinematik-Simulationsmodelle für das Radfahren im Sitzen und Stehen. Sie zeigen alle erfassten anatomischen Markerpunkte und berechneten Gelenkzentren, wobei die Kurbelposition sowohl automatisch als auch manuell angepasst werden kann.
+
+::::: columns
+::: {.column width="50%"}
+![2D-Simulationsmodell im Sitzen anhand der Kinematik
+Daten.](images/Modell_Kinematik_sitzen_full.html){#fig-Kinematik_Simulationsmodell_Sitzen width="616" height="693"}
 :::
 
-##### **Simulationsmodell der Kurbel- und Beinbewegung auf dem Radergometer**
+::: {.column width="50%"}
+![2D-Simulationsmodell im Stehen anhand der Kinematik
+Daten.](images/Modell_Kinematik_stehen_full.html){#fig-Kinematik_Simulationsmodell_Stehen width="616" height="693"}
+:::
+:::::
 
-::: columns
-::: {.column width="65%"}
-Zunächst wurden alle für die Berechnung essentielle individuelle Parameter wie Körpermasse (Masse), die Längen der Beinsegmente (lOS für Oberschenkel, lUS für Unterschenkel), die Länge der Kurbel (lKurbel) sowie die Drehzahl (nD) erstellt. In den geometrischen und kinematischen Grundlagenberechnungen wird der Abstand vom Hüftgelenk zur Kurbelachse, bezeichnet als S, mittels der Lemond-Methode bestimmt. Diese Methode basiert auf der Länge des Beins (lBein). Zudem wird die Position des Hüftgelenks (P3) im Raum mit seinen Koordinaten P3x und P3y festgelegt.
+#### 2D-Simulationsmodelle auf Basis der Kinematik Daten zur Berechnung von P~Int,Kinematik~
 
-Im nächsten Schritt, der kinematischen Sequenz und den energetischen Berechnungen, werden die Winkel phi1, alpha und beta ermittelt. Diese Winkel definieren die Position und Bewegung der Beine und sind essentiell für die Berechnung der Winkelgeschwindigkeiten der Beinsegmente sowie der kinetischen Energien der Beinsegmente und der Kurbel (thetaOS für den Oberschenkel, thetaUS für den Unterschenkel, thetaKurbel für die Kurbel).
+@fig-Kinematik_Simulationsmodell_Sitzen_PInt und @fig-Kinematik_Simulationsmodell_Stehen_PInt zeigen die für die Berechnung von P~Int,Kinematik~ relevanten Gelenkpunkte und Segmentschwerpunkte des Ober- und Unterschenkelsegments in beiden Fahrpositionen. 
 
-Bei den Energieumwandlungen und Leistungsberechnungen werden die translatorische und rotatorische kinetische Energie für die Oberschenkel- und Unterschenkelsegmente sowie für die Kurbel berechnet. Diese Energien, bezeichnet als Ekin_trans und Ekin_rot, basieren auf den Geschwindigkeiten vOS und vUS sowie den Winkelgeschwindigkeiten omega_SpOS und omega_SpUS. Die Veränderungen dieser Energien über die Zeit (delta_Ekin_trans und delta_Ekin_rot) geben Aufschluss über die geleistete Arbeit und führen zur Berechnung der internen Leistung (PInt_Zyklus_Rechts und PInt_Zyklus_Links).
-
-Abschließend wird die interne Leistung für jeden Teil des Pedalzyklus, angegeben durch PInt_Zyklus_Rechts für das rechte Bein und PInt_Zyklus_Links für das linke Bein, berechnet. Diese Werte werden um einen halben Zyklus verschoben, um die symmetrische Natur des Radfahrens zu reflektieren. Die durchschnittliche interne Leistung, bezeichnet als PInt_Zyklus_mean, ergibt sich aus den positiven Werten der Leistungsberechnungen für beide Beine, was ein Maß für die effektive Nutzung der mechanischen Energie durch den Radfahrer darstellt.
+::::: columns
+::: {.column width="50%"}
+![2D-Simulationsmodell im Sitzen anhand der Kinematik Daten für die Berechnung von
+P~Int~.](images/Modell_Kinematik_sitzen.html){#fig-Kinematik_Simulationsmodell_Sitzen_PInt width="500"
+height="720"}
 :::
 
-::: {.column width="35%"}
-![Simulationsmodell](images/Modell_Simulation.html){fig-align="left" width="500" height="720"}
+::: {.column width="50%"}
+![2D-Simulationsmodell im Stehen anhand der Kinematik Daten für die Berechnung von
+P~Int~.](images/Modell_Kinematik_stehen.html){#fig-Kinematik_Simulationsmodell_Stehen_PInt width="500"
+height="720"}
 :::
+::::: 
+
+Von den erfassten Kinematik-Daten der neun Probanden konnten nur vier Datensätze für die weitere Analyse verwendet werden, da nur diese die erforderliche Qualität über mindestens vier Belastungsstufen aufwiesen. Für die Berechnung der inneren Leistung wurden dabei ausschließlich die Marker verwendet, die den Modellpunkten P~1~ (LToe), P~2~ (LKJC) und P~3~ (LHJC) entsprachen, während die übrigen erfassten Punkte in diesem Modell nur der Visualisierung der gesamten Tretbewegung dienten. <br>
+Die Quantifizierung der inneren Arbeit anhand der kinematischen Messdaten erfolgte analog zur Berechnung der P~Int,Modell~ des Simulationsmodells. Dabei wurden die real erfassten Koordinaten von LToe, LKJC und LHJC für die Modellpunkte P~1~, P~2~ und P~3~ anstelle der modellierten Gelenkpositionen verwendet. Die resultierende innere Leistung, die sich aus den berechneten kinematischen Daten ableitet, wird in der vorliegenden Untersuchung als P~Int,Kinematik~ bezeichnet.
+
+
+```{r echo=FALSE, output=FALSE}
+
+# Initialisiere die Listen für die Ergebnisse
+PInt_Kinematik_list <- list()
+plotly_Pint_list <- list()
+
+# Schleife durch alle Einträge in Kinematik_list
+for (name in names(Kinematik_list)) {
+  # Lese die Daten ein
+  df <- Kinematik_list[[name]]
+
+  # Definiere die ausgewählten Spalten und deren neue Namen direkt
+  selected_columns <- c(Frame = "Frame",
+                        P0x = "Kurbelachse_X", P0y = "Kurbelachse_Y",
+                        P3x = "LHJC_X", P3y = "LHJC_Y",
+                        P2x = "LKJC_X", P2y = "LKJC_Y",
+                        P1x = "LToe_X", P1y = "LToe_Y",
+                        LAJC_X = "LAJC_X", LAJC_Y = "LAJC_Y")
+  
+  # Entferne die erste und letzte Zeile, wähle und benenne die Spalten + Masse-Spalte
+  df <- df[-c(1, nrow(df)), ] %>% 
+    select(all_of(selected_columns)) %>%
+    mutate(Masse = Erg_data_df[Erg_data_df$Name == name, "Masse"]) 
+  
+  # Funktion, um korrekten Winkelunterschied für zyklische Bewegungen zu berechnen
+  corrected_delta_phi1 <- function(phi1) {
+    # Berechnet die Winkeldifferenz zwischen aufeinanderfolgenden Werten. Fügt 'NA' für den letzten Wert ein.
+    delta_phi1 = diff(phi1)
+    
+    # Korrigiert die Winkeldifferenzen, die die Grenzen einer zyklischen Bewegung überschreiten.
+    # Für Übergänge nahe der Grenzen (0 und 360 Grad oder 0 und 2*pi), passen wir die Differenz an,
+    # um korrekte kleine Werte zu erhalten statt großer Sprünge.
+    delta_phi1 = ifelse(delta_phi1 > pi, delta_phi1 - 2*pi, delta_phi1)
+    delta_phi1 = ifelse(delta_phi1 < -pi, delta_phi1 + 2*pi, delta_phi1)
+    
+    # Nimmt die letzten 3 Änderungen oder alle vorhandenen, falls weniger als 3
+    num_values = min(length(delta_phi1), 3)
+    last_values = tail(delta_phi1, num_values)
+    
+    # Berechnet die durchschnittliche Differenz der letzten Werte
+    avg_difference = mean(last_values, na.rm = TRUE)
+    
+    # Fügt die durchschnittliche Differenz zum letzten verfügbaren Wert hinzu, um den nächsten Wert zu schätzen
+    extrapolated_value = last(phi1) + avg_difference  # Der neue Wert basiert auf dem letzten phi1-Wert
+    
+    # Fügt den extrapolierten Wert zum Vektor hinzu
+    delta_phi1 = c(delta_phi1, extrapolated_value - last(phi1))  # Differenz zum letzten phi1
+    
+    return(delta_phi1)
+  }
+  
+  # Konstanten und Parameter
+  # Suche den Wert für 'Masse' basierend auf 'Name' in Erg_data_df
+  Masse <- Erg_data_df[Erg_data_df$Name == name, "Masse"]
+  uOS <- Erg_data_df[Erg_data_df$Name == name, "uOS"]
+  uUS <- Erg_data_df[Erg_data_df$Name == name, "uUS"]
+  lBein <- Erg_data_df[Erg_data_df$Name == name, "lBein"]
+  Faktor <- 1.0
+  S <- lBein * 0.883 * Faktor # Abstand vom Hüftgelenk zur Kurbelachse - Lemond Methode
+  rRelOS <- 0.1416 # relative Segmentmasse OS
+  rRelUS <- 0.0433 # relative Segmentmasse US
+  lambdaOS <- 0.4095 # Abstand zw. dem proximalen Punkt des Oberschenkelsegments und dessen Schwerpunkt
+  lambdaUS <- 0.4459 # Abstand proximaler Segmentpunkt - Schwerpunkt
+  mOS <- Masse * rRelOS # Segmentmasse OS
+  mUS <- Masse * rRelUS # Segmentmasse US
+  thetaKurbel <- 0.002  # Trägheitsmoment der Fahrradkurbel [kg m^2]                                                 
+  
+  # df Berechnen
+  df <- df %>%
+    mutate(
+           phi1 = ifelse(atan2(P1y, P1x) < 0, atan2(P1y, P1x) + 2 * pi, atan2(P1y, P1x)),
+           Grad = phi1 * (180 / pi),
+           delta_t = 1 / 100,
+           delta_phi1 = corrected_delta_phi1(phi1),
+           omega = delta_phi1 / delta_t,
+           nD = omega / (2 * pi) * 60,
+           nD_avg = mean(omega, na.rm = TRUE) / (2 * pi) * 60,
+           T = 60 / nD,
+           lOS = sqrt((P3x-P2x)^2+(P3y-P2y)^2),                                     # Gerade zwischen Hüfte und Knie
+           lUS = sqrt((P2x-LAJC_X)^2+(P2y-LAJC_Y)^2),                               # Gerade zwischen Knie und Ankle
+           lOS_avg = mean(lOS),
+           lUS_avg = mean(lUS),
+           thetaOS = (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS_avg^2,   # Trägheitsmoment des OS [kg m^2]
+           thetaUS = (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS_avg^2,   # Trägheitsmoment des OS [kg m^2]
+           SpOS_X = P3x - lambdaOS * (P3x-P2x),
+           SpOS_Y  = P3y - lambdaOS * (P3y-P2y),
+           SpUS_X  = P2x - lambdaOS * (P2x-LAJC_X),
+           SpUS_Y  = P2y - lambdaOS * (P2y-LAJC_Y),
+           d_SpOS = sqrt((lead(SpOS_X) - SpOS_X)^2 + (lead(SpOS_Y) - SpOS_Y)^2),    # Abstand zwischen aufeinanderfolgenden SpOS-Punkten
+           d_SpUS = sqrt((lead(SpUS_X) - SpUS_X)^2 + (lead(SpUS_Y) - SpUS_Y)^2),    # Abstand zwischen aufeinanderfolgenden SpUS-Punkten
+           v_SpOS = ifelse(is.na(d_SpOS), NA, d_SpOS / delta_t),                    # Geschwindigkeit von SpOS
+           v_SpUS = ifelse(is.na(d_SpUS), NA, d_SpUS / delta_t),                    # Geschwindigkeit von SpOS
+           phi2 = acos((P2x-P1x) / lUS),                                            # Winkeln zwischen x-Achse und Verbindung Pedale-Knie
+           phi3 = acos((P3x-P2x) / lOS),                                            # Winkel zwischen OS und Gestell
+           omega_SpOS = (lead(phi2) - phi2) / delta_t,
+           omega_SpUS = (lead(phi3) - phi3) / delta_t,
+           omega_Kurbel = (lead(phi2) - phi2) / delta_t,
+           Ekin_rot = 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2),
+           Ekin_trans = 0.5 * (mOS * v_SpOS^2 + mUS * v_SpUS^2),
+           delta_Ekin_rot = lead(Ekin_rot) - Ekin_rot,
+           delta_Ekin_trans = lead(Ekin_trans) - Ekin_trans,
+           delta_Ekin_ges = delta_Ekin_rot + delta_Ekin_trans,
+           PInt_Rechts = delta_Ekin_ges / delta_t
+    ) %>%
+    slice(1:(n() - 2)) %>%
+    select(Frame, Grad, phi1, delta_phi1, omega, T, nD, nD_avg, Masse, everything())
+  
+  # Ausreißer
+  # Erkennung und Behandlung von Ausreißern in PInt_Rechts
+  Q1 <- quantile(df$PInt_Rechts, 0.25, na.rm = TRUE)
+  Q3 <- quantile(df$PInt_Rechts, 0.75, na.rm = TRUE)
+  IQR <- Q3 - Q1
+  # Ausreißer sind Werte, die unter Q1 - 1.5*IQR oder über Q3 + 1.5*IQR liegen
+  lower_bound <- Q1 - 1.5 * IQR
+  upper_bound <- Q3 + 1.5 * IQR
+  
+  # Ersetze Ausreißer mit NA
+  df$PInt_Rechts <- ifelse(df$PInt_Rechts < lower_bound | df$PInt_Rechts > upper_bound, NA, df$PInt_Rechts)
+  
+  # Ersetzen der NA-Werte durch gleitende Mittelwerte
+  # Für jeden NA-Wert berechne den Durchschnitt der zwei oberen und unteren gültigen Werte
+  df$PInt_Rechts_imputed <- df$PInt_Rechts
+  
+  for (i in 1:length(df$PInt_Rechts_imputed)) {
+    if (is.na(df$PInt_Rechts_imputed[i])) {
+      # Finde die Indizes der nächsten drei gültigen Werte sowohl oberhalb als auch unterhalb des NA-Wertes
+      valid_indices_above <- which(!is.na(df$PInt_Rechts_imputed[i:min(i+2, nrow(df))]))
+      valid_indices_below <- which(!is.na(df$PInt_Rechts_imputed[max(i-2, 1):i]))
+      
+      # Berechne die Mittelwerte der gültigen Werte, falls vorhanden
+      if (length(valid_indices_above) > 0 && length(valid_indices_below) > 0) {
+        upper_mean <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+        lower_mean <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+        df$PInt_Rechts_imputed[i] <- mean(c(upper_mean, lower_mean), na.rm = TRUE)
+      } else if (length(valid_indices_above) > 0) {
+        df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+      } else if (length(valid_indices_below) > 0) {
+        df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+      }
+    }
+  }
+  # Übertragen der imputierten Werte zurück in die ursprüngliche Spalte
+  df$PInt_Rechts <- df$PInt_Rechts_imputed
+  # Löschen der Hilfsspalte
+  df$PInt_Rechts_imputed <- NULL
+  
+  # Zyklusfindung
+  ## Variablen
+  Startwert_Grad <- df$Grad[1]
+  Toleranz <- 3
+  ## Endpunkte und Anzahl
+  Ende_Zyklus_Indizes <- which(abs(df$Grad - Startwert_Grad) <= Toleranz)
+  diff_Ende_Zyklus_Indizes <- c(diff(Ende_Zyklus_Indizes), Toleranz + 1)  # Hinzufügen eines hohen Werts am Ende für den letzten Index
+  gefilterte_Indizes <- Ende_Zyklus_Indizes[diff_Ende_Zyklus_Indizes > 1] # Bereinigen der Indizes
+  Anzahl_Zyklen <- length(gefilterte_Indizes)-1
+  Werte_Indizes <- df$Grad[gefilterte_Indizes]
+  Ende_Zyklen <- gefilterte_Indizes[length(gefilterte_Indizes)]
+  df$Grad[Ende_Zyklen]
+  
+  # Beschränkung des DataFrames bis zum letzten gefundenen Zyklusende
+  df <- df[1:Ende_Zyklen, ]
+  
+  # Berechnung der durchschnittlichen Zykluslänge
+  Laenge_Zyklus <- round(length(df$Grad) / Anzahl_Zyklen, 0)
+  
+  # Einstellen der Verschiebung basierend auf Zykluslänge für Spaltenanpassungen
+  verschieben <- round(Laenge_Zyklus * 0.5)
+  
+  # Initialisierung und Berechnung verschobener Werte für PInt_Links
+  verschobene_Werte <- numeric(nrow(df))
+  for (i in 1:nrow(df)) {
+    index_in_PInt_Rechts <- ((i + verschieben - 1) %% nrow(df)) + 1
+    verschobene_Werte[i] <- df$PInt_Rechts[index_in_PInt_Rechts]
+  }
+  
+  # Zuweisung der verschobenen Werte und Anpassung negativer Werte
+  df$PInt_Links <- verschobene_Werte
+  df$PInt_Links_Positiv <- ifelse(df$PInt_Links < 0, 0, df$PInt_Links)
+  
+  # Definition der Breite des gleitenden Fensters für Glättung
+  fensterbreite <- 15
+  
+  # Aktualisierung der Daten mit geglätteten Werten und Durchschnittsbildung
+  df <- df %>%
+    mutate(
+      PInt_Rechts_Positiv = ifelse(PInt_Rechts < 0, 0, PInt_Rechts),
+      PInt_Kinematik = mean(PInt_Rechts_Positiv, na.rm = TRUE) + mean(PInt_Links_Positiv, na.rm = TRUE),
+      PInt_Rechts_smooth = rollmean(PInt_Rechts, fensterbreite, fill = NA, align = "right"),
+      PInt_Rechts_Positiv_smooth = ifelse(PInt_Rechts_smooth < 0, 0, PInt_Rechts_smooth),
+      PInt_Links_smooth = rollmean(PInt_Links, fensterbreite, fill = NA, align = "right"),
+      PInt_Links_Positiv_smooth = ifelse(PInt_Links_smooth < 0, 0, PInt_Links_smooth)
+    )
+  
+  # Speichere das bearbeitete DataFrame in PInt_Kinematik_list
+  PInt_Kinematik_list[[name]] <- df
+  
+  # Berechne den Mittelwert von nD_avg
+  mean_nD_avg <- mean(df$nD_avg, na.rm = TRUE)
+  
+  # Erstelle die Plotly-Plots und speichere sie in plotly_Pint_list
+  plot1 <- plot_ly(df[1:(Laenge_Zyklus*1.5), ], x = ~Frame, y = ~PInt_Rechts_smooth, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
+    layout(xaxis = list(title = "Frame"))
+  
+  plot2 <- plot_ly(df[1:(Laenge_Zyklus*4), ], x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts",line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_Positiv_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(yaxis = list(title = "PInt-Positiv für einen Zyklus")) %>%
+    layout(xaxis = list(title = "Frame"))
+  
+plot3 <- plot_ly(df, x = ~Frame, y = ~PInt_Rechts_Positiv_smooth, type = "scatter", mode = "lines", name = "Rechts", line = list(color = "#42BA97")) %>%
+    add_trace(y = ~PInt_Links_Positiv_smooth, name = "Links", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "P<sub>Int,Kinematik</sub> [Watt]", range = c(0, 80), dtick = 10), 
+           xaxis = list(title = "Frame", dtick = 100, range = c(0, max(df$Frame))),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             ),
+             list(
+               x = 0.02, y = 0.90, xref = 'paper', yref = 'paper',
+               text = paste("avg(P<sub>Int,Kinematik,positiv</sub>) =", sprintf("%.1f", df$PInt_Kinematik[1])),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  plot4 <- plot_ly(df, x = ~Grad, y = ifelse(df$PInt_Rechts_Positiv_smooth == 0, NA, df$PInt_Rechts_Positiv_smooth), type = "scatter", mode = "markers", name = "Rechts", marker = list(color = "#42BA97")) %>%
+    add_trace(y = ifelse(df$PInt_Links_Positiv_smooth == 0, NA, df$PInt_Links_Positiv_smooth), name = "Links", mode = "markers", marker = list(color = "#F4737A")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "PInt-Positiv über alle Zyklen"), 
+           xaxis = list(title = "Grad"))
+  
+  plot5 <- plot_ly(df, x = ~Frame, y = ~PInt_Links_Positiv_smooth, name = "Links", type = "scatter", mode = "lines", line = list(color = "#F4737A")) %>%
+    add_trace(y = ~PInt_Kinematik, name = "PInt_Kinematik", mode = "lines", line = list(color = "lightgrey", dash = "dash")) %>%
+    layout(title = paste('Test', name),
+           margin = list(t = 40),
+           yaxis = list(title = "PInt-Positiv für Links"), 
+           xaxis = list(title = "Frame"))
+  
+  # Speichere die Plots
+  plotly_Pint_list[[name]] <- list(plot1, plot2, plot3, plot4, plot5)
+}
+
+```
+
+#### Exemplarische Verläufe der inneren Leistung, berechnet aus kinematischen Messdaten
+::: panel-tabset
+#### Sitzen
+```{r}
+#| label: fig-PInt_Kinematik_19_5
+#| fig-cap: "Zeitlicher Verlauf der aus der 3D-Kinematik berechneten positiven Anteile der inneren Leistung (P~int~) beider Beine mit gemitteltem P~int~-Wert (grau gestrichelt) für 19_5."
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["19_5"]][[3]]
+```
+
+#### Stehen
+```{r}
+#| label: fig-PInt_Kinematik_19_6
+#| fig-cap: "Zeitlicher Verlauf der aus der 3D-Kinematik berechneten positiven Anteile der inneren Leistung (P~int~) beider Beine mit gemitteltem P~int~-Wert (grau gestrichelt) für 19_6."
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["19_6"]][[3]]
+```
 :::
 
-##### **Code zur Berechnung der Inneren Arbeit auf Basis der tatsächlichen Kinematikdaten**
+Basierend auf diesen Berechnungen wurde ein methodischer Ansatz entwickelt, um die innere Leistung auch für Probanden zu approximieren, für die keine validen Kinematikdaten vorlagen. Hierzu wurde zunächst die systematische Abweichung zwischen P~Int,Kinematik~ und P~Int,Modell~ für beide Bedingungen quantifiziert (@eq-PInt_Diff):
 
-```{r echo=TRUE, output=FALSE}
+$$
+P_{Int,Diff} = 
+\begin{cases} 
+P_{Int,Kinematik,stehen} - P_{Int,Modell,stehen} & \text{für Bedingung = "stehen"} \\
+P_{Int,Kinematik,sitzen} - P_{Int,Modell,sitzen} & \text{für Bedingung = "sitzen"}
+\end{cases}
+$$ {#eq-PInt_Diff}
+
+Die mittleren Differenzen zwischen P~Int,Kinematik~ und P~Int,Modell~ wurden separat für die Bedingungen "stehen" und "sitzen" ermittelt. Diese systematischen Differenzen dienten als Grundlage für die Modellierung von P~Int,Kinematik,Modell~ gemäß @eq-PInt_Kinematik_Modell:
+
+$$
+P_{Int,Kinematik,Modell} = 
+\begin{cases} 
+P_{Int,Modell} + P_{Int,Diff,stehen} & \text{für Bedingung "stehen"} \\
+P_{Int,Modell} + P_{Int,Diff,sitzen} & \text{für Bedingung "sitzen"}
+\end{cases}
+$$ {#eq-PInt_Kinematik_Modell}
+
+Dieser Ansatz ermöglichte die Generierung vergleichbarer P~Int,Kinematik,Modell~-Werte für sämtliche Probanden und Bedingungen, auch in Abwesenheit direkter kinematischer Messdaten.
+
+##### ***R-Code zur Berechnung der Inneren Arbeit auf Basis realer Kinematikdaten*** {.unlisted}
+
+*Der folgende Code implementiert die Berechnung der inneren Arbeit anhand der experimentell erfassten Kinematikdaten. Basierend auf den räumlichen Koordinaten der Gelenkpunkte (Hüfte, Knie, Sprunggelenk) werden die Segmentwinkel, Schwerpunktgeschwindigkeiten und kinetischen Energien bestimmt. Die zeitlichen Änderungen der kinetischen Energien ergeben die innere Leistung. Durch die Analyse der Zyklen wird die innere Arbeit für beide Beine separat ermittelt.*
+
+
+```{r echo=TRUE, eval=FALSE}
+
+###### Konstanten und Parameter ######
+# Basisdaten aus Erg_data_df
+Masse <- Erg_data_df[Erg_data_df$Name == name, "Masse"]
+uOS <- Erg_data_df[Erg_data_df$Name == name, "uOS"]
+uUS <- Erg_data_df[Erg_data_df$Name == name, "uUS"]
+lBein <- Erg_data_df[Erg_data_df$Name == name, "lBein"]
+
+# Geometrische Konstanten
+Faktor <- 1.0
+S <- lBein * 0.883 * Faktor # Abstand vom Hüftgelenk zur Kurbelachse - Lemond Methode
+
+# Segmentmassen und -eigenschaften
+rRelOS <- 0.1416 # relative Segmentmasse OS
+rRelUS <- 0.0433 # relative Segmentmasse US
+lambdaOS <- 0.4095 # Abstand proximaler Punkt OS - Schwerpunkt
+lambdaUS <- 0.4459 # Abstand proximaler Punkt US - Schwerpunkt
+mOS <- Masse * rRelOS # Segmentmasse OS
+mUS <- Masse * rRelUS # Segmentmasse US
+thetaKurbel <- 0.002 # Trägheitsmoment der Fahrradkurbel [kg m^2]
+
+###### Hauptberechnungen im DataFrame ######
+df <- df %>%
+  mutate(
+    # Winkel- und Zeitberechnungen
+    phi1 = ifelse(atan2(P1y, P1x) < 0, atan2(P1y, P1x) + 2 * pi, atan2(P1y, P1x)),
+    Grad = phi1 * (180 / pi),
+    delta_t = 1 / 100,
+    delta_phi1 = corrected_delta_phi1(phi1),
+    omega = delta_phi1 / delta_t,
+    nD = omega / (2 * pi) * 60,
+    nD_avg = mean(omega, na.rm = TRUE) / (2 * pi) * 60,
+    T = 60 / nD,
+    
+    # Längenberechnungen
+    lOS = sqrt((P3x-P2x)^2+(P3y-P2y)^2),
+    lUS = sqrt((P2x-LAJC_X)^2+(P2y-LAJC_Y)^2),
+    lOS_avg = mean(lOS),
+    lUS_avg = mean(lUS),
+    
+    # Trägheitsmomente
+    thetaOS = (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * lOS_avg^2,
+    thetaUS = (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * lUS_avg^2,
+    
+    # Schwerpunktberechnungen
+    SpOS_X = P3x - lambdaOS * (P3x-P2x),
+    SpOS_Y = P3y - lambdaOS * (P3y-P2y),
+    SpUS_X = P2x - lambdaOS * (P2x-LAJC_X),
+    SpUS_Y = P2y - lambdaOS * (P2y-LAJC_Y),
+    
+    # Geschwindigkeitsberechnungen
+    d_SpOS = sqrt((lead(SpOS_X) - SpOS_X)^2 + (lead(SpOS_Y) - SpOS_Y)^2),
+    d_SpUS = sqrt((lead(SpUS_X) - SpUS_X)^2 + (lead(SpUS_Y) - SpUS_Y)^2),
+    v_SpOS = ifelse(is.na(d_SpOS), NA, d_SpOS / delta_t),
+    v_SpUS = ifelse(is.na(d_SpUS), NA, d_SpUS / delta_t),
+    
+    # Winkelberechnungen
+    phi2 = acos((P2x-P1x) / lUS),
+    phi3 = acos((P3x-P2x) / lOS),
+    omega_SpOS = (lead(phi2) - phi2) / delta_t,
+    omega_SpUS = (lead(phi3) - phi3) / delta_t,
+    omega_Kurbel = (lead(phi2) - phi2) / delta_t,
+    
+    # Energieberechnungen
+    Ekin_rot = 0.5 * (thetaOS * omega_SpOS^2 + thetaUS * omega_SpUS^2 + thetaKurbel * omega_Kurbel^2),
+    Ekin_trans = 0.5 * (mOS * v_SpOS^2 + mUS * v_SpUS^2),
+    delta_Ekin_rot = lead(Ekin_rot) - Ekin_rot,
+    delta_Ekin_trans = lead(Ekin_trans) - Ekin_trans,
+    delta_Ekin_ges = delta_Ekin_rot + delta_Ekin_trans,
+    PInt_Rechts = delta_Ekin_ges / delta_t
+  ) %>%
+  slice(1:(n() - 2)) %>%
+  select(Frame, Grad, phi1, delta_phi1, omega, T, nD, nD_avg, Masse, everything())
+
+###### Ausreißerbehandlung ######
+# Ausreißergrenzen bestimmen
+Q1 <- quantile(df$PInt_Rechts, 0.25, na.rm = TRUE)
+Q3 <- quantile(df$PInt_Rechts, 0.75, na.rm = TRUE)
+IQR <- Q3 - Q1
+lower_bound <- Q1 - 1.5 * IQR
+upper_bound <- Q3 + 1.5 * IQR
+
+# Ausreißer ersetzen
+df$PInt_Rechts <- ifelse(df$PInt_Rechts < lower_bound | df$PInt_Rechts > upper_bound, NA, df$PInt_Rechts)
+
+###### Imputation fehlender Werte ######
+df$PInt_Rechts_imputed <- df$PInt_Rechts
+for (i in 1:length(df$PInt_Rechts_imputed)) {
+  if (is.na(df$PInt_Rechts_imputed[i])) {
+    valid_indices_above <- which(!is.na(df$PInt_Rechts_imputed[i:min(i+2, nrow(df))]))
+    valid_indices_below <- which(!is.na(df$PInt_Rechts_imputed[max(i-2, 1):i]))
+    
+    if (length(valid_indices_above) > 0 && length(valid_indices_below) > 0) {
+      upper_mean <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+      lower_mean <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+      df$PInt_Rechts_imputed[i] <- mean(c(upper_mean, lower_mean), na.rm = TRUE)
+    } else if (length(valid_indices_above) > 0) {
+      df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i + valid_indices_above], na.rm = TRUE)
+    } else if (length(valid_indices_below) > 0) {
+      df$PInt_Rechts_imputed[i] <- mean(df$PInt_Rechts_imputed[i - valid_indices_below], na.rm = TRUE)
+    }
+  }
+}
+df$PInt_Rechts <- df$PInt_Rechts_imputed
+df$PInt_Rechts_imputed <- NULL
+
+###### Zyklusanalyse ######
+# Zyklusparameter
+Startwert_Grad <- df$Grad[1]
+Toleranz <- 3
+
+# Zyklusendpunkte finden
+Ende_Zyklus_Indizes <- which(abs(df$Grad - Startwert_Grad) <= Toleranz)
+diff_Ende_Zyklus_Indizes <- c(diff(Ende_Zyklus_Indizes), Toleranz + 1)
+gefilterte_Indizes <- Ende_Zyklus_Indizes[diff_Ende_Zyklus_Indizes > 1]
+Anzahl_Zyklen <- length(gefilterte_Indizes)-1
+Ende_Zyklen <- gefilterte_Indizes[length(gefilterte_Indizes)]
+
+# DataFrame auf komplette Zyklen beschränken
+df <- df[1:Ende_Zyklen, ]
+Laenge_Zyklus <- round(length(df$Grad) / Anzahl_Zyklen, 0)
+
+###### Berechnung linkes Bein ######
+verschieben <- round(Laenge_Zyklus * 0.5)
+verschobene_Werte <- numeric(nrow(df))
+for (i in 1:nrow(df)) {
+  index_in_PInt_Rechts <- ((i + verschieben - 1) %% nrow(df)) + 1
+  verschobene_Werte[i] <- df$PInt_Rechts[index_in_PInt_Rechts]
+}
+
+###### Finale Berechnungen und Glättung ######
+fensterbreite <- 15
+df <- df %>%
+  mutate(
+    PInt_Links = verschobene_Werte,
+    PInt_Links_Positiv = ifelse(PInt_Links < 0, 0, PInt_Links),
+    PInt_Rechts_Positiv = ifelse(PInt_Rechts < 0, 0, PInt_Rechts),
+    PInt_Kinematik = mean(PInt_Rechts_Positiv, na.rm = TRUE) + mean(PInt_Links_Positiv, na.rm = TRUE),
+    PInt_Rechts_smooth = rollmean(PInt_Rechts, fensterbreite, fill = NA, align = "right"),
+    PInt_Rechts_Positiv_smooth = ifelse(PInt_Rechts_smooth < 0, 0, PInt_Rechts_smooth),
+    PInt_Links_smooth = rollmean(PInt_Links, fensterbreite, fill = NA, align = "right"),
+    PInt_Links_Positiv_smooth = ifelse(PInt_Links_smooth < 0, 0, PInt_Links_smooth)
+  )
+
+###### Ergebnisspeicherung ######
+PInt_Kinematik_list[[name]] <- df
+mean_nD_avg <- mean(df$nD_avg, na.rm = TRUE)
+```
+
+```{r echo=FALSE, output=FALSE}
 
 # Initialisiere die Listen für die Ergebnisse
 PInt_Kinematik_list <- list()
@@ -852,29 +2397,1009 @@ for (name in names(Kinematik_list)) {
 
 ```
 
-#### 2D-Simulationsmodelle anhand der Kinematik Daten
+### Explorativ: Berechnung der inneren Arbeit nach dem Modell nach @Winter1979
 
-::: columns
-::: {.column width="50%"}
-![Sitzen](images/Modell_Kinematik_sitzen_full.html){width="640" height="720"}
+Die ursprüngliche Berechnung der inneren Arbeit P~Int,Kinematik,Modell~ führte zu differenzierten Ergebnissen zwischen den beiden Körperpositionen. Während die Berechnungswerte der sitzenden Position mit den in der Literatur berichteten Werten übereinstimmten, zeigten sich für die Belastungsdurchgänge im Stehen physiologisch nicht plausible Ergebnisse. Eine detaillierte Analyse der Berechnungsergebnisse offenbarte, dass zwar bei identischer Trittrate minimal höhere P~Int,Kinematik,Modell~-Werte im Stehen auftraten, jedoch die systematisch niedrigeren Trittraten bei gleicher Belastungsintensität zu substantiell geringeren P~Int~-Werten in der stehenden Position führten. <br>
+Diese Diskrepanz steht im Widerspruch zu den erhobenen physiologischen Parametern der berechneten Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~ - alle ohne Berücksichtigung der inneren Leistung), des durchschnittlichen Sauerstoffvolumenstroms ($\dot{V}O_2$) sowie der durchschnittlichen Herzrate. Da diese Parameter bei vergleichbarer mechanischer Leistung keine signifikanten Unterschiede zwischen stehender und sitzender Position aufwiesen, lässt sich die Hypothese ableiten, dass die innere Leistung in beiden Körperpositionen ähnliche Werte aufweisen sollte.<br>
+Aufgrund der fehlenden Bestätigung dieser Annahme durch die gewählten Berechnungsmethoden wurde nachträglich ein alternativer Berechnungsansatz explorativ untersucht. Dieser basiert auf dem Modell von @Winter1979 und wurde gemäß der Methodik von @Hansen2004 für die spezifischen Anforderungen des Radfahrens adaptiert. Die wesentlichen methodischen Erweiterungen gegenüber dem zuvor beschriebenen Berechnungsweg für P~Int,Kinematik,Modell~ umfassen drei zentrale Aspekte: Erstens die Integration der potentiellen Energie der Segmente, zweitens die Berücksichtigung des HAT-Segments (Head-Arms-Trunk) als zusammenhängende biomechanische Einheit und drittens die Annahme eines vollständigen Energietransfers zwischen den Segmenten über die Grenzen der einzelnen Gliedmaßen hinweg.
+
+Für die Implementierung des alternativen Berechnungsansatzes wurde das bestehende Simulationsmodell, welches auf den Kinematik-Daten basiert, um das HAT-Segment erweitert. Die Berechnung des HAT-Segmentschwerpunkts erfolgte nach der Schwerpunktformel für ein Mehrsegmentsystem [@Winter2009,88], wobei für jeden Zeitpunkt t die x- und y-Koordinaten des HAT-Segmentschwerpunkts durch die gewichtete Summe der einzelnen Segmentschwerpunkte, normiert auf die Gesamtmasse, bestimmt wurden. Für ein System aus Kopf (Kopf~COM~), Rumpf (Rumpf~COM~) und den symmetrischen Segmenten der oberen Extremitäten (Oberarm~COM~ und Unterarm~COM~) ergibt sich:
+
+$$
+x_{HAT,COM}(t) = \frac{m_{Kopf} \cdot x_{Kopf,COM}(t) + m_{Rumpf} \cdot x_{Rumpf,COM}(t) + 2 \cdot m_{Oberarm} \cdot x_{Oberarm,COM}(t) + 2 \cdot m_{Unterarm} \cdot x_{Unterarm,COM}(t)}{M_{gesamt}}
+$$ {#eq-X_HAT_COM}
+
+$$
+y_{HAT,COM}(t) = \frac{m_{Kopf} \cdot y_{Kopf,COM}(t) + m_{Rumpf} \cdot y_{Rumpf,COM}(t) + 2 \cdot m_{Oberarm} \cdot y_{Oberarm,COM}(t) + 2 \cdot m_{Unterarm} \cdot y_{Unterarm,COM}(t)}{M_{gesamt}}
+$$ {#eq-Y_HAT_COM}
+
+Die verwendeten Parameter wurden nach den in @fig-Segmentmassen_Winter dargestellten Werten berechnet und sind:
+
+- Segmentmassen: m~Kopf~, m~Rumpf~, m~Oberarm~, m~Unterarm~
+- x-Koordinaten der Segmentschwerpunkte zum Zeitpunkt t: x~Kopf,COM~(t), x~Rumpf,COM~(t), x~Oberarm,COM~(t), x~Unterarm,COM~(t)
+- y-Koordinaten der Segmentschwerpunkte zum Zeitpunkt t: y~Kopf,COM~(t), y~Rumpf,COM~(t), y~Oberarm,COM~(t), y~Unterarm,COM~(t)
+- Gesamtmasse des HAT-Segments: M~gesamt~
+
+#### 2D-Simulationsmodelle auf Basis der Kinematik Daten mit dem HAT-Segment  {.unlisted}
+
+@fig-Kinematik_Simulationsmodell_Sitzen_HAT und @fig-Kinematik_Simulationsmodell_Stehen_HAT zeigen zwei 2D-Kinematik-Simulationsmodelle für das Radfahren im Sitzen und Stehen, welche das HAT-Segment einschließen. Dargestellt sind alle relevanten anatomischen Markerpunkte sowie die daraus berechneten Gelenkzentren. Die Schwerpunkte der einzelnen Segmente sind jeweils mit einem kleinen roten Kreuz gekennzeichnet, wobei der Schwerpunkt des HAT-Segments durch ein großes rotes Kreuz hervorgehoben wird.
+
+::::: columns
+::: {.column width="49%"}
+![2D-Simulationsmodell im Sitzen anhand der Kinematik Daten mit dem HAT-Segment.](images/Modell_Kinematik_sitzen_HAT.html){#fig-Kinematik_Simulationsmodell_Sitzen_HAT width="580"
+height="660"}
 :::
 
-::: {.column width="50%"}
-![Stehen](images/Modell_Kinematik_stehen_full.html){width="640" height="720"}
-:::
+::: {.column width="2%"}
+
 :::
 
-#### 2D-Simulationsmodelle anhand der Kinematik Daten für die Berechnung
+::: {.column width="49%"}
+![2D-Simulationsmodell im Stehen anhand der Kinematik Daten mit dem HAT-Segment.](images/Modell_Kinematik_stehen_HAT.html){#fig-Kinematik_Simulationsmodell_Stehen_HAT width="580"
+height="660"}
+:::
+::::: 
 
-::: columns
-::: {.column width="50%"}
-![Sitzen](images/Modell_Kinematik_sitzen.html){width="500" height="720"}
+Basierend auf den berechneten Schwerpunktkoordinaten erfolgte die Bestimmung der Gesamtenergie aller Segmente nach @eq-E_gesamt gemäß dem Modell von @Winter1979. Zur Ermittlung der inneren Arbeit W~Int~ wurden die Energieänderungen über alle analysierten Zeitintervalle entsprechend @eq-WInt aufsummiert. Die innere mechanische Leistung, die bei dem verwendeten Berechnungsansatz als P~Int,Kinematik,HAT~ bezeichnet wird, ergab sich nach @eq-PInt_positiv aus dem Quotienten der Summe aller positiven Energieänderungen und der kumulierten Zeitdauer dieser Änderungen.<br>
+Die resultierenden Verläufe der kinetischen Energie (E~kin~), potentiellen Energie (E~pot~) und Gesamtenergie (E~gesamt~) sowie die daraus abgeleiteten Energieänderungen und die innere Leistung (P~Int~) sind in den folgenden Abbildungen vergleichend für die sitzende und stehende Position dargestellt.
+
+##### ***R-Code zur Berechnung der Inneren Arbeit auf Basis realer Kinematikdaten nach dem Winter-Modell*** {.unlisted}
+
+```{r echo=TRUE, eval=FALSE}
+
+###### Konstanten und Parameter ######
+Masse <- Erg_data_df[Erg_data_df$Name == name, "Masse"]
+uOS <- Erg_data_df[Erg_data_df$Name == name, "uOS"]
+uUS <- Erg_data_df[Erg_data_df$Name == name, "uUS"]
+lBein <- Erg_data_df[Erg_data_df$Name == name, "lBein"]
+Faktor <- 1.0
+S <- lBein * 0.883 * Faktor
+rRelOS <- 0.1416
+rRelUS <- 0.0433
+lambdaOS <- 0.433
+lambdaUS <- 0.433
+mOS <- Masse * rRelOS
+mUS <- Masse * rRelUS
+thetaKurbel <- 0.002
+  
+##### Rechenweg ####
+
+# Linkes Bein
+L_phi1 = ifelse(atan2(L_P1y, L_P1x) < 0, atan2(L_P1y, L_P1x) + 2 * pi, atan2(L_P1y, L_P1x))
+L_Grad = L_phi1 * (180 / pi)
+delta_t = 1 / 100
+L_delta_phi1 = corrected_delta_phi1(L_phi1)
+L_omega = L_delta_phi1 / delta_t
+L_nD = L_omega / (2 * pi) * 60
+L_nD_avg = mean(L_omega, na.rm = TRUE) / (2 * pi) * 60
+
+# Rechtes Bein
+R_phi1 = ifelse(atan2(R_P1y, R_P1x) < 0, atan2(R_P1y, R_P1x) + 2 * pi, atan2(R_P1y, R_P1x))
+R_Grad = R_phi1 * (180 / pi)
+R_delta_phi1 = corrected_delta_phi1(R_phi1)
+R_omega = R_delta_phi1 / delta_t
+
+# Längen und Trägheitsmomente für beide Beine
+L_lOS = sqrt((L_P3x-L_P2x)^2+(L_P3y-L_P2y)^2)
+L_lUS = sqrt((L_P2x-LAJC_X)^2+(L_P2y-LAJC_Y)^2)
+R_lOS = sqrt((R_P3x-R_P2x)^2+(R_P3y-R_P2y)^2)
+R_lUS = sqrt((R_P2x-RAJC_X)^2+(R_P2y-RAJC_Y)^2)
+
+L_lOS_avg = mean(L_lOS)
+L_lUS_avg = mean(L_lUS)
+R_lOS_avg = mean(R_lOS)
+R_lUS_avg = mean(R_lUS)
+
+thetaOS = (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * L_lOS_avg^2
+thetaUS = (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * L_lUS_avg^2
+
+# HAT Berechnungen
+m_HAT = Masse * 0.678
+lHAT = sqrt((HAT_COMx - L_P3x)^2 + (HAT_COMy - L_P3y)^2)
+thetaHAT = m_HAT * (lHAT * 0.496)^2
+
+# Schwerpunkte für beide Beine
+L_SpOS_X = L_P3x - lambdaOS * (L_P3x-L_P2x)
+L_SpOS_Y = L_P3y - lambdaOS * (L_P3y-L_P2y)
+L_SpUS_X = L_P2x - lambdaOS * (L_P2x-LAJC_X)
+L_SpUS_Y = L_P2y - lambdaOS * (L_P2y-LAJC_Y)
+
+R_SpOS_X = R_P3x - lambdaOS * (R_P3x-R_P2x)
+R_SpOS_Y = R_P3y - lambdaOS * (R_P3y-R_P2y)
+R_SpUS_X = R_P2x - lambdaOS * (R_P2x-RAJC_X)
+R_SpUS_Y = R_P2y - lambdaOS * (R_P2y-RAJC_Y)
+
+# Geschwindigkeiten der Schwerpunkte
+L_d_SpOS = sqrt((lead(L_SpOS_X) - L_SpOS_X)^2 + (lead(L_SpOS_Y) - L_SpOS_Y)^2)
+L_d_SpUS = sqrt((lead(L_SpUS_X) - L_SpUS_X)^2 + (lead(L_SpUS_Y) - L_SpUS_Y)^2)
+R_d_SpOS = sqrt((lead(R_SpOS_X) - R_SpOS_X)^2 + (lead(R_SpOS_Y) - R_SpOS_Y)^2)
+R_d_SpUS = sqrt((lead(R_SpUS_X) - R_SpUS_X)^2 + (lead(R_SpUS_Y) - R_SpUS_Y)^2)
+
+L_v_SpOS = ifelse(is.na(L_d_SpOS), NA, L_d_SpOS / delta_t)
+L_v_SpUS = ifelse(is.na(L_d_SpUS), NA, L_d_SpUS / delta_t)
+R_v_SpOS = ifelse(is.na(R_d_SpOS), NA, R_d_SpOS / delta_t)
+R_v_SpUS = ifelse(is.na(R_d_SpUS), NA, R_d_SpUS / delta_t)
+
+# HAT Bewegungen
+d_HAT_COM = sqrt((lead(HAT_COMx) - HAT_COMx)^2 + (lead(HAT_COMy) - HAT_COMy)^2)
+v_HAT_COM = ifelse(is.na(d_HAT_COM), NA, d_HAT_COM / delta_t)
+phi_HAT = atan2(HAT_COMy - L_P3y, HAT_COMx - L_P3x)
+omega_HAT = (lead(phi_HAT) - phi_HAT) / delta_t
+
+# Winkel und Winkelgeschwindigkeiten für beide Beine
+L_phi2 = acos((L_P2x-L_P1x) / L_lUS)
+L_phi3 = acos((L_P3x-L_P2x) / L_lOS)
+R_phi2 = acos((R_P2x-R_P1x) / R_lUS)
+R_phi3 = acos((R_P3x-R_P2x) / R_lOS)
+
+L_omega_SpOS = (lead(L_phi2) - L_phi2) / delta_t
+L_omega_SpUS = (lead(L_phi3) - L_phi3) / delta_t
+L_omega_Kurbel = (lead(L_phi2) - L_phi2) / delta_t
+
+R_omega_SpOS = (lead(R_phi2) - R_phi2) / delta_t
+R_omega_SpUS = (lead(R_phi3) - R_phi3) / delta_t
+R_omega_Kurbel = (lead(R_phi2) - R_phi2) / delta_t
+
+# Energieberechnungen für beide Beine
+L_Ekin_rot_leg = 0.5 * (thetaOS * L_omega_SpOS^2 + thetaUS * L_omega_SpUS^2 + thetaKurbel * L_omega_Kurbel^2)
+L_Ekin_trans_leg = 0.5 * (mOS * L_v_SpOS^2 + mUS * L_v_SpUS^2)
+L_Ekin_leg = L_Ekin_rot_leg + L_Ekin_trans_leg
+L_Epot_leg = (mOS * 9.81 * L_SpOS_Y) + (mUS * 9.81 * L_SpUS_Y)
+
+R_Ekin_rot_leg = 0.5 * (thetaOS * R_omega_SpOS^2 + thetaUS * R_omega_SpUS^2 + thetaKurbel * R_omega_Kurbel^2)
+R_Ekin_trans_leg = 0.5 * (mOS * R_v_SpOS^2 + mUS * R_v_SpUS^2)
+R_Ekin_leg = R_Ekin_rot_leg + R_Ekin_trans_leg
+R_Epot_leg = (mOS * 9.81 * R_SpOS_Y) + (mUS * 9.81 * R_SpUS_Y)
+
+# Energieberechnungen für HAT
+Ekin_trans_HAT = 0.5 * m_HAT * v_HAT_COM^2
+Ekin_rot_HAT = 0.5 * thetaHAT * omega_HAT^2
+Ekin_HAT = Ekin_trans_HAT + Ekin_rot_HAT
+Epot_HAT = m_HAT * 9.81 * HAT_COMy
+
+# Energieänderungen für beide Beine
+L_delta_Ekin_rot_leg = lead(L_Ekin_rot_leg) - L_Ekin_rot_leg
+L_delta_Ekin_trans_leg = lead(L_Ekin_trans_leg) - L_Ekin_trans_leg
+L_delta_Epot_leg = lead(L_Epot_leg) - L_Epot_leg
+
+R_delta_Ekin_rot_leg = lead(R_Ekin_rot_leg) - R_Ekin_rot_leg
+R_delta_Ekin_trans_leg = lead(R_Ekin_trans_leg) - R_Ekin_trans_leg
+R_delta_Epot_leg = lead(R_Epot_leg) - R_Epot_leg
+
+# Energieänderungen für HAT
+delta_Ekin_trans_HAT = lead(Ekin_trans_HAT) - Ekin_trans_HAT
+delta_Ekin_rot_HAT = lead(Ekin_rot_HAT) - Ekin_rot_HAT
+delta_Epot_HAT = lead(Epot_HAT) - Epot_HAT
+delta_E_ges_HAT = delta_Ekin_trans_HAT + delta_Ekin_rot_HAT + delta_Epot_HAT
+
+# Gesamte Energieänderung und Leistung für beide Beine
+L_delta_E_ges = L_delta_Ekin_rot_leg + L_delta_Ekin_trans_leg + L_delta_Epot_leg + delta_E_ges_HAT
+R_delta_E_ges = R_delta_Ekin_rot_leg + R_delta_Ekin_trans_leg + R_delta_Epot_leg + delta_E_ges_HAT
+
+E_gesamt = L_Ekin_rot_leg + L_Ekin_trans_leg + L_Epot_leg +
+R_Ekin_rot_leg + R_Ekin_trans_leg + R_Epot_leg +
+Ekin_trans_HAT + Ekin_rot_HAT + Epot_HAT
+
+# Energieänderungen berechnen
+delta_E_gesamt = c(NA, diff(E_gesamt))
+
+# Wint: nur positive Energieänderungen
+Wint = pmax(0, delta_E_gesamt)
+
+# PInt aus den positiven Energieänderungen
+PInt_Kinematik = Wint / delta_t
+
+PInt_Kinematik_HAT_avg = mean(PInt_Kinematik, na.rm = TRUE)
+    
+```
+
+```{r echo=FALSE, output=FALSE}
+library(readxl)
+library(dplyr)
+library(pracma)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(RColorBrewer)
+library(tidyr)
+library(zoo)
+library(htmlwidgets)
+library(ggplot2)
+library(minpack.lm) 
+
+Kinematik_list_HAT <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Formel, Berechnungen/Blindleistung/3D_Daten/Kinematik_list_HAT.rds")
+Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+
+Erg_data_df_base <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df_base.rds")
+Erg_data_df_base <- subset(Erg_data_df_base, !Proband %in% c(2, 3))
+
+Erg_data_df <- Erg_data_df_base
+Erg_data_df <- subset(Erg_data_df, !Proband %in% c(2, 3))
+
+Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Erg_data_komplett  <- subset(Erg_data_komplett , !Proband %in% c(2, 3))
+
+###### PInt anhand der Kinematik Daten berechnen ######
+
+# Initialisiere die Listen für die Ergebnisse
+PInt_Kinematik_list_HAT <- list()
+PInt_Kinematik_HAT_avg_list <- list()
+plotly_Pint_list <- list()
+
+# Schleife durch alle Einträge in Kinematik_list_HAT
+for (name in names(Kinematik_list_HAT)) {
+  # Lese die Daten ein
+  df <- Kinematik_list_HAT[[name]]
+  current_name <- name 
+  Bedingung <- Erg_data_df$Bedingung[Erg_data_df$Name == current_name]
+  
+  # Entferne die erste und letzte Zeile und fügt Masse hinzu
+  df <- df[-c(1, nrow(df)), ] %>% 
+    mutate(Masse = Erg_data_df[Erg_data_df$Name == name, "Masse"])
+  
+  # Definiere die ausgewählten Spalten und deren neue Namen direkt
+  selected_columns <- c(Frame = "Frame",
+                        L_P0x = "Kurbelachse_X", L_P0y = "Kurbelachse_Y",
+                        L_P3x = "LHJC_X", L_P3y = "LHJC_Y",
+                        L_P2x = "LKJC_X", L_P2y = "LKJC_Y",
+                        L_P1x = "LToe_X", L_P1y = "LToe_Y",
+                        LAJC_X = "LAJC_X", LAJC_Y = "LAJC_Y",
+                        HAT_COMx = "HAT_COM_X", HAT_COMy = "HAT_COM_Y")
+  
+  # Bestimme die Zykluslänge anhand der linken Seite
+  phi1_left <- atan2(df$LToe_Y, df$LToe_X)
+  phi1_left[phi1_left < 0] <- phi1_left[phi1_left < 0] + 2 * pi
+  
+  # Finde Zykluslänge
+  starts <- which(abs(diff(phi1_left)) > pi)
+  if(length(starts) >= 3) {  # Prüfe ob mindestens 3 Startpunkte gefunden wurden
+    Laenge_Zyklus <- starts[3] - starts[2]  # Nimm den zweiten kompletten Zyklus
+  } else if(length(starts) >= 2) {
+    Laenge_Zyklus <- starts[2] - starts[1]  # Fallback auf ersten Zyklus
+  } else {
+    Laenge_Zyklus <- nrow(df)  # Fallback wenn keine klaren Zyklen gefunden
+  }
+  
+  # Verschiebe die linken Koordinaten um einen halben Zyklus für die rechte Seite
+  shift_amount <- round(Laenge_Zyklus/2)
+  
+  # Erstelle neue Spalten für die rechte Seite
+  df$R_P0x <- c(df$Kurbelachse_X[-(1:shift_amount)], df$Kurbelachse_X[1:shift_amount])
+  df$R_P0y <- c(df$Kurbelachse_Y[-(1:shift_amount)], df$Kurbelachse_Y[1:shift_amount])
+  df$R_P3x <- c(df$LHJC_X[-(1:shift_amount)], df$LHJC_X[1:shift_amount])
+  df$R_P3y <- c(df$LHJC_Y[-(1:shift_amount)], df$LHJC_Y[1:shift_amount])
+  df$R_P2x <- c(df$LKJC_X[-(1:shift_amount)], df$LKJC_X[1:shift_amount])
+  df$R_P2y <- c(df$LKJC_Y[-(1:shift_amount)], df$LKJC_Y[1:shift_amount])
+  df$R_P1x <- c(df$LToe_X[-(1:shift_amount)], df$LToe_X[1:shift_amount])
+  df$R_P1y <- c(df$LToe_Y[-(1:shift_amount)], df$LToe_Y[1:shift_amount])
+  df$RAJC_X <- c(df$LAJC_X[-(1:shift_amount)], df$LAJC_X[1:shift_amount])
+  df$RAJC_Y <- c(df$LAJC_Y[-(1:shift_amount)], df$LAJC_Y[1:shift_amount])
+  
+  # Definiere die ausgewählten Spalten und deren neue Namen
+  selected_columns <- c(Frame = "Frame",
+                        L_P0x = "Kurbelachse_X", L_P0y = "Kurbelachse_Y",
+                        L_P3x = "LHJC_X", L_P3y = "LHJC_Y",
+                        L_P2x = "LKJC_X", L_P2y = "LKJC_Y",
+                        L_P1x = "LToe_X", L_P1y = "LToe_Y",
+                        LAJC_X = "LAJC_X", LAJC_Y = "LAJC_Y",
+                        R_P0x = "R_P0x", R_P0y = "R_P0y",
+                        R_P3x = "R_P3x", R_P3y = "R_P3y",
+                        R_P2x = "R_P2x", R_P2y = "R_P2y",
+                        R_P1x = "R_P1x", R_P1y = "R_P1y",
+                        RAJC_X = "RAJC_X", RAJC_Y = "RAJC_Y",
+                        HAT_COMx = "HAT_COM_X", HAT_COMy = "HAT_COM_Y")
+  
+  # Nur ausgewälte Spalten
+  df <- df %>%
+    select(all_of(selected_columns))
+
+  # Funktion, um korrekten Winkelunterschied für zyklische Bewegungen zu berechnen
+  corrected_delta_phi1 <- function(phi1) {
+    # Berechnet die Winkeldifferenz zwischen aufeinanderfolgenden Werten. Fügt 'NA' für den letzten Wert ein.
+    delta_phi1 = diff(phi1)
+    
+    # Korrigiert die Winkeldifferenzen, die die Grenzen einer zyklischen Bewegung überschreiten.
+    # Für Übergänge nahe der Grenzen (0 und 360 Grad oder 0 und 2*pi), passen wir die Differenz an, um korrekte kleine Werte zu erhalten statt großer Sprünge.
+    delta_phi1 = ifelse(delta_phi1 > pi, delta_phi1 - 2*pi, delta_phi1)
+    delta_phi1 = ifelse(delta_phi1 < -pi, delta_phi1 + 2*pi, delta_phi1)
+    
+    # Nimmt die letzten 3 Änderungen oder alle vorhandenen, falls weniger als 3
+    num_values = min(length(delta_phi1), 3)
+    last_values = tail(delta_phi1, num_values)
+    
+    # Berechnet die durchschnittliche Differenz der letzten Werte
+    avg_difference = mean(last_values, na.rm = TRUE)
+    
+    # Fügt die durchschnittliche Differenz zum letzten verfügbaren Wert hinzu, um den nächsten Wert zu schätzen
+    extrapolated_value = last(phi1) + avg_difference  # Der neue Wert basiert auf dem letzten phi1-Wert
+    
+    # Fügt den extrapolierten Wert zum Vektor hinzu
+    delta_phi1 = c(delta_phi1, extrapolated_value - last(phi1))  # Differenz zum letzten phi1
+    
+    return(delta_phi1)
+  }
+  
+  # Konstanten und Parameter
+  Masse <- Erg_data_df[Erg_data_df$Name == name, "Masse"]
+  uOS <- Erg_data_df[Erg_data_df$Name == name, "uOS"]
+  uUS <- Erg_data_df[Erg_data_df$Name == name, "uUS"]
+  lBein <- Erg_data_df[Erg_data_df$Name == name, "lBein"]
+  Faktor <- 1.0
+  S <- lBein * 0.883 * Faktor
+  rRelOS <- 0.1416
+  rRelUS <- 0.0433
+  lambdaOS <- 0.433
+  lambdaUS <- 0.433
+  mOS <- Masse * rRelOS
+  mUS <- Masse * rRelUS
+  thetaKurbel <- 0.002
+  
+  # Berechne Energien für beide Beine
+  df <- df %>%
+    mutate(
+      # Linkes Bein
+      L_phi1 = ifelse(atan2(L_P1y, L_P1x) < 0, atan2(L_P1y, L_P1x) + 2 * pi, atan2(L_P1y, L_P1x)),
+      L_Grad = L_phi1 * (180 / pi),
+      delta_t = 1 / 100,
+      L_delta_phi1 = corrected_delta_phi1(L_phi1),
+      L_omega = L_delta_phi1 / delta_t,
+      L_nD = L_omega / (2 * pi) * 60,
+      L_nD_avg = mean(L_omega, na.rm = TRUE) / (2 * pi) * 60,
+      
+      # Rechtes Bein
+      R_phi1 = ifelse(atan2(R_P1y, R_P1x) < 0, atan2(R_P1y, R_P1x) + 2 * pi, atan2(R_P1y, R_P1x)),
+      R_Grad = R_phi1 * (180 / pi),
+      R_delta_phi1 = corrected_delta_phi1(R_phi1),
+      R_omega = R_delta_phi1 / delta_t,
+      
+      # Längen und Trägheitsmomente für beide Beine
+      L_lOS = sqrt((L_P3x-L_P2x)^2+(L_P3y-L_P2y)^2),
+      L_lUS = sqrt((L_P2x-LAJC_X)^2+(L_P2y-LAJC_Y)^2),
+      R_lOS = sqrt((R_P3x-R_P2x)^2+(R_P3y-R_P2y)^2),
+      R_lUS = sqrt((R_P2x-RAJC_X)^2+(R_P2y-RAJC_Y)^2),
+      
+      L_lOS_avg = mean(L_lOS),
+      L_lUS_avg = mean(L_lUS),
+      R_lOS_avg = mean(R_lOS),
+      R_lUS_avg = mean(R_lUS),
+      
+      thetaOS = (1/4) * mOS * (uOS / (2 * pi))^2 + (1/12) * mOS * L_lOS_avg^2,
+      thetaUS = (1/4) * mUS * (uUS / (2 * pi))^2 + (1/12) * mUS * L_lUS_avg^2,
+      
+      # HAT Berechnungen
+      m_HAT = Masse * 0.678,
+      lHAT = sqrt((HAT_COMx - L_P3x)^2 + (HAT_COMy - L_P3y)^2),
+      thetaHAT = m_HAT * (lHAT * 0.496)^2,
+      
+      # Schwerpunkte für beide Beine
+      L_SpOS_X = L_P3x - lambdaOS * (L_P3x-L_P2x),
+      L_SpOS_Y = L_P3y - lambdaOS * (L_P3y-L_P2y),
+      L_SpUS_X = L_P2x - lambdaOS * (L_P2x-LAJC_X),
+      L_SpUS_Y = L_P2y - lambdaOS * (L_P2y-LAJC_Y),
+      
+      R_SpOS_X = R_P3x - lambdaOS * (R_P3x-R_P2x),
+      R_SpOS_Y = R_P3y - lambdaOS * (R_P3y-R_P2y),
+      R_SpUS_X = R_P2x - lambdaOS * (R_P2x-RAJC_X),
+      R_SpUS_Y = R_P2y - lambdaOS * (R_P2y-RAJC_Y),
+      
+      # Geschwindigkeiten der Schwerpunkte
+      L_d_SpOS = sqrt((lead(L_SpOS_X) - L_SpOS_X)^2 + (lead(L_SpOS_Y) - L_SpOS_Y)^2),
+      L_d_SpUS = sqrt((lead(L_SpUS_X) - L_SpUS_X)^2 + (lead(L_SpUS_Y) - L_SpUS_Y)^2),
+      R_d_SpOS = sqrt((lead(R_SpOS_X) - R_SpOS_X)^2 + (lead(R_SpOS_Y) - R_SpOS_Y)^2),
+      R_d_SpUS = sqrt((lead(R_SpUS_X) - R_SpUS_X)^2 + (lead(R_SpUS_Y) - R_SpUS_Y)^2),
+      
+      L_v_SpOS = ifelse(is.na(L_d_SpOS), NA, L_d_SpOS / delta_t),
+      L_v_SpUS = ifelse(is.na(L_d_SpUS), NA, L_d_SpUS / delta_t),
+      R_v_SpOS = ifelse(is.na(R_d_SpOS), NA, R_d_SpOS / delta_t),
+      R_v_SpUS = ifelse(is.na(R_d_SpUS), NA, R_d_SpUS / delta_t),
+      
+      # HAT Bewegungen
+      d_HAT_COM = sqrt((lead(HAT_COMx) - HAT_COMx)^2 + (lead(HAT_COMy) - HAT_COMy)^2),
+      v_HAT_COM = ifelse(is.na(d_HAT_COM), NA, d_HAT_COM / delta_t),
+      phi_HAT = atan2(HAT_COMy - L_P3y, HAT_COMx - L_P3x),
+      omega_HAT = (lead(phi_HAT) - phi_HAT) / delta_t,
+      
+      # Winkel und Winkelgeschwindigkeiten für beide Beine
+      L_phi2 = acos((L_P2x-L_P1x) / L_lUS),
+      L_phi3 = acos((L_P3x-L_P2x) / L_lOS),
+      R_phi2 = acos((R_P2x-R_P1x) / R_lUS),
+      R_phi3 = acos((R_P3x-R_P2x) / R_lOS),
+      
+      L_omega_SpOS = (lead(L_phi2) - L_phi2) / delta_t,
+      L_omega_SpUS = (lead(L_phi3) - L_phi3) / delta_t,
+      L_omega_Kurbel = (lead(L_phi2) - L_phi2) / delta_t,
+      
+      R_omega_SpOS = (lead(R_phi2) - R_phi2) / delta_t,
+      R_omega_SpUS = (lead(R_phi3) - R_phi3) / delta_t,
+      R_omega_Kurbel = (lead(R_phi2) - R_phi2) / delta_t,
+      
+      # Energieberechnungen für beide Beine
+      L_Ekin_rot_leg = 0.5 * (thetaOS * L_omega_SpOS^2 + thetaUS * L_omega_SpUS^2 + thetaKurbel * L_omega_Kurbel^2),
+      L_Ekin_trans_leg = 0.5 * (mOS * L_v_SpOS^2 + mUS * L_v_SpUS^2),
+      L_Ekin_leg = L_Ekin_rot_leg + L_Ekin_trans_leg,
+      L_Epot_leg = (mOS * 9.81 * L_SpOS_Y) + (mUS * 9.81 * L_SpUS_Y),
+      
+      R_Ekin_rot_leg = 0.5 * (thetaOS * R_omega_SpOS^2 + thetaUS * R_omega_SpUS^2 + thetaKurbel * R_omega_Kurbel^2),
+      R_Ekin_trans_leg = 0.5 * (mOS * R_v_SpOS^2 + mUS * R_v_SpUS^2),
+      R_Ekin_leg = R_Ekin_rot_leg + R_Ekin_trans_leg,
+      R_Epot_leg = (mOS * 9.81 * R_SpOS_Y) + (mUS * 9.81 * R_SpUS_Y),
+      
+      # Energieberechnungen für HAT
+      Ekin_trans_HAT = 0.5 * m_HAT * v_HAT_COM^2,
+      Ekin_rot_HAT = 0.5 * thetaHAT * omega_HAT^2,
+      Ekin_HAT = Ekin_trans_HAT + Ekin_rot_HAT,
+      Epot_HAT = m_HAT * 9.81 * HAT_COMy,
+      
+      # Energieänderungen für beide Beine
+      L_delta_Ekin_rot_leg = lead(L_Ekin_rot_leg) - L_Ekin_rot_leg,
+      L_delta_Ekin_trans_leg = lead(L_Ekin_trans_leg) - L_Ekin_trans_leg,
+      L_delta_Epot_leg = lead(L_Epot_leg) - L_Epot_leg,
+      
+      R_delta_Ekin_rot_leg = lead(R_Ekin_rot_leg) - R_Ekin_rot_leg,
+      R_delta_Ekin_trans_leg = lead(R_Ekin_trans_leg) - R_Ekin_trans_leg,
+      R_delta_Epot_leg = lead(R_Epot_leg) - R_Epot_leg,
+      
+      # Energieänderungen für HAT
+      delta_Ekin_trans_HAT = lead(Ekin_trans_HAT) - Ekin_trans_HAT,
+      delta_Ekin_rot_HAT = lead(Ekin_rot_HAT) - Ekin_rot_HAT,
+      delta_Epot_HAT = lead(Epot_HAT) - Epot_HAT,
+      delta_E_ges_HAT = delta_Ekin_trans_HAT + delta_Ekin_rot_HAT + delta_Epot_HAT,
+      
+      # Gesamte Energieänderung und Leistung für beide Beine
+      L_delta_E_ges = L_delta_Ekin_rot_leg + L_delta_Ekin_trans_leg + L_delta_Epot_leg + delta_E_ges_HAT,
+      R_delta_E_ges = R_delta_Ekin_rot_leg + R_delta_Ekin_trans_leg + R_delta_Epot_leg + delta_E_ges_HAT,
+      
+      E_gesamt = L_Ekin_rot_leg + L_Ekin_trans_leg + L_Epot_leg + 
+        R_Ekin_rot_leg + R_Ekin_trans_leg + R_Epot_leg +
+        Ekin_trans_HAT + Ekin_rot_HAT + Epot_HAT
+    ) %>%
+    slice(1:(n() - 2))
+  
+  # Funktion zur Ausreißerbehandlung
+  fensterbreite <- 15
+  fensterbreite_mittel <- 10
+  fensterbreite_klein <- 5
+  
+  handle_outliers <- function(df, column_name) {
+    # Berechne Quartile und IQR
+    Q1 <- quantile(df[[column_name]], 0.25, na.rm = TRUE)
+    Q3 <- quantile(df[[column_name]], 0.75, na.rm = TRUE)
+    IQR <- Q3 - Q1
+    
+    # Definiere Grenzen
+    lower_bound <- Q1 - 1.5 * IQR
+    upper_bound <- Q3 + 1.5 * IQR
+    
+    # Ersetze Ausreißer mit NA
+    df[[column_name]] <- ifelse(df[[column_name]] < lower_bound | df[[column_name]] > upper_bound, 
+                                NA, df[[column_name]])
+    
+    # Imputiere NA-Werte
+    for (i in 1:length(df[[column_name]])) {
+      if (is.na(df[[column_name]][i])) {
+        valid_indices_above <- which(!is.na(df[[column_name]][i:min(i+2, nrow(df))]))
+        valid_indices_below <- which(!is.na(df[[column_name]][max(i-2, 1):i]))
+        
+        if (length(valid_indices_above) > 0 && length(valid_indices_below) > 0) {
+          upper_mean <- mean(df[[column_name]][i + valid_indices_above], na.rm = TRUE)
+          lower_mean <- mean(df[[column_name]][i - valid_indices_below], na.rm = TRUE)
+          df[[column_name]][i] <- mean(c(upper_mean, lower_mean), na.rm = TRUE)
+        } else if (length(valid_indices_above) > 0) {
+          df[[column_name]][i] <- mean(df[[column_name]][i + valid_indices_above], na.rm = TRUE)
+        } else if (length(valid_indices_below) > 0) {
+          df[[column_name]][i] <- mean(df[[column_name]][i - valid_indices_below], na.rm = TRUE)
+        }
+      }
+    }
+    
+    return(df)
+  }
+  
+  # Liste der Energiespalten
+  energy_columns <- c(
+    "L_Ekin_rot_leg",      
+    "L_Ekin_trans_leg",    
+    "L_Epot_leg",          
+    "R_Ekin_rot_leg",      
+    "R_Ekin_trans_leg",    
+    "R_Epot_leg",          
+    "Ekin_trans_HAT",      
+    "Ekin_rot_HAT",        
+    "Epot_HAT",            
+    "R_Ekin_leg",          
+    "L_Ekin_leg",          
+    "Ekin_HAT",
+    "E_gesamt"
+  )
+  
+  # Ausreißer für alle Spalten entfernen
+  for (col in energy_columns) {
+    df <- handle_outliers(df, col)
+  }
+  
+  
+  # Frame manuell bearbeiten falls fehlerhaft
+  df$Frame <- as.numeric(df$Frame)
+  df <- df %>%
+    filter(case_when(
+      current_name == "01_1" ~ Frame <= 954,
+      current_name == "01_2" ~ Frame <= 930,
+      current_name == "01_3" ~ Frame <= 954,
+      current_name == "06_2" ~ Frame <= 952,
+      current_name == "06_4" ~ Frame >= 119,
+      current_name == "06_6" ~ Frame <= 390 | Frame > 551,
+      current_name == "15_2" ~ Frame <= 926,
+      current_name == "15_4" ~ Frame <= 940,
+      current_name == "15_5" ~ Frame <= 939,
+      current_name == "15_6" ~ Frame <= 977,
+      current_name == "19_2" ~ Frame <= 980,
+      current_name == "19_3" ~ Frame <= 983,
+      current_name == "19_5" ~ Frame <= 957,
+      TRUE ~ TRUE
+    ))
+  
+  # Filterung der Frames 
+  df <- df %>%
+    mutate(Frame = as.numeric(as.character(Frame))) %>%
+    filter(Frame >= Laenge_Zyklus) %>%
+    filter(Frame <= max(Frame) - (max(Frame) %% Laenge_Zyklus))
+  
+  # Wint und Pint aus den ungeglätteten Daten berechnen
+  df <- df %>%
+    mutate(
+      # Energieänderungen berechnen
+      delta_E_gesamt = c(NA, diff(E_gesamt)),
+      
+      # Wint: nur positive Energieänderungen
+      Wint = pmax(0, delta_E_gesamt),
+      
+      # PInt aus den positiven Energieänderungen
+      PInt_Kinematik = Wint / delta_t,
+      PInt_Kinematik_HAT_avg = mean(PInt_Kinematik, na.rm = TRUE)
+    )
+  
+  # Teil 2: Neue geglättete Spalten erstellen
+  for (col in energy_columns) {
+    # Neue Spalte mit _smooth Suffix erstellen
+    smooth_col <- paste0(col, "_smooth")
+    # Glättung mit definierter Fensterbreite durchführen
+    df[[smooth_col]] <- stats::filter(df[[col]], 
+                                      rep(1/fensterbreite, fensterbreite), 
+                                      sides = 2)
+  }
+  
+  # Pint und Wint nach Glättung berechnen
+  #df <- df %>%
+    # Energieänderungen berechnen
+    #mutate(delta_E_gesamt = c(NA, diff(E_gesamt)),
+           
+           # Wint: nur positive Energieänderungen
+           #Wint = pmax(0, delta_E_gesamt),
+           
+           # PInt aus den positiven Energieänderungen
+           #PInt_Kinematik = Wint / delta_t,
+           #PInt_Kinematik_avg = mean(PInt_Kinematik, na.rm = TRUE))
+  
+  # Ausreißerbehandlung für PInt_Kinematik
+  df <- handle_outliers(df, "PInt_Kinematik")
+  
+  # Glättung für PInt_Kinematik
+  df$PInt_Kinematik_smooth <- stats::filter(df$PInt_Kinematik,rep(1/fensterbreite_klein, fensterbreite_klein),sides = 2)
+  # Glättung für WInt
+  df$WInt_smooth <- stats::filter(df$Wint, rep(1/fensterbreite_klein, fensterbreite_klein), sides = 2)
+  # Glättung für delta_E_gesamt
+  df$delta_E_gesamt_smooth <- stats::filter(df$delta_E_gesamt, rep(1/fensterbreite_klein, fensterbreite_klein), sides = 2)
+  
+  # Berechne PInt Durchschnittswerte mit der geglätteten Version
+  #PInt_Kinematik_HAT_avg = mean(df$PInt_Kinematik, na.rm = TRUE)
+  
+  # Speichere das bearbeitete DataFrame
+  PInt_Kinematik_list_HAT[[name]] <- df
+  
+  # Berechne Mittelwert von nD_avg für Plots
+  mean_nD_avg <- mean(df$L_nD_avg, na.rm = TRUE)
+  
+  df$Epot_gesamt_smooth <- df$Epot_HAT_smooth + df$L_Epot_leg_smooth + df$R_Epot_leg_smooth
+  df$Ekin_gesamt_smooth <- df$Ekin_HAT_smooth + df$L_Ekin_leg_smooth + df$R_Ekin_leg_smooth
+  
+  df$Ekin_trans_gesamt_smooth <- df$Ekin_trans_HAT_smooth + df$L_Ekin_trans_leg_smooth + df$R_Ekin_trans_leg_smooth
+  df$Ekin_rot_gesamt_smooth <- df$Ekin_rot_HAT_smooth + df$L_Ekin_rot_leg_smooth + df$R_Ekin_rot_leg_smooth
+  
+  PInt_Kinematik_HAT_avg = mean(df$PInt_Kinematik_HAT_avg, na.rm = TRUE)
+  
+  PInt_Kinematik_HAT_avg_list[[name]] <- list(
+    Laenge_Zyklus = Laenge_Zyklus,
+    nD = mean_nD_avg,
+    PInt_Kinematik_HAT_avg = PInt_Kinematik_HAT_avg
+  )
+  
+  plot1 <- plot_ly(df, x = ~Frame, y = ~PInt_Kinematik_smooth, type = "scatter", mode = "lines", 
+                   name = "P<sub>Int</sub>", line = list(color = '#80CDC1')) %>%
+    add_trace(x = c(min(df$Frame), max(df$Frame)), 
+              y = rep(PInt_Kinematik_HAT_avg, 2),
+              type = "scatter",
+              mode = "lines",
+              line = list(color = "lightgray", dash = "dash"),
+              showlegend = FALSE) %>%
+    add_annotations(x = min(df$Frame),
+                    y = PInt_Kinematik_HAT_avg,
+                    text = paste("P<sub>Int</sub> =", round(PInt_Kinematik_HAT_avg, 2), "Watt"),
+                    showarrow = FALSE,
+                    yanchor = "bottom",
+                    xanchor = "left",
+                    yshift = 10) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           yaxis = list(
+             title = "P<sub>Int</sub> [Watt]", 
+             range = c(0, 300)
+           ),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+
+  plot2 <- plot_ly(df, x = ~Frame, y = ~delta_E_gesamt_smooth, type = "scatter", mode = "lines", 
+                   name = "ΔE<sub>Gesamt</sub>", line = list(color = "#35978F")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "ΔE<sub>Gesamt</sub> [J]", 
+             dtick = 1, 
+             range = c(-5, 5)
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  
+  plot3 <- plot_ly(df, x = ~Frame, y = ~WInt_smooth, type = "scatter", mode = "lines", 
+                   name = "W<sub>Int<sub>", line = list(color = "#9C85C0")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "W<sub>Int</sub> [J]", 
+             dtick = 0.5, 
+             range = c(0, 5.0)
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  plot4 <- plot_ly(df, x = ~Frame, y = ~Epot_HAT_smooth, type = "scatter", mode = "lines", 
+                   name = "E<sub>Pot,HAT</sub>", line = list(color = "#2683C6")) %>%
+    add_trace(y = ~R_Epot_leg_smooth, name = "E<sub>Pot,,Rechts</sub>", mode = "lines", 
+              line = list(color = "#62A39F")) %>%
+    add_trace(y = ~L_Epot_leg_smooth, name = "E<sub>Pot,,Links</sub>", mode = "lines", 
+              line = list(color = "#C8133B")) %>%
+    add_trace(y = ~Epot_gesamt_smooth, name = "E<sub>Pot,,Gesamt</sub>", mode = "lines",
+              line = list(color = "darkgrey", dash = "dot")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "E<sub>Pot</sub> [J]", 
+             dtick = 50, 
+             range = c(0, 700)
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  
+  plot5 <- plot_ly(df, x = ~Frame, y = ~Ekin_trans_HAT, type = "scatter", mode = "lines", 
+                   name = "E<sub>Kin,trans,HAT</sub>", line = list(color = "#1CADE4")) %>%
+    add_trace(y = ~R_Ekin_trans_leg_smooth, name = "E<sub>Kin,trans,Rechts</sub>", mode = "lines", 
+              line = list(color = "#42BA97")) %>%
+    add_trace(y = ~L_Ekin_trans_leg_smooth, name = "E<sub>Kin,trans,Links</sub>", mode = "lines", 
+              line = list(color = "#F4737A")) %>%
+    add_trace(y = ~Ekin_trans_gesamt_smooth, name = "E<sub>Kin,trans,Gesamt</sub>", mode = "lines",
+              line = list(color = "darkgrey", dash = "dot")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "E<sub>Kin,trans</sub> [J]", 
+             dtick = 2.0, 
+             range = c(0, 20.0),
+             tickformat = ".1f"
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  plot6 <- plot_ly(df, x = ~Frame, y = ~Ekin_rot_HAT_smooth, type = "scatter", mode = "lines", 
+                   name = "E<sub>Kin,rot,HAT</sub>", line = list(color = "#1CADE4")) %>%
+    add_trace(y = ~R_Ekin_rot_leg_smooth, name = "E<sub>Kin,rot,Rechts</sub>", mode = "lines", 
+              line = list(color = "#42BA97")) %>%
+    add_trace(y = ~L_Ekin_rot_leg_smooth, name = "E<sub>Kin,rot,Links</sub>", mode = "lines", 
+              line = list(color = "#F4737A")) %>%
+    add_trace(y = ~Ekin_rot_gesamt_smooth, name = "E<sub>Kin,rot,Gesamt</sub>", mode = "lines",
+              line = list(color = "darkgrey", dash = "dot")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "E<sub>Kin,rot</sub> [J]", 
+             dtick = 0.2, 
+             range = c(0, 3.0),
+             tickformat = ".1f"
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  plot7 <- plot_ly(df, x = ~Frame, y = ~Ekin_HAT, type = "scatter", mode = "lines", 
+                   name = "E<sub>Kin,HAT</sub>", line = list(color = "#1CADE4")) %>%
+    add_trace(y = ~R_Ekin_leg_smooth, name = "E<sub>Kin,Rechts</sub>", mode = "lines", 
+              line = list(color = "#42BA97")) %>%
+    add_trace(y = ~L_Ekin_leg_smooth, name = "E<sub>Kin,Links</sub>", mode = "lines", 
+              line = list(color = "#F4737A")) %>%
+    add_trace(y = ~Ekin_gesamt_smooth, name = "E<sub>Kin,gesamt</sub>", mode = "lines",
+              line = list(color = "darkgrey", dash = "dot")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "E<sub>Kin</sub> [J]", 
+             dtick = 1.0, 
+             range = c(0, 20.0),
+             tickformat = ".1f"
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  plot8 <- plot_ly(df, x = ~Frame, y = ~E_gesamt, type = "scatter", mode = "lines", 
+                   name = "E<sub>Gesamt</sub>", line = list(color = "#35978F")) %>%
+    layout(title = paste('Proband', name,'-', Bedingung),
+           margin = list(t = 40),
+           yaxis = list(
+             title = "E<sub>Gesamt</sub> [J]", 
+             dtick = 20, 
+             range = c(500.0, 660.0)
+           ),
+           xaxis = list(title = "Frame", dtick = Laenge_Zyklus),
+           legend = list(
+             x = 0.98,
+             y = 0.98,
+             xanchor = 'right',
+             yanchor = 'top'
+           ),
+           annotations = list(
+             list(
+               x = 0.02, y = 0.95, xref = 'paper', yref = 'paper',
+               text = paste("Drehzahl =", round(mean_nD_avg, 2), "U · min<sup>-1</sup>"),
+               showarrow = FALSE,
+               font = list(size = 12)
+             )
+           ))
+  
+  # Speichere die Plots
+  plotly_Pint_list[[name]] <- list(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8)
+}
+```
+
+::: {.panel-tabset}
+#### E~Pot~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Epot_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[4]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Epot_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[4]]
+```
+
+#### E~Kin,trans~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_trans_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[5]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_trans_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[5]]
+```
+#### E~Kin,rot~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_rot_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[6]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_rot_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[6]]
+```
+#### E~Kin,gesamt~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_gesamt_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[7]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Ekin_gesamt_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[7]]
+```
+#### E~Gesamt~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_E_gesamt_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[8]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_E_gesamt_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[8]]
+```
+#### ΔE~Gesamt~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_delta_E_gesamt_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[2]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_delta_E_gesamt_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[2]]
+```
+#### P~Int~
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Pint_sitzen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_6"]][[1]]
+```
+
+```{r}
+#| label: fig-PInt_Kinematik_HAT_Pint_stehen
+#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap-location: bottom
+
+plotly_Pint_list[["15_5"]][[1]]
+```
 :::
 
-::: {.column width="50%"}
-![Stehen](images/Modell_Kinematik_stehen.html){width="500" height="720"}
+##### Zusammenhang der P<sub>Int,Kinematik,HAT</sub>-Werte und der Drehzahl
+In @fig-PInt_Kinematik_HAT_Drehzahl und @fig-PInt_Kinematik_HAT_Drehzahl_kg ist der Zusammenhang zwischen den P~Int,Kinematik,HAT~-Werten und der Trittrate dargestellt. Zur mathematischen Beschreibung dieses Zusammenhangs wurde für beide Körperpositionen eine Approximation durch spezifische Modellfunktionen durchgeführt.<br>
+Für die stehende Position kommt wie in @eq-PInt_Modell eine Kombination aus linearem und kubischem Term zur Anwendung. Diese Modellierung berücksichtigt sowohl den erwarteten linearen Anstieg der Änderungen der potentiellen Energie der Segmente als auch die kubische Zunahme der Änderungen der kinetischen Energie der Segmente mit steigender Trittrate [@Sjøgaard2002].<br>
+Für die sitzende Position wurde ein rein kubischer Zusammenhang angenommen. Diese Vereinfachung basiert auf der Annahme, dass die Änderungen der potentiellen Energie der Körpersegmente im Sitzen einen vernachlässigbaren Einfluss auf die P~Int,Kinematik,HAT~-Werte haben und die innere Leistung primär durch die Veränderungen der kinetischen Energie der Segmente bestimmt wird.
+
+::: {.panel-tabset}
+
+#### P<sub>Int,Kinematik,HAT</sub> x nD
+
+![Zusammenhang der P<sub>Int,Kinematik,HAT</sub>-Werte und der Drehzahl](images/PInt_Kinematik_HAT.html){#fig-PInt_Kinematik_HAT_Drehzahl width="1200" height="550"}
+
+#### P<sub>Int,Kinematik,HAT,kg</sub> x nD
+
+![Zusammenhang der gewichtsbezogenen P<sub>Int,Kinematik,HAT</sub>-Werte und der Drehzahl](images/PInt_Kinematik_HAT_kg.html){#fig-PInt_Kinematik_HAT_Drehzahl_kg width="1200" height="550"}
+
 :::
-:::
+
+Die berechneten P~Int,Kinematik,HAT~-Werte im Sitzen betrugen durchschnittlich 38.1 ± 15.8 Watt bei einer mittleren Trittrate von 89.2 ± 8.6 U/min. Diese Werte zeigen eine hohe Übereinstimmung mit den zuvor ermittelten P~Int,Kinematik~-Werten von 40.21 ± 14.38 Watt für denselben Datensatz.<br>
+Ein Vergleich mit den IPWinter-Berechnungen aus @Hansen2004 bestätigt die Validität des Modells für die sitzende Position. Für Trittraten von 61, 88 und 115 U·min^-1^ wurden dort P~Int~-Werte von 7.6, 29.4 und 80.2 Watt berichtet. Die aus der kubischen Funktion in @fig-PInt_Kinematik_HAT_Drehzahl abgeleiteten Werte für P~Int,Kinematik,HAT~ ergaben für diese Trittraten vergleichbare Werte von 11.8, 35.4 und 79.0 Watt.
+
+Im Stehen zeigten sich jedoch deutliche Diskrepanzen. Die P~Int,Kinematik,HAT~-Werte lagen mit durchschnittlich 100.08 ± 20.06 Watt bei einer Trittrate von 72.3 ± 8.7 U·min^-1^ deutlich über den berechneten P~Int,Kinematik~-Werten von 23.6 ± 8.4 Watt für denselben Datensatz. Entgegen der auf Basis physiologischer Belastungsparameter erwarteten Äquivalenz zwischen Stehen und Sitzen der gleichen Belastungsintensität, waren die P~Int,Kinematik,HAT~-Werte im Stehen systematisch erhöht.
+
+Diese Ergebnisse legen nahe, dass das entwickelte Modell für die stehende Position noch Optimierungsbedarf aufweist. Eine mögliche Ursache könnte in der Überschätzung der potentiellen Energieänderungen des HAT-Segments liegen, die einen erheblichen Anteil der Gesamtenergieänderungen ausmachen. Eine Anpassung der Segmentmassen unter Berücksichtigung der Gewichtsverteilung auf die Arme könnte zu den erwarteten, zwischen Sitzen und Stehen vergleichbaren P~Int~-Werten führen. Weitere Untersuchungen sind erforderlich, um ein valides Modell zur Berechnung der inneren Arbeit in stehender Position zu entwickeln.
+
+
 
 ## Quellenverzeichnis
 

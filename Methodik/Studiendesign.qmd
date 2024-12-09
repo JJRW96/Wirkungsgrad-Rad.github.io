@@ -1,4 +1,6 @@
 ---
+title: "Studiendesign"
+
 execute:
   message: false
   echo: false
@@ -10,6 +12,22 @@ lang: de
 number-sections: false
 ---
 
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
+  text-align: justify;
+}
+```
+
 ```{r}
 library(dplyr)
 library(tidyr)
@@ -17,8 +35,6 @@ library(readxl)
 library(ggplot2)
 library(DT)
 ```
-
-# Studiendesign
 
 ## Pilotierung
 

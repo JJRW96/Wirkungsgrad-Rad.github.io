@@ -1,4 +1,6 @@
 ---
+title: "Stichprobe"
+
 execute:
   message: false
   echo: false
@@ -10,7 +12,22 @@ lang: de
 number-sections: false
 ---
 
-# Stichprobe {#sec-Stichprobe}
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
+  text-align: justify;
+}
+```
+
 
 ```{r}
 library(dplyr)

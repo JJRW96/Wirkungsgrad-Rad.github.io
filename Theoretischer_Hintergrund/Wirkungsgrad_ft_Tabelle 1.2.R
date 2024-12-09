@@ -182,7 +182,7 @@ ft_Wirkungsgrad <- flextable(data_sorted) %>%
     j = "Berechnet",
     i = 6, # Luhtanen
     value = as_paragraph(
-      "η", as_sub("brutto"), "\nη", as_sub("netto"), "\nη", as_sub("Arbeit")
+      "η", as_sub("brutto"), "\nη", as_sub("netto"), "\nη", as_sub("muskulär")
     )
   ) %>%
   compose(
@@ -310,7 +310,7 @@ ft_Wirkungsgrad <- flextable(data_sorted) %>%
     value = as_paragraph(
       "η", as_sub("brutto"), " = 17.4 ± 1.0 - 19.7 ± 2.8\n",
       "η", as_sub("netto"), " = 17.5 ± 0.7 - 21.8 ± 2.4\n",
-      "η", as_sub("Arbeit"), " = 21.0 ± 1.5 - 29.7 ± 4.2\n",
+      "η", as_sub("muskulär"), " = 21.0 ± 1.5 - 29.7 ± 4.2\n",
       "→ η sinkt mit steigender Belastungsintensität"
     )
   ) %>%
@@ -346,7 +346,7 @@ ft_Wirkungsgrad <- flextable(data_sorted) %>%
     i = 10, # Millet
     value = as_paragraph(
       "η", as_sub("brutto,sitzen"), " = 22.4 ± 0.8\n",
-      "η", as_sub("brutto,stehen"), " = 22.2 ± 1.7\n",
+      "η", as_sub("brutto,stehen"), " = 22.5 ± 1.9\n",
       "→ Keine sig. Unterschiede zw. ", "η", as_sub("brutto,stehen"), " und η", as_sub("brutto,sitzen")
     )
   ) %>%
@@ -377,7 +377,7 @@ ft_Wirkungsgrad <- flextable(data_sorted) %>%
     value = as_paragraph(
       "η", as_sub("brutto, sitzen"), " = 20.6 ± 1.1 \n",
       "η", as_sub("brutto, stehen"), " = 21.5 ± 5.2 \n",
-      "→ Im Sitzen sig. höherer höherer  ", "η", as_sub("brutto")
+      "→ Im Stehen sig. höherer ", "η", as_sub("brutto")
     )
   ) %>%
   compose(

@@ -34,7 +34,9 @@ caption, .figure-caption {
 figure.quarto-float-tbl figcaption {
   text-align: left !important;
 }
-
+figure figcaption {
+  text-align: justify;
+}
 ```
 
 ```{r}
@@ -679,6 +681,8 @@ $$ {#eq-FICK1}
 Für den Belastungs und Ruhezustand lässt sich @eq-FICK1 wie folgt
 umformen, wobei $\dot{Q}_{Ruhe}$ und $\dot{Q}_{Belastung}$ das
 Herzminutenvolumen in Ruhe und unter Belastung beschreibt:
+
+** WENN FORMELN NICHT KORREKT GETRENNT WERDEN MIT \align oder \gathered arbeiten !!! **
 
 $$ 
 (C_a - C_v) = \frac{\dot{V}O_2}{\dot{Q}}\Rightarrow

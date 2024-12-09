@@ -30,7 +30,9 @@ caption, .figure-caption {
 figure.quarto-float-tbl figcaption {
   text-align: left !important;
 }
-
+figure figcaption {
+  text-align: justify;
+}
 ```
 
 # Wirkungsgrad
@@ -44,11 +46,13 @@ library(DT)
 library(extrafont)
 ```
 
-**Geile Einleitung in @Beneke2001**
+**Geile Einleitung in @Beneke2001 und in @Jobson2012**
+**Jobson2012 hat auch inhalt über Wichtigkeit der gorss effeiciency und der Trainierbarketi**
+**GE erklärte etwa 30% der Variation in der Leistungsabgabe (PO) während Zeitfahren auf dem Fahrrad (1). Folglich wird ein Radfahrer mit hoher GE bei einer bestimmten Leistungsabgabe einen geringeren Energieaufwand haben als ein vergleichbarer Fahrer mit niedrigerer GE. @Jobson2012 und @Carlsson2024 + "Bei Bergaufpassagen wechseln Radfahrer zwischen sitzender und stehender Position, um durch Anpassung des Gleichgewichts zwischen Trittfrequenz und Tangentialkraft eine konstante Geschwindigkeit beizubehalten. Bouillod und Grappe (2018) fanden heraus, dass Eliteradfahrer während eines Bergzeitfahrens mit einer mittleren Steigung von 4,0° (7,0%) 22,4% ihrer Zeit im Stehen fuhren. Bei einer Steigung von 2,9° (5,0%) und einer Leistung von 93% der maximalen Sauerstoffaufnahme (V̇O2max) betrug der Anteil des Stehens laut Harnish et al. (2007) 34%."**
 
 ::: columns
 ::: {.column width="52%"}
-Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.<br> Es existieren mehrere Möglichkeiten den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten. Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten. In der nachfolgenden Tabelle sind verschiedene Möglichkeiten zur Wirkungsgradberechnung aufgeführt [@Boning2017; @Luhtanen1987; @Gaesser1975]:
+Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.<br> Es existieren mehrere Möglichkeiten den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten. Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten. In der nachfolgenden Tabelle sind verschiedene Möglichkeiten zur Wirkungsgradberechnung aufgeführt [@Boning2017; @Luhtanen1987; @Gaesser1975; @Winter1979]:
 :::
 
 ::: {.column width="2%"}
@@ -64,7 +68,7 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 | η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
 | η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
 
-: Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
+: Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Winter (1979), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
 
 :::
 :::
@@ -104,6 +108,14 @@ ft_Wirkungsgrad <- readRDS("rds/ft_Wirkungsgrad.rds")
 # Anzeigen der Tabelle
 ft_Wirkungsgrad
 ```
+
+** NOCH Ferguson2002 für muskulären wirkungsgrad einbauen !!!! 
+- Six healthy male subjects (age 23±3 years, height 180.5±6.8 cm, mass 72.3±6.9kg; means ± S.E.M.) 
+- 6 Minuten aber 3 für Wirkungsgradberechnung 
+- 60 und 120 Umdrehungen in jewiels einer Erhöten Muskeltemp und normalen Muskeltemp bedingung
+- Wirk muskuär bestimmt
+- In 60 (normal/erhöht) / 120 (normal/erhöht) war der Wirkungsgrad  22.2±0.3 / 21.2±0.4  und 22.7±0.6 / 24.0±0.5
+- Autoren haben aber nich gleiche externe Leisung vorgebene sonder glecihe PToT durch vorherige Beerechnung der PInt und dann PExt daran angepasst
 
 ## Werte aus der Literatur
 

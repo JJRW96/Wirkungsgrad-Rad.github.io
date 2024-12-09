@@ -4,23 +4,24 @@ format:
   html:
     resources: 
       - shinylive-sw.js
-
 filters:
   - shinylive
-  
 execute:
+  
   message: false
   echo: false
   warning: false
   error: false
-  
 bibliography: references.bib
 lang: de
 number-sections: false  
 jupyter: false
 engine: knitr
+editor: 
+  markdown: 
+    wrap: 108
 ---
-  
+
 ```{css}
 #| echo: false
 p {
@@ -34,7 +35,6 @@ figure.quarto-float-tbl figcaption {
 }
 
 ```
-  
 
 ```{r}
 library(dplyr)
@@ -44,10 +44,19 @@ library(ggplot2)
 library(DT)
 
 ```
-  
 
-# Stufentests 
-Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählter physiologischer und ergometrischer Parameter der Stufentests, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-ST_mean) dargestellt. Die analysierten Parameter umfassen die maximale mechanische Leistung (P~mech,max~) im Sitzen und Stehen, sowohl als absolute Werte als auch gewichtsbezogenen Werte [W·kg^-1^], den maximales Sauerstoffvolumenstrom ($\dot{V}\text{O}_{2,\text{max}}$) in absoluten [l·min^-1^] und relativen [ml·min^-1^·kg^-1^] Einheiten für beide Stufentests, die bestimmten ventilatorischen Schwellen (VT~1~, VT~2~), sowie die vorgegebenen Leistungen (P~mech,Vorgabe~) und Drehzahlen (nD~Vorgabe~) für die verschiedenen Belastungsintensitäten. Zusätzlich werden die maximale Herzrate (HR~ST,max~) und der O~2~-Umsatz pro Watt (O~2~-Cost of Work) dargestellt.
+# Stufentests
+
+Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählter physiologischer und
+ergometrischer Parameter der Stufentests, wobei alle Werte als Mittelwert ± Standardabweichung angegeben
+werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten
+(@tbl-ST_mean) dargestellt. Die analysierten Parameter umfassen die maximale mechanische Leistung
+(P~mech,max~) im Sitzen und Stehen, sowohl als absolute Werte als auch gewichtsbezogenen Werte \[W·kg^-1^\],
+den maximales Sauerstoffvolumenstrom ($\dot{V}\text{O}_{2,\text{max}}$) in absoluten \[l·min^-1^\] und
+relativen \[ml·min^-1^·kg^-1^\] Einheiten für beide Stufentests, die bestimmten ventilatorischen Schwellen
+(VT~1~, VT~2~), sowie die vorgegebenen Leistungen (P~mech,Vorgabe~) und Drehzahlen (nD~Vorgabe~) für die
+verschiedenen Belastungsintensitäten. Zusätzlich werden die maximale Herzrate (HR~ST,max~) und der
+O~2~-Umsatz pro Watt (O~2~-Cost of Work) dargestellt.
 
 ```{r}
 #| label: tbl-ST_mean
@@ -64,52 +73,61 @@ ft_ST_stats<- readRDS("rds/ft_ST_stats.rds")
 ft_ST_stats
 ```
 
-#### Mechanische Leistung { .unlisted }
-Die maximale mechanische Leistung der letzten vollständig absolvierten Stufe des Stufentests 
-P~mech,max,sitzen~ im Sitzen ST~sitzen~ lag zwischen 330 und 500 W und betrug im Mittel 
-417.8 ± 61.8 W. Die relative maximale mechanische Leistung P~mech,max,sitzen,kg~ erreichte 
-dabei im Durchschnitt aller ST~sitzen~ 6.0 ± 0.5 W·kg^-1^ (R: 5.5-6.9 W·kg^-1^). 
-Beim Stufentest im Stehen wurden bei der letzten Stufe P~mech,max,stehen~-Werte zwischen 
-315 und 500 W erreicht, mit einem Mittelwert von 393.9 ± 60.2 W. Die mittlere relative 
-maximal erreichte Stufenleistung aller Probanden im Stehen P~mech,max,stehen,kg~ betrug 
+#### Mechanische Leistung {.unlisted}
+
+Die maximale mechanische Leistung der letzten vollständig absolvierten Stufe des Stufentests
+P~mech,max,sitzen~ im Sitzen ST~sitzen~ lag zwischen 330 und 500 W und betrug im Mittel 417.8 ± 61.8 W. Die
+relative maximale mechanische Leistung P~mech,max,sitzen,kg~ erreichte dabei im Durchschnitt aller
+ST~sitzen~ 6.0 ± 0.5 W·kg^-1^ (R: 5.5-6.9 W·kg^-1^). Beim Stufentest im Stehen wurden bei der letzten Stufe
+P~mech,max,stehen~-Werte zwischen 315 und 500 W erreicht, mit einem Mittelwert von 393.9 ± 60.2 W. Die
+mittlere relative maximal erreichte Stufenleistung aller Probanden im Stehen P~mech,max,stehen,kg~ betrug
 5.6 ± 0.6 W·kg^-1^ (R: 4.8-6.9 W·kg^-1^).
 
-#### Ventilatorische Kenngrößen { .unlisted }
-Der absolute maximalen Sauerstoffvolumenstrom aller Probanden in den Stufentests lagen im 
-Mittel bei 5.057 ± 0.742 l·min^-1^ ($\dot{V}O_{2,max,abs,ST1}$, R: 3.900-6.181 l·min^-1^) 
-für ST1 und 4.696 ± 0.882 l·min^-1^ ($\dot{V}O_{2,max,abs,ST2}$, R: 3.274-6.107 l·min^-1^) 
-für ST2. Die relativen Mittelwerte aller Probanden betrugen 72.1 ± 4.2 ml·min^-1^·kg^-1^ 
-($\dot{V}O_{2,max,rel,ST1}$, R: 67.8-81.2 ml·min^-1^·kg^-1^) und 
-66.9 ± 8.5 ml·min^-1^·kg^-1^ ($\dot{V}O_{2,max,rel,ST2}$, R: 54.6-81.2 ml·min^-1^·kg^-1^).<br>
-Die ventilatorischen Schwellen wurden auf VT~1~ = 303.9 ± 62.4 W (R: 210-400 W) und 
-VT~2~ = 355.6 ± 64.9 W (R: 255-460 W) festgelegt. 
+#### Ventilatorische Kenngrößen {.unlisted}
 
-#### Ermittelte mechanische Leistungen für die Belastungen an Testtag 2 { .unlisted }
-Die von den ventilatorischen Schwellen abgeleiteten und für den zweiten Testtag vorgegebenen mechanischen Leistungen P~mech,Vorgabe~ lagen für die leichte Belastungsintensität zwischen 185 und 325 W und betrugen im Mittel aller Probanden 258.9 ± 47.7 W. Für die moderate 
-Intensität wurden Leistungen von 290.0 ± 54.3 W (R: 210-380 W) und für die schwere 
-Intensität von 317.8 ± 54.3 W (R: 235-410 W) festgelegt.
+Der absolute maximalen Sauerstoffvolumenstrom aller Probanden in den Stufentests lagen im Mittel bei 5.057 ±
+0.742 l·min^-1^ ($\dot{V}O_{2,max,abs,ST1}$, R: 3.900-6.181 l·min^-1^) für ST1 und 4.696 ± 0.882 l·min^-1^
+($\dot{V}O_{2,max,abs,ST2}$, R: 3.274-6.107 l·min^-1^) für ST2. Die relativen Mittelwerte aller Probanden
+betrugen 72.1 ± 4.2 ml·min^-1^·kg^-1^ ($\dot{V}O_{2,max,rel,ST1}$, R: 67.8-81.2 ml·min^-1^·kg^-1^) und 66.9
+± 8.5 ml·min^-1^·kg^-1^ ($\dot{V}O_{2,max,rel,ST2}$, R: 54.6-81.2 ml·min^-1^·kg^-1^).<br> Die
+ventilatorischen Schwellen wurden auf VT~1~ = 303.9 ± 62.4 W (R: 210-400 W) und VT~2~ = 355.6 ± 64.9 W (R:
+255-460 W) festgelegt.
 
-#### Drehzahl & Herzrate { .unlisted }
-Die vorgegebenen Drehzahlen für die verschiedenen Testbedingungen am zweiten Testtag 
-betrugen im Sitzen nD~Vorgabe,sitzen~ im Mittel aller Probanden 88.4 ± 6.3 U·min^-1^ 
-(R: 79-100 U·min^-1^) und im Stehen nD~Vorgabe,stehen~ 69.1 ± 8.8 U·min^-1^ 
-(R: 59-83 U·min^-1^).<br>
-Die maximal gemessene Herzrate HR~ST,max~ während den beiden Stufentests lag durchschnittlich bei 178.7 ± 7.5 min^-1^ (R: 169-192 min^-1^). 
+#### Ermittelte mechanische Leistungen für die Belastungen an Testtag 2 {.unlisted}
 
-#### Zusammenhang des VO~2,net~ und P~mech,Vorgabe~ { .unlisted }
-Der durchschnittliche O~2~-Umsatz pro Watt über $\dot{V}O_{2,Ruhe}$ wird hier als O~2~-Cost of Work~ST1~ bezeichnet. Dieser betrug, berechnet aus den gemittelten 
-$\dot{V}O_{2}$-Daten aller Probanden im ST1, 11.16 ml·min^-1^·W^-1^ (@fig-ST_O2cost_rel & @fig-ST_O2cost_abs).
+Die von den ventilatorischen Schwellen abgeleiteten und für den zweiten Testtag vorgegebenen mechanischen
+Leistungen P~mech,Vorgabe~ lagen für die leichte Belastungsintensität zwischen 185 und 325 W und betrugen im
+Mittel aller Probanden 258.9 ± 47.7 W. Für die moderate Intensität wurden Leistungen von 290.0 ± 54.3 W (R:
+210-380 W) und für die schwere Intensität von 317.8 ± 54.3 W (R: 235-410 W) festgelegt.
 
-::: {.panel-tabset}
+#### Drehzahl & Herzrate {.unlisted}
+
+Die vorgegebenen Drehzahlen für die verschiedenen Testbedingungen am zweiten Testtag betrugen im Sitzen
+nD~Vorgabe,sitzen~ im Mittel aller Probanden 88.4 ± 6.3 U·min^-1^ (R: 79-100 U·min^-1^) und im Stehen
+nD~Vorgabe,stehen~ 69.1 ± 8.8 U·min^-1^ (R: 59-83 U·min^-1^).<br> Die maximal gemessene Herzrate HR~ST,max~
+während den beiden Stufentests lag durchschnittlich bei 178.7 ± 7.5 min^-1^ (R: 169-192 min^-1^).
+
+#### Zusammenhang des VO~2,net~ und P~mech,Vorgabe~ {.unlisted}
+
+Der durchschnittliche O~2~-Umsatz pro Watt über $\dot{V}O_{2,Ruhe}$ wird hier als O~2~-Cost of Work~ST1~
+bezeichnet. Dieser betrug, berechnet aus den gemittelten $\dot{V}O_{2}$-Daten aller Probanden im ST1, 11.16
+ml·min^-1^·W^-1^ (@fig-ST_O2cost_rel & @fig-ST_O2cost_abs).
+
+::: panel-tabset
 ## Gewichtsbezogene Werte
-![Zusammenhang aller relativer VO~2,net~ und P~mech,Vorgabe~-Werte des Stufentests im Sitzen](images/p_O2_Cost_of_Work_ST_all_relativ.html){#fig-ST_O2cost_rel width="1100" height="450"}
+
+![Zusammenhang aller relativer VO~2,net~ und P~mech,Vorgabe~-Werte des Stufentests im
+Sitzen](images/p_O2_Cost_of_Work_ST_all_relativ.html){#fig-ST_O2cost_rel width="1100" height="450"}
 
 ## Absolute Werte
-![Zusammenhang aller absoluter VO~2,net~ und P~mech,Vorgabe~-Werte des Stufentests im Sitzen](images/p_O2_Cost_of_Work_ST_all_absolut.html){#fig-ST_O2cost_abs width="1100" height="450"}
+
+![Zusammenhang aller absoluter VO~2,net~ und P~mech,Vorgabe~-Werte des Stufentests im
+Sitzen](images/p_O2_Cost_of_Work_ST_all_absolut.html){#fig-ST_O2cost_abs width="1100" height="450"}
 :::
 
 ::: {.callout-note collapse="true"}
-## Tabelle: Parameter der Stufentests aller Probanden{ .unlisted }
+## Tabelle: Parameter der Stufentests aller Probanden {.unlisted}
+
 ```{r}
 #| label: tbl-ST_table
 #| tbl-cap-location: top
@@ -162,62 +180,101 @@ ST_table <- datatable(Stufentest_df_selected,
 
 ST_table
 ```
-::: 
+:::
 
-# Physiologische Parameter beider Stufentests { .unlisted }
-Die folgenden Abbildungen zeigen die individuellen Verläufe der Herzrate, der respiratorischen 
-Parameter $\dot{V}O_{2}$ und $\dot{V}CO_{2}$ sowie der mechanischen Leistung P~mech~ über die 
-Zeit für die Stufentests im Sitzen und Stehen.
+# Physiologische Parameter beider Stufentests {.unlisted}
 
-::: {.panel-tabset}
+Die folgenden Abbildungen zeigen die individuellen Verläufe der Herzrate, der respiratorischen Parameter
+$\dot{V}O_{2}$ und $\dot{V}CO_{2}$ sowie der mechanischen Leistung P~mech~ über die Zeit für die Stufentests
+im Sitzen und Stehen.
+
+::: panel-tabset
 ## Proband 01
-![Belastungsparameter während des Stufentests im Sitzen: Proband 01](images/p_Stufentest_1_ST1.html){#fig-ST1_1 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 01](images/p_Stufentest_1_ST2.html){#fig-ST2_1 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+01](images/p_Stufentest_1_ST1.html){#fig-ST1_1 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+01](images/p_Stufentest_1_ST2.html){#fig-ST2_1 width="1100" height="450"}
 
 ## Proband 06
-![Belastungsparameter während des Stufentests im Sitzen: Proband 06](images/p_Stufentest_6_ST1.html){#fig-ST1_6 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 06](images/p_Stufentest_6_ST2.html){#fig-ST2_6 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+06](images/p_Stufentest_6_ST1.html){#fig-ST1_6 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+06](images/p_Stufentest_6_ST2.html){#fig-ST2_6 width="1100" height="450"}
 
 ## Proband 10
-![Belastungsparameter während des Stufentests im Sitzen: Proband 10](images/p_Stufentest_10_ST1.html){#fig-ST1_10 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 10](images/p_Stufentest_10_ST2.html){#fig-ST2_10 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+10](images/p_Stufentest_10_ST1.html){#fig-ST1_10 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+10](images/p_Stufentest_10_ST2.html){#fig-ST2_10 width="1100" height="450"}
 
 ## Proband 13
-![Belastungsparameter während des Stufentests im Sitzen: Proband 13](images/p_Stufentest_13_ST1.html){#fig-ST1_13 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 13](images/p_Stufentest_13_ST2.html){#fig-ST2_13 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+13](images/p_Stufentest_13_ST1.html){#fig-ST1_13 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+13](images/p_Stufentest_13_ST2.html){#fig-ST2_13 width="1100" height="450"}
 
 ## Proband 15
-![Belastungsparameter während des Stufentests im Sitzen: Proband 15](images/p_Stufentest_15_ST1.html){#fig-ST1_15 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 15](images/p_Stufentest_15_ST2.html){#fig-ST2_15 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+15](images/p_Stufentest_15_ST1.html){#fig-ST1_15 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+15](images/p_Stufentest_15_ST2.html){#fig-ST2_15 width="1100" height="450"}
 
 ## Proband 19
-![Belastungsparameter während des Stufentests im Sitzen: Proband 19](images/p_Stufentest_19_ST1.html){#fig-ST1_19 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 19](images/p_Stufentest_19_ST2.html){#fig-ST2_19 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+19](images/p_Stufentest_19_ST1.html){#fig-ST1_19 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+19](images/p_Stufentest_19_ST2.html){#fig-ST2_19 width="1100" height="450"}
 
 ## Proband 20
-![Belastungsparameter während des Stufentests im Sitzen: Proband 20](images/p_Stufentest_20_ST1.html){#fig-ST1_20 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 20](images/p_Stufentest_20_ST2.html){#fig-ST2_20 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+20](images/p_Stufentest_20_ST1.html){#fig-ST1_20 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+20](images/p_Stufentest_20_ST2.html){#fig-ST2_20 width="1100" height="450"}
 
 ## Proband 22
-![Belastungsparameter während des Stufentests im Sitzen: Proband 22](images/p_Stufentest_22_ST1.html){#fig-ST1_22 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 22](images/p_Stufentest_22_ST2.html){#fig-ST2_22 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+22](images/p_Stufentest_22_ST1.html){#fig-ST1_22 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+22](images/p_Stufentest_22_ST2.html){#fig-ST2_22 width="1100" height="450"}
 
 ## Proband 23
-![Belastungsparameter während des Stufentests im Sitzen: Proband 23](images/p_Stufentest_23_ST1.html){#fig-ST1_23 width="1100" height="450"}
 
-![Belastungsparameter während des Stufentests im Stehen: Proband 23](images/p_Stufentest_23_ST2.html){#fig-ST2_23 width="1100" height="450"}
+![Belastungsparameter während des Stufentests im Sitzen: Proband
+23](images/p_Stufentest_23_ST1.html){#fig-ST1_23 width="1100" height="450"}
+
+![Belastungsparameter während des Stufentests im Stehen: Proband
+23](images/p_Stufentest_23_ST2.html){#fig-ST2_23 width="1100" height="450"}
 :::
 
 # Drehzahltest
-Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählter physiologischer und ergometrischer Parameter des Drehzahltests, wobei alle Werte als Mittelwert ± Standardabweichung angegeben werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten (@tbl-DT_mean) dargestellt. Die analysierten Parameter umfassen die maximale Drehzahl (nD~DT,max~) und die durchschnittliche Drehzahl der letzten 60 Sekunden (nD~DT,60~), die berechnete innere Leistung mit Hilfe biomechanischen Modells sowohl maximal (P~Int,Modell,DT,max~) als auch gemittelt über die letzten 60 Sekunden (P~Int,Modell,DT,60~), sowie die prozentuale Ausbelastung des Sauerstoffvolumenstroms im Vergleich zum Stufentest ($\dot{V}\text{O}_{2,\text{DT,percent}}$). Zusätzlich werden die maximalen Herzraten beider Tests (HR~DT,max~, HR~ST,max~), der durchschnittliche Netto-Wirkungsgrad (η~DT,netto~), der O~2~-Umsatz pro Watt (O~2~-Cost of Work~DT,Modell~) und die O~2~-Kosten der Leerbewegung (O~2~-Cost~nD,Vorgabe~) dargestellt.
+
+Die folgende Tabelle bietet eine detaillierte deskriptive Auswertung ausgewählter physiologischer und
+ergometrischer Parameter des Drehzahltests, wobei alle Werte als Mittelwert ± Standardabweichung angegeben
+werden. Die Daten werden in einer Gesamtübersicht mit Mittelwerten sowie minimalen und maximalen Messwerten
+(@tbl-DT_mean) dargestellt. Die analysierten Parameter umfassen die maximale Drehzahl (nD~DT,max~) und die
+durchschnittliche Drehzahl der letzten 60 Sekunden (nD~DT,60~), die berechnete innere Leistung mit Hilfe
+biomechanischen Modells sowohl maximal (P~Int,Modell,DT,max~) als auch gemittelt über die letzten 60
+Sekunden (P~Int,Modell,DT,60~), sowie die prozentuale Ausbelastung des Sauerstoffvolumenstroms im Vergleich
+zum Stufentest ($\dot{V}\text{O}_{2,\text{DT,percent}}$). Zusätzlich werden die maximalen Herzraten beider
+Tests (HR~DT,max~, HR~ST,max~), der durchschnittliche Netto-Wirkungsgrad (η~DT,netto~), der O~2~-Umsatz pro
+Watt (O~2~-Cost of Work~DT,Modell~) und die O~2~-Kosten der Leerbewegung (O~2~-Cost~nD,Vorgabe~)
+dargestellt.
 
 ```{r}
 #| label: tbl-DT_mean
@@ -234,65 +291,122 @@ ft_DT_stats<- readRDS("rds/ft_DT_stats.rds")
 ft_DT_stats
 ```
 
-#### Drehzahl { .unlisted }
-Die maximale erreichte Drehzahl nD~DT,max~ während des Drehzahltests betrug im Mittel 
-aller Durchgänge der Probanden 173.7 ± 6.5 min^-1^, wobei die höchste erreichte Drehzahl 
-bei 183.0 min^-1^ und die niedrigste bei 162.5 min^-1^ lag. Im Mittel aller Probanden lag 
-die Drehzahl während der letzten 60 Sekunden nD~DT,60~ bei 168.7 ± 6.4 min^-1^ 
-(R: 159.2-177.6 min^-1^).
+#### Drehzahl {.unlisted}
 
-#### Innere Leistung { .unlisted }
-Die mittels biomechanischer Modellsimulation berechnete maximale innere Leistung 
-P~Int,Modell,DT,max~ während des Drehzahltests lag zwischen 192.8 und 337.5 W und 
-betrug im Mittel aller Probanden 269.1 ± 48.6 W. Die durchschnittliche P~Int,Modell,DT,max~ in den 
-letzten 60 Sekunden P~Int,Modell,DT,60~ lag bei 251.4 ± 42.9 W (R: 188.4-323.8 W).
+Die maximale erreichte Drehzahl nD~DT,max~ während des Drehzahltests betrug im Mittel aller Durchgänge der
+Probanden 173.7 ± 6.5 min^-1^, wobei die höchste erreichte Drehzahl bei 183.0 min^-1^ und die niedrigste bei
+162.5 min^-1^ lag. Im Mittel aller Probanden lag die Drehzahl während der letzten 60 Sekunden nD~DT,60~ bei
+168.7 ± 6.4 min^-1^ (R: 159.2-177.6 min^-1^).
 
-#### Ventilatorische und physiologische Kenngrößen { .unlisted }
-Die prozentuale Auslastung des Sauerstoffvolumenstroms $\dot{V}O_{2,DT,percent}$ im Vergleich zum 
-maximalen gemessenen Sauerstoffvolumenstrom während der Stufentests erreichte im Mittel 
-93.9 ± 3.6% und blieb auch im Maximum mit 97.2% unter dem maximalen Sauerstoffvolumenstrom 
-der Stufentests. <br>
-Die maximale Herzrate im Drehzahltest HR~DT,max~ lag durchschnittlich bei 
-181.5 ± 5.6 min^-1^ (Range (R): 174-191 min^-1^) und damit im Mittel höher als die maximale 
-Herzrate der Stufentests HR~ST,max~ von 178.7 ± 7.5 min^-1^ (R: 169-192 min^-1^).
+#### Innere Leistung {.unlisted}
 
-#### Netto-Wirkungsgrad { .unlisted }
-Der Netto-Wirkungsgrad η~DT,netto~, der mit der P~Int,Modell,DT~ kalkuliert wurde, 
-betrug während des Drehzahltests für die Drehzahlwerte über 80 min^-1^ im Durchschnitt 
-18.49 ± 2.13%, mit einem Maximum von 23.10% und einem Minimum von 16.40%.
+Die mittels biomechanischer Modellsimulation berechnete maximale innere Leistung P~Int,Modell,DT,max~
+während des Drehzahltests lag zwischen 192.8 und 337.5 W und betrug im Mittel aller Probanden 269.1 ± 48.6
+W. Die durchschnittliche P~Int,Modell,DT,max~ in den letzten 60 Sekunden P~Int,Modell,DT,60~ lag bei 251.4 ±
+42.9 W (R: 188.4-323.8 W).
 
-#### Zusammenhang des VO~2,net~ und P~Int,Modell,DT~ { .unlisted }
-Der Sauerstoffumsatz pro Watt P~Int,Modell,DT~ (O~2~-Cost of Work~DT,Modell~) lag bei 14.867 ml·min^-1^·W^-1^ und damit über den in der Literatur beschriebenen Werten von 8.5-12.0 ml·min^-1^·W^-1^ für die Fahrradergometrie [@Rassouli2015; @Wasserman2011; @Heck2022; @Oezyener2001] (siehe @fig-DT_O2cost_all & @fig-DT_O2cost_mean).
+#### Ventilatorische und physiologische Kenngrößen {.unlisted}
 
-::: {.panel-tabset}
-## Alle Probanden { .unlisted }
-![Zusammenhang der VO~2,net~ und P~Int,Modell~-Werte aus allen Drehzahltests](images/p_O2_Cost_of_Work_DT_all.html){#fig-DT_O2cost_all width="1100" height="450"}
+Die prozentuale Auslastung des Sauerstoffvolumenstroms $\dot{V}O_{2,DT,percent}$ im Vergleich zum maximalen
+gemessenen Sauerstoffvolumenstrom während der Stufentests erreichte im Mittel 93.9 ± 3.6% und blieb auch im
+Maximum mit 97.2% unter dem maximalen Sauerstoffvolumenstrom der Stufentests. <br> Die maximale Herzrate im
+Drehzahltest HR~DT,max~ lag durchschnittlich bei 181.5 ± 5.6 min^-1^ (Range (R): 174-191 min^-1^) und damit
+im Mittel höher als die maximale Herzrate der Stufentests HR~ST,max~ von 178.7 ± 7.5 min^-1^ (R: 169-192
+min^-1^).
 
-## Gemittelte Werte { .unlisted }
-![Zusammenhang der gemittelten VO~2,net~ und P~Int,Modell~-Werte aus allen Drehzahltests](images/p_O2_Cost_of_Work_DT.html){#fig-DT_O2cost_mean width="1100" height="450"}
+#### Netto-Wirkungsgrad {.unlisted}
+
+Der Netto-Wirkungsgrad η~DT,netto~, der mit der P~Int,Modell,DT~ kalkuliert wurde, betrug während des
+Drehzahltests für die Drehzahlwerte über 80 min^-1^ im Durchschnitt 18.49 ± 2.13%, mit einem Maximum von
+23.10% und einem Minimum von 16.40%.
+
+#### Zusammenhang des VO~2,net~ und P~Int,Modell,DT~ {.unlisted}
+
+Der Sauerstoffumsatz pro Watt P~Int,Modell,DT~ (O~2~-Cost of Work~DT,Modell~) lag bei 14.867
+ml·min^-1^·W^-1^ und damit über den in der Literatur beschriebenen Werten von 8.5-12.0 ml·min^-1^·W^-1^ für
+die Fahrradergometrie [@Rassouli2015; @Wasserman2011; @Heck2022; @Oezyener2001] (siehe @fig-DT_O2cost_all & @fig-DT_O2cost_mean).
+
+::: panel-tabset
+## Alle Probanden {.unlisted}
+
+![Zusammenhang der VO~2,net~ und P~Int,Modell~-Werte aus allen
+Drehzahltests](images/p_O2_Cost_of_Work_DT_all.html){#fig-DT_O2cost_all width="1100" height="450"}
+
+## Gemittelte Werte {.unlisted}
+
+![Zusammenhang der gemittelten VO~2,net~ und P~Int,Modell~-Werte aus allen
+Drehzahltests](images/p_O2_Cost_of_Work_DT.html){#fig-DT_O2cost_mean width="1100" height="450"}
 :::
 
-#### Zusätzlicher Sauerstoffumsatz für die Leerbewegung { .unlisted }
-Der zusätzliche Sauerstoffumsatz für die Leerbewegung (Pedalieren ohne Widerstand) über dem Ruheumsatz bei den vorgegebenen Drehzahlen (O~2~-Cost~nD,Vorgabe~) lag zwischen 0.329 und 0.805 l·min^-1^ und betrug im Mittel aller Probanden 0.556 ± 0.165 l·min^-1^. Die Werte wurden aus der in @fig-DT_VO2_nD_all und @fig-DT_VO2_nD_mean dargestellten kubischen Modellfunktion abgeleitet.
+#### Zusätzlicher Sauerstoffumsatz für die Leerbewegung {.unlisted}
 
-::: {.panel-tabset}
-## Alle Probanden { .unlisted }
-![Zusammenhang der VO~2,net~ und Drehzahl-Werte aus dem Drehzahltest](images/p_VO2_nD_DT_all.html){#fig-DT_VO2_nD_all width="1100" height="450"}
-
-## Gemittelte Werte { .unlisted }
-![Zusammenhang der gemittelten VO~2,net~ und Drehzahl-Werten aus dem Drehzahltest](images/p_VO2_nD_DT.html){#fig-DT_VO2_nD_mean width="1100" height="450"}
-
-## Logarithmierte Darstellung { .unlisted }
-![Logarithmierte Darstellung des Zusammenhangs zwischen VO~2,net~ und Drehzahl-Werten aus dem Drehzahltest](images/p_VO2_nD_DT_log.html){#fig-DT_VO2_nD_log width="1100" height="450"}
-:::
-
-@fig-DT_PInt_nD_all zeigt den Zusammenhang zwischen der berechneten modellbasierten internen Leistung (P~Int,Modell~) und der Drehzahl aus allen Drehzahltests. Es wurden zwei mathematische Modelle an die Daten angepasst: Ein exponentielles Modell mit der Funktion $\text{P}_\text{Int,Modell}(\text{nD}) = 0.11 \cdot (e^{0.0208 \cdot \text{nD}} - 1)$ und einem Bestimmtheitsmaß von R^2^ = 0.988, sowie ein kubisches Modell mit der Funktion $\text{P}_\text{Int,Modell}(\text{nD}) = 0.00000075 \cdot \text{nD}^3$ und einem Bestimmtheitsmaß von R^2^ = 0,993. Beide Modelle zeigen eine sehr gute Anpassung an die Messdaten, wobei das kubische Modell eine geringfügig bessere Übereinstimmung aufweist. 
-Das kubische Modell entspricht dabei den physikalischen Gegebenheiten, da die kinetische Energie der zyklisch bewegten Beinmassen proportional zum Quadrat der Winkelgeschwindigkeit ist ($\text{E}_{\text{kin}} \propto \omega^2$). Die innere Leistung als zeitliche Änderung dieser Energie ($P = \frac{dE_{kin}}{dt}$) führt durch die zusätzliche Multiplikation mit der Winkelgeschwindigkeit zu einem kubischen Zusammenhang mit der Drehzahl.
-
-![Zusammenhang der P~Int,Modell~ und Drehzahl-Werte aus dem Drehzahltest](images/p_PInt_nD_DT_all.html){#fig-DT_PInt_nD_all width="1100" height="450"}
+Der zusätzliche Sauerstoffumsatz für die Leerbewegung (Pedalieren ohne Widerstand) über dem Ruheumsatz bei
+den vorgegebenen Drehzahlen (O~2~-Cost~nD,Vorgabe~) lag zwischen 0.329 und 0.805 l·min^-1^ und betrug im
+Mittel aller Probanden 0.556 ± 0.165 l·min^-1^. Diese Werte basieren auf einer kubischen Modellfunktion
+$\dot{V}O_{2,\text{net}}(\text{nD}) = 0.000011 \cdot \text{nD}^3$ (siehe @fig-DT_VO2_nD_all und
+@fig-DT_VO2_nD_mean), die an die Messdaten für Drehzahlen \> 80 und durch den Koordinatenursprung angepasst
+wurde.<br> Die in dieser Studie ermittelten Werte des zusätzlichen Sauerstoffumsatzes während der
+Leerbewegung zeigen für hohe Drehzahlen über 100 U·min^-1^ eine gute Übereinstimmung mit den von
+@Hagberg1981 publizierten Werten. Eine mögliche Erklärung für die Abweichungen im niedrigen
+Drehzahlbereich liegt im Studiendesign: Der Drehzahltest wurde erst bei 70 U·min^-1^ initiiert, wobei die
+kubische Modellfunktion ausschließlich für Drehzahlen über 80 U·min^-1^ angepasst wurde. Diese Eingrenzung
+wurde vorgenommen, da erst oberhalb dieser Schwelle ein physiologisch nachvollziehbarer Zusammenhang
+zwischen Sauerstoffvolumenstrom und gewählter Drehzahl erkennbar wurde. Der initial beobachtete Abfall des Sauerstoffvolumenstroms bei Erhöhung der Drehzahl von 70 auf 80 U·min^-1^ lässt sich mit hoher
+Wahrscheinlichkeit auf einen erhöhten Sauerstoffumsatz infolge der vorangegangenen Belastung zurückführen.<br>
+In der Studie von @Hintzy-Cloutier2003 wurden für eine Trittrate von 90 U·min^{-1} drei verschiedene O~2~Cost~nD~ ermittelt, die tatsächlich gemessenen O~2~ Kosten sowie die mittels linearer und kurvilinearer Regression modellierten Werte. Diese betragen, normiert auf einen 70 kg schweren Probanden, 965.4, 687.9 und 791.3 ml·min^{-1} und liegen damit oberhalb der in dieser Untersuchung berechneten Werte (@tbl-PInt_Vergleich).
 
 ::: {.callout-note collapse="true"}
-## Tabelle: Parameter des Drehzahltests aller Probanden{ .unlisted }
+### Vergleich verschiedener O~2~-Cost~nD~ Werte mit den Werten dieser Studie für ausgewählte Drehzahlen für einen 70 kg schweren Probanden {.unlisted}
+
+| Drehzahl [U·min^-1^] | O~2~-Cost~nD~ nach Hagberg [ml·min^-1^] | O~2~-Cost~nD~ nach Hintzy-Cloutier | O~2~-Cost~nD~ aus dieser Untersuchung [ml·min^-1^] |
+|----------------------------|-------------------------|-------------------|----------------------------|
+| 60 | 525.0 |  | 166.3 |
+| 75 | 616.0 |  | 325.8 |
+| 90 | 777.0 | 965.4 / 687.9 / 791.3 | 563.3 |
+| 105 | 952.0 |  | 894.3 |
+| 120 | 1351.0 |  | 1336.6 |
+
+: Vergleich der O~2~-Cost~nD~ Werte nach Hagberg et al. (1981) und den anhand der kubischen Modellfunktion
+besitmmten O~2~-Cost~nD~-Werten dieser Studie für ausgewählte Drehzahlen. {#tbl-PInt_Vergleich tbl-colwidths="\[10,30,30,30\]" .striped
+.hover}
+:::
+
+::: panel-tabset
+## Alle Probanden {.unlisted}
+
+![Zusammenhang der VO~2,net~ und Drehzahl-Werte aus dem
+Drehzahltest](images/p_VO2_nD_DT_all.html){#fig-DT_VO2_nD_all width="1100" height="450"}
+
+## Gemittelte Werte {.unlisted}
+
+![Zusammenhang der gemittelten VO~2,net~ und Drehzahl-Werten aus dem
+Drehzahltest](images/p_VO2_nD_DT.html){#fig-DT_VO2_nD_mean width="1100" height="450"}
+
+## Logarithmierte Darstellung {.unlisted}
+
+![Logarithmierte Darstellung des Zusammenhangs zwischen VO~2,net~ und Drehzahl-Werten aus dem
+Drehzahltest](images/p_VO2_nD_DT_log.html){#fig-DT_VO2_nD_log width="1100" height="450"}
+:::
+
+@fig-DT_PInt_nD_all zeigt den Zusammenhang zwischen der berechneten modellbasierten internen Leistung
+(P~Int,Modell~) und der Drehzahl aus allen Drehzahltests. Es wurden zwei mathematische Modelle an die Daten
+angepasst: Ein exponentielles Modell mit der Funktion
+$\text{P}_\text{Int,Modell}(\text{nD}) = 0.11 \cdot (e^{0.0208 \cdot \text{nD}} - 1)$ und einem
+Bestimmtheitsmaß von R^2^ = 0.988, sowie ein kubisches Modell mit der Funktion
+$\text{P}_\text{Int,Modell}(\text{nD}) = 0.00000075 \cdot \text{nD}^3$ und einem Bestimmtheitsmaß von R^2^ =
+0,993. Beide Modelle zeigen eine sehr gute Anpassung an die Messdaten, wobei das kubische Modell eine
+geringfügig bessere Übereinstimmung aufweist. Das kubische Modell entspricht dabei den physikalischen
+Gegebenheiten, da die kinetische Energie der zyklisch bewegten Beinmassen proportional zum Quadrat der
+Winkelgeschwindigkeit ist ($\text{E}_{\text{kin}} \propto \omega^2$). Die innere Leistung als zeitliche
+Änderung dieser Energie ($P = \frac{dE_{kin}}{dt}$) führt durch die zusätzliche Multiplikation mit der
+Winkelgeschwindigkeit zu einem kubischen Zusammenhang mit der Drehzahl.
+
+![Zusammenhang der P~Int,Modell~ und Drehzahl-Werte aus dem
+Drehzahltest](images/p_PInt_nD_DT_all.html){#fig-DT_PInt_nD_all width="1100" height="450"}
+
+::: {.callout-note collapse="true"}
+## Tabelle: Parameter des Drehzahltests aller Probanden {.unlisted}
+
 ```{r}
 #| label: tbl-DT_table
 #| tbl-cap-location: top
@@ -336,46 +450,67 @@ DT_table <- datatable(Drehzahltest_df_selected,
 
 DT_table
 ```
-::: 
+:::
 
-## Physiologische Parameter des Drehzahltests { .unlisted }
+## Physiologische Parameter des Drehzahltests {.unlisted}
 
-Die folgenden Abbildungen zeigen die gemittelten Belastungsparameter aller Probanden die individuellen Verläufe der Herzrate, der respiratorischen Parameter $\dot{V}O_{2}$ und $\dot{V}CO_{2}$ sowie der mechanischen Leistung P~mech~ über die Zeit für die Stufentests im Sitzen und Stehen.
+Die folgenden Abbildungen zeigen die gemittelten Belastungsparameter aller Probanden die individuellen
+Verläufe der Herzrate, der respiratorischen Parameter $\dot{V}O_{2}$ und $\dot{V}CO_{2}$ sowie der
+mechanischen Leistung P~mech~ über die Zeit für die Stufentests im Sitzen und Stehen.
 
-::: {.panel-tabset}
-## MW 
-![Gemittelte Belastungsparameter aller Drehzaltests](images/p_DT_gemittelt.html){#fig-DT_gemittelt width="1100" height="450"}
+::: panel-tabset
+## MW
 
-## Proband 01 
-![Belastungsparameter während des Drehzahltests: Proband 01](images/p_Drehzahltest_1.html){#fig-DT_1 width="1100" height="450"}
+![Gemittelte Belastungsparameter aller Drehzaltests](images/p_DT_gemittelt.html){#fig-DT_gemittelt
+width="1100" height="450"}
+
+## Proband 01
+
+![Belastungsparameter während des Drehzahltests: Proband 01](images/p_Drehzahltest_1.html){#fig-DT_1
+width="1100" height="450"}
 
 ## Proband 06
-![Belastungsparameter während des Drehzahltests: Proband 06](images/p_Drehzahltest_6.html){#fig-DT_6 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 06](images/p_Drehzahltest_6.html){#fig-DT_6
+width="1100" height="450"}
 
 ## Proband 10
-![Belastungsparameter während des Drehzahltests: Proband 10](images/p_Drehzahltest_10.html){#fig-DT_10 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 10](images/p_Drehzahltest_10.html){#fig-DT_10
+width="1100" height="450"}
 
 ## Proband 13
-![Belastungsparameter während des Drehzahltests: Proband 13](images/p_Drehzahltest_13.html){#fig-DT_13 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 13](images/p_Drehzahltest_13.html){#fig-DT_13
+width="1100" height="450"}
 
 ## Proband 15
-![Belastungsparameter während des Drehzahltests: Proband 15](images/p_Drehzahltest_15.html){#fig-DT_15 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 15](images/p_Drehzahltest_15.html){#fig-DT_15
+width="1100" height="450"}
 
 ## Proband 19
-![Belastungsparameter während des Drehzahltests: Proband 19](images/p_Drehzahltest_19.html){#fig-DT_19 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 19](images/p_Drehzahltest_19.html){#fig-DT_19
+width="1100" height="450"}
 
 ## Proband 20
-![Belastungsparameter während des Drehzahltests: Proband 20](images/p_Drehzahltest_20.html){#fig-DT_20 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 20](images/p_Drehzahltest_20.html){#fig-DT_20
+width="1100" height="450"}
 
 ## Proband 22
-![Belastungsparameter während des Drehzahltests: Proband 22](images/p_Drehzahltest_22.html){#fig-DT_22 width="1100" height="450"}
+
+![Belastungsparameter während des Drehzahltests: Proband 22](images/p_Drehzahltest_22.html){#fig-DT_22
+width="1100" height="450"}
 
 ## Proband 23
-![Belastungsparameter während des Drehzahltests: Proband 23](images/p_Drehzahltest_23.html){#fig-DT_23 width="1100" height="450"}
-:::
 
+![Belastungsparameter während des Drehzahltests: Proband 23](images/p_Drehzahltest_23.html){#fig-DT_23
+width="1100" height="450"}
+:::
 
 # Quellenverzeichnis
+
 ::: {#refs}
 :::
-

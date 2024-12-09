@@ -16,8 +16,29 @@ editor:
 tbl-cap-location: bottom
 ---
 
-In Stichüunkten: Aufbau der Diskussion anhand der formulierten Forschungsfragen und
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
+  text-align: justify;
+}
+```
+
+
+In Stichpunkten: Aufbau der Diskussion anhand der formulierten Forschungsfragen und
 Hypothesen:
+
+```{r}
+# Einbeziehung der negativen Arbeit in die Wirkungsgradberechnung
+```
 
 ## Forschungsfragen:
 
@@ -162,6 +183,8 @@ Hypothesen:
         berechnete innere Arbeitsleistung zurückzuführen sind
 
 ### Erklärung der statistisch signifikanten Unterschiede von η~muskulär~
+-   η~muskulär~ zwischen den moderatn eIntsnitäten zwar nicht signifikant, 
+    aber ganz knapp davor (F(1,8) = 5.26, p = .051, η~p~^2^ = .397). Bei größerer Stichprobe keine signifikanz anzunehmen. 
 
 -   η~muskulär~ und η~Total~ unterscheiden sich lediglich durch die
     Einbeziehung der inneren Arbeit. Die innere Arbeit variiert
@@ -178,6 +201,11 @@ Hypothesen:
     höher im Sitzen als im Stehen. Ohne Berücksichtigung von P~Int~ (wie
     in η~Total~) zeigt sich keine Signifikanz. Daher repräsentiert
     η~Total~ eher die in der Literatur erwarteten Verhaltensweisen.
+    
+- SCHWÄCHEN VON P~int~:
+    -   Berechnung ohne Rücksicht der potentiellen ENergie bei der BEcnung der inneren Leistung. Deshalb wahrschinelich im sitzen unterschätz und im Stehen massiv untershcätzt. Aber für das stheen gibt es kien Verleichswerte
+    - Eine Valide BErechnung von P~Int~ ims tehen könnte auch den beobachtetn Effekt erklären, dass bei niedrigen Intensitäten die Stehen ebdingung wahrshceinlich wenige reffizient  ist als die sitzen ebdingung, da di eineer arbeit wohl wahrschienlich für die gleich edrehzhal höher ist im stehen und in den untersuchungen meit die glecihe derhzal für sitzen und stehen vergliche wurde. 
+
 
 #### Fazit von η~muskulär~:
 
@@ -243,7 +271,10 @@ Hypothesen:
     Ventilationsraten
 -   Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen
     und -schwerpunkte für die 3D-Bewegungsanalyse
+-   Das Ergometer hat manchmal aussetezer gehbat, wodurch in der Nachbelastungsphase teilweise statt der gewollten 50 Watt Belastung über einen Zeitraum von bis zu mehreren Minuten kein Trettwiderstand vorhanden war. Die könnte dazu geführt haben, dass in wenigen Belastungsdurchgängen bzw. der Nachbelastung davon der Sauerstoffvolumenstomr tiefer gefallen war als es eigentlich sien sollte und somit die EPOC - berechnung in manchen wenigen Fällen evtl leicht verfälscht wurde. E skonnte aber nich genau nachvollzogen werden i nwelchen fällen dies eingetreten ist und für wie lange, weshalb dies in der EPOC berechnung nicht beachtet wurde. UNd bist auf potentiell drei WErte die an der oberen Grenze der pyhislogisch plasuiblen Grenze lagen waren die restlichen wrte gut. 
 -   ...
+- Probleme bei der Berechnung der inneren Leistung wie in Ettema
+
 
 ## Ausblick
 
@@ -258,7 +289,54 @@ Hypothesen:
 -   Einfluss der Torque Efficiency oder Pedal-Smoothness (hohe
     Leistungsspitzen) auf den Wirkungsgrad
 -   Einfluss von Kurbellängen auf den Wirkungsgrad
+-   Messung der Kräfte an dem Lenker um die Wirkenden Kräft ebsser einzuschätzen und vll auch für die messung der innerne arbeit
+- Pyhisologisch Variablen zwischen den Bedingungn noch besprechen, so ähnlich wie @Harnish2007
 -   ...
+- Zusammenhang zwischen negativer meachnischer Leistung und innerer Arbeit erforschen
+- Sind Liestungsspitzen shcneller ermüdend als gleichmäßige Leistungne -> Pedal Smoothness
+- Zur Validierung von Wint berechnungen den Probanden für verschidene Drehzahlen eine gewisse PTot vorgeben und schauen ob die gleich ephysiologische Reaktin auftritt. Also besipielsweise einmal bei 60 80 100 und 120 Trittrate fahren lassen alles bei Ptot von 300 Watt. Vorher die thoretischen Pint kostne bstimmtn und dann dementrpechend Pmech vorgebn mit bspw. 290 / 260 / 220 und 180 Wat.... Wie bei @Ferguson2002
+- Oder für die bestimmung der PInt im Stehen ordentliche Stufentest bei vorgebeneer Dreahzahl fahren lassen vll bei 40 50 60 70 80 90 100 nicht zwingen bis zur Ausbelastung und dann schaen was die metabolischen kosten pber 0 sind wie bei Deltawirkungsgrad und damit dann ein genauere Modell der Pint für das stehen bestimmen. 
+
+
+#################################
+**Erklärung der höheren VO2 Kosten von höheren Trittraten aus TOkui2007**
+Dies wäre auf den zusätzlichen Energieumsatz durch die Ca2+-ATPase für nicht-kontraktile Prozesse bei höheren Trittfrequenzen zurückzuführen (Abbate et al. 2001; Baker et al. 1994). Die aus ATP freigesetzte Energie wird in Leistungsabgaben einschließlich Pint und Pext umgewandelt und wird auch von verschiedenen Ionenpumpen genutzt, insbesondere der Ca2+-Pumpe des sarkoplasmatischen Retikulums (SR) (Barclay 1994). Blinks et al. (1978) zeigten, dass die Ca2+-Reabsorption in das SR bei höheren Kontraktionsfrequenzen weiter zunahm. Andererseits wurde berichtet, dass ein großer Anteil (*43%) des ATP für nicht-kontraktile Prozesse verwendet wird, wobei mehr ATP aus dem anaeroben als aus dem aeroben Stoffwechsel stammt (Baker et al. 1994). Diese Annahme stimmt mit den vorliegenden Daten überein, die zeigen, dass bei 120 U/min ein höherer [DLa]-Wert beobachtet wurde als bei 40 und 80 U/min (Tabelle 2), was zu mehr anaerober Energie bei 120 U/min führen würde und somit zu einer geringeren Muskeleffizienz.
+Hogan et al. (1998) zeigten, dass Muskelkontraktionen von kurzer Dauer im Hundemuskel zu einer signifikant höheren berechneten ATP-Verbrauchsrate, einer dreifachen Steigerung der Glykolyse und einer größeren Ermüdung führten, die mit erhöhten intrazellulären [La-] und [H+]-Konzentrationen verbunden war, verglichen mit Muskelkontraktionen von langer Dauer. Es ist möglich, dass die geringere Muskeleffizienz als Folge des höheren Energieverbrauchs bei der höheren Trittfrequenz mit nicht-kontraktilen Prozessen zusammenhängt, wie zum Beispiel übermäßigem Energieverbrauch im Zusammenhang mit der Wiederansammlung von Ca2+ durch das SR.
+Die Muskeleffizienz bei 40 U/min war in Exp. 1 signifikant niedriger als bei 80 U/min, aber in Exp. 2 gab es keinen signifikanten Unterschied im Vergleich zur Effizienz bei 80 U/min. Der menschliche Skelettmuskel besteht hauptsächlich aus Typ-I- und Typ-II-Muskelfasern. Darüber hinaus wird das Verhältnis der beiden Fasertypen in den rekrutierten Muskelfasern durch die Spannung im arbeitenden Muskel oder durch die Übungsintensität verändert (Sargeant 1994). Typ-II-Muskelfasern sind beim Menschen ineffizienter als Typ-I-Muskelfasern (Coyle et al. 1992; Jones et al. 2004; Hansen et al. 2002; Horowitz et al. 1994; Mogensen et al. 2006).
+Ahlquest et al. (1992) zeigten unter den gleichen experimentellen Bedingungen wie in unserem Exp. 1, dass bei gleicher Stoffwechselrate die Glykogenentleerung in Typ-II-Muskelfasern bei 50 U/min größer war als bei 100 U/min während des Radfahrens. Dies bedeutet, dass eine stärkere Rekrutierung von Typ-II-Muskelfasern bei der niedrigeren Trittfrequenz aufgrund der höheren Muskelkraft induziert werden könnte, die erforderlich ist, um den höheren Widerstand pro Zyklus bei gleicher Stoffwechselrate zu überwinden. Die geringere Muskeleffizienz bei der niedrigeren Trittfrequenz mit höherer Pedalkraft könnte aus der stärkeren Rekrutierung von Typ-II-Muskelfasern mit niedriger Effizienz resultieren, vermutlich aufgrund der höheren ausgeübten Muskelkraft. Dies unterstützt die Ergebnisse von Exp. 1, dass die Muskeleffizienz bei einer niedrigeren Trittfrequenz (40 U/min) mit höherer Pedalkraft (250%) unter der gleichen Ptot-Bedingung signifikant niedriger war als bei 80 U/min.
+#################################
+# Diskussion als Fließtext:
+
+
+## Zentrale Ergebnisse im Kontext der Forschungsfragen 
+
+Die vorliegende Untersuchung liefert differenzierte Erkenntnisse zu den komplexen Wechselwirkungen zwischen Körperposition, Belastungsintensität und muskulärem Wirkungsgrad beim Radfahren. Die Ergebnisse deuten auf subtile, jedoch bedeutsame Unterschiede zwischen den untersuchten Parametern hin.
+
+### Körperpositionseffekte auf den muskulären Wirkungsgrad
+
+Bezüglich der ersten Forschungsfrage nach Unterschieden zwischen den Körperpositionen zeigte sich entgegen der ursprünglichen Hypothese ein signifikant höherer η~muskulär~ in sitzender Position (24,98 ± 1,06% vs. 24,07 ± 0,96%; F(1,8) = 7,64, p = 0,024, η~p~^2^ = 0,489). Dieser Effekt ist primär auf eine signifikant höhere P~Tot~ in sitzender Bedingung bei konstanter W~TOT~ zurückzuführen. Allerdings muss die Berechnungsvalidität von P~Tot~ bzw. P~Int~ für die Stehen-Bedingung kritisch hinterfragt werden. Bei Ausklammerung von P~Int~ zeigten sich keine signifikanten Unterschiede zwischen den Positionen, wie die Analyse des η~Total~ belegt. Die Wirkungsgrade η~Netto~ und η~Brutto~ unterschieden sich ebenfalls nicht signifikant zwischen den Positionen, wobei tendenziell höhere Werte in stehender Position zu beobachten waren.
+
+### Intensitätsabhängige Modulation des Wirkungsgrades
+
+Die Untersuchung des Intensitätseinflusses auf η~muskulär~ offenbarte entgegen der ursprünglichen Annahmen einen signifikanten Effekt (F(2,16) = 5,23, p = 0,018, η~p~^2^ = 0,395). Mit steigender Intensität zeigte sich eine systematische Abnahme des η~muskulär~ von 24,94 ± 1,27% auf 24,14 ± 0,90%. Dieser Effekt manifestierte sich besonders deutlich in der sitzenden Position (F(2,16) = 10,19, p = 0,001, η~p~^2^ = 0,560). Die beobachtete Dynamik lässt sich möglicherweise durch das überproportionale Ansteigen von W~TOT~ gegenüber P~TOT~ bei gleichbleibender P~Int~ erklären.
+
+### Interaktionseffekte zwischen Position und Intensität
+
+Die Analyse der Wechselwirkungen zwischen Körperposition und Belastungsintensität ergab ein aufschlussreiches Muster. Bei leichter Intensität wurde ein signifikant höherer η~muskulär~ im Sitzen nachgewiesen (25,68 ± 1,03% vs. 24,20 ± 1,05%; F(1,8) = 16,63, p = 0,004, η~p~^2^ = 0,675). Diese Differenz verringerte sich systematisch mit zunehmender Intensität, sodass bei schwerer Belastung keine signifikanten Positionsunterschiede mehr nachweisbar waren (24,36 ± 0,99% vs. 23,92 ± 0,81%; F(1,8) = 1,41, p = 0,269, η~p~^2^ = 0,150).
+
+## Methodologische Betrachtungen und Einschränkungen
+
+Die methodischen Aspekte der Studie erfordern eine sorgfältige Reflexion. Die Berechnung der inneren Arbeit stellt einen zentralen Punkt dar, da sich η~muskulär~ und η~Total~ ausschließlich durch die Einbeziehung der inneren Arbeit unterscheiden. Die signifikante Variation zwischen Sitzen (37,5 ± 11,3) und Stehen (22,1 ± 6,9) könnte teilweise auf methodische Limitationen zurückzuführen sein. Die höhere P~Int~ im Sitzen resultierte in einem erhöhten η~muskulär~, während sich ohne Berücksichtigung von P~Int~ keine signifikanten Positionsunterschiede zeigten.
+
+Die begrenzte Stichprobengröße sowie die möglicherweise zu intensive Auslegung der leichten und moderaten Belastungsstufen könnten die Generalisierbarkeit der Ergebnisse einschränken. Insbesondere die Bestimmung der inneren Leistung im Stehen erscheint methodisch herausfordernd, da Aspekte wie Haltearbeit und vertikale Schwerpunktverschiebungen nicht vollständig erfasst wurden.
+
+## Implikationen für Wissenschaft und Praxis
+
+Die gewonnenen Erkenntnisse legen nahe, dass das Fahren im Stehen hinsichtlich des Wirkungsgrades eine valide Alternative zur sitzenden Position darstellen könnte. Allerdings sollten diese Laborergebnisse mit Bedacht auf die Praxis übertragen werden. Der in realen Bedingungen erhöhte Luftwiderstand beim Stehen wurde in dieser Untersuchung nicht abgebildet. Daher erscheint das Fahren im Stehen primär für definierte Situationen wie steile Anstiege oder Abschnitte mit geringer Geschwindigkeit empfehlenswert.
+
+## Forschungsperspektiven
+
+Zukünftige Forschungsarbeiten könnten von erweiterten Stichprobengrößen und methodischen Verfeinerungen bei der Bestimmung der inneren Leistung profitieren. Vielversprechende Ansätze wären die detaillierte Untersuchung der Beziehung zwischen negativer mechanischer Leistung und innerer Arbeit sowie die Analyse des Einflusses der Pedal-Smoothness auf Wirkungsgrad und Ermüdungserscheinungen. Auch die Integration weiterer biomechanischer Parameter könnte das Verständnis der komplexen Wechselwirkungen zwischen Körperposition, Belastungsintensität und Bewegungseffizienz vertiefen.
 
 
 # Quellenverzeichnis

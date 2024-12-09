@@ -10,8 +10,8 @@ format:
 **Universität Leipzig**  
 **Sportwissenschaftliche Fakultät**  
 
-# Masterarbeit (Beta-Version)
-## Vergleich des Wirkungsgrades auf dem Radergometer beim Fahren im Sitzen und Stehen<br>
+# Masterarbeit 
+## Empirische Studie zum Wirkungsgrad: Ein Vergleich zwischen sitzendem und stehendem Fahren auf dem Fahrradergometer<br>
 *Hierbei handelt es sich um eine unvollständige Version meiner Masterarbeit, die mit Hilfe von Quarto erstellt wurde. Diese Version dient zur Darstellung des Aufbaus und der groben Struktur der Masterarbeit. Die meisten Teile der Arbeit sowie einige der gezeigten Daten und Abbildungen sind noch unvollständig oder veraltet und werden in der endgültigen Masterarbeit deutlich anders aussehen.<br> Diese Beta-Version soll die Vorteile des Verfassens der Masterarbeit als Webseite verdeutlichen, insbesondere im Hinblick auf die Datendarstellung und die Möglichkeit der Implementierung von R-Codebestandteilen sowie [interaktiven Elementen wie Shiny-Apps oder webR-Anwendungen](https://jjrw96.github.io/Wirkungsgrad-Rad-shinylive.github.io/).*
 
 ![](images/Logo_η_2.png){width=170}
@@ -31,7 +31,7 @@ Dr. Martina Clauß
 Dr. Anna Katharina Dunst
 
 **Tag der Einreichung:**  
-???
+13.12.2024
 
 **Universität Leipzig 2024**
 

@@ -1,0 +1,57 @@
+---
+title: "Statistische Anaylseverfahren"
+
+execute:
+  message: false
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false  
+jupyter: false
+engine: knitr
+---
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+
+```
+
+Die Auswertung der erhobenen Daten erfolgte mittels verschiedener deskriptiver und inferenzstatistischer Methoden, um sowohl die grundlegenden Eigenschaften der Daten zu beschreiben als auch Zusammenhänge und Unterschiede zwischen den untersuchten Variablen statistisch zu validieren. Die folgenden Abschnitte beschreiben detailliert die verwendeten Analysemethoden, die Prüfung der statistischen Voraussetzungen sowie die Kriterien zur Bewertung der Ergebnisse.
+
+## Deskriptive Statistik
+
+Die erhobenen Daten wurden zunächst einer systematischen Aufbereitung für die deskriptive Analyse unterzogen, wobei die initiale Datenverarbeitung in Microsoft Excel stattfand. Die weiterführende Analyse und Visualisierung erfolgte mittels R (Version 4.4.2) und umfasste sowohl klassische Grafiken und Tabellen als auch interaktive Shiny-Applikationen.<br>
+Die Charakterisierung der Verteilungen umfasste die Berechnung zentraler Tendenzen (arithmetisches Mittel, Median) sowie verschiedener Streuungsmaße (Standardabweichung, Minimal- und Maximalwerte). Sämtliche statistischen Kennwerte fanden sich in Tabellen, Grafiken und interaktiven Visualisierungen wieder. Diese deskriptive Aufbereitung ermöglichte die Identifikation von Ausreißern sowie Verteilungsmustern und schuf damit die Grundlage für die weiterführenden Analysen.
+
+## Inferenzstatistik
+
+Die statistischen Analysen erfolgten mit R (Version 4.2.1), wobei als Grundlage für die Wahl der statistischen Verfahren die Daten zunächst mittels Shapiro-Wilk-Test auf Normalverteilung und mittels Levene-Test auf Varianzhomogenität geprüft wurden.<br>
+Bei erfüllten Voraussetzungen (Normalverteilung und Varianzhomogenität) kamen parametrische Verfahren in Form einfaktorieller Varianzanalysen (ANOVA) mit Messwiederholung und anschließenden Tukey HSD Post-hoc Tests zum Einsatz. Bei verletzten Voraussetzungen fanden nicht-parametrische Verfahren Anwendung, konkret der Friedman-Test mit nachfolgenden paarweisen Wilcoxon-Tests (Bonferroni-korrigiert) für Mehrfachvergleiche und der Wilcoxon-Test für Einzelvergleiche zwischen zwei Bedingungen.<br>
+Für die Analyse von Zusammenhängen kamen lineare und nicht-lineare Regressionsmodelle zum Einsatz. Bei linearen Zusammenhängen fand die Methode der kleinsten Quadrate Anwendung (lm()-Funktion), wobei die Überprüfung der statistischen Signifikanz mittels F-Test der Varianzanalyse erfolgte. Das Bestimmtheitsmaß (R^2^) diente zur Quantifizierung der Modellgüte. Bei nicht-linearen Zusammenhängen erfolgte die Schätzung der Modellparameter durch einen iterativen Levenberg-Marquardt-Optimierungsalgorithmus (nlsLM()-Funktion), wobei die Modellgüte ebenfalls durch das Bestimmtheitsmaß (R^2^) quantifiziert wurde. Die Wahl der Startwerte der Regressionsmodelle basierte auf theoretischen Überlegungen.
+
+Für alle statistischen Analysen galt ein Signifikanzniveau von α = 0.05, wobei die Ergebnisse anhand ihrer p-Werte als statistisch hoch signifikant (p ≤ 0.01), signifikant (p ≤ 0.05) oder nicht signifikant (p > 0.05) klassifiziert wurden. Die Darstellung der Signifikanzniveaus in den Diagrammen erfolgte mittels Asterisken (*** p < 0.001; ** p < 0.01; * p < 0.05) und signifikante Haupteffekte durch ein Kreuz (†), während zusätzlich statistische Trends im Bereich 0.05 < p < 0.1 dokumentiert wurden.<br>
+Die Quantifizierung der Effektstärken erfolgte mittels partiellem Eta-Quadrat (ηp^2^) für parametrische Tests, wobei Werte ≥ 0.01 als kleiner, ≥ 0.06 als mittlerer und ≥ 0.14 als großer Effekt interpretiert wurden [@Cohen1988, 368]. Für Wilcoxon-Tests und den Pearson Korrelationskoeffizienten kam die Effektstärke r zum Einsatz, mit Werten ≥ 0.1 als kleiner, ≥ 0.3 als mittlerer und ≥ 0.5 als großer Effekt. Bei Paarvergleichen diente Cohens d als standardisierte Effektgröße, mit Werten < 0.2 als trivialer, 0.2 ≤ d < 0.5 als kleiner, 0.5 ≤ d < 0.8 als mittlerer und d ≥ 0.8 als großer Effekt [@Cohen1992].
+
+Zur Analyse von Zusammenhängen zwischen den erhobenen Parametern kamen verschiedene Regressionsanalysen zum Einsatz. Lineare Zusammenhänge wurden mittels linearer Regressionsmodelle quantifiziert, nicht-lineare Beziehungen durch exponentielle Regressionsmodelle beschrieben. Die Modellgüte ließ sich jeweils durch das Bestimmtheitsmaß (R^2^) evaluieren, welches den Anteil der durch das Modell erklärten Varianz an der Gesamtvarianz beschreibt und somit eine quantitative Bewertung der funktionellen Zusammenhänge zwischen den untersuchten Parametern ermöglicht.
+
+
+## Quellenverzeichnis
+
+::: {#refs}
+:::
+
+
+
+

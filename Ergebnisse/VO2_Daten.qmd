@@ -96,9 +96,7 @@ names(EPOC_data_df_VO2)[names(EPOC_data_df_VO2) == "tau_on_min"] <- "tau_on_min 
 
 ```
 
-# Interaktive Analyse der erfassten Belastungsparameter
-Die folgende Shiny-App zeigt eine interaktive Tabellenübersicht der spirometrisch erfassten Parameter sämtlicher Belastungsdurchgänge. Die Shiny-App ermöglicht einen flexiblen Wechsel zwischen der Darstellung aller individuellen Testdurchläufe und einer zusammengefassten Übersicht mit Mittelwerten sowie zugehörigen Standardabweichungen. Die Filterfunktion erlaubt eine gezielte Analyse der Daten nach verschiedenen Kombinationen von Intensität (leicht, moderat, schwer) und Bedingung (sitzend, stehend). Für die gefilterten Daten werden sowohl die entsprechenden Mittelwerte als auch die zugehörigen Boxplots mit den statistischen Kennwerten (Mittelwert, Median, erstes Quartil, drittes Quartil, Minimum und Maximum) visualisiert. Zusätzlich besteht die Option, einzelne Probanden in die Analyse ein- oder auszuschließen.<br>
-Die dargestellten Daten fungieren als zentrale Grundlage für alle weiteren Analysen der spirometrisch erfassten Parameter, insbesondere des Sauerstoffvolumenstroms ($\dot{V}O_2$) sowie weiterer respiratorischer Kennwerte.
+## Interaktive Analyse der Belastungsparameter { .unlisted}
 
 ```{shinylive-r}
 #| standalone: true
@@ -1310,10 +1308,10 @@ p_Laktat_01 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1376,10 +1374,10 @@ p_Laktat_06 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1442,10 +1440,10 @@ p_Laktat_10 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1508,10 +1506,10 @@ p_Laktat_13 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1574,10 +1572,10 @@ p_Laktat_15 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1640,10 +1638,10 @@ p_Laktat_19 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1706,10 +1704,10 @@ p_Laktat_20 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1772,10 +1770,10 @@ p_Laktat_22 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
@@ -1838,10 +1836,10 @@ p_Laktat_23 <- plot_ly() %>%
   add_trace(x = ~x_seq, y = ~y_pred, type = 'scatter', mode = 'lines', 
             name = 'Laktat Modellfunktion', 
             line = list(color = '#62A39F', width = 3)) %>%
-  add_annotations(text = sprintf("ΔBLC = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
+  add_annotations(text = sprintf("ΔBLC (ΔP<sub>mech</sub>) = %.4f · e<sup>(%.5f · ΔP<sub>mech</sub>)</sup>", coef_exponential_model['a'], coef_exponential_model['b']),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.8, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
-  add_annotations(text = sprintf("ΔBLC<sub>1</sub> = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
+  add_annotations(text = sprintf("ΔBLC<sub>1</sub> (ΔP<sub>mech</sub>) = %.2f mmol·l⁻¹", ΔBLC_Belastung_1),
                   x = min(df_proband$Leistung) + 5, y = max(y_pred) * 0.73, showarrow = FALSE,
                   xanchor = 'left', yanchor = 'bottom') %>%
   layout(
