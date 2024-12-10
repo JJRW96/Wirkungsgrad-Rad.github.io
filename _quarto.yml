@@ -24,7 +24,9 @@ website:
     search: true
     collapse-level: 2 #Ab welchem Level die Unterpunkt nicht mehr angezeigt werden. Bei 2 wird bspw. bei Energieumsatz die Unterpunkte eingeklappt
     contents:
-      - section: Theoretischer_Hintergrund/Innere_Arbeit.qmd
+      - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
+        contents: 
+          - Theoretischer_Hintergrund/Innere_Arbeit.qmd
       - Forschungsfragen_Hypothesen.qmd
       - section: Methodik/index_Methodik.qmd
         contents: 
