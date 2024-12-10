@@ -3400,7 +3400,6 @@ Im Stehen zeigten sich jedoch deutliche Diskrepanzen. Die P~Int,Kinematik,HAT~-W
 Diese Ergebnisse legen nahe, dass das entwickelte Modell für die stehende Position noch Optimierungsbedarf aufweist. Eine mögliche Ursache könnte in der Überschätzung der potentiellen Energieänderungen des HAT-Segments liegen, die einen erheblichen Anteil der Gesamtenergieänderungen ausmachen. Eine Anpassung der Segmentmassen unter Berücksichtigung der Gewichtsverteilung auf die Arme könnte zu den erwarteten, zwischen Sitzen und Stehen vergleichbaren P~Int~-Werten führen. Weitere Untersuchungen sind erforderlich, um ein valides Modell zur Berechnung der inneren Arbeit in stehender Position zu entwickeln.
 
 
-
 ## Quellenverzeichnis
 
 ::: {#refs}

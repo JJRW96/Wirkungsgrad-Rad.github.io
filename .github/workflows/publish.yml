@@ -51,6 +51,7 @@ jobs:
             any::reactable
             any::afex
             any::emmeans
+            any::kableExtra
 
 
       - name: Render and Publish
