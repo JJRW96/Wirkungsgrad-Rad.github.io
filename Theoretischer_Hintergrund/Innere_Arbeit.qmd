@@ -2596,7 +2596,6 @@ PInt_Kinematik_HAT_avg = mean(PInt_Kinematik, na.rm = TRUE)
 ```{r echo=FALSE, output=FALSE}
 library(readxl)
 library(dplyr)
-library(pracma)
 library(kableExtra)
 library(ggplot2)
 library(plotly)
@@ -3381,6 +3380,7 @@ Für die stehende Position kommt wie in @eq-PInt_Modell eine Kombination aus lin
 Für die sitzende Position wurde ein rein kubischer Zusammenhang angenommen. Diese Vereinfachung basiert auf der Annahme, dass die Änderungen der potentiellen Energie der Körpersegmente im Sitzen einen vernachlässigbaren Einfluss auf die P~Int,Kinematik,HAT~-Werte haben und die innere Leistung primär durch die Veränderungen der kinetischen Energie der Segmente bestimmt wird.
 
 ::: {.panel-tabset}
+
 
 #### P<sub>Int,Kinematik,HAT</sub> x nD
 
