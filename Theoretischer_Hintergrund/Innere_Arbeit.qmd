@@ -2607,16 +2607,16 @@ library(htmlwidgets)
 library(ggplot2)
 library(minpack.lm) 
 
-Kinematik_list_HAT <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Formel, Berechnungen/Blindleistung/3D_Daten/Kinematik_list_HAT.rds")
-Bedingungen_data <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Bedingungen_data.rds")
+Kinematik_list_HAT <- readRDS("rds/Kinematik_list_HAT.rds")
+Bedingungen_data <- readRDS("rds/Bedingungen_data.rds")
 
-Erg_data_df_base <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_df_base.rds")
+Erg_data_df_base <- readRDS("rds/Erg_data_df_base.rds")
 Erg_data_df_base <- subset(Erg_data_df_base, !Proband %in% c(2, 3))
 
 Erg_data_df <- Erg_data_df_base
 Erg_data_df <- subset(Erg_data_df, !Proband %in% c(2, 3))
 
-Erg_data_komplett <- readRDS("C:/Users/johan/OneDrive/Desktop/SpoWi/WS 22,23/Masterarbeit - Wirkungsgrad/Daten/Probanden_Energieberechnung/xlsm/Erg_data_komplett.rds")
+Erg_data_komplett <- readRDS("rds/Erg_data_komplett.rds")
 Erg_data_komplett  <- subset(Erg_data_komplett , !Proband %in% c(2, 3))
 
 ###### PInt anhand der Kinematik Daten berechnen ######
