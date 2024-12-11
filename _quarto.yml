@@ -26,6 +26,7 @@ website:
     contents:
       - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
         contents: 
+          - Theoretischer_Hintergrund/Mechanische_Arbeit.qmd
           - Theoretischer_Hintergrund/Innere_Arbeit.qmd
       - Forschungsfragen_Hypothesen.qmd
       - section: Methodik/index_Methodik.qmd

@@ -1,0 +1,198 @@
+---
+title: "Mechanische Arbeit"
+
+execute:
+  message: false
+  engine: knitr
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false
+tbl-cap-location: bottom
+editor: 
+  markdown: 
+    wrap: 108
+    
+---
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
+  text-align: justify;
+}
+```
+
+:::::: columns
+::: {.column width="58%"}  
+Die mechanische externe Arbeit (W~mech~) charakterisiert, beim Radfahren auf dem Ergometer, die gegen den äußeren Widerstand des Ergometers verrichtete Arbeit, die durch die Rotation der Tretkurbel erzeugt wird. Sie repräsentiert die Hauptkomponente der mechanischen Gesamtarbeit (W~Tot~), welche sich zusätzlich aus der inneren Arbeit (W~Int~) zusammensetzt, die im nachfolgenden Kapitel detailliert erläutert wird.<br>
+Im Kontext der Wirkungsgradberechnung, bei der in den meisten Fällen W~Int~ nicht berücksichtigt wird, stellt die mechanische Leistung P~mech~ eine der zwei fundamentalen Komponenten dar. Sie quantifiziert ausschließlich die nach außen an den Pedalen abgegebene Leistung, während die metabolische Leistung wie im letzten Kapitel beschrieben den energetischen Gesamtaufwand des Organismus für die Bewegungsausführung charakterisiert.
+
+Die Pedalbewegung erfolgt auf einer Kreisbahn, deren Position durch den Kurbelwinkel definiert wird. Bei der Kraftübertragung vom Fuß auf das Pedal sind aus biomechanischer Perspektive drei Kraftkomponenten messbar, wobei für die Vortriebsanalyse hauptsächlich zwei relevant sind (@fig-Pedalkraefte):<br>
+Die Tangentialkraft (F~tangential~) wirkt stets rechtwinklig zur Kurbel und stellt die einzige vortriebswirksame Komponente dar. Ihre Wirkungsrichtung variiert kontinuierlich mit der Kurbelstellung und ist maßgeblich für die Erzeugung des antreibenden Drehmoments verantwortlich.<br>
+Die Radialkraft (F~radial~) wirkt longitudinal zur Kurbel und trägt nicht zum Vortrieb bei. Sie verursacht ausschließlich mechanische Belastungen der Kurbel durch Zug- und Druckkräfte sowie Reibungsverluste im Tretlager.
+Die laterale Kraftkomponente (F~lateral~) wirkt orthogonal zur Bewegungsebene und wird bei der Analyse der Vortriebsleistung aufgrund ihres fehlenden Einflusses auf die Vorwärtsbewegung vernachlässigt [@Bini2013].<br>
+Die effektive Vortriebskraft (F~resultierend~) ergibt sich als vektorielle Summe dieser Komponenten. Eine optimale biomechanische Effizienz der Pedalbewegung wäre erreicht, wenn die gesamte resultierende Pedalkraft in F~Tangential~ umgesetzt würde. Dies ist jedoch aufgrund anatomischer und bewegungsphysiologischer Limitationen nicht realisierbar [@Hillebrecht1998].
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="40%"}
+![Darstellung der am Pedal angreifenden resultierenden Kraft (F~resultierend~) und ihrer Komponenten: vortriebswirksame Tangentialkraft (F~tangential~) und nicht-vortriebswirksame Radialkraft (F~radial~) (modifiziert nach Hillebrecht et al., 1998).](images/Pedalkraefte_Hillebrecht.png){#fig-Pedalkraefte}
+
+:::
+::::::
+
+
+:::::: columns
+::: {.column width="0%"} 
+:::
+
+::: {.column width="58%"}
+![Schematische Darstellung der theoretisch optimalen Richtung der F~tangential~ (Pfeile) in den vier Phasen einer Kurbelumdrehung: Schub- (1), Druck- (2), Zug- (3) und Hub-Phase (4) (modifiziert nach Hillebrecht et al., 1998).](images/Tangentialkraft_Hillebrecht.png){#fig-Tangentialkraefte}
+:::
+
+::: {.column width="42%"}
+:::
+::::::
+
+### Bestimmung der mechanischen Arbeit 
+
+Basierend auf den Ergebnissen des Stufentests der Voruntersuchung an Testtag 1 wurden für jeden Probanden individualisierte mechanische Leistungsvorgaben (P~mech,Vorgabe~) für die drei Belastungsintensitäten (leicht, moderat, schwer) definiert. Die vorgegebenen mechanischen Leistungen absolvierten die Probanden jeweils im Sitzen und im Stehen.
+
+Die Quantifizierung der tatsächlich erbrachten mittleren mechanischen externen Leistung (P~mech~[^1] in Watt) während der verschiedenen Belastungsdurchgänge erfolgte durch eine systematische Analyse der Rohdaten. Hierzu wurden die am Fahrradergometer (Lode Excalibur Sport) separat für das linke und rechte Pedal erfassten Tangentialdrehmomente (M~Tangential~ in Newtonmeter) extrahiert. Die Aufzeichnung dieser Drehmomente erfolgte über den definierten Belastungszeitraum in 2°-Intervallen (0° bis 358°). Zur Ermittlung repräsentativer Werte wurde für jede Winkelposition der arithmetische Mittelwert über die Belastungszeit berechnet:
+
+$$\bar{M}_{T}(\theta) = \frac{1}{n} \sum_{i=1}^{n} M_{T}(\theta,t_i) \;\; [Nm]$$ {#eq-M_Tangential}
+
+Hierbei repräsentiert Theta (θ) die jeweilige Winkelstellung und n die Anzahl der Messungen im Belastungszeitraum. Da die Probanden mehrere Kurbelumdrehungen während der Belastungsphase absolvierten, wurde für jede der 180 Winkelpositionen der arithmetische Mittelwert über alle Durchgänge gebildet. Der Quotient $\frac{1}{n}$ und die Summenbildung ($\sum_{i=1}^{n}$) realisieren dabei die Mittelwertberechnung durch Aufsummierung aller Drehmomente einer spezifischen Winkelposition und anschließende Division durch die Anzahl der Messungen. Dies ermöglichte die Berechnung eines repräsentativen Drehmomentverlaufs über eine vollständige Kurbelumdrehung (@fig-Tangentialdrehmoment).
+
+Die Berechnung der resultierenden Tangentialkraft (F~Tangential~ in Newton) erfolgte aus dem gemittelten Tangentialdrehmoment unter Berücksichtigung der Kurbellänge (l~Kurbel~ in Meter). Analog zur Berechnung des Tangentialdrehmoments wurde für jede der 180 Winkelpositionen (θ) ein repräsentativer Wert der Tangentialkraft bestimmt (@fig-Tangentialkraft). Diese Transformation basiert auf dem fundamentalen physikalischen Zusammenhang zwischen Drehmoment und Kraft, wobei das Drehmoment dem Produkt aus Kraft und Hebelarm entspricht. Die Kurbellänge l~Kurbel~ fungiert dabei als konstanter Hebelarm, über den die Kraft auf das System übertragen wird. Dieser Zusammenhang wird durch folgende Gleichung beschrieben:
+
+$$\bar{F}_{T}(\theta) = \frac{\bar{M}_{T}(\theta)}{l_{Kurbel}} \;\; [N]$$ {#eq-F_Tangential}
+
+Die Winkelgeschwindigkeit (ω in Radiant pro Sekunde) wurde für jede Winkelposition aus dem Quotienten des zurückgelegten Weges im Bogenmaß (Δs = 2°) und der gemittelten Zeitdifferenz (Δt in Sekunden) zwischen den aufeinanderfolgenden Winkelstellungen bestimmt. Diese kinematische Größe beschreibt die Rotationsgeschwindigkeit der Tretkurbel an jeder Position des Bewegungszyklus (@fig-Winkelgeschwindigkeit):
+
+$$\bar{\omega}(\theta) = \frac{\Delta s}{\Delta t(\theta)} \;\; [rad \cdot s^{-1}]$$ {#eq-omega}
+
+Die momentane mechanische Leistung (P~mech~(θ) in Watt) basiert auf dem fundamentalen physikalischen Zusammenhang, dass die mechanische Leistung bei Rotationsbewegungen durch das Produkt aus Drehmoment und Winkelgeschwindigkeit definiert ist. Dies ermöglicht die Quantifizierung der momentanen Leistungsabgabe für jede Winkelstellung über den gesamten Bewegungszyklus:
+
+$$\bar{P}_{mech}(\theta) = \bar{M}_{T}(\theta) \cdot \bar{\omega}(\theta) \;\; [W]$$ {#eq-P_theta}
+
+Die mittlere mechanische Tangentialleistung (P~mech~ in Watt) wurde durch Integration der momentanen Leistungen beider Beine über alle Winkelstellungen des Bewegungszyklus bestimmt. Diese Berechnung erfolgt durch Aufsummierung der momentanen Leistungen des linken und rechten Beins für jede Winkelposition und anschließende Mittelung über alle k Winkelpositionen. Der Quotient $\frac{1}{k}$ und die Summenbildung ($\sum_{i=1}^{k}$) realisieren dabei die Mittelwertberechnung durch Addition aller momentanen Leistungen beider Beine und anschließende Division durch die Anzahl der Winkelpositionen. Dadurch wird ein repräsentativer Wert der durchschnittlichen mechanischen Leistung über den gesamten Bewegungszyklus ermittelt (@fig-Tangentialleistung):
+
+$$\bar{P}_{mech} = \frac{1}{k} \sum_{i=1}^{k} [\bar{P}_{mech,links}(\theta_i) + \bar{P}_{mech,rechts}(\theta_i)] \;\; [W]$$ {#eq-P_mech}
+
+[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~mech~, F~Tangential~, M~Tangential~, ω usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch, wie in den Gleichungen (@eq-M_Tangential) bis (@eq-P_mech) formal korrekt dargestellt, stets um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum bzw. die jeweilige Winkelstellung in dem Belastungszeitraum. Diese Notation wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
+
+::: panel-tabset
+### Tangentialdrehmoment
+![Beispielhafter Verlauf des Tangentialdrehmoments mit Standardabweichung (feinere Linie) über den Drehwinkel für beide Beine. Die vertikalen Linien kennzeichnen die maximalen und minimalen Amplituden des jeweiligen Beins.](images/Tangentialdrehmoment.png){#fig-Tangentialdrehmoment}
+
+### Tangentialkraft
+![Beispielhafter Verlauf der Tangentialkraft mit Standardabweichung (feinere Linie) über den Drehwinkel für beide Beine. Die vertikalen Linien kennzeichnen die maximalen und minimalen Amplituden des jeweiligen Beins.](images/Tangentialkraft.png){#fig-Tangentialkraft}
+
+### Tangentialleistung
+![Beispielhafter Verlauf der Tangentialleistung mit Standardabweichung (feinere Linie) über den Drehwinkel für beide Beine. Die vertikalen Linien kennzeichnen die maximalen und minimalen Amplituden des jeweiligen Beins.](images/Tangentialleistung.png){#fig-Tangentialleistung}
+
+### Winkelgeschwindigkeit
+![Beispielhafter Verlauf der Winkelgeschwindigkeit über den Drehwinkel. Die vertikalen Linie kennzeichnet die maximale Amplitude.](images/Winkelgeschwindigkeit.png){#fig-Winkelgeschwindigkeit}
+:::
+
+## Biomechanische Effizienzkenngrößen der Tretbewegung
+
+Aufbauend auf den zuvor berechneten grundlegenden mechanischen Größen der Tangentialkraft, des Drehmoments und der momentanen mechanischen Leistung während einer Kurbelumdrehung, lassen sich weitere Parameter ableiten. Diese zusätzlichen Kenngrößen ermöglichen eine Analyse der Bewegungsqualität und Effizienz der Kraftübertragung beim Radfahren. Im Folgenden werden drei zentrale Parameter vorgestellt, die aus den bereits ermittelten Messdaten berechnet werden können.
+
+### Links-Rechts-Balance
+
+Die Links-Rechts-Balance beschreibt die prozentuale Verteilung der mechanischen Leistung zwischen dem linken und rechten Bein während des Tretzyklus. Basierend auf den separat erfassten momentanen Leistungen beider Extremitäten ermöglicht diese Kenngröße die Analyse potentieller biomechanischer Asymmetrien in der Kraftübertragung. Die Berechnung erfolgt durch das Verhältnis der mittleren mechanischen Leistung des linken Beins zur Gesamtleistung im Vergleich zum entsprechenden Verhältnis des rechten Beins.
+
+Die mittlere mechanische Leistung des linken (P~mech,links~) bzw. rechten Beins (P~mech,rechts~) wird dabei analog zu Gleichung (@eq-P_mech) durch Integration der jeweiligen momentanen Leistungen über alle k Winkelpositionen seperat für jedes bein bestimmt.
+Die prozentuale Verteilung der Links-Rechts-Balance berechnet sich für das linke (P~L,percent~) und rechte Bein (P~R,percent~) wie folgt:
+
+$$P_{L,percent} = \frac{\bar{P}_{mech,links}}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-balance_left}
+
+$$P_{R,percent} = \frac{\bar{P}_{mech,rechts}}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-balance_right}
+
+Eine symmetrische Kraftübertragung (50%/50%) wird dabei aus biomechanischer Perspektive häufig als theoretischer Referenzwert betrachtet, wenngleich in der Praxis in der Regel Abweichung von dem Referenzwert zu beobachten sind.
+
+### Torque Efficiency
+
+Die Torque Efficiency beschreibt die Effektivität der Kraftübertragung während des Tretzyklus durch das Verhältnis der vortriebswirksamen zur aufgebrachten Gesamtleistung. Diese Kenngröße ermöglicht die Analyse der biomechanischen Effizienz der Tretbewegung durch Quantifizierung des Anteils positiver und negativer Leistungskomponenten während der Bewegungsausführung.
+Die positiven (P~mech,positiv~) und negativen (P~mech,negativ~) Leistungsanteile werden dabei analog zu Gleichung (@eq-P_mech) durch Integration der momentanen Leistungen über alle k Winkelpositionen bestimmt, wobei zwischen vortriebswirksamen und bremsenden Komponenten differenziert wird:
+
+$$\bar{P}_{mech,positiv} = \frac{1}{k} \sum_{i=1}^{k} \bar{P}_{mech}(\theta_i) \;\; [W] \rightarrow \; \text{für} \;\; \bar{P}_{mech}(\theta_i) > 0$$ {#eq-P_pos}
+
+$$\bar{P}_{mech,negativ} = \frac{1}{k} \sum_{i=1}^{k} \bar{P}_{mech}(\theta_i) \;\; [W] \rightarrow \; \text{für} \;\; \bar{P}_{mech}(\theta_i) < 0$$ {#eq-P_neg}
+
+Die Torque Efficiency berechnet sich dann als prozentuales Verhältnis der Summe aus positiver und negativer Leistung zur Gesamtleistung:
+
+$$\text{Torque Efficiency} = \frac{(\bar{P}_{mech,positiv} + \bar{P}_{mech,negativ})}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-torque_eff}
+
+Die größten P~mech,positiv~ treten beim Radfahren im Sitzen typischerweise bei einer Kurbelstellung von etwa 90° relativ zum Boden auf (siehe @fig-Tangentialleistung und @fig-Torque_Efficiency), da hier durch die Abwärtsbewegung des Pedals die größten Tangentialkräfte auf die Pedale generiert und somit optimal für den Vortrieb genutzt werden können. Die maximalen P~mech,negativ~ sind charakteristisch bei etwa 270° Kurbelstellung zu beobachten, also während der Aufwärtsbewegung des Pedals. In dieser Phase des Tretzyklus befindet sich das kontralaterale Bein in der biomechanisch vorteilhaften 90° Stellung und generiert den Hauptvortrieb, während das Bein in der 270° Stellung gegen die Gewichtskraft des Beinsegments arbeiten muss. Diese Überwindung der Gewichtskraft führt zu einem negativen Leistungsanteil, welcher nur durch aktives Ziehen am Pedal ("runder Tritt") kompensiert werden kann. Ein theoretischer Maximalwert der Torque Efficiency von 100% würde eine ideale Kraftübertragung ohne jegliche negative Leistungsanteile während des gesamten Tretzyklus bedeuten. Beim Radfahren im Wiegetritt verschieben sich diese charakteristischen Winkelpositionen der P~mech,positiv~ und P~mech,negativ~ aufgrund der veränderten Körperposition und Gewichtsverlagerung um etwa 40° nach hinten [@FaveroElectronicsSrl2024; @Kistemaker2023; @Korff2007; @Coyle1991; @Bini2014,16].
+
+![Visualisierung der Torque Efficiency über einen vollständigen Tretzyklus. 
+Links: Beispielhafter Verlauf der positiven P~+~ und negativen P~-~ Leistungsanteile mit Maximum P~mech,max~ bei 
+90° Kurbelstellung. Rechts: Kreisdiagramm zur Darstellung der Leistungsverteilung über die 
+Kurbelumdrehung (modifiziert nach Favero Electronics Srl., 2024).](images/Torque_Efficiency.png){#fig-Torque_Efficiency}
+
+### Pedal Smoothness
+
+Die Pedal Smoothness quantifiziert die Gleichmäßigkeit der Kraftübertragung während einer kompletten Kurbelumdrehung durch das Verhältnis von mittlerer zu maximaler Leistung. Diese Kenngröße ermöglicht die Analyse der biomechanischen Effizienz der Tretbewegung durch Bestimmung der Homogenität der Leistungsabgabe über den gesamten Bewegungszyklus.
+Die mittlere mechanische Leistung wird dabei wie bereits beschrieben mit Gleichung (@eq-P_mech) durch Integration der momentanen Leistungen beider Beine über alle k Winkelpositionen bestimmt.
+Die maximale Leistung (P~mech,max~) repräsentiert den Mittelwert der höchsten momentanen mechanischen Leistungen jeder einzelnen Kurbelumdrehung über den gesamten Belastungszeitraum. Für jede Umdrehung wird zunächst der Maximalwert der Leistung über alle k Winkelpositionen bestimmt:
+
+$$\bar{P}_{mech,max} = max(\bar{P}_{mech}(\theta_i)) \;\; [W] \rightarrow \; \text{für alle} \;\; i \in \{1,2,3,...,k\}$$ {#eq-P_max}
+
+Die Pedal Smoothness berechnet sich dann als prozentuales Verhältnis der P~mech~ zur P~mech,max~:
+
+$$\text{Pedal Smoothness} = \frac{\bar{P}_{mech}}{\bar{P}_{mech,max}} \cdot 100 \;\; [\%]$$ {#eq-pedal_smooth}
+
+Die maximalen Leistungswerte (P~mech,max~) treten beim Radfahren im Sitzen, wie bereits beschrieben, charakteristischerweise bei einer Kurbelstellung von circa 90° relativ zur Horizontalen auf, während die Minimalwerte bei etwa 270° auftreten (@fig-Tangentialleistung und @fig-Pedal_Smoothness). Im Wiegetritt verschiebt sich diese Charakteristik um circa 40° nach hinten. Ein theoretischer Maximalwert der Pedal Smoothness von 100% würde eine ideal homogene Leistungsabgabe über den kompletten Tretzyklus implizieren, was jedoch unter realen Bedingungen nicht realisierbar ist [@FaveroElectronicsSrl2024; @Korff2007].
+
+![Darstellung der Pedal Smoothness über eine Kurbelumdrehung. Links: Beispielhafter Leistungsverlauf mit maximaler 
+Leistung P~mech,max~, durchschnittlicher Leistung P~avg~. Rechts: Kreisdiagramm zur Veranschaulichung der Gleichmäßigkeit der 
+Leistungsabgabe (modifiziert nach Favero Electronics Srl., 2024).](images/Pedal_Smoothness.png){#fig-Pedal_Smoothness}
+
+## Quellenverzeichnis
+
+::: {#refs}
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
