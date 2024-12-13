@@ -735,7 +735,7 @@ Beginn der Belastung.
 
 In der folgenden Shiny-App wird die Modellanpassung der Gleichung
 @eq-VO2_Start an Beispieldaten demonstriert. Eigene
-$\dot{V}O_{2}$-Daten können hochgeladen und mittels nichtlinearer
+$\dot{V}O_{2}(t)$-Daten können hochgeladen und mittels nichtlinearer
 Regression an die Modellparameter angepasst werden.
 
 #### Biexponentielle $\dot{V}O_{2}$-Shiny-App {.unnumbered .unlisted}

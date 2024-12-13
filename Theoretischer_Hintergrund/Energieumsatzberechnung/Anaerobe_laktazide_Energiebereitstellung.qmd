@@ -887,7 +887,7 @@ shinyApp(ui = ui, server = server)
 
 ## Blutlaktat-Kompartmentmodell-Modellfunktion (nach Freund et al. 1986)
 
-Die Shiny-App stellt die Laktatkinetik während und nach einer intensiven Belastung mithilfe des Zwei-Kompartment-Modells nach Freund et al. dar. Dieses mathematische Modell berücksichtigt sowohl die Laktatbildung und -elimination im Muskel- und Nicht-Muskelkompartment als auch den Austausch zwischen diesen Kompartmenten. Der Konzentrationsverlauf wird durch die Summe zweier Exponentialfunktionen beschrieben, deren Amplituden (A1, A2) und Geschwindigkeitskonstanten (γ1, γ2) die Dynamik der Laktatkinetik charakterisieren [@Freund1986; @Heck2022, 197].
+Die Shiny-App stellt die Laktatkinetik während und nach einer intensiven Belastung mithilfe des Zwei-Kompartment-Modells nach Freund et al. dar. Dieses mathematische Modell berücksichtigt sowohl die Laktatbildung und -elimination im Muskel- und Nicht-Muskelkompartment als auch den Austausch zwischen diesen Kompartmenten. Der Konzentrationsverlauf wird durch die Summe zweier Exponentialfunktionen beschrieben, deren Amplituden (A~1~, A~2~) und Geschwindigkeitskonstanten (γ~1~, γ~2~) die Dynamik der Laktatkinetik charakterisieren [@Freund1986; @Heck2022, 197].
 
 ```{shinylive-r}
 #| standalone: true

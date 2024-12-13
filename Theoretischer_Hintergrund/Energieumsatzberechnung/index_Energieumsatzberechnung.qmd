@@ -241,15 +241,13 @@ Aus diesem Grund ist es bei intensiven Belastungen aufgrund der begrenzten O~2~-
 DT_kÄ
 ```
 
-Aus den angegebenen Berechnungen ergibt sich, dass bei einem RQ von etwa 0.70 Lipide und bei einem RQ von 1.00 Kohlenhydrate die Hauptenergiequelle sind. Für RQ-Werte zwischen 0.70 und 1.00 lassen sich die relativen Beiträge von Lipiden und Kohlenhydraten zur Energiequelle sowie deren Beitrag zum Energiefluss interpolieren. Dies ist in @tbl-stegemann dargestellt. 
-
-Der Proteinstoffwechsel wird in den durchgeführten Berechnungen nicht berücksichtigt. 
+Aus den angegebenen Berechnungen ergibt sich, dass bei einem RQ von etwa 0.70 Lipide und bei einem RQ von 1.00 Kohlenhydrate die Hauptenergiequelle sind. Für RQ-Werte zwischen 0.70 und 1.00 lassen sich die relativen Beiträge von Lipiden und Kohlenhydraten zur Energiequelle sowie deren Beitrag zum Energiefluss interpolieren. Dies ist in @tbl-stegemann dargestellt. Der Proteinstoffwechsel wird in den durchgeführten Berechnungen nicht berücksichtigt. 
 
 ```{r}
 #Die Gründe dafür und die Rolle von Eiweiß als Brennstoff wird am Ende dieses Kapitels genauer beschrieben.
 ```
 
-### Unterschiede zwischen RQ und RER und deren Relevanz
+### Unterschiede zwischen RQ und RER 
 
 ::: columns
 ::: {.column width="48%"}

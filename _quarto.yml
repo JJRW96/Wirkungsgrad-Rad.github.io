@@ -30,6 +30,7 @@ website:
              contents:
               - Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.qmd
               - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.qmd
+              - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.qmd
            - Theoretischer_Hintergrund/Mechanische_Arbeit.qmd
            - Theoretischer_Hintergrund/Innere_Arbeit.qmd
        - Forschungsfragen_Hypothesen.qmd

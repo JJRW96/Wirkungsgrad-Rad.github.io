@@ -280,6 +280,7 @@ Hypothesen:
 -   Das Ergometer hat manchmal aussetezer gehbat, wodurch in der Nachbelastungsphase teilweise statt der gewollten 50 Watt Belastung über einen Zeitraum von bis zu mehreren Minuten kein Trettwiderstand vorhanden war. Die könnte dazu geführt haben, dass in wenigen Belastungsdurchgängen bzw. der Nachbelastung davon der Sauerstoffvolumenstomr tiefer gefallen war als es eigentlich sien sollte und somit die EPOC - berechnung in manchen wenigen Fällen evtl leicht verfälscht wurde. E skonnte aber nich genau nachvollzogen werden i nwelchen fällen dies eingetreten ist und für wie lange, weshalb dies in der EPOC berechnung nicht beachtet wurde. UNd bist auf potentiell drei WErte die an der oberen Grenze der pyhislogisch plasuiblen Grenze lagen waren die restlichen wrte gut. 
 -   ...
 - Probleme bei der Berechnung der inneren Leistung wie in Ettema
+- Einfluss der Vorbelastung und Nachbelastung AUf EPOC, Sauerstoffspeicher und Anpasungs bzw. abfallkinetik des Sauasertoff
 
 
 ## Ausblick
