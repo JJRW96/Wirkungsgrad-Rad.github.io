@@ -1759,8 +1759,7 @@ DT_RQ_Substrate
 
 Mit Kentniss von P/O~2,Bel~, VO2~fast,corrected~. Muskelmasse~aktiv~
 und dem Volumen von Sauerstoff unter Standardbedingungen (V~m,O2~ =
-22,414 Litern) (siehe
-[Energieumsatzberechnung](http://localhost:3402/Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.html#pulmonaler-sauerstoffspeicher-%CE%B4o2sp))
+22,414 Litern) (siehe Kapitel "Energieumsatzberechnung")
 [@Ciba-Geigy1977, 45] kann nun die PCr Menge in mmol normiert auf die
 aktive Muskelfeuchtmasse (PCr~Bel~) für jede Belastung berechnet werden.
 

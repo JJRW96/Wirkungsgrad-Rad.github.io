@@ -22,10 +22,11 @@ website:
     align: center
     style: "docked"
     search: true
-    collapse-level: 2 #Ab welchem Level die Unterpunkt nicht mehr angezeigt werden. Bei 2 wird bspw. bei Energieumsatz die Unterpunkte eingeklappt
+    collapse-level: 3 #Ab welchem Level die Unterpunkt nicht mehr angezeigt werden. Bei 2 wird bspw. bei Energieumsatz die Unterpunkte eingeklappt
     contents:
        - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
          contents: 
+           - Theoretischer_Hintergrund/Wirkungsgrad_Theorie.qmd
            - section: Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.qmd
              contents:
               - Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.qmd
@@ -33,6 +34,7 @@ website:
               - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_alaktazide_Energiebereitstellung.qmd
            - Theoretischer_Hintergrund/Mechanische_Arbeit.qmd
            - Theoretischer_Hintergrund/Innere_Arbeit.qmd
+           - Theoretischer_Hintergrund/Sitzen_Stehen.qmd
        - Forschungsfragen_Hypothesen.qmd
        - section: Methodik/index_Methodik.qmd
          contents: 

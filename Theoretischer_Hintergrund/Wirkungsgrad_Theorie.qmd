@@ -16,7 +16,7 @@ editor:
 tbl-cap-location: bottom
 
 nocite: |
-  @Dickinson1929, @Henry1950, @Gaesser1975, @Seabury1977, @Suzuki1979, @Luhtanen1987, @Francescato1995, @Chavarren1999, @Beneke2002, @Millet2002, @Harnish2007, @Bell2009, @Bouillod2014, @Dunst2023a, @Zoladz2023a, @Carlsson2024
+  @Dickinson1929, @Henry1950, @Gaesser1975, @Seabury1977, @Suzuki1979, @Luhtanen1987, @Francescato1995, @Chavarren1999, @Beneke2002, @Millet2002, @Harnish2007, @Bell2009, @Bouillod2014, @Dunst2023a, @Zoladz2023a, @Carlsson2024, @DePauw2013
 ---
 
 ```{css}
@@ -35,7 +35,6 @@ figure figcaption {
 }
 ```
 
-# Wirkungsgrad
 
 ```{r}
 library(dplyr)
@@ -46,26 +45,31 @@ library(DT)
 library(extrafont)
 ```
 
-**Geile Einleitung in @Beneke2001 und in @Jobson2012**
-**Jobson2012 hat auch inhalt über Wichtigkeit der gorss effeiciency und der Trainierbarketi**
-**GE erklärte etwa 30% der Variation in der Leistungsabgabe (PO) während Zeitfahren auf dem Fahrrad (1). Folglich wird ein Radfahrer mit hoher GE bei einer bestimmten Leistungsabgabe einen geringeren Energieaufwand haben als ein vergleichbarer Fahrer mit niedrigerer GE. @Jobson2012 und @Carlsson2024 + "Bei Bergaufpassagen wechseln Radfahrer zwischen sitzender und stehender Position, um durch Anpassung des Gleichgewichts zwischen Trittfrequenz und Tangentialkraft eine konstante Geschwindigkeit beizubehalten. Bouillod und Grappe (2018) fanden heraus, dass Eliteradfahrer während eines Bergzeitfahrens mit einer mittleren Steigung von 4,0° (7,0%) 22,4% ihrer Zeit im Stehen fuhren. Bei einer Steigung von 2,9° (5,0%) und einer Leistung von 93% der maximalen Sauerstoffaufnahme (V̇O2max) betrug der Anteil des Stehens laut Harnish et al. (2007) 34%."**
+```{r}
+# Geile Einleitung in @Beneke2001 und in @Jobson2012**
+# Jobson2012 hat auch inhalt über Wichtigkeit der gorss effeiciency und der Trainierbarketi**
+## GE erklärte etwa 30% der Variation in der Leistungsabgabe (PO) während Zeitfahren auf dem Fahrrad (1). Folglich wird ein Radfahrer mit hoher GE bei einer bestimmten Leistungsabgabe einen geringeren Energieaufwand haben als ein vergleichbarer Fahrer mit niedrigerer GE. @Jobson2012 und @Carlsson2024 + "Bei Bergaufpassagen wechseln Radfahrer zwischen sitzender und stehender Position, um durch Anpassung des Gleichgewichts zwischen Trittfrequenz und Tangentialkraft eine konstante Geschwindigkeit beizubehalten. Bouillod und Grappe (2018) fanden heraus, dass Eliteradfahrer während eines Bergzeitfahrens mit einer mittleren Steigung von 4,0° (7,0%) 22,4% ihrer Zeit im Stehen fuhren. Bei einer Steigung von 2,9° (5,0%) und einer Leistung von 93% der maximalen Sauerstoffaufnahme (V̇O2max) betrug der Anteil des Stehens laut Harnish et al. (2007) 34%."*
+```
 
 ::: columns
-::: {.column width="52%"}
-Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.<br> Es existieren mehrere Möglichkeiten den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten. Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten. In der nachfolgenden Tabelle sind verschiedene Möglichkeiten zur Wirkungsgradberechnung aufgeführt [@Boning2017; @Luhtanen1987; @Gaesser1975; @Winter1979]:
+::: {.column width="54%"}
+Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energie zur erzeugten mechanischen Energie. Er wird üblicherweise als Dezimalzahl oder Prozentwert ausgedrückt.
+
+Es existieren mehrere Möglichkeiten, den Wirkungsgrad zu berechnen, darunter den Bruttowirkungsgrad (η~brutto~), den Nettowirkungsgrad (η~Netto~), den Arbeitswirkungsgrad (η~Arbeit~) sowie den Deltawirkungsgrad (η~delta~) (siehe @tbl-Wirkungsgrad_Berechnungen). Ergänzend zu diesen etablierten Methoden wurde der Gesamtwirkungsgrad (η~Total~) als zusätzlicher Berechnungsansatz bestimmt.<br> 
+Gewisse Bestimmungsverfahren ermöglichen zwar eine einfache Anwendung, können jedoch mehrere Ungenauigkeiten bzw. Einflussfaktoren beinhalten. Andere hingegen erfordern komplexere Berechnungen und eine größere Anzahl an Messdaten, liefern dafür aber präzisere Daten [@Boning2017; @Luhtanen1987; @Gaesser1975; @Winter1979]. @tbl-Wirkungsgrad zeigt eine Zusammenstellung publizierter Wirkungsgrade beim Radfahren aus der Fachliteratur.
 :::
 
 ::: {.column width="2%"}
 :::
 
-::: {.column width="46%"}
+::: {.column width="44%"}
 | Wirkungsgrade |                   Berechnung                   |
 |---------------|:----------------------------------------------:|
-| η~Brutto~     |               W~mech~ / W~Aerob~               |
-| η~Netto~      |         W~mech~ / (W~Aerob~ - W~Ruhe~)         |
-| η~Total~      |          W~mech~ / (W~Tot~ - W~Ruhe~)          |
-| η~muskulär~   |    (W~mech~ + W~Int~) / (W~Tot~ - W~Ruhe~)     |
-| η~Arbeit~     | W~mech~ / (W~Tot~ - W~Ruhe~ - W~Leerbewegung~) |
+| η~Brutto~     |               W~mech~[^2] / W~Aerob~[^3]               |
+| η~Netto~      |         W~mech~ / (W~Aerob~ - W~Ruhe~[^4])         |
+| η~Total~      |          W~mech~ / (W~Tot~[^5] - W~Ruhe~)          |
+| η~muskulär~   |    (W~mech~ + W~Int~[^6]) / (W~Tot~ - W~Ruhe~)     |
+| η~Arbeit~     | W~mech~ / (W~Tot~ - W~Ruhe~ - W~Leerbewegung~[^7]) |
 | η~delta~      |               ΔW~mech~ / ΔW~Tot~               |
 
 : Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Winter (1979), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
@@ -74,17 +78,23 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 :::
 
 [^1]: In der englischsprachigen Literatur wird der Begriff „efficiency“ meist gleichbedeutend für die Wörter "Wirkungsgrad" und "Effizienz" verwendet. Die Effizienz beschreibt allgemein das Verhältnis zwischen dem erreichten Ergebnis und dem dafür benötigten Aufwand oder den dafür eingesetzten Ressourcen, während der Wirkungsgrad spezifisch angibt, wie viel Prozent der aufgewandten Energie tatsächlich in nutzbare Energie umgewandelt wird. So kann im Kontext dieser Arbeit Wirkungsgrad und Effizienz gleichbedeutend sein, solange sich die Effizienz auf das prozentuale Verhältnis von aufgebrachter chemischer Energie gegenüber der tatsächlich erbrachten mechanischen Leistung bezieht.
+[^2]: Mechanische Arbeit: Arbeit, die extern am Ergometer gemessen werden kann.
+[^3]: Aerobe Arbeit: Arbeit, die durch aerobe Stoffwechselprozesse geleistet wird.
+[^4]: Ruhearbeit: Arbeit, die der Körper in Ruhe für die Aufrechterhaltung der Lebensfunktionen leistet, Grundumsatz.
+[^5]: Gesamtarbeit: Summe der Arbeit aus aeroben und anaeroben Stoffwechselprozessen.
+[^6]: Innere mechanische Arbeit: Arbeit für die Aufrechterhaltung der Körpersegmentbewegung.
+[^7]: Arbeit für die Leerbewegung: Arbeit, die für das unbelastete Treten aufgebracht werden muss.
 
-
-
-**NOCH ANSPRECHEN DAS FÜR DEN WIRKUNGGRADBERECHHUNG ALLES IN ARBEIT UMGERECHET WIRD auch wenn manchmal etwas in P angegben wird**
-
-**Temperaturregulation bei körperlicher Belastung bzw. wo geht die Wärmeenergie hin noch mit einbeziehen und beschrieben!!!!!!!!!!!!!! --> Aschoff, Stegemann, deMaares S.552, Astrand S. 396**
-**Statt über indirekte Kaliometrie über die Wärmeabgabe den Wirkungsgrad gegenrechnen oder direkt Berechnen?????**
-
-**NOCH ZUSÄTzLICH DIE BERECHNUNG VON WIRK_TOTAL MIT BESCHREBEN --> VERGLICH ZWISCHEN WIRK MUSKULÄR UND TOTAL --> EINFLUSS VON PINT**
 
 ```{r}
+# NOCH ANSPRECHEN DAS FÜR DEN WIRKUNGGRADBERECHHUNG ALLES IN ARBEIT UMGERECHET WIRD auch wenn manchmal etwas in P angegben wird**
+
+# Temperaturregulation bei körperlicher Belastung bzw. wo geht die Wärmeenergie hin noch mit einbeziehen und beschrieben!!!!!!!!!!!!!! --> Aschoff, Stegemann, deMaares S.552, Astrand S. 396**
+
+# Statt über indirekte Kaliometrie über die Wärmeabgabe den Wirkungsgrad gegenrechnen oder direkt Berechnen?????**
+
+# NOCH ZUSÄTzLICH DIE BERECHNUNG VON WIRK_TOTAL MIT BESCHREBEN --> VERGLICH ZWISCHEN WIRK MUSKULÄR UND TOTAL --> EINFLUSS VON PINT**
+
 #Auch in @Gaesser1975 beschrieben***<br> ***-\> Studie von [@Ettema2009] noch mit einbeziehen<br> 
 #![Wirkungsgrade nach (Luhtanen, 1987)](images/Wirkungsgrad_Luhtanen1978.png){#fig-LUH .caption width="289"} 
 #![Wirkungsgrade nach (Chavarren, 1999)](images/Wirkungsgrad_Chavarren.png){#fig-CHAV .caption width="289"} 
@@ -94,7 +104,7 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 
 #Hopker2010 für den Vergleich von Frauen und Männer beim Radfahren
 
-#EINTELUNG IN DER TABELLE der PROBANDEN NACH der TABELLE von @Jeukendrup2000 vornehmen. Oder nach @dePauw2013 
+#EINTELUNG IN DER TABELLE der PROBANDEN NACH der TABELLE von @Jeukendrup2000 vornehmen. Oder nach @DePauw2013 
 # -> Oder Beides wie in @Ronnestadt2022 "All cyclists were categorized as performance level 4 to 5 (17), equal to being elite (18)."
 ```
 
@@ -113,46 +123,40 @@ ft_Wirkungsgrad <- readRDS("rds/ft_Wirkungsgrad.rds")
 ft_Wirkungsgrad
 ```
 
-** NOCH Ferguson2002 für muskulären wirkungsgrad einbauen !!!! 
-- Six healthy male subjects (age 23±3 years, height 180.5±6.8 cm, mass 72.3±6.9kg; means ± S.E.M.) 
-- 6 Minuten aber 3 für Wirkungsgradberechnung 
-- 60 und 120 Umdrehungen in jewiels einer Erhöten Muskeltemp und normalen Muskeltemp bedingung
-- Wirk muskuär bestimmt
-- In 60 (normal/erhöht) / 120 (normal/erhöht) war der Wirkungsgrad  22.2±0.3 / 21.2±0.4  und 22.7±0.6 / 24.0±0.5
-- Autoren haben aber nich gleiche externe Leisung vorgebene sonder glecihe PToT durch vorherige Beerechnung der PInt und dann PExt daran angepasst
+::: {.callout-note collapse="true"}
+### Abbildung 1: Einordnung der Leistungsniveaus der Teilnehmer nach De Pauw et al. (2013)
+![Leistungsniveaus De Pauw et al. (2013)](images/de_Pauw_Leistungsniveau.png){#fig-dePauw .caption} 
+:::
 
-## Werte aus der Literatur
+```{r}
+## NOCH Ferguson2002 für muskulären wirkungsgrad einbauen !!!! 
+#- Six healthy male subjects (age 23±3 years, height 180.5±6.8 cm, mass 72.3±6.9kg; means ± S.E.M.) 
+#- 6 Minuten aber 3 für Wirkungsgradberechnung 
+#- 60 und 120 Umdrehungen in jewiels einer Erhöten Muskeltemp und normalen Muskeltemp bedingung
+#- Wirk muskuär bestimmt
+#- In 60 (normal/erhöht) / 120 (normal/erhöht) war der Wirkungsgrad  22.2±0.3 / 21.2±0.4  und 22.7±0.6 / 24.0±0.5
+#- Autoren haben aber nich gleiche externe Leisung vorgebene sonder glecihe PToT durch vorherige Beerechnung der PInt und dann PExt daran angepasst
+```
+
+## Analyse der Wirkungsgrade aus der Fachliteratur
 
 Die aus der Fachliteratur ausgewählten und in der @tbl-Wirkungsgrad dargestellten Wirkungsgrade zeigen eine erhebliche Variabilität, wobei systematische Unterschiede zwischen den verschiedenen Berechnungsmethoden erkennbar sind. 
 
-Der Bruttowirkungsgrad (η~brutto~) weist konsistent die niedrigsten Werte aller berechneten Wirkungsgrade auf. Die Spannweite der gemessenen Werte reicht von unter 10% [@Gaesser1975;@Dunst2023a], die charakteristischerweise bei extrem hoher Drehzahl, sehr geringer Last oder einer Kombination beider Faktoren auftreten, bis zu Maximalwerten von 23,6% [@Seabury1977], die bei hohen Lasten und moderaten Drehzahlen dokumentiert wurden. Mit typischen Werten zwischen 19% und 22% stellt sich ein charakteristischer Bereich dar, der in vielen Studien bestätigt wird. In der Regel steigt η~brutto~ mit steigender Belastungsintensität, da hier der Anteil des Ruheenergiestoffwechsels kleiner wird und sinkt mit hohen Trittraten.
+Der Bruttowirkungsgrad (η~brutto~) zeigt durchgängig die niedrigsten Werte aller berechneten Wirkungsgrade. Die Spannweite der gemessenen Werte reicht von unter 10% [@Gaesser1975; @Dunst2023a], die charakteristischerweise bei extrem hoher Drehzahl, sehr geringer Last oder einer Kombination beider Faktoren auftreten, bis zu Maximalwerten von 23.6% [@Seabury1977], die bei hohen Lasten und moderaten Drehzahlen dokumentiert wurden. Mit typischen Werten zwischen 19% und 22% lässt sich ein charakteristischer Bereich erkennen, der in vielen Studien bestätigt wird. In der Regel steigt η~Brutto~ mit steigender Belastungsintensität aufgrund des geringeren Anteils des Ruheenergiestoffwechsels, während er bei hohen Trittraten sinkt.
 
-Der Nettowirkungsgrad (η~netto~) eliminiert den Einfluss des Ruheenergieumsatzes und zeigt dadurch systematisch höhere Werte als der Bruttowirkungsgrad. Die dokumentierten Werte in den Studien bewegen sich überwiegend zwischen 19% und 24%. Die Abhängigkeit von der Belastungsintensität zeigt in der Literatur unterschiedliche Effekte: Während @Luhtanen1987 einen Abfall des η~netto~ von 21,8% auf 17,5% und @Henry1950 von 21,2% auf 19,3% mit steigender Intensität dokumentiert, berichten sowohl @Gaesser1975 als auch @Harnish2007 einen Anstieg des η~netto~ mit zunehmender Belastung. Diese gegensätzlichen Befunde könnten auf unterschiedliche Testprotokolle und Probandencharakteristika zurückzuführen sein. Ein konsistenterer Effekt zeigt sich bei der Trittrate: Hohe Drehzahlen führen hier zu einem deutlichen Abfall des η~netto~ [@Gaesser1975; @Dickinson1929].
+Der Nettowirkungsgrad (η~Netto~) eliminiert den Einfluss des Ruheenergieumsatzes und zeigt dadurch systematisch höhere Werte als der Bruttowirkungsgrad. Die dokumentierten Werte in den Studien bewegen sich überwiegend zwischen 19% und 24%. Die Abhängigkeit von der Belastungsintensität zeigt in der Literatur unterschiedliche Effekte: Während @Luhtanen1987 einen Abfall des η~Netto~ von 21.8% auf 17.5% und @Henry1950 von 21.2% auf 19.3% mit steigender Intensität dokumentiert, berichten sowohl @Gaesser1975 als auch @Harnish2007 einen Anstieg des η~Netto~ mit zunehmender Belastung. Diese gegensätzlichen Befunde könnten auf unterschiedliche Testprotokolle und Probandencharakteristika zurückzuführen sein. Ein konsistenterer Effekt zeigt sich bei der Trittrate: Hohe Drehzahlen führen hier zu einem deutlichen Abfall des η~Netto~ [@Gaesser1975; @Dickinson1929].
 
-Der Delta-Wirkungsgrad (η~delta~) weist mit Ausnahme von η~Muskulär~ die höchsten Werte der verschiedenen Berechnungsmethoden auf. Die dokumentierten Werte bewegen sich typischerweise zwischen 23% und 28%. Die Spannweite reicht von Minimalwerten um 20% [@Suzuki1979] bis zu Maximalwerten von über 32% [@Francescato1995]. Im Gegensatz zu η~brutto~ und η~netto~ zeigt η~delta~ keinen Abfall mit steigender Trittrate, da durch die Berechnungsmethode der Energieumsatz für das Pedalieren ohne Last, welcher mit steigender Drehzahl zunimmt, nicht einbezogen wird. So berichten @Francescato1995, @Chavarren1999 und @Gaesser1975 sogar einen Anstieg des η~delta~ mit steigender Drehzahl. Differenzierte Ergebnisse zeigen sich bei @Suzuki1979: Bei Probanden mit überwiegend schnellen Muskelfasern (FT) steigt η~delta~ bei hohen Drehzahlen an, während bei Probanden mit überwiegend langsamen Muskelfasern (ST) η~delta~ bei hohen Drehzahlen abnimmt.
+Der Delta-Wirkungsgrad (η~delta~) weist mit Ausnahme von η~Muskulär~ die höchsten Werte der verschiedenen Berechnungsmethoden auf. Die dokumentierten Werte bewegen sich typischerweise zwischen 23% und 28%. Die Spannweite reicht von Minimalwerten um 20% [@Suzuki1979] bis zu Maximalwerten von über 32% [@Francescato1995]. Im Gegensatz zu η~Brutto~ und η~Netto~ zeigt η~delta~ keinen Abfall mit steigender Trittrate, da durch die Berechnungsmethode der Energieumsatz für das Pedalieren ohne Last, welcher mit steigender Drehzahl zunimmt, nicht einbezogen wird. So berichten @Francescato1995, @Chavarren1999 und @Gaesser1975 sogar einen Anstieg des η~delta~ mit steigender Drehzahl. Differenzierte Ergebnisse zeigen sich bei @Suzuki1979: Bei Probanden mit überwiegend schnellen Muskelfasern (FT) steigt η~delta~ bei hohen Drehzahlen an, während bei Probanden mit überwiegend langsamen Muskelfasern (ST) η~delta~ bei hohen Drehzahlen abnimmt.
 
-Der Arbeitswirkungsgrad (η~Arbeit~) wurde in zwei der in @tbl-Wirkungsgrad dargestellten Studien systematisch untersucht. @Gaesser1975 dokumentiert Werte zwischen 25% und 28%, während @Luhtanen1987 einen Bereich von 21,0% bis 29,7% berichtet. Die Werte bewegen sich damit in einer ähnlichen Größenordnung wie der Delta-Wirkungsgrad. Bezüglich der Einflussfaktoren zeigen sich unterschiedliche Effekte: @Gaesser1975 beobachtet einen Anstieg des η~Arbeit~ mit zunehmender Trittfrequenz. @Luhtanen1987 dokumentiert eine Reduktion des η~Arbeit~ bei steigender Belastungsintensität.
+Der Arbeitswirkungsgrad (η~Arbeit~) wurde in zwei der in @tbl-Wirkungsgrad dargestellten Studien systematisch untersucht. @Gaesser1975 dokumentiert Werte zwischen 25% und 28%, während @Luhtanen1987 einen Bereich von 21.0% bis 29.7% berichtet. Die Werte bewegen sich damit in einer ähnlichen Größenordnung wie der Delta-Wirkungsgrad. Bezüglich der Einflussfaktoren zeigen sich unterschiedliche Effekte: @Gaesser1975 beobachtet einen Anstieg des η~Arbeit~ mit zunehmender Trittfrequenz. @Luhtanen1987 dokumentiert eine Reduktion des η~Arbeit~ bei steigender Belastungsintensität.
 
-Der Muskuläre Wirkungsgrad (η~Muskulär~) wurde in @tbl-Wirkungsgrad nur von @Bell2009 berichtet und bei normalen Muskeltermperatur werten von durschnittlich 30.2 ± 3.1 bei älteren Menschen und 32.0 ± 3.1 % bei Jungen und bei erhöhten Muskeltemperatur werten von durschnittlich 27.9 ± 4.1 bei älteren 34.0 ± 5.5% bei jüngeren werten angebene. Hier zeigen sich inverse Effekte. Während bei den jungen  der Wirkungsgrad snstiegt mi erhöhter muskeltempaeratur sinkt er bei älteren menschen. Diese berichtetn WErte sind die höchsten durchschnittlichen η WErte aller Wirkungsgrad wertein @tbl-Wirkungsgrad. 
+Der Muskuläre Wirkungsgrad (η~Muskulär~) wurde in @tbl-Wirkungsgrad nur von @Bell2009 berichtet und bei normalen Muskeltemperaturen mit durchschnittlich 30.2 ± 3.1% bei älteren Menschen und 32.0 ± 3.1% bei jungen Probanden dokumentiert. Bei erhöhten Muskeltemperaturen wurden durchschnittlich 27.9 ± 4.1% bei älteren und 34.0 ± 5.5% bei jüngeren Probanden gemessen. Hier zeigen sich inverse Effekte: Während bei den jungen Probanden der Wirkungsgrad mit erhöhter Muskeltemperatur ansteigt, sinkt er bei älteren Menschen. Diese berichteten Werte sind die höchsten durchschnittlichen η-Werte aller Wirkungsgrade in @tbl-Wirkungsgrad. 
 
-Obwohl ein erhöhter η~Muskulär~ aufgrund der Einbeziehung der internen Arbeit für die Aufrechterhaltung der Pedallierbewegung im Vergleich zu den in dieser Studie berichteten η~netto~ Wert als plausibel erscheint, erscheinen die dokumentierten Werte im Vergleich zu den anderen in @tbl-Wirkungsgrad berichteten η~arbeit~ und η~delta~ Werten außergewöhnlich hoch. Dies gilt ebenso für den von @Bell2009 dokumentierten η~netto~ Wert im Vergleich zu den übrigen Studien. Die Autoren selbst diskutieren diese Auffälligkeit und deuten eine mögliche Überschätzung ihrer Werte im Vergleich zur existierenden Literatur an.
-
-
-@fig-dePauw
-
-![Leistungsniveaus De Pauw et al. (2013)](images/de_Pauw_Leistungsniveau.png){#fig-dePauw .caption} 
-
-@tbl-Wirkungsgrad
-
-
-
-
-
+Obwohl ein erhöhter η~Muskulär~ aufgrund der Einbeziehung der internen Arbeit für die Aufrechterhaltung der Pedallierbewegung im Vergleich zu den in dieser Studie berichteten η~Netto~ Wert als plausibel erscheint, erscheinen die dokumentierten Werte im Vergleich zu den anderen in @tbl-Wirkungsgrad berichteten η~Arbeit~ und η~delta~ Werten außergewöhnlich hoch. Dies gilt ebenso für den von @Bell2009 dokumentierten η~Netto~ Wert im Vergleich zu den übrigen Studien. Die Autoren selbst diskutieren diese Auffälligkeit und deuten eine mögliche Überschätzung ihrer Werte im Vergleich zur existierenden Literatur an.
 
 ## Limitationen bei Wirkungsgradberechnungen
 
-Neben den genannten Studien gibt es noch weitere Untersuchungen, welche den Wirkungsgrad im Radsport ermittelt haben. Bei diesen Untersuchungen ist jedoch zu beachten, dass bei der Berechnung des Wirkungsgrades verschiedene Faktoren berücksichtigt werden müssen, die das Ergebnis beeinflussen können. Die verschiedenen Wirkungsgrade verhalten sich unterschiedlich in Bezug auf Änderungen von P~mech~ bei körperlicher Belastung auf dem Radergometer. Zum Beispiel hängt η~brutto~ stark von der Belastungsintensität ab und steigt, wenn P~mech~ zunimmt. Dies liegt daran, dass der prozentuale Anteil des Ruhestoffwechsels, das heißt der Energie, die für die Aufrechterhaltung grundlegender Körperfunktionen im Ruhezustand erforderlich ist, abnimmt, wenn die Gesamtleistung während sportlicher Aktivitäten ansteigt. η~Arbeit~ und η~delta~ verhalten sich ähnlich [@Boning1984]. Im Gegensatz dazu ist η~netto~ weniger leistungsabhängig [@Chavarren1999; @Coast1985]. Bei der Berechnung von η~netto~ werden Veränderungen der Trittrate nicht berücksichtigt, obwohl diese den Nettowirkungsgrad beeinflussen können, selbst wenn P~mech~ unverändert bleibt.
-
+Neben den genannten Studien gibt es noch weitere Untersuchungen, welche den Wirkungsgrad im Radsport ermittelt haben. Bei diesen Untersuchungen ist jedoch zu beachten, dass bei der Berechnung des Wirkungsgrades verschiedene Faktoren berücksichtigt werden müssen, die das Ergebnis beeinflussen können. Die verschiedenen Wirkungsgrade verhalten sich unterschiedlich in Bezug auf Änderungen von der mechanischen Leistung P~mech~ bei körperlicher Belastung auf dem Radergometer. Zum Beispiel hängt η~Brutto~ stark von der Belastungsintensität ab und steigt, wenn P~mech~ zunimmt. Dies liegt daran, dass der prozentuale Anteil des Ruhestoffwechsels, das heißt der Energie, die für die Aufrechterhaltung grundlegender Körperfunktionen im Ruhezustand erforderlich ist, abnimmt, wenn die Gesamtleistung während sportlicher Aktivitäten ansteigt. η~Arbeit~ und η~delta~ verhalten sich ähnlich [@Boning1984]. Im Gegensatz dazu ist η~Netto~ weniger leistungsabhängig [@Chavarren1999; @Coast1985]. Bei der Berechnung von η~Netto~ werden Veränderungen der Trittrate nicht berücksichtigt, obwohl diese den Nettowirkungsgrad beeinflussen können, selbst wenn P~mech~ unverändert bleibt.
 
 
 ```{r}
@@ -161,64 +165,60 @@ Neben den genannten Studien gibt es noch weitere Untersuchungen, welche den Wirk
 # In @Gaesser1975 gut beschrieben***
 ```
 
-### Einfluss der Trittrate auf den Wirkungsgrad
-
-Die Veränderung des Wirkungsgrades bei gleichbleibender P~mech~ und veränderter Drehzahl ist unter anderem auf interne Leistung/Arbeit, bzw. Blindleistung oder Blindarbeit (P~Int~ oder W~Int~) zurückzuführen, die die umgesetzte Energie für die Eigenbewegung der unteren Extremitäten beschreibt. Die interne Leistung ist ein Bestandteil der Gesamtleistung (P~Tot~), die beim Radfahren aufgewendet wird um die Kurbelbewegung zu erzeugen. P~Tot~ kann durch die Addition von P~mech~ und P~Int~ berechnet werden [@Hansen2007b; @Sjøgaard2002].
+#### **Einfluss der Trittrate auf den Wirkungsgrad** {.unlisted}
 
 ```{r}
-#abnehmende torque Efficiency bei höherer rittrate --> Oder anders herum?
+# Einfluss der Trittrate auch in @Beneke2001 gut zusammengefasst!!!!!!!!!!!**
 ```
 
-P~Int~ berechnet sich aus der rotatorischen kinetischen Energiekomponente (E~kin,rot~) für das Durchführen der Drehbewegungen der Körpersegmente um ihre jeweilige Achse und der translatorischen kinetischen Energiekomponente (E~kin,trans~) zusammen, die die Verschiebung der Segmentschwerpunkte im Raum beschreibt.
+Die Veränderung des Wirkungsgrades bei konstanter mechanischer Leistung P~mech~ und steigender Drehzahl ist primär auf den damit verbundenen Anstieg der internen Leistung/Arbeit (P~Int~/W~Int~) zurückzuführen. W~Int~ repräsentiert die erforderliche Arbeit zur Bewegung der unteren Extremitäten während des Radfahrens und stellt eine Komponente der Gesamtarbeit (W~Tot~) dar. W~Tot~ ergibt sich aus der Summe der internen und externen Komponenten [@Hansen2007b; @Sjøgaard2002].
 
-```{r}
-#Zudem sollte die potenzielle Energie und deren Nutzung für die Hubarbeit des gesamten Körperschwerpunktes berücksichtigt werden.
-```
+Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die Aufrechterhaltung der Gesamtbweegung essentiell. Dies steht im Gegensatz zur externen Arbeit (W~Ext~), die direkt mechanische Energie auf das System überträgt, um Vortrieb zu erzeugen. Verschiedene Faktoren beeinflussen die aufzubringende innere Arbeit und führen speziell bei hohen Trittraten zu mehr metabolischen Kosten. Dazu zählen die durch die Hill-Gleichung beschriebene verringerte Muskelkraft bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Agonisten/Antagonisten-Aktivierung mit verstärktem Abbremsen sowie Reibungs- und Viskositätswiderstände in Gelenken und Strukturen. Besonders das verstärkte Abbremsen bei hohen Drehzahlen durch die Antagonisten erhöht die Blindleistungsanforderungen. Die innere Arbeit sowie deren Berechnung wird in dem Abschnitt "Innere Arbeit" genauer beschrieben.<br> 
+Soll W~Int~ bei der Wirkungsgradberechnung berücksichtigt werden, eignet sich der sogenannte muskuläre Wirkungsgrad (η~muskulär~) @Boning2017 (auch "true efficiency" nach @Luhtanen1987). Dieser beachtet die aufgewandte W~Int~ in der Berechnung und ist daher weniger von Änderungen der Trittrate abhängig als η~Netto~.
 
-Obwohl W~Int~ selbst keine externen Vortriebskräfte erzeugt, ist sie für die Aufrechterhaltung der Gesamtbweegung essentiell. Dies steht im Gegensatz zur externen Arbeit (W~Ext~), die direkt mechanische Energie auf das System überträgt, um Vortrieb zu erzeugen. Verschiedene Faktoren beeinflussen die aufzubringende innere Arbeit und führen speziell bei hohen Trittraten zu mehr metabolischen Kosten. Dazu zählen die durch die Hill-Gleichung beschriebene verringerte Muskelkraft bei hoher Kontraktionsgeschwindigkeit, die gleichzeitige Agonisten/Antagonisten-Aktivierung mit verstärktem Abbremsen sowie Reibungs- und Viskositätswiderstände in Gelenken und Strukturen. Besonders das verstärkte Abbremsen bei hohen Drehzahlen durch die Antagonisten erhöht die Blindleistungsanforderungen. Die innere Arbeit sowie deren Berechnung wird in dem Abschnitt "Innere Arbeit" genauer beschrieben.<br> Soll P~Int~ bei der Wirkungsgradberechnung berücksichtigt werden, eignet sich der sogenannte muskuläre Wirkungsgrad (η~muskulär~) @Boning2017 (auch "true efficiency" nach @Luhtanen1987). Dieser beachtet die aufgewandte W~Int~ in der Berechnung und ist daher weniger von Änderungen der Trittrate abhängig als η~netto~.
+#### **Limitationen der Energieumsatzbestimmung** {.unlisted}
 
-**Einfluss der Trittrate auch in @Beneke2001 gut zusammengefasst!!!!!!!!!!!**
+Ein weiterer Aspekt, der in vielen Untersuchungen des Wirkungsgrades beim Radfahren ungenau bestimmt wurde, ist der physiologische Gesamtenergieumsatz. Häufig wurden nicht die verschiedenen Energiekomponenten (aerobe, anaerobe-laktazide sowie anaerobe-alaktazide Energiekomponente) berechnet, sondern nur der Sauerstoffvolumenstrom[^8] gemessen und als Grundlage für die Wirkungsgradberechnung der während der Belastung umgesetzten chemischen Energie verwendet [@Boning2017]. Dadurch wird insbesondere bei hochintensiven Belastungen die Menge des durch anaerobe Glykolyse und energiereiche Phosphate bereitgestellten ATPs vernachlässigt, was zu einer Unterschätzung der gesamten umgesetzten chemischen Energie führt [@Brooks2004, 354].
 
-Ein weiterer Aspekt, der in vielen Untersuchungen des Wirkungsgrades beim Radfahren ungenau bestimmt wurde, ist der physiologische Gesamtenergieumsatz. Häufig wurden nicht die verschiedenen Energiekomponenten (aerobe, anaerobe-laktazide sowie anaerobe-alaktazide Energiekomponente) berechnet, sondern nur der Sauerstoffvolumenstrom[^2] gemessen und als Grundlage für die Wirkungsgradberechnung der während der Belastung umgesetzten chemischen Energie verwendet [@Boning2017]. Dadurch wird insbesondere bei hochintensiven Belastungen die Menge des durch anaerobe Glykolyse und energiereiche Phosphate bereitgestellten ATPs vernachlässigt, was zu einer Unterschätzung der gesamten umgesetzten chemischen Energie führt [@Brooks2004, 354].
-
-[^2]: Der Sauerstoffvolumenstrom oder auch Sauerstofffluss bezeichnet die Menge an Sauerstoff, die innerhalb einer bestimmten Zeitspanne durch ein System oder eine Einheit fließt. In der Sportwissenschaft werden diese Begriffe normalerweise gleichbedeutend mit dem Begriff "Sauerstoffaufnahme" verwendet. In dieser Arbeit beschreibt die Sauerstoffaufnahme das Gesamtvolumen an Sauerstoff, das der Körper innerhalb einem bestimmten Zeitintervall aufgenommen hat.
+[^8]: Der Sauerstoffvolumenstrom oder auch Sauerstofffluss bezeichnet die Menge an Sauerstoff, die innerhalb einer bestimmten Zeitspanne durch ein System oder eine Einheit fließt. In der Sportwissenschaft werden diese Begriffe normalerweise gleichbedeutend mit dem Begriff "Sauerstoffaufnahme" verwendet. In dieser Arbeit beschreibt die Sauerstoffaufnahme das Gesamtvolumen an Sauerstoff, das der Körper innerhalb einem bestimmten Zeitintervall aufgenommen hat.
 
 ```{r}
 # Überleitung Energieberechnung
 ```
 
+```{r}
 ### Wirk Delta
 
-In der folgenden Arbeit werden alle in Tabell oben beschirebenen Wirkunggrade für die voliegenden Datne berechnet mit der ausnahme von Wirk_Delta. Wirk delta kann aber wie folge beserchnet werden: 
+#In der folgenden Arbeit werden alle in Tabell oben beschirebenen Wirkunggrade für die voliegenden Datne berechnet mit der ausnahme von Wirk_Delta. Wirk delta kann aber wie folge beserchnet werden: 
 
 ### Genaue Berechnugn von Delta Efficiency 
-Die Delta-Effizienz (Δη) quantifiziert den mechanischen Wirkungsgrad während zyklischer Bewegungen am Fahrradergometer und wird aus der linearen Beziehung zwischen Sauerstoffaufnahme (V̇O₂) und externer mechanischer Leistung (P) ermittelt. Die Berechnung basiert auf einer linearen Regressionsanalyse der Form:
+#Die Delta-Effizienz (Δη) quantifiziert den mechanischen Wirkungsgrad während zyklischer Bewegungen am Fahrradergometer und #wird aus der linearen Beziehung zwischen Sauerstoffaufnahme (V̇O₂) und externer mechanischer Leistung (P) ermittelt. Die Berechnung basiert auf einer linearen Regressionsanalyse der Form:
 
-V̇O₂ = a + bP
+#V̇O₂ = a + bP
 
-wobei:
-- a = y-Achsenabschnitt [mlO₂·min⁻¹]
-- b = Steigung der Regressionsgeraden [mlO₂·W⁻¹·min⁻¹]
+#wobei:
+#- a = y-Achsenabschnitt [mlO₂·min⁻¹]
+#- b = Steigung der Regressionsgeraden [mlO₂·W⁻¹·min⁻¹]
 
-Die gemessenen V̇O₂-Werte [mlO₂·min⁻¹] werden unter Berücksichtigung des respiratorischen Quotienten (RQ) in mechanische Leistung transformiert. Das kalorische Äquivalent (kcal·lO₂⁻¹) wird dabei für den jeweiligen RQ-Wert bestimmt und in Joule umgerechnet. Aufgrund der zeitlichen Dimension der V̇O₂-Werte (min⁻¹) erfolgt eine Konversion in Sekunden.
+#Die gemessenen V̇O₂-Werte [mlO₂·min⁻¹] werden unter Berücksichtigung des respiratorischen Quotienten (RQ) in mechanische #Leistung transformiert. Das kalorische Äquivalent (kcal·lO₂⁻¹) wird dabei für den jeweiligen RQ-Wert bestimmt und in Joule #umgerechnet. Aufgrund der zeitlichen Dimension der V̇O₂-Werte (min⁻¹) erfolgt eine Konversion in Sekunden.
 
-Gegeben:
-- Steigung b = 11,65 mlO₂·kg⁻¹·W⁻¹
-- RQ = 0,97
-- Kalorisches Äquivalent bei RQ 0,97 ≈ 4,985 kcal·lO₂⁻¹
-- Umrechnung: 1 kcal = 4186,8 J
+#Gegeben:
+#- Steigung b = 11,65 mlO₂·kg⁻¹·W⁻¹
+#- RQ = 0,97
+#- Kalorisches Äquivalent bei RQ 0,97 ≈ 4,985 kcal·lO₂⁻¹
+#- Umrechnung: 1 kcal = 4186,8 J
 
-Berechnung:
-Δη = 1/(b × (4,985 × 4186,8/1000)/60)
-Δη = 1/(11,65 × 20,87/60)
-Δη = 1/4,053
-Δη ≈ 0,247 = 24,7%
+#Berechnung:
+#Δη = 1/(b × (4,985 × 4186,8/1000)/60)
+#Δη = 1/(11,65 × 20,87/60)
+#Δη = 1/4,053
+#Δη ≈ 0,247 = 24,7%
 
-Die ermittelte Delta-Effizienz von 24,7% repräsentiert einen biomechanisch plausiblen Wert für submaximale zyklische Bewegungen am Fahrradergometer. Die Berechnung berücksichtigt sowohl das spezifische kalorische Äquivalent in Abhängigkeit vom respiratorischen Quotienten als auch die erforderliche temporale Transformation.
+#Die ermittelte Delta-Effizienz von 24,7% repräsentiert einen biomechanisch plausiblen Wert für submaximale zyklische Bewegungen am Fahrradergometer. Die Berechnung berücksichtigt sowohl das spezifische kalorische Äquivalent in Abhängigkeit vom respiratorischen Quotienten als auch die erforderliche temporale Transformation.
 
-Siehe @Francescato1995, @Gaesser1975, @Zoladz2023a, @Ettema2009
+#Siehe @Francescato1995, @Gaesser1975, @Zoladz2023a, @Ettema2009
 
-
+```
 
 
 

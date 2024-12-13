@@ -1,0 +1,62 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Theoretischer Hintergrund\"\n",
+        "\n",
+        "execute:\n",
+        "  message: false\n",
+        "  echo: false\n",
+        "  warning: false\n",
+        "  error: false\n",
+        "  \n",
+        "bibliography: references.bib\n",
+        "lang: de\n",
+        "number-sections: false\n",
+        "---\n",
+        "\n",
+        "```{css}\n",
+        "#| echo: false\n",
+        "p {\n",
+        "  text-align: justify\n",
+        "}\n",
+        "caption, .figure-caption {\n",
+        "  text-align: left;\n",
+        "}\n",
+        "figure.quarto-float-tbl figcaption {\n",
+        "  text-align: left !important;\n",
+        "}\n",
+        "figure figcaption {\n",
+        "  text-align: justify;\n",
+        "}\n",
+        "```\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "Radfahren gehört zu den effizientesten Formen der Fortbewegung die der Mensch aus eigener Kraft ausführen kann. Verglichen mit dem Laufen wird beim Radfahren ein wesentlich größerer Teil der aufgewendeten Energie in Vortrieb umgewandelt. Diese hervorragende mechanische Effizienz macht das Fahrrad nicht nur zu einem praktischen Verkehrsmittel im Alltag, sondern spielt auch im Leistungssport eine entscheidende Rolle. Gerade im Wettkampf, wo bereits kleinste Effizienzunterschiede zwischen Sieg und Niederlage entscheiden können, ist diese Eigenschaft von besonderer Bedeutung [@Beneke2001].<br>\n",
+        "Die Effizienz der Umwandlung von zugeführter metabolischer Energie in Vortrieb beim Radfahren lässt sich durch den Wirkungsgrad quantifizieren. Dieser beschreibt das Verhältnis zwischen der erzeugten externen Arbeit und der dafür benötigten chemischen Energie des Körpers. Diese Energieumwandlung basiert auf komplexen physiologischen Prozessen: Der menschliche Körper benötigt für jede Bewegung kontinuierlich Energie, wobei nur ein Teil der chemischen Energie in externe Arbeit umgesetzt werden kann. Die übrige Energie verteilt sich auf Wärmeerzeugung, Reibungsverluste und verschiedene zelluläre Prozesse. Das Verhältnis, wie viel der zugeführten chemischen Energie tatsächlich in externe Arbeit umgewandelt wird, definiert den Wirkungsgrad. Eine Optimierung des Wirkungsgrads ermöglicht es Sportlern, bei gleichbleibendem Energieaufwand mehr Leistung zu erzeugen oder eine bestimmte Leistung mit geringerem Energieeinsatz zu erreichen [@Stegemann1991, 62; @Bader1972, 8].\n",
+        "\n",
+        "Die nachfolgenden Abschnitte dieses Kapitels beschreiben zunächst die verschiedenen Methoden zur Berechnung des Wirkungsgrads beim Radfahren. Darauf aufbauend werden die erforderlichen Berechnungen des Energieumsatzes sowie der externen und internen mechanischen Arbeit detailliert erläutert. Den Abschluss bildet eine Analyse der biomechanischen und physiologischen Unterschiede zwischen sitzender und stehender Fahrposition, die den Wirkungsgrad maßgeblich beeinflussen können.\n",
+        "\n",
+        "# Quellenverzeichnis\n",
+        "\n",
+        "::: {#refs}\n",
+        ":::"
+      ],
+      "id": "e653dc5b"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
