@@ -24,25 +24,29 @@ website:
     search: true
     collapse-level: 2 #Ab welchem Level die Unterpunkt nicht mehr angezeigt werden. Bei 2 wird bspw. bei Energieumsatz die Unterpunkte eingeklappt
     contents:
-      - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
-        contents: 
-          - Theoretischer_Hintergrund/Mechanische_Arbeit.qmd
-          - Theoretischer_Hintergrund/Innere_Arbeit.qmd
-      - Forschungsfragen_Hypothesen.qmd
-      - section: Methodik/index_Methodik.qmd
-        contents: 
-          - Methodik/Stichprobe.qmd
-          - Methodik/Messmethoden.qmd
-          - Methodik/Studiendesign.qmd
-      - section: Ergebnisse/index_Ergebnisse.qmd
-        contents:
-          - Ergebnisse/Drehzahl_Stufentests.qmd
-          - Ergebnisse/VO2_Daten.qmd
-          - Ergebnisse/EPOC_Daten.qmd
-          - Ergebnisse/Ergometer_Daten.qmd
-          - Ergebnisse/Wirkungsgrad_Statistik.qmd
-      - Abkuerzungsverzeichnis.qmd
-      - Quellen.qmd
+       - section: Theoretischer_Hintergrund/index_Theoretischer_Hintergrund.qmd
+         contents: 
+           - section: Theoretischer_Hintergrund/Energieumsatzberechnung/index_Energieumsatzberechnung.qmd
+             contents:
+              - Theoretischer_Hintergrund/Energieumsatzberechnung/Aerobe_Energiebereitstellung.qmd
+              - Theoretischer_Hintergrund/Energieumsatzberechnung/Anaerobe_laktazide_Energiebereitstellung.qmd
+           - Theoretischer_Hintergrund/Mechanische_Arbeit.qmd
+           - Theoretischer_Hintergrund/Innere_Arbeit.qmd
+       - Forschungsfragen_Hypothesen.qmd
+       - section: Methodik/index_Methodik.qmd
+         contents: 
+           - Methodik/Stichprobe.qmd
+           - Methodik/Messmethoden.qmd
+           - Methodik/Studiendesign.qmd
+       - section: Ergebnisse/index_Ergebnisse.qmd
+         contents:
+           - Ergebnisse/Drehzahl_Stufentests.qmd
+           - Ergebnisse/VO2_Daten.qmd
+           - Ergebnisse/EPOC_Daten.qmd
+           - Ergebnisse/Ergometer_Daten.qmd
+           - Ergebnisse/Wirkungsgrad_Statistik.qmd
+       - Abkuerzungsverzeichnis.qmd
+       - Quellen.qmd
       
 
 lang: de

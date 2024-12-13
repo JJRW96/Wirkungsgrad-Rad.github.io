@@ -84,12 +84,12 @@ Der abschließende Drehzahltest (DT) beinhaltete eine stufenweise Steigerung der
 
 </div>
 
-### Messungen der Blutlaktatkonzentration
-
 ![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test1_4.png){#fig-Versuchsablauf1}
 
 > Abbildung wird noch angepasst
 
+
+#### **Messungen der Blutlaktatkonzentrationen** { .unlisted}
 Während des ersten Testzeitpunktes wurden insgesamt 20 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen waren wie in @fig-Versuchsablauf1 zu sehen folgendermaßen:
 
 -   Messung des Ruhelaktats vor der Referenzphase
@@ -124,10 +124,11 @@ Im Hauptteil des Tests wurden mindestens drei verschiedene Belastungsstufen (nie
 
 </div>
 
-### Messungen der Blutlaktatkonzentration
-
 ![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test2_4.png){#fig-Versuchsablauf2}
 
+> Abbildungen werden noch angepasst
+
+#### **Messungen der Blutlaktatkonzentrationen** { .unlisted}
 Während des ersten Testzeitpunktes werden insgesamt 50 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen sind wie in (@fig-Versuchsablauf2) zu sehen folgendermaßen:
 
 -   Messung des Ruhelaktats zu Beginn der Ruhephase
@@ -136,22 +137,8 @@ Während des ersten Testzeitpunktes werden insgesamt 50 Blutlaktatproben entnomm
 -   Blutentnahmen während der Belastung 1-6 in Belastungsminute 3 und 5
 -   Blutentnahmen nach Belastung 1-5 in Nachbelastungsminute: 1, 3, 5, 7, 10 Blutentnahmen nach Belastung 6 in Nachbelastungsminute: 1, 3, 5, 7, 10, 15
 
-> Abbildungen werden in der MA noch angepasst
-
-## Kinetik der Blutlaktatkonzentration nach Belastungsende
-
-Bei zunehmender Muskelarbeit steigt die Laktatkonzentration in der an der Bewegung beteiligten Muskulatur. Das Laktat diffundiert aus dieser Muskulatur in die Zwischenzellräume und gelangt über die Venen zum rechten Herzen. Dort wird das Blut aus der Muskulatur mit dem Blut aus anderen Körperregionen vermischt und durch die Lunge zum linken Herzen gepumpt und in die Aorta ausgeworfen. Anschließend werden sämtliche Arterien, einschließlich jener, die die Regionen um die Blutentnahmestellen am Ohrläppchen versorgen, von Blut mit gleicher Laktatkonzentration durchströmt. Das gebildete Laktat wird nach einer Rückumwandlung von Laktat in Pyruvat vornehmlich im belasteten Muskel selbst, in geringerem Maße im Herzmuskel, in den Nieren und im Gehirn eliminiert. Primär in der Leber wird Laktat über die Glukoneogenese via Pyruvat wieder zu Glukose und Glykogen (Glukoneogenese) aufgebaut. Die Laktateliminationsrate hängt von der Höhe des aeroben Umsatzes und der Laktatkonzentration ab, wobei sie mit steigendem aerobem Stoffwechsel und höherer Laktatkonzentration zunimmt [@VanHall2010; @Heck2022,38,193,407].<br>
-Während einer intensiven Belastung steigt das Muskellaktat steil an und fällt nach Belastungsende annähernd exponentiell ab. Die Blutlaktatkonzentration hingegen erreicht erst nach Belastungsende ihr Maximum [@Diamant1968;@Mader1981; @Heck2022, 193; @Margaria1933; @Beneke2007]. BLC~max~ wird in Abhängigkeit von der Belastungsdauer und der maximalen Laktatkonzentration nach 10-12 Minuten Erholungszeit erreicht, in Einzelfällen sogar erst nach 15-20 Minuten (siehe @fig-Laktat3). Die Ursache hierfür ist der Konzentrationsgradient zwischen der Muskel- und Blutlaktatkonzentration. In @fig-Laktat und @fig-Laktat2 ist der Konzentrationsgradient zwischen Muskel- und Blutlaktatkonzentration gut zu erkennen.
-
+#### **Zeitpunkte der Blutentnahmen** { .unlisted}
 Da nach jeder Belastungsstufe die maximale Blutlaktatkonzentration (BLC~max~) bestimmt werden sollte und das Blutlaktat in den ersten Minuten nach Belastungsende besonders bei intensiven Belastungen noch weiter ansteigt, wurden die Blutentnahmen an den beschriebenen Zeitpunkten gewählt. Eine hohe Rate der Blutentnahmen nach Belastungsende ermöglichte dabei eine präzisere Bestimmung der BLC~max~, da der exakte Zeitpunkt des Konzentrationsmaximums interindividuell variieren kann.
-
-::: {layout="[[1,1], [1]]"}
-![Simulierte Verlaufskurve von Muskellaktat und Blutlaktat bei einer 2 minütigen Maximalbalastung [@Mader1981]](images/Laktat.png){#fig-Laktat height="400"}
-
-![Verlaufskurve von Muskellaktat und Blutlaktat nach einer dreiminütigen Ausbelastung auf dem Fahrradergometer [@Diamant1968]](images/Nachbelastungslaktat_Diamant2.png){#fig-Laktat2 height="400"}
-
-![Nachbelastungslaktatwerte aus Ohrkapillarblut nach 300m und 600m Läufen mit unterschiedlicher Intensität [@Heck2022, 193]](images/Nachbelastungslaktat_Heck.png){#fig-Laktat3 height="500" fig-align="left"}
-:::
 
 ## Bestimmung der ventilatorischen Schwellen 
 

@@ -59,14 +59,14 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 :::
 
 ::: {.column width="46%"}
-| Wirkungsgrade |               Berechnung                |
-|---------------|:---------------------------------------:|
-| η~Brutto~     |            P~mech~ / E~Aerob~             |
-| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
-| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
-| η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
-| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
-| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
+| Wirkungsgrade |                   Berechnung                   |
+|---------------|:----------------------------------------------:|
+| η~Brutto~     |               W~mech~ / W~Aerob~               |
+| η~Netto~      |         W~mech~ / (W~Aerob~ - W~Ruhe~)         |
+| η~Total~      |          W~mech~ / (W~Tot~ - W~Ruhe~)          |
+| η~muskulär~   |    (W~mech~ + W~Int~) / (W~Tot~ - W~Ruhe~)     |
+| η~Arbeit~     | W~mech~ / (W~Tot~ - W~Ruhe~ - W~Leerbewegung~) |
+| η~delta~      |               ΔW~mech~ / ΔW~Tot~               |
 
 : Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Winter (1979), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
 
@@ -74,6 +74,10 @@ Der Wirkungsgrad[^1] definiert das Verhältnis von umgesetzter chemischer Energi
 :::
 
 [^1]: In der englischsprachigen Literatur wird der Begriff „efficiency“ meist gleichbedeutend für die Wörter "Wirkungsgrad" und "Effizienz" verwendet. Die Effizienz beschreibt allgemein das Verhältnis zwischen dem erreichten Ergebnis und dem dafür benötigten Aufwand oder den dafür eingesetzten Ressourcen, während der Wirkungsgrad spezifisch angibt, wie viel Prozent der aufgewandten Energie tatsächlich in nutzbare Energie umgewandelt wird. So kann im Kontext dieser Arbeit Wirkungsgrad und Effizienz gleichbedeutend sein, solange sich die Effizienz auf das prozentuale Verhältnis von aufgebrachter chemischer Energie gegenüber der tatsächlich erbrachten mechanischen Leistung bezieht.
+
+
+
+**NOCH ANSPRECHEN DAS FÜR DEN WIRKUNGGRADBERECHHUNG ALLES IN ARBEIT UMGERECHET WIRD auch wenn manchmal etwas in P angegben wird**
 
 **Temperaturregulation bei körperlicher Belastung bzw. wo geht die Wärmeenergie hin noch mit einbeziehen und beschrieben!!!!!!!!!!!!!! --> Aschoff, Stegemann, deMaares S.552, Astrand S. 396**
 **Statt über indirekte Kaliometrie über die Wärmeabgabe den Wirkungsgrad gegenrechnen oder direkt Berechnen?????**

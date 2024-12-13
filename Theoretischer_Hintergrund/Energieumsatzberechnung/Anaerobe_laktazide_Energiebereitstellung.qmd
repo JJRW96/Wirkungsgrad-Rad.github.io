@@ -1,13 +1,27 @@
 ---
+title: "Anaerobe- laktazide Energiekomponente (W~BLC~)"
+
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+      
+filters:
+  - shinylive
+
 execute:
   message: false
+  engine: knitr
   echo: false
   warning: false
   error: false
-  
 bibliography: references.bib
 lang: de
 number-sections: false
+editor: 
+  markdown: 
+    wrap: 72
+    
 ---
 
 ```{css}
@@ -15,13 +29,16 @@ number-sections: false
 p {
   text-align: justify
 }
-caption {
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
   text-align: justify;
 }
-
 ```
-
-# Anaerobe- laktazide Energiekomponente (W~BLC~)
 
 
 ```{r}
@@ -33,7 +50,31 @@ library(DT)
 library(extrafont)
 ```
 
-Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Blutlaktatwert direkt vor Beginn der Belastung (BLC~PRE~) und dem maximalen Laktatwert nach der Belastung (BLC~PEAK~). Die Differenz von BLC~PEAK~ und BLC~PRE~ ergibt den Nettoblutlaktatwert (BLC~NET~), der die größte Schwankung zwischen BLC~PRE~ und BLC~PEAK~ darstellt. Durch Multiplikation von BLC~NET~ mit einem Sauerstoff-Laktat-Äquivalent von 3,0 [ml O~2~·kg^-1^·mmol^-1^] [@DiPrampero1981] und dem kÄ für Kohlenhydrate (kÄ~KH~) bei einem RQ von 1,0 von 21,131 kJ pro Liter O~2~ kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden [@Stegemann1991, 59]:
+## Kinetik der Blutlaktatkonzentration 
+
+Bei intensiven körperlichen Belastungen übersteigt der Energiebedarf die oxidative Kapazität der Mitochondrien, wodurch vermehrt ATP durch anaerobe Glykolyse bereitgestellt wird. Dieser Stoffwechselweg resultiert in einer verstärkten Bildung von Laktat in der beanspruchten Muskulatur. Das Laktat diffundiert aus dieser Muskulatur in die Zwischenzellräume und gelangt über die Venen zum rechten Herzen. Dort wird das Blut aus der Muskulatur mit dem Blut aus anderen Körperregionen vermischt und durch die Lunge zum linken Herzen gepumpt und in die Aorta ausgeworfen. Anschließend werden sämtliche Arterien, einschließlich jener, die die Regionen um die Blutentnahmestellen am Ohrläppchen versorgen, von Blut mit gleicher Laktatkonzentration durchströmt. Das gebildete Laktat wird nach einer Rückumwandlung von Laktat in Pyruvat vornehmlich im belasteten Muskel selbst, in geringerem Maße im Herzmuskel, in den Nieren und im Gehirn eliminiert. Primär in der Leber wird Laktat über die Glukoneogenese via Pyruvat wieder zu Glukose und Glykogen (Glukoneogenese) aufgebaut. Die Laktateliminationsrate hängt von der Höhe des aeroben Umsatzes und der Laktatkonzentration ab, wobei sie mit steigendem aerobem Stoffwechsel und höherer Laktatkonzentration zunimmt [@VanHall2010; @Heck2022,38,193,407].<br>
+Während einer intensiven Belastung steigt das Muskellaktat steil an und fällt nach Belastungsende annähernd exponentiell ab. Die Blutlaktatkonzentration hingegen erreicht erst nach Belastungsende ihr Maximum (BLC~max~) [@Diamant1968;@Mader1981; @Heck2022, 193; @Margaria1933; @Beneke2007]. BLC~max~ wird in Abhängigkeit von der Belastungsdauer und Intensität sowie der maximalen Laktatkonzentration erst nach bis zu 10-12 Minuten Erholungszeit erreicht, in Einzelfällen sogar erst nach 15-20 Minuten (siehe @fig-Laktat3). Die Ursache hierfür ist der Konzentrationsgradient zwischen der Muskel- und Blutlaktatkonzentration. In @fig-Laktat und @fig-Laktat2 ist der Konzentrationsgradient zwischen Muskel- und Blutlaktatkonzentration gut zu erkennen. Diese charakteristische Laktatkinetik, insbesondere die Differenz zwischen dem Blutlaktatwert vor Belastungsbeginn (BLC~Pre~) und BLC~max~, bildet die Grundlage für die quantitative Bestimmung des anaerob-laktaziden Energieanteils einer Belastung.
+
+::: {layout="[[1,1], [1]]"}
+![Simulierte Verlaufskurve von Muskellaktat und Blutlaktat bei einer 2 minütigen Maximalbalastung [@Mader1981]](images/Laktat.png){#fig-Laktat height="400"}
+
+![Verlaufskurve von Muskellaktat und Blutlaktat nach einer dreiminütigen Ausbelastung auf dem Fahrradergometer [@Diamant1968]](images/Nachbelastungslaktat_Diamant2.png){#fig-Laktat2 height="400"}
+
+![Nachbelastungslaktatwerte aus Ohrkapillarblut nach 300m und 600m Läufen mit unterschiedlicher Intensität [@Heck2022, 193]](images/Nachbelastungslaktat_Heck.png){#fig-Laktat3 height="500" fig-align="left"}
+:::
+
+## Berechnung der W~BLC~
+
+Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Blutlaktatwert direkt vor Beginn der Belastung (BLC~Pre~) und dem maximalen Laktatwert nach der Belastung (BLC~max~). Die Differenz von BLC~max~ und BLC~Pre~ ergibt den Nettoblutlaktatwert (BLC~Netto~), der die größte Schwankung zwischen BLC~Pre~ und BLC~max~ darstellt. Durch Multiplikation von BLC~Netto~ mit einem Sauerstoff-Laktat-Äquivalent von 3.0 [ml O~2~·kg^-1^·mmol^-1^] [@DiPrampero1981] und dem kÄ für Kohlenhydrate (kÄ~KH~) bei einem RQ von 1.0 von 21.131 kJ pro Liter O~2~ kann der anaerob-laktazide Energieanteil der Belastung in Joule ermittelt werden [@Stegemann1991, 59]:
+
+$$
+W_{BLC} = BLC_{Netto} \, [\text{mmol} \cdot \text{l}^{-1}] \cdot 3.0 \, [\text{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot \text{Körpermasse} \, [\text{kg}] \cdot kÄ_{\text{KH}} \, [\text{kJ} \cdot \text{l}^{-1} \,\text{O}_2]
+$$
+Die mittlere anaerob-laktazide Leistung ($\overline{P}_{BLC}$) kann dann durch Division des W~BLC~-Wertes in kJ durch die Belastungsdauer t in Sekunden berechnet werden:
+
+$$
+\overline{P}_{BLC}\;[W] = \frac{W_{BLC}}{t} \cdot 1000
+$$ {#eq-PBLC}
 
 ```{r}
 # 3.0 Wert nur Mittelwert mit potentiellen Schwankungen -> weiter ausführen
@@ -41,9 +82,1137 @@ Die Berechnung des anaerob-laktaziden Energieanteils (W~BLC~) erfolgt aus dem Bl
 # Brooks2004 ab Seite 222 - Laktat nach der Belastung
 ```
 
-$$
-W_{BLC} = BLC_{Net} \, [\text{mmol} \cdot \text{l}^{-1}] \cdot 3.0 \, [\text{ml O}_2 \cdot \text{kg}^{-1} \cdot \text{mmol}^{-1}] \cdot \text{Körpermasse} \, [\text{kg}] \cdot kÄ_{\text{KH}} \, [\text{kJ} \cdot \text{l}^{-1} \,\text{O}_2]
-$$
+
+## Interaktive Modelle zur Laktatkinetik bei körperlicher Belastung
+
+Die nachfolgenden interaktiven Shiny-Apps dienen der Veranschaulichung verschiedener Laktatreaktionen des Körpers unter Belastung. Sie illustrieren sowohl die Beziehung zwischen Belastungsintensität und Blutlaktatkonzentration als auch den charakteristischen Verlauf der Laktatwerte während und nach definierten Belastungen. Die Apps ermöglichen durch Anpassung der Belastungsparameter ein besseres Verständnis der physiologischen Zusammenhänge. Die jeweiligen Modellparameter werden im Anschluss an jede Shiny-App ausführlich erläutert.
+
+
+
+## Laktat-Leistungs-Beziehung
+
+In der folgenden Anwendung wird die charakteristische Laktat-Leistungs-Beziehung während ansteigender Belastung visualisiert. Der Verlauf zeigt zunächst einen leichten Anstieg der Blutlaktatkonzentration bei zunehmender Belastungsintensität, welche hier durch die externe Leistung beim Radfahren in Watt ausgedrückt wird. Ab einem bestimmten Belastungspunkt steigt die Laktatkonzentration überproportional an. Dies resultiert in einem exponentiellen Anstieg der Laktat-Leistungs-Kurve. Diese Beziehung verdeutlicht das Verhältnis zwischen der Änderung der Laktatkonzentration (ΔLaktat) und der Änderung der Belastungsintensität (ΔLeistung).
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+library(shiny)
+library(plotly)
+
+# UI bleibt unverändert
+ui <- fluidPage(
+  titlePanel("Laktat-Leistungs-Modell"),
+  sidebarLayout(
+    sidebarPanel(
+      numericInput("num_rows", "Anzahl der Datenpunkte", 4, min = 1, max = 20),
+      uiOutput("input_fields"),
+      width = 2  
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server mit angepasstem Plot-Bereich
+server <- function(input, output, session) {
+  initial_values <- list(
+    list(Leistung = 100, DeltaBLC = 0.3),
+    list(Leistung = 200, DeltaBLC = 1.0),
+    list(Leistung = 300, DeltaBLC = 2.8),
+    list(Leistung = 400, DeltaBLC = 8.0)
+  )
+  
+  output$input_fields <- renderUI({
+    num_rows <- input$num_rows
+    
+    lapply(1:num_rows, function(i) {
+      initial_value <- if (i <= length(initial_values)) initial_values[[i]] else list(Leistung = 0, DeltaBLC = 0)
+      tagList(
+        numericInput(paste0("leistung_", i), paste("ΔLeistung", i), value = initial_value$Leistung, step = 10),
+        numericInput(paste0("deltaBLC_", i), paste("ΔBLC", i), value = initial_value$DeltaBLC, step = 0.1)
+      )
+    })
+  })
+  
+  input_data <- reactive({
+    num_rows <- input$num_rows
+    if (is.null(num_rows)) return(NULL)
+    
+    data <- data.frame(Leistung = numeric(num_rows), ΔBLC = numeric(num_rows))
+    
+    for (i in 1:num_rows) {
+      leistung_val <- input[[paste0("leistung_", i)]]
+      deltaBLC_val <- input[[paste0("deltaBLC_", i)]]
+      
+      if (is.null(leistung_val) || is.null(deltaBLC_val)) {
+        data$Leistung[i] <- if (i <= length(initial_values)) initial_values[[i]]$Leistung else 0
+        data$ΔBLC[i] <- if (i <= length(initial_values)) initial_values[[i]]$DeltaBLC else 0
+      } else {
+        data$Leistung[i] <- leistung_val
+        data$ΔBLC[i] <- deltaBLC_val
+      }
+    }
+    
+    data
+  })
+  
+  observe({
+    for (i in 1:length(initial_values)) {
+      updateNumericInput(session, paste0("leistung_", i), value = initial_values[[i]]$Leistung)
+      updateNumericInput(session, paste0("deltaBLC_", i), value = initial_values[[i]]$DeltaBLC)
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    df_proband <- input_data()
+    
+    if (is.null(df_proband)) return(NULL)
+    
+    model <- nls(ΔBLC ~ a * exp(b * Leistung), data = df_proband, start = list(a = 1, b = 0.01))
+    coef_exponential_model <- coef(model)
+    
+    # Erweiterte x-Sequenz von 0 bis max * 1.25
+    x_max <- max(df_proband$Leistung) * 1.25
+    x_seq <- seq(0, x_max, length.out = 100)
+    y_pred <- predict(model, newdata = data.frame(Leistung = x_seq))
+    
+    plot_ly() %>%
+      add_trace(data = df_proband, x = ~Leistung, y = ~ΔBLC, type = 'scatter', mode = 'markers',
+                name = "ΔBLC",
+                marker = list(color = "#2683C6", size = 7.0)) %>%
+      add_trace(x = x_seq, y = y_pred, type = 'scatter', mode = 'lines', 
+                name = 'Laktat-Modellfunktion', 
+                line = list(color = '#62A39F', width = 3)) %>%
+      add_annotations(text = sprintf("ΔBLC (ΔLeistung) = %.5f \u00B7 e<sup>%.5f \u00B7 ΔLeistung</sup>", 
+                                     coef_exponential_model['a'], coef_exponential_model['b']),
+                      x = x_max * 0.02,
+                      y = max(y_pred) * 0.90,
+                      showarrow = FALSE,
+                      xanchor = 'left', 
+                      yanchor = 'top',
+                      font = list(family = "Arial, sans-serif", size = 12, color = "black")) %>%
+      layout(
+        title = "Laktat-Leistungs-Modell",
+        margin = list(t = 40),
+        xaxis = list(
+          title = "ΔLeistung [Watt]",
+          range = c(0, x_max)  # x-Achse von 0 bis max * 1.25
+        ),
+        yaxis = list(
+          title = "ΔBLC [mmol \u00B7 l<sup>-1</sup>]",
+          range = c(0, max(y_pred) * 1.1)
+        ),
+        legend = list(
+          x = 0.01,
+          y = 0.99,
+          xanchor = "left",
+          yanchor = "top",
+          bgcolor = "rgba(255, 255, 255, 0.8)",
+          bordercolor = "rgba(0,0,0,0)",
+          borderwidth = 0
+        )
+      )
+  })
+  
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+        <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+        <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+          <li>Anzahl der Datenpunkte bestimmen.</li>
+          <li>Für jeden Datenpunkt die Leistung (in Watt) und den entsprechenden ΔBLC-Wert eingeben.</li>
+          <li>Das exponentielle Modell wird automatisch an die eingegebenen Daten angepasst.</li>
+        </ol>
+      </div>"
+    )
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+#### Modellanpassung - Details: {.unlisted}
+
+**1. Optimierung (nls - Fit):**
+
+- Verwendete Funktion: nls (Non-Linear Least Squares)
+- Parameter: a, b
+- Modell: ΔBLC ~ a · exp(b · Leistung)
+- Prozess:
+  a) Datenaufbereitung:
+     - Erstellung eines reaktiven Dataframes basierend auf den Benutzereingaben
+  b) Modellierung:
+     - Anwendung des nicht-linearen Regressionsmodells auf die eingegebenen Daten
+     - Startwerte:
+       - a: *1.0*
+       - b: *0.01*
+  c) Durchführung der nicht-linearen Regression:
+     - Verwendung der Standard-nls-Funktion in R
+     - Keine expliziten Grenzen für die Parameter gesetzt
+  d) Ergebnisverarbeitung:
+     - Extraktion der Koeffizienten a und b aus dem angepassten Modell
+  e) Visualisierung:
+     - Erstellung einer Sequenz von Leistungswerten für glatte Kurvendarstellung
+     - Berechnung der vorhergesagten ΔBLC-Werte basierend auf dem Modell
+     - Darstellung der eingegebenen Datenpunkte und der Modellkurve
+     - Anzeige der Modellgleichung mit den angepassten Koeffizienten
+- Optimierung: Minimierung der Summe der quadrierten Abweichungen (nls)
+
+:::
+
+### Blutlaktat-Modellfunktion: Exponentieller Abfall nach dem Belastungsende
+
+Die nachfolgende Shiny-App visualisiert den Verlauf der Blutlaktatkonzentration nach Belastungsende. Der Verlauf zeigt ausgehend vom gewählten Startzeitpunkt und unter der vereinfachten Annahme eines sofortigen Laktatabbaus ohne weiteren Anstieg einen exponentiellen Abfall über die Zeit. Die Laktatkonzentration sinkt zunächst schnell und nähert sich dann asymptotisch dem Ruheniveau an. Diese Beziehung verdeutlicht das Verhältnis zwischen der Änderung der Laktatkonzentration (ΔLaktat) und der verstrichenen Zeit nach Belastungsende (ΔZeit).
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+library(shiny)
+library(shinylive)
+library(plotly)
+library(minpack.lm)
+
+# Define data
+t_s <- c(23, 127, 261, 422.5, 549.8, 664.5, 795.8, 1254.9)
+BLC_t <- c(10.04, 7.49, 5.18, 3.9, 2.67, 2.18, 1.64, 0.98)
+
+# New model function: A * exp(-k * (t - delay)) + BLC0
+laktat_model_function <- function(t, A, k, BLC0, delay) {
+  A * exp(-k * (t - delay)) + BLC0
+}
+
+# UI
+ui <- fluidPage(
+  titlePanel("BLC-Modellfunktion"),
+  fluidRow(
+    column(3,
+           style = "height: 90vh; overflow-y: auto;",
+           
+           tags$h4(tags$strong("Modellparameter:")),
+           sliderInput("A", "A [mmol/l]", min = 0.0, max = 15.0, value = 8.0, step = 0.1),
+           sliderInput("k", "k [s^-1]", min = 0.0001, max = 0.02, value = 0.005, step = 0.0001),
+           sliderInput("BLC0", "BLC0 [mmol/l]", min = 0.0, max = 5.0, value = 1.0, step = 0.01),
+           sliderInput("delay", "Delay [s]", min = 0, max = 3600, value = 0, step = 0.1),
+           actionButton("set_delay", "Delay auf BLC_1"),
+           br(), br(),
+           actionButton("optimize", "Fit: nlsLM"), 
+           br(), br(),
+           fileInput("file_upload", "CSV-Datei hochladen", accept = ".csv")
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server logic
+server <- function(input, output, session) {
+  # Reactive value for uploaded data
+  uploaded_data <- reactiveVal(NULL)
+  
+  # Observer for CSV upload
+  observeEvent(input$file_upload, {
+    req(input$file_upload)
+    df <- read.csv(input$file_upload$datapath)
+    
+    if ("t_s" %in% names(df) && "BLC_t" %in% names(df)) {
+      uploaded_data(df)
+    } else {
+      showModal(modalDialog(
+        title = "Ungültige CSV",
+        "Die CSV-Datei muss 't_s' und 'BLC_t' als Spaltennamen enthalten.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  # Observer for setting delay to first time point
+  observeEvent(input$set_delay, {
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_s = t_s, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    updateSliderInput(session, "delay", value = min(data$t_s))
+  })
+  
+  observeEvent(input$optimize, {
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_s = t_s, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    delay <- input$delay
+    
+    # Filter data points after the delay
+    data_filtered <- data[data$t_s > delay, ]
+    
+    if (nrow(data_filtered) < 3) {
+      showNotification("Nicht genügend Datenpunkte nach dem Delay für den Fitting-Prozess.", type = "error")
+      return()
+    }
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    
+    withProgress(message = 'Fitting in progress', value = 0, {
+      for (i in 1:100) {
+        # Randomized starting values
+        A_start <- runif(1, 0, 15)
+        k_start <- runif(1, 0.0001, 0.02)
+        BLC0_start <- runif(1, 0, 5)
+        
+        start_values <- list(A = A_start, k = k_start, BLC0 = BLC0_start)
+        
+        model_equation <- BLC_t ~ A * exp(-k * (t_s - delay)) + BLC0
+        
+        fit <- try(nlsLM(model_equation,
+                         data = data_filtered,
+                         start = start_values,
+                         lower = c(A = 0, k = 0.0001, BLC0 = 0),
+                         upper = c(A = 15, k = 0.02, BLC0 = 5),
+                         control = nls.control(maxiter = 1024)), silent = TRUE)
+        
+        if (!inherits(fit, "try-error")) {
+          rss <- sum(residuals(fit)^2)
+          if (rss < best_rss) {
+            best_rss <- rss
+            best_fit <- fit
+          }
+        }
+        
+        incProgress(1/100, detail = paste("Iteration", i))
+      }
+    })
+    
+    if (!is.null(best_fit)) {
+      params <- as.list(coef(best_fit))
+      updateSliderInput(session, "A", value = params$A)
+      updateSliderInput(session, "k", value = params$k)
+      updateSliderInput(session, "BLC0", value = params$BLC0)
+      
+      showNotification("Fitting completed successfully!", type = "message")
+    } else {
+      showModal(modalDialog(
+        title = "nlsLM fehlgeschlagen",
+        "Die nicht-lineare Regression mit dem Levenberg-Marquardt-Algorithmus konnte nicht erfolgreich durchgeführt werden.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    A <- input$A
+    k <- input$k
+    BLC0 <- input$BLC0
+    delay <- input$delay
+    
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_s = t_s, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    max_x <- max(data$t_s) * 1.66
+    min_x <- max(delay - 360, 0)
+    
+    t_s_modell <- seq(min_x, max_x, length.out = 1000)
+    BLC_t_modell <- laktat_model_function(t_s_modell, A, k, BLC0, delay)
+    
+    max_y <- max(max(BLC_t_modell) * 1.1, max(data$BLC_t) * 1.1)
+    
+    # Create equation text
+    eq_text <- sprintf("BLC(t) = %.2f * e<sup>-%.4f*(t-%.2f)</sup> + %.3f", A, k, delay, BLC0)
+    
+    # Calculate R²
+    data_filtered <- data[data$t_s > delay, ]
+    BLC_t_modell_at_data <- laktat_model_function(data_filtered$t_s, A, k, BLC0, delay)
+    ss_res <- sum((data_filtered$BLC_t - BLC_t_modell_at_data)^2)
+    ss_tot <- sum((data_filtered$BLC_t - mean(data_filtered$BLC_t))^2)
+    r_squared <- 1 - (ss_res / ss_tot)
+    
+    # Plotly plot
+    p <- plot_ly() %>%
+      add_trace(x = t_s_modell[t_s_modell >= delay], y = BLC_t_modell[t_s_modell >= delay], 
+                type = 'scatter', mode = 'lines', 
+                name = 'Modellfunktion', line = list(color = '#EF6F6A')) %>%
+      add_trace(x = t_s_modell[t_s_modell < delay], y = BLC_t_modell[t_s_modell < delay], 
+                type = 'scatter', mode = 'lines', 
+                name = 'Modellfunktion (vor Delay)', line = list(color = '#EF6F6A', dash = 'dash')) %>%
+      add_trace(x = data$t_s, y = data$BLC_t, type = 'scatter', mode = 'markers', 
+                name = 'Gemessene BLC-Werte', marker = list(color = '#42BA97', size = 10, symbol = 'x')) %>%
+      add_segments(x = delay, xend = delay, y = 0, yend = max_y, 
+                   line = list(color = 'darkgrey', width = 1, dash = 'dash'), 
+                   showlegend = FALSE, opacity = 0.75) %>%
+      layout(title = "Exponentielles Laktat-Abbaumodell",
+             margin = list(t = 40),
+             xaxis = list(title = "Zeit [s]", range = c(min_x, max_x)),
+             yaxis = list(title = "BLC [mmol·l⁻¹]", range = c(0, max_y)),
+             legend = list(
+               x = 0.07,
+               y = 0.99,
+               xanchor = "left",
+               yanchor = "top",
+               bgcolor = "rgba(255, 255, 255, 0.4)",
+               bordercolor = "rgba(0,0,0,0)",
+               borderwidth = 0
+             ),
+             paper_bgcolor = 'rgba(0,0,0,0)',
+             plot_bgcolor = 'rgba(0,0,0,0)',
+             annotations = list(
+               list(
+                 x = max_x * 0.4, 
+                 y = max_y * 0.95,
+                 text = eq_text,
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   size = 12,
+                   color = "black"
+                 )
+               ),
+               list(
+                 x = max_x * 0.4,
+                 y = max_y * 0.90,
+                 text = sprintf("R²: %.4f", r_squared),
+                 showarrow = FALSE,
+                 xanchor = 'left',
+                 yanchor = 'bottom',
+                 font = list(
+                   size = 12,
+                   color = "black"
+                 )
+               )
+             ))
+    
+    p
+  })
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+        <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+        <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+          <li>Beispiel-Laktatdaten verwenden oder eigene Laktat-Daten als CSV-Datei einfügen.</li>
+          <li>Zeitverzögerung manuell setzen oder mit 'Delay auf BLC_1' die Zeitverzögerung auf den Zeitpunkt des ersten BLC-Wertes setzen.</li>
+          <li>Modellanpassung 'Fit: nlsLM' durchführen.</li>
+          <li>Alternativ: Manuelle Modellanpassung der Modellparameter mit den Schiebereglern.</li>
+        </ol>
+        <div style='margin-top: 20px;'></div>
+        <pre style='background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+Laktat-Daten können als CSV-Datei im folgenden Format hochgeladen werden:
+t_s,BLC_t
+0.0,5.84
+90.0,3.60
+180.0,1.09
+…
+        </pre>
+      </div>"
+    )
+  })
+}
+
+# App ausführen
+shinyApp(ui = ui, server = server)
+```
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+#### Modellanpassung - Details: {.unlisted}
+
+**nlsLM - Fit:**
+
+- Verwendete Funktion: nlsLM
+- Parameter: a, k1, k2, BLC0
+- Modell: BLC_t ~ BLC0 + (a · k1 / (k2 - k1)) · (exp(-k1 · t_min) - exp(-k2 · t_min))
+- Grenzen:
+  - a: *0.0 bis 30.0 mmol/l*
+  - k1: *0.1 bis 3.5 min^-1*
+  - k2: *0.020 bis 0.200 min^-1*
+  - BLC0: *0.90 · BLC_t[1] bis 1.10 · BLC_t[1], begrenzt auf 0 bis 5 mmol/l*
+- Prozess:
+  a) Bestimmung der BLC0-Grenzen:
+     - Untere Grenze: *max(0, 0.90 · erster BLC-Wert)*
+     - Obere Grenze: *min(5, 1.10 · erster BLC-Wert)*
+  b) Iterative Optimierung (100 Durchläufe):
+     - Zufällige Startwertebestimmung für jeden Durchlauf:
+       · a: Zufallswert zwischen 0 und 30
+       · k1: Zufallswert zwischen 0.1 und 3.5
+       · k2: Zufallswert zwischen 0.020 und 0.200
+       · BLC0: Zufallswert zwischen der unteren und oberen BLC0-Grenze
+     - Durchführung der nicht-linearen Regression:
+       · Verwendung des Levenberg-Marquardt-Algorithmus
+       · Maximale Iterationen: *1024*
+     - Berechnung der Residuenquadratsumme (RSS) für jede Anpassung
+     - Speicherung der besten Anpassung (niedrigste RSS)
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+
+:::
+
+## Blutlaktat-Bateman-Modellfunktion: Während und nach dem Belastungszeitraum
+In der folgenden Shiny-Anwendung wird die Laktatkinetik während und nach einer intensiven Belastung mithilfe der Bateman-Funktion modelliert. Diese mathematische Funktion beschreibt sowohl den Einstrom (Invasion) des Laktats aus der Muskulatur ins Blut als auch die gleichzeitige Elimination aus dem Blut. Der Konzentrationsverlauf zeigt nach Belastungsende zunächst einen Anstieg bis zu einem Maximum, gefolgt von einem exponentiellen Abfall. Die Parameter k1 und k2 beschreiben dabei die Geschwindigkeitskonstanten für Invasion bzw. Elimination, während der Parameter a die theoretische Gesamtmenge des zu eliminierenden Laktats darstellt [@Heck2022,194].
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+library(shiny)
+library(plotly)
+library(minpack.lm)
+
+# Definiere Daten
+t_min <- c(0.4, 3.3, 6.5, 8.4, 10.2, 12.5, 14.9, 16.7, 19.3)
+BLC_t <- c(0.82, 4.53, 6.97, 7.52, 7.73, 7.28, 6.37, 5.41, 4.71)
+
+# Normalisiere t_min, wenn der kleinste Wert größer als 0.0 ist
+if (min(t_min) > 0.0) {
+  t_min <- t_min - min(t_min)
+}
+
+# Bateman-Funktion für Laktatwerte (in Minuten) mit BLC0
+bateman_function <- function(t, a, k1, k2, BLC0) {
+  BLC0 + (a * k1 / (k2 - k1)) * (exp(-k1 * t) - exp(-k2 * t))
+}
+
+# Invasions- und Eliminationsfunktionen
+invasion_function <- function(t, a, k1, BLC0) {
+  BLC0 + a * (1 - exp(-k1 * t))
+}
+
+elimination_function <- function(t, a, k2, BLC0) {
+  BLC0 + a * exp(-k2 * t)
+}
+
+# UI
+ui <- fluidPage(
+  titlePanel("Bateman-Modellfunktion"),
+  fluidRow(
+    column(3,
+           style = "height: 90vh; overflow-y: auto;",
+           
+           tags$h4(tags$strong("Modellparameter:")),
+           sliderInput("a", "a [mmol/l]", min = 0.0, max = 30.0, value = 15.0, step = 0.01),
+           sliderInput("k1", "k1 [min^-1]", min = 0.1, max = 3.5, value = 0.5, step = 0.001),
+           sliderInput("k2", "k2 [min^-1]", min = 0.020, max = 0.200, value = 0.10, step = 0.001),
+           sliderInput("BLC0", "BLC0 [mmol/l]", min = 0.0, max = 5.0, value = 1.0, step = 0.01),
+           actionButton("optimize", "Fit: nlsLM"), 
+           br(), br(),
+           fileInput("file_upload", "CSV-Datei hochladen", accept = ".csv")
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # Reaktiver Wert für hochgeladene Daten
+  uploaded_data <- reactiveVal(NULL)
+  
+  # Beobachter für CSV-Upload
+  observeEvent(input$file_upload, {
+    req(input$file_upload)
+    df <- read.csv(input$file_upload$datapath)
+    
+    if ("t_min" %in% names(df) && "BLC_t" %in% names(df)) {
+      if (df$t_min[1] != 0.0) {
+        df$t_min <- df$t_min - df$t_min[1]
+      }
+      
+      uploaded_data(df)
+    } else {
+      showModal(modalDialog(
+        title = "Ungültige CSV",
+        "Die CSV-Datei muss 't_min' und 'BLC_t' als Spaltennamen enthalten.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  observeEvent(input$optimize, {
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_min = t_min, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    # Setze BLC0 Grenzen basierend auf dem ersten BLC_t Wert
+    BLC0_lower <- max(0, data$BLC_t[1] * 0.9)
+    BLC0_upper <- min(5, data$BLC_t[1] * 1.1)
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    
+    withProgress(message = 'Fitting in progress', value = 0, {
+      for (i in 1:100) {
+        # Randomisierte Startwerte
+        a_start <- runif(1, 0, 30)
+        k1_start <- runif(1, 0.1, 3.5)
+        k2_start <- runif(1, 0.020, 0.200)
+        BLC0_start <- runif(1, BLC0_lower, BLC0_upper)
+        
+        start_values <- list(a = a_start, k1 = k1_start, k2 = k2_start, BLC0 = BLC0_start)
+        
+        model_equation <- BLC_t ~ BLC0 + (a * k1 / (k2 - k1)) * (exp(-k1 * t_min) - exp(-k2 * t_min))
+        
+        fit <- try(nlsLM(model_equation,
+                         data = data,
+                         start = start_values,
+                         lower = c(a = 0.0, k1 = 0.1, k2 = 0.020, BLC0 = BLC0_lower),
+                         upper = c(a = 30.0, k1 = 3.5, k2 = 0.200, BLC0 = BLC0_upper),
+                         control = nls.control(maxiter = 1024)), silent = TRUE)
+        
+        if (!inherits(fit, "try-error")) {
+          rss <- sum(residuals(fit)^2)
+          if (rss < best_rss) {
+            best_rss <- rss
+            best_fit <- fit
+          }
+        }
+        
+        incProgress(1/100, detail = paste("Iteration", i))
+      }
+    })
+    
+    if (!is.null(best_fit)) {
+      params <- as.list(coef(best_fit))
+      updateSliderInput(session, "a", value = params$a)
+      updateSliderInput(session, "k1", value = params$k1)
+      updateSliderInput(session, "k2", value = params$k2)
+      updateSliderInput(session, "BLC0", value = params$BLC0)
+      
+      showNotification("Fitting completed successfully!", type = "message")
+    } else {
+      showModal(modalDialog(
+        title = "nlsLM fehlgeschlagen",
+        "Die nicht-lineare Regression mit dem Levenberg-Marquardt-Algorithmus konnte nicht erfolgreich durchgeführt werden.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    a <- input$a
+    k1 <- input$k1
+    k2 <- input$k2
+    BLC0 <- input$BLC0
+    
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_min = t_min, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    max_x <- max(data$t_min) * 1.66
+    
+    t_min_modell <- seq(0, max_x, length.out = 1000)
+    BLC_t_modell <- bateman_function(t_min_modell, a, k1, k2, BLC0)
+    invasion_modell <- invasion_function(t_min_modell, a, k1, BLC0)
+    elimination_modell <- elimination_function(t_min_modell, a, k2, BLC0)
+    
+    max_y <- max(max(BLC_t_modell) * 1.2, max(data$BLC_t) * 1.2, max(invasion_modell) * 1.2, max(elimination_modell) * 1.2)
+    
+    # Berechne tmax und Lamax
+    tmax <- log(k1/k2) / (k1 - k2)
+    Lamax <- bateman_function(tmax, a, k1, k2, BLC0)
+    
+    # Erstelle Gleichungstext
+    eq_text <- sprintf("[La]<sub>b</sub>(t) = %.2f + (%.2f * %.3f / (%.3f - %.3f)) * (e<sup>-%.3f*t</sup> - e<sup>-%.3f*t</sup>)", 
+                       BLC0, a, k1, k2, k1, k1, k2)
+    
+    # Berechne R²
+    BLC_t_modell_at_data <- bateman_function(data$t_min, a, k1, k2, BLC0)
+    ss_res <- sum((data$BLC_t - BLC_t_modell_at_data)^2)
+    ss_tot <- sum((data$BLC_t - mean(data$BLC_t))^2)
+    r_squared <- 1 - (ss_res / ss_tot)
+    
+    # Plotly-Plot
+    p <- plot_ly() %>%
+      add_trace(x = t_min_modell, y = BLC_t_modell, type = 'scatter', mode = 'lines', 
+                name = 'Bateman-Funktion', line = list(color = '#EF5350')) %>%
+      add_trace(x = t_min_modell, y = invasion_modell, type = 'scatter', mode = 'lines', 
+                name = 'Invasion', line = list(color = "#9C85C0", width = 2, dash = '8 5'),
+                opacity = 0.65) %>%
+      add_trace(x = t_min_modell, y = elimination_modell, type = 'scatter', mode = 'lines', 
+                name = 'Elimination', line = list(color = '#2683C6', width = 2, dash = '8 5'),
+                opacity = 0.65) %>%
+      add_trace(x = data$t_min, y = data$BLC_t, type = 'scatter', mode = 'markers', 
+                name = 'Gemessene BLC-Werte', marker = list(color = "#42BA97", size = 9, symbol = 'x')) %>%
+      add_segments(x = tmax, xend = tmax, y = 0, yend = max_y, 
+                   line = list(color = 'darkgrey', width = 1, dash = 'dash'), 
+                   showlegend = FALSE, opacity = 0.5) %>%
+      add_segments(x = 0, xend = max_x, y = Lamax, yend = Lamax, 
+                   line = list(color = 'darkgrey', width = 1, dash = 'dash'), 
+                   showlegend = FALSE, opacity = 0.5) %>%
+      layout(
+        title = "Bateman-Funktion für Laktat-Modellierung",
+        margin = list(t = 40),
+        xaxis = list(title = "Zeit [min]", range = c(0, max_x)),
+        yaxis = list(title = "Laktat [mmol/l]", range = c(0, max_y)),
+        legend = list(
+          x = 0.01,
+          y = 0.99,
+          xanchor = "left",
+          yanchor = "top",
+          bgcolor = "rgba(255, 255, 255, 0.2)",
+          bordercolor = "rgba(0,0,0,0)",
+          borderwidth = 0
+        ),
+        annotations = list(
+          list(
+            x = max_x * 0.3, 
+            y = max_y * 0.90,
+            text = eq_text,
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.3,
+            y = max_y * 0.85,
+            text = sprintf("R²: %.4f", r_squared),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.3,
+            y = max_y * 0.80,
+            text = sprintf("BLC<sub>max</sub>: %.2f mmol/l", Lamax),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.3,
+            y = max_y * 0.75,
+            text = sprintf("TBLC<sub>max</sub>: %.2f min",tmax),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          )
+        )
+      )
+    
+    p
+  })
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+        <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+        <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+          <li>Beispiel-Laktatdaten verwenden oder eigene Laktat-Daten als CSV-Datei einfügen.</li>
+          <li>Modellanpassung 'Fit: nlsLM' durchführen.</li>
+          <li>Alternativ: Manuelle Modellanpassung der Modellparameter mit den Schiebereglern.</li>
+        </ol>
+        <div style='margin-top: 20px;'></div>
+        <pre style='background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+Laktat-Daten können als CSV-Datei im folgenden Format hochgeladen werden:
+t_min,BLC_t
+0.0,2.84
+1.5,3.60
+3.0,5.09
+…
+        </pre>
+      </div>"
+    )
+  })
+}
+
+# App ausführen
+shinyApp(ui = ui, server = server)
+```
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+#### Modellanpassung - Details: {.unlisted}
+
+**nlsLM - Fit:**
+
+- Verwendete Funktion: nlsLM
+- Parameter: a, k1, k2, BLC0
+- Modell: BLC_t ~ BLC0 + (a · k1 / (k2 - k1)) · (exp(-k1 · t_min) - exp(-k2 · t_min))
+- Grenzen:
+  - a: *0.0 bis 30.0 mmol/l*
+  - k1: *0.1 bis 3.5 min^-1*
+  - k2: *0.020 bis 0.200 min^-1*
+  - BLC0: *0.90 · BLC_t[1] bis 1.10 · BLC_t[1], begrenzt auf 0 bis 5 mmol/l*
+- Prozess:
+  a) Bestimmung der BLC0-Grenzen:
+     - Untere Grenze: *max(0, 0.90 · erster BLC-Wert)*
+     - Obere Grenze: *min(5, 1.10 · erster BLC-Wert)*
+  b) Iterative Optimierung (100 Durchläufe):
+     - Zufällige Startwertebestimmung für jeden Durchlauf:
+       · a: Zufallswert zwischen 0 und 30
+       · k1: Zufallswert zwischen 0.1 und 3.5
+       · k2: Zufallswert zwischen 0.020 und 0.200
+       · BLC0: Zufallswert zwischen der unteren und oberen BLC0-Grenze
+     - Durchführung der nicht-linearen Regression:
+       · Verwendung des Levenberg-Marquardt-Algorithmus
+       · Maximale Iterationen: *1024*
+     - Berechnung der Residuenquadratsumme (RSS) für jede Anpassung
+     - Speicherung der besten Anpassung (niedrigste RSS)
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+
+:::
+
+
+## Blutlaktat-Kompartmentmodell-Modellfunktion (nach Freund et al. 1986)
+
+Die Shiny-App stellt die Laktatkinetik während und nach einer intensiven Belastung mithilfe des Zwei-Kompartment-Modells nach Freund et al. dar. Dieses mathematische Modell berücksichtigt sowohl die Laktatbildung und -elimination im Muskel- und Nicht-Muskelkompartment als auch den Austausch zwischen diesen Kompartmenten. Der Konzentrationsverlauf wird durch die Summe zweier Exponentialfunktionen beschrieben, deren Amplituden (A1, A2) und Geschwindigkeitskonstanten (γ1, γ2) die Dynamik der Laktatkinetik charakterisieren [@Freund1986; @Heck2022, 197].
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 900
+library(shiny)
+library(plotly)
+library(minpack.lm)
+
+# Definiere Daten
+t_min <- c(0.4, 3.3, 6.5, 8.4, 10.2, 12.5, 14.9, 16.7, 19.3)
+BLC_t <- c(0.82, 4.53, 6.97, 7.52, 7.73, 7.28, 6.37, 5.41, 4.71)
+
+# Normalisiere t_min, wenn der kleinste Wert größer als 0.0 ist
+if (min(t_min) > 0.0) {
+  t_min <- t_min - min(t_min)
+}
+
+# Freund et al. Kompartmentmodell-Funktion
+freund_model <- function(t, A1, A2, gamma1, gamma2, La0) {
+  La0 + A1 * (1 - exp(-gamma1 * t)) + A2 * (1 - exp(-gamma2 * t))
+}
+
+# Berechne tmax und Lamax
+calculate_tmax_lamax <- function(A1, A2, gamma1, gamma2, La0) {
+  f <- function(t) freund_model(t, A1, A2, gamma1, gamma2, La0)
+  tmax <- optimize(f, c(0, 100), maximum = TRUE)$maximum
+  Lamax <- f(tmax)
+  list(tmax = tmax, Lamax = Lamax)
+}
+
+# UI
+ui <- fluidPage(
+  titlePanel("BLC-Kompartmentmodell-Modellfunktion"),
+  fluidRow(
+    column(3,
+           style = "height: 90vh; overflow-y: auto;",
+           
+           tags$h4(tags$strong("Modellparameter:")),
+           sliderInput("A1", "A1 [mmol/l]", min = 0.0, max = 100.0, value = 20.0, step = 0.1),
+           sliderInput("A2", "A2 [mmol/l]", min = -100.0, max = 0.0, value = -20.0, step = 0.1),
+           sliderInput("gamma1", "γ1 [min^-1]", min = 0.05, max = 2.0, value = 0.1, step = 0.001),
+           sliderInput("gamma2", "γ2 [min^-1]", min = 0.01, max = 0.5, value = 0.05, step = 0.001),
+           sliderInput("La0", "La0 [mmol/l]", min = 0.0, max = 5.0, value = 1.0, step = 0.01),
+           actionButton("optimize", "Fit: nlsLM"), 
+           br(), br(),
+           fileInput("file_upload", "CSV-Datei hochladen", accept = ".csv")
+    ),
+    mainPanel(
+      width = 9,
+      plotlyOutput("plot"),
+      uiOutput("instructions")
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # Reaktiver Wert für hochgeladene Daten
+  uploaded_data <- reactiveVal(NULL)
+  
+  # Beobachter für CSV-Upload
+  observeEvent(input$file_upload, {
+    req(input$file_upload)
+    df <- read.csv(input$file_upload$datapath)
+    
+    if ("t_min" %in% names(df) && "BLC_t" %in% names(df)) {
+      if (df$t_min[1] != 0.0) {
+        df$t_min <- df$t_min - df$t_min[1]
+      }
+      
+      uploaded_data(df)
+    } else {
+      showModal(modalDialog(
+        title = "Ungültige CSV",
+        "Die CSV-Datei muss 't_min' und 'BLC_t' als Spaltennamen enthalten.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  observeEvent(input$optimize, {
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_min = t_min, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    # Setze La0 Grenzen basierend auf dem ersten BLC_t Wert
+    La0_lower <- max(0, data$BLC_t[1] * 0.9)
+    La0_upper <- min(5, data$BLC_t[1] * 1.1)
+    
+    best_fit <- NULL
+    best_rss <- Inf
+    
+    withProgress(message = 'Fitting in progress', value = 0, {
+      for (i in 1:100) {
+        # Randomisierte Startwerte
+        A1_start <- runif(1, 0, 100)
+        A2_start <- runif(1, -100, 0)
+        gamma1_start <- runif(1, 0.05, 2)
+        gamma2_start <- runif(1, 0.01, 0.5)
+        La0_start <- runif(1, La0_lower, La0_upper)
+        
+        start_values <- list(A1 = A1_start, A2 = A2_start, gamma1 = gamma1_start, gamma2 = gamma2_start, La0 = La0_start)
+        
+        model_equation <- BLC_t ~ La0 + A1 * (1 - exp(-gamma1 * t_min)) + A2 * (1 - exp(-gamma2 * t_min))
+        
+        fit <- try(nlsLM(model_equation,
+                         data = data,
+                         start = start_values,
+                         lower = c(A1 = 0.0, A2 = -100.0, gamma1 = 0.05, gamma2 = 0.01, La0 = La0_lower),
+                         upper = c(A1 = 100.0, A2 = 0.0, gamma1 = 2.0, gamma2 = 0.5, La0 = La0_upper),
+                         control = nls.control(maxiter = 1024)), silent = TRUE)
+        
+        if (!inherits(fit, "try-error")) {
+          rss <- sum(residuals(fit)^2)
+          if (rss < best_rss) {
+            best_rss <- rss
+            best_fit <- fit
+          }
+        }
+        
+        incProgress(1/100, detail = paste("Iteration", i))
+      }
+    })
+    
+    if (!is.null(best_fit)) {
+      params <- as.list(coef(best_fit))
+      updateSliderInput(session, "A1", value = params$A1)
+      updateSliderInput(session, "A2", value = params$A2)
+      updateSliderInput(session, "gamma1", value = params$gamma1)
+      updateSliderInput(session, "gamma2", value = params$gamma2)
+      updateSliderInput(session, "La0", value = params$La0)
+      
+      showNotification("Fitting completed successfully!", type = "message")
+    } else {
+      showModal(modalDialog(
+        title = "nlsLM fehlgeschlagen",
+        "Die nicht-lineare Regression mit dem Levenberg-Marquardt-Algorithmus konnte nicht erfolgreich durchgeführt werden.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    }
+  })
+  
+  output$plot <- renderPlotly({
+    A1 <- input$A1
+    A2 <- input$A2
+    gamma1 <- input$gamma1
+    gamma2 <- input$gamma2
+    La0 <- input$La0
+    
+    data <- if (is.null(uploaded_data())) {
+      data.frame(t_min = t_min, BLC_t = BLC_t)
+    } else {
+      uploaded_data()
+    }
+    
+    max_x <- max(data$t_min) * 1.66
+    
+    t_min_modell <- seq(0, max_x, length.out = 1000)
+    BLC_t_modell <- freund_model(t_min_modell, A1, A2, gamma1, gamma2, La0)
+    
+    max_y <- max(max(BLC_t_modell) * 1.2, max(data$BLC_t) * 1.2)
+    
+    # Berechne tmax und Lamax
+    results <- calculate_tmax_lamax(A1, A2, gamma1, gamma2, La0)
+    tmax <- results$tmax
+    Lamax <- results$Lamax
+    
+    # Erstelle Gleichungstext
+    eq_text <- sprintf("[La]<sub>b</sub> (t) = %.2f + %.1f * (1 - e<sup>-%.3f*t</sup>) + %.1f * (1 - e<sup>-%.3f*t</sup>)", 
+                       La0, A1, gamma1, A2, gamma2)
+    
+    # Berechne R²
+    BLC_t_modell_at_data <- freund_model(data$t_min, A1, A2, gamma1, gamma2, La0)
+    ss_res <- sum((data$BLC_t - BLC_t_modell_at_data)^2)
+    ss_tot <- sum((data$BLC_t - mean(data$BLC_t))^2)
+    r_squared <- 1 - (ss_res / ss_tot)
+    
+    # Plotly-Plot
+    p <- plot_ly() %>%
+      add_trace(x = t_min_modell, y = BLC_t_modell, type = 'scatter', mode = 'lines', 
+                name = 'Modellgleichung', line = list(color = '#EF5350')) %>%
+      add_trace(x = data$t_min, y = data$BLC_t, type = 'scatter', mode = 'markers', 
+                name = 'Gemessene BLC-Werte', marker = list(color = "#42BA97", size = 9, symbol = 'x')) %>%
+      add_segments(x = tmax, xend = tmax, y = 0, yend = max_y, 
+                   line = list(color = 'darkgrey', width = 1, dash = 'dash'), 
+                   showlegend = FALSE, opacity = 0.5) %>%
+      add_segments(x = 0, xend = max_x, y = Lamax, yend = Lamax, 
+                   line = list(color = 'darkgrey', width = 1, dash = 'dash'), 
+                   showlegend = FALSE, opacity = 0.5) %>%
+      layout(
+        title = "Freund et al. Kompartmentmodell für Laktat-Modellierung",
+        margin = list(t = 40),
+        xaxis = list(title = "Zeit [min]", range = c(0, max_x)),
+        yaxis = list(title = "Laktat [mmol/l]", range = c(0, max_y)),
+        legend = list(
+          x = 0.01,
+          y = 0.99,
+          xanchor = "left",
+          yanchor = "top",
+          bgcolor = "rgba(255, 255, 255, 0.8)",
+          bordercolor = "rgba(0,0,0,0)",
+          borderwidth = 0
+        ),
+        annotations = list(
+          list(
+            x = max_x * 0.45, 
+            y = max_y * 0.92,
+            text = eq_text,
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.45,
+            y = max_y * 0.87,
+            text = sprintf("R²: %.4f", r_squared),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.45,
+            y = max_y * 0.82,
+            text = sprintf("BLC<sub>max</sub>: %.2f mmol/l", Lamax),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          ),
+          list(
+            x = max_x * 0.45,
+            y = max_y * 0.77,
+            text = sprintf("TBLC<sub>max</sub>: %.2f min",tmax),
+            showarrow = FALSE,
+            xanchor = 'left',
+            yanchor = 'bottom',
+            font = list(
+              size = 12,
+              color = "black"
+            )
+          )
+        )
+      )
+    
+    p
+  })
+  output$instructions <- renderUI({
+    HTML(
+      "<div style='margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+        <h4 style='color: #333;'><strong>Anleitung - Modellanpassung:</strong></h4>
+        <ol style='color: #555; list-style-position: outside; padding-left: 20px;'>
+          <li>Beispiel-Laktatdaten verwenden oder eigene Laktat-Daten als CSV-Datei einfügen.</li>
+          <li>Modellanpassung 'Fit: nlsLM' durchführen.</li>
+          <li>Alternativ: Manuelle Modellanpassung der Modellparameter mit den Schiebereglern.</li>
+        </ol>
+        <div style='margin-top: 20px;'></div>
+        <pre style='background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: fit-content;'>
+Laktat-Daten können als CSV-Datei im folgenden Format hochgeladen werden:
+t_min,BLC_t
+0.0,2.84
+1.5,3.60
+3.0,5.09
+…
+        </pre>
+      </div>"
+    )
+  })
+}
+
+# App ausführen
+shinyApp(ui = ui, server = server)
+```
+
+::: {.callout-note icon=false collapse=true appearance="simple"}
+#### Modellanpassung - Details: {.unlisted}
+
+**nlsLM - Fit:**
+
+- Verwendete Funktion: nlsLM
+- Parameter: A1, A2, gamma1, gamma2, La0
+- Modell: BLC_t ~ La0 + A1 · (1 - exp(-gamma1 · t_min)) + A2 · (1 - exp(-gamma2 · t_min))
+- Grenzen:
+  - A1: *0.0 bis 100.0 mmol/l*
+  - A2: *-100.0 bis 0.0 mmol/l*
+  - gamma1: *0.05 bis 2.0 min^-1*
+  - gamma2: *0.01 bis 0.5 min^-1*
+  - La0: *0.90 · BLC_t[1] bis 1.10 · BLC_t[1], begrenzt auf 0 bis 5 mmol/l*
+- Prozess:
+  a) Bestimmung der La0-Grenzen:
+     - Untere Grenze: *max(0, 0.90 · erster BLC-Wert)*
+     - Obere Grenze: *min(5, 1.10 · erster BLC-Wert)*
+  b) Iterative Optimierung (100 Durchläufe):
+     - Zufällige Startwertebestimmung für jeden Durchlauf:
+       · A1: Zufallswert zwischen 0 und 100
+       · A2: Zufallswert zwischen -100 und 0
+       · gamma1: Zufallswert zwischen 0.05 und 2.0
+       · gamma2: Zufallswert zwischen 0.01 und 0.5
+       · La0: Zufallswert zwischen der unteren und oberen La0-Grenze
+     - Durchführung der nicht-linearen Regression:
+       · Verwendung des Levenberg-Marquardt-Algorithmus
+       · Maximale Iterationen: *1024*
+     - Berechnung der Residuenquadratsumme (RSS) für jede Anpassung
+     - Speicherung der besten Anpassung (niedrigste RSS)
+- Optimierung: Minimierung der Residuenquadratsumme (RSS)
+
+:::
+
+
+
 
 
 ## Quellenverzeichnis

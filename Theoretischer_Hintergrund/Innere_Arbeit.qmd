@@ -86,7 +86,6 @@ die auf theoretischen biomechanischen Modellen oder kinematischen Daten basieren
 ausgewählte Methoden vorgestellt und die in dieser Arbeit angewandte Methodik detailliert erläutert.
 
 ## Berechnungsmethoden auf Basis metabolischer Messungen
-
 Eine praktische Lösung zur Messung der metabolischen Kosten der inneren Arbeit bzw. inneren Leistung, hier
 ausgedrückt als $\dot{V}O_{2,\text{unloaded}}$ oder O~2~-Cost~nD~, ist die Erfassung des
 $\dot{V}O_{2,\text{net}}$ während Pedalierbewegungen ohne Last. Dabei wird eine Bedingung geschaffen, bei
@@ -98,13 +97,13 @@ verwendet werden soll [@Whipp1969; @Gaesser1975; @Hagberg1981; @Hintzy-Cloutier2
 
 Eine alternative Methode zur Bestimmung von $\Delta\dot{V}O_{2,\text{unloaded}}$ basiert auf der
 Extrapolation des y-Achsenabschnitts der linearen $\Delta\dot{V}O_{2,\text{net}} - \Delta P_{\text{mech}}$
-Regression aus mehreren Belastungsstufen, analog zum bereits beschriebenen Verfahren der
-Deltawirkungsgradberechnung [@Gaesser1975; @Francescato1995; @Sjøgaard2002].<br> Die Validität dieses
-linearen Modells wurde jedoch kritisch diskutiert [@Ettema2009a], da oberhalb der ersten Laktatschwelle[^1]
+Regression aus mehreren Belastungsstufen (@fig-Hintzy_Cloutier_linear), analog zum bereits beschriebenen Verfahren der
+Deltawirkungsgradberechnung [@Gaesser1975; @Francescato1995; @Sjøgaard2002].<br>
+Die Validität dieses linearen Modells wurde jedoch kritisch diskutiert [@Ettema2009a], da oberhalb der ersten Laktatschwelle[^1]
 der $\dot{V}O_2$-Umsatz aufgrund der langsamen Komponente der O~2~-Kinetik nicht mehr linear zur erbrachten
 P~mech~ ansteigt [@Barstow1994; @Bearden2000; @Sietsema2020]. Als Alternative wurde daher eine kurvilineare
 Regression zur Beschreibung der $\Delta\dot{V}O_{2,\text{net}} - \Delta P_{\text{mech}}$ Beziehung während
-ansteigender Last vorgeschlagen [@Hintzy-Cloutier2003].<br>
+ansteigender Last vorgeschlagen (@fig-Hintzy_Cloutier_curvilinear) [@Hintzy-Cloutier2003].<br>
 Nach @Hintzy-Cloutier2003 zeigten die tatsächlich gemessenen $\dot{V}O_{2,\text{unloaded}}$ signifikant
 höhere Werte als die theoretisch ermittelten $\dot{V}O_{2,\text{unloaded}}$-Werte mittels linearer und
 kurvilinearer Regression. Als potenzielle Ursachen für diese erhöhten $\dot{V}O_{2,\text{unloaded}}$-Werte
@@ -114,6 +113,26 @@ Reproduktion der unbelasteten Bedingung identifiziert.
 
 [^1]: Die LT beschreibt den Punkt, an dem das Blutlaktat bei zunehmender Belastungsintensität über das
     Ruheniveau hinaus zu akkumulieren beginnt [@Sietsema2020].
+    
+    
+:::::: columns
+::: {.column width="49%"}
+![Lineare Beziehung zwischen P~mech~ und Sauerstoffvolumenstrom. VO~2,unload~ zeigt den y-Achsenabschnitt der linearen ΔVO~2~-ΔP~mech~-Regression (Hintzy-Cloutier, 2003).](images/Hintzy-Cloutier_linear.png){#fig-Hintzy_Cloutier_linear}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![Kurvilineare Beziehung zwischen P~mech~ und Sauerstoffvolumenstrom. VO~2,unload~ zeigt den y-Achsenabschnitt der kurvilinearen ΔVO~2~-ΔP~mech~-Regression (Hintzy-Cloutier, 2003).](images/Hintzy-Cloutier_curvilinear.png){#fig-Hintzy_Cloutier_curvilinear}
+:::
+::::::   
+    
+    
+    
+    
+    
+    
 
 ### Bestimmung der metabolischen Kosten der W~Int~ in dieser Untersuchung {.unlisted}
 
@@ -176,7 +195,7 @@ Fahrradtypen und einen breiten Bereich von Trittraten.
 
 > **Berechnungsbeispiel von W~int,Minetti~ und P~int,Minetti~ :**<br> Körpermasse = 70 \[kg\]; q = 0.153
 > \[l\]; Trittrate<sub>avg</sub> = 80 \[U·min^-1^\] = $\frac{80}{60}$ \[Hz\]; Testdauer = 300 \[s\] <br> 
-> $W_{\text{Int \kern0.05em pro \kern0.05em Umdrehung}}$  = 0.153 · 70 · (1.33)^3^ = 25.39 \[J\] \  |   Umdrehungen<sub>avg</sub> = 1.33 · 300 = 400 \[U\]<br> 
+> $W_{\text{Int \kern0.05em pro \kern0.05em Umdrehung}}$  = 0.153 · 70 · (1.33)^3^ = 25.39 \[J\] \  |   Umdrehungen<sub>gesamt</sub> = 1.33 · 300 = 400 \[U\]<br> 
 > $W_{\text{Int \kern0.05em gesamt}}$ = 25.39 · $\frac{400}{1000}$ = 10.156 \[kJ\]<br> 
 > $P_{Int}$ = 10.156 · $\frac{1000}{300}$ = 33.85 \[W\]
 
@@ -184,7 +203,7 @@ Fahrradtypen und einen breiten Bereich von Trittraten.
 
 @Winter1979 entwickelte einen systematischen Ansatz zur Berechnung der inneren Arbeit, der sich von den bisher
 vorgestellten Berechnungsmodellen bezüglich verschiedener methodischer Grundannahmen der W~Int~-Berechnung
-unterscheidet. Dabei wurde der menschliche Bewegungsapparat als segmentiertes Modell dargestellt, indem der Körper in biomechanisch relevante Segmente für die Analyse des Gangzyklus unterteilt wurde. @Winter1979
+unterschied. Dabei wurde der menschliche Bewegungsapparat als segmentiertes Modell dargestellt, indem der Körper in biomechanisch relevante Segmente für die Analyse des Gangzyklus unterteilt wurde. @Winter1979
 fasste den oberen Körperbereich als eine biomechanische Einheit zusammen, die aus Kopf, Armen und Rumpf bestand und als HAT-Segment (Head, Arms, Trunk) bezeichnet wurde. Die unteren Extremitäten wurden jeweils in drei funktionelle Einheiten: Oberschenkel, Unterschenkel und Fuß untergliedert. Zur präzisen Erfassung der
 Bewegungsabläufe dieser Körpersegmente wurden Marker an definierten anatomischen Referenzpunkten platziert,
 die eine exakte Aufzeichnung der Bewegungskoordinaten ermöglichten.
@@ -1064,9 +1083,13 @@ p_Int_Modell_Zyklus_positiv <- plot_ly(PInt_df, x = ~Grad, y = ~PIntMittelZyklus
 p_Int_Modell_Zyklus_positiv
 ```
 
-- Die durchschnittliche innere Leistung wurde aus der Summe der positiven Leistungsanteile beider Beine berechnet:<br> $P_{Int} = \overline{P_{Int,Links,pos}(t)} + \overline{P_{Int,Rechts,pos}(t)}$. 
+- Die durchschnittliche innere Leistung wurde aus der Summe der positiven Leistungsanteile beider Beine berechnet:<br> $\bar{P}_{Int} = \overline{P_{Int,Links,pos}(t)} + \overline{P_{Int,Rechts,pos}(t)}$
 
-Im weiteren Verlauf dieser Arbeit wird die modellbasiert berechnete innere Leistung als P~Int,Modell~ bezeichnet.
+Im weiteren Verlauf dieser Arbeit wird die modellbasiert berechnete innere Leistung als P~Int,Modell~[^1] bezeichnet.
+
+- Die innere Arbeit (W~Int~ in Kilojoule) über den definierten Belastungszeitraum wurde aus der mittleren inneren Leistung (P~Int~ in Watt) und der Belastungsdauer (t in Sekunden) berechnet:<br> $W_{Int} = \frac{\bar{P}_{Int} \cdot t}{1000}$
+
+[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~Int,Modell~, P~Int,Kinematik~, P~Int,Kinematik_Modell~ usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum. Eine explizite Zeitabhängigkeit wird durch die Notation (t) gekennzeichnet, wie beispielsweise bei P~Int,Modell~(t). Diese Notationsweise wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
 
 ::: {.callout-note collapse="true"}
 #### Abbildung 10: Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien
@@ -2357,8 +2380,8 @@ for (name in names(Kinematik_list)) {
 ### Explorativ: W~Int~-Berechnung nach @Winter1979
 
 Die ursprüngliche Berechnung der inneren Arbeit P~Int,Kinematik,Modell~ führte zu differenzierten Ergebnissen zwischen den beiden Körperpositionen. Während die Berechnungswerte der sitzenden Position mit den in der Literatur berichteten Werten übereinstimmten, zeigten sich für die Belastungsdurchgänge im Stehen physiologisch nicht plausible Ergebnisse. Eine detaillierte Analyse der Berechnungsergebnisse offenbarte, dass zwar bei identischer Trittrate minimal höhere P~Int,Kinematik,Modell~-Werte im Stehen auftraten, jedoch die systematisch niedrigeren Trittraten bei gleicher Belastungsintensität zu substantiell geringeren P~Int~-Werten in der stehenden Position führten. <br>
-Diese Diskrepanz steht im Widerspruch zu den erhobenen physiologischen Parametern der berechneten Wirkungsgrade (η~Total~, η~Netto~, η~Brutto~, alle ohne Berücksichtigung der inneren Leistung), des durchschnittlichen Sauerstoffvolumenstroms ($\dot{V}O_2$) sowie der durchschnittlichen Herzrate. Da diese Parameter bei vergleichbarer mechanischer Leistung keine signifikanten Unterschiede zwischen stehender und sitzender Position aufwiesen, lässt sich die Hypothese ableiten, dass die innere Leistung in beiden Körperpositionen ähnliche Werte aufweisen sollte.<br>
-Aufgrund der fehlenden Bestätigung dieser Annahme durch die gewählten Berechnungsmethoden wurde nachträglich ein alternativer Berechnungsansatz explorativ untersucht. Dieser basiert auf dem Modell von @Winter1979 und wurde gemäß der Methodik von @Hansen2004 für die spezifischen Anforderungen des Radfahrens adaptiert. Die wesentlichen methodischen Erweiterungen gegenüber dem zuvor beschriebenen Berechnungsweg für P~Int,Kinematik,Modell~ umfassen drei zentrale Aspekte: Erstens die Integration der potentiellen Energie der Segmente, zweitens die Berücksichtigung des HAT-Segments (Head-Arms-Trunk) als zusammenhängende biomechanische Einheit und drittens die Annahme eines vollständigen Energietransfers zwischen den Segmenten über die Grenzen der einzelnen Gliedmaßen hinweg.
+Diese Diskrepanz steht im Widerspruch zu den berechneten Wirkungsgraden (η~Total~, η~Netto~, η~Brutto~, alle ohne Berücksichtigung der inneren Leistung) sowie den erhobenen physiologischen Parametern des durchschnittlichen Sauerstoffvolumenstroms ($\dot{V}O_2$) und der durchschnittlichen Herzrate. Da diese Parameter bei vergleichbarer mechanischer Leistung keine signifikanten Unterschiede zwischen stehender und sitzender Position aufwiesen, lässt sich die Hypothese ableiten, dass die innere Leistung in beiden Körperpositionen ähnliche Werte aufweisen sollte.<br>
+Aufgrund der fehlenden Bestätigung dieser Annahme durch die gewählten Berechnungsmethoden wurde nachträglich ein alternativer Berechnungsansatz untersucht. Dieser basiert auf dem Modell von @Winter1979 und wurde gemäß der Methodik von @Hansen2004 für die spezifischen Anforderungen des Radfahrens adaptiert. Die wesentlichen methodischen Erweiterungen gegenüber dem zuvor beschriebenen Berechnungsweg für P~Int,Kinematik,Modell~ umfassten drei zentrale Aspekte: Erstens die Integration der potentiellen Energie der Segmente, zweitens die Berücksichtigung des HAT-Segments (Head-Arms-Trunk) als zusammenhängende biomechanische Einheit und drittens die Annahme eines vollständigen Energietransfers zwischen den Segmenten über die Grenzen der einzelnen Gliedmaßen hinweg.
 
 Für die Implementierung des alternativen Berechnungsansatzes wurde das bestehende Simulationsmodell, welches auf den Kinematik-Daten basiert, um das HAT-Segment erweitert. Die Berechnung des HAT-Segmentschwerpunkts erfolgte nach der Schwerpunktformel für ein Mehrsegmentsystem [@Winter2009,88], wobei für jeden Zeitpunkt t die x- und y-Koordinaten des HAT-Segmentschwerpunkts durch die gewichtete Summe der einzelnen Segmentschwerpunkte, normiert auf die Gesamtmasse, bestimmt wurden. Für ein System aus Kopf (Kopf~COM~), Rumpf (Rumpf~COM~) und den symmetrischen Segmenten der oberen Extremitäten (Oberarm~COM~ und Unterarm~COM~) ergibt sich:
 

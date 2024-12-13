@@ -1,0 +1,125 @@
+---
+title: "Proteinstoffwechsel"
+
+execute:
+  message: false
+  engine: knitr
+  echo: false
+  warning: false
+  error: false
+  
+bibliography: references.bib
+lang: de
+number-sections: false
+tbl-cap-location: bottom
+editor: 
+  markdown: 
+    wrap: 108
+    
+---
+
+```{css}
+#| echo: false
+p {
+  text-align: justify
+}
+caption, .figure-caption {
+  text-align: left;
+}
+figure.quarto-float-tbl figcaption {
+  text-align: left !important;
+}
+figure figcaption {
+  text-align: justify;
+}
+```
+
+# Noch Verfassen
+
+### Proteinoxidation im aeroben Stoffwechsel 
+
+### In dieser Methode wird der Eiweißstoffwechsel vernachlässigt, da dessen Energie-umsatz, abgesehen von einer Glykogenverarmung des Sportlers, konstant unter einem Prozent der gesamten Energiebereitstellung liegt (Scharhag-Rosenberger & Schommer, 2013).
+
+Kohlenhydrate und Fette stellen in der Regel den Großteil der metabolischen Energie bereit, die zur Regeneration von ATP benötigt wird, um Muskelarbeit zu leisten. Auch der Abbau von Proteinen kann bis zu 20 verschiedene Aminosäuren bereitstellen, von denen einige oxidiert werden können.
+Bevor die verschiednen Brennstoffe Kohlenhydrate, Fette und Proteine in die Stoffwechselwege des Katabolismus eintreten können, müssen sie verdaut, assimiliert, verteilt und von den Zellen aufgenommen werden. Für Aminosäuren ist noch ein zusätzlicher Schritt notwendig: die Entfernung der Aminogruppe (-NH~2~). Dies erfolgt durch Transaminierung, bei der die Aminogruppe auf eine α-Ketosäure übertragen wird, oder durch oxidative Desaminierung, die Ammoniak freisetzt. Das entstandene Ammoniak wird in der Leber durch den Harnstoffzyklus in Harnstoff (CO(NH~2~)~2~) umgewandelt. Während dieser Prozesse können schwefelhaltige Aminosäuren zu Sulfaten abgebaut werden. Der entstandene Harnstoff und die Sulfate werden anschließend über den Urin ausgeschieden.
+
+Das verbleibende Kohlenstoffskelett der Aminosäuren kann ähnlich wie Kohlenhydrate und Fette zu CO~2~ und H~2~O oxidiert werden. Der Sauerstoffumsatz und die CO~2~-Produktion variieren je nach Art des Proteins [@Brooks2012; @Jeukendrup2019, 100].<br>
+Ein Beispiel für die Oxidation eines Proteins (Albumin) ist das folgende:
+
+$$
+\begin{aligned}
+\text{C}_{72}\text{H}_{112}\text{N}_2\text{O}_{22}\text{S} + 77 \text{O}_2 &\rightarrow 63 \text{CO}_2 + 38 \text{H}_2\text{O} + \text{SO}_3 + 9 \text{CO(NH}_2)_2 \quad \\
+\text{RQ} &= \frac{\text{CO}_2}{\text{O}_2} = \frac{63}{77} = 0.818
+\end{aligned}
+$${#eq-EIW}
+
+
+Aufgrund der komplexeren Prozesse der Proteinoxidation ist die Hierarchie der Substratnutzung in Bezug auf die Zeit seit der Assimilation und der metabolischen Leistung: Kohlenhydrate → Lipide → Aminosäuren.
+
+Während körperlicher Ruhe trägt die Aminosäureoxidation nur etwa 15 % zum Energieumsatz bei. Während körperlicher Belastung sinkt dieser Beitrag wahrscheinlich auf weniger als 5 %, da Kohlenhydrate und Fette als Hauptbrennstoffe wichtiger werden. Bei längerer körperlicher Betätigung, insbesondere wenn die Kohlenhydratverfügbarkeit eingeschränkt ist, kann die Aminosäureoxidation geringfügig zunehmen. Dennoch überschreitet der Beitrag von Proteinen zum Gesamtenergieumsatz selten 10 %. In Phasen starker Kalorienrestriktion, wenn die Glykogenspeicher erschöpft sind, gewinnt der Proteinkatabolismus an Bedeutung und wird zu einer wichtigeren Energiequelle für die Muskelarbeit.
+
+
+Früh wurde klar, dass körperliche Bewegung wenig Einfluss auf die Stickstoffausscheidung im Urin hat. Todd et al. stellten fest, dass körperliche Aktivität nicht zu einem negativen Stickstoffhaushalt führt, solange die Nahrungsenergie ausreicht. Da wenig zusätzlicher Stickstoff im Urin wegen Bewegung ausgeschieden wird und Messungen schwierig sind, verzichteten Forscher darauf, die Messungen des pulmonalen RER für die Nutzung von Aminosäuren und Proteinen zu korrigieren. Daher nahm man an, dass Kohlenhydrat- und fettbasierte Brennstoffe die bevorzugten Energiesubstrate für Bewegung sind.
+@Brooks2012
+
+
+Diese Berechnungen gehen davon aus, dass Protein kein wichtiger Energieträger ist. In einigen extremen Bedingungen kann Protein bis zu 15 % des gesamten Energieumsatzes beitragen. In diesem Fall sollte eine Korrektur für die Proteinoxidation vorgenommen werden. Um diese Korrektur vorzunehmen, werden Urinproben gesammelt und die Proteinoxidation aus dem Stickstoffgehalt geschätzt. Ein Gramm Stickstoff im Urin repräsentiert die Oxidation von 6.25 g Protein. Dieses Ergebnis wird von den Raten der Fett- und Kohlenhydratoxidation subtrahiert.
+
+-> Diesen Abschnitt noch mit dem aus Brooks ergänzen
+
+Wie bereits erwähnt, erhöht das Messen sowohl des O~2~-Umsatzes als auch der CO~2~-Produktion die Genauigkeit der Schätzung des Energieumsatzes, da der Energieäquivalent für Sauerstoff leicht unterschiedlich ist, je nachdem, welches Substrat verwendet wird. Wenn zum Beispiel die V~O~2~ 600 L/Tag, die V~CO~2~ 500 L/Tag und die Stickstoffausscheidung 25 g/Tag beträgt, beträgt der Energieumsatz 12.068 kJ (2.886 kcal). Mit der einfachen Formel (d. h. ohne Berücksichtigung der Proteinoxidation) beträgt das Ergebnis 12.120 kJ (2.892 kcal), ein Unterschied von nur 0.2 %.
+
+
+
+
+
+
+
+
+Wenn eine Mischung aus Kohlenhydraten und Fetten oxidiert wird, entspricht der O~2~-Umsatz der Summe des für die Oxidation der Kohlenhydrate benötigten O~2~ plus des für Fette benötigten. Ebenso ist die CO~2~-Produktion die Summe der CO~2~-Produktion aus Kohlenhydraten und der CO~2~-Produktion aus Fetten. Wenn zum Beispiel 100 g Kohlenhydrate und 50 g Fett oxidiert werden, beträgt der O~2~-Umsatz (100 ⋅ 0.746) + (50 ⋅ 2.009) = 175 L. Die CO~2~-Produktion beträgt (100 ⋅ 0.743) + (50 ⋅ 1.414) = 145 L. Der RQ ist \(\frac{145}{175} = 0.829\).
+
+Wenn Experimente mit indirekter Kalorimetrie durchgeführt werden und V~O~2~ und V~CO~2~ gemessen werden, wird die umgekehrte Berechnung verwendet:
+
+$$
+\text{Rate der Kohlenhydratoxidation (g/min)} \cdot \text{O}_2 (\text{L/g}) + \text{Rate der Fettoxidation (g/min)} \cdot \text{O}_2 (\text{L/g}) = \text{VO}_2 (\text{L/min})
+$$
+
+$$
+\text{Rate der Kohlenhydratoxidation (g/min)} \cdot \text{CO}_2 (\text{L/g}) + \text{Rate der Fettoxidation (g/min)} \cdot \text{CO}_2 (\text{L/g}) = \text{VCO}_2 (\text{L/min})
+$$
+
+Diese Berechnungen ergeben zwei Gleichungen mit zwei unbekannten Variablen, die gelöst werden können:
+
+$$
+\text{Kohlenhydratoxidation (g/min)} = 4.585 \cdot \text{VCO}_2 - 3.226 \cdot \text{VO}_2
+$$
+$$
+\text{Fettoxidation (g/min)} = 1.695 \cdot \text{VO}_2 - 1.701 \cdot \text{VCO}_2
+$$
+
+
+
+
+- Bisher haben wir, wie in der sportphysiologischen Praxis üblich, die Berechnungen der verstoffwechselten Brennstoffe vereinfacht, indem der Eiweißstoffwechsel vernachlässigt wurde. Tatsächlich wird diese Rechnung jedoch zusätzlich durch die Proteinoxidation beeinflusst. 
+
+- Proteine liefern essentielle Bausteine für Körperstrukturen, während Kohlenhydrate und Fette die Energie für verschiedene Körperfunktionen, einschließlich der Proteinsynthese, bereitstellen. Alle drei Kategorien von Nahrungsenergiequellen erfordern Verdauung, Verwertung und zelluläre Aufnahme, bevor sie in die gemeinsamen Stoffwechselwege der Energiegewinnungsprozesse eintreten. In Bezug auf die Verwertungszeit und die metabolische Effizienz lautet die Hierarchie der Substratnutzung: $Kohlenhydrate \rightarrow Lipide \rightarrow Aminosäuren$ [@Brooks2012]<br>
+
+- Der Abbau von Aminosäuren benötigt zusätzlich die Stickstoffentfernung durch Trans- oder Desaminierung, so entstehen beim Abbau nicht nur CO~2~ und H~2~O, sondern auch Harnstoff, eine Verbindung, die Stickstoff enthält. Da Eiweiß durchschnittlich 16% Stickstoff enthält, multipliziert man die aus dem Harn analysierte Stickstoffmenge mit 6,25, um den Eiweißumsatz zu erhalten. Der Eiweißumsatz beträgt unter normalen Ernährungsbedingungen ungefähr 10–15% des Grundumsatzes.
+
+
+Schon früh gab es Erkentnisse dass körperliche Betätigung wenig Einfluss auf die Stickstoffausscheidung im Urin hat [@Cathcart1926]. Später stellten auch Todd et al. [@Todd1986] in detaillierten Studien zur Stickstoffbilanz des Körpers fest, dass körperliche Aktivität, solange die Energiezufuhr ausreichend war, nicht zu einem negativen Stickstoffhaushalt führte. Aufgrund dessen werden die Berechnungen der verstoffwechselten Brennstoffe während der Belastung üblicherweiße nicht für Aminosäuren und Proteine korrigiert.<br>
+
+Dieses Vorgehen kann jedoch kritisch betrachtet werden. Geht man davon aus das Proteine ca. 15 % der täglichen Energieaufnahme liefern, kann angenommen werden, dass Proteine und Aminosäuren ca. 15 % des Ruheumsatzes ausmachen. Nimmt man außerdem an, dass es keinen Anstieg des basalen Protein- und Aminosäurestoffwechel gibt und gleichzeitig der Energiumsatz während der Belastung um das 15-fache steigt, dann tragen Aminosäuren zu 1% des gesamten Energieverbrauchs bei [@Jacobs2006]. Sollte jedoch der Protein- und Aminosäurestoffwechel während körperlicher Arbeit um 50% [@McKenzie] oder sogar 400% [@Millward] ansteigt, schätzt man, dass Aminosäuren 2 % bis 4 % des gesamten Energieverbrauchs ausmachen, was die berechnete Lipidoxidation entsprechend verringert. Daher, wie ursprünglich aufgrund des fehlenden Einflusses auf die Stickstoffausscheidung im Urin vermutet, ist die Rolle von Aminosäuren als Brennstoffenergie relativ gering bei gut ernährten Individuen. 
+Das Ergebnis ist, dass der gesamte Körper-RER eine vernünftige Schätzung des nicht-proteinbezogenen RQ während des Trainings darstellt und eine Korrektur für die Aminosäureoxidation typischerweise nicht verwendet wird, selbst wenn sie verfügbar ist [@Jacobs2006; @Brooks2012]
+
+Da der Energieumsatz während der Belastung normalerweise durch Kohlenhydrate und Fettsäuren gedeckt wird, ist der Eiweißanteil am Gesamtumsatz bei körperlicher Arbeit praktisch zu vernachlässigen, sodass man auf die Bestimmung des Harnstickstoffs verzichten kann. Für die arbeits- und sportphysiologische Praxis vernachlässigt man den Eiweißstoffwechsel daher ganz.
+
+Indem man den Eiweißumsatz vernachlässigt, misst man den Grundumsatz immer etwa um 1–1,5% zu hoch, den Arbeitsumsatz dagegen weitgehend korrekt [@Stegemann1991, 58].
+
+zusätzlich angenommen wurde, dass es während der Betätigung keinen Anstieg des basalen Aminosäure- und Proteinabbaus gibt.
+
+(Bader et al., 1972, S.8) EINFÜGEN!!!
+
+
+### Zusätzliche Notizen
+Mit einer einzigen Ausnahme sind die kalorischen Äquivalente für die Verbrennung von Nahrungsmitteln innerhalb und außerhalb des Körpers gleich. Protein ist die Ausnahme, weil Stickstoff, ein Element, das einzigartig für Protein ist, im Körper nicht oxidiert, sondern hauptsächlich im Urin, aber auch im Schweiß ausgeschieden wird. Daher ist das kalorische Äquivalent des Proteinmetabolismus etwa 26 % geringer als in einem Bombenkalorimeter.

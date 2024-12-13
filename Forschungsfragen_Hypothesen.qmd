@@ -30,7 +30,7 @@ figure.quarto-float-tbl figcaption {
 
 ## Fragestellung und Forschungsfrage
 
-Der aktuelle Forschungsstand zu den Unterschieden physiologischer Belastungsparameter und des Wirkungsgrades zwischen sitzender und stehender Fahrposition ist limitiert. Die vorhandenen Studien untersuchten dabei vorrangig die physiologischen Belastungsparameter Herzrate und Blutlaktat sowie die respiratorischen Parameter $\dot{V}O_{2}$, $\dot{V}CO_{2}$ und die pulmonale Ventilation (VE). Die bisherigen Untersuchungen zum Wirkungsgradvergleich zwischen sitzender und stehender Position zeigen ein differenziertes Bild, wobei bei niedrigen und moderaten Intensitäten sowohl Brutto- als auch Nettowirkungsgrade im Stehen signifikant niedrigere Werte aufweisen, begleitet von signifikant höheren physiologischen Belastungsparametern ($\dot{V}O_{2}$ und HR) [@Ryschon1991a; @Tanaka1996a; @Berkemeier2020]. Diese Unterschiede gleichen sich jedoch bei Intensitäten über etwa 80% der $\dot{V}O_{2,max}$ zwischen den Positionen an [@Arkesteijn2016; @Harnish2007; @Millet2002; @Hansen2008; @Tanaka1996a].<br> 
+Der aktuelle Forschungsstand zu den Unterschieden physiologischer Belastungsparameter und des Wirkungsgrades zwischen sitzender und stehender Fahrposition beim Radfahren ist limitiert. Die vorhandenen Studien untersuchten dabei vorrangig die physiologischen Belastungsparameter Herzrate und Blutlaktat sowie die respiratorischen Parameter $\dot{V}O_{2}$, $\dot{V}CO_{2}$ und die pulmonale Ventilation ($\dot{V}E$). Die bisherigen Untersuchungen zum Wirkungsgradvergleich zwischen sitzender und stehender Position zeigen ein differenziertes Bild, wobei bei niedrigen und moderaten Intensitäten sowohl Brutto- als auch Nettowirkungsgrade im Stehen signifikant niedrigere Werte aufweisen, begleitet von signifikant höheren physiologischen Belastungsparametern ($\dot{V}O_{2}$ und HR) [@Ryschon1991a; @Tanaka1996a; @Berkemeier2020]. Diese Unterschiede gleichen sich jedoch bei Intensitäten über etwa 80% der $\dot{V}O_{2,max}$ zwischen den Positionen an [@Arkesteijn2016; @Harnish2007; @Millet2002; @Hansen2008; @Tanaka1996a].<br> 
 Methodisch basierten diese Studien ausschließlich auf der Messung von $\dot{V}O_{2}$ und $\dot{V}CO_{2}$ zur Bestimmung des physiologischen Energieumsatzes, wobei entweder η~brutto~ [@Carlsson2024; @Millet2002; @Bouillod2014] oder η~netto~ [@Harnish2007] berechnet wurde. Bei den Untersuchungen der Wirkungsgrade über verschiedene Bedingungen sowie teils verschiedene Intensitätsstufen [@Carlsson2024; @Millet2002; @Harnish2007] konnte nur in der Studie von @Bouillod2014 ein im Mittel signifikanter Unterschied zwischen den Sitz- und Stehpositionen nachgewiesen werden. <br> Eine wesentliche methodische Einschränkung der vorliegenden Wirkungsgradbestimmungen liegt in der ausschließlichen Erfassung des aeroben Energieumsatzes unter Vernachlässigung anaerob alaktazider und laktazider Komponenten. Die in dieser Studie berechneten Wirkungsgrade η~Total~ und η~muskulär~ berücksichtigen hingegen sowohl aerobe als auch anaerobe Energieanteile.<br> η~muskulär~ adressiert zusätzlich eine methodische Limitation der Wirkungsgrade η~brutto~, η~netto~ und η~Total~, die in der Vernachlässigung der inneren Arbeit der zyklischen Beinbewegung liegt. Diese stellt neben der mechanischen Arbeit gegen das Bremsmoment eine Komponente der zu erbringenden mechanischen Gesamtarbeit beim Radfahren dar. Da die innere Arbeit mit steigender Trittrate deutlich ansteigt, zeigen η~brutto~, η~netto~ und η~Total~ besonders bei sehr hohen Drehzahlen eine deutliche Drehzahlabhängigkeit. Der η~muskulär~ integriert die innere Arbeit in die Berechnung der mechanischen Gesamtarbeit und weist keine Trittratenabhängigkeit auf [@Boning2017].
 
 Nach dem Wissen des Autors existieren derzeit keine empirischen Untersuchungen, die den η~muskulär~ zwischen sitzender und stehender Fahrposition systematisch vergleichen. Die vorliegende Studie adressiert diese Forschungslücke anhand von zwei zentralen Fragestellungen:<br> Die erste Forschungsfrage befasst sich damit, inwieweit sich der muskuläre Wirkungsgrad zwischen den Körperpositionen Sitzen und Stehen unterscheidet.<br> Im Rahmen der zweiten Fragestellung wird untersucht, inwiefern sich die muskulären Wirkungsgrades bei leichter, moderater und schwerer Belastungsintensität zwischen den Fahrpostiionen voneinander unterscheiden.
@@ -43,6 +43,9 @@ Basierend auf den Forschungsfragen und der dargestellten Literatur wurden folgen
 
 2.  Es wird erwartet, dass die Unterschiede des muskulären Wirkungsgrades zwischen den Fahrpositionen intensitätsabhängig sind. Die Annahme ist, dass sich bei leichter Belastungsintensität der muskuläre Wirkungsgrad signifikant zwischen sitzender und stehender Position unterscheidet, während bei moderater und schwerer Intensität keine signifikanten Unterschiede des muskulären Wirkungsgrades zwischen den Fahrpositionen vermutet werden.
 
+-> nur die 2 behalten und die erste Strechen
+-> Dann erst ANOVA zwischen allen 6 rechnen. Wenn positiv, dann die post hoc tests und dann sind da ja die verlgeiche zwischen leicht-leicht usw drinnen
+
 #### Explorative Analysen
 
 Zur weiterführenden Untersuchung der formulierten Hypothesen sowie zur Identifikation und Charakterisierung potentieller Wirkmechanismen wurden ergänzende komparative Analysen durchgeführt. Diese zielten darauf ab, mögliche Unterschiede zwischen den verschiedenen Intensitäten und Bedingungen mechanistisch zu erklären. <br>
@@ -52,14 +55,14 @@ Nach identischem statistischem Vorgehen und auf Basis der gleichen Hypothesen er
 ::: {.callout-note collapse="true"}
 #### Tabelle 1: Vergleich der Wirkungsgradberechnungen
 
-| Wirkungsgrade |               Berechnung                |
-|---------------|:---------------------------------------:|
-| η~Brutto~     |            P~mech~ / E~Aerob~             |
-| η~Netto~      |      P~mech~ / (E~Aerob~ - E~Ruhe~)       |
-| η~Total~      |      P~mech~  / (E~Tot~ - E~Ruhe~) |
-| η~muskulär~   | (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~) |
-| η~Arbeit~     |  P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~)   |
-| η~delta~      |           ΔP~mech~ / ΔE~Tot~            |
+| Wirkungsgrade |                   Berechnung                   |
+|---------------|:----------------------------------------------:|
+| η~Brutto~     |               P~mech~ / P~Aerob~               |
+| η~Netto~      |         P~mech~ / (P~Aerob~ - P~Ruhe~)         |
+| η~Total~      |          P~mech~ / (P~Tot~ - P~Ruhe~)          |
+| η~muskulär~   |    (P~mech~ + P~Int~) / (P~Tot~ - P~Ruhe~)     |
+| η~Arbeit~     | P~mech~ / (P~Tot~ - P~Ruhe~ - P~Leerbewegung~) |
+| η~delta~      |               ΔP~mech~ / ΔP~Tot~               |
 
 : Modifizierte Berechnungswege der Wirkungsgrade nach Gaesser und Brooks (1975), Winter (1979), Luhtanen et al. (1987) und Böning et al. (2017), ergänzt um den Gesamtwirkungsgrad (η~Total~). {#tbl-Wirkungsgrad_Berechnungen tbl-colwidths="\[30,70\]" .hover }
 :::

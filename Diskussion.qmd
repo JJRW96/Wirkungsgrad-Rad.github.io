@@ -72,12 +72,12 @@ Hypothesen:
 
 | Wirkungsgrade |                   Berechnung                   |
 |---------------|:----------------------------------------------:|
-| η~Brutto~     |               P~mech~ / E~Aerob~               |
-| η~Netto~      |         P~mech~ / (E~Aerob~ - E~Ruhe~)         |
-| η~Total~      |          P~mech~ / (E~Tot~ - E~Ruhe~)          |
-| η~muskulär~   |    (P~mech~ + P~Int~) / (E~Tot~ - E~Ruhe~)     |
-| η~Arbeit~     | P~mech~ / (E~Tot~ - E~Ruhe~ - E~Leerbewegung~) |
-| η~delta~      |               ΔP~mech~ / ΔE~Tot~               |
+| η~Brutto~     |               W~mech~ / W~Aerob~               |
+| η~Netto~      |         W~mech~ / (W~Aerob~ - W~Ruhe~)         |
+| η~Total~      |          W~mech~ / (W~Tot~ - W~Ruhe~)          |
+| η~muskulär~   |    (W~mech~ + W~Int~) / (W~Tot~ - W~Ruhe~)     |
+| η~Arbeit~     | W~mech~ / (W~Tot~ - W~Ruhe~ - W~Leerbewegung~) |
+| η~delta~      |               ΔW~mech~ / ΔW~Tot~               |
 :::
 
 ### Zu Hypothese 1
@@ -246,6 +246,12 @@ Hypothesen:
     kurzzeitig sehr hohe mechanische Leistungen erforderlich sind. Gemäß
     vorliegender Literatur kann im Stehen über kurze Zeiträume eine
     höhere mechanische Leistung generiert werden.
+
+
+## Weiteres
+- Einordnung der porentualen enrgieanteile die ich bestimmt habe im Verlgeich zu Gastin2001
+- Ist es valide die anaeroben laktaziden Anteil überhaupt bei so langen belastungen auf diese WEise zu ebstimmen, kann nicht mehr laktazid ersellt werden aber auch shcon abgebaut wärhendndessen?
+
 
 ## Limitationen
 

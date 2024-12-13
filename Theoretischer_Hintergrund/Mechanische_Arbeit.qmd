@@ -34,8 +34,6 @@ figure figcaption {
 }
 ```
 
-:::::: columns
-::: {.column width="58%"}  
 Die mechanische externe Arbeit (W~mech~) charakterisiert, beim Radfahren auf dem Ergometer, die gegen den äußeren Widerstand des Ergometers verrichtete Arbeit, die durch die Rotation der Tretkurbel erzeugt wird. Sie repräsentiert die Hauptkomponente der mechanischen Gesamtarbeit (W~Tot~), welche sich zusätzlich aus der inneren Arbeit (W~Int~) zusammensetzt, die im nachfolgenden Kapitel detailliert erläutert wird.<br>
 Im Kontext der Wirkungsgradberechnung, bei der in den meisten Fällen W~Int~ nicht berücksichtigt wird, stellt die mechanische Leistung P~mech~ eine der zwei fundamentalen Komponenten dar. Sie quantifiziert ausschließlich die nach außen an den Pedalen abgegebene Leistung, während die metabolische Leistung wie im letzten Kapitel beschrieben den energetischen Gesamtaufwand des Organismus für die Bewegungsausführung charakterisiert.
 
@@ -45,27 +43,16 @@ Die Radialkraft (F~radial~) wirkt longitudinal zur Kurbel und trägt nicht zum V
 Die laterale Kraftkomponente (F~lateral~) wirkt orthogonal zur Bewegungsebene und wird bei der Analyse der Vortriebsleistung aufgrund ihres fehlenden Einflusses auf die Vorwärtsbewegung vernachlässigt [@Bini2013].<br>
 Die effektive Vortriebskraft (F~resultierend~) ergibt sich als vektorielle Summe dieser Komponenten. Eine optimale biomechanische Effizienz der Pedalbewegung wäre erreicht, wenn die gesamte resultierende Pedalkraft in F~Tangential~ umgesetzt würde. Dies ist jedoch aufgrund anatomischer und bewegungsphysiologischer Limitationen nicht realisierbar [@Hillebrecht1998].
 
+:::::: columns
+::: {.column width="49%"} 
+![Darstellung der am Pedal angreifenden resultierenden Kraft (F~resultierend~) und ihrer Komponenten: vortriebswirksame Tangentialkraft (F~tangential~) und nicht-vortriebswirksame Radialkraft (F~radial~) (modifiziert nach Hillebrecht et al., 1998).](images/Pedalkraefte_Hillebrecht.png){#fig-Pedalkraefte height="500"}
 :::
 
 ::: {.column width="2%"}
 :::
 
-::: {.column width="40%"}
-![Darstellung der am Pedal angreifenden resultierenden Kraft (F~resultierend~) und ihrer Komponenten: vortriebswirksame Tangentialkraft (F~tangential~) und nicht-vortriebswirksame Radialkraft (F~radial~) (modifiziert nach Hillebrecht et al., 1998).](images/Pedalkraefte_Hillebrecht.png){#fig-Pedalkraefte}
-
-:::
-::::::
-
-
-:::::: columns
-::: {.column width="0%"} 
-:::
-
-::: {.column width="58%"}
-![Schematische Darstellung der theoretisch optimalen Richtung der F~tangential~ (Pfeile) in den vier Phasen einer Kurbelumdrehung: Schub- (1), Druck- (2), Zug- (3) und Hub-Phase (4) (modifiziert nach Hillebrecht et al., 1998).](images/Tangentialkraft_Hillebrecht.png){#fig-Tangentialkraefte}
-:::
-
-::: {.column width="42%"}
+::: {.column width="49%"}
+![Schematische Darstellung der theoretisch optimalen Richtung der F~tangential~ (Pfeile) in den vier Phasen einer Kurbelumdrehung: Schub- (1), Druck- (2), Zug- (3) und Hub-Phase (4) (modifiziert nach Hillebrecht et al., 1998).](images/Tangentialkraft_Hillebrecht.png){#fig-Tangentialkraefte height="500"}
 :::
 ::::::
 
@@ -95,7 +82,12 @@ Die mittlere mechanische Tangentialleistung (P~mech~ in Watt) wurde durch Integr
 
 $$\bar{P}_{mech} = \frac{1}{k} \sum_{i=1}^{k} [\bar{P}_{mech,links}(\theta_i) + \bar{P}_{mech,rechts}(\theta_i)] \;\; [W]$$ {#eq-P_mech}
 
+Die erbrachte mechanische Arbeit (W~mech~ in Kilojoule) über einen definierten Belastungszeitraum lässt sich aus der mittleren mechanischen Leistung (P~mech~) und der Belastungsdauer (t in Sekunden) berechnen, da die mittlere mechanische Leistung über den Belastungszeitraum als konstant angenommen werden kann:
+
+$$W_{mech} = \frac{\bar{P}_{mech} \cdot t}{1000} \;\; [kJ]$$ {#eq-W_mech}
+
 [^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~mech~, F~Tangential~, M~Tangential~, ω usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch, wie in den Gleichungen (@eq-M_Tangential) bis (@eq-P_mech) formal korrekt dargestellt, stets um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum bzw. die jeweilige Winkelstellung in dem Belastungszeitraum. Diese Notation wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
+
 
 ::: panel-tabset
 ### Tangentialdrehmoment
@@ -119,7 +111,7 @@ Aufbauend auf den zuvor berechneten grundlegenden mechanischen Größen der Tang
 
 Die Links-Rechts-Balance beschreibt die prozentuale Verteilung der mechanischen Leistung zwischen dem linken und rechten Bein während des Tretzyklus. Basierend auf den separat erfassten momentanen Leistungen beider Extremitäten ermöglicht diese Kenngröße die Analyse potentieller biomechanischer Asymmetrien in der Kraftübertragung. Die Berechnung erfolgt durch das Verhältnis der mittleren mechanischen Leistung des linken Beins zur Gesamtleistung im Vergleich zum entsprechenden Verhältnis des rechten Beins.
 
-Die mittlere mechanische Leistung des linken (P~mech,links~) bzw. rechten Beins (P~mech,rechts~) wird dabei analog zu Gleichung (@eq-P_mech) durch Integration der jeweiligen momentanen Leistungen über alle k Winkelpositionen seperat für jedes bein bestimmt.
+Die mittlere mechanische Leistung des linken (P~mech,links~) bzw. rechten Beins (P~mech,rechts~) wird dabei analog zu Gleichung (@eq-P_mech) durch Integration der jeweiligen momentanen Leistungen über alle k Winkelpositionen seperat für jedes Bein bestimmt.
 Die prozentuale Verteilung der Links-Rechts-Balance berechnet sich für das linke (P~L,percent~) und rechte Bein (P~R,percent~) wie folgt:
 
 $$P_{L,percent} = \frac{\bar{P}_{mech,links}}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-balance_left}

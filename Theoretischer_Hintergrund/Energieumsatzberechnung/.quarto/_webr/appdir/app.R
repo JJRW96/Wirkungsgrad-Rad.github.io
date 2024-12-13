@@ -475,17 +475,17 @@ server <- function(input, output, session) {
     
     max_y <- if (!is.null(Beispieldaten) && nrow(Beispieldaten) > 0) max(Beispieldaten$VO2_t, na.rm = TRUE) * 1.05 else max(model_values, na.rm = TRUE) * 1.05
     
-    eq_text <- sprintf("V̇O₂ = %.2f * (1 - e<sup>-(t - %.0f) / %.1f</sup>) + %.2f * (1 - e<sup>-(t - %.1f) / %.0f</sup>) + %.2f",
+    eq_text <- sprintf("V̇O₂ (t) = %.2f * (1 - e<sup>-(t - %.0f) / %.1f</sup>) + %.2f * (1 - e<sup>-(t - %.1f) / %.0f</sup>) + %.2f",
                        VO2, t_delay, tau_fast, VO2_slow, t_delay_slow, tau_slow, VO2_Start)
     t_halb <- tau_fast * log(2)
     
     shapes <- list(
       list(
-        type = "line", x0 = t_delay, x1 = t_delay, y0 = 0, y1 = max_y * 1.2,
+        type = "line", x0 = t_delay, x1 = t_delay, y0 = 0, y1 = max_y * 1.5,
         line = list(color = "gray", width = 1, dash = "dash")
       ),
       list(
-        type = "line", x0 = t_delay_slow, x1 = t_delay_slow, y0 = 0, y1 = max_y * 1.2,
+        type = "line", x0 = t_delay_slow, x1 = t_delay_slow, y0 = 0, y1 = max_y * 1.5,
         line = list(color = "gray", width = 1, dash = "dash")
       )
     )
@@ -494,13 +494,22 @@ server <- function(input, output, session) {
       add_trace(x = ~t_s, y = ~model_values, type = 'scatter', mode = 'lines',
                 name = 'V̇O2-Modellfunktion', line = list(color = '#EF6F6A')) %>%
       add_trace(x = ~t_s, y = ~fast_values, type = 'scatter', mode = 'lines', 
-                name = 'V̇O<sub>2</sub><sub>fast</sub>', line = list(color = '#42BA97')) %>%
+                name = 'V̇O<sub>2</sub><sub>,fast</sub>', line = list(color = '#42BA97')) %>%
       add_trace(x = ~t_s, y = ~slow_values, type = 'scatter', mode = 'lines', 
-                name = 'V̇O<sub>2</sub><sub>slow</sub>', line = list(color = '#BB7693')) %>%
+                name = 'V̇O<sub>2</sub><sub>,slow</sub>', line = list(color = '#BB7693')) %>%
       layout(title = "Biexponentielle V̇O<sub>2</sub>-Modellfunktion",
              margin = list(t = 40),
              xaxis = list(title = "t [s]", range = c(0, max_x)),
-             yaxis = list(title = "V̇O<sub>2</sub> [l·min<sup>-1</sup>]", tickformat = ".1f"),
+             yaxis = list(title = "V̇O<sub>2</sub> (t) [l·min<sup>-1</sup>]", tickformat = ".1f"),
+             legend = list(
+               x = 0.05,
+               y = 0.99,
+               xanchor = "left",
+               yanchor = "top",
+               bgcolor = "rgba(255, 255, 255, 0.3)",
+               bordercolor = "rgba(0,0,0,0)",
+               borderwidth = 0
+             ),
              shapes = shapes,
              annotations = list(
                list(
@@ -539,7 +548,7 @@ server <- function(input, output, session) {
                )
              )) %>%
       add_trace(x = ~t_s, y = ~rep(VO2_Ruhe, length(t_s)), type = 'scatter', mode = 'lines',
-                name = 'V̇O<sub>2, Ruhe</sub>', line = list(color = '#1CADE4'))
+                name = 'V̇O<sub>2,Ruhe</sub>', line = list(color = '#1CADE4'))
     
     if (show_data() && !is.null(Beispieldaten) && nrow(Beispieldaten) > 0) {
       data_subset <- Beispieldaten[Beispieldaten$t_s >= t_delay, ]
@@ -609,4 +618,3 @@ t_s,VO2_t
 
 # App ausführen
 shinyApp(ui = ui, server = server)
-
