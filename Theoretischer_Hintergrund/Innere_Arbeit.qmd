@@ -82,8 +82,7 @@ und weiteren bewegungsunterstützenden Strukturen.
 
 Zur Berechnung der inneren Arbeit bei Bewegungen des Körpers wurden verschiedene Ansätze entwickelt. Diese
 stützen sich entweder auf experimentelle Messungen des metabolischen Energieaufwands oder auf Berechnungen,
-die auf theoretischen biomechanischen Modellen oder kinematischen Daten basieren. Im Folgenden werden
-ausgewählte Methoden vorgestellt und die in dieser Arbeit angewandte Methodik detailliert erläutert.
+die auf theoretischen biomechanischen Modellen oder kinematischen Daten basieren. Im Folgenden werden ausgewählte Methoden vorgestellt und die angewandte Methodik detailliert erläutert.
 
 ## Berechnungsmethoden auf Basis metabolischer Messungen
 Eine praktische Lösung zur Messung der metabolischen Kosten der inneren Arbeit bzw. inneren Leistung, hier
@@ -268,7 +267,7 @@ Energieänderungen mit einem Nullwert ersetzt werden.
 @Sjøgaard2002 entwickelten basierend auf dem Modell von @Winter1979 einen Ansatz zur Quantifizierung der
 inneren Arbeit bei Knieextensionen und verglichen die biomechanischen W~Int~-Berechnungen mit Berechnungen
 von W~Int~ auf metabolischer Basis.<br> Mit Hilfe zweidimensionaler Videoaufzeichnungen in der Sagittalebene
-wurde ein detailliertes kinematisches Zweisegment-Modell der Beinbewegung erstellt. Aufbauend auf der theoretischen Annahme, eines unmittelbaren Energietransfers zwischen potentieller und kinetischer Energie der
+wurde ein detailliertes kinematisches Zweisegment-Modell der Beinbewegung erstellt. Aufbauend auf der theoretischen Annahme eines unmittelbaren Energietransfers zwischen potentieller und kinetischer Energie der
 Segmente wurde zunächst die Gesamtenergie der Körpersegmente gemäß @eq-E_gesamt bestimmt. Anschließend
 erfolgte die Berechnung der inneren Arbeit (W~Int~) und Leistung (P~Int~) nach den Gleichungen @eq-WInt,
 @eq-PInt und @eq-PInt_positiv.
@@ -525,7 +524,7 @@ Die Bewegung des Modells wurde durch die konstante Drehzahl (nD) sowie eine fest
 **Variable Parameter des Simulationmodells und Modellierung der zyklischen Bewegung:**
 
 Die Bewegungsanalyse erfolgte durch eine zeitabhängige Berechnung der Gelenkpositionen und Segmentschwerpunkte, wobei G1 der Kurbellänge (l~Kurbel~), G~2~ der Unterschenkellänge, G~3~ der Oberschenkellänge (l~OS~) und G~4~ dem horizontalen Hüftabstand entsprach.<br>
-Zunächst wurde der Kurbelwinkels φ~1~(t) bestimmt, der sich linear mit der Zeit änderte:
+Zunächst wurde der Kurbelwinkel φ~1~(t) bestimmt, der sich linear mit der Zeit änderte:
 
 - $\phi_1(t) = \omega \cdot t + \phi_1(t_0)$
 
@@ -1089,7 +1088,7 @@ Im weiteren Verlauf dieser Arbeit wird die modellbasiert berechnete innere Leist
 
 - Die innere Arbeit (W~Int~ in Kilojoule) über den definierten Belastungszeitraum wurde aus der mittleren inneren Leistung (P~Int~ in Watt) und der Belastungsdauer (t in Sekunden) berechnet:<br> $W_{Int} = \frac{\bar{P}_{Int} \cdot t}{1000}$
 
-[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~Int,Modell~, P~Int,Kinematik~, P~Int,Kinematik_Modell~ usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum. Eine explizite Zeitabhängigkeit wird durch die Notation (t) gekennzeichnet, wie beispielsweise bei P~Int,Modell~(t). Diese Notationsweise wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
+[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~Int,Modell~, P~Int,Kinematik~, P~Int,Kinematik_Modell~ usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch um die arithmetischen Mittelwerte über dem jeweiligen Belastungszeitraum. Eine explizite Zeitabhängigkeit wird durch die Notation (t) gekennzeichnet, wie beispielsweise bei P~Int,Modell~(t). Diese Notationsweise wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
 
 ::: {.callout-note collapse="true"}
 #### Abbildung 10: Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien
@@ -1640,7 +1639,7 @@ Die 3D-Bewegungsdaten wurden mit 100 Hz aufgezeichnet, was bei 1000 Frames pro D
   - Kopfmittelpunkt (aus LFHD und LBHD): Mittelpunkt zwischen anteriorem und posteriorem Kopfmarker
   - Hüftmittelpunkt (aus LASI und LPSI): Mittelpunkt zwischen vorderem und hinterem Beckenkammmarker
   
-#### 2D-Simulationsmodelle auf Basis der Kinematik Daten
+#### 2D-Simulationsmodelle auf Basis der Kinematik-Daten
 
 @fig-Kinematik_Simulationsmodell_Sitzen und @fig-Kinematik_Simulationsmodell_Stehen präsentieren die entwickelten 2D-Kinematik-Simulationsmodelle für das Radfahren im Sitzen und Stehen. Sie zeigen alle erfassten anatomischen Markerpunkte und berechneten Gelenkzentren, wobei die Kurbelposition sowohl automatisch als auch manuell angepasst werden kann.
 
@@ -3242,7 +3241,7 @@ for (name in names(Kinematik_list_HAT)) {
 #### E~Pot~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Epot_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[4]]
@@ -3250,7 +3249,7 @@ plotly_Pint_list[["15_6"]][[4]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Epot_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Pot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[4]]
@@ -3259,7 +3258,7 @@ plotly_Pint_list[["15_5"]][[4]]
 #### E~Kin,trans~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_trans_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[5]]
@@ -3267,7 +3266,7 @@ plotly_Pint_list[["15_6"]][[5]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_trans_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,trans~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[5]]
@@ -3275,7 +3274,7 @@ plotly_Pint_list[["15_5"]][[5]]
 #### E~Kin,rot~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_rot_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[6]]
@@ -3283,7 +3282,7 @@ plotly_Pint_list[["15_6"]][[6]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_rot_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,rot~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[6]]
@@ -3291,7 +3290,7 @@ plotly_Pint_list[["15_5"]][[6]]
 #### E~Kin,gesamt~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_gesamt_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[7]]
@@ -3299,7 +3298,7 @@ plotly_Pint_list[["15_6"]][[7]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Ekin_gesamt_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Kin,gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[7]]
@@ -3307,7 +3306,7 @@ plotly_Pint_list[["15_5"]][[7]]
 #### E~Gesamt~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_E_gesamt_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[8]]
@@ -3315,7 +3314,7 @@ plotly_Pint_list[["15_6"]][[8]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_E_gesamt_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten E~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[8]]
@@ -3323,7 +3322,7 @@ plotly_Pint_list[["15_5"]][[8]]
 #### ΔE~Gesamt~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_delta_E_gesamt_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[2]]
@@ -3331,7 +3330,7 @@ plotly_Pint_list[["15_6"]][[2]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_delta_E_gesamt_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten ΔE~Gesamt~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[2]]
@@ -3339,7 +3338,7 @@ plotly_Pint_list[["15_5"]][[2]]
 #### P~Int~
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Pint_sitzen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Sitzen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_6"]][[1]]
@@ -3347,7 +3346,7 @@ plotly_Pint_list[["15_6"]][[1]]
 
 ```{r}
 #| label: fig-PInt_Kinematik_HAT_Pint_stehen
-#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT Segment"
+#| fig-cap: "Zeitlicher Verlauf der geglätteten P~Int~-Werte, berechnet aus der 3D-Kinematik während des Radfahrens im Stehen separat für beide Beine sowie das HAT-Segment"
 #| fig-cap-location: bottom
 
 plotly_Pint_list[["15_5"]][[1]]

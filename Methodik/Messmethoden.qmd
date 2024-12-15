@@ -68,61 +68,63 @@ Die Herzratenmessung erfolgte mit einem Brustgurt (Polar H10) sowie einem Herzra
 
 ## 3D-Bewegungsmodell
 
-**Noch mit dem folgenden Kapitel kombinieren!!!!!!!!**
-
-Für die 3D-Bewegungsmodellierung wurden nahinfrarot reflektierende Marker und ein Kamerasystem von Vicon eingesetzt. Das Kamerasystem bestand aus acht Vicon Vero Kameras, die im Labor um das Fahrradergometer positioniert wurden, um den Bereich abzudecken, in dem sich der Proband bewegt. Das Vicon-System erfasst dabei fortlaufend Bilder und verfolgt die Position und Bewegung der Marker im Raum. Die Marker sind kleine Kugeln, welche Materialien enthalten, die Nahinfrarotlicht reflektieren und es dem Vicon-System ermöglichen, ihre Position im Raum genau zu bestimmen. Ein Teil der Marker wurde vor Beginn der Tests auf einem enganliegenden Anzug, einer Hose, Schweißbändern und einem Kopfband angebracht. Weitere Marker wurden vor dem Beginn der Tests an den Radschuhen des Probanden platziert. Die Positionierung der Marker ist angelehnt an das Ganzkörpermodellierungs-Modell "Full body modelling with Plug-in Gait" [@Vicon2022]. Die Positionierung der Marker ist in @fig-Marker zu sehen. Vor jeder Messung in der Ruhephase wurde eine Kalibrierung durchgeführt, bei der die Probanden mehrere Posen auf dem Radergometer einnahmen und verschiedene Bewegungen durchführten. Nach den Tests konnte das 3D-Bewegungsmodell mit Hilfe der Software Vicon Nexus auf einem Computer erstellt und anschließend mit der der Open-Source-Programmiersprache R (Version 4.3.2) aufbereitet und ausgewertet werden.
+Für die 3D-Bewegungsmodellierung wurden nahinfrarot reflektierende Marker und ein Kamerasystem von Vicon eingesetzt. Das Kamerasystem bestand aus acht Vicon Vero Kameras, die im Labor um das Fahrradergometer positioniert wurden, um den Bereich abzudecken, in dem sich der Proband bewegt.
+Das Vicon-System erfasst dabei mit einer Aufnahmefrequenz von 100 Hertz fortlaufend Bilder, was bedeutet, dass 100 Einzelbilder (Frames) pro Sekunde aufgezeichnet werden. Pro aufgezeichnetem Durchgang, der jeweils 10 Sekunden dauerte, wurden exakt 1000 Frames erfasst. Das System verfolgt dabei die Position und Bewegung der Marker im Raum. Die Marker sind kleine Kugeln, welche Materialien enthalten, die Nahinfrarotlicht reflektieren und es dem Vicon-System ermöglichen, ihre Position im dreidimensionalen Raum genau zu bestimmen. Jeder Frame enthält dabei die exakten Positionskoordinaten aller am Körper und Fahrrad angebrachten Marker.<br>
+Ein Teil der Marker wurde vor Beginn der Tests auf einem enganliegenden Anzug, einer Hose, Schweißbändern und einem Kopfband angebracht. Weitere Marker wurden vor dem Beginn der Tests an den Radschuhen des Probanden platziert. Die Positionierung der Marker ist angelehnt an das Ganzkörpermodellierungs-Modell "Full body modelling with Plug-in Gait" [@Vicon2022]. Die Positionierung der Marker ist in @fig-Marker zu sehen. Vor jeder Messung in der Ruhephase wurde eine Kalibrierung durchgeführt, bei der die Probanden mehrere Posen auf dem Radergometer einnahmen und verschiedene Bewegungen durchführten. Nach den Tests konnte das 3D-Bewegungsmodell mit Hilfe der Software Vicon Nexus auf einem Computer erstellt und anschließend mit der Open-Source-Programmiersprache R (Version 4.3.2) aufbereitet und ausgewertet werden.
 
 ![Proband mit allen angelegten Messinstrumenten](images/Marker.png){#fig-Marker}
 
-### Aufbereitung der Kinematik-Daten
-Im Rahmen der Bewegungsanalyse werden hochpräzise 3D-Bewegungsdaten mittels eines Vicon-Bewegungserfassungssystems aufgezeichnet. Das System arbeitet mit einer Aufnahmefrequenz von 100 Hertz, was bedeutet, dass 100 Einzelbilder (Frames) pro Sekunde erfasst werden. Pro Durchgang werden exakt 1000 Frames aufgezeichnet. Jeder Frame enthält dabei die exakten Positionskoordinaten aller am Körper und Fahrrad angebrachten Marker im dreidimensionalen Raum.
+### Platzierung der Marker und Datenaufbereitung
 
-Die anatomischen Marker am Körper des Probanden sind wie folgt platziert:
+Die anatomischen Marker am Körper des Probanden wurden wie folgt platziert:
 
 - Am Kopf: LFHD (Left Front Head - Kopf vorne links) und LBHD (Left Back Head - Kopf hinten links)
 - Am Becken: LASI (Left Anterior Superior Iliac Spine - vorderer Beckenkamm links) und LPSI (Left Posterior Superior Iliac Spine - hinterer Beckenkamm links) 
 - An den Gelenken: LSJC (Left Shoulder Joint Center - Schultergelenk links), LHJC (Left Hip Joint Center - Hüftgelenk links) und LWJC (Left Wrist Joint Center - Handgelenk links)
 - Am Fuß: LToeI (Left Toe Inner - Innenseite des Fußes links) und LToeO (Left Toe Outer - Außenseite des Fußes links)
 
-Das Fahrrad wird durch folgende Marker erfasst:
+Das Fahrrad wurde durch folgende Marker erfasst:
 
 - LBikeA, LBikeB und LBikeC zur Bestimmung der Fahrradposition im Raum
 - Zusätzliche Marker an der Kurbelachse zur Erfassung der Tretbewegung
 
-Aus diesen Grunddaten werden weitere wichtige Bezugspunkte berechnet:
+Aus diesen Grunddaten wurden weitere wichtige Bezugspunkte berechnet:
 
-- Der Hüftmittelpunkt (LHuefte) wird als arithmetisches Mittel zwischen LASI und LPSI berechnet
-- Der Kopfmittelpunkt (LHead) ergibt sich aus dem Mittelwert von LFHD und LBHD
-- Der Fußreferenzpunkt (LToe) wird als gewichteter Punkt zwischen LToeI und LToeO berechnet, wobei die äußere Position mit zwei Dritteln und die innere Position mit einem Drittel gewichtet wird
-- Der Nackenpunkt (LNeck) wird als gewichteter Punkt zwischen Kopfmittelpunkt und Schultergelenk bestimmt
+- Der Hüftmittelpunkt (LHuefte) wurde als arithmetisches Mittel zwischen LASI und LPSI berechnet
+- Der Kopfmittelpunkt (LHead) ergab sich aus dem Mittelwert von LFHD und LBHD
+- Der Fußreferenzpunkt (LToe) wurde als gewichteter Punkt zwischen LToeI und LToeO berechnet, wobei die äußere Position mit zwei Dritteln und die innere Position mit einem Drittel gewichtet wurde
+- Der Nackenpunkt (LNeck) wurde als gewichteter Punkt zwischen Kopfmittelpunkt und Schultergelenk bestimmt
 
-Zusätzlich wird der Schwerpunkt des HAT-Segments (Head-Arms-Trunk) berechnet. Dieser basiert auf biomechanischen Massenverhältnissen der einzelnen Körpersegmente:
+Zusätzlich wurde der Schwerpunkt des HAT-Segments (Head-Arms-Trunk) berechnet. Dieser basierte auf biomechanischen Massenverhältnissen der einzelnen Körpersegmente (@fig-Segmentmassen_Winter) [@Winter2009,88]:
 
 - Kopf und Hals: 8,1% der Gesamtmasse
 - Rumpf: 49,7% der Gesamtmasse
 - Oberarme: je 2,8% der Gesamtmasse
 - Unterarme mit Händen: je 2,2% der Gesamtmasse
 
-Für jedes dieser Segmente werden die Schwerpunkte wie folgt bestimmt:
+Für jedes dieser Segmente wurden die Schwerpunkte wie folgt bestimmt:
 
 - Kopf-Hals-Schwerpunkt: 100% der Strecke zwischen Nacken und Kopfmittelpunkt
 - Rumpf-Schwerpunkt: 50% der Strecke zwischen Hüft- und Schultergelenk
 - Oberarm-Schwerpunkt: 43,6% der Strecke von Schulter zu Ellbogen
 - Unterarm-Hand-Schwerpunkt: 68,2% der Strecke von Ellbogen zu Handgelenk
 
-Der Gesamt-Schwerpunkt des HAT-Segments ergibt sich aus der gewichteten Summe dieser Einzelschwerpunkte entsprechend ihrer Massenanteile.
+Der Gesamt-Schwerpunkt des HAT-Segments ergab sich aus der gewichteten Summe dieser Einzelschwerpunkte entsprechend ihrer Massenanteile.
 
-Die ursprünglichen Positionsdaten liegen in Millimetern vor und werden im Verarbeitungsprozess in Meter umgerechnet (Division durch 1000). Ein entscheidender Schritt in der Datenaufbereitung ist die Transformation des Koordinatensystems. Dabei wird die Kurbelachse als neuer Koordinatenursprung definiert, wodurch alle anderen Positionen relativ zu diesem Punkt neu berechnet werden. Diese Normalisierung ist essentiell für die Vergleichbarkeit verschiedener Messungen und Probanden.
+::: {.callout-note collapse="true"}
+#### Abbildung 2: Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien
+![Anthropometrische Daten zu Segmentmassen, Massenmittelpunkten und Trägheitsradien, jeweils dargestellt
+relativ zur Segmentlänge [@Winter2009, 86]](images\Segmentmassen_Winter.png){#fig-Segmentmassen_Winter}
+:::
 
-Für jeden aufgezeichneten Bewegungsdurchgang (Trial) werden die Daten separat in einer Liste gespeichert. Jeder Datensatz enthält dabei:
+Für jeden aufgezeichneten Bewegungsdurchgang wurden die Daten separat in einer Liste gespeichert. Jeder Datensatz enthielt dabei:
 
 - Die Framenummer als zeitliche Referenz
 - Die X- und Y-Koordinaten aller Körpermarker  
 - Die X- und Y-Koordinaten aller Fahrradmarker
 - Die berechneten Zusatzpunkte
-- Die normalisierte Position relativ zur Kurbelachse
 
-Diese umfassende Datenerfassung und -aufbereitung ermöglicht eine detaillierte biomechanische Analyse der Bewegungsabläufe beim Radfahren. Die zeitliche Auflösung von 100 Frames pro Sekunde erlaubt dabei die Untersuchung schneller Bewegungskomponenten und subtiler Veränderungen in der Bewegungsausführung.
+Diese umfassende Datenerfassung und -aufbereitung ermöglichte eine detaillierte biomechanische Analyse der Bewegungsabläufe beim Radfahren. Die zeitliche Auflösung von 100 Frames pro Sekunde erlaubte dabei eine detaillierte Untersuchung der Bewegungskomponenten und subtiler Veränderungen in der Bewegungsausführung.
 
 # Quellen
 

@@ -1,5 +1,5 @@
 ---
-title: "Phyisologische Nachbelastungsparameter"
+title: "Physiologische Nachbelastungsparameter"
 format:
   html:
     resources: 

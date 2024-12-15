@@ -1,5 +1,5 @@
 ---
-title: "Phyisologische Belastungsparameter"
+title: "Physiologische Belastungsparameter"
 format:
   html:
     resources: 

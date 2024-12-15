@@ -86,7 +86,7 @@ Die erbrachte mechanische Arbeit (W~mech~ in Kilojoule) über einen definierten 
 
 $$W_{mech} = \frac{\bar{P}_{mech} \cdot t}{1000} \;\; [kJ]$$ {#eq-W_mech}
 
-[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~mech~, F~Tangential~, M~Tangential~, ω usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch, wie in den Gleichungen (@eq-M_Tangential) bis (@eq-P_mech) formal korrekt dargestellt, stets um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum bzw. die jeweilige Winkelstellung in dem Belastungszeitraum. Diese Notation wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
+[^1]: Hinweis zur Notation: In den textlichen Beschreibungen werden die Größen P~mech~, F~Tangential~, M~Tangential~, ω usw. der Einfachheit halber ohne Überstrich dargestellt. Dabei handelt es sich jedoch, wie in den Gleichungen (@eq-M_Tangential - @eq-P_mech) formal korrekt dargestellt, stets um die arithmetischen Mittelwerte über den jeweiligen Belastungszeitraum bzw. die jeweilige Winkelstellung in dem Belastungszeitraum. Diese Notation wird auch in den folgenden Abschnitten für die hier beschriebenen Parameter beibehalten.
 
 
 ::: panel-tabset
@@ -105,25 +105,25 @@ $$W_{mech} = \frac{\bar{P}_{mech} \cdot t}{1000} \;\; [kJ]$$ {#eq-W_mech}
 
 ## Biomechanische Effizienzkenngrößen der Tretbewegung
 
-Aufbauend auf den zuvor berechneten grundlegenden mechanischen Größen der Tangentialkraft, des Drehmoments und der momentanen mechanischen Leistung während einer Kurbelumdrehung, lassen sich weitere Parameter ableiten. Diese zusätzlichen Kenngrößen ermöglichen eine Analyse der Bewegungsqualität und Effizienz der Kraftübertragung beim Radfahren. Im Folgenden werden drei zentrale Parameter vorgestellt, die aus den bereits ermittelten Messdaten berechnet werden können.
+Aufbauend auf die zuvor berechneten grundlegenden mechanischen Größen der Tangentialkraft, des Drehmoments und der momentanen mechanischen Leistung während einer Kurbelumdrehung lassen sich weitere Parameter ableiten. Diese zusätzlichen Kenngrößen ermöglichen eine Analyse der Bewegungsqualität und Effizienz der Kraftübertragung beim Radfahren. Im Folgenden werden drei zentrale Parameter vorgestellt, die aus den bereits ermittelten Messdaten berechnet werden können.
 
 ### Links-Rechts-Balance
 
 Die Links-Rechts-Balance beschreibt die prozentuale Verteilung der mechanischen Leistung zwischen dem linken und rechten Bein während des Tretzyklus. Basierend auf den separat erfassten momentanen Leistungen beider Extremitäten ermöglicht diese Kenngröße die Analyse potentieller biomechanischer Asymmetrien in der Kraftübertragung. Die Berechnung erfolgt durch das Verhältnis der mittleren mechanischen Leistung des linken Beins zur Gesamtleistung im Vergleich zum entsprechenden Verhältnis des rechten Beins.
 
-Die mittlere mechanische Leistung des linken (P~mech,links~) bzw. rechten Beins (P~mech,rechts~) wird dabei analog zu Gleichung (@eq-P_mech) durch Integration der jeweiligen momentanen Leistungen über alle k Winkelpositionen seperat für jedes Bein bestimmt.
+Die mittlere mechanische Leistung des linken (P~mech,links~) bzw. rechten Beins (P~mech,rechts~) wird dabei analog zu @eq-P_mech durch Integration der jeweiligen momentanen Leistungen über alle k Winkelpositionen separat für jedes Bein bestimmt.
 Die prozentuale Verteilung der Links-Rechts-Balance berechnet sich für das linke (P~L,percent~) und rechte Bein (P~R,percent~) wie folgt:
 
 $$P_{L,percent} = \frac{\bar{P}_{mech,links}}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-balance_left}
 
 $$P_{R,percent} = \frac{\bar{P}_{mech,rechts}}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-balance_right}
 
-Eine symmetrische Kraftübertragung (50%/50%) wird dabei aus biomechanischer Perspektive häufig als theoretischer Referenzwert betrachtet, wenngleich in der Praxis in der Regel Abweichung von dem Referenzwert zu beobachten sind.
+Eine symmetrische Kraftübertragung (50%/50%) wird dabei aus biomechanischer Perspektive häufig als theoretischer Referenzwert betrachtet, wenngleich in der Praxis in der Regel Abweichungen von dem Referenzwert zu beobachten sind.
 
 ### Torque Efficiency
 
 Die Torque Efficiency beschreibt die Effektivität der Kraftübertragung während des Tretzyklus durch das Verhältnis der vortriebswirksamen zur aufgebrachten Gesamtleistung. Diese Kenngröße ermöglicht die Analyse der biomechanischen Effizienz der Tretbewegung durch Quantifizierung des Anteils positiver und negativer Leistungskomponenten während der Bewegungsausführung.
-Die positiven (P~mech,positiv~) und negativen (P~mech,negativ~) Leistungsanteile werden dabei analog zu Gleichung (@eq-P_mech) durch Integration der momentanen Leistungen über alle k Winkelpositionen bestimmt, wobei zwischen vortriebswirksamen und bremsenden Komponenten differenziert wird:
+Die positiven (P~mech,positiv~) und negativen (P~mech,negativ~) Leistungsanteile werden dabei analog zu @eq-P_mech durch Integration der momentanen Leistungen über alle k Winkelpositionen bestimmt, wobei zwischen vortriebswirksamen und bremsenden Komponenten differenziert wird:
 
 $$\bar{P}_{mech,positiv} = \frac{1}{k} \sum_{i=1}^{k} \bar{P}_{mech}(\theta_i) \;\; [W] \rightarrow \; \text{für} \;\; \bar{P}_{mech}(\theta_i) > 0$$ {#eq-P_pos}
 
@@ -133,7 +133,7 @@ Die Torque Efficiency berechnet sich dann als prozentuales Verhältnis der Summe
 
 $$\text{Torque Efficiency} = \frac{(\bar{P}_{mech,positiv} + \bar{P}_{mech,negativ})}{\bar{P}_{mech}} \cdot 100 \;\; [\%]$$ {#eq-torque_eff}
 
-Die größten P~mech,positiv~ treten beim Radfahren im Sitzen typischerweise bei einer Kurbelstellung von etwa 90° relativ zum Boden auf (siehe @fig-Tangentialleistung und @fig-Torque_Efficiency), da hier durch die Abwärtsbewegung des Pedals die größten Tangentialkräfte auf die Pedale generiert und somit optimal für den Vortrieb genutzt werden können. Die maximalen P~mech,negativ~ sind charakteristisch bei etwa 270° Kurbelstellung zu beobachten, also während der Aufwärtsbewegung des Pedals. In dieser Phase des Tretzyklus befindet sich das kontralaterale Bein in der biomechanisch vorteilhaften 90° Stellung und generiert den Hauptvortrieb, während das Bein in der 270° Stellung gegen die Gewichtskraft des Beinsegments arbeiten muss. Diese Überwindung der Gewichtskraft führt zu einem negativen Leistungsanteil, welcher nur durch aktives Ziehen am Pedal ("runder Tritt") kompensiert werden kann. Ein theoretischer Maximalwert der Torque Efficiency von 100% würde eine ideale Kraftübertragung ohne jegliche negative Leistungsanteile während des gesamten Tretzyklus bedeuten. Beim Radfahren im Wiegetritt verschieben sich diese charakteristischen Winkelpositionen der P~mech,positiv~ und P~mech,negativ~ aufgrund der veränderten Körperposition und Gewichtsverlagerung um etwa 40° nach hinten [@FaveroElectronicsSrl2024; @Kistemaker2023; @Korff2007; @Coyle1991; @Bini2014,16].
+Die größten P~mech,positiv~ treten beim Radfahren im Sitzen typischerweise bei einer Kurbelstellung von etwa 90° relativ zum Boden auf (siehe @fig-Tangentialleistung und @fig-Torque_Efficiency), da hier durch die Abwärtsbewegung des Pedals die größten Tangentialkräfte auf die Pedale generiert und somit optimal für den Vortrieb genutzt werden können. Die maximalen P~mech,negativ~ sind charakteristisch bei etwa 270°-Kurbelstellung zu beobachten, also während der Aufwärtsbewegung des Pedals. In dieser Phase des Tretzyklus befindet sich das kontralaterale Bein in der biomechanisch vorteilhaften 90°-Stellung und generiert den Hauptvortrieb, während das Bein in der 270°-Stellung gegen die Gewichtskraft des Beinsegments arbeiten muss. Diese Überwindung der Gewichtskraft führt zu einem negativen Leistungsanteil, welcher nur durch aktives Ziehen am Pedal ("runder Tritt") kompensiert werden kann. Ein theoretischer Maximalwert der Torque Efficiency von 100% würde eine ideale Kraftübertragung ohne jegliche negative Leistungsanteile während des gesamten Tretzyklus bedeuten. Beim Radfahren im Wiegetritt verschieben sich diese charakteristischen Winkelpositionen der P~mech,positiv~ und P~mech,negativ~ aufgrund der veränderten Körperposition und Gewichtsverlagerung um etwa 40° nach hinten [@FaveroElectronicsSrl2024; @Kistemaker2023; @Korff2007; @Coyle1991; @Bini2014,16].
 
 ![Visualisierung der Torque Efficiency über einen vollständigen Tretzyklus. 
 Links: Beispielhafter Verlauf der positiven P~+~ und negativen P~-~ Leistungsanteile mit Maximum P~mech,max~ bei 
@@ -143,7 +143,7 @@ Kurbelumdrehung (modifiziert nach Favero Electronics Srl., 2024).](images/Torque
 ### Pedal Smoothness
 
 Die Pedal Smoothness quantifiziert die Gleichmäßigkeit der Kraftübertragung während einer kompletten Kurbelumdrehung durch das Verhältnis von mittlerer zu maximaler Leistung. Diese Kenngröße ermöglicht die Analyse der biomechanischen Effizienz der Tretbewegung durch Bestimmung der Homogenität der Leistungsabgabe über den gesamten Bewegungszyklus.
-Die mittlere mechanische Leistung wird dabei wie bereits beschrieben mit Gleichung (@eq-P_mech) durch Integration der momentanen Leistungen beider Beine über alle k Winkelpositionen bestimmt.
+Die mittlere mechanische Leistung wird dabei wie bereits beschrieben mit @eq-P_mech durch Integration der momentanen Leistungen beider Beine über alle k Winkelpositionen bestimmt.
 Die maximale Leistung (P~mech,max~) repräsentiert den Mittelwert der höchsten momentanen mechanischen Leistungen jeder einzelnen Kurbelumdrehung über den gesamten Belastungszeitraum. Für jede Umdrehung wird zunächst der Maximalwert der Leistung über alle k Winkelpositionen bestimmt:
 
 $$\bar{P}_{mech,max} = max(\bar{P}_{mech}(\theta_i)) \;\; [W] \rightarrow \; \text{für alle} \;\; i \in \{1,2,3,...,k\}$$ {#eq-P_max}
