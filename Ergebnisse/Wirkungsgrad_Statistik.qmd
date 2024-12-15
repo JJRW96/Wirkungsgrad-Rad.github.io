@@ -643,12 +643,10 @@ sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. I
 erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen;
 @tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer;
 @tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren
-(@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zusätzlich werden die Ergebnisse der Post-hoc Analysen
-mittels Tukey HSD Test für die Vergleiche der verschiedenen Intensitäten sowohl gesamt
-(@tbl-Post_hoc_Intensitaet_Wirk_muskulär & @tbl-Post_hoc_Intensitaet_Wirk_Arbeit) als auch spezifisch für
-die sitzende Position (@tbl-Post_hoc_sitzen) präsentiert. Ergänzend zeigt eine einfaktorielle ANOVA die
-Vergleiche von η~muskulär~ zwischen den Bedingungen Sitzen und Stehen für jede Intensitätsstufe
-(@tbl-ANOVA_Wirk_muskulaer).<br> Die analysierten Parameter umfassen die Wirkungsgrade η~muskulär~,
+(@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zur statistischen Analyse wurden gepaarte t-Tests sowie ein- und zweifaktorielle Varianzanalysen (ANOVA) durchgeführt, deren signifikante Effekte in den Tabellen mit * bzw. † gekennzeichnet sind.
+Zusätzlich werden die Ergebnisse verschiedener Post-hoc Analysen
+mittels gepaartem t-Test mit Bonferroni-Korrektur für die Vergleiche der verschiedenen Intensitäten präsentiert. 
+<br> Die analysierten Parameter umfassen die Wirkungsgrade η~muskulär~,
 η~Total~, η~Netto~, η~Brutto~, η~Arbeit,sitzen~ sowie die Komponenten der Energiebereitstellung W~TOT~,
 W~Aerob~, W~PCr~, W~BLC~ und die Delta-Blutlaktatakkumulation ΔBLC. Die Leistungsparameter P~Tot~, P~mech~,
 P~Int~ sowie die Drehzahl werden ebenfalls dargestellt.
@@ -718,7 +716,7 @@ ft_Wirkungsgrad_stats_Intensitaet_mean
 ```
 
 ```{r}
-#| label: tbl-Post_hoc_Intensitaet_Wirk_muskulär
+#| label: tbl-Post_hoc_Intensitaet_Wirk_muskulaer
 #| tbl-cap-location: top
 #| tbl-cap: "Post-hoc-Tests des muskulären Wirkungsgrads zwischen den Intensitäten mithilfe gepaarter t-Tests mit Bonferroni-Korrektur."
 
@@ -804,35 +802,25 @@ ft_post_hoc_Brutto
 Die Forschungshypothese, die eine intensitätsabhängige Beziehung des muskulären Wirkunsgrades zwischen den Fahrpositionen
 annimmt, wurde in folgende statistische Hypothesen überführt:
 
--   **H~0~**: Der muskuläre Wirkungsgrad (η~muskulär~) unterscheidet sich innerhalb keiner Intensitätsstufe signifikant zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen~ = η~muskulär,stehen~
--   **H~1~**: Der muskuläre Wirkungsgrad (η~muskulär~) unterscheidet sich innerhalb mindestens einer Intensitätsstufe signifikant zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen, ≠ η~muskulär,stehen~
+-   **H~0~**: Der muskuläre Wirkungsgrad (η~muskulär~) unterscheidet sich in keiner Intensitätsstufe signifikant zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen~ = η~muskulär,stehen~
+-   **H~1~**: Der muskuläre Wirkungsgrad (η~muskulär~) unterscheidet sich in mindestens einer Intensitätsstufe signifikant zwischen sitzender und stehender Fahrposition.<br>➙ η~muskulär,sitzen~ ≠ η~muskulär,stehen~
     
 Zur Hypothesenprüfung wurde mit dem η~muskulär~ eine zweifaktorielle Varianzanalyse (ANOVA) mit Messwiederholung, mit den Faktoren Körperposition (sitzen, stehen) und Intensität (leicht, moderat, schwer) durchgeführt. Bei signifikanten Haupteffekten wurden a priori festgelegte Post-hoc-Analysen mittels gepaarter t-Tests mit Bonferroni-Korrektur berechnet, um die Unterschiede zwischen den Fahrpositionen innerhalb der jeweiligen Intensitätsstufen detailliert zu analysieren. Die Effektstärken wurden durch das partielle Eta-Quadrat (η~p~^2^) für die Varianzanalyse und Cohens d für die Post-hoc-Vergleiche quantifiziert.
 
 ## Inferenzstatistische Analyse des muskulären Wirkungsgrad {.unlisted}
-
-Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Der gepaarte t-Test zeigt einen signifikanten Unterschied zwischen den Bedingungen (t(26) = 4.187, p < .001, d = 0.806).
-
-Bei Betrachtung der verschiedenen Intensitätsstufen zeigt sich ein
-systematischer Abfall des η~muskulär~ von 24.94 ± 1.27% bei leichter über 24.50 ± 1.01% bei moderater bis zu
-24.14 ± 0.90% bei schwerer Intensität. 
-
-Die einfaktorielle Varianzanalyse zeigt einen signifikanten Effekt
-der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). Die Post-hoc-Analysen zeigen einen tendenziell
-signifikanten Unterschied zwischen leichter und schwerer Intensität mit einer mittleren Effektstärke (p =
-.096, d = .75), während die Vergleiche zwischen moderater und leichter Intensität (p = .700, d = 0.41) sowie
-zwischen schwerer und moderater Intensität (p = .710, d = 0.34) keine signifikanten Unterschiede
-aufweisen.
-
-Die zweifaktorielle Varianzanalyse des η~muskulär~ zeigt signifikante Haupteffekte der Bedingung (F(1,8) = 7.64, p = .024, η~p~^2^ = .202) und der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .114) sowie einen signifikanten Interaktionseffekt der Intensität x Bedingung (F(2,16) = 8.42, p = .003, η~p~^2^ = .054).
-Die Post-hoc-Analysen mithilfe von gepaarten t-Tests mit Bonferroni-Korrektur zeigen zwischen sitzender und stehender Bedingung bei leichter Intensität einen signifikanten Unterschied mit einer großen Effektstärke (p = .011, d = 1.36). Der Vergleich bei moderater Intensität weist eine mittlere Effektstärke auf, erreicht jedoch keine Signifikanz (p = .153, d = .76). Bei schwerer Intensität zeigt sich ein nicht-signifikanter Unterschied bei kleiner (p = .807, d = .40) (@tbl-Post-hoc_Wirk_muskulaer). 
+Die zweifaktorielle Varianzanalyse des η~muskulär~ zeigt signifikante Haupteffekte der Bedingung (F(1,8) = 7.64, p = .024, η~p~^2^ = .202) und der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .114) sowie einen signifikanten Interaktionseffekt der Intensität und Bedingung (F(2,16) = 8.42, p = .003, η~p~^2^ = .054). Die Post-hoc-Analysen mithilfe von gepaarten t-Tests mit Bonferroni-Korrektur zeigen zwischen sitzender und stehender Bedingung bei leichter Intensität einen signifikanten Unterschied mit einer großen Effektstärke (p = .011, d = 1.36). Der Vergleich bei moderater Intensität weist eine mittlere Effektstärke auf, erreicht jedoch keine Signifikanz (p = .153, d = .76). Bei schwerer Intensität zeigt sich ein nicht-signifikanter Unterschied bei kleiner Effektstärke (p = .807, d = .40) (@tbl-Post-hoc_Wirk_muskulaer).<br>
 **Die Nullhypothese, wonach sich der muskuläre Wirkungsgrad (η~muskulär~) innerhalb keiner Intensitätsstufe signifikant zwischen sitzender und stehender Fahrposition unterscheidet, wird für die leichte Intensitätsstufe abgelehnt. Entsprechend wird die Alternativhypothese angenommen, dass sich der muskuläre Wirkungsgrad in mindestens einer Intensitätsstufe signifikant zwischen den Fahrpositionen unterscheidet (p = .011, d = 1.36).**
 
-```{r}
-# h0 ist es gibt über die intneitäten keinene unterschied zwischen den Intensitäten
-# h1 es gibt einen untrschied zwischen den intenstitäten
-## Hat sich für die lecihte intensität bestätigt, über die moderate nicht usw....
-```
+Der muskuläre Wirkungsgrad beträgt im Mittel über alle Bedingungen und Intensitäten 24.53 ± 1.10% mit einer Spannweite von 22.46% bis 26.91%. Bei differenzierter Betrachtung der Bedingungen zeigt sich ein signifikant höherer Wert in sitzender Position mit 24.98 ± 1.06% im Vergleich zur stehenden Position mit 24.07 ± 0.96%. Der gepaarte t-Test zeigt einen signifikanten Unterschied zwischen den Bedingungen (t(26) = 4.187, p < .001, d = 0.806).<br>
+Bei Betrachtung der verschiedenen Intensitätsstufen ist ein
+systematischer Abfall des η~muskulär~ von 24.94 ± 1.27% bei leichter über 24.50 ± 1.01% bei moderater bis zu
+24.14 ± 0.90% bei schwerer Intensität erkennbar. Die einfaktorielle Varianzanalyse ergab einen signifikanten Effekt
+der Intensität (F(2,16) = 5.23, p = .018, η~p~^2^ = .395). In den Post-hoc-Analysen wurde ein tendenziell
+signifikanter Unterschied zwischen leichter und schwerer Intensität mit einer mittleren Effektstärke (p =
+.096, d = .75) festgestellt, während die Vergleiche zwischen moderater und leichter Intensität (p = .700, d = 0.41) sowie
+zwischen schwerer und moderater Intensität (p = .710, d = 0.34) keine signifikanten Unterschiede
+aufwiesen (@tbl-Post_hoc_Intensitaet_Wirk_muskulaer).
+
 Die ermittelten η~muskulär~-Werte dieser Studie liegen,
 mit durchschnittlich 24.53 ± 1.10% (R: 22.46 - 26.91%), deutlich unterhalb der in @Bell2009 dokumentierten
 Werte für η~muskulär~ von 31.0 ± 4.3%. Dass die hier ermittelten Werte niedriger ausfallen, ist
@@ -848,28 +836,21 @@ Im Rahmen der explorativen Analysen wurden weitere Wirkungsgrade sowie deren zug
 
 #### Gesamtwirkungsgrad {.unlisted}
 
+Die zweifaktorielle Varianzanalyse des η~Total~ zeigt keinen signifikanten Haupteffekt der Bedingung (F(1,8) = 0.53, p = .487, η~p~^2^ = .015) und keinen signifikanten Haupteffekt der Intensität (F(2,16) = 1.26, p = .311, η~p~^2^ = .017). Es zeigt sich ein tendenziell signifikanter Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 2.90, p = .084, η~p~^2^ = .013).<br>
 Der Gesamtwirkungsgrad η~Total~ liegt mit durchschnittlich 22.19 ± 1.07% (Range (R): 19.77-24.72%)
 erwartungsgemäß unter dem η~muskulär~. Zwischen den Bedingungen zeigen sich nur geringe Unterschiede
-(sitzen: 22.06 ± 0.70%, stehen: 22.32 ± 1.34%). Die nicht-parametrische Analyse mittels Wilcoxon-Test
-bestätigt dabei keine signifikanten Unterschiede zwischen den Bedingungen (V = 139, p = .234, r = .229).
+(sitzen: 22.06 ± 0.70%, stehen: 22.32 ± 1.34%). 
 Auch über die Intensitäten hinweg bleibt η~Total~ weitgehend stabil mit einem leichten Abfall von 22.35 ±
-1.10% bei leichter zu 22.01 ± 0.96% bei schwerer Intensität. 
-
-Die zweifaktorielle Varianzanalyse des η~Total~ zeigt keinen signifikanten Haupteffekt der Bedingung (F(1,8) = 0.53, p = .487, η~p~^2^ = .015) und keinen signifikanten Haupteffekt der Intensität (F(2,16) = 1.26, p = .311, η~p~^2^ = .017). Es zeigt sich ein tendenziell signifikanter Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 2.90, p = .084, η~p~^2^ = .013).
-
+1.10% bei leichter zu 22.01 ± 0.96% bei schwerer Intensität. <br>
 Bei differenzierter Betrachtung des η~Total~ zeigt sich in sitzender Position ein kontinuierlicher Abfall von leichter (22.38 ± 0.71%) über moderate (22.04 ± 0.66%) zu schwerer Intensität (21.76 ± 0.66%). In der stehenden Position bleibt der η~Total~ über die Intensitäten hinweg sehr stabil mit Werten von leicht (22.31 ± 1.44%) über moderat (22.37 ± 1.55%) bis schwer (22.27 ± 1.18%).
 
 
 #### Nettowirkungsgrad {.unlisted}
 
-Der Nettowirkungsgrad η~Netto~ beträgt durchschnittlich 24.94 ± 1.23% (R: 22.13-28.18%). Zwischen den
-Bedingungen (sitzen: 24.81 ± 0.82%, stehen: 25.07 ± 1.55%) zeigt der Wilcoxon-Test keine signifikanten
-Unterschiede (V = 139, p = .234, r = .229). 
-Über die Intensitäten hinweg ist ein leichter Anstieg von 24.79 ± 1.22% bei leichter zu 25.08 ± 1.30% bei schwerer Intensität zu beobachten. Die einfaktorielle Varianzanalyse mit Greenhouse-Geisser-Korrektur (ε = 0.563) zeigt keinen signifikanten Effekt der Intensität (F(1.126, 9.009) = 0.59, p = .481, ηp^2^ = .069).<br>
+Die zweifaktorielle Varianzanalyse des η~Netto~ ergibt keinen signifikanten Haupteffekt der Bedingung (F(1,8) = 0.48, p = .507, η~p~^2^ = .012) und keinen signifikanten Haupteffekt der Intensität (F(2,16) = 0.59, p = .565, η~p~^2^ = .009). Es zeigt sich jedoch ein signifikanter Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 4.52, p = .028, η~p~^2^ = .019). Die Post-hoc-Analysen mithilfe von gepaarten t-Tests mit Bonferroni-Korrektur zeigen weder bei leichter (p = 1, d = 0.15), moderater (p = 1, d = -0.27) noch bei schwerer Intensität (p = .445, d = -0.53) signifikante Unterschiede zwischen sitzender und stehender Bedingung (@tbl-Post-hoc_Wirk_Netto).<br>
+Der Nettowirkungsgrad η~Netto~ beträgt durchschnittlich 24.94 ± 1.23% (R: 22.13-28.18%). 
+Über die Intensitäten hinweg ist ein leichter Anstieg von 24.79 ± 1.22% bei leichter zu 25.08 ± 1.30% bei schwerer Intensität zu beobachten.
 Bei differenzierter Analyse der Intensität bezüglich der Bedingungen des η~Netto~ zeigen sich in sitzender Position homogene Werte über alle Intensitätsstufen (leicht: 24.89 ± 0.86%, moderat: 24.78 ± 0.70%, schwer: 24.77 ± 0.97%). In stehender Position ist ein systematischer Anstieg von leichter (24.70 ± 1.54%) über moderate (25.12 ± 1.65%) zu schwerer Intensität (25.39 ± 1.56%) zu beobachten.<br>
-
-Die zweifaktorielle Varianzanalyse des η~Netto~ ergibt keinen signifikanten Haupteffekt der Bedingung (F(1,8) = 0.48, p = .507, η~p~^2^ = .012) und keinen signifikanten Haupteffekt der Intensität (F(2,16) = 0.59, p = .565, η~p~^2^ = .009). Es zeigt sich jedoch ein signifikanter Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 4.52, p = .028, η~p~^2^ = .019). Die Post-hoc-Analysen mithilfe von gepaarten t-Tests mit Bonferroni-Korrektur zeigen weder bei leichter (p = 1, d = 0.15), moderater (p = 1, d = -0.27) noch bei schwerer Intensität (p = .445, d = -0.53) signifikante Unterschiede zwischen sitzender und stehender Bedingung (@tbl-Post-hoc_Wirk_netto).
-
 Die ermittelten η~Netto~-Werte liegen mit einer Spanne von 22.13-28.18% und
 einem Mittelwert von 24.94% oberhalb der in @tbl-Wirkungsgrad am häufigsten dokumentierten η~Netto~-Werte
 von ca. 19-24%. Im Gegensatz zu @Harnish2007, die in beiden Körperpositionen einen Anstieg des η~Netto~ mit
@@ -877,7 +858,8 @@ zunehmender Intensität dokumentierten, zeigt die vorliegende Untersuchung aussc
 Position einen signifikanten Intensitätseffekt.
 
 #### Bruttowirkungsgrad {.unlisted}
-
+Die zweifaktorielle Varianzanalyse des η~Brutto~ zeigt keinen signifikanten Haupteffekt der Bedingung (F(1,8) = 0.68, p = .433, η~p~^2^ = .013) aber einen signifikanten Haupteffekt der Intensität (F(2,16) = 5.17, p = .019, η~p~^2^ = .062). Zusätzlich zeigt sich ein signifikanter Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 4.62, p = .026, η~p~^2^ = .016).
+Die nachfolgenden Post-hoc-Analysen mittels gepaarter t-Tests mit Bonferroni-Korrektur ergeben weder bei leichter (p = 1, d = 0.13), moderater (p = 1, d = -0.31) noch bei schwerer Intensität (p = .384, d = -0.57) signifikante Unterschiede zwischen sitzender und stehender Bedingung (@tbl-Post-hoc_Wirk_Brutto). <br>
 Der Bruttowirkungsgrad η~Brutto~ liegt mit 22.43 ± 1.17% (R: 19.65-25.76%) erwartungsgemäß unter dem
 Nettowirkungsgrad und zeigt zwischen den Bedingungen (sitzen: 22.30 ± 0.78%, stehen: 22.55 ± 1.47%) keine
 signifikanten Unterschiede (V = 131, p = .167, r = .266). 
@@ -885,12 +867,8 @@ signifikanten Unterschiede (V = 131, p = .167, r = .266).
 einer mittleren Effektstärke (p = .047, d = 0.60). Der Vergleich zwischen moderater und leichter Intensität
 erreicht keine Signifikanz (p = .348, d = .34). Zwischen schwerer
 und moderater Intensität zeigt sich ebenfalls ein nicht-signifikanter Unterschied (p =
-.553, d = .26) (@tbl-Post_hoc_stehen_Wirk_Brutto). 
-
-Die Analyse des η~Brutto~ innerhalb der Bedingungen zeigt in sitzender Position einen leichten Anstieg von leichter (22.12 ± 0.90%) zu schwerer Intensität (22.48 ± 0.74%). In stehender Position ist ein größerer Anstieg von leichter (22.00 ± 1.45%) zu schwerer Intensität (23.04 ± 1.41%) zu beobachten.
-
-Die zweifaktorielle Varianzanalyse des η~Brutto~ zeigt einen signifikanten Interaktionseffekt zwischen Intensität und Bedingung (F(2,16) = 4.62, p = .026, η~p~^2^ = .016). Die nachfolgenden Post-hoc-Analysen mittels gepaarter t-Tests mit Bonferroni-Korrektur ergeben weder bei leichter (p = 1, d = 0.13), moderater (p = 1, d = -0.31) noch bei schwerer Intensität (p = .384, d = -0.57) signifikante Unterschiede zwischen sitzender und stehender Bedingung (@tbl-Post-hoc_Wirk_brutto). 
-
+.553, d = .26) (@tbl-Post_hoc_Intensitaet_Wirk_Brutto).<br>
+Die Analyse des η~Brutto~ innerhalb der Bedingungen zeigt in sitzender Position einen leichten Anstieg von leichter (22.12 ± 0.90%) zu schwerer Intensität (22.48 ± 0.74%). In stehender Position ist ein größerer Anstieg von leichter (22.00 ± 1.45%) zu schwerer Intensität (23.04 ± 1.41%) zu beobachten.<br>
 Die ermittelten η~Brutto~-Werte bewegen sich mit einer
 Spanne von 19.65-25.76% und einem Mittelwert von 22.43% im oberen Bereich der in @tbl-Wirkungsgrad am
 häufigsten dokumentierten η~Brutto~-Werte von etwa 19-23%. Der beobachtete Anstieg des η~Brutto~ mit
@@ -938,8 +916,7 @@ ft_Wirkungsgrad
 
 Der physiologische Gesamtenergieumsatz W~TOT~ beträgt im Mittel 386.3 ± 75.5 kJ (R: 227.8-567.1 kJ). Zwischen den Bedingungen zeigen sich nur geringe Unterschiede (sitzen: 384.1 ± 79.3 kJ, stehen: 388.5 ± 73.0 kJ). Der gepaarte t-Test zeigt entsprechend keine signifikanten Unterschiede zwischen den Bedingungen (t(26) = -0.761, p = .454, d = 0.146). Über die Intensitäten hinweg ist ein
 systematischer Anstieg von leichter (344.2 ± 56.4 kJ) über moderate (389.3 ± 69.4 kJ) zu schwerer Intensität
-(425.4 ± 79.2 kJ) zu beobachten. Die einfaktorielle Varianzanalyse bestätigt einen signifikanten Effekt der
-Intensität (F~(2,16)~ = 10.19, p = .001, η~p~^2^ = .560). Bei differenzierter Betrachtung des W~TOT~
+(425.4 ± 79.2 kJ) zu beobachten. Bei differenzierter Betrachtung des W~TOT~
 innerhalb der Bedingungen zeigt sich dieser Anstieg sowohl in sitzender (leicht: 342.5 ± 60.2 kJ, moderat:
 388.7 ± 72.7 kJ, schwer: 421.1 ± 89.7 kJ) als auch in stehender Position (leicht: 345.9 ± 55.9 kJ, moderat:
 389.9 ± 70.3 kJ, schwer: 429.7 ± 72.4 kJ).

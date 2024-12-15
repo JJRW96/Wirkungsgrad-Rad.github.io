@@ -619,7 +619,7 @@ Die Berechnung der rotatorischen und translatorischen kinetischen Energien erfol
 
 **Berechnung und Integration der inneren Leistung:**
 
-Die Leistungsberechnung erfolgte systematisch in mehreren Schritten, basierend auf der grundlegenden Annahme, dass der Energietransfer ausschließlich zwischen den Segmenten derselben Gliedmaße stattfindet und kein Energieaustausch zwischen den Beinen erfolgt:
+Die Leistungsberechnung erfolgte systematisch in mehreren Schritten, basierend auf der grundlegenden Annahme, dass der Energietransfer ausschließlich zwischen den Segmenten derselben Gliedmaßen stattfindet und kein Energieaustausch zwischen den Beinen erfolgt:
 
 - Die innere mechanische Leistung wurde für beide Beine separat berechnet. Für das linke Bein erfolgte die direkte Berechnung der Leistung aus den Energieänderungen, während für das rechte Bein eine um 180° phasenverschobene Berechnung durchgeführt wurde:
 
