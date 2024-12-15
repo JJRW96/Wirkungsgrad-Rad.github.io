@@ -41,7 +41,7 @@ website:
            - Methodik/Stichprobe.qmd
            - Methodik/Messmethoden.qmd
            - Methodik/Studiendesign.qmd
-           - Methodik/Statistische_Analyseverfahren
+           - Methodik/Statistische_Analyseverfahren.qmd
        - section: Ergebnisse/index_Ergebnisse.qmd
          contents:
            - Ergebnisse/Drehzahl_Stufentests.qmd
