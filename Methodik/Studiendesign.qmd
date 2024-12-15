@@ -98,10 +98,24 @@ Während des ersten Testzeitpunktes wurden insgesamt 20 Blutlaktatproben entnomm
 -   Blutentnahmen nach ST~sitzen~ in den Nachbelastungsminuten: 1, 3, 5, 7, 10
 -   Blutentnahmen nach ST~stehen~ in den Nachbelastungsminuten: 1, 3, 5, 7, 10 Blutentnahmen nach DT in den Nachbelastungsminuten: 1, 3, 5, 7, 10, 15
 
+#### **Bestimmung der Intensitätsstufen** { .unlisted}
+
+Nach den Pilotmessungen und ersten abgeschlossenen Messungen am zweiten Testtag von Proband 2, der aus den finalen Daten ausgeschlossen wurde und bei dem sich die gewählten Intensitäten als zu hoch erwiesen, wurden die Intensitätsstufen für den zweiten Testtag für alle weiteren Probanden wie folgt bestimmt:
+
+- **Leicht:** P~mech~ an der bestimmten VT~1~ abzüglich 7.5% der maximal erreichten P~mech~ im ST~sitzen~. $\,\,\rightarrow\, P_{mech,VT_1} - 0.075 \cdot P_{mech,max}$
+- **Moderat:** P~mech~ an der bestimmten VT~1~. $\,\,\rightarrow\, P_{mech,VT_1}$
+- **Schwer:** Mittelwert zwischen P~mech~ an der bestimmten VT~1~ und P~mech~ an der bestimmten VT~2~. $\,\,\rightarrow\, \frac{P_{mech,VT_1} + P_{mech,VT_2}}{2}$
+
+Falls während der leichten oder moderaten Intensitätsstufen beobachtet wurde, dass die gewählten Werte nicht optimal waren, erfolgte in Einzelfällen eine Anpassung der nachfolgenden Intensitätsstufe um bis zu ± 10 Watt. Die finalen durchgeführten Intensitätsstufen sind in dem Abschnitt "Stichprobe" in der tabellarischen Übersicht zu sehen.
+
 ## Zweiter Testzeitpunkt
 
 Der zweite Testzeitpunkt begann nach einer Erwärmung mit einem kurzen Rampentest (RT) zur Bestimmung der maximalen anaeroben Leistungsfähigkeit. Zwischen allen Belastungen lag jeweils eine zehnminütige Erholungsphase. Die Gesamtdauer betrug in der Regel zwischen 110 und 125 Minuten.<br>
 Im Hauptteil des Tests wurden mindestens drei verschiedene Belastungsstufen (niedrig, moderat, schwer) in beiden Körperpositionen absolviert, wobei die Reihenfolge der Positionen randomisiert erfolgte. Bei unpassender Intensität wurde eine zusätzliche Belastung mit angepasster Last in beiden Positionen durchgeführt. Die vorgegebenen Trittraten basierten auf den durchschnittlichen Trittraten der entsprechenden Positionen und Belastungsbereiche des ersten Testzeitpunkts, wobei die Probanden diese möglichst genau (±3 U ⋅ min^-1^) einhalten sollten.
+
+
+
+
 
 ### Ablauf des zweiten Testzeitpunktes:
 

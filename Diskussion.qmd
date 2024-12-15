@@ -255,41 +255,95 @@ Hypothesen:
 
 ## Limitationen
 
--   Geringe Stichprobengröße
--   Leichte und moderate Intensität zu schwer
+-   Geringe Stichprobengröße von nur 9 nur wenig frauen 2...
+
+-   Leichte Intensität zu schwer gewählt mit dem berehcneten Steady State wert für leicht bei 73.0 Prozent, moderat bie 80.2 und shcwer bei 89.1 Prozent der im Stufentest gmessen VO2 max. Die moderatte Intensität hat interessanterweise vom der auslastung bezogen auf dei intensität gemssen m Sauerstoffvolumenstim im durchschnitt sehr gut den Bereich der in der literatur oft als Intensität beschirben wird an de sich die pyhisologischen Ausbelastungsparameter zsichen sitzender und stehender position angeglcihen haben getroffen [@Arkesteijn2016; @Harnish2007; @Millet2002; @Hansen2008; @Tanaka1996a]. Aber der lecihte war mit 73.0 Prozent zu hoch gewählt um ihn klar von dem moderatn zu differenzieren was auhc an dem im durschnit um 1.77 mmol/l angestigenen Bluslaktatkonzentration zu sehen ist, die demit wahrshcinlich üüber er der ersten aeroben Laktatschwell bzw. VT1 lag. Hier wäre entweder noich eine 4 noch niedeirgeere oder eine generell niedeirgere lecihte Intensitäte und sinnvoll gewseße zur besseren differenzierung der effekte und das verhalten der Wiekunggrade und hoyisologshc belastungsparaemer bei tatächlichen "lcihten" belastungen zu beobachten.
+
+
+
+
+#### Inere Leisutng
+
+Bei der Berechnung der inneren Leistung im Stehen muss kritisch angemerkt werden, dass diese möglicherweise unterschätzt wurde. Obwohl die gleiche Berechnungsmethodik wie im Sitzen angewandt wurde, zeigten sich bei identischer Drehzahl nur geringfügig höhere Werte. Diese Beobachtung erscheint physiologisch fragwürdig, da im Stehen zusätzliche energetische Anforderungen zu erwarten wären. Insbesondere wurden zwei wichtige Aspekte nicht berücksichtigt: Zum einen die erhöhte isometrische Haltearbeit der posturalen Muskulatur und zum anderen die vertikalen Oszillationen des Körperschwerpunkts während der Tretbewegung. Beide Faktoren dürften im Stehen deutlich stärker ausgeprägt sein als im Sitzen.
+
 -   Innere Leistung im Stehen vermutlich unterschätzt, da für gleiche
     Drehzahl kaum höher als im Sitzen
-    -   Wurde vergleichbar berechnet wie im Sitzen
-    -   Haltearbeit sowie vertikale Änderungen des Körperschwerpunktes
-        nicht einbezogen
--   Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen
-    auf die EPOC-Messung
+    -   Wurde vergleichbar berechnet wie im Sitzen berechnet
+    -   Haltearbeit  sowie vertikale Änderungen des Körperschwerpunktes
+        nicht einbezogen , was beides wahrscheinlich im stehen deutlcih höher gewsen wäre
+
+#### EPOC und 50 Watt
+
+
+
+Eine weitere methodische Einschränkung betrifft die EPOC-Messung. Die Verwendung einer leichten Belastung von 50 Watt in den Erholungsphasen anstelle einer kompletten Entlastung (0 Watt) führte zu einem erhöhten Sauerstoffvolumenstrom. Dies machte eine Anpassung der EPOC-Modellierung erforderlich, was möglicherweise eine Fehlerquelle bei der Bestimmung des anaerob-alaktaziden Energieanteils darstellt. Zusätzlich wurde die Trittfrequenz in dieser Phase nicht kontrolliert. Die 50-Watt-Belastung beeinflusste vermutlich auch die Kinetik der Sauerstoffaufnahme sowohl in der Vor- als auch in der Nachbelastungsphase sowie die Entleerung und Wiederauffüllung der Sauerstoffspeicher.
+
+Als problematisch erwies sich zudem die relativ kurze Erholungszeit von 10 Minuten zwischen den einzelnen Belastungen. Diese Zeitspanne war insbesondere am zweiten Testtag nach dem Sprinttest nicht ausreichend, um eine Rückkehr der physiologischen Parameter (Herzfrequenz, Blutlaktat, Sauerstoffaufnahme) auf das Ausgangsniveau zu gewährleisten. Besonders kritisch ist dies im Hinblick auf die Laktatkonzentration zu sehen, da keine vollständige Elimination vor Beginn der nächsten Belastung erfolgen konnte. Längere Regenerationsphasen wären hier vorteilhaft gewesen.
+
+Abschließend muss auf technische Probleme mit dem Ergometer hingewiesen werden. Sporadisch auftretende Aussetzer führten dazu, dass in den Nachbelastungsphasen zeitweise kein Tretwiderstand anlag, anstelle der vorgesehenen 50 Watt. Diese Störungen, die sich über mehrere Minuten erstrecken konnten, resultierten möglicherweise in einem niedrigeren Sauerstoffvolumenstrom als eigentlich intendiert. Dies könnte die EPOC-Berechnung in einzelnen Fällen verfälscht haben. Da eine exakte zeitliche und fallbezogene Dokumentation dieser Störungen nicht möglich war, konnten diese bei der EPOC-Berechnung nicht berücksichtigt werden. Allerdings lagen bis auf drei Werte an der oberen Grenze des physiologisch Plausiblen alle anderen Messwerte im erwarteten Bereich.
+
+
+
+
+
+
+
+
+
+
+        
+-   Einfluss der leichten Belastung von 50 Watt in den Erholungsphasen statt 0 Watt
+    auf die EPOC-Messung -> deutlich erhöhter Sauerstoffvolumenstrom (VO2 Referenz satt VO2 Ruhe)
+    - Dadurch anpassung der EPOC modellierung notwendeig -> Möglicherweise fahrlergquelle fpr die Berechnung des anaeroben-Alaktaziden Anteils
     -   Keine geregelte Trittrate in dieser Phase
--   Zu kurze Erholung nach den jeweiligen Belastungen, vor allem an
+    - Außerdem hat die 5 0 Watt vorbelsatung auch Einfluss der Vorbelastung und Nachbelastung AUf EPOC, Sauerstoffspeicher und Anpasungs bzw. abfallkinetik des Sauasertoff
+    
+-   Zu kurze Erholung 10min nach den jeweiligen Belastungen um eine rückkehr nahe zu der basleein pyhisologische marker vwei HR , Blutlkatat oder Sauerstoffvolumesntorm zu ermöglcihen. vor allem an
     Testtag 2 nach dem Sprinttest
-    -   Sprinttest kontraproduktiv keine Rückkehr auf Laktat-Baseline
+    -   Vor allem Sprinttest kontraproduktiv keine Rückkehr auf Laktat-Baseline vor dem start der nächsten belastung
+    - Am ebsten längere PAsuen 
+    
+-   Diebzüglichm uss auch erähnt werden,d ass Das Ergometer hat manchmal aussetezer gehbat, wodurch in der Nachbelastungsphase teilweise statt der gewollten 50 Watt Belastung über einen Zeitraum von bis zu mehreren Minuten kein Trettwiderstand vorhanden war. Die könnte dazu geführt haben, dass in wenigen Belastungsdurchgängen bzw. der Nachbelastung davon der Sauerstoffvolumenstomr tiefer gefallen war als es eigentlich sien sollte und somit die EPOC - berechnung in manchen wenigen Fällen evtl leicht verfälscht wurde. E skonnte aber nich genau nachvollzogen werden i nwelchen fällen dies eingetreten ist und für wie lange, weshalb dies in der EPOC berechnung nicht beachtet wurde. UNd bist auf potentiell drei WErte die an der oberen Grenze der pyhislogisch plasuiblen Grenze lagen waren die restlichen wrte gut.
+    
+-   Mögliche Ungenauigkeiten der Atemgasmessung bei hohen
+    Ventilationsraten, was wiederumd die berechneten aeroben ud n anaeroben-alaktaziden Enrgeianteile beeinflsust haben aknn.
+
+
+
+
+
+
+
+
+#### Weitere
+    
 -   Mögliche Ungenauigkeiten bei der Bestimmung der ventilatorischen
     Schwellen durch das 30s-Stufenprotokoll im Vergleich zum
     BDR-Protokoll
--   Mögliche Ungenauigkeiten bei der Modellierung der EPOC-Kurven und
-    der Berechnung des WPCR aufgrund der 50-Watt Nachbelastung
--   Mögliche Ungenauigkeiten der Atemgasmessung bei hohen
-    Ventilationsraten
+    - Welche Durch zusätlihce Untersuchung an zwei Probande nvorher untersucht uwrden und zu dem ergebniss kam, dass Die VT1 wurde im ST30s (30 skeunden stufen und 20 Watt steigerung) im Durchschnitt 30 Watt höher bestimmt, während die zweite ventilatorische Schwelle VT2 eine noch deutlichere Differenz von etwa 70 Watt aufwies im verlgeich zu eine mStufenprotokoll mit 3 minuten sutfen und 20 Watt steigerung 
+    - Dies wurde beid er berechnung der Intensitäten einbezogen, aber kann dennohc zu Problemen geührt haben.
+    
 -   Mögliche Ungenauigkeiten bei der Bestimmung der Körpersegmentmassen
     und -schwerpunkte für die 3D-Bewegungsanalyse
--   Das Ergometer hat manchmal aussetezer gehbat, wodurch in der Nachbelastungsphase teilweise statt der gewollten 50 Watt Belastung über einen Zeitraum von bis zu mehreren Minuten kein Trettwiderstand vorhanden war. Die könnte dazu geführt haben, dass in wenigen Belastungsdurchgängen bzw. der Nachbelastung davon der Sauerstoffvolumenstomr tiefer gefallen war als es eigentlich sien sollte und somit die EPOC - berechnung in manchen wenigen Fällen evtl leicht verfälscht wurde. E skonnte aber nich genau nachvollzogen werden i nwelchen fällen dies eingetreten ist und für wie lange, weshalb dies in der EPOC berechnung nicht beachtet wurde. UNd bist auf potentiell drei WErte die an der oberen Grenze der pyhislogisch plasuiblen Grenze lagen waren die restlichen wrte gut. 
--   ...
-- Probleme bei der Berechnung der inneren Leistung wie in Ettema
-- Einfluss der Vorbelastung und Nachbelastung AUf EPOC, Sauerstoffspeicher und Anpasungs bzw. abfallkinetik des Sauasertoff
+    - Hier wurden die Segmentmassen nur anhand anthropometischer Tabellen was länge sowie masse und schwerpunkte angeht festgelet. Hier könnten tatächlcihen WErte der ewjiligen oarameter zu genauer nergebnisse nfüprehrn
+    
+ 
 
+
+
+
+- Probleme bei der Berechnung der inneren Leistung wie in Ettema
 
 ## Ausblick
 
 -   Weitere Studien mit größerer Stichprobengröße, um die Validität der
-    Ergebnisse zu erhöhen, gibt teilweise große Effekte, die aber nicht
+    Ergebnisse zu erhöhen, gibt teilweise große oder moderate Effekte, die aber nicht
     signifikant sind
+    
+    
 -   Vergleich der verwendeten EPOC-Berechnungsmethode mit anderen
     Ansätzen aus der Literatur
+    
 -   Berücksichtigung der Wärmeabgabe bei der Berechnung des
     Gesamtenergieumsatzes und des Wirkungsgrades, bzw. Berechnung des
     Wirkungsgrades über die Wärmeabgabe
@@ -298,7 +352,6 @@ Hypothesen:
 -   Einfluss von Kurbellängen auf den Wirkungsgrad
 -   Messung der Kräfte an dem Lenker um die Wirkenden Kräft ebsser einzuschätzen und vll auch für die messung der innerne arbeit
 - Pyhisologisch Variablen zwischen den Bedingungn noch besprechen, so ähnlich wie @Harnish2007
--   ...
 - Zusammenhang zwischen negativer meachnischer Leistung und innerer Arbeit erforschen
 - Sind Liestungsspitzen shcneller ermüdend als gleichmäßige Leistungne -> Pedal Smoothness
 - Zur Validierung von Wint berechnungen den Probanden für verschidene Drehzahlen eine gewisse PTot vorgeben und schauen ob die gleich ephysiologische Reaktin auftritt. Also besipielsweise einmal bei 60 80 100 und 120 Trittrate fahren lassen alles bei Ptot von 300 Watt. Vorher die thoretischen Pint kostne bstimmtn und dann dementrpechend Pmech vorgebn mit bspw. 290 / 260 / 220 und 180 Wat.... Wie bei @Ferguson2002
