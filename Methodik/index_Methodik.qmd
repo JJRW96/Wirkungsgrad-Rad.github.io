@@ -3,6 +3,7 @@ title: "Methodik"
 
 execute:
   message: false
+  engine: knitr
   echo: false
   warning: false
   error: false

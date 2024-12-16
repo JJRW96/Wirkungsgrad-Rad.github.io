@@ -1,4 +1,6 @@
 ---
+title: "Abkürzungsverzeichnis"
+
 execute:
   message: false
   echo: false
@@ -34,9 +36,6 @@ figure.quarto-float-tbl figcaption {
 }
 
 ```
-
-
-# Abkürzungsverzeichnis {.unnumbered}
 
 $$
 \begin{alignat*}{2}
