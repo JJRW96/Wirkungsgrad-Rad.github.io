@@ -86,9 +86,6 @@ Der abschließende Drehzahltest (DT) beinhaltete eine stufenweise Steigerung der
 
 ![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test1_4.png){#fig-Versuchsablauf1}
 
-> Abbildung wird noch angepasst
-
-
 #### **Messungen der Blutlaktatkonzentrationen** { .unlisted}
 Während des ersten Testzeitpunktes wurden insgesamt 20 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen waren wie in @fig-Versuchsablauf1 zu sehen folgendermaßen:
 
@@ -139,8 +136,6 @@ Im Hauptteil des Tests wurden mindestens drei verschiedene Belastungsstufen (nie
 </div>
 
 ![Ablauf des zweiten Testzeitpunktes](images/Versuchsablauf_Test2_4.png){#fig-Versuchsablauf2}
-
-> Abbildungen werden noch angepasst
 
 #### **Messungen der Blutlaktatkonzentrationen** { .unlisted}
 Während des ersten Testzeitpunktes werden insgesamt 50 Blutlaktatproben entnommen. Die Zeitpunkte der Blutentnahmen sind wie in (@fig-Versuchsablauf2) zu sehen folgendermaßen:

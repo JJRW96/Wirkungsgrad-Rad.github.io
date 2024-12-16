@@ -642,7 +642,7 @@ relevanter Parameter des Energiestoffwechsels und ergometrischer Parameter, wobe
 sowie minimalen und maximalen Messwerten (@tbl-Wirkungsgrad_mean) dargestellt. In den weiteren Tabellen
 erfolgt eine detaillierte Darstellung nach den experimentellen Bedingungen (Sitzen vs. Stehen;
 @tbl-Wirkungsgrad_Bedingung_mean), den Belastungsintensitäten (leicht, moderat, schwer;
-@tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination beider Faktoren
+@tbl-Wirkungsgrad_Intensitaet_mean) sowie nach der Kombination der Faktoren Bedingungen & Intensitäten
 (@tbl-Wirkungsgrad_Bedingung_Intensitaet_mean). Zur statistischen Analyse wurden gepaarte t-Tests sowie ein- und zweifaktorielle Varianzanalysen (ANOVA) durchgeführt, deren signifikante Effekte in den Tabellen mit * bzw. † gekennzeichnet sind.
 Zusätzlich werden die Ergebnisse verschiedener Post-hoc Analysen
 mittels gepaartem t-Test mit Bonferroni-Korrektur für die Vergleiche der verschiedenen Intensitäten präsentiert. 
