@@ -49,6 +49,7 @@ website:
            - Ergebnisse/EPOC_Daten.qmd
            - Ergebnisse/Ergometer_Daten.qmd
            - Ergebnisse/Wirkungsgrad_Statistik.qmd
+       - Diskussion.qmd
        - Abkuerzungsverzeichnis.qmd
        - Quellen.qmd
       

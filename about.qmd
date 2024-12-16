@@ -1,7 +1,7 @@
 ---
 format:
   html:
-    css: styles.css  # optional, falls Sie zusätzliche CSS-Stile verwenden möchten
+    css: styles.css  
     number-sections: false
 ---
 
@@ -12,7 +12,8 @@ format:
 
 # Masterarbeit 
 ## Empirische Studie zum Wirkungsgrad: Ein Vergleich zwischen sitzendem und stehendem Fahren auf dem Fahrradergometer<br>
-*Hierbei handelt es sich um eine unvollständige Version meiner Masterarbeit, die mit Hilfe von Quarto erstellt wurde. Diese Version dient zur Darstellung des Aufbaus und der groben Struktur der Masterarbeit. Die meisten Teile der Arbeit sowie einige der gezeigten Daten und Abbildungen sind noch unvollständig oder veraltet und werden in der endgültigen Masterarbeit deutlich anders aussehen.<br> Diese Beta-Version soll die Vorteile des Verfassens der Masterarbeit als Webseite verdeutlichen, insbesondere im Hinblick auf die Datendarstellung und die Möglichkeit der Implementierung von R-Codebestandteilen sowie [interaktiven Elementen wie Shiny-Apps oder webR-Anwendungen](https://jjrw96.github.io/Wirkungsgrad-Rad-shinylive.github.io/).*
+*Die technische Umsetzung dieser Masterarbeit erfolgte mit dem Programm Quarto in Kombination mit der Open-Source-Programmiersprache R. Dies ermöglichte die Gestaltung der Masterarbeit als Webseite, was die Integration von statistischen Analysen, dynamischen Visualisierungen sowie interaktiven Grafiken und Anwendungen in einem wissenschaftlichen Format gewährleistete.
+Nach der primären Datenaufbereitung in Excel erfolgte die vollständige statistische Auswertung in R, wobei die Dokumentation mittels R-Markdown realisiert wurde. Diese Methodik gewährleistete eine nahtlose Integration von Programmcode, statistischen Auswertungen und deren grafischer Darstellung.*
 
 ![](images/Logo_η_2.png){width=170}
 

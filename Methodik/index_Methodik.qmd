@@ -12,4 +12,4 @@ lang: de
 number-sections: false
 ---
 
-In den folgenden Abschnitten werden die Details der Methodik der Studie umfassend dargelegt. Zunächst wird die Stichprobe sowie die Auswahlkriterien beschrieben. Anschließend werden die Messinstrumente und -methoden zur präzisen Erfassung der leistungsphysiologischen Parameter im Humanphysiologischen Labor detailliert erläutert. Darüber hinaus werden die Pilotierungsphase und das finale Studiendesign vorgestellt.
+In den folgenden Abschnitten wird die Methodik der Studie umfassend dargelegt. Zunächst werden die Stichprobe sowie die Auswahlkriterien der Probanden beschrieben. Anschließend erfolgt eine detaillierte Erläuterung der verwendeten Messinstrumente und -methoden zur präzisen Erfassung der leistungsphysiologischen Parameter im Humanphysiologischen Labor. Darüber hinaus werden die Pilotierungsphase und das finale Studiendesign vorgestellt. Abschließend werden die statistischen Analyseverfahren zur Auswertung der erhobenen Daten beschrieben.

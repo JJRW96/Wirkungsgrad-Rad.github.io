@@ -1,0 +1,56 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "execute:\n",
+        "  message: false\n",
+        "  echo: false\n",
+        "  warning: false\n",
+        "  error: false\n",
+        "  \n",
+        "bibliography: references.bib\n",
+        "\n",
+        "nocite: |\n",
+        "  @Arkesteijn2016, @Astrand1964, @Astrand2003, @Bader1972, @Bahr1991, @Bangsbo1993, @Barstow1991, @Barstow1994, @Barstow2019, @BarstowMole1991, @Baum2008, @Bearden2000, @Beaver1986, @Bell2009, @Beneke2001, @Beneke2002, @Beneke2004, @Beneke2007, @Berg1947, @Berkemeier2020, @Billat2003, @Bini2013, @Bini2014, @Bogdanis1996, @Bolourchi1985, @Boning1984, @Boning2017, @Bosak2001, @Bouillod2014, @Bouillod2018, @Brooks2004, @Brooks2012, @Caldwell1998, @Carlsson2024, @Cathcart1926, @Cautero2002, @Cavagna1976, @Cavagna1977, @Chavarren1999, @Clark2014, @Coast1985, @Cohen1988, @Cohen1992, @CORTEXBiophysikGmbH2017, @Coyle1991, @DeMaares2003, @DeMarees2003, @DeMoor1954, @DePauw2013, @dePauw2013, @Diamant1968, @Dickinson1929, @DiPrampero1969, @DiPrampero1970, @DiPrampero1971, @DiPrampero1973, @DiPrampero1981, @DiPrampero1983, @Duc2008, @Dunst2019, @Dunst2023, @Earnest2005, @EKFDiagnostics2013, @Ettema2009, @Faude2009, @FaveroElectronicsSrl2024, @Fenn1930, @Ferguson2002, @Fick1855, @Francescato1995, @Francescato2003, @Freund1986, @Gaesser1975, @Gaesser1984, @GaesserPoole1996, @Gaitanos1993, @Gastin2001, @Gladden2008, @Gordon2012, @Gullich2013, @Haber2013, @Hagberg1981, @Hansen1984, @Hansen2004, @Hansen2007, @Hansen2008, @Hargreaves2006, @Hargreaves2020, @Harnish2007, @Harris1918, @Harris1974, @Harris1976, @Heck2006, @Heck2022, @Henry1950, @Henry1951, @Henry1956, @Hill1924, @Hill1993, @Hillebrecht1998, @Horn2021, @Hughson1988, @Hultman1967, @Jacobs2006, @Janssen2000, @Jeukendrup2000, @Jeukendrup2019, @Jobson2012, @Juel2008, @Karlsson1971, @Katch1972, @Katch1973, @Keul1972, @Kindermann1979, @Kistemaker2023, @Knuttgen1970, @Knuttgen1973, @Korff2007, @Kroidl2007, @LanchaJunior2015, @Langley2024, @Li1998, @Luhtanen1987, @Lunn2018, @Lunn2019, @Maassen1999, @Macfarlane2012, @Mader1981, @Mahler1979, @Margaria1933, @Margaria1963, @Margaria1964, @Margaria1965, @Margaria1972, @Margaria1976, @Masuda1999, @McArdle2009, @McCann1995, @McGilvery1975, @Micklewright2006, @Millet2002, @Minetti1998, @Minetti2001, @Minetti2011, @Mole1999, @Morton2008, @Nelson2012, @Oezyener2001, @Ozyener2001, @Parolin2000, @PatersonWhipp1991, @PearceMilhorn1977, @Putman1998, @Rassouli2015, @Robergs2004, @Roberts1978, @Roecker2000, @Ronnestadt2022, @Royce1969, @Ryschon1991, @Schonmaker2020, @Seabury1977, @Sietsema2020, @Stegemann1991, @Stirling2005, @Stone1993, @Suzuki1979, @Tanaka1987, @Tanaka1996, @Tandon2011, @Todd1986, @Tokui2008, @Turpin2017, @VanHall2010, @Vicon2022, @Vogler2010, @Volkov1975, @Wahl2009, @Walter1999, @Wasserman1964, @Wasserman1967, @Wasserman1973, @Wasserman2011, @WassermanWhipp1975, @Wells1986, @Westhoff2013, @Whipp1969, @Whipp1971, @Whipp1972, @Whipp1982, @Whipp1994, @WhippMahler1980, @WhippWasserman1972, @Widrick1992, @Willems1995, @Winter1979, @Winter2009, @Wonisch2017, @Zoladz2023, @Zuntz1901\n",
+        "---\n",
+        "\n",
+        "```{css}\n",
+        "#| echo: false\n",
+        "p {\n",
+        "  text-align: justify\n",
+        "}\n",
+        "caption, .figure-caption {\n",
+        "  text-align: left;\n",
+        "}\n",
+        "figure.quarto-float-tbl figcaption {\n",
+        "  text-align: left !important;\n",
+        "}\n",
+        "figure figcaption {\n",
+        "  text-align: justify;\n",
+        "}\n",
+        "```\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "# Quellenverzeichnis\n",
+        "::: {#refs}\n",
+        ":::"
+      ],
+      "id": "0d7ee125"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

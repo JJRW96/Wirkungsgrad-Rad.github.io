@@ -35,7 +35,7 @@ Methodisch basierten diese Studien ausschließlich auf der Messung von $\dot{V}O
 
 Nach dem Wissen des Autors existieren derzeit keine empirischen Untersuchungen, die den η~muskulär~ zwischen sitzender und stehender Fahrposition systematisch vergleichen. Die vorliegende Studie adressiert diese Forschungslücke mit der zentralen Fragestellung, inwiefern sich der muskuläre Wirkungsgrad bei leichter, moderater und schwerer Belastungsintensität zwischen den Fahrpositionen unterscheidet.
 
-## Hypothesen
+## Hypothese
 
 Basierend auf den Forschungsfragen und der dargestellten Literatur wurde folgende Hypothese formuliert:
 
