@@ -803,7 +803,7 @@ Da W~PCr~ aus den absoluten EPOC~fast~ oder EPOC~PCr~-Werten bestimmt wird und d
 Wie in @fig-PCr_Ref ersichtlich, liegt die Mehrheit der bestimmten PCr~used~-Werte sowie der Mittelwert von 15.88 ± 4.49 [mmol·kg^-1^] (R: 7.04-27.01) unter dem aus @tbl-PCr ermittelten Literatur-Normwert der Kreatinphosphatspeicher (PCr) im Trockenmuskel von 20.34 [mmol·kg^-1^]. Auch die höchsten berechneten PCr~used~-Werte befinden sich innerhalb des dokumentierten physiologischen Referenzbereichs von 15.7 [mmol·kg^-1^] bis 37.7 [mmol·kg^-1^].<br>
 Bei der Betrachtung zwischen den Intensitätsstufen zeigen die Parameter EPOC~fast~, EPOC~PCr~ sowie die daraus abgeleiteten Größen W~PCr~, W~PCr,corrected~ und PCr~used~ wie zu erwarten bei höheren Intensitäten größere Werte als bei niedrigeren Intensitäten. Die O~2~-Speicher weisen ebenfalls bei höheren Intensitäten größere Werte auf. 
 
-![Validität der PCr_used Werte im Vergleich zu den Normwerten](images/p_PCr.html){#fig-PCr_Ref width="1100" height="450"}
+![Validität der PCr~used~-Werte im Vergleich zu den Normwerten](images/p_PCr.html){#fig-PCr_Ref width="1100" height="450"}
 
 ::: {.callout-note collapse="true"}
 ### Tabelle 3 & 4: Literaturübersicht zu Modellparametern und Mengen der EPOC
